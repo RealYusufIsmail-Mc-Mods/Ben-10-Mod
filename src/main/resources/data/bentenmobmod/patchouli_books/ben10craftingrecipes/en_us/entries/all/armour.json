@@ -1,19 +1,31 @@
 {
   "name": "Armour crafting recipes",
-  "category": "all",
+  "category": "all"x,
   "icon": "bentenmobmod:heatblast_chestplate",
   "pages": [
     {
       "type": "crafting",
       "recipe": "bentenmobmod:heatblast_helmet",
       "recipe2": "bentenmobmod:heatblast_chestplate",
-      "recipe3": "bentenmobmod:heatblast_leggings",
-      "recipe4": "bentenmobmod:heatblast_boot",
-      "recipe5": "bentenmobmod:xlr8_helmet",
-      "recipe6": "bentenmobmod:xlr8_chestplate",
-      "recipe7": "bentenmobmod:xlr8_leggings",
-      "recipe8": "bentenmobmod:xlr8_leggings",
-      "recipe9": "bentenmobmod:jacket"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:heatblast_leggings",
+      "recipe2": "bentenmobmod:heatblast_boot"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:xlr8_helmet",
+      "recipe2": "bentenmobmod:xlr8_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:xlr8_leggings",
+      "recipe2": "bentenmobmod:xlr8_leggings"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:jacket"
     },
     {
       "type": "Crafting recipes in this mod",
