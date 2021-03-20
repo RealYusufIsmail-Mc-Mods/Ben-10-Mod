@@ -7,11 +7,10 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class iteminit {
+public class ItemInit {
 	
-	public static final DeferredRegister<Item> Items = DeferredRegister.create(ForgeRegistries.ITEMS,  Main.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,  Main.MOD_ID);
   
-	
 	public static final RegistryObject<Item> THING = ITEMS.register("thing", () -> new Item(new Item.Properties()));	
 }
- 
+ 	
