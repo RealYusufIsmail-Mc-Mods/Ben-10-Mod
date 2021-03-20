@@ -1,7 +1,7 @@
 
 modLoader="javafml"
 loaderVersion="[35,)"
-license="MIT"
+license="All Rights Reserved"
 [[mods]]
 modId="ben10mobmod" 
 version="${file.jarVersion}" 
