@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ben10mobmod:items/sword"
+        "layer0": "bentenmobmod:items/sword"
     }
     
 }

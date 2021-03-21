@@ -1,6 +1,6 @@
-package com.Yusuf.ben10mobmod.core.init;
+package com.Yusuf.bentenmobmod.core.init;
 
-import com.Yusuf.ben10mobmod.Main;
+import com.Yusuf.bentenmobmod.Main;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

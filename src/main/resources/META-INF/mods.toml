@@ -3,7 +3,7 @@ modLoader="javafml"
 loaderVersion="[35,)"
 license="All Rights Reserved"
 [[mods]]
-modId="ben10mobmod" 
+modId="bentenmobmod" 
 version="${file.jarVersion}" 
 displayName="Ben10 Mob Mod" 
 logoFile="examplemod.png"

@@ -1,10 +1,10 @@
-package com.Yusuf.ben10mobmod;
+package com.Yusuf.bentenmobmod;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.Yusuf.ben10mobmod.core.init.BlockInit;
-import com.Yusuf.ben10mobmod.core.init.ItemInit;
+import com.Yusuf.bentenmobmod.core.init.BlockInit;
+import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -18,12 +18,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("ben10mobmod")
+@Mod("bentenmobmod")
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
 public class Main {
 	// Directly reference a log4j logger.
 	public static final Logger LOGGER = LogManager.getLogger();
-	public static final String MOD_ID = "ben10mobmod";
+	public static final String MOD_ID = "bentenmobmod";
 
 	public Main() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

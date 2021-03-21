@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "ben10mobmod:blocks/legendary_block"
+        "all": "bentenmobmod:blocks/legendary_block"
     }
     
 } 
