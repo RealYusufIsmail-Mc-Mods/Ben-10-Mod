@@ -1,4 +1,7 @@
 {
     "item.bentenmobmod.sword": "Sword" ,
-    "block.bentenmobmod.legendary_block": "Legendary Block"    
+    "block.bentenmobmod.legendary_block": "Legendary Block",  
+    
+    
+    "itemGroup.main": "Ben 10 mob mod items"
 }
