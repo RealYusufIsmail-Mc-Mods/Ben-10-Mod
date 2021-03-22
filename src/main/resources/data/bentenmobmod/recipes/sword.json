@@ -1,0 +1,16 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "PP",
+        "D",
+        "#"
+    ],
+     "key": {
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "key": {
+        "P": {
+            "item": "bentenmobmod:"
+    }
+}

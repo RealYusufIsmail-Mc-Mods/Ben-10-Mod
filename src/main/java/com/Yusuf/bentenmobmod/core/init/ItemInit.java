@@ -16,6 +16,11 @@ public class ItemInit {
 	public static final RegistryObject<Item> SWORD = ITEMS.register("sword",
 			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
 	
+
+	public static final RegistryObject<Item> LEGENDARY_ORE_BLOCK = ITEMS.register("legendary_ore_block",
+			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
+	
+	
 	
 
 }
