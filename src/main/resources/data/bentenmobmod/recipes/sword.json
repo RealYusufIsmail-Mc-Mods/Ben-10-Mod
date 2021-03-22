@@ -8,12 +8,11 @@
      "key": {
         "D": {
             "item": "minecraft:diamond"
+            }
         },
-        "key": {
         "S": {
             "item": "minecraft:stick"
             },
-        "key": {
         "P": {
             "item": "bentenmobmod:legendary_ore"
     },
