@@ -1,0 +1,17 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "AAA",
+        "AAA",
+        "AAA"
+    ],
+    "key": {
+        "P": {
+            "item": "bentenmobmod:ruby"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:ruby_block",
+        "count": 1
+    }
+}
