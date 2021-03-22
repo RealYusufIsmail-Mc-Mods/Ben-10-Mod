@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class MainItemGroup extends ItemGroup {
   
 	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.GROUPS.length, 
-			"Main");
+			"main");
 
 	public MainItemGroup(int index, String label) {
 		super(index, label);
