@@ -5,6 +5,7 @@ import com.Yusuf.bentenmobmod.Main;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -19,14 +20,10 @@ public class BlockInit {
 
 	public static final RegistryObject<Block> LEGENDARY_BLOCK = BLOCKS
 			.register("legendary_block",
-			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON)
-					.hardnessAndResistance(8f, 1200f).harvestTool(ToolType.PICKAXE).harvestLevel(3)
-					.sound(SoundType.STONE)));
+			() -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_BLOCK)));
 	
 	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
 			.register("legendary_ore_block",
-			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON)
-					.hardnessAndResistance(3f, 3f).harvestTool(ToolType.PICKAXE).harvestLevel(3)
-					.sound(SoundType.ANCIENT_DEBRIS)));
+			() -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_ORE)));
 
 }

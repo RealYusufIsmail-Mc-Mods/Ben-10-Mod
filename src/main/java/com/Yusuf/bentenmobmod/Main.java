@@ -1,9 +1,11 @@
 package com.Yusuf.bentenmobmod;
 
 import org.apache.logging.log4j.LogManager;
+
 import org.apache.logging.log4j.Logger;
 
 import com.Yusuf.bentenmobmod.core.init.BlockInit;
+import com.Yusuf.bentenmobmod.core.init.FeatureInit;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 
@@ -11,6 +13,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
@@ -30,7 +33,9 @@ public class Main {
 
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
-
+		
+		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
