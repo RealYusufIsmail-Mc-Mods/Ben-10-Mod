@@ -5,10 +5,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.Yusuf.bentenmobmod.core.init.BlockInit;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
+import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,7 +24,7 @@ public class Main {
 	// Directly reference a log4j logger.
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "bentenmobmod";
-
+	
 	public Main() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -37,7 +37,8 @@ public class Main {
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
 		BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-			event.getRegistry().register(new BlockItem(block, new Item.Properties().group(ItemGroup.COMBAT))
+			event.getRegistry()
+			.register(new BlockItem(block, new Item.Properties().group(MainItemGroup.MAIN))
 					.setRegistryName(block.getRegistryName()));
 
 		});
