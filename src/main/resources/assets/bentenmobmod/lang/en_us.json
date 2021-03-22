@@ -1,6 +1,8 @@
 {
     "item.bentenmobmod.sword": "ASCALON" ,
-    "block.bentenmobmod.legendary_block": "Legendary Block",  
+    "block.bentenmobmod.legendary_block": "Legendary Block", 
+    "block.bentenmobmod.legendary_ore_block": "Legendary Ore",
+    "item.bentenmobmod.legendary_ore": "Legendary",
     
     
     "itemGroup.main": "Ben 10 mob mod items"

@@ -21,6 +21,12 @@ public class BlockInit {
 			.register("legendary_block",
 			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON)
 					.hardnessAndResistance(8f, 1200f).harvestTool(ToolType.PICKAXE).harvestLevel(3)
+					.sound(SoundType.STONE)));
+	
+	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
+			.register("legendary_ore_block",
+			() -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.IRON)
+					.hardnessAndResistance(3f, 3f).harvestTool(ToolType.PICKAXE).harvestLevel(3)
 					.sound(SoundType.ANCIENT_DEBRIS)));
 
 }
