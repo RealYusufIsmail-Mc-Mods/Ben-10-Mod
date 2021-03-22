@@ -3,14 +3,22 @@
     "pattern": [
         "PP",
         "D",
-        "#"
+        "S"
     ],
      "key": {
         "D": {
             "item": "minecraft:diamond"
         },
         "key": {
+        "S": {
+            "item": "minecraft:stick"
+            },
+        "key": {
         "P": {
-            "item": "bentenmobmod:"
+            "item": "bentenmobmod:legendary_ore"
+    },
+    "result": {
+        "item": "bentenmobmod:sword",
+        "count": 1
     }
 }
