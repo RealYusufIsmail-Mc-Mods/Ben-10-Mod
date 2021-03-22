@@ -1,3 +1,25 @@
 {
 
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " F ",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "bentenmobmod:legendary_ore"
+    },
+    "F": {
+      "item": "bentenmobmod:ruby"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond_sword",
+    "count": 1
+  }
+
 }
