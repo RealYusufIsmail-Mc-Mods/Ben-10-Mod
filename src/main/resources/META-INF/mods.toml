@@ -4,10 +4,10 @@ loaderVersion="[35,)"
 license="All Rights Reserved"
 [[mods]]
 modId="bentenmobmod" 
-version="${file.jarVersion}" 
+version="${1.4  }" 
 displayName="Ben10 Mob Mod" 
 logoFile="examplemod.png"
-credits="Ben10 mob mod by Yusuf Ismail" 
+credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod." 
 description='''
 Villains and heros in the Ben 10 series. Villains coming out first. In beta stages.
 
@@ -18,6 +18,8 @@ made by Yusuf Ismail.
 Github is https://github.com/realyusufismail
 
 join discord for support and teasers https://discord.gg/g858J6q
+
+PierogiP: https://www.curseforge.com/members/polisch_pierogi/
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.ben10mobmod]] #optional
