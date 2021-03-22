@@ -1,20 +1,16 @@
 {
-    "type" : "minecraft:crafting_shaped",
-    "pattern": [
-        "P",
-        "D",
-        "#"
-    ],
-     "key": {
-        "D": {
-            "item": "minecraft:diamond"
-            }
-        },
-        "P": {
+    "type": "minecraft:crafting_shapless",
+    "ingredients": [
+        {
             "item": "bentenmobmod:legendary_ore"
-    },
-    "result": {
-        "item": "bentenmobmod:sword",
-        "count": 1
-    }
+        },
+        
+         {
+            "item": "bentenmobmod:legendary_ore"
+        },
+         {
+            "item": "bentenmobmod:legendary_ore"
+        }
+    ] 
+    
 }

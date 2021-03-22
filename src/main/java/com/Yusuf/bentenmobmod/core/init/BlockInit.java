@@ -25,5 +25,13 @@ public class BlockInit {
 	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
 			.register("legendary_ore_block",
 			() -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_ORE)));
+	
+	public static final RegistryObject<Block> RUBY_ORE = BLOCKS
+			.register("ruby_ore",
+			() -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_ORE)));
+	
+	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS
+			.register("ruby_block",
+			() -> new Block(AbstractBlock.Properties.from(Blocks.DIAMOND_ORE)));
 
 }

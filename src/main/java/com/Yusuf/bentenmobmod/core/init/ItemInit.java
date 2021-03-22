@@ -20,6 +20,10 @@ public class ItemInit {
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
 			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
 	
+	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
+			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
+	
+	
 	
 	
 
