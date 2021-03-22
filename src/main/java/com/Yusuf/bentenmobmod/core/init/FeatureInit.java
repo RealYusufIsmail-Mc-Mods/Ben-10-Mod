@@ -13,10 +13,10 @@ public class FeatureInit {
 	
 	public static void addOres(final BiomeLoadingEvent event) {
 		addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD , 
-				BlockInit.LEGENDARY_ORE_BLOCK.get().getDefaultState(), 7, 1, 17, 4);
+				BlockInit.LEGENDARY_ORE_BLOCK.get().getDefaultState(), 7, 1, 20, 4);
 		
 			addOre(event, OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD , 
-					BlockInit.RUBY_ORE.get().getDefaultState(), 7, 1, 17, 5);
+					BlockInit.RUBY_ORE.get().getDefaultState(), 7, 1, 20, 5);
 	}
 	
 	public static void  addOre(final BiomeLoadingEvent event, RuleTest rule, BlockState state, int veinSize, int minHeight, int maxHeight, int amount) {
