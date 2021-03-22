@@ -3,7 +3,9 @@
     "block.bentenmobmod.legendary_block": "Legendary Block", 
     "block.bentenmobmod.legendary_ore_block": "Legendary Ore",
     "item.bentenmobmod.legendary_ore": "Legendary",
-    
+    "item.bentenmobmod.ruby": "Ruby",
+    "block.bentenmobmod.ruby_block": "Ruby Block",
+    "block.bentenmobmod.ruby_ore": "Ruby ore",
     
     "itemGroup.main": "Ben 10 mob mod items"
 }   
