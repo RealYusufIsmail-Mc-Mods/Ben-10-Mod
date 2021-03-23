@@ -29,18 +29,18 @@ public class ItemInit {
 
 	public static final RegistryObject<ArmorItem> HELMET = ITEMS.register("helmet",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
-					new Item.Properties().group(MainItemGroup.MAIN)))));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<ArmorItem> CHESTPLATE = ITEMS.register("chestplate",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
-					new Item.Properties().group(MainItemGroup.MAIN)))));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<ArmorItem> BOOTS = ITEMS.register("boot",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
-					new Item.Properties().group(MainItemGroup.MAIN)))));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<ArmorItem> LEGGINGS = ITEMS.register("leggings",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
-					new Item.Properties().group(MainItemGroup.MAIN)))));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 }
