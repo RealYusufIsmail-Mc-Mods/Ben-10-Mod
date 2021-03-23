@@ -10,7 +10,7 @@ import net.minecraft.item.crafting.Ingredient;
 
 public enum  CustomToolMaterial implements IItemTier {
 	
-	SWORD(20, 60, 60f, 10f, 40, () -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get()));
+	TOOL(20, 60, 60f, 10f, 40, () -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get()));
 	    
 	    private final int harvestLevel;
 		private final int maxUses;

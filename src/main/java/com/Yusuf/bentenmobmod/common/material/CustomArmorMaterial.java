@@ -2,13 +2,17 @@ package com.Yusuf.bentenmobmod.common.material;
 
 import java.util.function.Supplier;
 
+import com.Yusuf.bentenmobmod.core.init.ItemInit;
+
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 
 public enum CustomArmorMaterial implements IArmorMaterial{
-	;
+	ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 700f, 0.3f, 
+			() -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get()));
 
 	private static final int[] baseDurability = { 128, 144, 160, 112 };
 	private final String name;
