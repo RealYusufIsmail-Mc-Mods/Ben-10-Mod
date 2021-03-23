@@ -1,0 +1,17 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        "P P",
+        "P P"
+    ],
+    "key": {
+        "P": {
+            "item": "bentenmobmod:legendary_ore"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:leggings",
+        "count": 1
+    }
+}

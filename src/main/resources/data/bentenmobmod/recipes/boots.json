@@ -1,0 +1,17 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "",
+        "P P",
+        "P P"
+    ],
+    "key": {
+        "P": {
+            "item": "bentenmobmod:legendary_ore"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:boots",
+        "count": 1
+    }
+}
