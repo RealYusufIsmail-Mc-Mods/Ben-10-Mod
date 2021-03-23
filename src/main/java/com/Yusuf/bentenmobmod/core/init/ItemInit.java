@@ -12,9 +12,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ItemInit {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
-
-	public static final RegistryObject<Item> SWORD = ITEMS.register("sword",
-			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
 	
 
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
