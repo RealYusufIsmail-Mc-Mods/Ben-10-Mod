@@ -17,9 +17,9 @@ public class ItemInit {
 
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
 	
-	public static final RegistryObject<Item> SWORD = ITEMS.register("sword", 
-			() -> new SwordItem(CustomToolMaterial.TOOL, 10, 1.6f, 
-					new Item.Properties().group(MainItemGroup.MAIN)));
+	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword", 
+            () -> new SwordItem(CustomToolMaterial.TOOL, 10, 1.6f, 
+                    new Item.Properties().group(MainItemGroup.MAIN)));
 			
 
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
