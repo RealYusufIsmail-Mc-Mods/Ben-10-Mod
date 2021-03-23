@@ -1,5 +1,7 @@
 package com.Yusuf.bentenmobmod.common.material;
 
+import java.util.function.Supplier;
+
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
@@ -16,54 +18,61 @@ public enum CustomArmorMaterial implements IArmorMaterial{
 	private final SoundEvent equipSound;
 	private final float toghness;
 	private final float knockbackResistance;
-	private Ingredient repairIngredient; 
+	private final Ingredient repairIngredient; 
+	
+	
+	CustomArmorMaterial(String name, int durabilityMultiplier, int[] armorVal, int enchantability, 
+			SoundEvent equipSound, float toghness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+			this.name = name;
+			this.durabilityMultiplier = durabilityMultiplier;
+			this.armorVal = armorVal;
+			this.enchantability = enchantability;
+			this.equipSound = equipSound;
+			this.toghness = toghness;
+			this.knockbackResistance = knockbackResistance;
+			this.repairIngredient = repairIngredient.get();
+	}
+	
+	
 	
 	@Override
-	public int getDurability(EquipmentSlotType slotIn) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getDurability(EquipmentSlotType slot) {
+		return this.baseDurability[slot.getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
-	public int getDamageReductionAmount(EquipmentSlotType slotIn) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getDamageReductionAmount(EquipmentSlotType slot) { 
+			return this.armorVal[slot.getIndex()];
 	}
 
 	@Override
 	public int getEnchantability() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.enchantability;	
 	}
 
 	@Override
 	public SoundEvent getSoundEvent() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.equipSound;
 	}
 
 	@Override
 	public Ingredient getRepairMaterial() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repairIngredient;
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 	@Override
 	public float getToughness() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.toghness;
 	}
 
 	@Override
 	public float getKnockbackResistance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.knockbackResistance;
 	}
 
 }
