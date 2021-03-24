@@ -35,7 +35,7 @@ public class ItemInit {
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<ArmorItem> BOOTS = ITEMS.register("boot",
+	public static final RegistryObject<ArmorItem> BOOTS = ITEMS.register("boots",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 

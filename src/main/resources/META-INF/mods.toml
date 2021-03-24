@@ -4,7 +4,7 @@ loaderVersion="[35,)"
 license="All Rights Reserved"
 [[mods]]
 modId="bentenmobmod" 
-version="${1.4  }" 
+version="${1.5}" 
 displayName="Ben10 Mob Mod" 
 logoFile="examplemod.png"
 credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod." 
