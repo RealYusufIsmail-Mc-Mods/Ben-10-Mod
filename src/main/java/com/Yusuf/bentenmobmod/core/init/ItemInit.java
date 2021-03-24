@@ -27,19 +27,19 @@ public class ItemInit {
 			() -> new SwordItem(CustomToolMaterial.TOOL, 10, 1.6f, 
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<ArmorItem> HELMET = ITEMS.register("helmet",
+	public static final RegistryObject<Item> HELMET = ITEMS.register("helmet",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<ArmorItem> CHESTPLATE = ITEMS.register("chestplate",
+	public static final RegistryObject<Item> CHESTPLATE = ITEMS.register("chestplate",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<ArmorItem> BOOT = ITEMS.register("boot",
+	public static final RegistryObject<Item> BOOT = ITEMS.register("boot",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<ArmorItem> LEGGINGS = ITEMS.register("leggings",
+	public static final RegistryObject<Item> LEGGINGS = ITEMS.register("leggings",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 

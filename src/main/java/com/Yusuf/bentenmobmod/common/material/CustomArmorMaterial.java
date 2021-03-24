@@ -10,6 +10,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
+
 public enum CustomArmorMaterial implements IArmorMaterial{
 	ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 700f, 0.3f, 
 			() -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get()));
@@ -41,7 +42,7 @@ public enum CustomArmorMaterial implements IArmorMaterial{
 	
 	@Override
 	public int getDurability(EquipmentSlotType slot) {
-		return this.baseDurability[slot.getIndex()] * this.durabilityMultiplier;
+		return baseDurability[slot.getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
