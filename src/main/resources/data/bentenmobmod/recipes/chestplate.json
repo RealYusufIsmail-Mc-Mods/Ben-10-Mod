@@ -2,14 +2,14 @@
     "type" : "minecraft:crafting_shaped",
     "pattern": [
         "P P",
-        "PRP",
+        "PYP",
         "PPP"
     ],
     "key": {
         "P": {
             "item": "bentenmobmod:legendary_ore"
             },
-        "R": {
+        "Y": {
             "item": "bentenmobmod:ruby"
     },
     "result": {
