@@ -39,7 +39,7 @@ public class ItemInit {
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> LEGGINGS = ITEMS.register("leggings",
+	public static final RegistryObject<Item	> LEGGINGS = ITEMS.register("leggings",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().group(MainItemGroup.MAIN)));
 
