@@ -1,12 +1,13 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "# #",
-        "#F#"
-        "###"
+
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+     "L L",
+     "LFL"
+     "LLL"
     ],
-    "key": {
-    "#": {
+   "key": {
+    "L": {
       "item": "bentenmobmod:legendary_ore"
     },
     "F": {
