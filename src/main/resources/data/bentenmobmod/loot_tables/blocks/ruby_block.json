@@ -6,7 +6,7 @@
             "entries":[
                 {
                     "type": "minecraft:block",
-                    "name": "bentenmobmod:legendary_block"
+                    "name": "bentenmobmod:ruby_block"
                 }
             ]    
         }
