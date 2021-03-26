@@ -42,4 +42,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> BOOT = ITEMS.register("boot",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().group(MainItemGroup.MAIN)));
+	
+	
+	
+
 }

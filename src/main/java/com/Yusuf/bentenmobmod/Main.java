@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.Yusuf.bentenmobmod.core.init.BlockInit;
+import com.Yusuf.bentenmobmod.core.init.EntityInit;
 import com.Yusuf.bentenmobmod.core.init.FeatureInit;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
@@ -32,10 +33,14 @@ public class Main {
 
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
+		EntityInit.ENTITY_TYPES.register(bus);
 		
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(this);
+		
+		
 	}
 
 	@SubscribeEvent
