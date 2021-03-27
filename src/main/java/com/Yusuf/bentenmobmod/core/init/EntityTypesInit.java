@@ -1,7 +1,7 @@
 package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.common.entity.Vilgax;
+import com.Yusuf.bentenmobmod.common.entities.Vilgax;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -20,6 +20,7 @@ public class EntityTypesInit {
 	public static final RegistryObject<EntityType<Vilgax>> VILGAX = ENTITY_TYPES.register("vilgax", 
 			() -> EntityType.Builder.<Vilgax>create(Vilgax::new, EntityClassification.MISC).size(1.5f, 4.0f)
 			.build(new ResourceLocation(Main.MOD_ID, "vilgax").toString()));
+	
 
 
 }

@@ -2,7 +2,7 @@ package com.Yusuf.bentenmobmod.client.entities.render;
 
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.client.entities.model.VilgaxModel;
-import com.Yusuf.bentenmobmod.common.entity.Vilgax;
+import com.Yusuf.bentenmobmod.common.entities.Vilgax;
 
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
