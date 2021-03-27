@@ -3,7 +3,6 @@ package com.Yusuf.bentenmobmod.common.entity;
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.EntityType;
-
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.monster.MonsterEntity;
