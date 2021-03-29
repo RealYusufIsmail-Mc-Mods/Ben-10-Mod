@@ -43,8 +43,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
             return PlayState.CONTINUE;
         }
 
-		}
-	};
+		};
 
 	@Override
 	protected void registerGoals() {
@@ -67,7 +66,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	                .add(Attributes.MAX_HEALTH, 47.0D)
 	                .add(Attributes.FOLLOW_RANGE, 35.0D)
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-	             .add(Attributes.ATTACK_DAMAGE, 10.0D);
+	                .add(Attributes.ATTACK_DAMAGE, 10.0D);
 	  }
 
 	protected void defineSynchedData() {
