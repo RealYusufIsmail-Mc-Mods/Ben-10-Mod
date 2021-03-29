@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod.common.entities.boss.vilgax;
+package com.Yusuf.bentenmobmod.common.entities;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
