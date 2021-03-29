@@ -12,8 +12,8 @@ import net.minecraft.util.SoundEvents;
 
 
 public enum CustomArmorMaterial implements IArmorMaterial{
-	ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 700f, 0.3f, 
-			() -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get()));
+	ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f, 
+			() -> Ingredient.of(ItemInit.LEGENDARY_ORE.get()));
 
 	private static final int[] baseDurability = { 128, 144, 160, 112 };
 	private final String name;
@@ -41,27 +41,27 @@ public enum CustomArmorMaterial implements IArmorMaterial{
 	
 	
 	@Override
-	public int getDurability(EquipmentSlotType slot) {
+	public int getDurabilityForSlot(EquipmentSlotType slot) {
 		return baseDurability[slot.getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
-	public int getDamageReductionAmount(EquipmentSlotType slot) { 
+	public int getDefenseForSlot(EquipmentSlotType slot) { 
 			return this.armorVal[slot.getIndex()];
 	}
 
 	@Override
-	public int getEnchantability() {
+	public int getEnchantmentValue() {
 		return this.enchantability;	
 	}
 
 	@Override
-	public SoundEvent getSoundEvent() {
+	public SoundEvent getEquipSound() {
 		return this.equipSound;
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
+	public Ingredient getRepairIngredient() {
 		return this.repairIngredient;
 	}
 

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class MainItemGroup extends ItemGroup {
   
-	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.GROUPS.length, 
+	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.TABS.length, 
 			"main");
 
 	public MainItemGroup(int index, String label) {
@@ -15,7 +15,7 @@ public class MainItemGroup extends ItemGroup {
 	}
 
 	@Override
-	public ItemStack createIcon() {
+	public ItemStack makeIcon() {
 		return new ItemStack(ItemInit.SWORD.get());
 	}
 

@@ -13,7 +13,6 @@ import net.minecraft.entity.ai.goal.OwnerHurtTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
@@ -23,12 +22,16 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
 import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class VilgaxEntity extends MobEntity implements IMob {
- private static final DataParameter<Boolean> DROWNING = EntityDataManager.createKey(VilgaxEntity.class, DataSerializers.BOOLEAN);;
+public class VilgaxEntity extends MobEntity implements IAnimatable {
+ private static final DataParameter<Boolean> DROWNING = EntityDataManager.defineId(VilgaxEntity.class, DataSerializers.BOOLEAN);;
 
 	  
 private int exampleTimer;
@@ -38,6 +41,12 @@ private int exampleTimer;
 	  super(EntityType.IRON_GOLEM, worldIn);
  }
 	  
+ private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+     if (event.isMoving() && !this.dataManager.get(BITE)) {
+         event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
+         return PlayState.CONTINUE;
+ 
+ }};
 	  @Override
 	    protected void registerGoals() {
 	        super.registerGoals();
@@ -50,54 +59,54 @@ private int exampleTimer;
 	            this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
 	            this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
 	            this.targetSelector.addGoal(3, new HurtByTargetGoal(this, PlayerEntity.class));
-	            this.targetSelector.addGoal(4, (new HurtByTargetGoal(this)).setCallsForHelp());
+	            this.targetSelector.addGoal(4, (new HurtByTargetGoal(this)).setAlertOthers());
 	            this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 	        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
 	            this.targetSelector.addGoal(7, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	          this.targetSelector.addGoal(8, new NearestAttackableTargetGoal<>(this, AbstractSkeletonEntity.class, false));
 	          }
 	        public static AttributeModifierMap.MutableAttribute registerAttributes() {
-	            return MobEntity.func_233666_p_()
+	            return MobEntity.createMobAttributes()
 	                    .createMutableAttribute(Attributes.MAX_HEALTH, 300.0D)
 	                    .createMutableAttribute(Attributes.FOLLOW_RANGE, 35.0D)
 	                    .createMutableAttribute(Attributes.MOVEMENT_SPEED, (double)0.23F)
 	                 .createMutableAttribute(Attributes.ATTACK_DAMAGE, 35.0D);
 	}
-	        protected void registerData() {
-	            super.registerData();
-	            this.getDataManager().register(DROWNING, false);
+	        protected void defineSynchedData() {
+	            super.defineSynchedData();
+	            this.getEntityData().define(DROWNING, false);
 	         }
 
 	        public boolean isDrowning() {
-	            return this.getDataManager().get(DROWNING);
+	            return this.getEntityData().get(DROWNING);
 	         }
 	        @Override
-	        public void livingTick() {
-	            if (this.world.isRemote) {
+	        public void aiStep() {
+	            if (this.level.isClientSide) {
 	                this.exampleTimer = Math.max(0, this.exampleTimer - 1);
 	            }
-	            super.livingTick();
+	            super.aiStep();
 	        }
 
 	        @OnlyIn(Dist.CLIENT)
-	        public void handleStatusUpdate(byte id) {
+	        public void handleEntityEvent(byte id) {
 	            if (id == 10) {
 	                this.exampleTimer = 40;
 	            } else {
-	                super.handleStatusUpdate(id);
+	                super.handleEntityEvent(id);
 	            }
 	        }
 
-	        public boolean isNotColliding(IWorldReader worldIn) {
-	            return worldIn.checkNoEntityCollision(this);
+	        public boolean checkSpawnObstruction(IWorldReader worldIn) {
+	            return worldIn.isUnobstructed(this);
 	        }
 
 	        @Override
-	        protected int getExperiencePoints(PlayerEntity player) {
+	        protected int getExperienceReward(PlayerEntity player) {
 	            return 60;
 	        }
 
-	        public int getMaxSpawnedInChunk() {
+	        public int getMaxSpawnClusterSize() {
 	            return 1;
 	        }
 

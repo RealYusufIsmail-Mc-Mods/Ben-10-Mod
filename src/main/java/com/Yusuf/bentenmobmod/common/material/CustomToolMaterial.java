@@ -10,7 +10,7 @@ import net.minecraft.item.crafting.Ingredient;
 
 public enum  CustomToolMaterial implements IItemTier {
 	
-	TOOL(20, 60, 60f, 10f, 40, () -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get()));
+	TOOL(20, 60, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get()));
 	    
 	    private final int harvestLevel;
 		private final int maxUses;
@@ -30,27 +30,27 @@ public enum  CustomToolMaterial implements IItemTier {
 		}
 		
 		@Override
-		public int getMaxUses() {
+		public int getUses() {
 			return this.maxUses;
 		}
 		@Override
-		public float getEfficiency() {
+		public float getSpeed() {
 			return this.efficiency;
 		}
 		@Override
-		public float getAttackDamage() {
+		public float getAttackDamageBonus() {
 			return this.attackDamage;
 		}
 		@Override
-		public int getHarvestLevel() {
+		public int getLevel() {
 			return this.harvestLevel;
 		}
 		@Override
-		public int getEnchantability() {
+		public int getEnchantmentValue() {
 			return this.enchantability;
 		}
 		@Override
-		public Ingredient getRepairMaterial() {
+		public Ingredient getRepairIngredient() {
 				return this.repairMaterial;
 		}
 		

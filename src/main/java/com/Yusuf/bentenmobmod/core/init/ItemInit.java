@@ -19,40 +19,40 @@ public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
 
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
-			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	
 
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
-			   () -> new Item(new Item.Properties().tag(MainItemGroup.MAIN)));
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f, 
-					new Item.Properties().group(MainItemGroup.MAIN)));
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	public static final RegistryObject<SwordItem> AXE = ITEMS.register("axe",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 6, 7f, 
-					new Item.Properties().group(MainItemGroup.MAIN)));
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HELMET = ITEMS.register("helmet",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
-					new Item.Properties().group(MainItemGroup.MAIN)));
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> CHESTPLATE = ITEMS.register("chestplate",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
-					new Item.Properties().group(MainItemGroup.MAIN)));
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item	> LEGGINGS = ITEMS.register("leggings",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
-					new Item.Properties().group(MainItemGroup.MAIN)));
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> BOOT = ITEMS.register("boot",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
-					new Item.Properties().group(MainItemGroup.MAIN)));
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
             () -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,
-                    new Item.Properties().group(MainItemGroup.MAIN).maxStackSize(16)));
+                    new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(16)));
 	
 	
 	
