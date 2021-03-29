@@ -24,7 +24,7 @@ public class ItemInit {
 	
 
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
-			() -> new Item(new Item.Properties().group(MainItemGroup.MAIN)));
+			   () -> new Item(new Item.Properties().tag(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f, 
