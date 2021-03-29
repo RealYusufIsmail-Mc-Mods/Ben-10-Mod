@@ -1,0 +1,25 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " FF",
+    " /#",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "bentenmobmod:legendary_ore"
+    },
+    "F": {
+      "item": "bentenmobmod:ruby"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:axe",
+    "count": 1
+  }
+
+}

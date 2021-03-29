@@ -1,5 +1,6 @@
 package com.Yusuf.bentenmobmod.common.entities;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -15,6 +16,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -68,6 +73,25 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
 	                .add(Attributes.ATTACK_DAMAGE, 10.0D);
 	  }
+	  protected SoundEvent getAmbientSound() {
+	      return SoundEvents.ENDER_DRAGON_AMBIENT;
+	   }
+
+	   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+	      return SoundEvents.ENDER_DRAGON_HURT;
+	   }
+
+	   protected SoundEvent getDeathSound() {
+	      return SoundEvents.ENDER_DRAGON_DEATH;
+	   }
+
+	   protected SoundEvent getStepSound() {
+	      return SoundEvents.IRON_GOLEM_STEP;
+	   }
+
+	   protected void playStepSound(BlockPos p_180429_1_, BlockState p_180429_2_) {
+	      this.playSound(this.getStepSound(), 0.15F, 1.0F);
+	   }
 
 	protected void defineSynchedData() {
 		super.defineSynchedData();
@@ -109,13 +133,30 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	}
 
 	@Override
-	public void registerControllers(AnimationData animationData) {
-		animationData.addAnimationController(new AnimationController<>(this, "controller", 0, this::predicate));
-	}
+    public void registerControllers(AnimationData animationData) {
+        animationData.addAnimationController(new AnimationController<>(this, "controller", 0, this::predicate));
+    }
+
+	 @Override
+	    protected void registerData() {
+	        super.registerData();
+	        this.dataManager.register(WALKING, false);
+	     
+	    }
+	 public boolean isSitting() {
+	        return this.dataManager.get(WALKING).booleanValue();
+	    }
+
 
 	@Override
 	public AnimationFactory getFactory() {
 		return this.getFactory();
 	}
 
+
+	
+
+	
+
+	 
 };
