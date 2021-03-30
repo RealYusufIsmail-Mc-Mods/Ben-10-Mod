@@ -54,13 +54,12 @@ public class Main {
 	public void onBiomeLoad(BiomeLoadingEvent event) {
 		ModEntitySpawing.onBiomesLoad(event);
 	}
-
+	@SubscribeEvent
 	private void setup(final FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
 			GlobalEntityTypeAttributes.put(EntityTypesInit.VILGAX_ENTITY.get(),
 					VilgaxEntity.registerAttributes().create());
-		});
-	}
+	};
+	
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
 		BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {

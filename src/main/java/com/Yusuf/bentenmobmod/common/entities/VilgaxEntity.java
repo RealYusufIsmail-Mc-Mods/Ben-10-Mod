@@ -105,13 +105,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 		super.defineSynchedData();
 		this.getEntityData().define(DROWNING, false);
 	}
-
-	 @Override
-	    protected void registerData() {
-		 super.registerGoals();
-	     this.registerData();
-
-	    }
+	    
 	public boolean isDrowning() {
 		return this.getEntityData().get(DROWNING);
 	}
