@@ -153,7 +153,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 
 	    protected void entityData() {
 	       
-		 this.dataManager.define(WALKING, false);
+		 this.entityData.define(WALKING, false);
 	     
 	    }
 	 public boolean isWalking() {
