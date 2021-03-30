@@ -11,7 +11,6 @@ import com.Yusuf.bentenmobmod.core.init.ItemInit;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.Yusuf.bentenmobmod.world.ModEntitySpawing;
 
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,7 +22,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
@@ -55,10 +53,10 @@ public class Main {
 		ModEntitySpawing.onBiomesLoad(event);
 	}
 	@SubscribeEvent
-	private void setup(final FMLCommonSetupEvent event) {
-			GlobalEntityTypeAttributes.put(EntityTypesInit.VILGAX_ENTITY.get(),
-					VilgaxEntity.registerAttributes().create());
-	};
+	private void registerEntityAttributes(EntityAttributeCreationEvent event) {
+		 event.put(EntityTypesInit.VILGAX_ENTITY.get(),
+			VilgaxEntity.registerAttributes().create());
+	}
 	
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
@@ -72,3 +70,8 @@ public class Main {
 	}
 
 }
+
+
+
+
+
