@@ -15,18 +15,18 @@ public class BlockInit {
 
 	public static final RegistryObject<Block> LEGENDARY_BLOCK = BLOCKS
 			.register("legendary_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
 	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
 			.register("legendary_ore_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
 	public static final RegistryObject<Block> RUBY_ORE = BLOCKS
 			.register("ruby_ore",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
 	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS
 			.register("ruby_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
 }
