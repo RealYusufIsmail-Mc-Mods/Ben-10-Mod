@@ -54,7 +54,7 @@ public class Main {
 		ModEntitySpawing.onBiomesLoad(event);
 	}
 	@SubscribeEvent
-	private void registerEntityAttributes(EntityAttributeCreationEvent event) {
+  void registerEntityAttributes(EntityAttributeCreationEvent event) {
 		 event.put(EntityTypesInit.VILGAX_ENTITY.get(),
 			VilgaxEntity.registerAttributes().build());
 	}
