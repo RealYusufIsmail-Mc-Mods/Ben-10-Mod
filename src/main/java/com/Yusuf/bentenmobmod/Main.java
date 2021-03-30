@@ -15,6 +15,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -55,7 +56,7 @@ public class Main {
 	@SubscribeEvent
 	private void registerEntityAttributes(EntityAttributeCreationEvent event) {
 		 event.put(EntityTypesInit.VILGAX_ENTITY.get(),
-			VilgaxEntity.registerAttributes().create());
+			VilgaxEntity.registerAttributes().build());
 	}
 	
 	@SubscribeEvent

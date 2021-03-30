@@ -50,6 +50,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
             return PlayState.CONTINUE;
         }
+		return null;
 
 		};
 
