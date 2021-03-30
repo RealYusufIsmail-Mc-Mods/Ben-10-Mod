@@ -33,6 +33,8 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class VilgaxEntity extends MobEntity implements IAnimatable {
+	public float prevSitProgress;
+	private static final DataParameter<Boolean> WALKING = EntityDataManager.defineId(VilgaxEntity.class,DataSerializers.BOOLEAN);
 	private static final DataParameter<Boolean> DROWNING = EntityDataManager.defineId(VilgaxEntity.class,
 			DataSerializers.BOOLEAN);;
 
@@ -41,9 +43,10 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	public VilgaxEntity(EntityType<? extends VilgaxEntity> type, World worldIn) {
 		super(EntityType.IRON_GOLEM, worldIn);
 	}
+	  private AnimationFactory factory = new AnimationFactory(this);
 
 	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-		if (event.isMoving() && !this.dataManager.get(WALKING)) {
+		if (event.isMoving() && !this.entityData.get(WALKING)) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
             return PlayState.CONTINUE;
         }
@@ -92,12 +95,23 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	   protected void playStepSound(BlockPos p_180429_1_, BlockState p_180429_2_) {
 	      this.playSound(this.getStepSound(), 0.15F, 1.0F);
 	   }
+	   @Override
+	    public AnimationFactory getFactory() {
+	        return this.factory;
+	    }
+
 
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		this.getEntityData().define(DROWNING, false);
 	}
 
+	 @Override
+	    protected void registerData() {
+		 super.registerGoals();
+	     this.registerData();
+
+	    }
 	public boolean isDrowning() {
 		return this.getEntityData().get(DROWNING);
 	}
@@ -138,20 +152,15 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
     }
 
 	 @Override
-	    protected void registerData() {
-	        super.registerData();
-	        this.dataManager.register(WALKING, false);
+	    protected void entityData() {
+	       
+		 this.dataManager.define(WALKING, false);
 	     
 	    }
-	 public boolean isSitting() {
-	        return this.dataManager.get(WALKING).booleanValue();
+	 public boolean isWalking() {
+	        return this.entityData.get(WALKING).booleanValue();
 	    }
 
-
-	@Override
-	public AnimationFactory getFactory() {
-		return this.getFactory();
-	}
 
 
 	
