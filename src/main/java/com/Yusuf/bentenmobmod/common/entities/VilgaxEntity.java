@@ -151,7 +151,6 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
         animationData.addAnimationController(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
-	 @Override
 	    protected void entityData() {
 	       
 		 this.dataManager.define(WALKING, false);
