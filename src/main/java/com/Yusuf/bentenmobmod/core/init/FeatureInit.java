@@ -17,6 +17,9 @@ public class FeatureInit {
 		
 			addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE , 
 					BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 1, 20, 3);
+			
+			addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE , 
+					BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 1, 10, 3);
 	}
 	
 	public static void  addOre(final BiomeLoadingEvent event, RuleTest rule, BlockState state, int veinSize, int minHeight, int maxHeight, int amount) {

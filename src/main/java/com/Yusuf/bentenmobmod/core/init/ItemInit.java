@@ -50,6 +50,10 @@ public class ItemInit {
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
+	public static final RegistryObject<Item> OMNITRIX = ITEMS.register("omnitrix",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
             () -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,
                     new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(16)));

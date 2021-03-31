@@ -3,7 +3,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:legendary_ore"
+      "bentenmobmod:ruby"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:legendary_ore"
+            "item": "bentenmobmod:ruby"
           }
         ]
       }
@@ -20,17 +20,12 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:legendary_ore_block"  
+        "recipe": "bentenmobmod:ruby_block"  
       },
-      "recipe": "bentenmobmod:helmet"
+      "recipe": "bentenmobmod:axe"
       },
-      "recipe": "bentenmobmod:leggings"
-      },
-      "recipe": "bentenmobmod:boot"
-      },
-      "recipe": "bentenmobmod:sword"
-      
-       
+      "recipe": "bentenmobmod:chestplate"
+      }
   },
   "requirements": [
     [
