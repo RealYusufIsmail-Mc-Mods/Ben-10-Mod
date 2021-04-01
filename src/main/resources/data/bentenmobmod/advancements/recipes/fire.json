@@ -1,0 +1,39 @@
+{
+
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "bentenmobmod:fire"
+    ]
+  },
+  "criteria": {
+    "hasItem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmobmod:fire"
+          }
+        ]
+      }
+      },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "bentenmobmod:fire_block"  
+      },
+      "recipe": "bentenmobmod:heatblast_sword"
+      }
+      
+       
+  },
+  "requirements": [
+    [
+      "hasItem",
+      "has_the_recipe"
+    ]
+  ]
+
+}
+
+}

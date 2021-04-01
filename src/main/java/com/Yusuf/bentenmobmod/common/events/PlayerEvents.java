@@ -17,7 +17,7 @@ public  class  PlayerEvents {
 
 		Item sword = ItemInit.HEATBLAST_SWORD.get();
 		sword.isFireResistant();
-			
+		sword.onCraftedBy(null, null, null);
 			
 			
 			
