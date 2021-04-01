@@ -8,7 +8,6 @@ import com.Yusuf.bentenmobmod.objects.items.ModSpawnEggItem;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
@@ -37,7 +36,7 @@ public class ItemInit {
 			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f, 
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
-	public static final RegistryObject<SwordItem> AXE = ITEMS.register("axe",
+	public static final RegistryObject<Item> AXE = ITEMS.register("axe",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 6, 7f, 
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
@@ -45,7 +44,7 @@ public class ItemInit {
 			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f, 
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
-	/* weapons and items like axes */
+	/* tools */
 
 	public static final RegistryObject<Item> HELMET = ITEMS.register("helmet",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,

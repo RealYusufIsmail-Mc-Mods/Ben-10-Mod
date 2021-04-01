@@ -1,3 +1,19 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+        {
+            "rolls": 1.0,
+            "entries":[
+                {
+                    "type": "minecraft:block",
+                    "name": "bentenmobmod:legendary_block"
+                }
+            ]    
+        }
+    ]
+}
+
+
 
 {
 
@@ -26,7 +42,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:legendary_ore_block"
+              "name": "bentenmobmod:fire_ore"
             },
             {
               "type": "minecraft:item",
@@ -40,7 +56,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:legendary_ore_block"
+              "name": "bentenmobmod:fire_ore"
             }
           ]
         }
