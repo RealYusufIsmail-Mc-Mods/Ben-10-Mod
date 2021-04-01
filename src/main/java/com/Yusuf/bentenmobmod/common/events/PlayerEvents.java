@@ -13,7 +13,7 @@ public  class  PlayerEvents {
 
 
 	@SubscribeEvent 
-	public static <PlayerHitEvent> void swordHitPLayer(PlayerHitEvent event) {
+	public static void swordHitPLayer(PlayerHitEvent event) {
 
 
 		Item sword = ItemInit.HEATBLAST_SWORD.get();
