@@ -4,17 +4,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.Yusuf.bentenmobmod.core.init.BlockInit;
-import com.Yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.Yusuf.bentenmobmod.core.init.FeatureInit;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.Yusuf.bentenmobmod.world.ModEntitySpawing;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,14 +40,17 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
+		/*
 		EntityTypesInit.ENTITY_TYPES.register(bus);
-		
+		*/
 		
 	}
+	/*
 	@SubscribeEvent
 	public void onBiomeLoad(BiomeLoadingEvent event) {
 		ModEntitySpawing.onBiomesLoad(event);
 	}
+	*/
 	/*
 	@SubscribeEvent
   void registerEntityAttributes(EntityAttributeCreationEvent event) {

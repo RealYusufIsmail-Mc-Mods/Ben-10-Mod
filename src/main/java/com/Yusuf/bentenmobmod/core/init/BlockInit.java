@@ -43,7 +43,7 @@ public class BlockInit {
 			.register("omnitrix_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
-	public static final RegistryObject<Block> fire_ORE = BLOCKS
+	public static final RegistryObject<Block> FIRE_ORE = BLOCKS
 			.register("fire_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
