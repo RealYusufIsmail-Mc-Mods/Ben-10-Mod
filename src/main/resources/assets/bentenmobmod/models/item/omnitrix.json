@@ -1,3 +1,7 @@
 {
-    "parent": "bentenmobmod:item/omnitrix"
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "bentenmobmod:items/omnitrix"
+    }
+    
 }
