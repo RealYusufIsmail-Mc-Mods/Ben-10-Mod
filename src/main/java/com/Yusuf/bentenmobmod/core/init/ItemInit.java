@@ -8,6 +8,7 @@ import com.Yusuf.bentenmobmod.objects.items.ModSpawnEggItem;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
@@ -21,10 +22,16 @@ public class ItemInit {
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 	
+	public static final RegistryObject<Item> OMNITRIX = ITEMS.register("omnitrix",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 	
-
+	public static final RegistryObject<Item> fire = ITEMS.register("fire",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+	
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	/* ores */
 
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f, 
@@ -33,6 +40,12 @@ public class ItemInit {
 	public static final RegistryObject<SwordItem> AXE = ITEMS.register("axe",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 6, 7f, 
 					new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
+			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f, 
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	/* weapons and items like axes */
 
 	public static final RegistryObject<Item> HELMET = ITEMS.register("helmet",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
@@ -50,20 +63,14 @@ public class ItemInit {
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
-	public static final RegistryObject<Item> OMNITRIX = ITEMS.register("omnitrix",
-			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
-	
-
-	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f, 
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+	/* armour like axes */
 	
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
             () -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,
                     new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(16)));
 	
 	
-	
+	/* other items */
 	
 
 }

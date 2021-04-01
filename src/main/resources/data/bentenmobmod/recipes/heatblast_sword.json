@@ -1,0 +1,25 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " F ",
+    " / "
+  ],
+  "key": {
+    "#": {
+      "item": "bentenmobmod:fire"
+    },
+    "F": {
+      "item": "bentenmobmod:omnitrix"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:sword",
+    "count": 1
+  }
+
+}
