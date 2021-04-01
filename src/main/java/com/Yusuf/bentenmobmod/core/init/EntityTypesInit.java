@@ -1,3 +1,5 @@
+/*
+
 package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
@@ -19,3 +21,5 @@ public class EntityTypesInit {
 	                    .build(new ResourceLocation(Main.MOD_ID, "vilgax_entity").toString()));
 
 }
+
+*/

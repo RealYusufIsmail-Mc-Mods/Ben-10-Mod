@@ -4,7 +4,6 @@ import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.Yusuf.bentenmobmod.objects.items.ModSpawnEggItem;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -63,11 +62,12 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	/* armour like axes */
-	
+
+	/*
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
             () -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,
                     new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(16)));
-	
+	*/
 	
 	/* other items */
 	

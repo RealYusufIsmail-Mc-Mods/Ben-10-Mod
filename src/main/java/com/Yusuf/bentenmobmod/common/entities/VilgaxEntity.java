@@ -1,3 +1,8 @@
+/*open code when the models are ready */
+
+
+/*
+
 package com.Yusuf.bentenmobmod.common.entities;
 
 import net.minecraft.block.BlockState;
@@ -165,3 +170,5 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 
 	 
 };
+
+*/
