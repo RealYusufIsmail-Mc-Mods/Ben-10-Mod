@@ -53,6 +53,10 @@ public class ItemInit {
 	public static final RegistryObject<Item> OMNITRIX = ITEMS.register("omnitrix",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 	
+
+	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
+			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f, 
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
             () -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,

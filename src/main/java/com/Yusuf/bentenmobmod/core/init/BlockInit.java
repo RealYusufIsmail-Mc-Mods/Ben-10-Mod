@@ -32,10 +32,10 @@ public class BlockInit {
 	public static final RegistryObject<Block> OMNITRIX_ORE = BLOCKS
 			.register("omnitrix_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+	
 	public static final RegistryObject<Block> OMNITRIX_BLOCK = BLOCKS
 			.register("omnitrix_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
-	
 	
 	
 	

@@ -15,7 +15,7 @@ public class ModEntitySpawing {
 	public static void onBiomesLoad(BiomeLoadingEvent event) {
 		if (event.getCategory() == Biome.Category.NETHER)
 			event.getSpawns().getSpawner(EntityClassification.CREATURE)
-					.add(new MobSpawnInfo.Spawners(EntityTypesInit.VILGAX_ENTITY.get(), 10, 1, 1));
+					.add(new MobSpawnInfo.Spawners(EntityTypesInit.VILGAX_ENTITY.get(), 1, 1, 1));
 
 		
 	}
