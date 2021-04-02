@@ -8,7 +8,7 @@ public class FoodInit {
     // Omnitrix Apple
     public static final Food OMNITRIX_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 1200, 0), 1)
-            .effect(new EffectInstance(Effects.ABSORPTION, 3600, 0), 1)
+            .effect(new EffectInstance(Effects.ABSORPTION, 3600, 1), 1)
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 2400, 0), 1)
             .effect(new EffectInstance(Effects.MOVEMENT_SPEED, 600, 0), 1)
             .effect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 1200, 0), 1)
@@ -18,7 +18,7 @@ public class FoodInit {
     // Enchanted Omnitrix Apple
     public static final Food ENCHANTED_OMNITRIX_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 6000, 0), 1)
-            .effect(new EffectInstance(Effects.ABSORPTION, 4800, 0), 1)
+            .effect(new EffectInstance(Effects.ABSORPTION, 4800, 3), 1)
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 4800, 0), 1)
             .effect(new EffectInstance(Effects.MOVEMENT_SPEED, 4800, 0), 1)
             .effect(new EffectInstance(Effects.WATER_BREATHING, 3600, 0), 1)
