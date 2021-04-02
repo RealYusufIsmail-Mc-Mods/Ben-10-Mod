@@ -1,0 +1,20 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "AAA",
+        "AHA",
+        "AAA"
+    ],
+    "key": {
+    	"H":{
+    	"item": "minecraft:apple"
+    	},
+        "A": {
+            "item": "bentenmobmod:onitrix"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:omnitrix_apple",
+        "count": 1
+    }
+}
