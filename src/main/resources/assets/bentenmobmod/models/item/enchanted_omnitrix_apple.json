@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "bentenmobmod:items/enchanted_omnitrix_apple"
+    }
+    
+}
