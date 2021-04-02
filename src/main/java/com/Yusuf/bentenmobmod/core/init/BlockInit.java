@@ -53,7 +53,7 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> VILGAX_BLOCK = BLOCKS
 			.register("vilgax_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.STONE)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 	/* other blocks */
 	
 
