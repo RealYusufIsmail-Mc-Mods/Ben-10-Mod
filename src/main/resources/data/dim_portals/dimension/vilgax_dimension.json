@@ -1,11 +1,11 @@
 {
-  "type": "bentenmobmod:vilgax_dimension",
+  "type": "minecraft:the_end",
   "generator": {
     "type": "minecraft:noise",
-    "seed": -273205717,
+    "seed": 0,
     "biome_source": {
       "type": "minecraft:fixed",
-      "seed": -273205717,
+      "seed": 0,
       "biome": "minecraft:end_barrens"
     },
     "settings": "minecraft:end"
