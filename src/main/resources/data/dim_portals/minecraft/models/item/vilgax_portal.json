@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:item/portal_base",
 	"textures": {
-		"texture": "custom/sand_portal"
+		"texture": "custom/vilgax_portal"
 	}
 }
