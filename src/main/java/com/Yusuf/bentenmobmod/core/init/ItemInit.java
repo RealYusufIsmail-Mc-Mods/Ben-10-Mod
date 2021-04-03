@@ -7,6 +7,7 @@ import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.EnchantedGoldenAppleItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
@@ -34,15 +35,16 @@ public class ItemInit {
 
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f, 
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+					new Item.Properties().durability(400).tab(MainItemGroup.MAIN))))))));
+		
 	
-	public static final RegistryObject<Item> AXE = ITEMS.register("axe",
-			() -> new SwordItem(CustomToolMaterial.TOOL, 6, 7f, 
+	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
+			() -> new AxeItem(CustomToolMaterial.TOOL, 6, 8f, 
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f, 
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f,
+					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN))))))));
 	
 	// tools
 

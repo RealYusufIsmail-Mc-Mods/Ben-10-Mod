@@ -12,7 +12,9 @@ public enum  CustomToolMaterial implements IItemTier {
 	
 	TOOL(20, 60, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
 		SWORD(20, 60, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
-	AXE(20, 60, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get()));
+		AXE(50, 70, 80f, 15f, 50, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get()));
+		
+
 	    
 	    private final int harvestLevel;
 		private final int maxUses;
