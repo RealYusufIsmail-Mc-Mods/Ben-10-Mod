@@ -5,8 +5,7 @@
 
 execute if entity @s[tag=glowstone] run fill ~2 ~-4 ~-1 ~-2 ~-4 ~2 glowstone
 execute if entity @s[tag=glowstone] run fill ~ ~ ~-1 ~ ~-4 ~2 glowstone
-execute if entity @s[tag=mossy] run fill ~2 ~-4 ~-1 ~-2 ~-4 ~2 mossy_cobblestone
-execute if entity @s[tag=mossy] run fill ~ ~ ~-1 ~ ~-4 ~2 mossy_cobblestone
+
 
 execute if entity @s[tag=vilgax] run fill ~2 ~-4 ~-1 ~-2 ~-4 ~2 vilgax_block
 execute if entity @s[tag=vilgax] run fill ~ ~ ~-1 ~ ~-4 ~2 vilgax_block
