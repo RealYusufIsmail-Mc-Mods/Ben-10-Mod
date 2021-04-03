@@ -1,0 +1,107 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count",
+          "config": {
+            "count": {
+              "base": 1,
+              "spread": 3
+            }
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:top_solid_heightmap",
+              "config": {}
+            },
+            "inner": {
+              "type": "minecraft:decorated",
+              "config": {
+                "outer": {
+                  "type": "minecraft:square",
+                  "config": {}
+                },
+                "inner": {
+                  "type": "minecraft:count",
+                  "config": {
+                    "count": 2
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "can_replace": true,
+        "project": false,
+        "need_water": false,
+        "xspread": 3,
+        "yspread": 4,
+        "zspread": 3,
+        "tries": 64,
+        "state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 15,
+              "data": {
+                "Name": "minecraft:jungle_leaves",
+                "Properties": {
+                  "persistent": "true",
+                  "distance": "1"
+                }
+              }
+            },
+            {
+              "weight": 10,
+              "data": {
+                "Name": "minecraft:oak_leaves",
+                "Properties": {
+                  "persistent": "true",
+                  "distance": "1"
+                }
+              }
+            },
+            {
+              "weight": 2,
+              "data": {
+                "Name": "minecraft:shroomlight"
+              }
+            }
+          ]
+        },
+        "block_placer": {
+          "type": "minecraft:simple_block_placer"
+        },
+        "whitelist": [],
+        "blacklist": [
+          {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          },
+          {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          },
+          {
+            "Name": "minecraft:air"
+          }
+        ]
+      }
+    }
+  }
+}

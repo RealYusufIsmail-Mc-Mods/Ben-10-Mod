@@ -1,0 +1,65 @@
+{
+    "surface_builder": "minecraft:grass",
+    "depth": 0.125,
+    "scale": 0.2,
+    "temperature": 0.8,
+    "downfall": 0.4,
+    "precipitation": "rain",
+    "category": "plains",
+    "effects": {
+      "sky_color": 7907327,
+      "fog_color": 13299966,
+      "water_color": 4159204,
+      "water_fog_color": 329011
+    },
+    "starts": [],
+    "spawners": {},
+    "spawn_costs": {},
+    "carvers": {
+      "air": [
+        "minecraft:cave",
+        "minecraft:canyon"
+      ]
+    },
+    "features": [
+      [
+        "minecraft:lake_water",
+        "minecraft:lake_lava",
+        "minecraft:ore_emerald",
+        "minecraft:ore_diamond",
+        "minecraft:ore_gold",
+        "minecraft:ore_lapis",
+        "minecraft:ore_iron",
+        "minecraft:ore_coal",
+        "minecraft:ore_redstone",
+        "minecraft:ore_andesite",
+        "minecraft:ore_granite",
+        "minecraft:ore_diorite",
+        "minecraft:ore_dirt",
+        "minecraft:ore_gravel"
+      ],
+      [
+        "dim_portals:forested_alpines/red_mushroom",
+        "dim_portals:forested_alpines/crimson_mushroom",
+        "dim_portals:forested_alpines/brown_mushroom",
+        "minecraft:patch_grass_normal",
+        "minecraft:patch_grass_normal",
+        "dim_portals:forested_alpines/berry_bush"
+      ],
+      [
+        "dim_portals:forested_alpines/podzol_ore_surface",
+        "dim_portals:forested_alpines/coarse_dirt_ore_surface",
+        "dim_portals:forested_alpines/path_ore_surface"
+      ],
+      [],
+      [],
+      [],
+      [
+        "dim_portals:forested_alpines/dark_tree_default",
+        "minecraft:patch_large_fern"
+      ],
+      [
+        "dim_portals:forested_alpines/podzol_lines_surface"
+      ]
+    ]
+  }

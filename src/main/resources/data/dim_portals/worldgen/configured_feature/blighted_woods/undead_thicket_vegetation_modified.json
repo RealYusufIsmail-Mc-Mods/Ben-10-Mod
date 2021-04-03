@@ -1,0 +1,331 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": 32
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:heightmap",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:square",
+                "config": {}
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "features": [
+            {
+              "chance": 0.1,
+              "feature": {
+                "type": "minecraft:random_patch",
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 15,
+                  "yspread": 10,
+                  "zspread": 15,
+                  "tries": 32,
+                  "state_provider": {
+                    "type": "minecraft:weighted_state_provider",
+                    "entries": [
+                      {
+                        "weight": 9,
+                        "data": {
+                          "Name": "minecraft:red_mushroom"
+                        }
+                      },
+                      {
+                        "weight": 1,
+                        "data": {
+                          "Name": "minecraft:crimson_fungus"
+                        }
+                      }
+                    ]
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  },
+                  "whitelist": [
+                    {
+                      "Name": "minecraft:mycelium",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"y"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"y"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"x"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"x"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"z"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"z"
+                        }
+                    }
+                  ],
+                  "blacklist": []
+                }
+              }
+            },
+            {
+              "chance": 0.15,
+              "feature": {
+                "type": "minecraft:random_patch",
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 15,
+                  "yspread": 10,
+                  "zspread": 15,
+                  "tries": 32,
+                  "state_provider": {
+                    "type": "minecraft:simple_state_provider",
+                    "state": {
+                      "Name": "minecraft:brown_mushroom"
+                    }
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  },
+                  "whitelist": [
+                    {
+                      "Name": "minecraft:mycelium",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"y"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"y"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"x"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"x"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"z"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"z"
+                        }
+                    }
+                  ],
+                  "blacklist": []
+                }
+              }
+            },
+            {
+              "chance": 0.5,
+              "feature": {
+                "type": "minecraft:random_patch",
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 15,
+                  "yspread": 10,
+                  "zspread": 15,
+                  "tries": 32,
+                  "state_provider": {
+                    "type": "minecraft:weighted_state_provider",
+                    "entries": [
+                      {
+                        "weight": 19,
+                        "data": {
+                          "Name": "minecraft:grass"
+                        }
+                      },
+                      {
+                        "weight": 1,
+                        "data": {
+                          "Name": "minecraft:blue_orchid"
+                        }
+                      }
+                    ]
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  },
+                  "whitelist": [
+                    {
+                      "Name": "minecraft:mycelium",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"y"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"y"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"x"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"x"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:spruce_wood",
+                        "Properties": {
+                            "axis":"z"
+                        }
+                    },
+                    {
+                        "Name": "minecraft:dark_oak_wood",
+                        "Properties": {
+                            "axis":"z"
+                        }
+                    }
+                  ],
+                  "blacklist": []
+                }
+              }
+            }
+          ],
+          "default": {
+            "type": "minecraft:random_patch",
+            "config": {
+              "can_replace": false,
+              "project": false,
+              "need_water": false,
+              "xspread": 15,
+              "yspread": 10,
+              "zspread": 15,
+              "tries": 32,
+              "state_provider": {
+                "type": "minecraft:simple_state_provider",
+                "state": {
+                  "Name": "minecraft:fern"
+                }
+              },
+              "block_placer": {
+                "type": "minecraft:simple_block_placer"
+              },
+              "whitelist": [
+                {
+                  "Name": "minecraft:mycelium",
+                  "Properties": {
+                    "snowy": "false"
+                  }
+                },
+                {
+                    "Name": "minecraft:spruce_wood",
+                    "Properties": {
+                        "axis":"y"
+                    }
+                },
+                {
+                    "Name": "minecraft:dark_oak_wood",
+                    "Properties": {
+                        "axis":"y"
+                    }
+                },
+                {
+                    "Name": "minecraft:spruce_wood",
+                    "Properties": {
+                        "axis":"x"
+                    }
+                },
+                {
+                    "Name": "minecraft:dark_oak_wood",
+                    "Properties": {
+                        "axis":"x"
+                    }
+                },
+                {
+                    "Name": "minecraft:spruce_wood",
+                    "Properties": {
+                        "axis":"z"
+                    }
+                },
+                {
+                    "Name": "minecraft:dark_oak_wood",
+                    "Properties": {
+                        "axis":"z"
+                    }
+                }
+              ],
+              "blacklist": []
+            }
+          }
+        }
+      }
+    }
+  }

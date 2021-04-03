@@ -1,0 +1,106 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": {
+                "base": 32,
+                "spread": 6
+              }
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:range",
+                "config": {
+                    "bottom_offset": 0,
+                    "maximum": 256,
+                    "top_offset":0
+                }
+              },
+              "inner": {
+                "type": "minecraft:square",
+                "config": {}
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "features": [
+            {
+              "chance": 0.25,
+              "feature": {
+                "type": "minecraft:ore",
+                "config": {
+                  "state": {
+                    "Name": "minecraft:soul_sand"
+                  },
+                  "size": 32,
+                  "target": {
+                    "predicate_type": "minecraft:blockstate_match",
+                    "block_state": {
+                      "Name": "minecraft:grass_block",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "chance": 0.5,
+              "feature": {
+                "type": "minecraft:ore",
+                "config": {
+                  "state": {
+                    "Name": "minecraft:coarse_dirt"
+                  },
+                  "size": 32,
+                  "target": {
+                    "predicate_type": "minecraft:blockstate_match",
+                    "block_state": {
+                      "Name": "minecraft:grass_block",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "default": {
+            "type": "minecraft:ore",
+            "config": {
+              "state": {
+                "Name": "minecraft:mycelium",
+                "Properties": {
+                  "snowy": "false"
+                }
+              },
+              "size": 32,
+              "target": {
+                "predicate_type": "minecraft:blockstate_match",
+                "block_state": {
+                  "Name": "minecraft:grass_block",
+                  "Properties": {
+                    "snowy": "false"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

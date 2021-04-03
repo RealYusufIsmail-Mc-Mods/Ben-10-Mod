@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count",
+          "config": {
+            "count": 128
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:square",
+              "config": {}
+            },
+            "inner": {
+              "type": "minecraft:heightmap",
+              "config": {}
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:ore",
+      "config": {
+        "state": {
+          "Name": "minecraft:smooth_quartz"
+        },
+        "size": 64,
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:stone"
+        }
+      }
+    }
+  }
+}

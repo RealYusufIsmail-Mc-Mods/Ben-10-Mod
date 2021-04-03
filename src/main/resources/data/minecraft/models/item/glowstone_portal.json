@@ -1,6 +1,0 @@
-{
-	"parent": "minecraft:item/portal_base",
-	"textures": {
-		"texture": "custom/glowstone_portal"
-	}
-}

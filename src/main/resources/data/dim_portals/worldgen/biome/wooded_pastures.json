@@ -1,0 +1,55 @@
+{
+    "surface_builder": "minecraft:grass",
+    "depth": 0.125,
+    "scale": 0.075,
+    "temperature": 0.8,
+    "downfall": 0.4,
+    "precipitation": "rain",
+    "temperature_modifier": "none",
+    "category": "plains",
+    "player_spawn_friendly": true,
+    "effects": {
+      "sky_color": 7907327,
+      "fog_color": 12638463,
+      "water_color": 4159204,
+      "water_fog_color": 329011,
+      "foliage_color": 6724661
+    },
+    "starts": [],
+    "spawners": {},
+    "spawn_costs": {},
+    "carvers": {
+      "air": [
+        "minecraft:cave",
+        "minecraft:canyon"
+      ]
+    },
+    "features": [
+      [
+        "dim_portals:wooded_pastures/lake_rare",
+        "minecraft:spring_water",
+        "minecraft:lake_lava",
+        "minecraft:ore_diamond",
+        "minecraft:ore_gold",
+        "minecraft:ore_lapis",
+        "minecraft:ore_iron",
+        "minecraft:ore_coal",
+        "minecraft:ore_redstone",
+        "minecraft:ore_andesite",
+        "minecraft:ore_granite",
+        "minecraft:ore_diorite",
+        "minecraft:ore_dirt",
+        "minecraft:ore_gravel"
+      ],
+      [
+        "dim_portals:wooded_pastures/plains_tree",
+        "minecraft:patch_grass_normal",
+        "minecraft:patch_grass_normal",
+        "minecraft:patch_tall_grass",
+        "dim_portals:wooded_pastures/bush",
+        "dim_portals:wooded_pastures/flowers",
+        "dim_portals:wooded_pastures/rock"
+      ],
+      []
+    ]
+  }

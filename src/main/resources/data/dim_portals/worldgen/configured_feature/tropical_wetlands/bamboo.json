@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:square",
+            "config": {}
+          },
+          "inner": {
+            "type": "minecraft:heightmap",
+            "config": {}
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:bamboo",
+        "config": {
+          "probability": 0.2
+        }
+      }
+    }
+  }

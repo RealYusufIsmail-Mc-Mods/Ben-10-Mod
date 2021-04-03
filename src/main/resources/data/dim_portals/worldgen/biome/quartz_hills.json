@@ -1,0 +1,51 @@
+{
+  "surface_builder": "dim_portals:quartz_mountains",
+  "depth": 1.5,
+  "scale": 2,
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "precipitation": "rain",
+  "category": "extreme_hills",
+  "effects": {
+    "sky_color": 7907327,
+    "fog_color": 12638463,
+    "water_color": 9091838,
+    "water_fog_color": 329011
+  },
+  "starts": [],
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:canyon",
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [
+      "minecraft:spring_water"
+    ],
+    [
+      "dim_portals:quartz_hills/quartz_layers"
+    ],
+    [
+      "dim_portals:quartz_hills/whispy_tree",
+      "dim_portals:quartz_hills/vegetation"
+    ],
+    [
+      "minecraft:ore_diamond",
+      "minecraft:ore_gold",
+      "minecraft:ore_lapis",
+      "minecraft:ore_iron",
+      "minecraft:ore_coal",
+      "minecraft:ore_redstone",
+      "minecraft:ore_andesite",
+      "minecraft:ore_granite",
+      "minecraft:ore_diorite",
+      "minecraft:ore_dirt",
+      "minecraft:ore_gravel"
+    ],
+    [],
+    []
+  ]
+}

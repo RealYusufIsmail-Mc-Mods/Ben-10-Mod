@@ -1,0 +1,51 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:chance",
+          "config": {
+            "chance": 8
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:heightmap",
+              "config": {}
+            },
+            "inner": {
+              "type": "minecraft:square",
+              "config": {}
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:block_pile",
+      "config": {
+        "state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 3,
+              "data": {
+                "Name": "minecraft:cobblestone"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:mossy_cobblestone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

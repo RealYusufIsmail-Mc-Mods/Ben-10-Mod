@@ -1,0 +1,85 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": {
+                "base": 0,
+                "spread": 2
+              }
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:square",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:heightmap",
+                "config": {}
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "can_replace": false,
+          "project": false,
+          "need_water": false,
+          "xspread": 5,
+          "yspread": 2,
+          "zspread": 5,
+          "tries": 64,
+          "state_provider": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "minecraft:blue_orchid"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:lily_of_the_valley"
+                }
+              }
+            ]
+          },
+          "block_placer": {
+            "type": "minecraft:simple_block_placer"
+          },
+          "whitelist": [
+            {
+              "Name": "minecraft:coarse_dirt"
+            },
+            {
+              "Name": "minecraft:podzol",
+              "Properties": {
+                "snowy": "false"
+              }
+            },
+            {
+              "Name": "minecraft:grass_block",
+              "Properties": {
+                "snowy": "false"
+              }
+            },
+            {
+              "Name": "minecraft:dirt"
+            }
+          ],
+          "blacklist": []
+        }
+      }
+    }
+  }

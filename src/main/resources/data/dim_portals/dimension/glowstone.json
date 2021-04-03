@@ -1,0 +1,92 @@
+{
+    "type": "minecraft:overworld",
+    "generator": {
+      "type": "minecraft:noise",
+      "seed": 582191658,
+      "biome_source": {
+        "type": "minecraft:multi_noise",
+        "seed": 582191658,
+        "altitude_noise": {
+          "firstOctave": -7,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "temperature_noise": {
+          "firstOctave": -7,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "humidity_noise": {
+          "firstOctave": -7,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "weirdness_noise": {
+          "firstOctave": -7,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "biomes": [
+          {
+            "biome": "dim_portals:divine_orchards",
+            "parameters": {
+              "altitude": 0.3,
+              "temperature": 0.2,
+              "humidity": 0,
+              "weirdness": 0.2,
+              "offset": 0.8
+            }
+          },
+          {
+            "biome": "dim_portals:quartz_hills",
+            "parameters": {
+              "altitude": 0.1,
+              "temperature": 0.3,
+              "humidity": 0,
+              "weirdness": 0,
+              "offset": 0.85
+            }
+          },
+          {
+            "biome": "dim_portals:wooded_pastures",
+            "parameters": {
+              "altitude": 0,
+              "temperature": 0.3,
+              "humidity": 0.2,
+              "weirdness": 0,
+              "offset": 0.9
+            }
+          },
+          {
+            "biome": "dim_portals:forested_alpines",
+            "parameters": {
+              "altitude": 0.5,
+              "temperature": 0.3,
+              "humidity": 0.2,
+              "weirdness": 0,
+              "offset": 0.7
+            }
+          },
+          {
+            "biome": "dim_portals:rotted_pines",
+            "parameters": {
+              "altitude": 0,
+              "temperature": 0.3,
+              "humidity": 0.2,
+              "weirdness": 1,
+              "offset": 0.8
+            }
+          }
+        ]
+      },
+      "settings": "minecraft:floating_islands"
+    }
+  }
