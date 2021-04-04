@@ -1,4 +1,4 @@
-/*
+
 
 package com.Yusuf.bentenmobmod.world;
 
@@ -22,4 +22,3 @@ public class ModEntitySpawing {
 		
 	}
 };
-*/

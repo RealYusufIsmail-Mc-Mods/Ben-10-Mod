@@ -22,7 +22,7 @@
         "announce_to_chat": true,
         "hidden": false
     },
-     "criteria": {
+     "criteria": {	
         "minecraft": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {

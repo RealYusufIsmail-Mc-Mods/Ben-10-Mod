@@ -1,7 +1,4 @@
-/*open code when the models are ready */
 
-
-/*
 
 package com.Yusuf.bentenmobmod.common.entities;
 
@@ -42,6 +39,8 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	private static final DataParameter<Boolean> WALKING = EntityDataManager.defineId(VilgaxEntity.class,DataSerializers.BOOLEAN);
 	private static final DataParameter<Boolean> DROWNING = EntityDataManager.defineId(VilgaxEntity.class,
 			DataSerializers.BOOLEAN);;
+	private static final DataParameter<Boolean> HITTING = EntityDataManager.defineId(VilgaxEntity.class,
+					DataSerializers.BOOLEAN);;
 
 	private int exampleTimer;
 
@@ -54,7 +53,11 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 		if (event.isMoving() && !this.entityData.get(WALKING)) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
             return PlayState.CONTINUE;
-        } else
+        } if (this.entityData.get(HITTING)) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("hitting", true));
+            return PlayState.CONTINUE;
+        }
+		else
             event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.CONTINUE;
 	}
@@ -156,11 +159,14 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	    protected void entityData() {
 	       
 		 this.entityData.define(WALKING, false);
+		 this.entityData.define(HITTING, false);
+		 
 	     
 	    }
 	 public boolean isWalking() {
 	        return this.entityData.get(WALKING).booleanValue();
 	    }
+	 
 
 
 
@@ -171,4 +177,3 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	 
 };
 
-*/
