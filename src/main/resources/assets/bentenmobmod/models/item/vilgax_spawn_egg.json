@@ -1,4 +1,4 @@
-{
+	{
     "parent": "item/generated",
     "textures": {
         "layer0": "bentenmob:item/vilgax_spawn_egg"

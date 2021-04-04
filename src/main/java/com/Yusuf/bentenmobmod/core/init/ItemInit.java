@@ -67,6 +67,7 @@ public class ItemInit {
 	// Food
 	public static final RegistryObject<Item> OMNITRIX_APPLE = ITEMS.register("omnitrix_apple",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
+	
 	public static final RegistryObject<Item> ENCHANTED_OMNITRIX_APPLE = ITEMS.register("enchanted_omnitrix_apple",
 			() -> new EnchantedGoldenAppleItem(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.ENCHANTED_OMNITRIX_APPLE)));
 
