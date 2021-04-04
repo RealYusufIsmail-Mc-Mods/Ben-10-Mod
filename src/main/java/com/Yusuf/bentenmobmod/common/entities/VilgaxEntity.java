@@ -37,10 +37,9 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 public class VilgaxEntity extends MobEntity implements IAnimatable {
 	public float prevSitProgress;
 	private static final DataParameter<Boolean> WALKING = EntityDataManager.defineId(VilgaxEntity.class,DataSerializers.BOOLEAN);
-	private static final DataParameter<Boolean> DROWNING = EntityDataManager.defineId(VilgaxEntity.class,
-			DataSerializers.BOOLEAN);;
 	private static final DataParameter<Boolean> HITTING = EntityDataManager.defineId(VilgaxEntity.class,
-					DataSerializers.BOOLEAN);;
+			DataSerializers.BOOLEAN);;
+	
 
 	private int exampleTimer;
 
@@ -90,6 +89,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	  protected SoundEvent getAmbientSound() {
 	      return SoundEvents.ENDER_DRAGON_AMBIENT;
 	   }
+	
 
 	   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
 	      return SoundEvents.ENDER_DRAGON_HURT;
@@ -111,15 +111,6 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	        return this.factory;
 	    }
 
-
-	protected void defineSynchedData() {
-		super.defineSynchedData();
-		this.getEntityData().define(DROWNING, false);
-	}
-	    
-	public boolean isDrowning() {
-		return this.getEntityData().get(DROWNING);
-	}
 
 	@Override
 	public void aiStep() {

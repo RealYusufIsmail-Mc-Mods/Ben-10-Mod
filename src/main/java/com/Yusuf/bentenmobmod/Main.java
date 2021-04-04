@@ -9,14 +9,16 @@ import com.Yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.Yusuf.bentenmobmod.core.init.FeatureInit;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.Yusuf.bentenmobmod.world.ModEntitySpawing;
+import com.Yusuf.bentenmobmod.objects.items.ModSpawnEggItem;
 
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -50,10 +52,13 @@ public class Main {
 	
 		
 	}
-
+	
+	public static void MutableAttribute(AttributeModifierMap event) {
+		event.put(MobEntity.createMobAttributes(), VilgaxEntity.createMobAttributes().build());
+	}
 	@SubscribeEvent
-	public void onBiomeLoad(BiomeLoadingEvent event) {
-		ModEntitySpawing.onBiomesLoad(event);
+	public  static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+		ModSpawnEggItem.initSpawnEggs();
 	}
 	
 
