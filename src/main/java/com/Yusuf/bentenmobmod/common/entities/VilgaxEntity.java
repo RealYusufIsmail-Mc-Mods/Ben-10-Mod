@@ -43,7 +43,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 
 	private int exampleTimer;
 
-	public VilgaxEntity(EntityType<VilgaxEntity> type, World worldIn) {
+	public VilgaxEntity(EntityType<? extends VilgaxEntity> type, World worldIn) {
         super(type, worldIn);
 	}
 	  private AnimationFactory factory = new AnimationFactory(this);
