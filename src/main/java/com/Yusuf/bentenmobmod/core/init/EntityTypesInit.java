@@ -17,10 +17,10 @@ public abstract class EntityTypesInit {
 
 	public abstract void createStandardEntityType(CreateEntityType VariableDeclaratorId);
 	    
-	    private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
+	    private static final EntityType<VilgaxEntity> vilgax = EntityType("vilgax", VilgaxEntity::new,
 				EntityClassification.CREATURE, 0.7f, 1.56f);
 
-	 // registering the entities
+	 // registering the entities		
 		public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
 				() -> vilgax);
 		
