@@ -10,10 +10,9 @@ import com.Yusuf.bentenmobmod.core.init.FeatureInit;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.Yusuf.bentenmobmod.objects.items.ModSpawnEggItem;
+import com.Yusuf.bentenmobmod.world.ModEntitySpawing;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,7 +25,6 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
 @Mod("bentenmobmod")
@@ -41,7 +39,6 @@ public class Main {
 
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
-		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
 		
 		MinecraftForge.EVENT_BUS.register(this);
@@ -54,7 +51,7 @@ public class Main {
 	}
 	@SubscribeEvent
 	public static void entityAttributes(EntityAttributeCreationEvent event) {
-		event.put(MobEntity.createMobAttributes(), VilgaxEntity.createMobAttributes().build());
+		event.put(ModEntitySpawing.VILGAX_ENTITY.get(),VilgaxEntity.createMobAttributes().build());
 	}
 	@SubscribeEvent
 	public  static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
