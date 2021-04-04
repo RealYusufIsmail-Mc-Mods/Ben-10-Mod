@@ -13,7 +13,7 @@ import com.Yusuf.bentenmobmod.objects.items.ModSpawnEggItem;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap.MutableAttribute;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -52,8 +52,8 @@ public class Main {
 	
 		
 	}
-	
-	public static void MutableAttribute(AttributeModifierMap event) {
+	@SubscribeEvent
+	public static void entityAttributes(EntityAttributeCreationEvent event) {
 		event.put(MobEntity.createMobAttributes(), VilgaxEntity.createMobAttributes().build());
 	}
 	@SubscribeEvent
