@@ -7,10 +7,6 @@
     "description": "All you need to do know is smelt it.",
     "background": "bentenmobmod:textures/gui/advancements/backgrounds/end.png"
   },
-  "parent": "bentenmobmod:ore/legendary_ore_block",
-	"rewards": {
-		"experience": 5 
-		},
   "criteria": {
     "in": {
       "trigger": "minecraft:inventory_changed",
