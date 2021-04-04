@@ -5,7 +5,7 @@
     },
     "title": "Mined ruby ore",
     "description": "All you need to do know is smelt it.",
-    "background": "bentenmobmod:textures/gui/advancements/backgrounds/end.png"
+    "background": "minecraft:textures/gui/advancements/backgrounds/end.png"
   },
   "criteria": {
     "in": {
