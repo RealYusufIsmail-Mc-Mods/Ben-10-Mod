@@ -1,14 +1,13 @@
-package com.Yusuf.bentenmobmod.core.itemgroup;
+package com.Yusuf.bentenmobmod.itemgroup;
 
-import com.Yusuf.bentenmobmod.core.init.ItemInit;
+import com.Yusuf.bentenmobmod.init.ItemInit;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
 public class MainItemGroup extends ItemGroup {
-  
-	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.TABS.length, 
-			"main");
+
+	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.TABS.length, "main");
 
 	public MainItemGroup(int index, String label) {
 		super(index, label);

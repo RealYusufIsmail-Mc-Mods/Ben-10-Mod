@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod.core.init;
+package com.Yusuf.bentenmobmod.init;
 
 import com.Yusuf.bentenmobmod.Main;
 

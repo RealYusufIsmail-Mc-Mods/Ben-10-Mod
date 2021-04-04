@@ -2,7 +2,7 @@ package com.Yusuf.bentenmobmod.common.material;
 
 import java.util.function.Supplier;
 
-import com.Yusuf.bentenmobmod.core.init.ItemInit;
+import com.Yusuf.bentenmobmod.init.ItemInit;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
@@ -10,9 +10,8 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 
-
-public enum CustomArmorMaterial implements IArmorMaterial{
-	ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f, 
+public enum CustomArmorMaterial implements IArmorMaterial {
+	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.LEGENDARY_ORE.get()));
 
 	private static final int[] baseDurability = { 128, 144, 160, 112 };
@@ -23,36 +22,33 @@ public enum CustomArmorMaterial implements IArmorMaterial{
 	private final SoundEvent equipSound;
 	private final float toghness;
 	private final float knockbackResistance;
-	private final Ingredient repairIngredient; 
-	
-	
-	CustomArmorMaterial(String name, int durabilityMultiplier, int[] armorVal, int enchantability, 
+	private final Ingredient repairIngredient;
+
+	CustomArmorMaterial(String name, int durabilityMultiplier, int[] armorVal, int enchantability,
 			SoundEvent equipSound, float toghness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-			this.name = name;
-			this.durabilityMultiplier = durabilityMultiplier;
-			this.armorVal = armorVal;
-			this.enchantability = enchantability;
-			this.equipSound = equipSound;
-			this.toghness = toghness;
-			this.knockbackResistance = knockbackResistance;
-			this.repairIngredient = repairIngredient.get();
+		this.name = name;
+		this.durabilityMultiplier = durabilityMultiplier;
+		this.armorVal = armorVal;
+		this.enchantability = enchantability;
+		this.equipSound = equipSound;
+		this.toghness = toghness;
+		this.knockbackResistance = knockbackResistance;
+		this.repairIngredient = repairIngredient.get();
 	}
-	
-	
-	
+
 	@Override
 	public int getDurabilityForSlot(EquipmentSlotType slot) {
 		return baseDurability[slot.getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
-	public int getDefenseForSlot(EquipmentSlotType slot) { 
-			return this.armorVal[slot.getIndex()];
+	public int getDefenseForSlot(EquipmentSlotType slot) {
+		return this.armorVal[slot.getIndex()];
 	}
 
 	@Override
 	public int getEnchantmentValue() {
-		return this.enchantability;	
+		return this.enchantability;
 	}
 
 	@Override

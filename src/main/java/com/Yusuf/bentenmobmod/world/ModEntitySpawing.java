@@ -1,9 +1,7 @@
 
-
 package com.Yusuf.bentenmobmod.world;
 
-
-import com.Yusuf.bentenmobmod.core.init.EntityTypesInit;
+import com.Yusuf.bentenmobmod.init.EntityTypesInit;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
@@ -19,6 +17,5 @@ public class ModEntitySpawing {
 			event.getSpawns().getSpawner(EntityClassification.CREATURE)
 					.add(new MobSpawnInfo.Spawners(EntityTypesInit.VILGAX_ENTITY.get(), 1, 1, 1));
 
-		
 	}
 };
