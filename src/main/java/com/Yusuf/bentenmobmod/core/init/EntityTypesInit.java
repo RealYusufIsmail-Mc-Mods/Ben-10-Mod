@@ -17,7 +17,7 @@ public abstract class EntityTypesInit {
 			Main.MOD_ID);
 
 	public abstract void createStandardEntityType(CreateEntityType VariableDeclaratorId);
-	public void createStandardEntityType(createStandardEntityType)
+	public void createStandardEntityType(createStandardEntityType);
 	   
 	    private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
 				EntityClassification.CREATURE, 0.7f, 1.56f);
