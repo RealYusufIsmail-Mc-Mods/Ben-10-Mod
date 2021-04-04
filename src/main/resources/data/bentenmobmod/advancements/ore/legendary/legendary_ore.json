@@ -17,9 +17,21 @@
         "announce_to_chat": true,
         "hidden": false
     },
-    "criteria": {},
-    "rewards": {
-        "experience": 5
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:legendary_ore",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
     },
-    "parent": "bentenmobmod/legendary:root"
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:legendary_ore"
 }
