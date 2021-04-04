@@ -45,7 +45,7 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	private int exampleTimer;
 
 	public VilgaxEntity(EntityType<? extends VilgaxEntity> type, World worldIn) {
-		super(EntityType.IRON_GOLEM, worldIn);
+		super(type, worldIn);
 	}
 	  private AnimationFactory factory = new AnimationFactory(this);
 
