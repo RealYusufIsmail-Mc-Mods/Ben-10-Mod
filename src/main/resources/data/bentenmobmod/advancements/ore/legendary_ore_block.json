@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "bentenmobmod:legendary_ore_block"
+    },
+    "title": "Mined Legendery ore",
+    "description": "You just mined one of the most OP ores in the game ",
+    "background": "minecraft:textures/gui/advancements/backgrounds/end.png"
+  },
+	"parent": "bentenmobmod/ruby_ore",
+	"rewards": {
+		"experience": 5 
+		},
+  "criteria": {
+    "in": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmobmod:legendary_ore_block",
+            "count": 1
+          }
+        ]
+      }
+    }
+  }
+}
