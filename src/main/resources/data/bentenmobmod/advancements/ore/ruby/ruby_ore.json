@@ -7,6 +7,7 @@
     "description": "All you need to do know is smelt it.",
     "background": "minecraft:textures/gui/advancements/backgrounds/end.png"
   },
+  "parent": "bentenmobmod:ore",
   "criteria": {
     "in": {
       "trigger": "minecraft:inventory_changed",

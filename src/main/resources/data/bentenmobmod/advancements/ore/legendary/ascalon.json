@@ -1,0 +1,44 @@
+{
+    "display": {
+        "title": {
+            "text": "Made ASCALON",
+            "color": "dark_gray",
+            "bold": true,
+            "italic": true,
+            "underlined": false,
+            "strikethrough": false,
+            "obfuscated": false
+        },
+        "description": {
+            "text": "Made the greatest sword there is ",
+            "color": "aqua",
+            "bold": true
+        },
+        "icon": {
+            "item": "bentenmobmod:sword"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+     "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:sword",
+                        "count": 1
+ 							  }
+ 							 
+                             
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 1
+    },
+    "parent": "bentenmobmod/legendary:legendary_ore"
+}

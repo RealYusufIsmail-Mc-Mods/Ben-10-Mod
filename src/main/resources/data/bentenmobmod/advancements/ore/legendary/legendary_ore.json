@@ -1,0 +1,25 @@
+{
+    "display": {
+        "title": {
+            "text": "Smelted Legendary ore",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you smelted legendary ore and now you can make a sword and armour"
+        },
+        "icon": {
+            "item": "bentenmobmod:legendary_ore"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {},
+    "rewards": {
+        "experience": 5
+    },
+    "parent": "bentenmobmod/legendary:root"
+}

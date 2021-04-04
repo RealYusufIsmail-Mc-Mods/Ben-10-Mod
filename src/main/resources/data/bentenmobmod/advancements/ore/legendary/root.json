@@ -1,0 +1,43 @@
+{
+    "display": {
+        "title": {
+            "text": "Mined Legendary ore",
+            "color": "gold",
+            "bold": true,
+            "italic": false,
+            "underlined": false,
+            "strikethrough": false,
+            "obfuscated": false
+        },
+        "description": {
+            "text": "You just mined one of the most OP ores in the game",
+            "color": "blue",
+            "bold": true,
+            "underlined": true
+        },
+        "icon": {
+            "item": "bentenmobmod:legendary_ore_block"
+        },
+        "frame": "goal",
+        "show_toast": false,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/end.png"
+    },
+    "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:legendary_ore_block",
+                        "count": {
+                            "min": 1,
+                            "max": 1
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
