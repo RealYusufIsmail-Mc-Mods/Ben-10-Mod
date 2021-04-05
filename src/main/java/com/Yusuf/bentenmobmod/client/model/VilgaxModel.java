@@ -10,7 +10,7 @@ public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity>{
 
 	    public ResourceLocation getModelLocation(VilgaxEntity object)
 	    {
-	        return new ResourceLocation(Main.MOD_ID, "geo/VilgaxModel.geo.json");
+	        return new ResourceLocation(Main.MOD_ID, "geo/vilgaxmodel.geo.json");
 	    }
 
 	   
