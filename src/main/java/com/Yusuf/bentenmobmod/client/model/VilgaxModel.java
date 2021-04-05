@@ -1,20 +1,9 @@
-package com.Yusuf.bentenmobmod.client.model;
-
-import javax.swing.text.html.parser.Entity;
-
-import com.Yusuf.bentenmobmod.common.entities.VilgaxEntity;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-
 // Made with Blockbench 3.8.3
 // Exported for Minecraft version 1.15 - 1.16
 // Paste this class into your mod and generate all required imports
 
 
-public class VilgaxModel extends EntityModel<VilgaxEntity> {
+public class VilgaxModel extends EntityModel<Entity> {
 	private final ModelRenderer body;
 	private final ModelRenderer head;
 	private final ModelRenderer tentacle;
@@ -110,7 +99,8 @@ public class VilgaxModel extends EntityModel<VilgaxEntity> {
 		left_leg.setRotationPoint(3.0F, 8.0F, 0.0F);
 		left_leg.setTextureOffset(62, 69).addBox(-2.5F, 0.0F, -2.0F, 5.0F, 16.0F, 4.0F, 0.0F, false);
 	}
-	
+
+	@Override
 	public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
 		//previously the render function, render code was moved to a method below
 	}
@@ -130,18 +120,4 @@ public class VilgaxModel extends EntityModel<VilgaxEntity> {
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
 	}
-	@Override
-	public void setupAnim(VilgaxEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_,
-			float p_225597_5_, float p_225597_6_) {
-
-		
-	}
-
-	@Override
-	public void renderToBuffer(MatrixStack p_225598_1_, IVertexBuilder p_225598_2_, int p_225598_3_, int p_225598_4_,
-			float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
-		// TODO Auto-generated method stub
-		
-	}
-}
 }
