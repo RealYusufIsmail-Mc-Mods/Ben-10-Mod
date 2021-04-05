@@ -1,3 +1,11 @@
+import javax.swing.text.html.parser.Entity;
+
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
+
 // Made with Blockbench 3.8.3
 // Exported for Minecraft version 1.15 - 1.16
 // Paste this class into your mod and generate all required imports
