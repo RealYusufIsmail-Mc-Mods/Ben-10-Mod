@@ -1,9 +1,14 @@
-// Made with Blockbench 3.8.3
-// Exported for Minecraft version 1.15 - 1.16
-// Paste this class into your mod and generate all required imports
+package com.Yusuf.bentenmobmod.client.model;
 
+import com.Yusuf.bentenmobmod.common.entities.VilgaxEntity;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 
-public class ben10 extends EntityModel<Entity> {
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+
+public class VilgaxModel extends EntityModel<VilgaxEntity> {
 	private final ModelRenderer body;
 	private final ModelRenderer head;
 	private final ModelRenderer tentacle;
@@ -18,7 +23,7 @@ public class ben10 extends EntityModel<Entity> {
 	private final ModelRenderer right_leg;
 	private final ModelRenderer left_leg;
 
-	public ben10() {
+	public VilgaxModel() {
 		textureWidth = 128;
 		textureHeight = 128;
 
@@ -100,9 +105,7 @@ public class ben10 extends EntityModel<Entity> {
 		left_leg.setTextureOffset(62, 69).addBox(-2.5F, 0.0F, -2.0F, 5.0F, 16.0F, 4.0F, 0.0F, false);
 	}
 
-	@Override
 	public void setRotationAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch){
-		//previously the render function, render code was moved to a method below
 	}
 
 	@Override
@@ -119,5 +122,19 @@ public class ben10 extends EntityModel<Entity> {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
+	}
+
+	@Override
+	public void setupAnim(VilgaxEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_,
+			float p_225597_5_, float p_225597_6_) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void renderToBuffer(MatrixStack p_225598_1_, IVertexBuilder p_225598_2_, int p_225598_3_, int p_225598_4_,
+			float p_225598_5_, float p_225598_6_, float p_225598_7_, float p_225598_8_) {
+		// TODO Auto-generated method stub
+		
 	}
 }

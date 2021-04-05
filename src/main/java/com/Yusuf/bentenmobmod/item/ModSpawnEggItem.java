@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod.objects.items;
+package com.Yusuf.bentenmobmod.item;
 
 import java.util.ArrayList;
 import java.util.List;

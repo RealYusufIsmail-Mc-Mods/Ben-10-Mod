@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod.core.init;
+package com.Yusuf.bentenmobmod.init;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.world.gen.GenerationStage;
