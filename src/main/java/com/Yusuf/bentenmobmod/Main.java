@@ -3,6 +3,7 @@ package com.Yusuf.bentenmobmod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.Yusuf.bentenmobmod.common.entities.VilgaxEntity;
 import com.Yusuf.bentenmobmod.init.BlockInit;
 import com.Yusuf.bentenmobmod.init.EntityTypesInit;
 import com.Yusuf.bentenmobmod.init.FeatureInit;
@@ -21,6 +22,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -43,9 +45,9 @@ public class Main {
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
 
-		EntityTypesInit.ENTITY_TYPES.register(bus);
 
 	}
+
 
 	@SubscribeEvent
 	public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
