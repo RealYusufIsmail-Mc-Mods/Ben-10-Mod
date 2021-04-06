@@ -2,7 +2,7 @@
 package com.Yusuf.bentenmobmod.init;
 
 import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.common.entity.VilgaxEntity;
+import com.Yusuf.bentenmobmod.entity.VilgaxEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
