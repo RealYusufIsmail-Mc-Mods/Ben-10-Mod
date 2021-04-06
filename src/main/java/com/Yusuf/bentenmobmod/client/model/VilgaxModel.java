@@ -28,6 +28,6 @@ public class VilgaxModel<B extends CreatureEntity> extends AnimatedGeoModel<Vilg
 	@Override
 	    public ResourceLocation getTextureLocation(VilgaxEntity object)
 	    {
-		 return null;
+		return new ResourceLocation(Main.MOD_ID, "textures/model/entities/vilgax/vilgax_entity.png");
 	    }
 }
