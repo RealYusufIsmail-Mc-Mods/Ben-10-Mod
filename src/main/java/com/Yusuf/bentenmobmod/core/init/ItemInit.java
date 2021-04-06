@@ -1,10 +1,10 @@
-package com.Yusuf.bentenmobmod.init;
+package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
+import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.Yusuf.bentenmobmod.item.ModSpawnEggItem;
-import com.Yusuf.bentenmobmod.itemgroup.MainItemGroup;
 
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;

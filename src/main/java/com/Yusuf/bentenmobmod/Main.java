@@ -3,12 +3,12 @@ package com.Yusuf.bentenmobmod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.Yusuf.bentenmobmod.init.BlockInit;
-import com.Yusuf.bentenmobmod.init.EntityTypesInit;
-import com.Yusuf.bentenmobmod.init.FeatureInit;
-import com.Yusuf.bentenmobmod.init.ItemInit;
+import com.Yusuf.bentenmobmod.core.init.BlockInit;
+import com.Yusuf.bentenmobmod.core.init.EntityTypesInit;
+import com.Yusuf.bentenmobmod.core.init.FeatureInit;
+import com.Yusuf.bentenmobmod.core.init.ItemInit;
+import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.Yusuf.bentenmobmod.item.ModSpawnEggItem;
-import com.Yusuf.bentenmobmod.itemgroup.MainItemGroup;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;

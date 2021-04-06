@@ -22,6 +22,9 @@
   "item.bentenmobmod.chestplate": "Knight Chestplate",
   "item.bentenmobmod.omnitrix_apple": "Omnitrix Apple",
   "item.bentenmobmod.enchanted_omnitrix_apple": "Enchanted Ominitrix Apple",
-  "itemGroup.main": "Ben 10 mob mod items"
+  "itemGroup.main": "Ben 10 mob mod items",
+  "key.category.bentenmobmod": "Ben ten mob mod Keybinds",
+  "key.bentenmobmod.fireblast_key": "Fire Blast"
+  
 }   
     

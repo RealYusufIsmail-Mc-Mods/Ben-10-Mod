@@ -1,5 +1,5 @@
 
-package com.Yusuf.bentenmobmod.init;
+package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.entity.VilgaxEntity;

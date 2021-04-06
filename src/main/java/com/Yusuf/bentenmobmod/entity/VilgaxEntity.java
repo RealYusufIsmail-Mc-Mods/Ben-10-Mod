@@ -101,13 +101,18 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 		@Override
 		public void registerControllers(AnimationData data)
 		{
-			data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
+			data.addAnimationController(new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
 		}
 		
 		public ResourceLocation getAnimationFileLocation(VilgaxEntity VilgaxEntity) {
 	        return new ResourceLocation(Main.MOD_ID, "animation/vilgax.animation.json");
 
 	    }
+
+		public void setAttacking(boolean attacking) {
+			this.setOnGround(attacking);
+		}
+		
 		@Override
 		public AnimationFactory getFactory()
 		{

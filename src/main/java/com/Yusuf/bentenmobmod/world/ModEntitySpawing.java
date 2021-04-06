@@ -1,7 +1,7 @@
 
 package com.Yusuf.bentenmobmod.world;
 
-import com.Yusuf.bentenmobmod.init.EntityTypesInit;
+import com.Yusuf.bentenmobmod.core.init.EntityTypesInit;
 
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;

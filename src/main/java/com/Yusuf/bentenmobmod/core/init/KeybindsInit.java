@@ -1,4 +1,6 @@
-package com.Yusuf.bentenmobmod.init;
+package com.Yusuf.bentenmobmod.core.init;
+
+import java.awt.event.KeyEvent;
 
 import com.Yusuf.bentenmobmod.Main;
 
@@ -15,7 +17,8 @@ public class KeybindsInit {
 	
 	public static void register(final FMLClientSetupEvent event) {
 		
-	}
+		fireblastKey = create("fireblast_key", KeyEvent.VK_K);
+	} 
 	
 	private static KeyBinding create(String name, int key) {
 		return new KeyBinding("key." + Main.MOD_ID + "." + name , key, "key.category." + Main.MOD_ID);

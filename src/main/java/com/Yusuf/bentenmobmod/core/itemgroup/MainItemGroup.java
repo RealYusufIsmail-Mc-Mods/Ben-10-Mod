@@ -1,6 +1,6 @@
-package com.Yusuf.bentenmobmod.itemgroup;
+package com.Yusuf.bentenmobmod.core.itemgroup;
 
-import com.Yusuf.bentenmobmod.init.ItemInit;
+import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

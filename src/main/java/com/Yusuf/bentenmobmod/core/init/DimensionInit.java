@@ -1,4 +1,4 @@
-/*package com.Yusuf.bentenmobmod.core.init;
+package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
 
@@ -9,11 +9,10 @@ import net.minecraft.world.DimensionType;
 
 public class DimensionInit {
 	public static final RegistryKey<DimensionType> VILGAX_DIMENSION = RegistryKey
-			.getOrCreateKey(Registry.DIMENSION_TYPE_KEY, new ResourceLocation(Main.MOD_ID, "vilgax_domension"));
+			.create(Registry.DIMENSION_TYPE_REGISTRY, new ResourceLocation(Main.MOD_ID, "vilgax_dimension"));
 	
 //	public static final RegistryKey<World> DUNGEON_WORLD = RegistryKey.getOrCreateKey(Registry.WORLD_KEY,
-//			new ResourceLocation(BetterDungeons.MOD_ID, "dungeon"));
+//			new ResourceLocation(Main.MOD_ID, "vilgax"));
 	
 }
 
-*/

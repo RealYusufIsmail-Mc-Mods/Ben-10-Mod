@@ -5,7 +5,7 @@
     "offsetY": 0,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -15,7 +15,7 @@
     "offsetY": 0,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -25,7 +25,7 @@
     "offsetY": -1,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -35,7 +35,7 @@
     "offsetY": -1,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -45,7 +45,7 @@
     "offsetY": -2,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -55,7 +55,7 @@
     "offsetY": -2,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -65,7 +65,7 @@
     "offsetY": -3,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
