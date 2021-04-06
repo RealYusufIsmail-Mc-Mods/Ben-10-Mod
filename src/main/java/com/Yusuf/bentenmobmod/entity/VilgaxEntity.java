@@ -2,6 +2,8 @@
 
 package com.Yusuf.bentenmobmod.entity;
 
+import com.Yusuf.bentenmobmod.Main;
+
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -19,9 +21,9 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -38,23 +40,18 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
     private static final DataParameter<Boolean> ATTACKING = EntityDataManager.createKey(VilgaxEntity.class, DataSerializers.BOOLEAN);;
 	
 	private AnimationFactory factory = new AnimationFactory(this);
-	
-	
 
-	 private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-	        if (event.isMoving() && !this.dataManager.get(WALIKING)) {
-	            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.walking", true));
-	            return PlayState.CONTINUE;
-	        }
-	       
-			if (this.dataManager.get(ATTACKING)) {
-	            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.attacking", true));
-	            return PlayState.CONTINUE;
-	        }else
-	            event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
-	        return PlayState.CONTINUE;
-	        
-	    }
+	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.walking", true));
+            return PlayState.CONTINUE;
+        }
+        if (!this.onGround) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.attacking", true));
+            return PlayState.CONTINUE;
+        }
+        return PlayState.STOP;
+    }
 			public VilgaxEntity(EntityType<? extends CreatureEntity> type, World worldIn)
 			{
 				super(type, worldIn);
@@ -92,9 +89,6 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	      return SoundEvents.ENDER_DRAGON_AMBIENT;
 	   }
 	
-public boolean isNotColliding(IWorldReader worldIn) {
-    return worldIn.checkNoEntityCollision(this);
-}
 
 	   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
 	      return SoundEvents.ENDER_DRAGON_HURT;
@@ -108,22 +102,24 @@ public boolean isNotColliding(IWorldReader worldIn) {
 	      return SoundEvents.IRON_GOLEM_STEP;
 	   }
 
+	   
 		@Override
 		public void registerControllers(AnimationData data)
 		{
 			data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
 		}
-
+		
+		
+		public ResourceLocation getAnimationFileLocation(VilgaxEntity VilgaxEntity) {
+			return new ResourceLocation(Main.MOD_ID,  ) {
+			}:"animation/vilgax.animation.json");
+		}
+		
 		@Override
 		public AnimationFactory getFactory()
 		{
 			return this.factory;
 		}
 
-	    protected void registerData() {
-	        super.registerData();
-	        this.dataManager.register(WALIKING, false);
-	        this.dataManager.register(ATTACKING, Boolean.valueOf(false));
-
-	    }
+	    
 };
