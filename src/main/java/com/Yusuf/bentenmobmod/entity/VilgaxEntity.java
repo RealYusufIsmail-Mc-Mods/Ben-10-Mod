@@ -17,9 +17,6 @@ import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -36,8 +33,6 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 public class VilgaxEntity extends CreatureEntity implements IAnimatable 
 
 {
-	private static final DataParameter<Boolean> WALIKING = EntityDataManager.createKey(VilgaxEntity.class,DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> ATTACKING = EntityDataManager.createKey(VilgaxEntity.class, DataSerializers.BOOLEAN);;
 	
 	private AnimationFactory factory = new AnimationFactory(this);
 
@@ -109,11 +104,10 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 			data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
 		}
 		
-		
 		public ResourceLocation getAnimationFileLocation(VilgaxEntity VilgaxEntity) {
-			return new ResourceLocation(Main.MOD_ID,  p_i1293_1_:"animation/vilgax.animation.json");
-		}
-		
+	        return new ResourceLocation(Main.MOD_ID, "animation/vilgax.animation.json");
+
+	    }
 		@Override
 		public AnimationFactory getFactory()
 		{
