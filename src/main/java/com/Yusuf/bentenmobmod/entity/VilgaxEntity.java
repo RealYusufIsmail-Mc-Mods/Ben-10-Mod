@@ -63,7 +63,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	public static class ClientSetup {
 	    @SubscribeEvent
 	    public static void init(final FMLClientSetupEvent event) {
-	    	RenderingRegistry.registerEntityRenderingHandler;
+	    	RenderingRegistry.registerEntityRenderingHandler(getType(), init(event));			
 	    }
 	}
 	@Override
