@@ -17,7 +17,7 @@ public class VilgaxGeoRenderer extends GeoEntityRenderer<VilgaxEntity>
   
 	public VilgaxGeoRenderer(EntityRendererManager renderManager)
 	{
-		super(renderManager, new VilgaxModel());
+		super(renderManager, new VilgaxModel<>());
 	}
 
 	public RenderType getRenderType(VilgaxEntity animatable, float partialTicks, MatrixStack stack, IRenderTypeBuffer renderTypeBuffer, IVertexBuilder vertexBuilder, int packedLightIn, ResourceLocation textureLocation)

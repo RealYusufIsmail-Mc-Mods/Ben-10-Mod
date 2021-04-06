@@ -22,6 +22,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -54,9 +58,12 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 			}
 
 	
-
-		
-
+	@Mod.EventBusSubscriber(modid = Main.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD) 	
+	public static class ClientSetup {
+	    @SubscribeEvent
+	    public static void init(final FMLClientSetupEvent event) {
+	    }
+	}
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
@@ -65,7 +72,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
 		this.applyEntityAI();
 	}
-
+	
 	protected void applyEntityAI() {
 
 		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -77,10 +84,13 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	        return MobEntity.createMobAttributes()
 	                .add(Attributes.MAX_HEALTH, 47.0D)
 	                .add(Attributes.FOLLOW_RANGE, 35.0D)
+	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
 	                .add(Attributes.ATTACK_DAMAGE, 10.0D);
-	  }
-	  protected SoundEvent getAmbientSound() {
+                    
+	 }
+	        
+	 	protected SoundEvent getAmbientSound() {
 	      return SoundEvents.ENDER_DRAGON_AMBIENT;
 	   }
 	
@@ -97,6 +107,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	      return SoundEvents.IRON_GOLEM_STEP;
 	   }
 
+	   
 	   
 		@Override
 		public void registerControllers(AnimationData data)

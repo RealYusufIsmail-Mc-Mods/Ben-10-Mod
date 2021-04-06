@@ -22,6 +22,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
 @Mod("bentenmobmod")
@@ -37,7 +38,9 @@ public class Main {
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
 		EntityTypesInit.ENTITY_TYPES.register(bus);
+		GeckoLibMod.DISABLE_IN_DEV = false;
 		GeckoLib.initialize();
+		
 
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
