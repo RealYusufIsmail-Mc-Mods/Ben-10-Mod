@@ -2,7 +2,7 @@
 package com.Yusuf.bentenmobmod.init;
 
 import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.common.entities.VilgaxEntity;
+import com.Yusuf.bentenmobmod.common.entity.VilgaxEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
@@ -18,7 +18,7 @@ public abstract class EntityTypesInit {
 	
 
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
-			EntityClassification.CREATURE, 0.7f, 1.56f);
+			EntityClassification.CREATURE, 3f, 4.5f);
 
 	// registering the entities
 	public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",

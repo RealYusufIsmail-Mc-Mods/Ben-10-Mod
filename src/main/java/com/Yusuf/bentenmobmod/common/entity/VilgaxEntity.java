@@ -1,8 +1,9 @@
 
 
-package com.Yusuf.bentenmobmod.common.entities;
+package com.Yusuf.bentenmobmod.common.entity;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -22,10 +23,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -34,32 +32,31 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class VilgaxEntity extends MobEntity implements IAnimatable {
-	public float prevSitProgress;
-	private static final DataParameter<Boolean> WALKING = EntityDataManager.defineId(VilgaxEntity.class,DataSerializers.BOOLEAN);
-	private static final DataParameter<Boolean> HITTING = EntityDataManager.defineId(VilgaxEntity.class,
-			DataSerializers.BOOLEAN);;
+public class VilgaxEntity extends CreatureEntity implements IAnimatable 
+{
+	
+	private AnimationFactory factory = new AnimationFactory(this);
+	
+	
+	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+		
+		
+		event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.walking", true));
+		return PlayState.CONTINUE;
+		
+		event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.attacking", true));
+		return PlayState.CONTINUE;
+	}
 	
 
-	private int exampleTimer;
 
-	public VilgaxEntity(EntityType<? extends VilgaxEntity> type, World worldIn) {
-        super(type, worldIn);
-	}
-	  private AnimationFactory factory = new AnimationFactory(this);
+			public VilgaxEntity(EntityType<? extends CreatureEntity> type, World worldIn)
+			{
+				super(type, worldIn);
+			
+			}
 
-	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-		if (event.isMoving() && !this.entityData.get(WALKING)) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
-            return PlayState.CONTINUE;
-        } if (this.entityData.get(HITTING)) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("hitting", true));
-            return PlayState.CONTINUE;
-        }
-		else
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
-        return PlayState.CONTINUE;
-	}
+	
 
 		
 
@@ -103,68 +100,15 @@ public class VilgaxEntity extends MobEntity implements IAnimatable {
 	      return SoundEvents.IRON_GOLEM_STEP;
 	   }
 
-	   protected void playStepSound(BlockPos p_180429_1_, BlockState p_180429_2_) {
-	      this.playSound(this.getStepSound(), 0.15F, 1.0F);
-	   }
-	   @Override
-	    public AnimationFactory getFactory() {
-	        return this.factory;
-	    }
-
-
-	@Override
-	public void aiStep() {
-		if (this.level.isClientSide) {
-			this.exampleTimer = Math.max(0, this.exampleTimer - 1);
+		@Override
+		public void registerControllers(AnimationData data)
+		{
+			data.addAnimationController(new AnimationController(this, "controller", 0, this::predicate));
 		}
-		super.aiStep();
-	}
 
-	@OnlyIn(Dist.CLIENT)
-	public void handleEntityEvent(byte id) {
-		if (id == 10) {
-			this.exampleTimer = 40;
-		} else {
-			super.handleEntityEvent(id);
+		@Override
+		public AnimationFactory getFactory()
+		{
+			return this.factory;
 		}
-	}
-
-	public boolean checkSpawnObstruction(IWorldReader worldIn) {
-		return worldIn.isUnobstructed(this);
-	}
-
-	@Override
-	protected int getExperienceReward(PlayerEntity player) {
-		return 60;
-	}
-
-	public int getMaxSpawnClusterSize() {
-		return 1;
-	}
-
-	@Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController<>(this, "controller", 0, this::predicate));
-    }
-
-	    protected void entityData() {
-	       
-		 this.entityData.define(WALKING, false);
-		 this.entityData.define(HITTING, false);
-		 
-	     
-	    }
-	 public boolean isWalking() {
-	        return this.entityData.get(WALKING).booleanValue();
-	    }
-	 
-
-
-
-	
-
-	
-
-	 
 };
-
