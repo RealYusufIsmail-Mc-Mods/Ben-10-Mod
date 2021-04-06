@@ -111,8 +111,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 		
 		
 		public ResourceLocation getAnimationFileLocation(VilgaxEntity VilgaxEntity) {
-			return new ResourceLocation(Main.MOD_ID,  ) {
-			}:"animation/vilgax.animation.json");
+			return new ResourceLocation(Main.MOD_ID,  p_i1293_1_:"animation/vilgax.animation.json");
 		}
 		
 		@Override
