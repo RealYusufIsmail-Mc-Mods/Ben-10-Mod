@@ -75,7 +75,7 @@
     "offsetY": -3,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -85,7 +85,7 @@
     "offsetY": -4,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
@@ -95,7 +95,7 @@
     "offsetY": -4,
     "predicate": {
       "block": {
-        "block": "bentenmobmod:vilgax_block"
+        "block": "minecraft:emerald_block"
       }
     }
   },
