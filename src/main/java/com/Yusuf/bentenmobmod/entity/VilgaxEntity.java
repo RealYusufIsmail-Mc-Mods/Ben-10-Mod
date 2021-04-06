@@ -24,6 +24,7 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -62,7 +63,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	public static class ClientSetup {
 	    @SubscribeEvent
 	    public static void init(final FMLClientSetupEvent event) {
-	    	
+	    	RenderingRegistry.registerEntityRenderingHandler;
 	    }
 	}
 	@Override
