@@ -29,9 +29,16 @@ PierogiP: https://www.curseforge.com/members/polisch_pierogi/
     versionRange="[35,)" 
     ordering="NONE"
     side="BOTH"
-[[dependencies.ben10mobmod]]
+[[dependencies.bentenmobmod]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5,)"
     ordering="NONE"
+    side="BOTH"
+    
+    [[dependencies.bentenmobmod]]
+    modId="geckolib3"
+    mandatory=true
+    versionRange="[3.0.15,)"
+    ordering="BEFORE"
     side="BOTH"
