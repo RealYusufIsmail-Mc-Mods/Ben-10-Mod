@@ -4,6 +4,7 @@ package com.Yusuf.bentenmobmod.entity;
 
 import com.Yusuf.bentenmobmod.Main;
 
+import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -17,11 +18,16 @@ import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -33,6 +39,9 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 public class VilgaxEntity extends CreatureEntity implements IAnimatable 
 
 {
+	
+	private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(VilgaxEntity.class,
+			DataSerializers.BOOLEAN);
 	
 	private AnimationFactory factory = new AnimationFactory(this);
 
@@ -111,16 +120,45 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	        return new ResourceLocation(Main.MOD_ID, "animation/vilgax.animation.json");
 
 	    }
-
-		public void setAttacking(boolean attacking) {
-			this.setOnGround(attacking);
-		}
 		
 		@Override
 		public AnimationFactory getFactory()
 		{
 			return this.factory;
 		}
+		@Override
+		protected void defineSynchedData() {
+			super.defineSynchedData();
+			this.entityData.define(ATTACKING, false);
+		}
 
+		@OnlyIn(Dist.CLIENT)
+		public boolean isAttacking() {
+			return this.entityData.get(ATTACKING);
+		}
+		public void setAttacking(boolean attacking) {
+			this.entityData.set(ATTACKING, attacking);
+		}
+		@Override
+		public boolean isBaby() {
+			return false;
+		}
+
+		protected boolean shouldDrown() {
+			return false;
+		}
+
+		protected boolean shouldBurnInDay() {
+			return false;
+		}
+		@Override
+		public CreatureAttribute getMobType() {
+			return CreatureAttribute.UNDEAD;
+		}
+
+		@Override
+		public int getMaxSpawnClusterSize() {
+			return 1;
+		}
 	    
 };

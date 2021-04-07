@@ -3,8 +3,6 @@ package com.Yusuf.bentenmobmod.client;
 import java.awt.Color;
 import java.util.Collections;
 
-import javax.swing.text.html.parser.Entity;
-
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import net.minecraft.client.Minecraft;

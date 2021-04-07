@@ -3,14 +3,13 @@ package com.Yusuf.bentenmobmod.client.model;
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.entity.VilgaxEntity;
 
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 @OnlyIn(Dist.CLIENT)
-public class VilgaxModel<B extends CreatureEntity> extends AnimatedGeoModel<VilgaxEntity> {
+public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity> {
 	
 	public VilgaxModel() {
 	}
@@ -30,7 +29,7 @@ public class VilgaxModel<B extends CreatureEntity> extends AnimatedGeoModel<Vilg
 	@Override
 	    public ResourceLocation getAnimationFileLocation(VilgaxEntity object)
 	    {
-	        return new ResourceLocation(Main.MOD_ID, "animations/vilgax.animation.json");
+	        return new ResourceLocation(Main.MOD_ID, "animation/vilgax.animation.json");
 	    }
 
 	

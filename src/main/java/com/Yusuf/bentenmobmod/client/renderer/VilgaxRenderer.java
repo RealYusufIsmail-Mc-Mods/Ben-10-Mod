@@ -22,9 +22,12 @@ public VilgaxRenderer(EntityRendererManager renderManagerIn) {
 	}
 
 
-public RenderType getRenderType(VilgaxRenderer animatable, float partialTicks, MatrixStack stack,
+public RenderType getRenderType(VilgaxEntity animatable, float partialTicks, MatrixStack stack,
 		IRenderTypeBuffer renderTypeBuffer, IVertexBuilder vertexBuilder, int packedLightIn,
 		ResourceLocation textureLocation) {
 	return RenderType.entityTranslucent(getTextureLocation(animatable));
 }
+
+
+
 }
