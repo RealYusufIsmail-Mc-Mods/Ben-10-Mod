@@ -13,6 +13,7 @@ import software.bernie.example.GeckoLibMod;
 
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonListener {
+	@SuppressWarnings("deprecation")
 	@SubscribeEvent
     public static void registerEntityAttributes(FMLCommonSetupEvent event) {
         if (!FMLEnvironment.production && !GeckoLibMod.DISABLE_IN_DEV) {
