@@ -36,7 +36,7 @@ public class ItemInit {
 
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f,
-					new Item.Properties().durability(400).tab(MainItemGroup.MAIN))))))));;
+					new Item.Properties().durability(400).tab(MainItemGroup.MAIN))))))));
 
 	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
 			() -> new AxeItem(CustomToolMaterial.TOOL, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
