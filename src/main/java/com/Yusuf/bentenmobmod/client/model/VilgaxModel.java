@@ -11,6 +11,9 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 @OnlyIn(Dist.CLIENT)
 public class VilgaxModel<B extends CreatureEntity> extends AnimatedGeoModel<VilgaxEntity> {
+	
+	public VilgaxModel() {
+	}
 
 	@Override
 	    public ResourceLocation getModelLocation(VilgaxEntity object)
@@ -18,6 +21,11 @@ public class VilgaxModel<B extends CreatureEntity> extends AnimatedGeoModel<Vilg
 	        return new ResourceLocation(Main.MOD_ID, "geo/vilgax.geo.json");
 	    }
 
+	@Override
+    public ResourceLocation getTextureLocation(VilgaxEntity object)
+    {
+	return new ResourceLocation(Main.MOD_ID, "textures/model/entities/vilgax/vilgax_entity.png");
+    }
 
 	@Override
 	    public ResourceLocation getAnimationFileLocation(VilgaxEntity object)
@@ -25,9 +33,5 @@ public class VilgaxModel<B extends CreatureEntity> extends AnimatedGeoModel<Vilg
 	        return new ResourceLocation(Main.MOD_ID, "animations/vilgax.animation.json");
 	    }
 
-	@Override
-	    public ResourceLocation getTextureLocation(VilgaxEntity object)
-	    {
-		return new ResourceLocation(Main.MOD_ID, "textures/model/entities/vilgax/vilgax_entity.png");
-	    }
+	
 }
