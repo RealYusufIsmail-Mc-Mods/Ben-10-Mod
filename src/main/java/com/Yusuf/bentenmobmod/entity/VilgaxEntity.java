@@ -10,12 +10,13 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
-import net.minecraft.entity.monster.AbstractSkeletonEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
@@ -42,6 +43,12 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	
 	private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(VilgaxEntity.class,
 			DataSerializers.BOOLEAN);
+
+	public VilgaxEntity(EntityType<? extends CreatureEntity> type, World worldIn)
+	{
+		super(type, worldIn);
+	
+	}
 	
 	private AnimationFactory factory = new AnimationFactory(this);
 
@@ -56,34 +63,20 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
         }
         return PlayState.STOP;
     }
-			public VilgaxEntity(EntityType<? extends CreatureEntity> type, World worldIn)
-			{
-				super(type, worldIn);
-			
-			}
+	
+	 @Override
+		public void registerControllers(AnimationData data) {
+			data.addAnimationController(new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
+		}
+		
 
 	
 
 	
-	@Override
-	protected void registerGoals() {
-		super.registerGoals();
-		this.goalSelector.addGoal(1, new SwimGoal(this));
-		this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 6.0F));
-		this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
-		this.applyEntityAI();
-	}
 	
-	protected void applyEntityAI() {
-
-		this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
-		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, AbstractSkeletonEntity.class, false));
-	}
 	 public static AttributeModifierMap.MutableAttribute registerAttributes() {
 	        return MobEntity.createMobAttributes()
-	                .add(Attributes.MAX_HEALTH, 300.0D)
+	                .add(Attributes.MAX_HEALTH, 50.0D)
 	                .add(Attributes.FOLLOW_RANGE, 35.0D)
 	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
@@ -108,18 +101,6 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	      return SoundEvents.IRON_GOLEM_STEP;
 	   }
 
-	   
-	   
-		@Override
-		public void registerControllers(AnimationData data)
-		{
-			data.addAnimationController(new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
-		}
-		
-		public ResourceLocation getAnimationFileLocation(VilgaxEntity VilgaxEntity) {
-	        return new ResourceLocation(Main.MOD_ID, "animation/vilgax.animation.json");
-
-	    }
 		
 		@Override
 		public AnimationFactory getFactory()
@@ -160,5 +141,31 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 		public int getMaxSpawnClusterSize() {
 			return 1;
 		}
-	    
+		@Override
+		protected void registerGoals() {
+			super.registerGoals();
+			this.goalSelector.addGoal(1, new SwimGoal(this));
+			this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 6.0F));
+			this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
+			this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
+			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
+			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
+			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
+			this.targetSelector.addGoal(1, (new HurtByTargetGoal(this).setAlertOthers()));
+		}
+		@Override
+		public void onSyncedDataUpdated(DataParameter<?> key) {
+			super.onSyncedDataUpdated(key);
+		}
+
+		@Override
+		public void tick() {
+			super.tick();
+		}
+
+		@Override
+		public void aiStep() {
+			super.aiStep();
+		}
 };
