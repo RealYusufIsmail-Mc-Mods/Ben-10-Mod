@@ -29,7 +29,7 @@ public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity> {
 	@Override
 	    public ResourceLocation getAnimationFileLocation(VilgaxEntity object)
 	    {
-	        return new ResourceLocation(Main.MOD_ID, "animation/vilgax.animation.json");
+	        return new ResourceLocation(Main.MOD_ID, "animations/vilgax.animation.json");
 	    }
 
 	
