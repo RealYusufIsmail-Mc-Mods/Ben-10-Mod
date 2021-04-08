@@ -77,7 +77,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
 	                .add(Attributes.ATTACK_DAMAGE, 10.0D)
-	                .add(Attributes.MAX_HEALTH, 50.0D);
+	                .add(Attributes.MAX_HEALTH, 500.0D);
 	        
                     
 	 }
