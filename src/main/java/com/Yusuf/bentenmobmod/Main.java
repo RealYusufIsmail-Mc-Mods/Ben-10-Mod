@@ -54,12 +54,12 @@ public class Main {
 
 
 	@EventBusSubscriber(modid= Main.MOD_ID, bus=Bus.MOD)
-	public class CommonModEvents
+	public static class CommonModEvents
 	{
 	  // SubscribeEvent tells forge to subscribe this method as an event listener
 	  @SubscribeEvent
 	  // method must be public and static for EBS/SubscribeEvent to work
-	  public void onRegisterEntityAttributes(EntityAttributeCreationEvent event)
+	  public static void onRegisterEntityAttributes(EntityAttributeCreationEvent event)
 	  {
 	    // use event.put to register attributes
 		  
@@ -83,5 +83,6 @@ public class Main {
 		});
 
 	}
+	
 
 }

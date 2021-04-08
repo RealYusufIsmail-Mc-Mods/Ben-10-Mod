@@ -1,0 +1,76 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:heightmap",
+            "config": {}
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:count",
+                "config": {
+                  "count": 128
+                }
+              },
+              "inner": {
+                "type": "minecraft:decorated",
+                "config": {
+                  "outer": {
+                    "type": "minecraft:square",
+                    "config": {}
+                  },
+                  "inner": {
+                    "type": "minecraft:decorated",
+                    "config": {
+                      "outer": {
+                        "type": "minecraft:count_noise_biased",
+                        "config": {
+                          "noise_to_count_ratio": 1,
+                          "noise_factor": 120,
+                          "noise_offset": 0.25
+                        }
+                      },
+                      "inner": {
+                        "type": "minecraft:count_noise_biased",
+                        "config": {
+                          "noise_to_count_ratio": -1,
+                          "noise_factor": 120,
+                          "noise_offset": 0.2
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:ore",
+        "config": {
+          "state": {
+            "Name": "minecraft:podzol",
+            "Properties": {
+                "snowy":"false"
+            }
+          },
+          "size": 64,
+          "target": {
+            "predicate_type": "minecraft:blockstate_match",
+            "block_state": {
+              "Name": "minecraft:grass_block",
+              "Properties": {
+                "snowy": "false"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

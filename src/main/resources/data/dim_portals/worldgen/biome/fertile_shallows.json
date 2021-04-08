@@ -1,0 +1,58 @@
+{
+    "surface_builder": "minecraft:ocean_sand",
+    "depth": -1,
+    "scale": 0.05,
+    "temperature": 0.8,
+    "downfall": 0.4,
+    "precipitation": "rain",
+    "category": "ocean",
+    "player_spawn_friendly": false,
+    "effects": {
+      "sky_color": 7907327,
+      "fog_color": 12638463,
+      "water_color": 5286088,
+      "water_fog_color": 1250244
+    },
+    "starts": [
+      "minecraft:shipwreck"
+    ],
+    "spawners": {},
+    "spawn_costs": {},
+    "carvers": {
+      "liquid": [
+        "minecraft:canyon",
+        "minecraft:cave"
+      ]
+    },
+    "features": [
+        [
+          "dim_portals:fertile_tides/block_pile"
+        ],
+        [
+          "minecraft:ore_diamond",
+          "minecraft:ore_gold",
+          "minecraft:ore_lapis",
+          "minecraft:ore_iron",
+          "minecraft:ore_coal",
+          "minecraft:ore_redstone",
+          "minecraft:ore_andesite",
+          "minecraft:ore_granite",
+          "minecraft:ore_diorite",
+          "minecraft:ore_dirt",
+          "minecraft:ore_gravel"
+        ],
+        [],
+        [],
+        [
+          "dim_portals:fertile_tides/kelp_pile",
+          "dim_portals:fertile_shallows/large_kelp_patch_modified",
+          "dim_portals:fertile_tides/pickles"
+        ],
+        [
+          "minecraft:kelp_warm",
+          "minecraft:kelp_warm",
+          "minecraft:seagrass_warm",
+          "minecraft:seagrass_warm"
+        ]
+    ]
+  }

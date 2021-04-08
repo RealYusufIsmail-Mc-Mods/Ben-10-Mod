@@ -1,0 +1,100 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": 5
+            }
+          },
+          "inner": {
+            "type": "minecraft:square",
+            "config": {}
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:tree",
+        "config": {
+          "max_water_depth": 0,
+          "ignore_vines": false,
+          "heightmap": "OCEAN_FLOOR_WG",
+          "minimum_size": {
+            "type": "minecraft:two_layers_feature_size",
+            "min_clipped_height": 1,
+            "limit": 1,
+            "lower_size": 1,
+            "upper_size": 1
+          },
+          "trunk_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:air"
+            }
+          },
+          "leaves_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:air"
+            }
+          },
+          "trunk_placer": {
+            "type": "minecraft:straight_trunk_placer",
+            "base_height": 1,
+            "height_rand_a": 0,
+            "height_rand_b": 0
+          },
+          "foliage_placer": {
+            "type": "minecraft:blob_foliage_placer",
+            "radius": 0,
+            "offset": 0,
+            "height": 0
+          },
+          "decorators": [
+            {
+              "type": "minecraft:alter_ground",
+              "provider": {
+                "type": "minecraft:weighted_state_provider",
+                "entries": [
+                  {
+                    "weight": 24,
+                    "data": {
+                      "Name": "minecraft:grass_block",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    }
+                  },
+                  {
+                    "weight": 8,
+                    "data": {
+                      "Name": "minecraft:coarse_dirt"
+                    }
+                  },
+                  {
+                    "weight": 1,
+                    "data": {
+                      "Name": "minecraft:mossy_cobblestone"
+                    }
+                  },
+                  {
+                    "weight": 1,
+                    "data": {
+                      "Name": "minecraft:oak_leaves",
+                      "Properties": {
+                        "distance": "1",
+                        "persistent": "true"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }

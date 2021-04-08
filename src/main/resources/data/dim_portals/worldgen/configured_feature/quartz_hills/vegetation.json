@@ -1,0 +1,178 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": {
+                "base": 2,
+                "spread": 2
+              }
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:square",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:heightmap",
+                "config": {}
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_selector",
+        "config": {
+          "features": [
+            {
+              "chance": 0.05,
+              "feature": {
+                "type": "minecraft:random_patch",
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 5,
+                  "yspread": 3,
+                  "zspread": 5,
+                  "tries": 32,
+                  "state_provider": {
+                    "type": "minecraft:simple_state_provider",
+                    "state": {
+                      "Name": "minecraft:rose_bush",
+                      "Properties": {
+                        "half": "lower"
+                      }
+                    }
+                  },
+                  "block_placer": {
+                    "type": "minecraft:double_plant_placer"
+                  },
+                  "whitelist": [
+                    {
+                      "Name": "minecraft:grass_block",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    }
+                  ],
+                  "blacklist": []
+                }
+              }
+            },
+            {
+              "chance": 0.05,
+              "feature": {
+                "type": "minecraft:random_patch",
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 5,
+                  "yspread": 3,
+                  "zspread": 5,
+                  "tries": 32,
+                  "state_provider": {
+                    "type": "minecraft:simple_state_provider",
+                    "state": {
+                      "Name": "minecraft:peony",
+                      "Properties": {
+                        "half": "lower"
+                      }
+                    }
+                  },
+                  "block_placer": {
+                    "type": "minecraft:double_plant_placer"
+                  },
+                  "whitelist": [
+                    {
+                      "Name": "minecraft:grass_block",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    }
+                  ],
+                  "blacklist": []
+                }
+              }
+            },
+            {
+              "chance": 0.1,
+              "feature": {
+                "type": "minecraft:random_patch",
+                "config": {
+                  "can_replace": false,
+                  "project": false,
+                  "need_water": false,
+                  "xspread": 7,
+                  "yspread": 3,
+                  "zspread": 7,
+                  "tries": 32,
+                  "state_provider": {
+                    "type": "minecraft:weighted_state_provider",
+                    "entries": [
+                      {
+                        "weight": 4,
+                        "data": {
+                          "Name": "minecraft:allium"
+                        }
+                      },
+                      {
+                        "weight": 2,
+                        "data": {
+                          "Name": "minecraft:lily_of_the_valley"
+                        }
+                      },
+                      {
+                        "weight": 2,
+                        "data": {
+                          "Name": "minecraft:blue_orchid"
+                        }
+                      },
+                      {
+                        "weight": 1,
+                        "data": {
+                          "Name": "minecraft:dandelion"
+                        }
+                      },
+                      {
+                        "weight": 1,
+                        "data": {
+                          "Name": "minecraft:poppy"
+                        }
+                      }
+                    ]
+                  },
+                  "block_placer": {
+                    "type": "minecraft:simple_block_placer"
+                  },
+                  "whitelist": [
+                    {
+                      "Name": "minecraft:grass_block",
+                      "Properties": {
+                        "snowy": "false"
+                      }
+                    }
+                  ],
+                  "blacklist": []
+                }
+              }
+            },
+            {
+              "chance": 0.3,
+              "feature": "minecraft:patch_tall_grass"
+            }
+          ],
+          "default": "minecraft:patch_grass_forest"
+        }
+      }
+    }
+  }

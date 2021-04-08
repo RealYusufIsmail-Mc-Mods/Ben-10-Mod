@@ -1,0 +1,117 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:chance",
+          "config": {
+            "chance": 250
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:count",
+              "config": {
+                "count": 32
+              }
+            },
+            "inner": {
+              "type": "minecraft:decorated",
+              "config": {
+                "outer": {
+                  "type": "minecraft:square",
+                  "config": {}
+                },
+                "inner": {
+                  "type": "minecraft:decorated",
+                  "config": {
+                    "outer": {
+                      "type": "minecraft:heightmap",
+                      "config": {}
+                    },
+                    "inner": {
+                      "type": "minecraft:count",
+                      "config": {
+                        "count": 5
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "can_replace": false,
+        "project": false,
+        "need_water": false,
+        "xspread": 16,
+        "yspread": 3,
+        "zspread": 16,
+        "tries": 32,
+        "state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 2,
+              "data": {
+                "Name": "minecraft:air"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:grass"
+              }
+            },
+            {
+              "weight": 6,
+              "data": {
+                "Name": "minecraft:dark_oak_leaves",
+                "Properties": {
+                  "distance": "1",
+                  "persistent": "true"
+                }
+              }
+            },
+            {
+              "weight": 2,
+              "data": {
+                "Name": "minecraft:pumpkin"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:oak_wood",
+                "Properties": {
+                  "axis": "y"
+                }
+              }
+            }
+          ]
+        },
+        "block_placer": {
+          "type": "minecraft:simple_block_placer"
+        },
+        "whitelist": [
+          {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        ],
+        "blacklist": []
+      }
+    }
+  }
+}

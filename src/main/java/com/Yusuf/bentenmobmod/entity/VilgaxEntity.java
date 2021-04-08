@@ -72,7 +72,7 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	
 	
 	 public static AttributeModifierMap.MutableAttribute registerAttributes() {
-	        return MobEntity.createMobAttributes()
+		 return MobEntity.createMobAttributes()
 	                .add(Attributes.FOLLOW_RANGE, 35.0D)
 	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)

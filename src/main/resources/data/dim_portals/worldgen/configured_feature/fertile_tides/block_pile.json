@@ -1,0 +1,105 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count",
+          "config": {
+            "count": {
+              "base": 1,
+              "spread": 3
+            }
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:top_solid_heightmap",
+              "config": {}
+            },
+            "inner": {
+              "type": "minecraft:decorated",
+              "config": {
+                "outer": {
+                  "type": "minecraft:square",
+                  "config": {}
+                },
+                "inner": {
+                  "type": "minecraft:count",
+                  "config": {
+                    "count": 3
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "can_replace": true,
+        "project": false,
+        "need_water": false,
+        "xspread": 3,
+        "yspread": 4,
+        "zspread": 3,
+        "tries": 128,
+        "state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:diamond_ore"
+              }
+            },
+            {
+              "weight": 25,
+              "data": {
+                "Name": "minecraft:stone"
+              }
+            },
+            {
+              "weight": 14,
+              "data": {
+                "Name": "minecraft:mossy_cobblestone"
+              }
+            },
+            {
+              "weight": 10,
+              "data": {
+                "Name": "minecraft:cobblestone"
+              }
+            }
+          ]
+        },
+        "block_placer": {
+          "type": "minecraft:simple_block_placer"
+        },
+        "whitelist": [],
+        "blacklist": [
+          {
+            "Name": "minecraft:air"
+          },
+          {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          },
+          {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
