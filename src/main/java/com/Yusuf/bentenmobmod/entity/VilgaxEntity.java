@@ -5,6 +5,7 @@ package com.Yusuf.bentenmobmod.entity;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -147,15 +148,32 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 			this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
-			this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+			 this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
-			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
-			this.targetSelector.addGoal(1, (new HurtByTargetGoal(this).setAlertOthers()));
+			this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
+			this.targetSelector.addGoal(5, (new HurtByTargetGoal(this).setAlertOthers()));
 		}
 		@Override
 		public void onSyncedDataUpdated(DataParameter<?> key) {
 			super.onSyncedDataUpdated(key);
 		}
+		public boolean attackEntityAsMob(net.minecraft.entity.Entity entityIn) {
+	        boolean flag = entityIn.hurt(DamageSource.mobAttack(this), (float)((int)this.getAttributeValue(Attributes.ATTACK_DAMAGE)));
+	        if (flag) {
+	            this.doEnchantDamageEffects(this, entityIn);
+	        }
+
+	        return flag;
+	    }
+		public boolean shouldAttackEntity(LivingEntity target, LivingEntity owner) {
+			if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !((PlayerEntity) owner).canHarmPlayer((PlayerEntity) target)) {
+                return true;
+				  
+			  }else {
+		            return false;
+			  }
+		}
+		
 
 		@Override
 		public void tick() {
