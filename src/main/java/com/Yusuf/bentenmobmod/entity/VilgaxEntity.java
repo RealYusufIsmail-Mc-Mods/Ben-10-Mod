@@ -1,8 +1,6 @@
-
+	
 
 package com.Yusuf.bentenmobmod.entity;
-
-import com.Yusuf.bentenmobmod.Main;
 
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.CreatureEntity;
@@ -23,7 +21,6 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
@@ -54,11 +51,11 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 
 	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.walking", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
             return PlayState.CONTINUE;
         }
         if (!this.onGround) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.vilgax.attacking", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
             return PlayState.CONTINUE;
         }
         return PlayState.STOP;
@@ -76,11 +73,12 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 	
 	 public static AttributeModifierMap.MutableAttribute registerAttributes() {
 	        return MobEntity.createMobAttributes()
-	                .add(Attributes.MAX_HEALTH, 50.0D)
 	                .add(Attributes.FOLLOW_RANGE, 35.0D)
 	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
 	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-	                .add(Attributes.ATTACK_DAMAGE, 10.0D);
+	                .add(Attributes.ATTACK_DAMAGE, 10.0D)
+	                .add(Attributes.MAX_HEALTH, 50.0D);
+	        
                     
 	 }
 	        
