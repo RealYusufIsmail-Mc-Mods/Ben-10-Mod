@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/flint_and_steel"
+  },
+  "overrides": [
+		{"predicate": {"custom_model_data":1}, "model": "item/glowstone_portal"},
+		{"predicate": {"custom_model_data":2}, "model": "item/mossy_portal"},
+		{"predicate": {"custom_model_data":3}, "model": "item/sand_portal"}
+	]
+}

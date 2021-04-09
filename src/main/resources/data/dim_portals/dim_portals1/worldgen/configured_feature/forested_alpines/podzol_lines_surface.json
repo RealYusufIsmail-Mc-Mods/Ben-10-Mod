@@ -1,0 +1,82 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count_extra",
+            "config": {
+              "count": 2000,
+              "extra_count":0,
+              "extra_chance":0
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:square",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:decorated",
+                "config": {
+                  "outer": {
+                    "type": "minecraft:range",
+                    "config": {
+                      "maximum": 256,
+                      "bottom_offset": 0,
+                      "top_offset": 0
+                    }
+                  },
+                  "inner": {
+                    "type": "minecraft:decorated",
+                    "config": {
+                      "outer": {
+                        "type": "minecraft:count_noise_biased",
+                        "config": {
+                          "noise_to_count_ratio": 1,
+                          "noise_factor": 120,
+                          "noise_offset": 0.1
+                        }
+                      },
+                      "inner": {
+                        "type": "minecraft:count_noise_biased",
+                        "config": {
+                          "noise_to_count_ratio": -1,
+                          "noise_factor": 120,
+                          "noise_offset": -0.1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:ore",
+        "config": {
+          "state": {
+            "Name": "minecraft:podzol",
+            "Properties":{
+              "snowy":"false"
+            }
+          },
+          "size": 32,
+          "target": {
+            "predicate_type": "minecraft:blockstate_match",
+            "block_state": {
+              "Name": "minecraft:grass_block",
+              "Properties": {
+                "snowy":"false"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

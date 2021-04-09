@@ -1,0 +1,115 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": {
+                "base": 0,
+                "spread": 3
+              }
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:square",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:decorated",
+                "config": {
+                  "outer": {
+                    "type": "minecraft:count",
+                    "config": {
+                      "count": 6
+                    }
+                  },
+                  "inner": {
+                    "type": "minecraft:depth_average",
+                    "config": {
+                      "baseline": 58,
+                      "spread": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "can_replace": true,
+          "project": false,
+          "need_water": false,
+          "xspread": 2,
+          "yspread": 2,
+          "zspread": 2,
+          "tries": 32,
+          "state_provider": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:jungle_leaves",
+                  "Properties": {
+                    "distance": "1",
+                    "persistent": "true"
+                  }
+                }
+              },
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "minecraft:oak_leaves",
+                  "Properties": {
+                    "distance": "1",
+                    "persistent": "true"
+                  }
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:shroomlight"
+                }
+              }
+            ]
+          },
+          "block_placer": {
+            "type": "minecraft:simple_block_placer"
+          },
+          "whitelist": [
+            {
+              "Name": "minecraft:dirt"
+            },
+            {
+              "Name": "minecraft:jungle_leaves",
+              "Properties": {
+                "distance": "1",
+                "persistent": "true"
+              }
+            },
+            {
+              "Name": "minecraft:oak_leaves",
+              "Properties": {
+                "distance": "1",
+                "persistent": "true"
+              }
+            },
+            {
+              "Name": "minecraft:shroomlight"
+            }
+          ],
+          "blacklist": []
+        }
+      }
+    }
+  }

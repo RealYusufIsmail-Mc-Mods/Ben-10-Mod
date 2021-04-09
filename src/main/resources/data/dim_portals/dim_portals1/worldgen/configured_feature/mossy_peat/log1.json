@@ -1,0 +1,65 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:chance",
+            "config": {
+              "chance": 10
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:square",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:top_solid_heightmap",
+                "config": {}
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "can_replace": true,
+          "project": false,
+          "need_water": false,
+          "xspread": 1,
+          "yspread": 0,
+          "zspread": 0,
+          "tries": 10,
+          "state_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:acacia_wood",
+              "Properties": {
+                "axis": "x"
+              }
+            }
+          },
+          "block_placer": {
+            "type": "minecraft:simple_block_placer"
+          },
+          "whitelist": [
+            {
+              "Name": "minecraft:dirt"
+            },
+            {
+              "Name": "minecraft:grass_block",
+              "Properties": {
+                "snowy": "false"
+              }
+            }
+          ],
+          "blacklist": []
+        }
+      }
+    }
+  }

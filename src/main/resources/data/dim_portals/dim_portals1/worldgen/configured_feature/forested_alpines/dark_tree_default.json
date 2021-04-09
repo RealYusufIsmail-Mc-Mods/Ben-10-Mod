@@ -1,0 +1,263 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count_extra",
+          "config": {
+            "count": 10,
+            "extra_count": 0,
+            "extra_chance": 0
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:square",
+              "config": {}
+            },
+            "inner": {
+              "type": "minecraft:count",
+              "config": {
+                "count": 3
+              }
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_selector",
+      "config": {
+        "features": [
+          {
+            "chance": 0.25,
+            "feature": {
+              "type": "minecraft:decorated",
+              "config": {
+                "decorator": {
+                  "type": "minecraft:heightmap_world_surface",
+                  "config": {}
+                },
+                "feature": {
+                  "type": "minecraft:random_patch",
+                  "config": {
+                    "can_replace": false,
+                    "project": false,
+                    "need_water": false,
+                    "xspread": 7,
+                    "yspread": 1,
+                    "zspread": 7,
+                    "tries": 25,
+                    "state_provider": {
+                      "type": "minecraft:weighted_state_provider",
+                      "entries": [
+                        {
+                          "weight": 3,
+                          "data": {
+                            "Name": "minecraft:dark_oak_log",
+                            "Properties": {
+                              "axis": "z"
+                            }
+                          }
+                        },
+                        {
+                          "weight": 3,
+                          "data": {
+                            "Name": "minecraft:dark_oak_log",
+                            "Properties": {
+                              "axis": "x"
+                            }
+                          }
+                        },
+                        {
+                          "weight": 1,
+                          "data": {
+                            "Name": "minecraft:spruce_log",
+                            "Properties": {
+                              "axis": "z"
+                            }
+                          }
+                        },
+                        {
+                          "weight": 1,
+                          "data": {
+                            "Name": "minecraft:spruce_log",
+                            "Properties": {
+                              "axis": "x"
+                            }
+                          }
+                        },
+                        {
+                          "weight": 2,
+                          "data": {
+                            "Name": "minecraft:dark_oak_slab",
+                            "Properties": {
+                              "type": "bottom",
+                              "waterlogged": "false"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "block_placer": {
+                      "type": "minecraft:simple_block_placer"
+                    },
+                    "whitelist": [
+                      {
+                        "Name": "minecraft:grass_block",
+                        "Properties": {
+                          "snowy": "false"
+                        }
+                      }
+                    ],
+                    "blacklist": []
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "default": {
+          "type": "minecraft:tree",
+          "config": {
+            "max_water_depth": 0,
+            "ignore_vines": false,
+            "heightmap": "WORLD_SURFACE",
+            "minimum_size": {
+              "type": "minecraft:two_layers_feature_size",
+              "min_clipped_height": 0,
+              "limit": 0,
+              "lower_size": 0,
+              "upper_size": 0
+            },
+            "trunk_provider": {
+              "type": "minecraft:weighted_state_provider",
+              "entries": [
+                {
+                  "weight": 3,
+                  "data": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "y"
+                    }
+                  }
+                },
+                {
+                  "weight": 1,
+                  "data": {
+                    "Name": "minecraft:spruce_log",
+                    "Properties": {
+                      "axis": "y"
+                    }
+                  }
+                }
+              ]
+            },
+            "leaves_provider": {
+              "type": "minecraft:weighted_state_provider",
+              "entries": [
+                {
+                  "weight": 3,
+                  "data": {
+                    "Name": "minecraft:spruce_leaves",
+                    "Properties": {
+                      "persistent": "false",
+                      "distance": "1"
+                    }
+                  }
+                },
+                {
+                  "weight": 1,
+                  "data": {
+                    "Name": "minecraft:birch_leaves",
+                    "Properties": {
+                      "persistent": "false",
+                      "distance": "1"
+                    }
+                  }
+                }
+              ]
+            },
+            "trunk_placer": {
+              "type": "minecraft:giant_trunk_placer",
+              "base_height": 20,
+              "height_rand_a": 1,
+              "height_rand_b": 5
+            },
+            "foliage_placer": {
+              "type": "minecraft:mega_pine_foliage_placer",
+              "radius": {
+                "base": 0,
+                "spread": 1
+              },
+              "offset": 0,
+              "crown_height": {
+                "base": 14,
+                "spread": 4
+              }
+            },
+            "decorators": [
+              {
+                "type": "minecraft:alter_ground",
+                "provider": {
+                  "type": "minecraft:weighted_state_provider",
+                  "entries": [
+                    {
+                      "weight": 4,
+                      "data": {
+                        "Name": "minecraft:dark_oak_log",
+                        "Properties": {
+                          "axis": "z"
+                        }
+                      }
+                    },
+                    {
+                      "weight": 4,
+                      "data": {
+                        "Name": "minecraft:dark_oak_log",
+                        "Properties": {
+                          "axis": "x"
+                        }
+                      }
+                    },
+                    {
+                      "weight": 2,
+                      "data": {
+                        "Name": "minecraft:spruce_log",
+                        "Properties": {
+                          "axis": "z"
+                        }
+                      }
+                    },
+                    {
+                      "weight": 2,
+                      "data": {
+                        "Name": "minecraft:spruce_log",
+                        "Properties": {
+                          "axis": "x"
+                        }
+                      }
+                    },
+                    {
+                      "weight": 78,
+                      "data": {
+                        "Name": "minecraft:grass_block",
+                        "Properties": {
+                          "snowy": "false"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

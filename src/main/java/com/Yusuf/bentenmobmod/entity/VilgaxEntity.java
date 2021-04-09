@@ -147,12 +147,16 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
 			this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 6.0F));
 			this.goalSelector.addGoal(3, new LookRandomlyGoal(this));
 			this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
+			 this.addBehaviourGoals();
+		   }
+		 protected void addBehaviourGoals() {
 			this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
 			 this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
-			this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
+			this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 			this.targetSelector.addGoal(5, (new HurtByTargetGoal(this).setAlertOthers()));
 		}
+
 		@Override
 		public void onSyncedDataUpdated(DataParameter<?> key) {
 			super.onSyncedDataUpdated(key);

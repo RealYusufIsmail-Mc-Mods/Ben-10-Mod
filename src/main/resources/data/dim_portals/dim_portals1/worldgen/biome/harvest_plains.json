@@ -1,0 +1,68 @@
+{
+    "surface_builder": "minecraft:grass",
+    "depth": 0.125,
+    "scale": 0.2,
+    "temperature": 0.8,
+    "downfall": 0.4,
+    "precipitation": "rain",
+    "category": "plains",
+    "effects": {
+      "sky_color": 7907327,
+      "fog_color": 14241792,
+      "water_color": 11353600,
+      "water_fog_color": 329011,
+      "grass_color": 14241792,
+      "foliage_color": 11353600
+    },
+    "starts": [
+      "minecraft:swamp_hut"
+    ],
+    "spawners": {},
+    "spawn_costs": {},
+    "carvers": {
+      "air": [
+        "minecraft:canyon",
+        "minecraft:cave"
+      ]
+    },
+    "features": [
+      [
+        "minecraft:ore_coal",
+        "minecraft:ore_iron",
+        "minecraft:ore_gold",
+        "minecraft:ore_redstone",
+        "minecraft:ore_lapis",
+        "minecraft:ore_diamond",
+        "minecraft:ore_granite",
+        "minecraft:ore_diorite",
+        "minecraft:ore_andesite",
+        "minecraft:ore_gravel",
+        "minecraft:ore_dirt"
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        "dim_portals:harvest_plains/rock_pile",
+        "dim_portals:harvest_plains/tree",
+        "dim_portals:harvest_plains/log",
+        "minecraft:spring_water"
+      ],
+      [
+        "dim_portals:harvest_plains/terrain_land",
+        "dim_portals:harvest_plains/terrain_aquatic"
+      ],
+      [
+        "dim_portals:harvest_plains/pumpkin_patch",
+        "minecraft:patch_tall_grass",
+        "minecraft:patch_grass_forest",
+        "minecraft:seagrass_swamp",
+        "minecraft:patch_pumpkin",
+        "minecraft:patch_pumpkin",
+        "minecraft:patch_pumpkin",
+        "minecraft:patch_pumpkin",
+        "minecraft:patch_pumpkin"
+      ]
+    ]
+  }

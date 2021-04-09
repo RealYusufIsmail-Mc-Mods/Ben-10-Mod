@@ -1,0 +1,100 @@
+{
+    "type": "minecraft:decorated",
+    "config": {
+      "decorator": {
+        "type": "minecraft:decorated",
+        "config": {
+          "outer": {
+            "type": "minecraft:count",
+            "config": {
+              "count": {
+                "base": 1,
+                "spread": 3
+              }
+            }
+          },
+          "inner": {
+            "type": "minecraft:decorated",
+            "config": {
+              "outer": {
+                "type": "minecraft:top_solid_heightmap",
+                "config": {}
+              },
+              "inner": {
+                "type": "minecraft:decorated",
+                "config": {
+                  "outer": {
+                    "type": "minecraft:square",
+                    "config": {}
+                  },
+                  "inner": {
+                    "type": "minecraft:count",
+                    "config": {
+                      "count": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "feature": {
+        "type": "minecraft:random_patch",
+        "config": {
+          "can_replace": true,
+          "project": false,
+          "need_water": false,
+          "xspread": 4,
+          "yspread": 5,
+          "zspread": 4,
+          "tries": 16,
+          "state_provider": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "minecraft:jungle_leaves",
+                  "Properties": {
+                    "persistent": "true",
+                    "distance": "1"
+                  }
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:oak_leaves",
+                  "Properties": {
+                    "persistent": "true",
+                    "distance": "1"
+                  }
+                }
+              }
+            ]
+          },
+          "block_placer": {
+            "type": "minecraft:column_placer",
+            "min_size": 2,
+            "extra_size": 2
+          },
+          "whitelist": [],
+          "blacklist": [
+            {
+              "Name": "minecraft:water",
+              "Properties": {
+                "level": "0"
+              }
+            },
+            {
+              "Name": "minecraft:air"
+            },
+            {
+              "Name": "minecraft:dirt"
+            }
+          ]
+        }
+      }
+    }
+  }

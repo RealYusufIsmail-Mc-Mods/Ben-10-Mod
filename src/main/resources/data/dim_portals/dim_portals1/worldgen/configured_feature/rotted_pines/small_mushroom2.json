@@ -1,0 +1,78 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count",
+          "config": {
+            "count": {
+              "base": 2,
+              "spread": 1
+            }
+          }
+        },
+        "inner": {
+          "type": "minecraft:square",
+          "config": {}
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:tree",
+      "config": {
+        "max_water_depth": 0,
+        "ignore_vines": true,
+        "heightmap": "WORLD_SURFACE",
+        "minimum_size": {
+          "type": "minecraft:two_layers_feature_size",
+          "min_clipped_height": 0,
+          "limit": 0,
+          "lower_size": 0,
+          "upper_size": 1
+        },
+        "trunk_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:mushroom_stem",
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "east": "true",
+              "west": "true",
+              "north": "true",
+              "south": "true"
+            }
+          }
+        },
+        "leaves_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:red_mushroom_block",
+            "Properties": {
+              "up": "true",
+              "down": "true",
+              "east": "true",
+              "west": "true",
+              "north": "true",
+              "south": "true"
+            }
+          }
+        },
+        "trunk_placer": {
+          "type": "minecraft:forking_trunk_placer",
+          "base_height": 2,
+          "height_rand_a": 1,
+          "height_rand_b": 0
+        },
+        "foliage_placer": {
+          "type": "minecraft:acacia_foliage_placer",
+          "radius": 1,
+          "offset": 0
+        },
+        "decorators": []
+      }
+    }
+  }
+}

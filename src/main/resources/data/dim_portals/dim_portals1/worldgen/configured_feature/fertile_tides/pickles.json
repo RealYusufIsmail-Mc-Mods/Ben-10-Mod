@@ -1,0 +1,114 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count",
+          "config": {
+            "count": {
+              "base": 3,
+              "spread": 3
+            }
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:range",
+              "config": {
+                "maximum": 50,
+                "bottom_offset": 30,
+                "top_offset": 0
+              }
+            },
+            "inner": {
+              "type": "minecraft:square",
+              "config": {}
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "can_replace": true,
+        "project": false,
+        "need_water": false,
+        "xspread": 5,
+        "yspread": 2,
+        "zspread": 5,
+        "tries": 16,
+        "state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:sea_pickle",
+                "Properties": {
+                  "pickles": "4",
+                  "waterlogged": "true"
+                }
+              }
+            },
+            {
+              "weight": 3,
+              "data": {
+                "Name": "minecraft:sea_pickle",
+                "Properties": {
+                  "pickles": "3",
+                  "waterlogged": "true"
+                }
+              }
+            },
+            {
+              "weight": 2,
+              "data": {
+                "Name": "minecraft:sea_pickle",
+                "Properties": {
+                  "pickles": "2",
+                  "waterlogged": "true"
+                }
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:sea_pickle",
+                "Properties": {
+                  "pickles": "1",
+                  "waterlogged": "true"
+                }
+              }
+            }
+          ]
+        },
+        "block_placer": {
+          "type": "minecraft:simple_block_placer"
+        },
+        "whitelist": [],
+        "blacklist": [
+          {
+            "Name": "minecraft:water",
+            "Properties": {
+              "level": "0"
+            }
+          },
+          {
+            "Name": "minecraft:air"
+          },
+          {
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy":"false"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

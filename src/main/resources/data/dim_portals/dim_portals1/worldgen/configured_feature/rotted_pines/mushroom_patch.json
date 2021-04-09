@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:decorated",
+      "config": {
+        "outer": {
+          "type": "minecraft:count",
+          "config": {
+            "count": {
+              "base": 1,
+              "spread": 1
+            }
+          }
+        },
+        "inner": {
+          "type": "minecraft:decorated",
+          "config": {
+            "outer": {
+              "type": "minecraft:square",
+              "config": {}
+            },
+            "inner": {
+              "type": "minecraft:heightmap",
+              "config": {}
+            }
+          }
+        }
+      }
+    },
+    "feature": {
+      "type": "minecraft:random_patch",
+      "config": {
+        "can_replace": false,
+        "project": false,
+        "need_water": false,
+        "xspread": 3,
+        "yspread": 7,
+        "zspread": 3,
+        "tries": 32,
+        "state_provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 3,
+              "data": {
+                "Name": "minecraft:red_mushroom"
+              }
+            },
+            {
+              "weight": 3,
+              "data": {
+                "Name": "minecraft:brown_mushroom"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:warped_fungus"
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:crimson_fungus"
+              }
+            }
+          ]
+        },
+        "block_placer": {
+          "type": "minecraft:simple_block_placer"
+        },
+        "whitelist": [
+          {
+            "Name": "minecraft:mycelium",
+            "Properties": {
+              "snowy": "false"
+            }
+          }
+        ],
+        "blacklist": []
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+    "type": "minecraft:overworld",
+    "generator": {
+      "type": "minecraft:noise",
+      "seed": -1743404641,
+      "biome_source": {
+        "type": "minecraft:multi_noise",
+        "seed": -1743404641,
+        "altitude_noise": {
+          "firstOctave": -8,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "temperature_noise": {
+          "firstOctave": -8,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "humidity_noise": {
+          "firstOctave": -8,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "weirdness_noise": {
+          "firstOctave": -8,
+          "amplitudes": [
+            1,
+            1
+          ]
+        },
+        "biomes": [
+          {
+            "biome": "dim_portals:harvest_plains",
+            "parameters": {
+              "altitude": 0,
+              "temperature": 0.2,
+              "humidity": 0.2,
+              "weirdness": 0.2,
+              "offset": 0.54
+            }
+          },
+          {
+            "biome": "dim_portals:mossy_peat",
+            "parameters": {
+              "altitude": 0,
+              "temperature": 0.2,
+              "humidity": 0.3,
+              "weirdness": 0.2,
+              "offset": 0.47
+            }
+          },
+          {
+            "biome": "dim_portals:fertile_tides",
+            "parameters": {
+              "altitude": -0.6,
+              "temperature": -0.2,
+              "humidity": 0.6,
+              "weirdness": 0,
+              "offset": 0
+            }
+          },
+          {
+            "biome": "dim_portals:fertile_shallows",
+            "parameters": {
+              "altitude": -0.1,
+              "temperature": -0.1,
+              "humidity": 0.6,
+              "weirdness": 0,
+              "offset": 0
+            }
+          },
+          {
+            "biome": "dim_portals:dark_thicket",
+            "parameters": {
+              "altitude": 0.6,
+              "temperature": 0,
+              "humidity": 0.2,
+              "weirdness": 0.4,
+              "offset": 0.7
+            }
+          },
+          {
+            "biome": "dim_portals:blighted_woods",
+            "parameters": {
+              "altitude": 0.1,
+              "temperature": 0.2,
+              "humidity": 0.4,
+              "weirdness": 0.3,
+              "offset": 0.5
+            }
+          },
+          {
+            "biome": "dim_portals:tropical_wetlands",
+            "parameters": {
+              "altitude": -0.1,
+              "temperature": 0.3,
+              "humidity": 0.5,
+              "weirdness": 0.1,
+              "offset": 0
+            }
+          }
+        ]
+      },
+      "settings": "minecraft:overworld"
+    }
+  }
