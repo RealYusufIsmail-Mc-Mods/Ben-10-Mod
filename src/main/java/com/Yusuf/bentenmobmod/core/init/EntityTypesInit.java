@@ -19,15 +19,14 @@ public abstract class EntityTypesInit {
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
 			EntityClassification.CREATURE, 2f, 2f);
 
-	//This is where to register the actual attributes of the entities
-	@SuppressWarnings("deprecation")
-	public static void registerEntityAttributes() {
-		GlobalEntityTypeAttributes.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
-	}
-
 	// registering the entities
 	public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
 			() -> vilgax);
+
+	// This is where to register the actual attributes of the entities
+	public static void registerEntityAttributes() {
+		GlobalEntityTypeAttributes.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
+	}
 
 	private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
 			EntityType.IFactory<T> factory, EntityClassification classification, float width, float height) {
