@@ -2,7 +2,7 @@
     "type" : "minecraft:crafting_shaped",
     "pattern": [
         "AAA",
-        "AHA",
+        "A/A",
         "AAA"
     ],
     "key": {
