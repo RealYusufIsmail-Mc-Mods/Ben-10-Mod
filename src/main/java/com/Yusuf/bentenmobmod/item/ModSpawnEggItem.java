@@ -2,7 +2,6 @@ package com.Yusuf.bentenmobmod.item;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.DefaultDispenseItemBehavior;
@@ -16,7 +15,6 @@ import net.minecraft.util.Direction;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.common.util.NonNullSupplier;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 public class ModSpawnEggItem extends SpawnEggItem {
 
@@ -36,8 +34,6 @@ public class ModSpawnEggItem extends SpawnEggItem {
     }
 
     public static void initSpawnEggs() {
-        final Map<EntityType<?>, SpawnEggItem> EGGS = ObfuscationReflectionHelper.getPrivateValue(SpawnEggItem.class,
-                null, "BY_ID");
         DefaultDispenseItemBehavior dispenseBehaviour = new DefaultDispenseItemBehavior() {
             @Override
             protected ItemStack execute(IBlockSource source, ItemStack stack) {
@@ -51,7 +47,7 @@ public class ModSpawnEggItem extends SpawnEggItem {
         };
 
         for (final SpawnEggItem spawnEgg : UNADDED_EGGS) {
-            EGGS.put(spawnEgg.getType(null), spawnEgg);
+         
             DispenserBlock.registerBehavior(spawnEgg, dispenseBehaviour);
         }
         UNADDED_EGGS.clear();
