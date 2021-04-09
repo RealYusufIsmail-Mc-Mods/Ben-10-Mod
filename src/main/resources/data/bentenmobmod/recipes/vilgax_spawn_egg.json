@@ -1,0 +1,22 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "///",
+    "/#/",
+    "///"
+  ],
+  "key": {
+    "/": {
+      "item": "bentenmobmod:vilgax_block"
+    },
+    "#": {
+      "item": "bentenmobmod:ruby"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:vilgax_spawn_egg",
+    "count": 1
+  }
+
+}

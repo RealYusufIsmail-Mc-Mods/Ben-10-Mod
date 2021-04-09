@@ -44,7 +44,7 @@ public class Main {
 		GeckoLibMod.DISABLE_IN_DEV = false;
 		GeckoLib.initialize();
 		
-
+	
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -59,13 +59,14 @@ public class Main {
 	  // SubscribeEvent tells forge to subscribe this method as an event listener
 	  @SubscribeEvent
 	  // method must be public and static for EBS/SubscribeEvent to work
-	  public static void onRegisterEntityAttributes(EntityAttributeCreationEvent event)
-	  {
+	  public static void onRegisterEntityAttributes(EntityAttributeCreationEvent event) {
+	  
 	    // use event.put to register attributes
 		  
 		  event.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
 	  }
 	}
+
 	
 	
 
