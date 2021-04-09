@@ -33,7 +33,7 @@ public abstract class EntityTypesInit {
 		return EntityType.Builder.of(factory, classification).sized(width, height)
 				.build(Main.MOD_ID + ":" + entity_name);
 	}
-
+	
 	// register spawn eggs
 
 }
