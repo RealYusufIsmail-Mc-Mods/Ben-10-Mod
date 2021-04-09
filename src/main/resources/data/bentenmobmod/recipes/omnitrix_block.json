@@ -1,4 +1,4 @@
-{
+	{
     "type" : "minecraft:crafting_shaped",
     "pattern": [
         "AAA",
@@ -11,7 +11,7 @@
             }
     },
     "result": {
-        "item": "bentenmobmod:ruby_block",
+        "item": "bentenmobmod:omnitrix_block",
         "count": 1
     }
 }
