@@ -4,12 +4,12 @@ loaderVersion="[36,)"
 license="All Rights Reserved"
 [[mods]]
 modId="bentenmobmod" 
-version="${1.7}" 
+version="${1.8}" 
 displayName="Ben10 Mob Mod" 
 logoFile="examplemod.png"
 credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod." 
 description='''
-Villains and heros in the Ben 10 series. Villains coming out first. In beta stages.
+Villains and heros in the Ben 10 series. Villains coming out first.	
 
 Dont not copy my mod.
 
