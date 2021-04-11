@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Made an omnitrix blokc",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "You can craft an apple bettter than an Enchnated Golden apple."
+        },
+        "icon": {
+            "item": "bentenmobmod:omnitrix_block"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:omnitrix_block",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:omnitrix/omnitirix"
+}
