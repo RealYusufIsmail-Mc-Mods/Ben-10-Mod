@@ -17,8 +17,8 @@ public class FoodInit {
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
     // Enchanted Omnitrix Apple
     public static final Food ENCHANTED_OMNITRIX_APPLE = new Food.Builder()
-            .effect(new EffectInstance(Effects.REGENERATION, 6000, 0), 1)
-            .effect(new EffectInstance(Effects.ABSORPTION, 4800, 3), 1)
+            .effect(new EffectInstance(Effects.REGENERATION, 9999, 0), 1)
+            .effect(new EffectInstance(Effects.ABSORPTION, 4800, 7), 1)
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 4800, 0), 1)
             .effect(new EffectInstance(Effects.MOVEMENT_SPEED, 4800, 0), 1)
             .effect(new EffectInstance(Effects.WATER_BREATHING, 3600, 0), 1)
