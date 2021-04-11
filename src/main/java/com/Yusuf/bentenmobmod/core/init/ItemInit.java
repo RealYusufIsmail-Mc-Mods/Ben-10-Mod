@@ -70,6 +70,13 @@ public class ItemInit {
 			() -> new EnchantedGoldenAppleItem(
 					new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.ENCHANTED_OMNITRIX_APPLE)));
 
+	public static final RegistryObject<Item> FIRE_APPLE = ITEMS.register("fire_apple",
+			() -> new Item( new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.FIRE_APPLE)));
+	
+
+	public static final RegistryObject<Item> RUBY_APPLE = ITEMS.register("ruby_apple",
+			() -> new EnchantedGoldenAppleItem(
+					 new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
 	// armour like axes
 
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",

@@ -1,7 +1,7 @@
 {
     "display": {
         "title": {
-            "text": "Mined Omnitrix ore",
+            "text": "Mined Ruby ore",
             "color": "gold",
             "bold": true,
             "italic": false,
@@ -10,13 +10,13 @@
             "obfuscated": false
         },
         "description": {
-            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft a certain apple.",
+            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft an apple which gives you ultimate rengeneration.",
             "color": "blue",
             "bold": true,
             "underlined": true
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix_ore"
+            "item": "bentenmobmod:ruby_ore"
         },
         "frame": "goal",
         "show_toast": false,
@@ -30,7 +30,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix_ore",
+                        "item": "bentenmobmod:ruby_ore",
                         "count": {
                             "min": 1,
                             "max": 1
