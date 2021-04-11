@@ -1,0 +1,20 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "AAA",
+        "A/A",
+        "AAA"
+    ],
+    "key": {
+    	"/":{
+    	"item": "minecraft:apple"
+    	},
+        "A": {
+            "item": "bentenmobmod:fire"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:ruby_apple",
+        "count": 1
+    }
+}
