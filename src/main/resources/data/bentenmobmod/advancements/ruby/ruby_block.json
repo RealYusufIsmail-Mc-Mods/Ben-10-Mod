@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Smelted Ruby ore",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you made a ruby block and can now make a ruby apple which gives you infite regeneration"
+        },
+        "icon": {
+            "item": "bentenmobmod:ruby_block"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:ruby_block",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:ruby/ruby"
+}

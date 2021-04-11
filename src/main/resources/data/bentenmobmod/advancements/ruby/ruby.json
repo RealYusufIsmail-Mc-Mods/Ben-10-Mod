@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Smelted Ruby ore",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you smelted Ruby ore"
+        },
+        "icon": {
+            "item": "bentenmobmod:ruby"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:ruby",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:ruby/root"
+}

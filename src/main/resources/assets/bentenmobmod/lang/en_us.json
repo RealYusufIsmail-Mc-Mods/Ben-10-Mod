@@ -14,6 +14,7 @@
   "item.bentenmobmod.vilgax_spawn_egg": "Vilgax Spawn Egg",
   "item.bentenmobmod.legendary_ore": "Legendary",
   "item.bentenmobmod.ruby": "Ruby",
+  "item.bentenmobmod.fire": "Fire(ore)",
   "item.bentenmobmod.omnitrix": "omnitrix (ore)",
   "item.bentenmobmod.fire=": "fire",
   "item.bentenmobmod.boot": "Knight Boots",
@@ -22,6 +23,8 @@
   "item.bentenmobmod.chestplate": "Knight Chestplate",
   "item.bentenmobmod.omnitrix_apple": "Omnitrix Apple",
   "item.bentenmobmod.enchanted_omnitrix_apple": "Enchanted Ominitrix Apple",
+  "item.bentenmobmod.ruby_apple": "Enchanted Ruby Apple",
+  "item.bentenmobmod.fire_apple": "Fire Apple",
   "itemGroup.main": "Ben 10 mob mod items",
   "key.category.bentenmobmod": "Ben ten mob mod Keybinds",
   "key.bentenmobmod.fireblast_key": "Fire Blast"
