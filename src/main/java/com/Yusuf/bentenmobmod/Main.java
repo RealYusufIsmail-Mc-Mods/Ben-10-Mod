@@ -45,7 +45,6 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.registerConfiguredFeatures();
 
 	};
 
