@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod;
+	package com.Yusuf.bentenmobmod;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,6 +45,7 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.registerConfiguredFeatures();
 
 	};
 
