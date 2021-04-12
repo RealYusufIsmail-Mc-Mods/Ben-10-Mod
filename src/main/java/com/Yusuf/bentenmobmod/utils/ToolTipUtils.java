@@ -2,7 +2,10 @@ package com.Yusuf.bentenmobmod.utils;
 
 import static net.minecraft.util.text.Style.EMPTY;
 
+import java.awt.Color;
+
 import net.minecraft.util.text.IFormattableTextComponent;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 public class ToolTipUtils {
@@ -21,12 +24,12 @@ public class ToolTipUtils {
      */
  
 
-	 public static IFormattableTextComponent translate(net.minecraft.util.text.Color color, String key, Object... args) {
+	 public static IFormattableTextComponent translate(Color color, String key, Object... args) {
 	        return new TranslationTextComponent(key, args).setStyle(EMPTY.withColor(color));
 	    }
 
 
-	    public static IFormattableTextComponent translate(net.minecraft.util.text.Style style, String key, Object... args) {
+	    public static IFormattableTextComponent translate(Style style, String key, Object... args) {
 	        return new TranslationTextComponent(key, args).setStyle(style);
 	    }
 
