@@ -2,8 +2,6 @@ package com.Yusuf.bentenmobmod.utils;
 
 import static net.minecraft.util.text.Style.EMPTY;
 
-import com.ibm.icu.text.ListFormatter.Style;
-
 import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;

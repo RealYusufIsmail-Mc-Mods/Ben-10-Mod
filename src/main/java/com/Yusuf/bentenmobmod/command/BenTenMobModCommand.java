@@ -1,6 +1,7 @@
 package com.Yusuf.bentenmobmod.command;
 
 import com.Yusuf.bentenmobmod.command.sub.DiscordCommand;
+import com.Yusuf.bentenmobmod.command.sub.DonateCommand;
 import com.mojang.brigadier.CommandDispatcher;
 
 import net.minecraft.command.CommandSource;
@@ -10,18 +11,18 @@ public class BenTenMobModCommand {
 	public static void register(CommandDispatcher<CommandSource> dispatcher) {
         dispatcher.register(Commands.literal("bentenmobmod").requires(cs -> cs.hasPermission(0))
                 .then(Commands.literal("discord").executes(ctx -> discord(ctx.getSource())))
-                /*
-                .then(Commands.literal("Donate").executes(ctx -> donate(ctx.getSource())))
-                */
+                
+                .then(Commands.literal("donate").executes(ctx -> donate(ctx.getSource())))
+                
         );
     }
 	
 	private static int discord(CommandSource source) {
         return DiscordCommand.execute(source);
     }
-/*
-    private static int info(CommandSource source) {
+
+    private static int donate(CommandSource source) {
         return DonateCommand.execute(source);
     }
-*/
+
 }
