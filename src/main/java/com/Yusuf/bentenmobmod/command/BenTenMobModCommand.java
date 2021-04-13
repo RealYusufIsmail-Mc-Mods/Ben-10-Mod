@@ -14,8 +14,9 @@ public class BenTenMobModCommand {
                 .then(Commands.literal("discord").executes(ctx -> discord(ctx.getSource())))
                 
                 .then(Commands.literal("donate").executes(ctx -> donate(ctx.getSource())))
+                /*
                 .then(Commands.literal("secrete").executes(ctx -> secrete(ctx.getSource())))
-                
+                */
         );
     }
 	
@@ -27,9 +28,10 @@ public class BenTenMobModCommand {
         return DonateCommand.execute(source);
     }
     
-
+/*
     private static int secrete(CommandSource source) {
         return SecreteCommand.execute(source);
     }
+    */
 
 }
