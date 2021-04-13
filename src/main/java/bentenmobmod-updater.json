@@ -3,5 +3,9 @@
 "promos": {
 "1.16.5-latest": "bentenmobmod-1.8",
 "1.16.5-recommended": "bentenmobmod-1.8"
-}
+},
+"1.16.5": {
+        "bentenmobmod-1.8": "First Official Stable Release - Supporting only 1.16.5+. Read the full changelog at: https://github.com/sokratis12GR/ArmorPlus/blob/1.16.5/src/main/resources/changelog.md#armorplus-1165-1640"
+    }
+
 }
