@@ -1,10 +1,14 @@
 package com.Yusuf.bentenmobmod.utils;
 
 import static net.minecraft.util.text.Style.EMPTY;
+import static net.minecraft.util.text.TextFormatting.GRAY;
+import static net.minecraft.util.text.TextFormatting.RED;
 
-import java.awt.Color;
+import java.util.List;
 
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.text.IFormattableTextComponent;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -22,11 +26,26 @@ public class ToolTipUtils {
     /**
      * Adds a basic damage information about arrows
      */
- 
 
-	 public static IFormattableTextComponent translate(Color color, String key, Object... args) {
+	   public static void showInfo(List<ITextComponent> tooltip, KeyBinding keyBinding, TextFormatting formatting) {
+	        tooltip.add(translate(GRAY, "tooltip.bentenmobmod.shift.showinfo", translate(formatting, keyBinding.getName())));
+	    }
+	
+	    
+	   
+	  
+
+	    public static void addExperimentalItemInformation(List<ITextComponent> tooltip) {
+	        tooltip.add(translate(RED, "tooltip.bentenmobmod.not_accessible"));
+	        tooltip.add(translate(RED, "tooltip.bentenmobmod.not_accessible.2"));
+	        tooltip.add(translate(RED, "tooltip.bentenmobmod.not_accessible.3"));
+	    }
+	    
+	   
+	 public static IFormattableTextComponent translate(net.minecraft.util.text.Color color, String key, Object... args) {
 	        return new TranslationTextComponent(key, args).setStyle(EMPTY.withColor(color));
 	    }
+	 
 
 
 	    public static IFormattableTextComponent translate(Style style, String key, Object... args) {

@@ -8,6 +8,7 @@ import static net.minecraft.util.text.event.HoverEvent.Action.SHOW_TEXT;
 import com.mojang.brigadier.Command;
 
 import net.minecraft.command.CommandSource;
+import net.minecraft.util.text.Style;
 import net.minecraft.util.text.event.ClickEvent;
 import net.minecraft.util.text.event.HoverEvent;
 
