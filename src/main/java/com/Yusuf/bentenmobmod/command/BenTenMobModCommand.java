@@ -2,7 +2,6 @@ package com.Yusuf.bentenmobmod.command;
 
 import com.Yusuf.bentenmobmod.command.sub.DiscordCommand;
 import com.Yusuf.bentenmobmod.command.sub.DonateCommand;
-import com.Yusuf.bentenmobmod.command.sub.SecreteCommand;
 import com.mojang.brigadier.CommandDispatcher;
 
 import net.minecraft.command.CommandSource;
