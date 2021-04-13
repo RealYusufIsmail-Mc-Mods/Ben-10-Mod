@@ -7,8 +7,12 @@ issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 modId="bentenmobmod" 
 version="${1.8}" 
 displayName="Ben10 Mob Mod" 
-logoFile="examplemod.png"
-credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod." 
+displayURL="https://www.curseforge.com/minecraft/mc-mods/ben-ten-mob-mod" #optional
+logoFile="headerimg.png"
+credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and 
+gentworm for helping me with my code." 
+
+authors="Yusuf Ismail and gentworm" #optional
 description='''
 Villains and heros in the Ben 10 series. Villains coming out first.	
 
@@ -21,6 +25,8 @@ Github is https://github.com/realyusufismail
 join discord for support and teasers https://discord.gg/g858J6q
 
 PierogiP: https://www.curseforge.com/members/polisch_pierogi/
+
+gentworm: https://www.curseforge.com/members/gentworm/followers
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.ben10mobmod]] #optional
