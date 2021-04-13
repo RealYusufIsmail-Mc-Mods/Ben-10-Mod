@@ -2,6 +2,7 @@ package com.Yusuf.bentenmobmod.command;
 
 import com.Yusuf.bentenmobmod.command.sub.DiscordCommand;
 import com.Yusuf.bentenmobmod.command.sub.DonateCommand;
+import com.Yusuf.bentenmobmod.command.sub.SecreteCommand;
 import com.mojang.brigadier.CommandDispatcher;
 
 import net.minecraft.command.CommandSource;
@@ -13,6 +14,7 @@ public class BenTenMobModCommand {
                 .then(Commands.literal("discord").executes(ctx -> discord(ctx.getSource())))
                 
                 .then(Commands.literal("donate").executes(ctx -> donate(ctx.getSource())))
+                .then(Commands.literal("secrete").executes(ctx -> secrete(ctx.getSource())))
                 
         );
     }
@@ -23,6 +25,11 @@ public class BenTenMobModCommand {
 
     private static int donate(CommandSource source) {
         return DonateCommand.execute(source);
+    }
+    
+
+    private static int secrete(CommandSource source) {
+        return SecreteCommand.execute(source);
     }
 
 }
