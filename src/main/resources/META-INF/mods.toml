@@ -7,6 +7,7 @@ issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 modId="bentenmobmod" 
 version="${1.8}" 
 displayName="Ben10 Mob Mod" 
+updateJSONURL="https://raw.githubusercontent.com/realyusufismail/custom-mod/main/src/main/java/bentenmobmod-updater.json" #optional
 displayURL="https://www.curseforge.com/minecraft/mc-mods/ben-ten-mob-mod" #optional
 logoFile="headerimg.png"
 credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and 
