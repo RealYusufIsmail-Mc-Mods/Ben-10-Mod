@@ -3,9 +3,7 @@ package com.Yusuf.bentenmobmod.entity;
 import com.Yusuf.bentenmobmod.entity.ai.VilgaxAttackGoal;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -13,7 +11,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.BreakBlockGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -34,14 +31,12 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -64,8 +59,13 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
             return PlayState.CONTINUE;
-        }
-       else
+        }if (!this.onGround) {
+			event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
+			return PlayState.CONTINUE;
+		}
+		
+	
+else
         {
                 event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.CONTINUE;
@@ -81,33 +81,9 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	
 	
-	 public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		 return MobEntity.createMobAttributes()
-	                .add(Attributes.FOLLOW_RANGE, 35.0D)
-	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
-	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
-	                .add(Attributes.ATTACK_DAMAGE, 10.0D)
-	                .add(Attributes.MAX_HEALTH, 300.0D);
-	        
-                    
-	 }
-	        
-	 	protected SoundEvent getAmbientSound() {
-	      return SoundEvents.ENDER_DRAGON_AMBIENT;
-	   }
 	
+	        
 
-	   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-	      return SoundEvents.ENDER_DRAGON_HURT;
-	   }
-
-	   protected SoundEvent getDeathSound() {
-	      return SoundEvents.ENDER_DRAGON_DEATH;
-	   }
-
-	   protected SoundEvent getStepSound() {
-	      return SoundEvents.IRON_GOLEM_STEP;
-	   }
 
 		
 		@Override
@@ -116,17 +92,13 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 			return this.factory;
 
 		}
-		if (!this.onGround) {
-			event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
-			return PlayState.CONTINUE;
-		}
-		return PlayState.STOP;
-	}
 
-	@Override
-	public void registerControllers(AnimationData data) {
-		data.addAnimationController(new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
-	}
+		
+
+	
+
+
+	
 
 	public VilgaxEntity(EntityType<? extends VilgaxEntity> p_i48549_1_, World p_i48549_2_) {
 		super(p_i48549_1_, p_i48549_2_);
@@ -244,15 +216,15 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ENDER_DRAGON_AMBIENT;
+		return SoundEvents.ZOMBIE_AMBIENT;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-		return SoundEvents.ENDER_DRAGON_HURT;
+		return SoundEvents.IRON_GOLEM_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ENDER_DRAGON_DEATH;
+		return SoundEvents.IRON_GOLEM_DEATH;
 	}
 
 	protected SoundEvent getStepSound() {
@@ -316,9 +288,5 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	}
 
-	@Override
-	public AnimationFactory getFactory() {
 
-		return this.factory;
-	}
 }
