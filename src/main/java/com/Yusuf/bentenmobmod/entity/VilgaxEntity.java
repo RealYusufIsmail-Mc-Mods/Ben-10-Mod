@@ -60,9 +60,61 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	private AnimationFactory factory = new AnimationFactory(this);
 
 	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-		if (event.isMoving()) {
-			event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
-			return PlayState.CONTINUE;
+
+        if (event.isMoving()) {
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("walking", true));
+            return PlayState.CONTINUE;
+        }
+       else
+        {
+                event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
+        return PlayState.CONTINUE;
+    }}
+	
+	 @Override
+		public void registerControllers(AnimationData data) {
+			data.addAnimationController(new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
+		}
+		
+
+	
+
+	
+	
+	 public static AttributeModifierMap.MutableAttribute registerAttributes() {
+		 return MobEntity.createMobAttributes()
+	                .add(Attributes.FOLLOW_RANGE, 35.0D)
+	                .add(Attributes.ATTACK_KNOCKBACK, 10.0D)
+	                .add(Attributes.MOVEMENT_SPEED, (double)0.23F)
+	                .add(Attributes.ATTACK_DAMAGE, 10.0D)
+	                .add(Attributes.MAX_HEALTH, 300.0D);
+	        
+                    
+	 }
+	        
+	 	protected SoundEvent getAmbientSound() {
+	      return SoundEvents.ENDER_DRAGON_AMBIENT;
+	   }
+	
+
+	   protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
+	      return SoundEvents.ENDER_DRAGON_HURT;
+	   }
+
+	   protected SoundEvent getDeathSound() {
+	      return SoundEvents.ENDER_DRAGON_DEATH;
+	   }
+
+	   protected SoundEvent getStepSound() {
+	      return SoundEvents.IRON_GOLEM_STEP;
+	   }
+
+		
+		@Override
+		public AnimationFactory getFactory()
+		{
+			return this.factory;
+
 		}
 		if (!this.onGround) {
 			event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
