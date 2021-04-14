@@ -58,9 +58,11 @@ public class VilgaxEntity extends CreatureEntity implements IAnimatable
         if (!this.onGround) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
             return PlayState.CONTINUE;
-        }
-        return PlayState.STOP;
-    }
+        }else
+        {
+                event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
+        return PlayState.CONTINUE;
+    }}
 	
 	 @Override
 		public void registerControllers(AnimationData data) {
