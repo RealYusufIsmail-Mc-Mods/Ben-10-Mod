@@ -264,7 +264,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	}
 
-	s@Override
+	@Override
 	public AnimationFactory getFactory() {
 
 		return this.factory;
