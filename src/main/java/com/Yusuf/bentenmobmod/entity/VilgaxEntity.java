@@ -21,7 +21,6 @@ import net.minecraft.entity.ai.goal.MoveThroughVillageAtNightGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
-import net.minecraft.entity.merchant.villager.VillagerEntity;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.ZombifiedPiglinEntity;
@@ -82,7 +81,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected void registerGoals() {
-		this.goalSelector.addGoal(4, new VilgaxEntity.AttackTurtleEggGoal(this, 1.0D, 3));
 		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
 		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
 		this.addBehaviourGoals();
@@ -194,19 +192,19 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ZOMBIE_AMBIENT;
+		return SoundEvents.ENDER_DRAGON_AMBIENT;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-		return SoundEvents.ZOMBIE_HURT;
+		return SoundEvents.ENDER_DRAGON_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.ZOMBIE_DEATH;
+		return SoundEvents.ENDER_DRAGON_DEATH;
 	}
 
 	protected SoundEvent getStepSound() {
-		return SoundEvents.ZOMBIE_STEP;
+		return SoundEvents.IRON_GOLEM_STEP;
 	}
 
 	protected void playStepSound(BlockPos p_180429_1_, BlockState p_180429_2_) {
@@ -232,10 +230,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	public void killed(ServerWorld p_241847_1_, LivingEntity p_241847_2_) {
 		super.killed(p_241847_1_, p_241847_2_);
-		if ((p_241847_1_.getDifficulty() == Difficulty.NORMAL || p_241847_1_.getDifficulty() == Difficulty.HARD)
-				&& p_241847_2_ instanceof VillagerEntity && net.minecraftforge.event.ForgeEventFactory
-						.canLivingConvert(p_241847_2_, EntityType.ZOMBIE_VILLAGER, (timer) -> {
-						})) {
+		{
 			if (p_241847_1_.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
 				return;
 			}
@@ -253,17 +248,13 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 				: super.canHoldItem(p_175448_1_);
 	}
 
-	public double getMyRidingOffset() {
-		return this.isBaby() ? 0.0D : -0.45D;
-	}
-
 	protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
 		super.dropCustomDeathLoot(p_213333_1_, p_213333_2_, p_213333_3_);
 		Entity entity = p_213333_1_.getEntity();
 		if (entity instanceof CreeperEntity) {
 			CreeperEntity creeperentity = (CreeperEntity) entity;
 			if (creeperentity.canDropMobsSkull()) {
-				ItemStack itemstack = this.getSkull();
+				ItemStack itemstack = null;
 				if (!itemstack.isEmpty()) {
 					creeperentity.increaseDroppedSkulls();
 					this.spawnAtLocation(itemstack);
@@ -273,31 +264,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	}
 
-	protected ItemStack getSkull() {
-		return new ItemStack(Items.ZOMBIE_HEAD);
-	}
-
-	class AttackTurtleEggGoal extends BreakBlockGoal {
-		AttackTurtleEggGoal(CreatureEntity p_i50465_2_, double p_i50465_3_, int p_i50465_5_) {
-			super(Blocks.TURTLE_EGG, p_i50465_2_, p_i50465_3_, p_i50465_5_);
-		}
-
-		public void playDestroyProgressSound(IWorld p_203114_1_, BlockPos p_203114_2_) {
-			p_203114_1_.playSound((PlayerEntity) null, p_203114_2_, SoundEvents.ZOMBIE_DESTROY_EGG,
-					SoundCategory.HOSTILE, 0.5F, 0.9F + VilgaxEntity.this.random.nextFloat() * 0.2F);
-		}
-
-		public void playBreakSound(World p_203116_1_, BlockPos p_203116_2_) {
-			p_203116_1_.playSound((PlayerEntity) null, p_203116_2_, SoundEvents.TURTLE_EGG_BREAK, SoundCategory.BLOCKS,
-					0.7F, 0.9F + p_203116_1_.random.nextFloat() * 0.2F);
-		}
-
-		public double acceptedDistance() {
-			return 1.14D;
-		}
-	}
-
-	@Override
+	s@Override
 	public AnimationFactory getFactory() {
 
 		return this.factory;
