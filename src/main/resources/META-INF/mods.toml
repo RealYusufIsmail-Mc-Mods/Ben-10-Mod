@@ -47,6 +47,6 @@ gentworm: https://www.curseforge.com/members/gentworm/followers
     [[dependencies.bentenmobmod]]
     modId="geckolib3"
     mandatory=true
-    versionRange="[3.0.15,)"
+    versionRange="[3.0.30,)"
     ordering="BEFORE"
     side="BOTH"
