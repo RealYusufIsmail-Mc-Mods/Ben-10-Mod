@@ -4,7 +4,6 @@ package com.Yusuf.bentenmobmod.entity.ai;
 import com.Yusuf.bentenmobmod.entity.VilgaxEntity;
 
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.monster.ZombieEntity;
 
 public class VilgaxAttackGoal extends MeleeAttackGoal {
    private final VilgaxEntity vilgax;
