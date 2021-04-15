@@ -1,6 +1,9 @@
 BSD 3-Clause License
+
 This mod can be used in a modpack
+
 Copyright (c) 2021, Yusuf Ismail
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
