@@ -62,14 +62,12 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         }if (!this.onGround) {
 			event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
 			return PlayState.CONTINUE;
-		}
-		
-	
-else
+		}else
         {
                 event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.CONTINUE;
-    }}
+    }
+	}
 	
 	 @Override
 		public void registerControllers(AnimationData data) {
@@ -145,32 +143,7 @@ else
 		return true;
 	}
 
-	public void aiStep() {
-		if (this.isAlive()) {
-			boolean flag = this.isSunSensitive() && this.isSunBurnTick();
-			if (flag) {
-				ItemStack itemstack = this.getItemBySlot(EquipmentSlotType.HEAD);
-				if (!itemstack.isEmpty()) {
-					if (itemstack.isDamageableItem()) {
-						itemstack.setDamageValue(itemstack.getDamageValue() + this.random.nextInt(2));
-						if (itemstack.getDamageValue() >= itemstack.getMaxDamage()) {
-							this.broadcastBreakEvent(EquipmentSlotType.HEAD);
-							this.setItemSlot(EquipmentSlotType.HEAD, ItemStack.EMPTY);
-						}
-					}
-
-					flag = false;
-				}
-
-				if (flag) {
-					this.setSecondsOnFire(8);
-				}
-			}
-		}
-
-		super.aiStep();
-	}
-
+	
 	protected boolean isSunSensitive() {
 		return true;
 	}
@@ -216,7 +189,7 @@ else
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.ZOMBIE_AMBIENT;
+		return SoundEvents.PHANTOM_AMBIENT	;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
