@@ -3,4 +3,6 @@
 [![Discord](https://img.shields.io/discord/699595852473434133?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)]( https://discord.gg/g858J6q)
 [![Support](https://img.shields.io/badge/Gofundme-donate-blue?logo=gofundme)](https://www.gofundme.com/f/bvbqp-help-me-get-a-better-computer)
 
+This mod can be used in a modpack
+
 Copyright 2021, Yusuf Ismail , All rights reserved.
