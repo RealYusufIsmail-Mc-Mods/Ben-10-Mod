@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Smelted Ruby ore",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you have made the fastest axe in the game. Nice"
+        },
+        "icon": {
+            "item": "bentenmobmod:axe"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:axe",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:ruby/ruby"
+}
