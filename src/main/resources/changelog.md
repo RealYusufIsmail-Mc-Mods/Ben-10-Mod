@@ -1,10 +1,5 @@
-bentenmobmod-1.8
-changelog
-
-added advancements 
-added 2 new apples:
-
-fire apple 
-ruby apple
-
-recipies can be found if you are using JEI mod.
+bentenmobmod-1.9
+Bug fixes
+Vilgax attacks now
+Requires forge 36.1.2
+requires geckolib 1.16.5
