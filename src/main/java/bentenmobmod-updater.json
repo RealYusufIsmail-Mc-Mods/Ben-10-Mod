@@ -1,8 +1,8 @@
 {
 "homepage": "https://www.curseforge.com/minecraft/mc-mods/ben-ten-mob-mod",
 "promos": {
-"1.16.5-latest": "bentenmobmod-1.8",
-"1.16.5-recommended": "bentenmobmod-1.8"
+"1.16.5-latest": "bentenmobmod-1.9",
+"1.16.5-recommended": "bentenmobmod-1.9"
 },
 "1.16.5": {
         "bentenmobmod-1.8": " Bug fixes and added new features Supporting only 1.16.5+. Read the full changelog at: https://github.com/realyusufismail/custom-mod/blob/main/src/main/resources/changelog.md"
