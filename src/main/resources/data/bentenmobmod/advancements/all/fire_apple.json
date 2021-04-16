@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made an omnitrix block",
+            "text": "Made a Fire Apple",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You can craft an apple bettter than an Enchnated Golden apple."
+            "text": "You are immunte to fire now."
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix_block"
+            "item": "bentenmobmod:fire_apple"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix_block",
+                        "item": "bentenmobmod:fire_apple",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/omnitirix"
+    "parent": "bentenmobmod:all/fire"
 }

@@ -22,7 +22,7 @@
         "show_toast": false,
         "announce_to_chat": true,
         "hidden": false,
-        "background": "minecraft:textures/gui/advancements/backgrounds/stone.png"
+        "background": "minecraft:textures/gui/advancements/backgrounds/end.png"
     },
    "criteria": {
     "bentenmobmod": {
