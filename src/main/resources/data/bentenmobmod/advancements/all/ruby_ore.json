@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made the fastest axe",
+            "text": "Mined Ruby ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you have made the fastest axe in the game. Nice"
+            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft an apple which gives you ultimate rengeneration."
         },
         "icon": {
-            "item": "bentenmobmod:axe"
+            "item": "bentenmobmod:ruby_ore"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:axe",
+                        "item": "bentenmobmod:ruby_ore",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:ruby/ruby"
+    "parent": "bentenmobmod:root"
 }

@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Smelted Omnitrix ore",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you smelted Omnitrix ore and now you can make an the omnitrix apple whcih will give unbelievable power."
+        },
+        "icon": {
+            "item": "bentenmobmod:omnitrix"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:omnitrix",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:omnitrix_ore"
+}

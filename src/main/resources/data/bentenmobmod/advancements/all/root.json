@@ -1,7 +1,7 @@
 {
     "display": {
         "title": {
-            "text": "Mined Ruby ore",
+            "text": "Download Ben ten mob mod",
             "color": "gold",
             "bold": true,
             "italic": false,
@@ -10,13 +10,13 @@
             "obfuscated": false
         },
         "description": {
-            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft an apple which gives you ultimate rengeneration.",
+            "text": "Thank you for downloading my mod.",
             "color": "blue",
             "bold": true,
             "underlined": true
         },
         "icon": {
-            "item": "bentenmobmod:ruby_ore"
+            "item": "bentenmobmod:omnitrix_ore"
         },
         "frame": "goal",
         "show_toast": false,
@@ -30,7 +30,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:ruby_ore",
+                        "item": "bentenmobmod:omnitrix_ore",
                         "count": {
                             "min": 1,
                             "max": 1

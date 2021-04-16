@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Omnitrix ore",
+            "text": "Made an omnitrix apple",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you smelted Omnitrix ore and now you can make an the omnitrix apple whcih will give unbelievable power."
+            "text": "You have a made an apple stronger than a normal golden apple."
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix"
+            "item": "bentenmobmod:omnitrix_apple"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix",
+                        "item": "bentenmobmod:omnitrix_apple",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:omnitrix/root"
+    "parent": "bentenmobmod:omnitrix"
 }

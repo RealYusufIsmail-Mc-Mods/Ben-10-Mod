@@ -26,7 +26,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> OMNITRIX = ITEMS.register("omnitrix",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> fire = ITEMS.register("fire",
+	public static final RegistryObject<Item> FIRE = ITEMS.register("fire",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",

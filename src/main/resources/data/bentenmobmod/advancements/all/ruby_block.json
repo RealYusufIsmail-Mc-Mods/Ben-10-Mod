@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made an enchanted omnitrix apple",
+            "text": "Smelted Ruby ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You have a made an apple stronger than no other apart from a secrete apple."
+            "text": "you made a ruby block and can now make a ruby apple which gives you infite regeneration"
         },
         "icon": {
-            "item": "bentenmobmod:enchanted_omnitrix_apple"
+            "item": "bentenmobmod:ruby_block"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:enchanted_omnitrix_apple",
+                        "item": "bentenmobmod:ruby_block",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:omnitrix/omnitrix_block"
+    "parent": "bentenmobmod:ruby"
 }
