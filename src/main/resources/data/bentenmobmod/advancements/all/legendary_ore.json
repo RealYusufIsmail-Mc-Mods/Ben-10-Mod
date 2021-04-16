@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:legendary_ore_block"
+    "parent": "bentenmobmod:all/legendary_ore_block"
 }

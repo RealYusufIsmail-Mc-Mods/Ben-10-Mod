@@ -40,5 +40,5 @@
     "rewards": {
         "experience": 1
     },
-    "parent": "bentenmobmod:legendary_ore"
+    "parent": "bentenmobmod:all/legendary_ore"
 }
