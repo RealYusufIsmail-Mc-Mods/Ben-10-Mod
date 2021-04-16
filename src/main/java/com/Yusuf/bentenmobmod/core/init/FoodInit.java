@@ -29,7 +29,7 @@ public class FoodInit {
     
  // Ruby  Apple
     public static final Food RUBY_APPLE = new Food.Builder()
-            .effect(new EffectInstance(Effects.REGENERATION, 500000, 0), 1)
+            .effect(new EffectInstance(Effects.REGENERATION, 900000, 0), 1)
             .effect(new EffectInstance(Effects.ABSORPTION, 6000, 6), 1)
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 4800, 0), 1)
             .effect(new EffectInstance(Effects.MOVEMENT_SPEED, 4800, 0), 1)
