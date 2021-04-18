@@ -21,8 +21,8 @@ public class FeatureInit {
 			addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE , 
 					BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 1, 15, 3);
 			
-			addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK , 
-					BlockInit.FIRE_ORE.get().defaultBlockState(), 3, 1, 15, 2);
+			addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE , 
+					BlockInit.FIRE_ORE.get().defaultBlockState(), 3, 1, 11, 2);
 	}
 	
 	public static void  addOre(final BiomeLoadingEvent event, RuleTest rule, BlockState state, int veinSize, int minHeight, int maxHeight, int amount) {

@@ -17,7 +17,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
-
+	// ores
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
 
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
@@ -32,21 +32,23 @@ public class ItemInit {
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	// ores
 
+	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
-			() -> new SwordItem(CustomToolMaterial.TOOL, 14, 7f,
+			() -> new SwordItem(CustomToolMaterial.SWORD, 14, 7f,
 					new Item.Properties().durability(400).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
-			() -> new AxeItem(CustomToolMaterial.TOOL, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
+			() -> new AxeItem(CustomToolMaterial.AXE, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new SwordItem(CustomToolMaterial.TOOL, 17, 7f,
+			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
 
-	// tools
 
+//armour
+	
+	//knight armour
 	public static final RegistryObject<Item> HELMET = ITEMS.register("helmet",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
@@ -62,6 +64,29 @@ public class ItemInit {
 	public static final RegistryObject<Item> BOOT = ITEMS.register("boot",
 			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
+	//ben ten clothing
+	public static final RegistryObject<Item> JACKET = ITEMS.register("jacket",
+			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	//Heatblast armour
+	
+	public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
+			() -> new ArmorItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
+			() -> new ArmorItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register("heatblast_leggings",
+			() -> new ArmorItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
+			() -> new ArmorItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+	
 	// Food
 	public static final RegistryObject<Item> OMNITRIX_APPLE = ITEMS.register("omnitrix_apple",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
@@ -77,12 +102,11 @@ public class ItemInit {
 	public static final RegistryObject<Item> RUBY_APPLE = ITEMS.register("ruby_apple",
 			() -> new EnchantedGoldenAppleItem(
 					 new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
-	// armour like axes
+	//other items
 
 	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
 			() -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,
 					new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(16)));
 
-	/* other items */
 
 }
