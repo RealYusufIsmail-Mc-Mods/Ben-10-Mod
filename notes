@@ -1,0 +1,4 @@
+git branch -m main 1.16.5
+git fetch origin
+git branch -u origin/1.16.5 1.16.5
+git remote set-head origin -a
