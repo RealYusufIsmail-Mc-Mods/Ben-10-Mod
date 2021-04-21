@@ -66,7 +66,7 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//ben ten clothing
 	public static final RegistryObject<Item> JACKET = ITEMS.register("jacket",
-			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
+			() -> new ArmorItem(CustomArmorMaterial.JACKET, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	//Heatblast armour
