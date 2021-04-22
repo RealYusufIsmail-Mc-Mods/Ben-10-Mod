@@ -19,7 +19,7 @@
             "item": "bentenmobmod:omnitrix_ore"
         },
         "frame": "goal",
-        "show_toast": false,
+        "show_toast": true,
         "announce_to_chat": true,
         "hidden": false,
         "background": "minecraft:textures/block/light_blue_wool.png"
