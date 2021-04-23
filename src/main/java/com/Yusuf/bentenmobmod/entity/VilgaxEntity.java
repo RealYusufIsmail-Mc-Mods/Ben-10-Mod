@@ -62,11 +62,10 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         }if (!this.onGround) {
 			event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
 			return PlayState.CONTINUE;
-		}else
-        {
-                event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
+		}
+        else
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.CONTINUE;
-    }
 	}
 	
 	 @Override
