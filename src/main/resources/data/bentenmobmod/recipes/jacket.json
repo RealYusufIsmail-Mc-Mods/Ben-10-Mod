@@ -1,0 +1,18 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "R R",
+        "RRR",
+        "RRR"
+        	
+    ],
+    "key": {
+         "R": {
+         "item": "bentenmobmod:omnitrix"
+         }
+    },
+    "result": {
+        "item": "bentenmobmod:heatblast_chestplate",
+        "count": 1
+    }
+}
