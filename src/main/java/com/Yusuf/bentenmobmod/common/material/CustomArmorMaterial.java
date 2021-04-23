@@ -4,11 +4,16 @@ import java.util.function.Supplier;
 
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.world.World;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
 	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
@@ -29,6 +34,7 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 	private final float knockbackResistance;
 	private final Ingredient repairIngredient;
 
+	
 	CustomArmorMaterial(String name, int durabilityMultiplier, int[] armorVal, int enchantability,
 			SoundEvent equipSound, float toghness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
 		this.name = name;
@@ -80,5 +86,18 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 	public float getKnockbackResistance() {
 		return this.knockbackResistance;
 	}
+	
+
+	@Override
+	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+		if(!player.isInLava()) {
+			EffectInstance effect = new EffectInstance(Effects.FIRE_RESISTANCE, 2400, 0, false, false, true);
+			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
+				player.addEffect(effect);
+			}
+		}
+	}
+	
+	
 
 }
