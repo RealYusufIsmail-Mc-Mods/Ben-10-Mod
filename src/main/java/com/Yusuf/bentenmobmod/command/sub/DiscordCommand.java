@@ -19,9 +19,9 @@ import net.minecraft.util.text.event.HoverEvent;
 public class DiscordCommand {
 
     public static int execute(CommandSource sender) {
-    	String discord = " https://discord.gg/g858J6q";
-        Style ap = Style.EMPTY.withClickEvent(new ClickEvent(OPEN_URL, discord)).withHoverEvent(new HoverEvent(SHOW_TEXT, translate("commands.bentenmobmod.discord.hover")));
-        sender.sendSuccess(translate(AQUA, "commands.bentenmobmod.discord.line_one", discord).setStyle(ap), true);
+        String discord = "https://discord.gg/g858J6q";
+        Style wiki = Style.EMPTY.withClickEvent(new ClickEvent(OPEN_URL, discord)).withHoverEvent(new HoverEvent(SHOW_TEXT, translate("commands.betenmobmod.discrod.link_details")));
+        sender.sendSuccess(translate(AQUA, "commands.betenmobmod.discord.link_details", discord).setStyle(wiki), false);
         return Command.SINGLE_SUCCESS;
     }
 }
