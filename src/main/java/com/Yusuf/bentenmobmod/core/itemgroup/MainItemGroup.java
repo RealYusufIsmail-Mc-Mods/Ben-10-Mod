@@ -15,7 +15,7 @@ public class MainItemGroup extends ItemGroup {
 
 	@Override
 	public ItemStack makeIcon() {
-		return new ItemStack(ItemInit.ENCHANTED_OMNITRIX_APPLE.get());
+		return new ItemStack(ItemInit.OMNITRIX.get());
 	}
 
 }
