@@ -6,7 +6,7 @@
             "entries":[
                 {
                     "type": "minecraft:block",
-                    "name": "bentenmobmod:ruby_block"
+                    "name": "bentenmobmod:omnitrix_block"
                 }
             ]    
         }
@@ -41,7 +41,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:ruby_block"
+              "name": "bentenmobmod:speed_ore"
             },
             {
               "type": "minecraft:item",
@@ -55,7 +55,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:ruby_block"
+              "name": "bentenmobmod:speed_ore"
             }
           ]
         }

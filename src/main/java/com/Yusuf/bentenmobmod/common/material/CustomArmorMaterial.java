@@ -4,24 +4,22 @@ import java.util.function.Supplier;
 
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
 	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
 	JACKET("jacket", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.OMNITRIX.get())),
+	XLR8_ARMOUR("fast", 30, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
+			() -> Ingredient.of(ItemInit.SPEED.get())),
 	HEATBLAST_ARMOUR("fire", 30, new int[] { 8, 10, 15, 13 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.FIRE.get()));
+	
 	
 
 	private static final int[] baseDurability = { 128, 144, 160, 112 };

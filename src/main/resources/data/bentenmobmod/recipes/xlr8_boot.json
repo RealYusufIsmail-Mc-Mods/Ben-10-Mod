@@ -1,0 +1,16 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "P P",
+        "P P"
+    ],
+    "key": {
+        "P": {
+            "item": "bentenmobmod:speed"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:xlr8_boot",
+        "count": 1
+    }
+}

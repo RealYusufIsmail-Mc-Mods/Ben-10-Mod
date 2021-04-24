@@ -1,11 +1,12 @@
-	package com.Yusuf.bentenmobmod.core.init;
+package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.common.events.HeatblastChestplateItem;
+import com.Yusuf.bentenmobmod.common.events.HeatblastHelmetItem;
 import com.Yusuf.bentenmobmod.common.events.HeatblastLeggingsItem;
 import com.Yusuf.bentenmobmod.common.events.HeatblastbootsItem;
-import com.Yusuf.bentenmobmod.common.events.HeatblasthelmetItem;
 import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
+import com.Yusuf.bentenmobmod.common.events.Xlr8BootsItem;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
@@ -35,6 +36,9 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	public static final RegistryObject<Item> SPEED = ITEMS.register("SPEED",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 
@@ -77,7 +81,7 @@ public class ItemInit {
 	//Heatblast armour
 	
 	public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
-			() -> new HeatblasthelmetItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
+			() -> new HeatblastHelmetItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
@@ -90,6 +94,23 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
 			() -> new HeatblastbootsItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+	
+	//xlr8 armour
+	public static final RegistryObject<Item> XLR8_HELMET = ITEMS.register("xlr8_helmet",
+			() -> new ArmorItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> XLR8_CHESTPLATE = ITEMS.register("xlr8_chestplate",
+			() -> new ArmorItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> XLR8_LEGGINGS = ITEMS.register("xlr8_leggings",
+			() -> new ArmorItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> XLR8_BOOT = ITEMS.register("xlr8_boot",
+			() -> new Xlr8BootsItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	// Food

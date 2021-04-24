@@ -41,7 +41,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:ruby_block"
+              "name": "bentenmobmod:speed_block"
             },
             {
               "type": "minecraft:item",
@@ -55,7 +55,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:ruby_block"
+              "name": "bentenmobmod:speed_block"
             }
           ]
         }
