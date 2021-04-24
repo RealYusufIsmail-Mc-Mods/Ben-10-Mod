@@ -38,7 +38,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 	
-	public static final RegistryObject<Item> SPEED = ITEMS.register("speed",
+	public static final RegistryObject<Item> SPEED = ITEMS.register("SPEED",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 

@@ -1,0 +1,17 @@
+{
+    "type" : "minecraft:crafting_shaped",
+    "pattern": [
+        "PPP",
+        "P P"
+        	
+    ],
+    "key": {
+        "P": {
+            "item": "bentenmobmod:speed"
+            }
+    },
+    "result": {
+        "item": "bentenmobmod:xlr8_helmet",
+        "count": 1
+    }
+}
