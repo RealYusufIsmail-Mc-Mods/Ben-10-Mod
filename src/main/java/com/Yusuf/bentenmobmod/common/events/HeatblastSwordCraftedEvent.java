@@ -1,3 +1,4 @@
+/*
 package com.Yusuf.bentenmobmod.common.events;
 
 import com.Yusuf.bentenmobmod.Main;
@@ -22,3 +23,4 @@ public class HeatblastSwordCraftedEvent {
 	}
 
 }
+*/	

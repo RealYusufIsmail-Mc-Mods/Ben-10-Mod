@@ -55,7 +55,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:speed_ore"
+              "name": "bentenmobmod:speed"
             }
           ]
         }

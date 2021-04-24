@@ -22,6 +22,9 @@ public class FeatureInit {
 					BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 1, 15, 3);
 			
 			addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE , 
+					BlockInit.SPEED_ORE.get().defaultBlockState(), 3, 1, 15, 3);
+			
+			addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE , 
 					BlockInit.FIRE_ORE.get().defaultBlockState(), 3, 1, 11, 2);
 	}
 	
