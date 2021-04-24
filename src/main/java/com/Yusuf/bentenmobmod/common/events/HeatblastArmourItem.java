@@ -12,9 +12,9 @@ import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class HeatblastChestplateItem extends ArmorItem implements IForgeItem {
+public class HeatblastArmourItem extends ArmorItem implements IForgeItem {
 
-	public HeatblastChestplateItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+	public HeatblastArmourItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
 		super(materialIn, slot, builder);		
 	}
 	@Override
