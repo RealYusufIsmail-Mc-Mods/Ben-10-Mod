@@ -12,21 +12,18 @@ import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class jacket extends ArmorItem implements IForgeItem{
+public class HeatblastChestplateItem extends ArmorItem implements IForgeItem {
 
-	public jacket(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+	public HeatblastChestplateItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
 		super(materialIn, slot, builder);		
 	}
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-			EffectInstance effect = new EffectInstance(Effects.REGENERATION, 940000000, 0, false, false, true);
-			if (stack.getItem() == ItemInit.JACKET.get()) {
+		if(!player.isOnFire()) {
+			EffectInstance effect = new EffectInstance(Effects.FIRE_RESISTANCE, 940000000, 0, false, false, true);
+			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
 				player.addEffect(effect);
 			}
-			EffectInstance effect1 = new EffectInstance(Effects.DAMAGE_RESISTANCE, 940000000, 0, false, false, true);
-			if (stack.getItem() == ItemInit.JACKET.get()) {
-				player.addEffect(effect1);
 		}
 	}
 }
-

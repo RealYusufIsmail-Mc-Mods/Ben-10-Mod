@@ -1,6 +1,8 @@
 	package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
+import com.Yusuf.bentenmobmod.common.events.HeatblastChestplateItem;
+import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
@@ -66,7 +68,7 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//ben ten clothing
 	public static final RegistryObject<Item> JACKET = ITEMS.register("jacket",
-			() -> new ArmorItem(CustomArmorMaterial.JACKET, EquipmentSlotType.CHEST,
+			() -> new JacketArmorItem(CustomArmorMaterial.JACKET, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	//Heatblast armour
@@ -76,7 +78,7 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
-			() -> new ArmorItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
+			() -> new HeatblastChestplateItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register("heatblast_leggings",
