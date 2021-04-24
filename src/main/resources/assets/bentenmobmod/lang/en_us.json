@@ -1,6 +1,9 @@
 {
   "block.bentenmobmod.omnitrix_block": "Omnitrix block",
   "block.bentenmobmod.omnitrix_ore": "Omnitrix Ore",
+  "block.bentenmobmod.speed_block": "Speed block",
+  "block.bentenmobmod.speed_ore": "Speed Ore",
+  "block.bentenmobmod.speed": "Speed",
   "block.bentenmobmod.fire_block": "Fire block",
   "block.bentenmobmod.fire_ore": "Fire Ore",
   "block.bentenmobmod.legendary_block": "Legendary Block",
@@ -30,6 +33,10 @@
   "item.bentenmobmod.heatblast_chestplate": "Heatblast Chestplate",
   "item.bentenmobmod.heatblast_leggings": "Heatblast Leggings",
   "item.bentenmobmod.heatblast_boot": "Heatblast Boots",
+  "item.bentenmobmod.xlr8_helmet": "xlr8 Helmet",
+  "item.bentenmobmod.xlr8_chestplate": "xlr8 Chestplate",
+  "item.bentenmobmod.xlr8_leggings": "xlr8 Leggings",
+  "item.bentenmobmod.xlr8_boot": "xlr8 Boots",
   
   
   
