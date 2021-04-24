@@ -89,7 +89,7 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 	
 
 	@Override
-	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+	public void onTick(ItemStack stack, World world, PlayerEntity player) {
 		if(!player.isInLava()) {
 			EffectInstance effect = new EffectInstance(Effects.FIRE_RESISTANCE, 2400, 0, false, false, true);
 			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
