@@ -12,29 +12,29 @@ import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class HeatblastArmourItem extends ArmorItem implements IForgeItem {
+public class HeatblasthelmetItem extends ArmorItem implements IForgeItem {
 
-	public HeatblastArmourItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+	public HeatblasthelmetItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
 		super(materialIn, slot, builder);		
 	}
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		
 			EffectInstance effect = new EffectInstance(Effects.FIRE_RESISTANCE, 10, 0, false, false, true);
-			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
+			if (stack.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
 				player.addEffect(effect);
 			}
 
 			EffectInstance effect1 = new EffectInstance(Effects.REGENERATION, 10, 0, false, false, true);
-			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
+			if (stack.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
 				player.addEffect(effect1);
 			}
 			EffectInstance effect11 = new EffectInstance(Effects.ABSORPTION, 10, 2, false, false, true);
-			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
+			if (stack.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
 				player.addEffect(effect11);
 			}
 			EffectInstance effect111 = new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 0, false, false, true);
-			if (stack.getItem() == ItemInit.JACKET.get()) {
+			if (stack.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
 				player.addEffect(effect111);
 		}
 	}

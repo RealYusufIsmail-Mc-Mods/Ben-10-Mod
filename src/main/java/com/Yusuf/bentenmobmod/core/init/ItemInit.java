@@ -1,7 +1,10 @@
 	package com.Yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.common.events.HeatblastArmourItem;
+import com.Yusuf.bentenmobmod.common.events.HeatblastChestplateItem;
+import com.Yusuf.bentenmobmod.common.events.HeatblastLeggingsItem;
+import com.Yusuf.bentenmobmod.common.events.HeatblastbootsItem;
+import com.Yusuf.bentenmobmod.common.events.HeatblasthelmetItem;
 import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
@@ -74,19 +77,19 @@ public class ItemInit {
 	//Heatblast armour
 	
 	public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
-			() -> new HeatblastArmourItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
+			() -> new HeatblasthelmetItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
-			() -> new HeatblastArmourItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
+			() -> new HeatblastChestplateItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register("heatblast_leggings",
-			() -> new HeatblastArmourItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
+			() -> new HeatblastLeggingsItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
-			() -> new HeatblastArmourItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
+			() -> new HeatblastbootsItem(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	// Food
