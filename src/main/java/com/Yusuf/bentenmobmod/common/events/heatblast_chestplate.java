@@ -19,8 +19,8 @@ public class heatblast_chestplate extends ArmorItem implements IForgeItem {
 	}
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		if(!player.isInLava()) {
-			EffectInstance effect = new EffectInstance(Effects.FIRE_RESISTANCE, 2400, 0, false, false, true);
+		if(!player.isOnFire()) {
+			EffectInstance effect = new EffectInstance(Effects.FIRE_RESISTANCE, 940000000, 0, false, false, true);
 			if (stack.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()) {
 				player.addEffect(effect);
 			}
