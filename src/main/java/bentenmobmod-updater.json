@@ -2,10 +2,10 @@
 "homepage": "https://realyusufismail.github.io/custom-mod/",
 "promos": {
 "1.16.5-latest": "bentenmobmod-1.16.5-1.11",
-"1.16.5-recommended": "bentenmobmod-1.16.5-1.10"
+"1.16.5-recommended": "bentenmobmod-1.16.5-1.11"
 },
 "1.16.5": {
-        "bentenmobmod-1.16.5-1.10": "Bug fixes and changed advancemts."
+        "bentenmobmod-1.16.5-1.10": "Added new armour."
     }
 
 }
