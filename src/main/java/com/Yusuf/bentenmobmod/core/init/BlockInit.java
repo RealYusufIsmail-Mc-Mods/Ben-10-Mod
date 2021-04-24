@@ -29,6 +29,10 @@ public class BlockInit {
 			.register("fire_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
+	public static final RegistryObject<Block> SPEED_BLOCK = BLOCKS
+			.register("speed_block",
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+	
 	/* Black for ores */
 	
 	public static final RegistryObject<Block> RUBY_ORE = BLOCKS
@@ -45,6 +49,10 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> FIRE_ORE = BLOCKS
 			.register("fire_ore",
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+	
+	public static final RegistryObject<Block> SPEED_ORE = BLOCKS
+			.register("speed_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	
 
