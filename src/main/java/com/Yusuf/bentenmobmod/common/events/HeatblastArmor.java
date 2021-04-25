@@ -35,7 +35,9 @@ public class HeatblastArmor extends ArmorItem implements IForgeItem {
 			
 		}
 		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-			player.getFallFlyingTicks();
+			player.startFallFlying();
+		} else {
+			player.stopFallFlying();
 		}
 	}
 }	
