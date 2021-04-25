@@ -19,7 +19,7 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 			() -> Ingredient.of(ItemInit.SPEED.get())),
 	HEATBLAST_ARMOUR("fire", 30, new int[] { 8, 10, 15, 13 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.FIRE.get()));
-	
+			
 	
 
 	private static final int[] baseDurability = { 128, 144, 160, 112 };
