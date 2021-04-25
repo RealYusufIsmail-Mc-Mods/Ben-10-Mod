@@ -32,18 +32,14 @@ public final PlayerAbilities abilities = new PlayerAbilities();
 			player.addEffect(new EffectInstance(Effects.REGENERATION, 10, 0, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 0, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 10, 1, false, false, true));
-			
-		
-			
+			player.abilities.flying = true;
+			player.fallDistance = 0.0F;
+			player.abilities.setFlyingSpeed(0.2F);
+		} else if (!player.isCreative()) {
+			player.abilities.flying = false;
 		}
 		
-	
-			if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-				 this.abilities.flying = true;
-					    
-				}
-				 
-		} 
+} 
 	}
 	
 
