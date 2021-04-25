@@ -4,11 +4,14 @@ import java.util.function.Supplier;
 
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.world.World;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
 	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
@@ -85,9 +88,8 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 		return this.knockbackResistance;
 	}
 	
-
 	
-	
+		
 	
 
 }
