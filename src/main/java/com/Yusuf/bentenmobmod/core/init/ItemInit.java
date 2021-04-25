@@ -3,7 +3,7 @@ package com.Yusuf.bentenmobmod.core.init;
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.common.events.HeatblastArmor;
 import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
-import com.Yusuf.bentenmobmod.common.events.Xlr8BootsItem;
+import com.Yusuf.bentenmobmod.common.events.Xlr8Armor;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
@@ -107,7 +107,7 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> XLR8_BOOT = ITEMS.register("xlr8_boot",
-			() -> new Xlr8BootsItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
+			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	
 	// Food
