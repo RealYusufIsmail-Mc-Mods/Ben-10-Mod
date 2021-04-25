@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "You have mined and speed ore and can now becoome XLR8",
+            "text": "You have made a 9 Speed(ores)",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you have speed"
+            "text": "You have made a Speed Block"
         },
         "icon": {
-            "item": "bentenmobmod:speed"
+            "item": "bentenmobmod:speed_block"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:speed",
+                        "item": "bentenmobmod:speed_block",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/root"
+    "parent": "bentenmobmod:all/speed"
 }

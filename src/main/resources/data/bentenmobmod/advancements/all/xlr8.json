@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "You have mined and speed ore and can now becoome XLR8",
+            "text": "You are now the fastest player/entity in the game WOW!!!",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you have speed"
+            "text": "you are now XLR8"
         },
         "icon": {
-            "item": "bentenmobmod:speed"
+            "item": "bentenmobmod:xlr8_chestplate"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:speed",
+                        "item": "bentenmobmod:xlr8_chestplate",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/root"
+    "parent": "bentenmobmod:all/speed"
 }
