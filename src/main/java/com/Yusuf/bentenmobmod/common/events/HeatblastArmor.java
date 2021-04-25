@@ -2,6 +2,7 @@ package com.Yusuf.bentenmobmod.common.events;
 
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
+import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -13,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class HeatblastArmor extends ArmorItem implements IForgeItem {
+public final PlayerAbilities abilities = new PlayerAbilities();
 
 	public HeatblastArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
 		super(materialIn, slot, builder);		
@@ -34,10 +36,14 @@ public class HeatblastArmor extends ArmorItem implements IForgeItem {
 		
 			
 		}
-		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-			player.startFallFlying();
-		} else {
-			player.stopFallFlying();
-		}
+		
+	
+			if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
+				 this.abilities.flying = true;
+					    
+				}
+				 
+		} 
 	}
-}	
+	
+
