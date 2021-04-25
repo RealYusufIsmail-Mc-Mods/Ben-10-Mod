@@ -47,6 +47,7 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(this);
 
 	};
+	@SubscribeEvent
 	public void setup(final FMLCommonSetupEvent event)
 	{
 		event.enqueueWork(() -> {
