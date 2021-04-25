@@ -26,8 +26,8 @@ public class Xlr8Armor extends ArmorItem implements IForgeItem {
 		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.XLR8_BOOT.get() && legs.getItem() == ItemInit.XLR8_LEGGINGS.get() && chest.getItem() == ItemInit.XLR8_CHESTPLATE.get() && head.getItem() == ItemInit.XLR8_HELMET.get()) {
-			player.addEffect(new EffectInstance(Effects.REGENERATION, 10, 0, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 0, false, false, true));
-			player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 10, 3, false, false, true));
+			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 0, false, false, true));
+			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 0, false, false, true));
+			player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 100, 3, false, false, true));
 		}}
 }
