@@ -32,11 +32,9 @@ public final PlayerAbilities abilities = new PlayerAbilities();
 			player.addEffect(new EffectInstance(Effects.REGENERATION, 10, 0, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 0, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 10, 1, false, false, true));
-			player.abilities.flying = true;
+			player.abilities.mayfly = true;
 			player.fallDistance = 0.0F;
 			player.abilities.setFlyingSpeed(0.2F);
-		} else if (!player.isCreative()) {
-			player.abilities.flying = false;
 		}
 		
 } 
