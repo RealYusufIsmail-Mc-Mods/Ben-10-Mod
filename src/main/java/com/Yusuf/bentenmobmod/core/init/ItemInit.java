@@ -95,15 +95,15 @@ public class ItemInit {
 	
 	//xlr8 armour
 	public static final RegistryObject<Item> XLR8_HELMET = ITEMS.register("xlr8_helmet",
-			() -> new ArmorItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
+			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> XLR8_CHESTPLATE = ITEMS.register("xlr8_chestplate",
-			() -> new ArmorItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
+			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> XLR8_LEGGINGS = ITEMS.register("xlr8_leggings",
-			() -> new ArmorItem(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
+			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> XLR8_BOOT = ITEMS.register("xlr8_boot",
