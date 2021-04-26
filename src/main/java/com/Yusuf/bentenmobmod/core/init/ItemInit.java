@@ -112,19 +112,19 @@ public class ItemInit {
 	//4 Arms
 	/*
 	public static final RegistryObject<Item> 4ARMS_HELMET = ITEMS.register("4arms_helmet",
-			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
+			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> 4ARMS_CHESTPLATE = ITEMS.register("4arms_chestplate",
-			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
+			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> 4ARMS_LEGGINGS = ITEMS.register("4arms_leggings",
-			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
+			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> 4ARMS_BOOT = ITEMS.register("4arms_boot",
-			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
+			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 		*/
 	// Food
