@@ -109,7 +109,24 @@ public class ItemInit {
 	public static final RegistryObject<Item> XLR8_BOOT = ITEMS.register("xlr8_boot",
 			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
-	
+	//4 Arms
+	/*
+	public static final RegistryObject<Item> 4ARMS_HELMET = ITEMS.register("4arms_helmet",
+			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> 4ARMS_CHESTPLATE = ITEMS.register("4arms_chestplate",
+			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> 4ARMS_LEGGINGS = ITEMS.register("4arms_leggings",
+			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> 4ARMS_BOOT = ITEMS.register("4arms_boot",
+			() -> new 4ArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+		*/
 	// Food
 	public static final RegistryObject<Item> OMNITRIX_APPLE = ITEMS.register("omnitrix_apple",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
