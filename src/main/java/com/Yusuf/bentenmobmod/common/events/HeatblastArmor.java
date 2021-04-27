@@ -17,8 +17,12 @@ public class HeatblastArmor extends ArmorItem implements IForgeItem {
 public final PlayerAbilities abilities = new PlayerAbilities();
 
 	public HeatblastArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
-		super(materialIn, slot, builder);		
+		super(materialIn, slot, builder);	
+		
 	}
+	
+	
+	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		
@@ -36,6 +40,7 @@ public final PlayerAbilities abilities = new PlayerAbilities();
 			player.fallDistance = 0.0F;
 			player.abilities.setFlyingSpeed(0.1F);
 		}
+		
 		
 } 
 	}
