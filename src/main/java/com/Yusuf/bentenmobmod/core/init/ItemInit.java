@@ -42,7 +42,7 @@ public class ItemInit {
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.SWORD, 14, 7f,
-					new Item.Properties().durability(400).tab(MainItemGroup.MAIN)));
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
 			() -> new AxeItem(CustomToolMaterial.AXE, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
@@ -79,19 +79,19 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register("heatblast_leggings",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
-					new Item.Properties().tab(MainItemGroup.MAIN)));
+					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 	
 	//xlr8 armour
 	public static final RegistryObject<Item> XLR8_HELMET = ITEMS.register("xlr8_helmet",

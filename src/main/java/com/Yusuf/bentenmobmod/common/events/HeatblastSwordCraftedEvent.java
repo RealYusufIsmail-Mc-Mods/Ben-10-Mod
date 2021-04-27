@@ -1,9 +1,11 @@
-/*
+
 package com.Yusuf.bentenmobmod.common.events;
 
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,9 +20,15 @@ public class HeatblastSwordCraftedEvent {
 	public static void onEnchantHeatblast(final CraftingEventTrigger event, final BlockEvent.BreakEvent breakEvent) {
 		if (event.getResult().equals(ItemInit.HEATBLAST_SWORD.get())) {
 			System.out.println("Heatblast sword has been crafted");
+	
+			 @Override
+			 public boolean isItemValid(ItemStack itemstack) {
+			  return EnchantmentHelper.getEnchantments(itemstack).size() > 0;
+			 }
+		
+			
 
 		}
 	}
 
 }
-*/	
