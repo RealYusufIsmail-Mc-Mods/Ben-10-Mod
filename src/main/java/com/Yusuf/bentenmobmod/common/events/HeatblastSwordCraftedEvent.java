@@ -1,4 +1,4 @@
-
+/*
 package com.Yusuf.bentenmobmod.common.events;
 
 import com.Yusuf.bentenmobmod.Main;
@@ -19,10 +19,11 @@ public class HeatblastSwordCraftedEvent {
 		if (event.getResult().equals(ItemInit.HEATBLAST_SWORD.get())) {
 			System.out.println("Heatblast sword has been crafted");
 	
-			
+			  
+		    }
 			
 
 		}
 	}
+*/
 
-}

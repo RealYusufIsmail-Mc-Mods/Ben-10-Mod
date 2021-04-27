@@ -29,5 +29,6 @@ public class Xlr8Armor extends ArmorItem implements IForgeItem {
 			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 0, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 0, false, false, true));
 			player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 100, 3, false, false, true));
+			
 		}}
 }
