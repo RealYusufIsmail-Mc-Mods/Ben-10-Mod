@@ -4,6 +4,7 @@ import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.common.events.HeatblastArmor;
 import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
 import com.Yusuf.bentenmobmod.common.events.Xlr8Armor;
+import com.Yusuf.bentenmobmod.common.events.swordHeatblast;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
@@ -48,7 +49,7 @@ public class ItemInit {
 			() -> new AxeItem(CustomToolMaterial.AXE, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
+			() -> new swordHeatblast(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
 
 
