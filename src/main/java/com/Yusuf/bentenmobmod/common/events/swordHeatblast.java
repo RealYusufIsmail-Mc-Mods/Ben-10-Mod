@@ -17,7 +17,7 @@ public class swordHeatblast extends SwordItem implements IForgeItem{
 		}
 	
 	@Override
-	public void tick(ItemStack stack, World world, PlayerEntity player) {
+	public void IArmorItem(ItemStack stack, World world, PlayerEntity player) {
 	
 		
 	
