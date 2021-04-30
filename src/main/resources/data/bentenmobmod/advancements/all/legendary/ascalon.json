@@ -1,7 +1,7 @@
 {
     "display": {
         "title": {
-            "text": "Made a Legendary block",
+            "text": "Made ASCALON",
             "color": "dark_gray",
             "bold": true,
             "italic": true,
@@ -10,12 +10,12 @@
             "obfuscated": false
         },
         "description": {
-            "text": "You are rich inuf to make a Legendary Block ",
+            "text": "Made the greatest sword there is ",
             "color": "aqua",
             "bold": true
         },
         "icon": {
-            "item": "bentenmobmod:legendary_block"
+            "item": "bentenmobmod:sword"
         },
         "frame": "goal",
         "show_toast": true,
@@ -28,7 +28,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:legendary_block",
+                        "item": "bentenmobmod:sword",
                         "count": 1
  							  }
  							 
@@ -40,5 +40,5 @@
     "rewards": {
         "experience": 1
     },
-    "parent": "bentenmobmod:all/legendary_ore"
+    "parent": "bentenmobmod:all/legendary/legendary_ore"
 }

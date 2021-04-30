@@ -1,37 +1,36 @@
 {
     "display": {
         "title": {
-            "text": "Made an Fire block",
+            "text": "Make knight armour",
             "color": "aqua",
-            "bold": true,
-            "italic": true
+            "bold": true
         },
         "description": {
-            "text": "You have crafted a fire block."
+            "text": "You have the most powerful armour. All hall  the strongest knight",
+            "color": "aqua",
+            "bold": true
         },
         "icon": {
-            "item": "bentenmobmod:fire_block"
+            "item": "bentenmobmod:chestplate"
         },
         "frame": "goal",
         "show_toast": true,
         "announce_to_chat": true,
         "hidden": false
     },
-  "criteria": {
+    "criteria": {
         "minecraft": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:fire_block",
-                    "count": 1
- 						            }
+                        "item": "bentenmobmod:chestplate",
+                        "count": 1
+ 							  }
+ 					
                 ]
             }
         }
     },
- 						  
- 						  
- 
-    "parent": "bentenmobmod:all/fire"
+    "parent": "bentenmobmod:all/legendary/legendary_ore"
 }

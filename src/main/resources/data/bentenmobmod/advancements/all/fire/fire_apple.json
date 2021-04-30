@@ -1,36 +1,37 @@
 {
     "display": {
         "title": {
-            "text": "Make knight armour",
+            "text": "Made a Fire Apple",
             "color": "aqua",
-            "bold": true
+            "bold": true,
+            "italic": true
         },
         "description": {
-            "text": "You have the most powerful armour. All hall  the strongest knight",
-            "color": "aqua",
-            "bold": true
+            "text": "You are immunte to fire now."
         },
         "icon": {
-            "item": "bentenmobmod:chestplate"
+            "item": "bentenmobmod:fire_apple"
         },
         "frame": "goal",
         "show_toast": true,
         "announce_to_chat": true,
         "hidden": false
     },
-    "criteria": {
+  "criteria": {
         "minecraft": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:chestplate",
-                        "count": 1
- 							  }
- 					
+                        "item": "bentenmobmod:fire_apple",
+                    "count": 1
+ 						            }
                 ]
             }
         }
     },
-    "parent": "bentenmobmod:all/legendary_ore"
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:all/fire/fire"
 }
