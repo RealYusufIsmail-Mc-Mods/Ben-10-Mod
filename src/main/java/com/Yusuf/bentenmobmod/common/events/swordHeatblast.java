@@ -1,3 +1,4 @@
+/*
 package com.Yusuf.bentenmobmod.common.events;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,13 +28,14 @@ public class swordHeatblast extends SwordItem implements IForgeItem{
 			player1.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 0, false, false, true));
 		}
 	
-	/*
+	
 	@Override
 	public void onCraft(swordHeatblast event) {
 	    if (event.getRecipe().getResult().is(ItemInit.HEATBLAST_SWORD)) {
 	    	EnchantmentHelper.getEnchantments(getDefaultInstance());
 	    	
-	    */
+	    
 		
 	}
 }
+*/

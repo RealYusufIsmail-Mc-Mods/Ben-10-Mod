@@ -3,15 +3,14 @@ package com.Yusuf.bentenmobmod.core.init;
 import com.Yusuf.bentenmobmod.Main;
 import com.Yusuf.bentenmobmod.common.events.HeatblastArmor;
 import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
+import com.Yusuf.bentenmobmod.common.events.LegendaryArmor;
 import com.Yusuf.bentenmobmod.common.events.Xlr8Armor;
-import com.Yusuf.bentenmobmod.common.events.swordHeatblast;
 import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.Yusuf.bentenmobmod.item.ModSpawnEggItem;
 
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.EnchantedGoldenAppleItem;
 import net.minecraft.item.Item;
@@ -49,7 +48,7 @@ public class ItemInit {
 			() -> new AxeItem(CustomToolMaterial.AXE, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new swordHeatblast(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
+			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
 
 
@@ -57,19 +56,19 @@ public class ItemInit {
 	
 	//knight armour
 	public static final RegistryObject<Item> HELMET = ITEMS.register("helmet",
-			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
+			() -> new LegendaryArmor(CustomArmorMaterial.ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> CHESTPLATE = ITEMS.register("chestplate",
-			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
+			() -> new LegendaryArmor(CustomArmorMaterial.ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> LEGGINGS = ITEMS.register("leggings",
-			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
+			() -> new LegendaryArmor(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> BOOT = ITEMS.register("boot",
-			() -> new ArmorItem(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
+			() -> new LegendaryArmor(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//ben ten clothing
 	public static final RegistryObject<Item> JACKET = ITEMS.register("jacket",
