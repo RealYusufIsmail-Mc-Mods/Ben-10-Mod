@@ -22,10 +22,13 @@ public class ConfiguredFeatures {
 	public static ConfiguredFeature<?, ?> RUBY_ORE = Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3))
             .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(3, 1, 20)))
             .squared().count(3);
-	public static ConfiguredFeature<?, ?> SPEED_ORE = Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3))
+	public static ConfiguredFeature<?, ?> SPEED_ORE = Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.SPEED_ORE.get().defaultBlockState(), 3))
             .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(3, 1, 15)))
             .squared().count(3);
-	public static ConfiguredFeature<?, ?> OMNITRIX_ORE = Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3))
+	public static ConfiguredFeature<?, ?> OMNITRIX_ORE = Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3))
+            .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(3, 1, 20)))
+            .squared().count(3);
+	public static ConfiguredFeature<?, ?> FIRE_ORE = Feature.ORE.configured(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NETHER_ORE_REPLACEABLES, BlockInit.FIRE_ORE.get().defaultBlockState(), 3))
             .decorated(Placement.RANGE.configured(new TopSolidRangeConfig(3, 1, 20)))
             .squared().count(3);
 	public static void registerConfiguredFeatures() {
@@ -34,6 +37,7 @@ public class ConfiguredFeatures {
 	    Registry.register(registry, new ResourceLocation(Main.MOD_ID, "ruby_ore"), RUBY_ORE);
 	    Registry.register(registry, new ResourceLocation(Main.MOD_ID, "speed_ore"), SPEED_ORE);
 	    Registry.register(registry, new ResourceLocation(Main.MOD_ID, "omnitrix_ore"), OMNITRIX_ORE);
+	    Registry.register(registry, new ResourceLocation(Main.MOD_ID, "fire_ore"), FIRE_ORE);
 	}
 	
 }
