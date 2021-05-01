@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Ruby ore",
+            "text": "Smelted Fire Ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you made a ruby block and can now make a ruby apple which gives you infite regeneration"
+            "text": "You are now able to make a fire apple."
         },
         "icon": {
-            "item": "bentenmobmod:ruby_block"
+            "item": "bentenmobmod:fire"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:ruby_block",
+                        "item": "bentenmobmod:fire",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/ruby"
+    "parent": "bentenmobmod:all/fire/fire_ore"
 }

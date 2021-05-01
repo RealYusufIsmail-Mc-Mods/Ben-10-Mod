@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made a Fire Apple",
+            "text": "You have mined speed ore and can now becoome XLR8",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You are immunte to fire now."
+            "text": "you have speed"
         },
         "icon": {
-            "item": "bentenmobmod:fire_apple"
+            "item": "bentenmobmod:speed"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:fire_apple",
+                        "item": "bentenmobmod:speed",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/fire"
+    "parent": "bentenmobmod:all/root"
 }

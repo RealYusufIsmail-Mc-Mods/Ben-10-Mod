@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Fire Ore",
+            "text": "Made an Fire block",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You are now able to make a fire apple."
+            "text": "You have crafted a fire block."
         },
         "icon": {
-            "item": "bentenmobmod:fire"
+            "item": "bentenmobmod:fire_block"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:fire",
+                        "item": "bentenmobmod:fire_block",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/fire_ore"
+    "parent": "bentenmobmod:all/fire/fire"
 }

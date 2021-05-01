@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made the fastest axe",
+            "text": "You are now able to fly and are resistant to fire",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you have made the fastest axe in the game. Nice"
+            "text": "you are now Heatblast"
         },
         "icon": {
-            "item": "bentenmobmod:axe"
+            "item": "bentenmobmod:heatblast_chestplate"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:axe",
+                        "item": "bentenmobmod:heatblast_chestplate",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/ruby"
+    "parent": "bentenmobmod:all/fire/fire"
 }

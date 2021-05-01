@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made an Fire block",
+            "text": "Smelted Ruby ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You have crafted a fire block."
+            "text": "you smelted Ruby ore"
         },
         "icon": {
-            "item": "bentenmobmod:fire_block"
+            "item": "bentenmobmod:ruby"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:fire_block",
+                        "item": "bentenmobmod:ruby",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/fire"
+    "parent": "bentenmobmod:all/ruby/ruby_ore"
 }

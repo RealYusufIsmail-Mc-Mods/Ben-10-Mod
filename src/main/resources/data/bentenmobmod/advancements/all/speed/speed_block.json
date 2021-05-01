@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Made an enchanted omnitrix apple",
+            "text": "You have made a 9 Speed(ores)",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You have a made an apple stronger than no other apart from a secrete apple."
+            "text": "You have made a Speed Block"
         },
         "icon": {
-            "item": "bentenmobmod:enchanted_omnitrix_apple"
+            "item": "bentenmobmod:speed_block"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:enchanted_omnitrix_apple",
+                        "item": "bentenmobmod:speed_block",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/omnitrix_block"
+    "parent": "bentenmobmod:all/speed/speed"
 }

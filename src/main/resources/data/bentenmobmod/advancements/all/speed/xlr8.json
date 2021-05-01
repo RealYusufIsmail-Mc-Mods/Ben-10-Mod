@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Ruby ore",
+            "text": "You are now the fastest player/entity in the game WOW!!!",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you smelted Ruby ore"
+            "text": "you are now XLR8"
         },
         "icon": {
-            "item": "bentenmobmod:ruby"
+            "item": "bentenmobmod:xlr8_chestplate"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:ruby",
+                        "item": "bentenmobmod:xlr8_chestplate",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/ruby_ore"
+    "parent": "bentenmobmod:all/speed/speed"
 }

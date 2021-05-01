@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Legendary ore",
+            "text": "Made Ruby Apple",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you smelted legendary ore and now you can make a sword and armour"
+            "text": "you have unlimted rengeration. You are near to imortal"
         },
         "icon": {
-            "item": "bentenmobmod:legendary_ore"
+            "item": "bentenmobmod:ruby_apple"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:legendary_ore",
+                        "item": "bentenmobmod:ruby_apple",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/legendary_ore_block"
+    "parent": "bentenmobmod:all/ruby/ruby_block"
 }

@@ -2,6 +2,7 @@ package com.Yusuf.bentenmobmod.common.events;
 
 import com.Yusuf.bentenmobmod.core.init.ItemInit;
 
+import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -13,10 +14,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class HeatblastArmor extends ArmorItem implements IForgeItem {
+public final PlayerAbilities abilities = new PlayerAbilities();
 
 	public HeatblastArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
-		super(materialIn, slot, builder);		
+		super(materialIn, slot, builder);	
+		
 	}
+	
+	
+	
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		
@@ -26,18 +32,17 @@ public class HeatblastArmor extends ArmorItem implements IForgeItem {
 		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-			player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 10, 0, false, false, true));
-			player.addEffect(new EffectInstance(Effects.REGENERATION, 10, 0, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 10, 0, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 10, 1, false, false, true));
-			
+			player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 1, false, false, true));
+			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 1, false, false, true));
+			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 1, false, false, true));
+			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
+			player.abilities.mayfly = true;
+			player.fallDistance = 0.0F;
+			player.abilities.setFlyingSpeed(0.1F);
+		}
 		
-			
-		}
-		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-			player.startFallFlying();
-		} else {
-			player.stopFallFlying();
-		}
+		
+} 
 	}
-}	
+	
+

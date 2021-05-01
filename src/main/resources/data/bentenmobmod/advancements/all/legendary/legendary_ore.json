@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Omnitrix ore",
+            "text": "Smelted Legendary ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you smelted Omnitrix ore and now you can make an the omnitrix apple whcih will give unbelievable power."
+            "text": "you smelted legendary ore and now you can make a sword and armour"
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix"
+            "item": "bentenmobmod:legendary_ore"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix",
+                        "item": "bentenmobmod:legendary_ore",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/omnitrix_ore"
+    "parent": "bentenmobmod:all/legendary/legendary_ore_block"
 }
