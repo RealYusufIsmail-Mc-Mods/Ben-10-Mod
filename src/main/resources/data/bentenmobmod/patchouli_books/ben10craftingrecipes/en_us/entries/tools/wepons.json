@@ -1,11 +1,15 @@
 {
     "name": "Wepons crafting recipies",
     "icon": "minecraft:writable_book",
-    "category": "bentenmobmod:tools",
+    "category": "tools",
     "pages": [
         {
             "type": "recipe",
-            "recipe": "This is a test entry, but it should show up!"
+            "text": "All the recipes for the wepons in my mod"
+        }, {
+        "type": "crafting",
+		"title": "ASCALON",
+		"recipe": "bentenmobmod:sword"
         }
     ]
 }
