@@ -1,0 +1,11 @@
+{
+    "name": "Wepons crafting recipies",
+    "icon": "minecraft:writable_book",
+    "category": "bentenmobmod:tools",
+    "pages": [
+        {
+            "type": "recipe",
+            "recipe": "This is a test entry, but it should show up!"
+        }
+    ]
+}

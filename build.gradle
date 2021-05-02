@@ -64,13 +64,21 @@ minecraft {
 }
 repositories {
     maven { url 'https://repo.repsy.io/mvn/gandiber/geckolib' }
+     maven { url 'https://maven.blamejared.com' }
 }
+ 
+   
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
 
     minecraft 'net.minecraftforge:forge:1.16.5-36.1.2'   
    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.16.5:3.0.31')
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-51-SNAPSHOT:api")
+   runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-51-SNAPSHOT")
+  
+}
+
 }
 
 
