@@ -30,6 +30,7 @@ public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 	if(boot.getItem() == ItemInit.BOOT.get() && legs.getItem() == ItemInit.LEGGINGS.get() && chest.getItem() == ItemInit.CHESTPLATE.get() && helmet.getItem() == ItemInit.HELMET.get());
 	{
 	player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
+	EffectInstance effect = new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
 	
 	player.abilities.mayfly = true;
 	player.flyingSpeed = 0.1F;
