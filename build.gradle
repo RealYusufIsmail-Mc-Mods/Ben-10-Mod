@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
@@ -105,4 +105,4 @@ publishing {
             url "file:///${project.projectDir}/mcmodsrepo"
         }
     }
-    }
+}
