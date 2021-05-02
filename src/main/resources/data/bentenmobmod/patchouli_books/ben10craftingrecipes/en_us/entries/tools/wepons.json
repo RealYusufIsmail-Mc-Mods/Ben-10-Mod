@@ -1,15 +1,12 @@
 {
     "name": "Wepons crafting recipies",
+     "category": "tools",
     "icon": "minecraft:writable_book",
-    "category": "tools",
     "pages": [
-        {
-            "type": "recipe",
-            "text": "All the recipes for the wepons in my mod"
-        }, {
+         {
         "type": "crafting",
-		"title": "ASCALON",
-		"recipe": "bentenmobmod:sword"
+		"recipe": "bentenmobmod:sword",
+		 "recipe2": "bentenmobmod:heatblast_sword"
         }
     ]
 }

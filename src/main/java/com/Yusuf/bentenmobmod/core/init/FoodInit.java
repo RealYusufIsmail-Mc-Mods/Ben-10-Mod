@@ -44,4 +44,7 @@ public static final Food FIRE_APPLE = new Food.Builder()
 .effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
 .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
 .nutrition(4).saturationMod(1.2f).alwaysEat().build();
+    		 
+    		 
+    				 
 }
