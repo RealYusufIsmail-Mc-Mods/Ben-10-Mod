@@ -1,8 +1,5 @@
 package com.Yusuf.bentenmobmod.item;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.dispenser.IBlockSource;
@@ -10,22 +7,26 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Direction;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.common.util.NonNullSupplier;
 import net.minecraftforge.fml.RegistryObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ModSpawnEggItem extends SpawnEggItem {
 
-	protected static final List<ModSpawnEggItem> UNADDED_EGGS = new ArrayList<ModSpawnEggItem>();
+    protected static final List<ModSpawnEggItem> UNADDED_EGGS = new ArrayList<ModSpawnEggItem>();
     private final Lazy<? extends EntityType<?>> entityTypeSupplier;
+
     public ModSpawnEggItem(final NonNullSupplier<? extends EntityType<?>> entityTypeSupplier, final int primaryColour,
                            final int secondaryColour, final Properties properties) {
         super(null, primaryColour, secondaryColour, properties);
         this.entityTypeSupplier = Lazy.of(entityTypeSupplier::get);
         UNADDED_EGGS.add(this);
-}
+    }
+
     public ModSpawnEggItem(final RegistryObject<? extends EntityType<?>> entityTypeSupplier, final int primaryColour,
                            final int secondaryColour, final Properties properties) {
         super(null, primaryColour, secondaryColour, properties);
@@ -47,14 +48,10 @@ public class ModSpawnEggItem extends SpawnEggItem {
         };
 
         for (final SpawnEggItem spawnEgg : UNADDED_EGGS) {
-         
+
             DispenserBlock.registerBehavior(spawnEgg, dispenseBehaviour);
         }
         UNADDED_EGGS.clear();
     }
-
-    @Override
-    public EntityType<?> getType(CompoundNBT nbt) {
-        return this.entityTypeSupplier.get();
-    }
 }
+
