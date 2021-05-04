@@ -1,16 +1,18 @@
 {
-  "name": "Weapons crafting recipes",
-  "category": "tools",
+  "name": "Armour crafting recipes",
+  "category": "armours",
   "icon": "bentenmobmod:heatblast_chestplate",
   "pages": [
     {
       "type": "crafting",
-      "recipe": "bentenmobmod:sword",
-      "recipe2": "bentenmobmod:heatblast_sword"
+      "recipe": "bentenmobmod:heatblast_helmet",
+      "recipe2": "bentenmobmod:heatblast_chestplate",
+      "recipe3": "bentenmobmod:heatblast_leggings",
+      "recipe4": "bentenmobmod:heatblast_boot"
     },
     {
       "type": "Crafting recipes in this mod",
-      "text": "There is a total of 3 weapons currently"
+      "text": "There is a total of 3 armour set and one chestplate."
     }
   ]
 }
