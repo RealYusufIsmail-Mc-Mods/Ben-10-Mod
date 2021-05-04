@@ -18,7 +18,7 @@
         "hidden": false
     },
   "criteria": {
-        "minecraft": {
+        "heatblastchestplate": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -30,6 +30,82 @@
             }
         }
     },
+    "criteria": {
+    "heatblasthelmet": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+            "items": [
+                {
+                    "item": "bentenmobmod:heatblast_boot",
+                    "count": 1
+                }
+            ]
+        }
+    }
+},
+    "criteria": {
+        "heatblastchestplate": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:heatblast_chestplate",
+                        "count": {
+                            "min": 1,
+                            "max": 1
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "criteria": {
+        "heatblastlegging": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:heatblast_leggings",
+                        "count": {
+                            "min": 1,
+                            "max": 1
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "criteria": {
+        "heatblastboot": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:heatblast_boot",
+                        "count": {
+                            "min": 1,
+                            "max": 1
+                        }
+                    }
+                ]
+            }
+        }
+    },
+
+    "requirements": [
+        [
+            "heatblasthelmet"
+        ],
+        [
+            "heatblastchestplate"
+        ],
+        [
+            "heatblastlegging"
+        ],
+        [
+            "heatblastboot"
+        ],
+
  						  
  						  
  
