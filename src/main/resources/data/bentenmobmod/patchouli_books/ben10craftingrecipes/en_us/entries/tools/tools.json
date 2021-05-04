@@ -1,0 +1,16 @@
+{
+  "name": "Weapons crafting recipes",
+  "category": "tools",
+  "icon": "bentenmobmod:sword",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:sword",
+      "recipe2": "bentenmobmod:heatblast_sword"
+    },
+    {
+      "type": "Crafting recipes in this mod",
+        "text": "There is a total of 3 weapons currently"
+    }
+  ]
+}
