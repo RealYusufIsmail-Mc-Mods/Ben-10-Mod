@@ -99,10 +99,6 @@
       "heatblastlegging",
       "heatblastboot"
     ]
-  ],
-    "rewards": {
-        "loot": [
-            "bentenmobmod:diam"
-        ]
-    }
+  ]
+
 }
