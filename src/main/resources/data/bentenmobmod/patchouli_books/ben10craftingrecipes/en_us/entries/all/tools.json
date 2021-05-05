@@ -6,8 +6,11 @@
     {
       "type": "crafting",
       "recipe": "bentenmobmod:sword",
-      "recipe2": "bentenmobmod:heatblast_sword",
-      "recipe3": "bentenmobmod:axe"
+      "recipe2": "bentenmobmod:heatblast_sword"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:axe"
     },
     {
       "type": "Crafting recipes in this mod",
