@@ -18,88 +18,31 @@
     "hidden": false
   },
   "criteria": {
-    "heatblastboot": {
+    "minecraft": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:heatblast_boot",
-            "count": {
-              "min": 1,
-              "max": 1
-            }
-          }
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "Heatblast1": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
+            "item": "bentenmobmod:heatblast_helmet"
+          },
           {
-            "item": "bentenmobmod:heatblast_leggings",
-            "count": {
-              "min": 1,
-              "max": 1
-            }
-          }
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "Heatblast2": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
+            "item": "bentenmobmod:heatblast_chestplate"
+          },
           {
-            "item": "bentenmobmod:heatblast_chestplate",
-            "count": 1
-          }
-        ]
-      }
-    }
-  },
-  "criteria": {
-    "Heatblast3": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
+            "item": "bentenmobmod:heatblast_leggings"
+          },
           {
-            "item": "bentenmobmod:heatblast_boot",
-            "count": 1
+            "item": "bentenmobmod:heatblast_boot"
           }
-        ]
+        ],
+        "count": {
+          "min": 1,
+          "max": 1
+        }
       }
     }
   },
-  "criteria": {
-    "Heatblast4": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "bentenmobmod:heatblast_chestplate",
-            "count": {
-              "min": 1,
-              "max": 1
-            }
-          }
-        ]
-      }
-    }
-  },
+  "parent": "bentenmobmod:all/fire/fire"
 
-  "parent": "bentenmobmod:all/fire/fire",
-  "requirements": [
-    [
-      "Heatblast1",
-      "Heatblast2",
-      "Heatblast3",
-      "Heatblast4"
-    ]
-  ]
 
 }
