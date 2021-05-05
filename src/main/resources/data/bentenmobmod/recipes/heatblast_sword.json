@@ -20,9 +20,23 @@
   "result": {
     "item": "bentenmobmod:heatblast_sword",
     "count": 1
+  },
+
+
+  "conditions":{
+    "items":[
+      {
+        "item":"bentenmobmod:heatblast_sword",
+        "nbt":"{display:{Name:'{\"text\":\"Hello, World!\"}'}",
+        "enchantments":[
+          {
+            "id":"minecraft:fire_aspect",
+            "levels":1
+          }
+        ]
+      }
+    ]
   }
-
-
 
 
 }
