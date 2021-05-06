@@ -17,20 +17,31 @@
         "announce_to_chat": true,
         "hidden": false
     },
-  "criteria": {
+    "criteria": {
         "minecraft": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:xlr8_chestplate",
-                    "count": 1
- 						            }
-                ]
+                        "item": "bentenmobmod:xlr8_helmet"
+                    },
+                    {
+                        "item": "bentenmobmod:xlr8_chestplate"
+                    },
+                    {
+                        "item": "bentenmobmod:xlr8_leggings"
+                    },
+                    {
+                        "item": "bentenmobmod:xlr8_boot"
+                    }
+                ],
+                "count": {
+                    "min": 1,
+                    "max": 1
+                }
             }
         }
     },
- 						  
  						  
  
     "parent": "bentenmobmod:all/speed/speed"
