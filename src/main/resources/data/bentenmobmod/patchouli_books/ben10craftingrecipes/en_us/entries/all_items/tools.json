@@ -1,6 +1,6 @@
 {
   "name": "Weapons crafting recipes",
-  "category": "all",
+  "category": "all_items",
   "icon": "bentenmobmod:sword",
   "pages": [
     {
