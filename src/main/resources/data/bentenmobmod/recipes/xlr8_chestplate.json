@@ -4,18 +4,18 @@
         "P P",
         "PRP",
         "PPP"
-        	
+
     ],
     "key": {
         "P": {
             "item": "bentenmobmod:speed"
-            },
-         "R": {
-         "item": "bentenmobmod:omnitrix"
-         }
+        },
+        "R": {
+            "item": "bentenmobmod:omnitrix"
+        }
     },
     "result": {
-        "item": "xlr8_chestplate",
+        "item": "bentenmobmod:xlr8_chestplate",
         "count": 1
     }
 }
