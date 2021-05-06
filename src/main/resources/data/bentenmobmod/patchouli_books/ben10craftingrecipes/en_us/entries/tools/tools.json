@@ -1,0 +1,17 @@
+{
+  "name": "Weapons crafting recipes",
+  "category": "all_items",
+  "icon": "bentenmobmod:sword",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:sword",
+      "recipe2": "bentenmobmod:heatblast_sword"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:axe"
+    }
+
+  ]
+}

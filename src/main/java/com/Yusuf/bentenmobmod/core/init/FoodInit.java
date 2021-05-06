@@ -3,9 +3,8 @@ package com.Yusuf.bentenmobmod.core.init;
 import net.minecraft.item.Food;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
-@SuppressWarnings("deprecation")
 public class FoodInit {
-    // Omnitrix Apple
+	  // Omnitrix Apple
     public static final Food OMNITRIX_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 1200, 0), 1)
             .effect(new EffectInstance(Effects.ABSORPTION, 3600, 1), 1)
@@ -44,6 +43,7 @@ public static final Food FIRE_APPLE = new Food.Builder()
 .effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
 .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
 .nutrition(4).saturationMod(1.2f).alwaysEat().build();
-
-
+    		 
+    		 
+    				 
 }

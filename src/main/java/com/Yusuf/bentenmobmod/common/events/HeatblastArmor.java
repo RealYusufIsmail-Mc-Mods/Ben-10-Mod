@@ -32,9 +32,9 @@ public final PlayerAbilities abilities = new PlayerAbilities();
 		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-			player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 1, false, false, true));
-			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 1, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 1, false, false, true));
+			player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 3, false, false, true));
+			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 3, false, false, true));
+			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 3, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
 			player.abilities.mayfly = true;
 			player.fallDistance = 0.0F;

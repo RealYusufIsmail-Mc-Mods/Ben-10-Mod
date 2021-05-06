@@ -1,5 +1,4 @@
 {
-
   "type": "minecraft:crafting_shaped",
   "pattern": [
     " # ",
@@ -21,5 +20,9 @@
     "item": "bentenmobmod:heatblast_sword",
     "count": 1
   }
-
 }
+
+
+
+
+
