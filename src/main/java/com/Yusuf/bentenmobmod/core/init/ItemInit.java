@@ -38,6 +38,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> SPEED = ITEMS.register("speed",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> BLACK_DIAMOND = ITEMS.register("black_diamond",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
 
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
@@ -101,7 +104,7 @@ public class ItemInit {
 	public static final RegistryObject<Item> XLR8_CHESTPLATE = ITEMS.register("xlr8_chestplate",
 			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
-
+=
 	public static final RegistryObject<Item> XLR8_LEGGINGS = ITEMS.register("xlr8_leggings",
 			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
