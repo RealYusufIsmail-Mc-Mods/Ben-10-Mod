@@ -1,21 +1,21 @@
 {
-    "type" : "minecraft:crafting_shaped",
-    "pattern": [
-        "P P",
-        "PRP",
-        "PPP"
+  "type" : "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "PRP",
+    "PPP"
 
-    ],
-    "key": {
-        "P": {
-            "item": "bentenmobmod:speed"
-        },
-        "R": {
-            "item": "bentenmobmod:omnitrix"
-        }
+  ],
+  "key": {
+    "P": {
+      "item": "bentenmobmod:speed"
     },
-    "result": {
-        "item": "bentenmobmod:xlr8_chestplate",
-        "count": 1
+    "R": {
+      "item": "bentenmobmod:omnitrix"
     }
+  },
+  "result": {
+    "item": "bentenmobmod:xlr8_chestplate",
+    "count": 1
+  }
 }
