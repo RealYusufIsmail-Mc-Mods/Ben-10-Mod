@@ -31,6 +31,10 @@ public class BlockInit {
 			.register("black_diamond_block",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 
+	public static final RegistryObject<Block> INFINITUM_BLOCK = BLOCKS
+			.register("infinitum_block",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
 	public static final RegistryObject<Block> FIRE_BLOCK = BLOCKS
 			.register("fire_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));

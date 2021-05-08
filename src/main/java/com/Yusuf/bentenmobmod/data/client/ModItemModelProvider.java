@@ -18,7 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-            withExistingParent("black_diamond_block", modLoc("blocks/black_diamond_block"));
+        //withExistingParent("black_diamond_block", modLoc("blocks/black_diamond_block"));
         withExistingParent("black_diamond_ore", modLoc("blocks/black_diamond_ore"));
         withExistingParent("infinitum_ore", modLoc("blocks/infinitum_ore"));
 
