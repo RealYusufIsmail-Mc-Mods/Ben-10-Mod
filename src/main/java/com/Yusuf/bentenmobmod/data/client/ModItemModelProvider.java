@@ -27,6 +27,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "black_diamond");
         builder(itemGenerated, "black_diamond_scrap");
         builder(itemGenerated, "infinitum");
+        builder(itemGenerated, "infinitum_scrap");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
