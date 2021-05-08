@@ -17,7 +17,20 @@ public class ModBlockStateProvider extends BlockStateProvider{
         simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
        simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
        simpleBlock(BlockInit.INFINITUM_ORE.get());
-        simpleBlock(BlockInit.INFINITUM_BLOCK.get());
+        simpleBlock(BlockInit.FIRE_BLOCK.get());
+        simpleBlock(BlockInit.FIRE_ORE.get());
+        simpleBlock(BlockInit.LEGENDARY_BLOCK.get());
+        simpleBlock(BlockInit.LEGENDARY_ORE_BLOCK.get());
+        simpleBlock(BlockInit.OMNITRIX_BLOCK.get());
+        simpleBlock(BlockInit.OMNITRIX_ORE.get());
+        simpleBlock(BlockInit.RUBY_BLOCK.get());
+        simpleBlock(BlockInit.RUBY_ORE.get());
+        simpleBlock(BlockInit.SPEED_BLOCK.get());
+        simpleBlock(BlockInit.SPEED_ORE.get());
+        simpleBlock(BlockInit.VILGAX_BLOCK.get());
+
+
+
 
     }
 }
