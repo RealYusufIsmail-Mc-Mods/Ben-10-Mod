@@ -57,12 +57,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "heatblast_chestplate");
         builder(itemGenerated, "heatblast_leggings");
         builder(itemGenerated, "heatblast_boot");
-        builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "infinitum_scrap");
+        builder(itemGenerated, "xlr8_helmet");
+        builder(itemGenerated, "xlr8_chestplate");
+        builder(itemGenerated, "xlr8_leggings");
+        builder(itemGenerated, "xlr8_boot");
+        builder(itemGenerated, "omnitrix_apple");
+        builder(itemGenerated, "enchanted_omnitrix_apple");
+        builder(itemGenerated, "fire_apple");
+        builder(itemGenerated, "ruby_apple");
+        builder(itemGenerated, "vilgax_spawn_egg");
 
 
 
