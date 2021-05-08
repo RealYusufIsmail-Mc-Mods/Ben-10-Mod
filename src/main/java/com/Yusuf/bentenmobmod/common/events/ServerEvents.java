@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmobmod.common.events;
 
 public class ServerEvents {
 	

@@ -1,14 +1,13 @@
-package com.Yusuf.bentenmobmod.core.init;
-
-import java.awt.event.KeyEvent;
+package com.yusuf.bentenmobmod.core.init;
 
 import com.Yusuf.bentenmobmod.Main;
-
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+
+import java.awt.event.KeyEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class KeybindsInit {

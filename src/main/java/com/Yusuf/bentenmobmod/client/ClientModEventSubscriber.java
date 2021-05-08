@@ -1,11 +1,8 @@
-package com.Yusuf.bentenmobmod.client;
+package com.yusuf.bentenmobmod.client;
 
-import org.lwjgl.glfw.GLFW;
-
-import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.client.renderer.VilgaxRenderer;
-import com.Yusuf.bentenmobmod.core.init.EntityTypesInit;
-
+import com.yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.client.renderer.VilgaxRenderer;
+import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +10,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import org.lwjgl.glfw.GLFW;
 
 @EventBusSubscriber(modid = Main.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModEventSubscriber {

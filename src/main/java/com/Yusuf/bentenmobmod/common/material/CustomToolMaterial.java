@@ -1,8 +1,8 @@
-package com.Yusuf.bentenmobmod.common.material;
+package com.yusuf.bentenmobmod.common.material;
 
 import java.util.function.Supplier;
 
-import com.Yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmobmod.core.init.ItemInit;
 
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;

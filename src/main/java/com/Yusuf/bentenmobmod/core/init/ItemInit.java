@@ -1,14 +1,14 @@
-package com.Yusuf.bentenmobmod.core.init;
+package com.yusuf.bentenmobmod.core.init;
 
-import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.common.events.HeatblastArmor;
-import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
-import com.Yusuf.bentenmobmod.common.events.LegendaryArmor;
-import com.Yusuf.bentenmobmod.common.events.Xlr8Armor;
-import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
-import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
-import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.Yusuf.bentenmobmod.item.ModSpawnEggItem;
+import com.yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.common.events.HeatblastArmor;
+import com.yusuf.bentenmobmod.common.events.JacketArmorItem;
+import com.yusuf.bentenmobmod.common.events.LegendaryArmor;
+import com.yusuf.bentenmobmod.common.events.Xlr8Armor;
+import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
+import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
+import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.EnchantedGoldenAppleItem;
@@ -129,6 +129,8 @@ public class ItemInit {
 			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 		*/
+
+	//black  armour
 	// Food
 	public static final RegistryObject<Item> OMNITRIX_APPLE = ITEMS.register("omnitrix_apple",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));

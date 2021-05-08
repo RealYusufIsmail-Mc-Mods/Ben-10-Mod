@@ -1,6 +1,6 @@
-package com.Yusuf.bentenmobmod.data.client;
+package com.yusuf.bentenmobmod.data.client;
 
-import com.Yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.Main;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;

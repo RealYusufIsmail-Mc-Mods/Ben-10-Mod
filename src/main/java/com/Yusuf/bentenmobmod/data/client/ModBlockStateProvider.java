@@ -1,7 +1,8 @@
-package com.Yusuf.bentenmobmod.data.client;
 
-import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.core.init.BlockInit;
+package com.yusuf.bentenmobmod.data.client;
+
+import com.yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.core.init.BlockInit;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;

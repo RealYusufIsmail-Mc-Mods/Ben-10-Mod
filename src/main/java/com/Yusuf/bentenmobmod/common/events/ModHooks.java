@@ -1,4 +1,5 @@
-package com.Yusuf.bentenmobmod.common.events;
+/*
+package com.yusuf.bentenmobmod.common.events;
 
 import javax.annotation.Nonnull;
 
@@ -11,7 +12,8 @@ public class ModHooks {
 	public static ItemStack onHeatblastSwordCrafted(PlayerEntity player, @Nonnull ItemStack output, @Nonnull ItemStack left,
 			@Nonnull ItemStack right) {
 		CraftingEventTrigger e = new CraftingEventTrigger(player, left, right, output);
-		MinecraftForge.EVENT_BUS.post(e);
+		MinecraftForge.EVENT_BUS.post();
 		return output;
 	}
 }
+*/

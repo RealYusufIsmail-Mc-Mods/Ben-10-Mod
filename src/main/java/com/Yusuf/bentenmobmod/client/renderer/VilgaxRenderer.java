@@ -1,7 +1,7 @@
-package com.Yusuf.bentenmobmod.client.renderer;
+package com.yusuf.bentenmobmod.client.renderer;
 
-import com.Yusuf.bentenmobmod.client.model.VilgaxModel;
-import com.Yusuf.bentenmobmod.entity.VilgaxEntity;
+import com.yusuf.bentenmobmod.client.model.VilgaxModel;
+import com.yusuf.bentenmobmod.entity.VilgaxEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 
