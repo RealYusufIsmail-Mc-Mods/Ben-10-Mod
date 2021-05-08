@@ -63,7 +63,9 @@ public class ItemInit {
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
 			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
-
+	public static final RegistryObject<SwordItem> BLACK_DIAMOND_SWORD = ITEMS.register("black_diamond_sword",
+			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 14, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 //armour
 	

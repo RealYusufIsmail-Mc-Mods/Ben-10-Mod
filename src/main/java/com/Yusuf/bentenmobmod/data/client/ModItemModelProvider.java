@@ -29,7 +29,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "black_diamond_scrap");
         builder(itemGenerated, "infinitum");
         builder(itemGenerated, "infinitum_scrap");
-        wepons(itemhandHeld, "black")
+        wepons(itemhandHeld, "black_diamond_sword");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
