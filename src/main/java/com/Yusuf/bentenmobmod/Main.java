@@ -1,15 +1,11 @@
 package com.yusuf.bentenmobmod;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.ConfiguredFeatures;
 import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
-
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -23,6 +19,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
