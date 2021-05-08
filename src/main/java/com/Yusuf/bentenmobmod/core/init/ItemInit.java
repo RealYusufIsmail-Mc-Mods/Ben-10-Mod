@@ -47,6 +47,11 @@ public class ItemInit {
 	public static final RegistryObject<Item> INFINITUM = ITEMS.register("infinitum",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> INFINITUM_SCRAP = ITEMS.register("infinitum_scrap",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+
+
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.SWORD, 14, 7f,
