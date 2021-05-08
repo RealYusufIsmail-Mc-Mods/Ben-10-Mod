@@ -21,6 +21,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("black_diamond_block", modLoc("block/black_diamond_block"));
         withExistingParent("black_diamond_ore", modLoc("block/black_diamond_ore"));
         withExistingParent("infinitum_ore", modLoc("block/infinitum_ore"));
+        withExistingParent("infinitum_block", modLoc("block/infinitum_block"));
+
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));

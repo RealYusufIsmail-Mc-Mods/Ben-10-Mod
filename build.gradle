@@ -52,8 +52,10 @@ minecraft {
             workingDirectory project.file('run')       
 
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'bentenmobmod', '--all'
-            args '--existing', file('src/main/resources').absolutePath
+            args '--mod', 'bentenmobmod', '--all',
+            '--existing', file('src/main/resources').toString(),
+            '--existing', file('src/generated/resources').toString(),
+            '--output', file('src/generated/resources/')
 
 
             mods {
