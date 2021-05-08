@@ -1,6 +1,6 @@
 package com.yusuf.bentenmobmod.core.init;
 
-import com.Yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.Main;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
