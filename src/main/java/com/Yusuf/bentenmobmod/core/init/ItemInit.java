@@ -40,6 +40,10 @@ public class ItemInit {
 	public static final RegistryObject<Item> BLACK_DIAMOND = ITEMS.register("black_diamond",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> BLACK_DIAMOND_SCRAP = ITEMS.register("black_diamond_scrap",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+
 
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
