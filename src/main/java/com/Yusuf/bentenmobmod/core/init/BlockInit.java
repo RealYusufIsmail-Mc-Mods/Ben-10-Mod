@@ -48,6 +48,11 @@ public class BlockInit {
 			.register("ruby_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
+	public static final RegistryObject<Block> INFINITUM_ORE = BLOCKS
+			.register("infinitum_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+
 	public static final RegistryObject<Block> BLACK_DIAMOND_ORE = BLOCKS
 			.register("black_diamond_ore",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
