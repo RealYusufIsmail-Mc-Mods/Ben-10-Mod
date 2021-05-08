@@ -75,10 +75,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
         //tools
-        tool(itemGenerated, "axe");
-        tool(itemGenerated, "sword");
-        tool(itemGenerated, "heatblast_sword");
-        tool(itemGenerated, "black_diamond_sword");
+        tool(itemhandHeld, "axe");
+        tool(itemhandHeld, "sword");
+        tool(itemhandHeld, "heatblast_sword");
+        tool(itemhandHeld, "black_diamond_sword");
 
 
     }
