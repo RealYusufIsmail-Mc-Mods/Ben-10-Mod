@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "bentenmobmod:items/heatblast_sword"
+        "layer0": "bentenmobmod:item/heatblast_sword"
     }
     
 }

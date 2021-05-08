@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "bentenmobmod:items/boot"
+        "layer0": "bentenmobmod:item/boot"
     }
     
 }

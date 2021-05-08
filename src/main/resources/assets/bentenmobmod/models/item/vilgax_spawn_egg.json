@@ -1,7 +1,7 @@
 	{
     "parent": "item/generated",
     "textures": {
-        "layer0": "bentenmobmod:items/vilgax_spawn_egg"
+        "layer0": "bentenmobmod:item/vilgax_spawn_egg"
     }
     
 }

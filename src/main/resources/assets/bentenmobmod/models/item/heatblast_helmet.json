@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "bentenmobmod:items/heatblast_helmet"
+        "layer0": "bentenmobmod:item/heatblast_helmet"
     }
     
 }

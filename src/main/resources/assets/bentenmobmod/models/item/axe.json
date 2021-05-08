@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "bentenmobmod:items/axe"
+        "layer0": "bentenmobmod:item/axe"
     }
     
 }

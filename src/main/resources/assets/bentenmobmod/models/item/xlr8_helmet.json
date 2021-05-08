@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "bentenmobmod:items/xlr8_helmet"
+        "layer0": "bentenmobmod:item/xlr8_helmet"
     }
     
 }
