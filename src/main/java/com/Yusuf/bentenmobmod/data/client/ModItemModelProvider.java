@@ -18,9 +18,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        withExistingParent("black_diamond_block", modLoc("block/black_diamond_block"));
-        withExistingParent("black_diamond_ore", modLoc("block/black_diamond_ore"));
-        withExistingParent("infinitum_ore", modLoc("block/infinitum_ore"));
+            withExistingParent("black_diamond_block", modLoc("blocks/black_diamond_block"));
+        withExistingParent("black_diamond_ore", modLoc("blocks/black_diamond_ore"));
+        withExistingParent("infinitum_ore", modLoc("blocks/infinitum_ore"));
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
@@ -29,13 +29,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "black_diamond_scrap");
         builder(itemGenerated, "infinitum");
         builder(itemGenerated, "infinitum_scrap");
-        wepons(itemhandHeld, "black_diamond_sword");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+        return getBuilder(name).parent(itemGenerated).texture("layer0", "items/" + name);
     }
     private ItemModelBuilder wepons(ModelFile itemhandHeld, String name) {
-        return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
+        return getBuilder(name).parent(itemhandHeld).texture("layer0", "items/" + name);
     }
 }
