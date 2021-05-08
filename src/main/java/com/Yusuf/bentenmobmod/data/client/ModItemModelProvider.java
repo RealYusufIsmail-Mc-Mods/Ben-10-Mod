@@ -74,6 +74,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemGenerated, "axe");
         tool(itemGenerated, "sword");
         tool(itemGenerated, "heatblast_sword");
+        tool(itemGenerated, "black_diamond_sword");
 
 
     }
