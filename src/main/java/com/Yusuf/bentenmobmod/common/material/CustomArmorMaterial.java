@@ -16,6 +16,8 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 			() -> Ingredient.of(ItemInit.OMNITRIX.get())),
 	XLR8_ARMOUR("speedy", 30, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.SPEED.get())),
+	BLACK_DIAMOND_ARMOUR("black_diamond", 100, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 1000f, 10f,
+			() -> Ingredient.of(ItemInit.SPEED.get())),
 	HEATBLAST_ARMOUR("fire", 30, new int[] { 8, 10, 15, 13 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.FIRE.get()));
 			
