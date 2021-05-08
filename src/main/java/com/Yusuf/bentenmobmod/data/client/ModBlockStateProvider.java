@@ -12,6 +12,12 @@ public class ModBlockStateProvider extends BlockStateProvider{
         super(gen, Main.MOD_ID, exFileHelper);
     }
 
+    private void generateBasicBlockModel(ModBlockStateProvider blockPackage) {
+        Block block = blockPackage.getBlock();
+        ModelFile model = cubeAll(block);
+
+        simpleBlock(block, model);
+    }
     @Override
     protected void registerStatesAndModels() {
 
