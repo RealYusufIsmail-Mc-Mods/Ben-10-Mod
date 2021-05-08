@@ -66,6 +66,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "fire_apple");
         builder(itemGenerated, "ruby_apple");
         builder(itemGenerated, "vilgax_spawn_egg");
+        builder(itemGenerated, "black_diamond_helmet");
+        builder(itemGenerated, "black_diamond_chestplate");
+        builder(itemGenerated, "black_diamond_leggings");
+        builder(itemGenerated, "black_diamond_boots");
 
 
 
