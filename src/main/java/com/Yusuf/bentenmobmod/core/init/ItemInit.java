@@ -44,6 +44,8 @@ public class ItemInit {
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 
+	public static final RegistryObject<Item> INFINITUM = ITEMS.register("infinitum",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
