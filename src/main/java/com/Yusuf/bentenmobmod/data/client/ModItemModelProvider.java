@@ -87,6 +87,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
-        return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
+        return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
     }
 }
