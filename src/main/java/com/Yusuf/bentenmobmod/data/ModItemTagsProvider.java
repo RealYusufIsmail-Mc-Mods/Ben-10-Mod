@@ -6,7 +6,6 @@ import com.yusuf.bentenmobmod.core.init.TagsInit;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
@@ -34,31 +33,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         //ingots
         tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(ItemInit.LEGENDARY_ORE.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_LEGENDARY_ORE);
-
         tag(TagsInit.Items.INGOTS_OMNITRIX).add(ItemInit.OMNITRIX.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_OMNITRIX);
-
         tag(TagsInit.Items.INGOTS_FIRE).add(ItemInit.FIRE.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_FIRE);
-
         tag(TagsInit.Items.INGOTS_RUBY).add(ItemInit.RUBY.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_RUBY);
-
         tag(TagsInit.Items.INGOTS_SPEED).add(ItemInit.SPEED.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_SPEED);
-
         tag(TagsInit.Items.INGOTS_BLACK_DIAMOND).add(ItemInit.BLACK_DIAMOND.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_BLACK_DIAMOND);
-
         tag(TagsInit.Items.INGOTS_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_BLACK_DIAMOND_SCRAP);
-
         tag(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_INFINITUM);
-
         tag(TagsInit.Items.INGOTS_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
-        tag(Tags.Items.INGOTS).addTag(TagsInit.Items.INGOTS_INFINITUM_SCRAP);
 
 
     }
