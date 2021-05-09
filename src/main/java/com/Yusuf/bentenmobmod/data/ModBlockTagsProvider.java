@@ -40,6 +40,26 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_SPEED);
 
         //blocks
+        tag(TagsInit.Blocks.STORAGE_LEGENDARY).add(BlockInit.LEGENDARY_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_LEGENDARY);
+
+        tag(TagsInit.Blocks.STORAGE_OMNITRIX).add(BlockInit.OMNITRIX_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_OMNITRIX);
+
+        tag(TagsInit.Blocks.STORAGE_INFINITUM).add(BlockInit.INFINITUM_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_INFINITUM);
+
+        tag(TagsInit.Blocks.STORAGE_FIRE).add(BlockInit.FIRE_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_FIRE);
+
+        tag(TagsInit.Blocks.STORAGE_SPEED).add(BlockInit.SPEED_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_SPEED);
+
+        tag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND);
+
+        tag(TagsInit.Blocks.STORAGE_VILGAX).add(BlockInit.VILGAX_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_VILGAX);
     }
 }
 
