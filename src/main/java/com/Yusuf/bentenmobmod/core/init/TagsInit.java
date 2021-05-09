@@ -8,7 +8,7 @@ import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 
-public class ModTags {
+public class TagsInit {
 
     public static final class Blocks {
         ///ores
@@ -65,7 +65,7 @@ public class ModTags {
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = forge("ingots/infinitum");
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM_SCRAP = forge("ingots/infinitum_scrap");
 
-        //armour and wepons
+        //food
 
 
         private static ITag.INamedTag<Item> forge(String path) {
