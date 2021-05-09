@@ -1,4 +1,4 @@
-package com.Yusuf.bentenmobmod;
+package com.yusuf.bentenmobmod;
 
 import net.minecraftforge.fml.common.Mod;
 

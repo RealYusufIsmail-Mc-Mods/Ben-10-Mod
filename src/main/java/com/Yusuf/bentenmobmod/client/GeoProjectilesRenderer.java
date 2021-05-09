@@ -1,10 +1,6 @@
-package com.Yusuf.bentenmobmod.client;
-
-import java.awt.Color;
-import java.util.Collections;
+package com.yusuf.bentenmobmod.client;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
@@ -25,6 +21,9 @@ import software.bernie.geckolib3.model.provider.GeoModelProvider;
 import software.bernie.geckolib3.model.provider.data.EntityModelData;
 import software.bernie.geckolib3.renderers.geo.IGeoRenderer;
 import software.bernie.geckolib3.util.AnimationUtils;
+
+import java.awt.*;
+import java.util.Collections;
 
 public class GeoProjectilesRenderer<T extends CreatureEntity & IAnimatable> extends EntityRenderer<T>
 		implements IGeoRenderer<T> {

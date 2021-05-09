@@ -1,0 +1,32 @@
+{
+  "name": "Ore smelting and block crafting recipes",
+  "category": "all_items",
+  "icon": "bentenmobmod:omnitrix_ore",
+  "pages": [
+    {
+      "type": "smelting",
+      "recipe": "bentenmobmod:omnitrix_ore",
+      "recipe2": "bentenmobmod:fire_ore"
+    },
+    {
+      "type": "smelting",
+      "recipe": "bentenmobmod:legendary_ore",
+      "recipe2": "bentenmobmod:ruby_ore"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:omnitrix_block",
+      "recipe2": "bentenmobmod:speed_block"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:legendary_block",
+      "recipe2": "bentenmobmod:fire_block"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:ruby_block"
+    }
+
+  ]
+}

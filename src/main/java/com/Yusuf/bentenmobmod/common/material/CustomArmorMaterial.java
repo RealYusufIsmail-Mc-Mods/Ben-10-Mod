@@ -1,14 +1,13 @@
-package com.Yusuf.bentenmobmod.common.material;
+package com.yusuf.bentenmobmod.common.material;
 
-import java.util.function.Supplier;
-
-import com.Yusuf.bentenmobmod.core.init.ItemInit;
-
+import com.yusuf.bentenmobmod.core.init.ItemInit;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+
+import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
 	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
@@ -17,6 +16,8 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 			() -> Ingredient.of(ItemInit.OMNITRIX.get())),
 	XLR8_ARMOUR("speedy", 30, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.SPEED.get())),
+	BLACK_DIAMOND_ARMOUR("black_diamond", 100, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 1000f, 10f,
+			() -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
 	HEATBLAST_ARMOUR("fire", 30, new int[] { 8, 10, 15, 13 }, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
 			() -> Ingredient.of(ItemInit.FIRE.get()));
 			

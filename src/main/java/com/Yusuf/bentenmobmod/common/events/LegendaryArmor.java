@@ -1,6 +1,6 @@
-package com.Yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmobmod.common.events;
 
-import com.Yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmobmod.core.init.ItemInit;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;

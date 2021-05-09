@@ -36,7 +36,6 @@ minecraft {
                 }
             }
         }
-
         server {
             workingDirectory project.file('run')
 
@@ -53,15 +52,23 @@ minecraft {
             workingDirectory project.file('run')       
 
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'bentenmobmod', '--all',
+            '--existing', file('src/main/resources').toString(),
+            '--existing', file('src/generated/resources').toString(),
+            '--output', file('src/generated/resources/')
+
 
             mods {
                 bentenmobmod {
                     source sourceSets.main
                 }
+
             }
         }
     }
+}
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
 }
 repositories {
     maven { url 'https://repo.repsy.io/mvn/gandiber/geckolib' }

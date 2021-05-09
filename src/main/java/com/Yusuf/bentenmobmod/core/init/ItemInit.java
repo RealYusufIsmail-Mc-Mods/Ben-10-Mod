@@ -1,20 +1,16 @@
-package com.Yusuf.bentenmobmod.core.init;
+package com.yusuf.bentenmobmod.core.init;
 
-import com.Yusuf.bentenmobmod.Main;
-import com.Yusuf.bentenmobmod.common.events.HeatblastArmor;
-import com.Yusuf.bentenmobmod.common.events.JacketArmorItem;
-import com.Yusuf.bentenmobmod.common.events.LegendaryArmor;
-import com.Yusuf.bentenmobmod.common.events.Xlr8Armor;
-import com.Yusuf.bentenmobmod.common.material.CustomArmorMaterial;
-import com.Yusuf.bentenmobmod.common.material.CustomToolMaterial;
-import com.Yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.Yusuf.bentenmobmod.item.ModSpawnEggItem;
-
+import com.yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.common.events.HeatblastArmor;
+import com.yusuf.bentenmobmod.common.events.JacketArmorItem;
+import com.yusuf.bentenmobmod.common.events.LegendaryArmor;
+import com.yusuf.bentenmobmod.common.events.Xlr8Armor;
+import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
+import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
+import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.EnchantedGoldenAppleItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -38,6 +34,20 @@ public class ItemInit {
 	public static final RegistryObject<Item> SPEED = ITEMS.register("speed",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> BLACK_DIAMOND = ITEMS.register("black_diamond",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> BLACK_DIAMOND_SCRAP = ITEMS.register("black_diamond_scrap",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+
+	public static final RegistryObject<Item> INFINITUM = ITEMS.register("infinitum",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> INFINITUM_SCRAP = ITEMS.register("infinitum_scrap",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+
 
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
@@ -51,6 +61,9 @@ public class ItemInit {
 			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<SwordItem> BLACK_DIAMOND_SWORD = ITEMS.register("black_diamond_sword",
+			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 14, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 //armour
 	
@@ -127,6 +140,23 @@ public class ItemInit {
 			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 		*/
+
+	//black diamond armour
+	public static final RegistryObject<Item> BLACK_DIAMOND_HELMET = ITEMS.register("black_diamond_helmet",
+			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.HEAD,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> BLACK_DIAMOND_CHESTPLATE = ITEMS.register("black_diamond_chestplate",
+			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.CHEST,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> BLACK_DIAMOND_LEGGINGS = ITEMS.register("black_diamond_leggings",
+			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.LEGS,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> BLACK_DIAMOND_BOOTS = ITEMS.register("black_diamond_boots",
+			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.FEET,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 	// Food
 	public static final RegistryObject<Item> OMNITRIX_APPLE = ITEMS.register("omnitrix_apple",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
