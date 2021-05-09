@@ -17,6 +17,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
+        //ores
         tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
 
@@ -34,6 +35,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
+
+        tag(TagsInit.Blocks.ORES_SPEED).add(BlockInit.SPEED_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_SPEED);
+
+        //blocks
     }
 }
 

@@ -15,5 +15,13 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags() {
         copy(TagsInit.Blocks.ORES_BLACK_DIAMOND, TagsInit.Items.ORES_BLACK_DIAMOND);
+        copy(TagsInit.Blocks.ORES_INFINITUM, TagsInit.Items.ORES_INFINITUM);
+        copy(TagsInit.Blocks.ORES_RUBY, TagsInit.Items.ORES_RUBY);
+        copy(TagsInit.Blocks.ORES_FIRE, TagsInit.Items.ORES_FIRE);
+        copy(TagsInit.Blocks.ORES_SPEED, TagsInit.Items.ORES_SPEED);
+        copy(TagsInit.Blocks.ORES_OMNITRIX, TagsInit.Items.ORES_OMNITRIX);
+
+
+
     }
 }
