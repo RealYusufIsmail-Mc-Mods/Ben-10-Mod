@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:infinitum_scrap"
+      "item": "bentenmobmod:infinitum_scrap"
     },
     {
-      "item": "minecraft:infinitum_scrap"
+      "item": "bentenmobmod:infinitum_scrap"
     },
     {
-      "item": "minecraft:infinitum_scrap"
+      "item": "bentenmobmod:infinitum_scrap"
     },
     {
-      "item": "minecraft:infinitum_scrap"
+      "item": "bentenmobmod:infinitum_scrap"
     },
     {
       "item": "minecraft:gold_ingot"
@@ -27,6 +27,6 @@
     }
   ],
   "result": {
-    "item": "minecraft:black_diamond"
+    "item": "bentenmobmod:black_diamond"
   }
 }
