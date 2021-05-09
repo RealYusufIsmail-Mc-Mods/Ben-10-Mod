@@ -27,8 +27,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("omnitrix_block", modLoc("block/omnitrix_block"));
         withExistingParent("speed_block", modLoc("block/speed_block"));
         withExistingParent("ruby_block", modLoc("block/ruby_block"));
-        withExistingParent("ruby_ore", modLoc("block/infinitum_block"));
-        withExistingParent("infinitum_block", modLoc("block/ruby_ore"));
+        withExistingParent("ruby_ore", modLoc("block/ruby_ore"));
+        withExistingParent("infinitum_block", modLoc("block/infinitum_block"));
         withExistingParent("speed_ore", modLoc("block/speed_ore"));
         withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
         withExistingParent("vilgax_block", modLoc("block/vilgax_block"));
