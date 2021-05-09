@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:black_diamond_scrap"
+    },
+    {
+      "item": "minecraft:black_diamond_scrap"
+    },
+    {
+      "item": "minecraft:black_diamond_scrap"
+    },
+    {
+      "item": "minecraft:black_diamond_scrap"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "minecraft:black_diamond"
+  }
+}
