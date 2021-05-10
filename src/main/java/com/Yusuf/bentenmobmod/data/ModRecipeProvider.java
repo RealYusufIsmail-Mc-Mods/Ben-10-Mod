@@ -84,7 +84,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_item", has(ItemInit.SPEED.get()))
             .save(consumer);
 
-    ShapelessRecipeBuilder.shapeless(ItemInit.SPEED.get(), 9)
+    ShapelessRecipeBuilder.shapeless(ItemInit.RUBY.get(), 9)
 
             .requires(BlockInit.RUBY_BLOCK.get())
             .unlockedBy("has_item", has(ItemInit.RUBY.get()))
