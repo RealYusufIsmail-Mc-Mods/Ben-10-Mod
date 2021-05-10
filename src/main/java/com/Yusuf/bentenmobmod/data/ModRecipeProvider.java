@@ -134,16 +134,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("sped_ore_smelt"));
 
         //ingots
-/*
-        ShapedRecipeBuilder.shaped(ItemInit.BLACK_DIAMOND.get())
-                .define('#', ItemInit.BLACK_DIAMOND_SCRAP.get())
-                .define('K', Items.GOLD_INGOT.getItem())
-                .pattern("##")
-                .pattern("###")
-                .pattern("###")
-                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
-                .save(consumer);
-*/
+
         ShapelessRecipeBuilder.shapeless(ItemInit.BLACK_DIAMOND.get(), 1)
 
                 .requires(ItemInit.BLACK_DIAMOND_SCRAP.get())
