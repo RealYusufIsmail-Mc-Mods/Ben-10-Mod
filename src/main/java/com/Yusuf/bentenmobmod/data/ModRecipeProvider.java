@@ -1,18 +1,40 @@
 package com.yusuf.bentenmobmod.data;
 
-import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.RecipeProvider;
+import com.yusuf.bentenmobmod.core.init.BlockInit;
+import com.yusuf.bentenmobmod.core.init.ItemInit;
+import net.minecraft.data.*;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
+import java.util.function.Consumer;
+
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
-    public ModRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+    public ModRecipeProvider(DataGenerator gen) {
+        super(gen);
     }
 
     @Override
-    protected void registerRecipes(MessagePassingQueue.Consumer<IFinishedRecipe> consumer) {
+    protected void registerRecipes(Consumer<IFinishedRecipe> consumer) {
+        protected void buildShapelessRecipes(Consumer < IFinishedRecipe > consumer)
+        {
+            ShapelessRecipeBuilder.shapeless(ItemInit.INFINITUM.get(), 9)
+                    .requires(BlockInit.INFINITUM_BLOCK.get())
+                    .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
+                    .save(consumer);
 
+            ShapedRecipeBuilder.shaped(BlockInit.INFINITUM_BLOCK.get())
+                    .define('#', ItemInit.INFINITUM.get())
+                    .pattern("###")
+                    .pattern("###")
+                    .pattern("###")
+                    .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
+                    .save(consumer);
+        }
+        private static ResourceLocation modId(String path){
+            return new ResourceLocation(Main.MOD_ID, path);
+        }
     }
 }
+
+
+
