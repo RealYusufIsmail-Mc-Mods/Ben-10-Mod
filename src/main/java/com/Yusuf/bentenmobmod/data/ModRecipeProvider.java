@@ -26,6 +26,7 @@ public class ModRecipeProvider extends RecipeProvider {
                     .pattern("###")
                     .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
                     .save(consumer);
+
         }
 
 
