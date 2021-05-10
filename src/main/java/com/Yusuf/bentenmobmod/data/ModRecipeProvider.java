@@ -3,6 +3,8 @@ package com.yusuf.bentenmobmod.data;
 import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import net.minecraft.data.*;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
 
@@ -80,6 +82,34 @@ public class ModRecipeProvider extends RecipeProvider {
             .pattern("###")
             .pattern("###")
             .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+            .save(consumer);
+
+    ShapelessRecipeBuilder.shapeless(ItemInit.SPEED.get(), 9)
+
+            .requires(BlockInit.RUBY_BLOCK.get())
+            .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+            .save(consumer);
+
+    ShapedRecipeBuilder.shaped(BlockInit.RUBY_BLOCK.get())
+            .define('#', ItemInit.RUBY.get())
+            .pattern("###")
+            .pattern("###")
+            .pattern("###")
+            .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+            .save(consumer);
+
+    ShapelessRecipeBuilder.shapeless(ItemInit.LEGENDARY_ORE.get(), 9)
+
+            .requires(BlockInit.LEGENDARY_ORE_BLOCK.get())
+            .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
+            .save(consumer);
+
+    ShapedRecipeBuilder.shaped(BlockInit.LEGENDARY_ORE_BLOCK.get())
+            .define('#', ItemInit.LEGENDARY_ORE.get())
+            .pattern("###")
+            .pattern("###")
+            .pattern("###")
+            .unlockedBy("has_item", has(ItemInit.RUBY.get()))
             .save(consumer);
 
     SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
