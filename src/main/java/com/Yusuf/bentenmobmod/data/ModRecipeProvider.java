@@ -17,6 +17,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+        //blocks
         ShapelessRecipeBuilder.shapeless(ItemInit.INFINITUM.get(), 9)
 
                 .requires(BlockInit.INFINITUM_BLOCK.get())
@@ -114,13 +115,36 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer);
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND.get(), 0.7f, 200)
+        //ores
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("silver_ingot_smelting"));
+
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("silver_ingot_smelting"));
+
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND.get(), 0.7f, 300)
                 .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
                 .save(consumer, modId("silver_ingot_smelting"));
 
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("silver_ingot_smelting"));
+
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("silver_ingot_smelting"));
+
+        // SmithingRecipe
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
                 unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()));
 
+
+        //amour and tools
+
+
+        //food
     }
         private static ResourceLocation modId(String path){
             return new ResourceLocation(Main.MOD_ID, path);
