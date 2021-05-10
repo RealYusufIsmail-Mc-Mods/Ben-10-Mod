@@ -1,9 +1,7 @@
 package com.yusuf.bentenmobmod.data;
 
-import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
-import net.minecraft.advancements.criterion.ImpossibleTrigger;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -32,10 +30,9 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(consumer);
 
 
-    SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
-            unlocks("has_item", has(ItemInit.BLACK_DIAMOND_SWORD.get()))
-            .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
-            .save(consumer);
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
+            unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()));
+
 
 
 }
