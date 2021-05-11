@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "KK ",
-    "A# ",
+    " K ",
+    " A ",
     " # "
   ],
   "key": {
@@ -10,13 +10,13 @@
       "item": "minecraft:stick"
     },
     "K": {
-      "item": "bentenmobmod:ruby"
+      "item": "bentenmobmod:fire"
     },
     "A": {
-      "item": "bentenmobmod:legendary_ore"
+      "item": "bentenmobmod:omnitrix"
     }
   },
   "result": {
-    "item": "bentenmobmod:axe"
+    "item": "bentenmobmod:heatblast_sword"
   }
 }

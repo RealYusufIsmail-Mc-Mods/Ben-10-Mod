@@ -203,7 +203,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
-                .save(consumer,modId("chestplate"));
+                .save(consumer,modId("helmet"));
 
         ShapedRecipeBuilder.shaped(ItemInit.CHESTPLATE.get())
                 .define('#', ItemInit.RUBY.get())
