@@ -30,7 +30,7 @@ PierogiP: https://www.curseforge.com/members/polisch_pierogi/
 gentworm: https://www.curseforge.com/members/gentworm/followers
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.ben10mobmod]] #optional
+[[dependencies.bentenmobmod]] #optional
    
     modId="forge"
     mandatory=true

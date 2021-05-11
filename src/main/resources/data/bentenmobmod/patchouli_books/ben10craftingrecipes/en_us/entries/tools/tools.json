@@ -9,6 +9,10 @@
       "recipe2": "bentenmobmod:heatblast_sword"
     },
     {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_sword"
+    },
+    {
       "type": "crafting",
       "recipe": "bentenmobmod:axe"
     }

@@ -41,8 +41,10 @@ public class Main {
 		GeckoLib.initialize();
 
 		MinecraftForge.EVENT_BUS.register(this);
-		
 		MinecraftForge.EVENT_BUS.register(this);
+
+		
+
 
 	};
 	@SubscribeEvent

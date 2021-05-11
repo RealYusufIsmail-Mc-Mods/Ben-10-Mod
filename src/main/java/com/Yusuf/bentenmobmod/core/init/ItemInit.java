@@ -11,6 +11,7 @@ import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
+import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

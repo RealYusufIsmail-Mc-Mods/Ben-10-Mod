@@ -24,6 +24,17 @@
       "recipe2": "bentenmobmod:xlr8_boot"
     },
     {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_helmet",
+      "recipe2": "bentenmobmod:black_diamond_chestplate"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_leggings",
+      "recipe2": "bentenmobmod:black_diamond_boots"
+    },
+
+    {
       "type": "crafting",
       "recipe": "bentenmobmod:jacket"
     }
