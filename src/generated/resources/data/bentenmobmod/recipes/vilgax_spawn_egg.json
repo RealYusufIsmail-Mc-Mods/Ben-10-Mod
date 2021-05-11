@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "key": {
+    "L": {
+      "item": "bentenmobmod:omnitrix"
+    },
+    "A": {
+      "item": "bentenmobmod:ruby"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:jacket"
+  }
+}

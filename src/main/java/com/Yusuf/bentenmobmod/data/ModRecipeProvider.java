@@ -115,8 +115,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer);
 
-        
-
         //ores
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.7f, 300)
@@ -300,10 +298,56 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("AAA")
                 .pattern("AAA")
-                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
-                .save(consumer,modId("xlr8_chestplate"));
+                .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
+                .save(consumer,modId("jacket"));
 
         //food
+        ShapedRecipeBuilder.shaped(ItemInit.OMNITRIX_APPLE.get())
+                .define('A', ItemInit.OMNITRIX.get())
+                .define('L', Items.APPLE.getItem())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
+                .save(consumer,modId("omnitrix_apple"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.ENCHANTED_OMNITRIX_APPLE.get())
+                .define('A', BlockInit.OMNITRIX_BLOCK.get())
+                .define('L', Items.APPLE.getItem())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(BlockInit.OMNITRIX_BLOCK.get()))
+                .save(consumer,modId("enchanted_omnitrix_apple"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.FIRE_APPLE.get())
+                .define('A', ItemInit.FIRE.get())
+                .define('L', Items.APPLE.getItem())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer,modId("fire_apple"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.RUBY_APPLE.get())
+                .define('A', ItemInit.RUBY.get())
+                .define('L', Items.APPLE.getItem())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+                .save(consumer,modId("ruby_apple"));
+
+        //other items
+
+        ShapedRecipeBuilder.shaped(ItemInit.JACKET.get())
+                .define('L', ItemInit.OMNITRIX.get())
+                .define('A', ItemInit.RUBY.get())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
+                .save(consumer,modId("vilgax_spawn_egg"));
     }
         private static ResourceLocation modId(String path){
             return new ResourceLocation(Main.MOD_ID, path);
