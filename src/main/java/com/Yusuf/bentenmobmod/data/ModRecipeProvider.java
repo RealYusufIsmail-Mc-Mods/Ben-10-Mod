@@ -171,9 +171,9 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped.define('#', Items.STICK.getItem());
         shaped.define('K', ItemInit.RUBY.get());
         shaped.define('A', ItemInit.LEGENDARY_ORE.get());
-        shaped.pattern("###");
-        shaped.pattern("###");
-        shaped.pattern("###");
+        shaped.pattern("KK ");
+        shaped.pattern("A# ");
+        shaped.pattern("  #");
         shaped.unlockedBy("has_item", has(ItemInit.RUBY.get()));
         shaped.save(consumer);
 
