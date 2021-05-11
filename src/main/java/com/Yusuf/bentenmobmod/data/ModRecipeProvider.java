@@ -146,7 +146,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(Items.GOLD_INGOT.getItem())
                 .requires(Items.GOLD_INGOT.getItem())
                 .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND_SCRAP.get()))
-                .save(consumer);
+                .save(consumer, modId("black_diamond_scrap"));
         
         // SmithingRecipe
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
