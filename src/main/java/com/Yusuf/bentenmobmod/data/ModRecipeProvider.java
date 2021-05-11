@@ -175,7 +175,7 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped.pattern("A# ");
         shaped.pattern("  #");
         shaped.unlockedBy("has_item", has(ItemInit.RUBY.get()));
-        shaped.save(consumer);
+        shaped.save(consumer,modId("axe"));
 
         //food
     }
