@@ -167,15 +167,27 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         //amour and tools
-        ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(BlockInit.LEGENDARY_ORE_BLOCK.get());
+        ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(ItemInit.AXE.get());
         shaped.define('#', Items.STICK.getItem());
         shaped.define('K', ItemInit.RUBY.get());
         shaped.define('A', ItemInit.LEGENDARY_ORE.get());
         shaped.pattern("KK ");
         shaped.pattern("A# ");
-        shaped.pattern("  #");
+        shaped.pattern(" #");
         shaped.unlockedBy("has_item", has(ItemInit.RUBY.get()));
         shaped.save(consumer,modId("axe"));
+
+        ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_SWORD.get());
+        shaped.define('#', Items.STICK.getItem());
+        shaped.define('K', ItemInit.FIRE.get());
+        shaped.define('A', ItemInit.OMNITRIX.get());
+        shaped.pattern("KK ");
+        shaped.pattern("A# ");
+        shaped.pattern(" #");
+        shaped.unlockedBy("has_item", has(ItemInit.FIRE.get()));
+        shaped.save(consumer,modId("axe"));
+
+
 
         //food
     }
