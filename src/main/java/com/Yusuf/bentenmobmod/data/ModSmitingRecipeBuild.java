@@ -26,6 +26,23 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
         .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
         .save(consumer,modId("black_diamond_sword"));
 
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_HELMET), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_HELMET.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_helmet"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_CHESTPLATE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_CHESTPLATE.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_chestplate"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_LEGGINGS), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_LEGGINGS.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_leggings"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_BOOTS), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_BOOTS.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_boots"));
+
     }
     private static ResourceLocation modId(String path){
         return new ResourceLocation(Main.MOD_ID, path);

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "addition": {
+    "item": "bentenmobmod:black_diamond"
+  },
+  "result": {
+    "item": "bentenmobmod:black_diamond_sword"
+  }
+}
