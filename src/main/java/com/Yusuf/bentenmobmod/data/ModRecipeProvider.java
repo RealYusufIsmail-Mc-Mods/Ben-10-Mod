@@ -160,22 +160,22 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(Items.GOLD_INGOT.getItem())
                 .unlockedBy("has_item", has(ItemInit.INFINITUM_SCRAP.get()))
                 .save(consumer, modId("infinitum_scrap"));
-        
+        /*
         // SmithingRecipe
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
                 unlocks("has_item", has(BlockInit.BLACK_DIAMOND_BLOCK.get()));
 
-
+*/
         //amour and tools
-        ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(ItemInit.AXE.get());
-        shaped.define('#', Items.STICK.getItem());
-        shaped.define('K', ItemInit.RUBY.get());
-        shaped.define('A', ItemInit.LEGENDARY_ORE.get());
-        shaped.pattern("KK ");
-        shaped.pattern("A# ");
-        shaped.pattern(" #");
-        shaped.unlockedBy("has_item", has(ItemInit.RUBY.get()));
-        shaped.save(consumer,modId("axe"));
+        ShapedRecipeBuilder.shaped(ItemInit.AXE.get())
+        .define('#', Items.STICK.getItem())
+        .define('K', ItemInit.RUBY.get())
+        .define('A', ItemInit.LEGENDARY_ORE.get())
+        .pattern("KK ")
+        .pattern("A# ")
+        .pattern(" # ")
+        .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+        .save(consumer,modId("axe"));
 
 
         ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_SWORD.get())
@@ -188,7 +188,34 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.FIRE.get()))
                 .save(consumer,modId("heatblast_sword"));
 
-      
+        ShapedRecipeBuilder.shaped(ItemInit.SWORD.get())
+                .define('#', Items.STICK.getItem())
+                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .pattern(" A ")
+                .pattern(" A ")
+                .pattern(" # ")
+                .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
+                .save(consumer,modId("sword"));
+
+
+        ShapedRecipeBuilder.shaped(ItemInit.HELMET.get())
+                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
+                .save(consumer,modId("chestplate"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.CHESTPLATE.get())
+                .define('#', ItemInit.RUBY.get())
+                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .pattern("A A")
+                .pattern("A#A")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
+                .save(consumer,modId("chestplate"));
+
+
+
 
 
 
