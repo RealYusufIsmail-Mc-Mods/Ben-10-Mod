@@ -177,15 +177,17 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped.unlockedBy("has_item", has(ItemInit.RUBY.get()));
         shaped.save(consumer,modId("axe"));
 
-        ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_SWORD.get());
-        shaped.define('#', Items.STICK.getItem());
-        shaped.define('K', ItemInit.FIRE.get());
-        shaped.define('A', ItemInit.OMNITRIX.get());
-        shaped.pattern(" K ");
-        shaped.pattern(" A ");
-        shaped.pattern(" # ");
-        shaped.unlockedBy("has_item", has(ItemInit.FIRE.get()));
-        shaped.save(consumer,modId("heatblast_sword"));
+
+
+        ShapedRecipeBuilder shaped = ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_SWORD.get())
+         .define('#', Items.STICK.getItem())
+          .define('K', ItemInit.FIRE.get())
+      .define('A', ItemInit.OMNITRIX.get())
+        .pattern(" K ")
+        .pattern(" A ")
+        .pattern(" # ")
+        .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+        .save(consumer,modId("heatblast_sword"));
 
 
 
