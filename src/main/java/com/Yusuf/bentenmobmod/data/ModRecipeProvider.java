@@ -185,7 +185,7 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped.pattern(" A ");
         shaped.pattern(" # ");
         shaped.unlockedBy("has_item", has(ItemInit.FIRE.get()));
-        shaped.save(consumer,modId("axe"));
+        shaped.save(consumer,modId("heatblast_sword"));
 
 
 
