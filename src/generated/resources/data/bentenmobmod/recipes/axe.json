@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KK ",
+    "A# ",
+    "  #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "K": {
+      "item": "bentenmobmod:ruby"
+    },
+    "A": {
+      "item": "bentenmobmod:legendary_ore"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:legendary_ore_block"
+  }
+}
