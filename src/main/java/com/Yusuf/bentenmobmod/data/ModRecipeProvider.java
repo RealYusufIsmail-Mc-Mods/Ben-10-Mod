@@ -115,6 +115,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer);
 
+        
+
         //ores
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.7f, 300)
@@ -262,13 +264,44 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.FIRE.get()))
                 .save(consumer,modId("heatblast_boot"));
 
+        ShapedRecipeBuilder.shaped(ItemInit.XLR8_HELMET.get())
+                .define('A', ItemInit.SPEED.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer,modId("xlr8_helmet"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.XLR8_CHESTPLATE.get())
+                .define('#', ItemInit.OMNITRIX.get())
+                .define('A', ItemInit.SPEED.get())
+                .pattern("A A")
+                .pattern("A#A")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer,modId("xlr8_chestplate"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.XLR8_LEGGINGS.get())
+                .define('A', ItemInit.SPEED.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer,modId("xlr8_leggings"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.XLR8_BOOT.get())
+                .define('A', ItemInit.SPEED.get())
+                .pattern("A A")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer,modId("xlr8_boot"));
+
         ShapedRecipeBuilder.shaped(ItemInit.JACKET.get())
                 .define('A', ItemInit.OMNITRIX.get())
                 .pattern("A A")
                 .pattern("AAA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(ItemInit.FIRE.get()))
-                .save(consumer,modId("heatblast_chestplate"));
+                .save(consumer,modId("xlr8_chestplate"));
 
         //food
     }
