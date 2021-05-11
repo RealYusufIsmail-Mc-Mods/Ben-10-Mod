@@ -181,9 +181,9 @@ public class ModRecipeProvider extends RecipeProvider {
         shaped.define('#', Items.STICK.getItem());
         shaped.define('K', ItemInit.FIRE.get());
         shaped.define('A', ItemInit.OMNITRIX.get());
-        shaped.pattern("KK ");
-        shaped.pattern("A# ");
-        shaped.pattern(" #");
+        shaped.pattern(" K ");
+        shaped.pattern(" A ");
+        shaped.pattern(" # ");
         shaped.unlockedBy("has_item", has(ItemInit.FIRE.get()));
         shaped.save(consumer,modId("axe"));
 
