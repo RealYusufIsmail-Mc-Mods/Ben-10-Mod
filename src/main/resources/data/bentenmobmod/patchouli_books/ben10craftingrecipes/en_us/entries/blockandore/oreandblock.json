@@ -5,13 +5,13 @@
   "pages": [
     {
       "type": "smelting",
-      "recipe": "bentenmobmod:omnitrix_ore",
-      "recipe2": "bentenmobmod:fire_ore"
+      "recipe": "bentenmobmod:omnitrix_ore_smelt",
+      "recipe2": "bentenmobmod:fire_ore_smelt"
     },
     {
       "type": "smelting",
-      "recipe": "bentenmobmod:legendary_ore",
-      "recipe2": "bentenmobmod:ruby_ore"
+      "recipe": "bentenmobmod:legendary_ore_block",
+      "recipe2": "bentenmobmod:ruby_ore_smelt"
     },
     {
       "type": "crafting",
@@ -20,7 +20,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "bentenmobmod:legendary_block",
+      "recipe": "bentenmobmod:legendary_ore_block",
       "recipe2": "bentenmobmod:fire_block"
     },
     {

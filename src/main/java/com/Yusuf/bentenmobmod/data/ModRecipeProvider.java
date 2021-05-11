@@ -214,11 +214,61 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
                 .save(consumer,modId("chestplate"));
 
+        ShapedRecipeBuilder.shaped(ItemInit.LEGGINGS.get())
+                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
+                .save(consumer,modId("leggings"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.BOOT.get())
+                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .pattern("A A")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
+                .save(consumer,modId("boot"));
 
 
 
+        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_HELMET.get())
+                .define('A', ItemInit.FIRE.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer,modId("heatblast_helmet"));
 
+        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_CHESTPLATE.get())
+                .define('#', ItemInit.OMNITRIX.get())
+                .define('A', ItemInit.FIRE.get())
+                .pattern("A A")
+                .pattern("A#A")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer,modId("heatblast_chestplate"));
 
+        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_LEGGINGS.get())
+                .define('A', ItemInit.FIRE.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer,modId("heatblast_leggings"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_BOOT.get())
+                .define('A', ItemInit.FIRE.get())
+                .pattern("A A")
+                .pattern("A A")
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer,modId("heatblast_boot"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.JACKET.get())
+                .define('A', ItemInit.OMNITRIX.get())
+                .pattern("A A")
+                .pattern("AAA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer,modId("heatblast_chestplate"));
 
         //food
     }
