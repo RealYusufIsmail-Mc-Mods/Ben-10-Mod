@@ -191,7 +191,7 @@ public class ItemInit {
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> INFINITUM_LEGGINGS = ITEMS.register("infinitum_leggings",
+		public static final RegistryObject<Item> INFINITUM_LEGGINGS = ITEMS.register("infinitum_leggings",
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
