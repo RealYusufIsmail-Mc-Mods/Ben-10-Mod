@@ -79,6 +79,10 @@ public class ItemInit {
 			() -> new ShovelItem(CustomToolMaterial.BLACK_DIAMOND_SHOVEL, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<HoeItem> BLACK_DIAMOND_HOE = ITEMS.register("black_diamond_hoe",
+			() -> new HoeItem(CustomToolMaterial.BLACK_DIAMOND_HOE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
 	public static final RegistryObject<SwordItem> INFINITUM_SWORD = ITEMS.register("infinitum_sword",
 			() -> new SwordItem(CustomToolMaterial.INFINITUM_SWORD, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
@@ -97,6 +101,9 @@ public class ItemInit {
 			() -> new ShovelItem(CustomToolMaterial.INFINITUM_SHOVEL, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<HoeItem> INFINITUM_HOE = ITEMS.register("infinitum_hoe",
+			() -> new HoeItem(CustomToolMaterial.INFINITUM_HOE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 
 

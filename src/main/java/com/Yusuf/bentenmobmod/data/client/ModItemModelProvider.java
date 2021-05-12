@@ -86,10 +86,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "black_diamond_pickaxe");
         tool(itemhandHeld, "black_diamond_shovel");
         tool(itemhandHeld, "black_diamond_axe");
+        tool(itemhandHeld, "black_diamond_hoe");
         tool(itemhandHeld, "infinitum_sword");
         tool(itemhandHeld, "infinitum_axe");
         tool(itemhandHeld, "infinitum_pickaxe");
         tool(itemhandHeld, "infinitum_shovel");
+        tool(itemhandHeld, "infinitum_hoe");
 
 
     }
