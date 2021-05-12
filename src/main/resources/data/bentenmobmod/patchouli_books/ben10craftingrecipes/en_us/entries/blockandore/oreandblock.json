@@ -26,7 +26,12 @@
     },
     {
       "type": "crafting",
-      "recipe": "bentenmobmod:ruby_block"
+      "recipe": "bentenmobmod:ruby_block",
+      "recipe2": "bentenmobmod:black_diamond_block"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:infinitum_block"
     }
 
   ]
