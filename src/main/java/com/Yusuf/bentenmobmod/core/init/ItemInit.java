@@ -177,19 +177,19 @@ public class ItemInit {
 		*/
 //
 	public static final RegistryObject<Item> BLACK_DIAMOND_HELMET = ITEMS.register("infinitum_helmet",
-			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.HEAD,
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> BLACK_DIAMOND_CHESTPLATE = ITEMS.register("infinitum_chestplate",
-			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.CHEST,
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> BLACK_DIAMOND_LEGGINGS = ITEMS.register("infinitum_leggings",
-			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.LEGS,
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<Item> BLACK_DIAMOND_BOOTS = ITEMS.register("infinitum_boots",
-			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.FEET,
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//black diamond armour
 	public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("black_diamond_helmet",
