@@ -26,6 +26,18 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
         .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
         .save(consumer,modId("black_diamond_sword"));
 
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_AXE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_AXE.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_axe"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_PICKAXE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_PICKAXE.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_pickaxe"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SHOVEL), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SHOVEL.get())
+                .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer,modId("black_diamond_shovel"));
+
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_HELMET), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_HELMET.get())
                 .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
@@ -47,6 +59,18 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SWORD.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SWORD.get())
                 .unlocks("has_item", has(ItemInit.INFINITUM.get()))
                 .save(consumer,modId("infinitum_sword"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_AXE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_AXE.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_axe"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_PICKAXE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_PICKAXE.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_pickaxe"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SHOVEL.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SHOVEL.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_shovel"));
 
     }
     private static ResourceLocation modId(String path){
