@@ -35,6 +35,17 @@
     },
 
     {
+      "type": "smithing",
+      "recipe": "bentenmobmod:infinitum_helmet",
+      "recipe2": "bentenmobmod:infinitum_chestplate"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmobmod:infinitum_leggings",
+      "recipe2": "bentenmobmod:infinitum_boots"
+    },
+
+    {
       "type": "crafting",
       "recipe": "bentenmobmod:jacket"
     }
