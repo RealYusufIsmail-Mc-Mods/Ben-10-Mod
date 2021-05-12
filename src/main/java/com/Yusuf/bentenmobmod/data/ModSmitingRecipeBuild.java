@@ -43,6 +43,11 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
                 .unlocks("has_item", has(ItemInit.BLACK_DIAMOND.get()))
                 .save(consumer,modId("black_diamond_boots"));
 
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SWORD.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SWORD.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_sword"));
+
     }
     private static ResourceLocation modId(String path){
         return new ResourceLocation(Main.MOD_ID, path);
