@@ -132,7 +132,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.SPEED_ORE.get()), ItemInit.SPEED.get(), 0.7f, 300)
                 .unlockedBy("has_item", has(BlockInit.SPEED_ORE.get()))
-                .save(consumer, modId("sped_ore_smelt"));
+                .save(consumer, modId("speed_ore_smelt"));
+
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
+                .save(consumer, modId("legendary_ore_smelt"));
 
         //ingots
 
@@ -161,12 +165,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .requires(Items.GOLD_INGOT.getItem())
                 .unlockedBy("has_item", has(ItemInit.INFINITUM_SCRAP.get()))
                 .save(consumer, modId("infinitum_scrap"));
-        /*
-        // SmithingRecipe
-        SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get()).
-                unlocks("has_item", has(BlockInit.BLACK_DIAMOND_BLOCK.get()));
 
-*/
+
+
         //amour and tools
         ShapedRecipeBuilder.shaped(ItemInit.AXE.get())
         .define('#', Items.STICK.getItem())
