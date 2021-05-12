@@ -175,36 +175,36 @@ public class ItemInit {
 			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 		*/
-//
-	public static final RegistryObject<Item> BLACK_DIAMOND_HELMET = ITEMS.register("infinitum_helmet",
+//INFINITUM Armour
+	public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("infinitum_helmet",
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> BLACK_DIAMOND_CHESTPLATE = ITEMS.register("infinitum_chestplate",
+	public static final RegistryObject<Item> INFINITUM_CHESTPLATE = ITEMS.register("infinitum_chestplate",
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> BLACK_DIAMOND_LEGGINGS = ITEMS.register("infinitum_leggings",
+	public static final RegistryObject<Item> INFINITUM_LEGGINGS = ITEMS.register("infinitum_leggings",
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> BLACK_DIAMOND_BOOTS = ITEMS.register("infinitum_boots",
+	public static final RegistryObject<Item> INFINITUM_BOOTS = ITEMS.register("infinitum_boots",
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//black diamond armour
-	public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("black_diamond_helmet",
+	public static final RegistryObject<Item> BLACK_DIAMOND_HELMET = ITEMS.register("black_diamond_helmet",
 			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> INFINITUM_CHESTPLATE = ITEMS.register("black_diamond_chestplate",
+	public static final RegistryObject<Item> BLACK_DIAMOND_CHESTPLATE = ITEMS.register("black_diamond_chestplate",
 			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> INFINITUM_LEGGINGS = ITEMS.register("black_diamond_leggings",
+	public static final RegistryObject<Item> BLACK_DIAMOND_LEGGINGS = ITEMS.register("black_diamond_leggings",
 			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> INFINITUM_BOOTS = ITEMS.register("black_diamond_boots",
+	public static final RegistryObject<Item> BLACK_DIAMOND_BOOTS = ITEMS.register("black_diamond_boots",
 			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	// Food

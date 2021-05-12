@@ -72,6 +72,24 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
                 .unlocks("has_item", has(ItemInit.INFINITUM.get()))
                 .save(consumer,modId("infinitum_shovel"));
 
+
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_HELMET.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_HELMET.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_helmet"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_CHESTPLATE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_CHESTPLATE.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_chestplate"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_LEGGINGS.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_LEGGINGS.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_leggings"));
+
+        SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_BOOTS.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_BOOTS.get())
+                .unlocks("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer,modId("infinitum_boots"));
+
     }
     private static ResourceLocation modId(String path){
         return new ResourceLocation(Main.MOD_ID, path);
