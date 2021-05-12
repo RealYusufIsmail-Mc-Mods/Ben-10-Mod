@@ -70,6 +70,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "black_diamond_chestplate");
         builder(itemGenerated, "black_diamond_leggings");
         builder(itemGenerated, "black_diamond_boots");
+        builder(itemGenerated, "infinitum_helmet");
+        builder(itemGenerated, "infinitum_chestplate");
+        builder(itemGenerated, "infinitum_leggings");
+        builder(itemGenerated, "infinitum_boots");
 
 
 
