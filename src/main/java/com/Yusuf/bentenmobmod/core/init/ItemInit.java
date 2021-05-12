@@ -51,22 +51,22 @@ public class ItemInit {
 
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
-			() -> new SwordItem(CustomToolMaterial.SWORD, 14, 7f,
+			() -> new SwordItem(CustomToolMaterial.SWORD, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
-			() -> new AxeItem(CustomToolMaterial.AXE, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
+			() -> new AxeItem(CustomToolMaterial.AXE, 0, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
+			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 0, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> BLACK_DIAMOND_SWORD = ITEMS.register("black_diamond_sword",
-			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 14, 7f,
+			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> INFINITUM_SWORD = ITEMS.register("infinitum_sword",
-			() -> new SwordItem(CustomToolMaterial.INFINITUM_SWORD, 14, 7f,
+			() -> new SwordItem(CustomToolMaterial.INFINITUM_SWORD, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 //armour
