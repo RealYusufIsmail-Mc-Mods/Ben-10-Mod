@@ -7,7 +7,6 @@ import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import java.util.function.Consumer;
 
@@ -134,8 +133,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.7f, 300)
-                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_BLOCK.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
         //ingots
@@ -342,7 +341,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //other items
 
-        ShapedRecipeBuilder.shaped(ItemInit.JACKET.get())
+        ShapedRecipeBuilder.shaped(ItemInit.VILGAX_SPAWN_EGG.get())
                 .define('L', ItemInit.OMNITRIX.get())
                 .define('A', ItemInit.RUBY.get())
                 .pattern("AAA")

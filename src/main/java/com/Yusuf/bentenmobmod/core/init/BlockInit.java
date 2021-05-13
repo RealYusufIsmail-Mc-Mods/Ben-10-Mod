@@ -25,27 +25,27 @@ public class BlockInit {
 	
 	public static final RegistryObject<Block> OMNITRIX_BLOCK = BLOCKS
 			.register("omnitrix_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
 	public static final RegistryObject<Block> BLACK_DIAMOND_BLOCK = BLOCKS
 			.register("black_diamond_block",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
 	public static final RegistryObject<Block> INFINITUM_BLOCK = BLOCKS
 			.register("infinitum_block",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
 	public static final RegistryObject<Block> FIRE_BLOCK = BLOCKS
 			.register("fire_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 	
 	public static final RegistryObject<Block> SPEED_BLOCK = BLOCKS
 			.register("speed_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
 	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS
 			.register("ruby_block",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 	/* Black for ores */
 	
 	public static final RegistryObject<Block> RUBY_ORE = BLOCKS
