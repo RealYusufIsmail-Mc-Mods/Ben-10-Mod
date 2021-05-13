@@ -133,8 +133,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.7f, 300)
-                .unlockedBy("has_item", has(BlockInit.LEGENDARY_BLOCK.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.7f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
         //ingots
