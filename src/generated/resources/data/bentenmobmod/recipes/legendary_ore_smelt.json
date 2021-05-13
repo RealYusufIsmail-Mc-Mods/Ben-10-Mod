@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bentenmobmod:legendary_block"
+  },
+  "result": "bentenmobmod:legendary_ore",
+  "experience": 0.7,
+  "cookingtime": 300
+}
