@@ -14,25 +14,25 @@ public class FeatureInit {
 	public static void addOres(final BiomeLoadingEvent event) {
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 1, 20, 20);
+				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.RUBY_ORE.get().defaultBlockState(), 4, 1, 20, 20);
+				BlockInit.RUBY_ORE.get().defaultBlockState(), 4, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 5, 0, 20, 20);
+				BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 4, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.SPEED_ORE.get().defaultBlockState(), 2, 1, 20, 20);
+				BlockInit.SPEED_ORE.get().defaultBlockState(), 2, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 1, 20, 20);
+				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 5, 1, 20, 20);
+				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 4, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
-				BlockInit.FIRE_ORE.get().defaultBlockState(), 4, 1, 20, 20);
+				BlockInit.FIRE_ORE.get().defaultBlockState(), 4, 0, 20, 20);
 	}
 
 
