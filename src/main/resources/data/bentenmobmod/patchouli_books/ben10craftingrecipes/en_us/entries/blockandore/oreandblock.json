@@ -6,7 +6,7 @@
     {
       "type": "smelting",
       "recipe": "bentenmobmod:omnitrix_ore_smelt",
-      "recipe2": "bentenmobmod:fire_ore_smelt",
+      "recipe2": "bentenmobmod:fire_ore_smelt"
 
     },
     {
