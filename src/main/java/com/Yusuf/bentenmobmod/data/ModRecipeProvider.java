@@ -347,7 +347,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("ALA")
                 .pattern("AAA")
-                .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
+                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer,modId("vilgax_spawn_egg"));
     }
         private static ResourceLocation modId(String path){
