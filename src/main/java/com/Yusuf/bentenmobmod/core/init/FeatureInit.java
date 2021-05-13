@@ -14,7 +14,7 @@ public class FeatureInit {
 	public static void addOres(final BiomeLoadingEvent event) {
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 4, 1, 20, 20);
+				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 1, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.RUBY_ORE.get().defaultBlockState(), 4, 1, 20, 20);
@@ -26,7 +26,7 @@ public class FeatureInit {
 				BlockInit.SPEED_ORE.get().defaultBlockState(), 2, 1, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 4, 1, 20, 20);
+				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 1, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 2, 1, 20, 20);
