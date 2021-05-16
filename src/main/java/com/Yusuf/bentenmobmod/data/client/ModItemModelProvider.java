@@ -32,6 +32,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("speed_ore", modLoc("block/speed_ore"));
         withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
         withExistingParent("vilgax_block", modLoc("block/vilgax_block"));
+        withExistingParent("Imperium_ore", modLoc("block/Imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
 
 
