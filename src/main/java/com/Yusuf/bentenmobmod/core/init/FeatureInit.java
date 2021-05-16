@@ -20,13 +20,16 @@ public class FeatureInit {
 				BlockInit.RUBY_ORE.get().defaultBlockState(), 4, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 3, 0, 20, 20);
+				BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 0, 15, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.SPEED_ORE.get().defaultBlockState(), 2, 0, 20, 20);
+				BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 3, 0, 14, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 20, 20);
+				BlockInit.SPEED_ORE.get().defaultBlockState(), 3, 0, 14, 20);
+
+		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 18, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
 				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 4, 0, 20, 20);
