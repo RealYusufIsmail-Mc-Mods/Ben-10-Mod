@@ -163,19 +163,19 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//4 Arms
 
-	public static final RegistryObject<Item> FOURARMS_HELMET = ITEMS.register("4arms_helmet",
+	public static final RegistryObject<Item> FOURARMS_HELMET = ITEMS.register("fourarms_helmet",
 			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> FOURARMS_CHESTPLATE = ITEMS.register("4arms_chestplate",
+	public static final RegistryObject<Item> FOURARMS_CHESTPLATE = ITEMS.register("fourarms_chestplate",
 			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> FOURARMS_LEGGINGS = ITEMS.register("4arms_leggings",
+	public static final RegistryObject<Item> FOURARMS_LEGGINGS = ITEMS.register("fourarms_leggings",
 			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> FOURARMS_BOOT = ITEMS.register("4arms_boot",
+	public static final RegistryObject<Item> FOURARMS_BOOT = ITEMS.register("fourarms_boot",
 			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
