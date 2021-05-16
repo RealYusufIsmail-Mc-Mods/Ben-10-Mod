@@ -11,15 +11,17 @@ import net.minecraftforge.fml.RegistryObject;
 public class Oncrafted {
 
     private Object Item;
+    private SwordItem Sworditem;
 
     @SubscribeEvent
 
     public void craftingTableEvent(PlayerEvent.ItemCraftedEvent event) {
-        if Item = ItemInit.HEATBLAST_SWORD {
+        if (Sworditem == ItemInit.HEATBLAST_SWORD.get()) {
             event.craftMatrix.addEnchantment(Enchantment.getEnchantmentByLocation("efficiency"), 2);
 
         }
     }
 
 }
+
 */
