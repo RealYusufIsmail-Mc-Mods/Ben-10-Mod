@@ -1,10 +1,7 @@
 package com.yusuf.bentenmobmod.core.init;
 
 import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.common.events.HeatblastArmor;
-import com.yusuf.bentenmobmod.common.events.JacketArmorItem;
-import com.yusuf.bentenmobmod.common.events.LegendaryArmor;
-import com.yusuf.bentenmobmod.common.events.Xlr8Armor;
+import com.yusuf.bentenmobmod.common.events.*;
 import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
@@ -165,23 +162,23 @@ public class ItemInit {
 			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//4 Arms
-	/*
-	public static final RegistryObject<Item> 4ARMS_HELMET = ITEMS.register("4arms_helmet",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
+
+	public static final RegistryObject<Item> FOURARMS_HELMET = ITEMS.register("4arms_helmet",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> 4ARMS_CHESTPLATE = ITEMS.register("4arms_chestplate",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
+	public static final RegistryObject<Item> FOURARMS_CHESTPLATE = ITEMS.register("4arms_chestplate",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> 4ARMS_LEGGINGS = ITEMS.register("4arms_leggings",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
+	public static final RegistryObject<Item> FOURARMS_LEGGINGS = ITEMS.register("4arms_leggings",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> 4ARMS_BOOT = ITEMS.register("4arms_boot",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
+	public static final RegistryObject<Item> FOURARMS_BOOT = ITEMS.register("4arms_boot",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
-		*/
+
 //INFINITUM Armour
 	public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("infinitum_helmet",
 			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.HEAD,
