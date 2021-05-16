@@ -112,7 +112,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
-                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+                .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
                 .save(consumer);
 
         //ores
