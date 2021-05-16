@@ -57,7 +57,7 @@ public class BlockInit {
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
 	public static final RegistryObject<Block> IMPERIUM_ORE = BLOCKS
-			.register("Imperium_ore",
+			.register("imperium_ore",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
 
 
