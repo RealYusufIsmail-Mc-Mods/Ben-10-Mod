@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bentenmobmod:legendary_ore_block"
+      "item": "bentenmobmod:legendary_block"
     }
   ],
   "result": {
