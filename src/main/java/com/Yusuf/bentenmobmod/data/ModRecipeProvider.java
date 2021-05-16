@@ -103,11 +103,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ItemInit.LEGENDARY_ORE.get(), 9)
 
-                .requires(BlockInit.LEGENDARY_ORE_BLOCK.get())
+                .requires(BlockInit.LEGENDARY_BLOCK.get())
                 .unlockedBy("has_item", has(ItemInit.LEGENDARY_ORE.get()))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(BlockInit.LEGENDARY_ORE_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.LEGENDARY_BLOCK.get())
                 .define('#', ItemInit.LEGENDARY_ORE.get())
                 .pattern("###")
                 .pattern("###")
