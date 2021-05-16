@@ -339,7 +339,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("ALA")
                 .pattern("AAA")
-                .unlockedBy("has_item", has(BlockInit.OMNITRIX_BLOCK.get()))
+                .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
                 .save(consumer,modId("enchanted_omnitrix_apple"));
 
         ShapedRecipeBuilder.shaped(ItemInit.FIRE_APPLE.get())
@@ -360,6 +360,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer,modId("ruby_apple"));
 
+
+        ShapedRecipeBuilder.shaped(Items.ENCHANTED_GOLDEN_APPLE.getItem())
+                .define('A', Items.GOLD_BLOCK.getItem())
+                .define('L', Items.APPLE.getItem())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(Items.GOLD_INGOT.getItem()))
+                .save(consumer,modId("enchanted_golden_apple"));
+
         //other items
 
         ShapedRecipeBuilder.shaped(ItemInit.VILGAX_SPAWN_EGG.get())
@@ -370,6 +380,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer,modId("vilgax_spawn_egg"));
+
+
+
     }
         private static ResourceLocation modId(String path){
             return new ResourceLocation(Main.MOD_ID, path);

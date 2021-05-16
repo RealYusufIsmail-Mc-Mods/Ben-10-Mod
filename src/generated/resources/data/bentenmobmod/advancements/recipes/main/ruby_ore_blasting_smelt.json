@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:legendary_ore_block"
+      "bentenmobmod:ruby_ore_blasting_smelt"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:ruby"
+            "item": "bentenmobmod:ruby_ore"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:legendary_ore_block"
+        "recipe": "bentenmobmod:ruby_ore_blasting_smelt"
       }
     }
   },
