@@ -18,6 +18,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Block> ORES_FIRE = forge("ores/fire");
         public static final ITag.INamedTag<Block> ORES_SPEED = forge("ores/speed");
         public static final ITag.INamedTag<Block> ORES_OMNITRIX = forge("ores/omnitrix");
+        public static final ITag.INamedTag<Block> ORES_IMPERIUM = forge("ores/imperium");
 
         //blocks
         public static final ITag.INamedTag<Block> STORAGE_LEGENDARY = forge("storage_blocks/legendary");
@@ -45,6 +46,8 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_FIRE = forge("ores/fire");
         public static final ITag.INamedTag<Item> ORES_SPEED = forge("ores/speed");
         public static final ITag.INamedTag<Item> ORES_OMNITRIX = forge("ores/omnitrix");
+        public static final ITag.INamedTag<Item> ORES_IMPERIUM = forge("ores/imperium");
+
         //blocks
         public static final ITag.INamedTag<Item> STORAGE_LEGENDARY = forge("storage_blocks/legendary");
         public static final ITag.INamedTag<Item> STORAGE_OMNITRIX = forge("storage_blocks/omnitrix");

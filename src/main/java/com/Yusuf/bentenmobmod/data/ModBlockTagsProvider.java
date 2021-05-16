@@ -39,6 +39,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.ORES_SPEED).add(BlockInit.SPEED_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_SPEED);
 
+        tag(TagsInit.Blocks.ORES_IMPERIUM).add(BlockInit.IMPERIUM_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_IMPERIUM);
+
         //blocks
         tag(TagsInit.Blocks.STORAGE_LEGENDARY).add(BlockInit.LEGENDARY_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_LEGENDARY);
