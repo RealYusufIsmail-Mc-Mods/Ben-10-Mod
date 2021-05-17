@@ -1,10 +1,10 @@
 package com.yusuf.bentenmobmod.core.init;
 
 import com.yusuf.bentenmobmod.Main;
-
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -52,9 +52,9 @@ public class BlockInit {
 			.register("ruby_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
-	public static final RegistryObject<Block> INFINITUM_ORE = BLOCKS
+	public static final RegistryObject<RotatedPillarBlock> INFINITUM_ORE = BLOCKS
 			.register("infinitum_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+					() -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
 	public static final RegistryObject<Block> IMPERIUM_ORE = BLOCKS
 			.register("imperium_ore",
