@@ -3,6 +3,7 @@ package com.yusuf.bentenmobmod.data.client;
 
 import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.init.BlockInit;
+import net.minecraft.block.RotatedPillarBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -28,7 +29,7 @@ public class ModBlockStateProvider extends BlockStateProvider{
         simpleBlock(BlockInit.RUBY_ORE.get());
         simpleBlock(BlockInit.SPEED_BLOCK.get());
         simpleBlock(BlockInit.SPEED_ORE.get());
-        simpleBlock(BlockInit.IMPERIUM_ORE.get());
+        axisBlock((RotatedPillarBlock) BlockInit.IMPERIUM_ORE.get(), modLoc("block/infinitum_ore_top"), modLoc("block/infinitum_ore_side"));
         simpleBlock(BlockInit.VILGAX_BLOCK.get());
 
 
