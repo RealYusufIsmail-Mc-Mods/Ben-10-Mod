@@ -494,6 +494,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
                 .save(consumer, modId("black_diamond_boots_blasting_smelt"));
 
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.INFINITUM_HELMET.get()), ItemInit.INFINITUM.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer, modId("infinitum_helmet_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.INFINITUM_CHESTPLATE.get()), ItemInit.INFINITUM.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer, modId("infinitum_chestplate_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.INFINITUM_LEGGINGS.get()), ItemInit.INFINITUM.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer, modId("infinitum_leggings_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.INFINITUM_BOOTS.get()), ItemInit.INFINITUM.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
+                .save(consumer, modId("infinitum_boots_blasting_smelt"));
+
 
     }
         private static ResourceLocation modId(String path){
