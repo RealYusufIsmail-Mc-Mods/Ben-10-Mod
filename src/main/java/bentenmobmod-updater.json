@@ -5,7 +5,7 @@
 "1.16.5-recommended": "bentenmobmod-1.16.5-1.12"
 },
 "1.16.5": {
-        "bentenmobmod-1.16.5-1.10": "Added new armour. more can be found here https://github.com/realyusufismail/custom-mod/blob/1.15.5-beta/chanelog/Changes.md"
+        "bentenmobmod-1.16.5-1.10": "Added new armour,new ore, fixed generation, more can be found here https://github.com/realyusufismail/custom-mod/blob/1.16.5-offical-version/src/main/resources/changelog.md."
     }
 
 }
