@@ -481,6 +481,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer, modId("fourarms_boots_blasting_smelt"));
 
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.BLACK_DIAMOND_HELMET.get()), ItemInit.BLACK_DIAMOND.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("black_diamond_helmet_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.BLACK_DIAMOND_CHESTPLATE.get()), ItemInit.BLACK_DIAMOND.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("black_diamond_chestplate_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.BLACK_DIAMOND_LEGGINGS.get()), ItemInit.BLACK_DIAMOND.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("black_diamond_leggings_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.BLACK_DIAMOND_BOOTS.get()), ItemInit.BLACK_DIAMOND.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.BLACK_DIAMOND.get()))
+                .save(consumer, modId("black_diamond_boots_blasting_smelt"));
+
 
     }
         private static ResourceLocation modId(String path){
