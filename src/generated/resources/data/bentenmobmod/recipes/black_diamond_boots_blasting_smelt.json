@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmobmod:black_diamond_boots"
+  },
+  "result": "bentenmobmod:black_diamond",
+  "experience": 0.4,
+  "cookingtime": 300
+}
