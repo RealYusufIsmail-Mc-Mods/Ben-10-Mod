@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:omnitrix_ore"
+    "item": "bentenmobmod:heatblast_leggings"
   },
-  "result": "bentenmobmod:omnitrix",
+  "result": "bentenmobmod:fire",
   "experience": 0.4,
   "cookingtime": 300
 }

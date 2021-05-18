@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:omnitrix_ore"
+    "item": "bentenmobmod:fourarms_chestplate"
   },
-  "result": "bentenmobmod:omnitrix",
+  "result": "bentenmobmod:ruby",
   "experience": 0.4,
   "cookingtime": 300
 }

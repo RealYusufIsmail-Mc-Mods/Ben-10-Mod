@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:omnitrix_ore"
+    "item": "bentenmobmod:chestplate"
   },
-  "result": "bentenmobmod:omnitrix",
+  "result": "bentenmobmod:legendary_ore",
   "experience": 0.4,
   "cookingtime": 300
 }

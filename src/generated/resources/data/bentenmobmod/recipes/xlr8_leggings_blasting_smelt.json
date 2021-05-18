@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:omnitrix_ore"
+    "item": "bentenmobmod:xlr8_leggings"
   },
-  "result": "bentenmobmod:omnitrix",
+  "result": "bentenmobmod:speed",
   "experience": 0.4,
   "cookingtime": 300
 }
