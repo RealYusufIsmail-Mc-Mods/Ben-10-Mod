@@ -339,6 +339,18 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.SPEED.get()))
                 .save(consumer,modId("xlr8_boot"));
 
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.XLR8_HELMET.get()), ItemInit.SPEED.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer, modId("xlr8_helmet_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.XLR8_CHESTPLATE.get()), ItemInit.SPEED.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer, modId("xlr8_chestplate_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.XLR8_LEGGINGS.get()), ItemInit.SPEED.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer, modId("xlr8_leggings_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.XLR8_BOOT.get()), ItemInit.SPEED.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.SPEED.get()))
+                .save(consumer, modId("xlr8_boots_blasting_smelt"));
 
         ShapedRecipeBuilder.shaped(ItemInit.FOURARMS_HELMET.get())
                 .define('A', ItemInit.RUBY.get())
