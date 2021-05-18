@@ -383,6 +383,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer,modId("fourarms_boot"));
 
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.FOURARMS_HELMET.get()), ItemInit.RUBY.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+                .save(consumer, modId("fourarms_helmet_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.FOURARMS_CHESTPLATE.get()), ItemInit.RUBY.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+                .save(consumer, modId("fourarmschestplate_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.FOURARMS_LEGGINGS.get()), ItemInit.RUBY.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+                .save(consumer, modId("fourarms_leggings_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.FOURARMS_BOOT.get()), ItemInit.RUBY.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.RUBY.get()))
+                .save(consumer, modId("fourarms_boots_blasting_smelt"));
+
         ShapedRecipeBuilder.shaped(ItemInit.JACKET.get())
                 .define('A', ItemInit.OMNITRIX.get())
                 .pattern("A A")
