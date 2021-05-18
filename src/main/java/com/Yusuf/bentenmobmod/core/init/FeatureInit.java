@@ -32,10 +32,10 @@ public class FeatureInit {
 				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 18, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
-				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 4, 0, 20, 20);
+				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 4, 6, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
-				BlockInit.FIRE_ORE.get().defaultBlockState(), 4, 0, 20, 20);
+				BlockInit.FIRE_ORE.get().defaultBlockState(), 4, 7, 21, 20);
 	}
 
 
