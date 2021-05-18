@@ -388,7 +388,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("fourarms_helmet_blasting_smelt"));
         CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.FOURARMS_CHESTPLATE.get()), ItemInit.RUBY.get(), 0.4f, 300)
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
-                .save(consumer, modId("fourarmschestplate_blasting_smelt"));
+                .save(consumer, modId("fourarms_chestplate_blasting_smelt"));
         CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.FOURARMS_LEGGINGS.get()), ItemInit.RUBY.get(), 0.4f, 300)
                 .unlockedBy("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer, modId("fourarms_leggings_blasting_smelt"));
@@ -403,6 +403,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
                 .save(consumer,modId("jacket"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.JACKET.get()), ItemInit.OMNITRIX.get(), 0.4f, 300)
+                .unlockedBy("has_item", has(ItemInit.OMNITRIX.get()))
+                .save(consumer, modId("jacket_blasting_smelt"));
 
 
 
