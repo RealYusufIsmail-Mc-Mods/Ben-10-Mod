@@ -8,9 +8,9 @@ bentenmobmod-1.12
 To get black diamond armour or tool you will need a smiting table same applies for infinitum. 
 <br> Added blast furnace recipe. Use it to smelt ores faster, and you can smelt armour with it but only get one ingot.
 <br>
-fixed ore generation. DId not realize sorry + major bug fixes.
+fixed ore generation. Did not realize sorry + major bug fixes.
 </h3></p>
 
 <h1>Know issues</h1>
-<h2>The issue is that Vilgax does not load and i know about and need to fix it. Hopefull it will be fixed in the next update. The issue occured becuase i switched my models and recipes to a datagenerator. Will be fixed sorry for an inconvenience</h2>
+<h2>The issue is that Vilgax does not load and i know about and need to fix it. Hopefull it will be fixed in the next update. The issue occurred because i switched my models and recipes to a datagenerator. Will be fixed sorry for an inconvenience</h2>
 
