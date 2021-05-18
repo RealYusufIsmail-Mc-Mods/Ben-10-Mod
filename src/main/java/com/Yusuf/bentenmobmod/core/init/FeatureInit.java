@@ -14,10 +14,10 @@ public class FeatureInit {
 	public static void addOres(final BiomeLoadingEvent event) {
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 0, 20, 20);
+				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 0, 18, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.RUBY_ORE.get().defaultBlockState(), 4, 0, 20, 20);
+				BlockInit.IMPERIUM_ORE.get().defaultBlockState(), 4, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 0, 15, 20);
