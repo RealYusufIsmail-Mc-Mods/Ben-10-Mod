@@ -15,8 +15,8 @@ public class ModBlockStateProvider extends BlockStateProvider{
     @Override
     protected void registerStatesAndModels() {
         simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
-       simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
-       simpleBlock(BlockInit.INFINITUM_ORE.get());
+        simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
+        axisBlock(BlockInit.INFINITUM_ORE.get(),modLoc("block/infinitum_ore_top"), modLoc("block/infinitum_ore_side"));
         simpleBlock(BlockInit.INFINITUM_BLOCK.get());
         simpleBlock(BlockInit.FIRE_BLOCK.get());
         simpleBlock(BlockInit.FIRE_ORE.get());
@@ -28,9 +28,8 @@ public class ModBlockStateProvider extends BlockStateProvider{
         simpleBlock(BlockInit.RUBY_ORE.get());
         simpleBlock(BlockInit.SPEED_BLOCK.get());
         simpleBlock(BlockInit.SPEED_ORE.get());
+        simpleBlock(BlockInit.IMPERIUM_ORE.get());
         simpleBlock(BlockInit.VILGAX_BLOCK.get());
-
-
 
 
     }

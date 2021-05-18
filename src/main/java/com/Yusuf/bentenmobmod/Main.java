@@ -1,8 +1,8 @@
 package com.yusuf.bentenmobmod;
 
 import com.yusuf.bentenmobmod.core.init.BlockInit;
-import com.yusuf.bentenmobmod.core.init.ConfiguredFeatures;
 import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
+import com.yusuf.bentenmobmod.core.init.FeatureInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
@@ -11,13 +11,13 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -39,7 +39,7 @@ public class Main {
 		EntityTypesInit.ENTITY_TYPES.register(bus);
 		GeckoLibMod.DISABLE_IN_DEV = false;
 		GeckoLib.initialize();
-
+		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 
@@ -47,15 +47,6 @@ public class Main {
 
 
 	};
-	@SubscribeEvent
-	public void setup(final FMLCommonSetupEvent event)
-	{
-		event.enqueueWork(() -> {
-			//Moved the methods bellow into enqueue to make sure they dont cause issues during registration - andrew
-			ConfiguredFeatures.registerConfiguredFeatures();
-			
-		});
-		}
 		
 	@EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
 	public static class CommonModEvents {

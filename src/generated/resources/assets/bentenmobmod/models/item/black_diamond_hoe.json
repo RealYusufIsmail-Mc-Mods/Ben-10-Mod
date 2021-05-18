@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "bentenmobmod:item/black_diamond_hoe"
+  }
+}

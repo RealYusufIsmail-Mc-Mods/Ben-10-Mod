@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmobmod:infinitum_leggings"
+  },
+  "result": "bentenmobmod:infinitum",
+  "experience": 0.4,
+  "cookingtime": 300
+}

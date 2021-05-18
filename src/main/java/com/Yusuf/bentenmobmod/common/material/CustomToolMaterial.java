@@ -10,8 +10,17 @@ public enum CustomToolMaterial implements IItemTier {
 
 	SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
 	HEATBLAST_SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.FIRE.get())),
-	BLACK_DIAMOND_SWORD(20, 2000, 60f, 11f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-	AXE(50, 2500, 80f, 15f, 50, () -> Ingredient.of(ItemInit.RUBY.get()));
+	BLACK_DIAMOND_SWORD(20, 2000, 60f, 12f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+	BLACK_DIAMOND_AXE(20, 2500, 60f, 11f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+	BLACK_DIAMOND_PICKAXE(20, 2500, 60f, 8f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+	BLACK_DIAMOND_SHOVEL(20, 2500, 60f, 9f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+	BLACK_DIAMOND_HOE(20, 2500, 60f, 6f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+	INFINITUM_SWORD(20, 3000, 70f, 14f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+	INFINITUM_AXE(20, 3000, 70f, 13f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+	INFINITUM_PICKAXE(20, 3000, 70f, 12f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+	INFINITUM_SHOVEL(20, 3000, 70f, 10f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+	INFINITUM_HOE(20, 3000, 70f, 7f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+	AXE(50, 2500, 80f, 8, 50, () -> Ingredient.of(ItemInit.RUBY.get()));
 
 	private final int harvestLevel;
 	private final int maxUses;

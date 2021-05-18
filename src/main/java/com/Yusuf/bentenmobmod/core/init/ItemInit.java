@@ -1,17 +1,13 @@
 package com.yusuf.bentenmobmod.core.init;
 
 import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.common.events.HeatblastArmor;
-import com.yusuf.bentenmobmod.common.events.JacketArmorItem;
-import com.yusuf.bentenmobmod.common.events.LegendaryArmor;
-import com.yusuf.bentenmobmod.common.events.Xlr8Armor;
+import com.yusuf.bentenmobmod.common.events.*;
 import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
-import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -52,19 +48,61 @@ public class ItemInit {
 
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
-			() -> new SwordItem(CustomToolMaterial.SWORD, 14, 7f,
+			() -> new SwordItem(CustomToolMaterial.SWORD, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
-			() -> new AxeItem(CustomToolMaterial.AXE, 6, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
+			() -> new AxeItem(CustomToolMaterial.AXE, 0, 8f, new Item.Properties().tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
-			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 17, 7f,
+			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 0, 7f,
 					new Item.Properties().fireResistant().stacksTo(1).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> BLACK_DIAMOND_SWORD = ITEMS.register("black_diamond_sword",
-			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 14, 7f,
+			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<AxeItem> BLACK_DIAMOND_AXE = ITEMS.register("black_diamond_axe",
+			() -> new AxeItem(CustomToolMaterial.BLACK_DIAMOND_AXE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+
+	public static final RegistryObject<PickaxeItem> BLACK_DIAMOND_PICKAXE = ITEMS.register("black_diamond_pickaxe",
+			() -> new PickaxeItem(CustomToolMaterial.BLACK_DIAMOND_PICKAXE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+
+	public static final RegistryObject<ShovelItem> BLACK_DIAMOND_SHOVEL = ITEMS.register("black_diamond_shovel",
+			() -> new ShovelItem(CustomToolMaterial.BLACK_DIAMOND_SHOVEL, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<HoeItem> BLACK_DIAMOND_HOE = ITEMS.register("black_diamond_hoe",
+			() -> new HoeItem(CustomToolMaterial.BLACK_DIAMOND_HOE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<SwordItem> INFINITUM_SWORD = ITEMS.register("infinitum_sword",
+			() -> new SwordItem(CustomToolMaterial.INFINITUM_SWORD, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<AxeItem> INFINITUM_AXE = ITEMS.register("infinitum_axe",
+			() -> new AxeItem(CustomToolMaterial.INFINITUM_AXE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+
+	public static final RegistryObject<PickaxeItem> INFINITUM_PICKAXE = ITEMS.register("infinitum_pickaxe",
+			() -> new PickaxeItem(CustomToolMaterial.INFINITUM_PICKAXE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+
+	public static final RegistryObject<ShovelItem> INFINITUM_SHOVEL = ITEMS.register("infinitum_shovel",
+			() -> new ShovelItem(CustomToolMaterial.INFINITUM_SHOVEL, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<HoeItem> INFINITUM_HOE = ITEMS.register("infinitum_hoe",
+			() -> new HoeItem(CustomToolMaterial.INFINITUM_HOE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+
 
 //armour
 	
@@ -124,24 +162,39 @@ public class ItemInit {
 			() -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//4 Arms
-	/*
-	public static final RegistryObject<Item> 4ARMS_HELMET = ITEMS.register("4arms_helmet",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.HEAD,
+
+	public static final RegistryObject<Item> FOURARMS_HELMET = ITEMS.register("fourarms_helmet",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.HEAD,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> 4ARMS_CHESTPLATE = ITEMS.register("4arms_chestplate",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.CHEST,
+	public static final RegistryObject<Item> FOURARMS_CHESTPLATE = ITEMS.register("fourarms_chestplate",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.CHEST,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> 4ARMS_LEGGINGS = ITEMS.register("4arms_leggings",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
+	public static final RegistryObject<Item> FOURARMS_LEGGINGS = ITEMS.register("fourarms_leggings",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.LEGS,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	public static final RegistryObject<Item> 4ARMS_BOOT = ITEMS.register("4arms_boot",
-			() -> new FourArmsArmor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
+	public static final RegistryObject<Item> FOURARMS_BOOT = ITEMS.register("fourarms_boot",
+			() -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlotType.FEET,
 					new Item.Properties().tab(MainItemGroup.MAIN)));
-		*/
 
+//INFINITUM Armour
+	public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("infinitum_helmet",
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.HEAD,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> INFINITUM_CHESTPLATE = ITEMS.register("infinitum_chestplate",
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.CHEST,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+		public static final RegistryObject<Item> INFINITUM_LEGGINGS = ITEMS.register("infinitum_leggings",
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.LEGS,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<Item> INFINITUM_BOOTS = ITEMS.register("infinitum_boots",
+			() -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlotType.FEET,
+					new Item.Properties().tab(MainItemGroup.MAIN)));
 	//black diamond armour
 	public static final RegistryObject<Item> BLACK_DIAMOND_HELMET = ITEMS.register("black_diamond_helmet",
 			() -> new ArmorItem(CustomArmorMaterial.BLACK_DIAMOND_ARMOUR, EquipmentSlotType.HEAD,

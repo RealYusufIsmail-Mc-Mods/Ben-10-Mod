@@ -10,7 +10,28 @@
     },
     {
       "type": "smithing",
-      "recipe": "bentenmobmod:black_diamond_sword"
+      "recipe": "bentenmobmod:black_diamond_sword",
+      "recipe2": "bentenmobmod:infinitum_sword"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_pickaxe",
+      "recipe2": "bentenmobmod:infinitum_pickaxe"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_axe",
+      "recipe2": "bentenmobmod:infinitum_axe"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_shovel",
+      "recipe2": "bentenmobmod:infinitum_shovel"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmobmod:black_diamond_hoe",
+      "recipe2": "bentenmobmod:infinitum_hoe"
     },
     {
       "type": "crafting",

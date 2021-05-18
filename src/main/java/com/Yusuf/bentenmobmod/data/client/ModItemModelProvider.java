@@ -32,6 +32,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("speed_ore", modLoc("block/speed_ore"));
         withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
         withExistingParent("vilgax_block", modLoc("block/vilgax_block"));
+        withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
 
 
@@ -70,6 +71,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "black_diamond_chestplate");
         builder(itemGenerated, "black_diamond_leggings");
         builder(itemGenerated, "black_diamond_boots");
+        builder(itemGenerated, "infinitum_helmet");
+        builder(itemGenerated, "infinitum_chestplate");
+        builder(itemGenerated, "infinitum_leggings");
+        builder(itemGenerated, "infinitum_boots");
+        builder(itemGenerated, "fourarms_helmet");
+        builder(itemGenerated, "fourarms_chestplate");
+        builder(itemGenerated, "fourarms_leggings");
+        builder(itemGenerated, "fourarms_boot");
 
 
 
@@ -79,6 +88,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "sword");
         tool(itemhandHeld, "heatblast_sword");
         tool(itemhandHeld, "black_diamond_sword");
+        tool(itemhandHeld, "black_diamond_pickaxe");
+        tool(itemhandHeld, "black_diamond_shovel");
+        tool(itemhandHeld, "black_diamond_axe");
+        tool(itemhandHeld, "black_diamond_hoe");
+        tool(itemhandHeld, "infinitum_sword");
+        tool(itemhandHeld, "infinitum_axe");
+        tool(itemhandHeld, "infinitum_pickaxe");
+        tool(itemhandHeld, "infinitum_shovel");
+        tool(itemhandHeld, "infinitum_hoe");
 
 
     }

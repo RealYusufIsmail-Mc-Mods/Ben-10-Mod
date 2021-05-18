@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmobmod:fourarms_chestplate"
+  },
+  "result": "bentenmobmod:ruby",
+  "experience": 0.4,
+  "cookingtime": 300
+}

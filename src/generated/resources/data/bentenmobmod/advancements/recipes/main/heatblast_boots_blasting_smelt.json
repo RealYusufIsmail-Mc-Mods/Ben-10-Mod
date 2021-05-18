@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:sped_ore_smelt"
+      "bentenmobmod:heatblast_boots_blasting_smelt"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:speed_ore"
+            "item": "bentenmobmod:fire"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:sped_ore_smelt"
+        "recipe": "bentenmobmod:heatblast_boots_blasting_smelt"
       }
     }
   },
