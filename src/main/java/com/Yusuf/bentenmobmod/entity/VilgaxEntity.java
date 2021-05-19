@@ -115,8 +115,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, TurtleEntity.class, 10, true, false,
-				TurtleEntity.BABY_ON_LAND_SELECTOR));
 	}
 
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
