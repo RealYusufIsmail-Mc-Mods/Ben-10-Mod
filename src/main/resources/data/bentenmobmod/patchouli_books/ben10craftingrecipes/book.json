@@ -1,6 +1,6 @@
 {
 	"name": "Ben Ten Crafting Recipes",
 	"landing_text": "Here are the crafting recipes for the items and armour in this mod.",
-	"version": 1,
+	"book_texture": "patchouli:textures/gui/book_red.png",
 	"creative_tab": "main"
 }
