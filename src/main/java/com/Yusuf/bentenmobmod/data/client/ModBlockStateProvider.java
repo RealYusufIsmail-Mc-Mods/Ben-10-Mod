@@ -16,7 +16,7 @@ public class ModBlockStateProvider extends BlockStateProvider{
     protected void registerStatesAndModels() {
         simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
         simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
-        axisBlock(BlockInit.INFINITUM_ORE.get(),modLoc("block/infinitum_ore_top"), modLoc("block/infinitum_ore_side"));
+        axisBlock(BlockInit.INFINITUM_ORE.get(),modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
         simpleBlock(BlockInit.INFINITUM_BLOCK.get());
         simpleBlock(BlockInit.FIRE_BLOCK.get());
         simpleBlock(BlockInit.FIRE_ORE.get());
