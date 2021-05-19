@@ -29,10 +29,10 @@ public abstract class EntityTypesInit {
 	}
 
 	private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
-			EntityType.IFactory<T> factory, EntityClassification classification, float width, float height) {
+																			 EntityType.IFactory<T> factory, EntityClassification classification, float width, float height) {
 		return EntityType.Builder.of(factory, classification).sized(width, height)
 				.build(Main.MOD_ID + ":" + entity_name);
-	}	
+	}
 	
 	// register spawn eggs
 
