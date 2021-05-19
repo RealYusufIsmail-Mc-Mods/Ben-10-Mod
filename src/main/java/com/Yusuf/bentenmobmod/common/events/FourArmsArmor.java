@@ -26,8 +26,8 @@ public class FourArmsArmor extends ArmorItem implements IForgeItem {
 		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.FOURARMS_HELMET.get() && legs.getItem() == ItemInit.FOURARMS_LEGGINGS.get() && chest.getItem() == ItemInit.FOURARMS_CHESTPLATE.get() && head.getItem() == ItemInit.FOURARMS_BOOT.get()) {
-			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 0, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 0, false, false, true));
+			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 2, false, false, true));
+			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 3, false, false, true));
 		}}
 }
