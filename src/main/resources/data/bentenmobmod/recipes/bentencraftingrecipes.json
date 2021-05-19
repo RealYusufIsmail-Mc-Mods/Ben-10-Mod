@@ -10,6 +10,9 @@
     }
   ],
   "result": {
-    "item": "bentenmobmod:bentencraftingrecipes"
+    "item": "patchouli:guide_book",
+    "nbt": {
+      "item": "bentenmobmod:ben10craftingrecipes"
+    }
   }
 }
