@@ -38,7 +38,7 @@
       {
         "item": "patchouli:guide_book",
         "nbt": {
-          "patchouli:book": "bentenmobmod:ben10craftingrecipes"
+          "patchouli:book": "bentenmobmod:bentencraftingrecipes"
         }
       }
     ],
