@@ -33,11 +33,19 @@
     }
 
 },
-
+  "rewards": {
+    "loot": [
+      {
+        "item": "patchouli:guide_book",
+        "nbt": {
+          "patchouli:book": "bentenmobmod:bentencraftingrecipes"
+        }
+      }
+    ],
 
     "experience": 10
   }
 
 
 
-
+}
