@@ -447,6 +447,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.INFINITUM_ORE.get()))
                 .save(consumer, modId("legendary_ore_blasting_smelt"));
 
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND_ORE.get()))
+                .save(consumer, modId("legendary_ore_smelt"));
+
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND_ORE.get()))
+                .save(consumer, modId("legendary_ore_blasting_smelt"));
+
         //armour
 
         CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HELMET.get()), ItemInit.LEGENDARY_ORE.get(), 0.3f, 300)
