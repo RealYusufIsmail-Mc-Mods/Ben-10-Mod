@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bentenmobmod:infinitum_ore"
+  },
+  "result": "bentenmobmod:infinitum_scrap",
+  "experience": 0.6,
+  "cookingtime": 300
+}

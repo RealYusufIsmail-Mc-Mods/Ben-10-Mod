@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:xlr8_chestplate"
+    "item": "bentenmobmod:black_diamond_ore"
   },
-  "result": "bentenmobmod:speed",
+  "result": "bentenmobmod:black_diamond_scrap",
   "experience": 0.3,
   "cookingtime": 300
 }
