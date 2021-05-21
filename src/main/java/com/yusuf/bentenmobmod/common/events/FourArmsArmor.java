@@ -2,6 +2,7 @@
 package com.yusuf.bentenmobmod.common.events;
 
 import com.yusuf.bentenmobmod.core.init.ItemInit;
+import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -14,17 +15,24 @@ import net.minecraftforge.common.extensions.IForgeItem;
 
 public class FourArmsArmor extends ArmorItem implements IForgeItem {
 
+	public final PlayerAbilities abilities = new PlayerAbilities();
+
 	public FourArmsArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
-		super(materialIn, slot, builder);		
+		super(materialIn, slot, builder);
+
 	}
+
+
+
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-		
+
 		ItemStack boots = player.getItemBySlot(EquipmentSlotType.FEET);
 		ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
 		ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
 		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
-		
+
+
 		if (boots.getItem() == ItemInit.FOURARMS_HELMET.get() && legs.getItem() == ItemInit.FOURARMS_LEGGINGS.get() && chest.getItem() == ItemInit.FOURARMS_CHESTPLATE.get() && head.getItem() == ItemInit.FOURARMS_BOOT.get()) {
 			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 2, false, false, true));
 			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
