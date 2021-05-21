@@ -17,7 +17,7 @@ public class EntityTypesInit {
 			Main.MOD_ID);
 
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
-			EntityClassification.MONSTER, 2f, 2f);
+			EntityClassification.MONSTER, 1f, 1f);
 
 	// registering the entities
 	public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
