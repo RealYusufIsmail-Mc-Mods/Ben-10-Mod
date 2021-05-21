@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmobmod:heatblast_boot"
+  },
+  "result": "bentenmobmod:fire",
+  "experience": 0.4,
+  "cookingtime": 300
+}

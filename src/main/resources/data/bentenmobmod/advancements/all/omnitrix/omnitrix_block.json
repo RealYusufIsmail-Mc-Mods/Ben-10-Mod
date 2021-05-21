@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Made Omnitrix block",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you have made omnitrix block which unlocks some interesting foods."
+        },
+        "icon": {
+            "item": "bentenmobmod:omnitrix_block"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:omnitrix_block",
+                        "count": 1
+                    }
+                ]
+            }
+        }
+    },
+
+
+
+    "parent": "bentenmobmod:all/ruby/ruby"
+}

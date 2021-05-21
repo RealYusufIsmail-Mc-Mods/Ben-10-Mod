@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmobmod:ruby_ore"
+  },
+  "result": "bentenmobmod:ruby",
+  "experience": 0.3,
+  "cookingtime": 300
+}

@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ores/black_diamond",
+    "#forge:ores/fire",
+    "#forge:ores/omnitrix",
+    "#forge:ores/infinitum",
+    "#forge:ores/ruby",
+    "#forge:ores/black_diamond",
+    "#forge:ores/speed",
+    "#forge:ores/imperium",
+    "#forge:storage_blocks/legendary",
+    "#forge:storage_blocks/omnitrix",
+    "#forge:storage_blocks/infinitum",
+    "#forge:storage_blocks/fire",
+    "#forge:storage_blocks/speed",
+    "#forge:storage_blocks/black_diamond",
+    "#forge:storage_blocks/vilgax"
+  ]
+}

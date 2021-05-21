@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "A A",
+    "A A"
+  ],
+  "key": {
+    "A": {
+      "item": "bentenmobmod:fire"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:heatblast_leggings"
+  }
+}

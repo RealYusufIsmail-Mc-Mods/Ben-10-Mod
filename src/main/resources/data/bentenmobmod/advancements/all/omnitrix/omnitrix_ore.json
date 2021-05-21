@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Mined Omnitrix ore",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft a certain apple."
+        },
+        "icon": {
+            "item": "bentenmobmod:omnitrix_ore"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmobmod:omnitrix_ore",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmobmod:all/root"
+}

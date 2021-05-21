@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmobmod:legendary_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmobmod:legendary_ore",
+    "count": 9
+  }
+}

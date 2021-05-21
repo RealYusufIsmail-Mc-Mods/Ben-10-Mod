@@ -1,0 +1,11 @@
+{
+"homepage": "https://realyusufismail.github.io/custom-mod/",
+
+"1.16.5": {
+        "bentenmobmod-1.16.5-1.10": "Added new armour,new ore, fixed generation, more can be found here https://github.com/realyusufismail/custom-mod/blob/1.16.5-offical-version/src/main/resources/changelog.md."
+    },
+  "promos": {
+    "1.16.5-latest": "bentenmobmod-1.16.5-1.12",
+    "1.16.5-recommended": "bentenmobmod-1.16.5-1.12"
+  }
+}

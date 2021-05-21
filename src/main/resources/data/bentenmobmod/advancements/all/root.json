@@ -1,0 +1,42 @@
+{
+  "display": {
+    "title": {
+      "text": "Download Ben ten mob mod",
+      "color": "gold",
+      "bold": true,
+      "italic": false,
+      "underlined": false,
+      "strikethrough": false,
+      "obfuscated": false
+    },
+    "description": {
+      "text": "Thank you for downloading my mod.",
+      "color": "blue",
+      "bold": true,
+      "underlined": true
+    },
+    "icon": {
+      "item": "bentenmobmod:omnitrix_ore"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/light_blue_wool.png"
+  },
+  "criteria": {
+    "bentenmobmod": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "dimension": "minecraft:overworld"
+      }
+    }
+
+},
+
+
+    "experience": 10
+  }
+
+
+

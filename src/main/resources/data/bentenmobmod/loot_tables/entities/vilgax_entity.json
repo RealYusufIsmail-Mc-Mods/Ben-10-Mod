@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:entity",
+"pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "bentenmobmod:enchanted_omnitrix_apple",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 5
+              },
+              "add": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:killed_by_player"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

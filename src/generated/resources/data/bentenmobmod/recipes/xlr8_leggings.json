@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "A A",
+    "A A"
+  ],
+  "key": {
+    "A": {
+      "item": "bentenmobmod:speed"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:xlr8_leggings"
+  }
+}

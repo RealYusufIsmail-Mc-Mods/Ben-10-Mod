@@ -1,0 +1,18 @@
+{
+  "name": "Food crafting recipes",
+  "category": "all_items",
+  "icon": "bentenmobmod:omnitrix_apple",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:omnitrix_apple",
+      "recipe2": "bentenmobmod:enchanted_omnitrix_apple"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:fire_apple",
+      "recipe2": "bentenmobmod:ruby_apple"
+    }
+
+  ]
+}
