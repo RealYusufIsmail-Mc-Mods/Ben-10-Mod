@@ -31,10 +31,6 @@ public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 	{
 	player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
 	player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
-	
-	player.abilities.mayfly = true;
-	player.flyingSpeed = 0.1F;
-	player.fallDistance = 0.0F;
 	}
 }
 }
