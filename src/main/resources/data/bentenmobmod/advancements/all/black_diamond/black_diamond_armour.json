@@ -1,0 +1,49 @@
+{
+  "display": {
+    "title": {
+      "text": "Made all the diamond armour set",
+      "color": "aqua",
+      "bold": true
+    },
+    "description": {
+      "text": "You have made all the diamond armour set which is better than black diamond",
+      "color": "aqua",
+      "bold": true
+    },
+    "icon": {
+      "item": "bentenmobmod:chestplate"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "minecraft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmobmod:black_diamond_helmet"
+          },
+          {
+            "item": "bentenmobmod:black_diamond_chestplate"
+          },
+          {
+            "item": "bentenmobmod:black_diamond_leggings"
+          },
+          {
+            "item": "bentenmobmod:black_diamond_boots"
+          }
+
+        ],
+        "count": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    }
+  },
+
+  "parent": "bentenmobmod:all/black_diamond/black_diamond_ore"
+}
