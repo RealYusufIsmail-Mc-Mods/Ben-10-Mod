@@ -3,6 +3,7 @@ package com.yusuf.bentenmobmod.data;
 import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.data.client.ModBlockStateProvider;
 import com.yusuf.bentenmobmod.data.client.ModItemModelProvider;
+import com.yusuf.bentenmobmod.data.loot.ModLootTables;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,6 +30,7 @@ public final class DataGenerators {
         
         gen.addProvider(new ModRecipeProvider(gen));
         gen.addProvider(new ModSmitingRecipeBuild(gen));
+        gen.addProvider(new ModLootTables(gen));
 
         
 

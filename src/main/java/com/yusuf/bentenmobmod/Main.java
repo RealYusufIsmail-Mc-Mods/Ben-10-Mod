@@ -1,5 +1,6 @@
 package com.yusuf.bentenmobmod;
 
+
 import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmobmod.core.init.FeatureInit;
@@ -19,6 +20,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import software.bernie.example.GeckoLibMod;
@@ -43,6 +47,7 @@ public class Main {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 
+
 		
 
 
@@ -66,6 +71,9 @@ public class Main {
 
 		});
 
+	}
+	private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> create(IForgeRegistry<T> registry) {
+		return DeferredRegister.create(registry, MOD_ID);
 	}
 
 }
