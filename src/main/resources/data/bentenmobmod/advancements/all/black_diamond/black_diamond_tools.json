@@ -12,6 +12,7 @@
     },
     "icon": {
       "item": "bentenmobmod:black_diamond_chestplate"
+       "nbt": "{Damage:0}"
     },
     "frame": "goal",
     "show_toast": true,
