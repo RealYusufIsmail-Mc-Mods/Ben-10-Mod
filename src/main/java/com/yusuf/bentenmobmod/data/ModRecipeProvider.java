@@ -159,7 +159,7 @@ public class ModRecipeProvider extends RecipeProvider {
         .unlockedBy("has_item", has(ItemInit.RUBY.get()))
         .save(consumer,modId("axe"));
 
-
+/*
         ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_SWORD.get())
                 .define('#', Items.STICK.getItem())
                 .define('K', ItemInit.FIRE.get())
@@ -169,7 +169,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" # ")
                 .unlockedBy("has_item", has(ItemInit.FIRE.get()))
                 .save(consumer,modId("heatblast_sword"));
-
+*/
         ShapedRecipeBuilder.shaped(ItemInit.SWORD.get())
                 .define('#', Items.STICK.getItem())
                 .define('A', ItemInit.LEGENDARY_ORE.get())
@@ -244,18 +244,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(ItemInit.FIRE.get()))
                 .save(consumer,modId("heatblast_boot"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_HELMET.get()), ItemInit.FIRE.get(), 0.4f, 300)
-                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
-                .save(consumer, modId("heatblast_helmet_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_CHESTPLATE.get()), ItemInit.FIRE.get(), 0.4f, 300)
-                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
-                .save(consumer, modId("heatblast_chestplate_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_LEGGINGS.get()), ItemInit.FIRE.get(), 0.4f, 300)
-                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
-                .save(consumer, modId("heatblast_leggings_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_BOOT.get()), ItemInit.FIRE.get(), 0.4f, 300)
-                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
-                .save(consumer, modId("heatblast_boots_blasting_smelt"));
 
         ShapedRecipeBuilder.shaped(ItemInit.XLR8_HELMET.get())
                 .define('A', ItemInit.SPEED.get())
@@ -522,6 +510,20 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.INFINITUM_BOOTS.get()), ItemInit.INFINITUM.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(ItemInit.INFINITUM.get()))
                 .save(consumer, modId("infinitum_boots_blasting_smelt"));
+
+
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_HELMET.get()), ItemInit.FIRE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer, modId("heatblast_helmet_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_CHESTPLATE.get()), ItemInit.FIRE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer, modId("heatblast_chestplate_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_LEGGINGS.get()), ItemInit.FIRE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer, modId("heatblast_leggings_blasting_smelt"));
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.HEATBLAST_BOOT.get()), ItemInit.FIRE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+                .save(consumer, modId("heatblast_boots_blasting_smelt"));
 
 
     }

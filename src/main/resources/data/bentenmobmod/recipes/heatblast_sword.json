@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    " O ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "bentenmobmod:fire"
+    },
+    "O": {
+      "item": "bentenmobmod:omnitrix"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:heatblast_sword",
+    "nbt": {
+      "Enchantments": [
+        {
+          "id": "fire_aspect",
+          "lvl": 2
+        }
+      ],
+      "HideFlags": 1
+
+    }
+  }
+}
