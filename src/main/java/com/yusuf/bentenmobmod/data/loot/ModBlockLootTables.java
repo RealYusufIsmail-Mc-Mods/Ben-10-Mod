@@ -14,9 +14,9 @@ public class ModBlockLootTables extends BlockLootTables {
     protected void addTables() {
         //ores
         add(BlockInit.BLACK_DIAMOND_ORE.get(),
-                createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND.get()));
+                createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
         add(BlockInit.INFINITUM_ORE.get(),
-                createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM.get()));
+                createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
         add(BlockInit.RUBY_ORE.get(),
                 createOreDrop(BlockInit.RUBY_ORE.get(), ItemInit.RUBY.get()));
         add(BlockInit.OMNITRIX_ORE.get(),
