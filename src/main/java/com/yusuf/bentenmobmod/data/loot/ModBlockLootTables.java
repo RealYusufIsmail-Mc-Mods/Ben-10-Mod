@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class ModBlockLootTables extends BlockLootTables {
     @Override
     protected void addTables() {
+        //ores
         add(BlockInit.BLACK_DIAMOND_ORE.get(),
                 createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND.get()));
         add(BlockInit.INFINITUM_ORE.get(),
@@ -26,6 +27,8 @@ public class ModBlockLootTables extends BlockLootTables {
                 createOreDrop(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.LEGENDARY_ORE.get()));
         add(BlockInit.FIRE_ORE.get(),
                 createOreDrop(BlockInit.FIRE_ORE.get(), ItemInit.FIRE.get()));
+
+        //blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
         dropSelf(BlockInit.FIRE_BLOCK.get());
         dropSelf(BlockInit.RUBY_BLOCK.get());
