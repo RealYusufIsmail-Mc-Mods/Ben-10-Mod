@@ -13,6 +13,7 @@ public class ModBlockLootTables extends BlockLootTables {
     @Override
     protected void addTables() {
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
+        
 }
     @Override
     protected Iterable<Block> getKnownBlocks() {
