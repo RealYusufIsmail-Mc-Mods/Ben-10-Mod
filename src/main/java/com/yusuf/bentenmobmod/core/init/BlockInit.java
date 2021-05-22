@@ -17,12 +17,6 @@ public class BlockInit {
 			.register("legendary_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 
-
-	
-	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
-			.register("legendary_ore_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
-	
 	public static final RegistryObject<Block> OMNITRIX_BLOCK = BLOCKS
 			.register("omnitrix_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
@@ -47,7 +41,10 @@ public class BlockInit {
 			.register("ruby_block",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 	/* Black for ores */
-	
+
+	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
+			.register("legendary_ore_block",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
 	public static final RegistryObject<Block> RUBY_ORE = BLOCKS
 			.register("ruby_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
@@ -86,8 +83,6 @@ public class BlockInit {
 
 
     /* other blocks */
-	
-// register
-public static void register() {}
+
 
 }
