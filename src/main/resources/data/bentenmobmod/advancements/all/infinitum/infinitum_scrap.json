@@ -1,17 +1,17 @@
 {
   "display": {
     "title": {
-      "text": "Black Diamond Ingot",
+      "text": "Mined Infinitum and received Infinitum scrap",
       "color": "aqua",
       "bold": true,
       "italic": true
     },
     "description": {
-      "text": "You have made an Black Diamond ingot which means you can use a smithing table to convert diamond tool or armour to black diamond."
+      "text": "Get 3 more to be able to make an ingot to make armour and tools in smithing table."
     },
     "icon": {
-      "item": "bentenmobmod:black_diamond"
-       "nbt": "{Damage:0}"
+      "item": "bentenmobmod:infinitum_scrap",
+      "nbt": "{Damage:0}"
     },
     "frame": "goal",
     "show_toast": true,
@@ -24,7 +24,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:black_diamond",
+            "item": "bentenmobmod:infinitum_scrap",
             "count": 1
           }
         ]
@@ -34,5 +34,5 @@
 
 
 
-  "parent": "bentenmobmod:all/black_diamond/black_diamond_scrap"
+  "parent": "minecraft:nether/netherite_armor"
 }
