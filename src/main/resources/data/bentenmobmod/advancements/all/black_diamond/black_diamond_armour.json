@@ -1,17 +1,17 @@
 {
   "display": {
     "title": {
-      "text": "Made all the diamond armour set",
+      "text": "Made all the black diamond armour set",
       "color": "aqua",
       "bold": true
     },
     "description": {
-      "text": "You have made all the diamond armour set which is better than black diamond",
+      "text": "You have made all the black diamond armour set which is better than diamond",
       "color": "aqua",
       "bold": true
     },
     "icon": {
-      "item": "bentenmobmod:chestplate"
+      "item": "bentenmobmod:black_diamond_chestplate"
     },
     "frame": "goal",
     "show_toast": true,
