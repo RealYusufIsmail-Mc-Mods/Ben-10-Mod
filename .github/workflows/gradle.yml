@@ -5,24 +5,38 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ 1.16.5-beta ]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ 1.16.5-beta ]
+    branches: [ $default-branch ]
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    
-steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'adopt'
+    - name: Build with Gradle
+      run: ./gradlew build
+    - uses: actions/upload-artifact@v2
     with:
-      java-version: '8'
+      name: bentenmobmod-1.16.5-1.13
+      path: build/libs
+      
+   
+ 
+
+    with:
+      java-version: '11'
       distribution: 'adopt'
 
   - run: ./gradlew build
   - uses: actions/upload-artifact@v2
     with:
-      name: bentenmobmod-1.16.5-1.13
+      name: Package
       path: build/libs
