@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Direction;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.common.util.NonNullSupplier;
@@ -52,6 +53,10 @@ public class ModSpawnEggItem extends SpawnEggItem {
             DispenserBlock.registerBehavior(spawnEgg, dispenseBehaviour);
         }
         UNADDED_EGGS.clear();
+    }
+    @Override
+    public EntityType<?> getType(CompoundNBT nbt) {
+        return this.entityTypeSupplier.get();
     }
 }
 
