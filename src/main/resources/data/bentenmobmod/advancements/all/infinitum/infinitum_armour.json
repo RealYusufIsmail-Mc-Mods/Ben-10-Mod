@@ -11,7 +11,7 @@
       "bold": true
     },
     "icon": {
-      "item": "bentenmobmod:black_diamond_chestplate",
+      "item": "bentenmobmod:infinitum_chestplate",
       "nbt": "{Damage:0}"
     },
     "frame": "goal",
