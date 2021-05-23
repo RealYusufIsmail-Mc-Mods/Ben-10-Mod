@@ -1,0 +1,12 @@
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-java@v2
+    with:
+      java-version: '8'
+      distribution: 'adopt'
+
+  - run: ./gradlew build
+  - uses: actions/upload-artifact@v2
+    with:
+      name: bentenmobmod-1.16.5-1.13
+      path: build/libs
