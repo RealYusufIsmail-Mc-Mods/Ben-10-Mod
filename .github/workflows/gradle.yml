@@ -27,4 +27,5 @@ jobs:
       run: ./gradlew build
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.3
+    - run: mkdir -p .github/workflows/modjarfile
 
