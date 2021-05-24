@@ -71,7 +71,7 @@ sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
 repositories {
-    maven { url 'https://repo.repsy.io/mvn/gandiber/geckolib' }
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
      maven { url 'https://maven.blamejared.com' }
 }
  
@@ -81,7 +81,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
 
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
-   implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.15.2:3.0.32')
+    compile fg.deobf('software.bernie.geckolib:geckolib-forge-1.15.2:3.0.32')
    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-35.2")
 
 
