@@ -5,7 +5,6 @@ import com.yusuf.bentenmobmod.common.events.*;
 import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -53,7 +52,7 @@ public class ItemInit {
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
 			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 0, 7f,
-					new Item.Properties().fireResistant().durability(600).stacksTo(1).tab(MainItemGroup.MAIN)));
+					new Item.Properties().durability(600).stacksTo(1).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> BLACK_DIAMOND_SWORD = ITEMS.register("black_diamond_sword",
 			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 0, 7f,
@@ -72,7 +71,7 @@ public class ItemInit {
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<HoeItem> BLACK_DIAMOND_HOE = ITEMS.register("black_diamond_hoe",
-			() -> new HoeItem(CustomToolMaterial.BLACK_DIAMOND_HOE, 0, 7f,
+			() -> new HoeItem(CustomToolMaterial.BLACK_DIAMOND_HOE,  7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> INFINITUM_SWORD = ITEMS.register("infinitum_sword",
@@ -92,7 +91,7 @@ public class ItemInit {
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<HoeItem> INFINITUM_HOE = ITEMS.register("infinitum_hoe",
-			() -> new HoeItem(CustomToolMaterial.INFINITUM_HOE, 0, 7f,
+			() -> new HoeItem(CustomToolMaterial.INFINITUM_HOE,  7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
 //armour
