@@ -111,6 +111,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     public String getName() {
-        return null;
+        return "Ben Ten Mob Mod - Item Models";
     }
 }

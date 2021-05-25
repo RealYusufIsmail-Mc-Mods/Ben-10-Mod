@@ -4,22 +4,22 @@ package com.yusuf.bentenmobmod.core.init;
 import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmobmod.entity.VilgaxEntity;
-
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.Item.Properties;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.pathfinding.FlyingPathNavigator;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityTypesInit {
-	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES,
+	public static final DeferredRegister<EntityType> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES,
 			Main.MOD_ID);
-	private static final Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
+	private static final Properties spawn_egg_props = new Item.Properties().group(MainItemGroup.MAIN);
 
 
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
@@ -31,7 +31,7 @@ public class EntityTypesInit {
 
 	// This is where to register the actual attributes of the entities
 	public static void registerEntityAttributes() {
-		GlobalEntityTypeAttributes.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
+		FlyingPathNavigator.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerNatives().build());
 	}
 
 	private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
