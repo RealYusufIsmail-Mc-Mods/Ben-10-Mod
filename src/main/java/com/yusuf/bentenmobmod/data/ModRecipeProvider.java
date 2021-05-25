@@ -2,6 +2,7 @@ package com.yusuf.bentenmobmod.data;
 
 import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.init.BlockInit;
+import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
@@ -373,7 +374,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //other items
 
-        ShapedRecipeBuilder.shaped(ItemInit.VILGAX_SPAWN_EGG.get())
+        ShapedRecipeBuilder.shaped(EntityTypesInit.VILGAX_SPAWN_EGG.get())
                 .define('L', ItemInit.OMNITRIX.get())
                 .define('A', ItemInit.RUBY.get())
                 .pattern("AAA")

@@ -2,12 +2,16 @@
 package com.yusuf.bentenmobmod.core.init;
 
 import com.yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmobmod.entity.VilgaxEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.item.Item;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.Item.Properties;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,6 +19,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class EntityTypesInit {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES,
 			Main.MOD_ID);
+	private static final Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
+
 
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
 			EntityClassification.MONSTER, 1f, 1f);
@@ -35,5 +41,6 @@ public class EntityTypesInit {
 	}
 	
 	// register spawn eggs
-
+	public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register("vilgax_spawn_egg",
+			() -> new SpawnEggItem(vilgax, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 }
