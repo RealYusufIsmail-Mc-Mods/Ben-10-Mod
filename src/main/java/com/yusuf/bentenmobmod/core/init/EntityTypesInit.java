@@ -17,8 +17,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityTypesInit {
-	public static final DeferredRegister<EntityType> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES,
-			Main.MOD_ID);
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, Main.MODID);
+
 	private static final Properties spawn_egg_props = new Item.Properties().group(MainItemGroup.MAIN);
 
 
@@ -31,7 +31,7 @@ public class EntityTypesInit {
 
 	// This is where to register the actual attributes of the entities
 	public static void registerEntityAttributes() {
-		FlyingPathNavigator.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerNatives().build());
+		EntityType.Builder(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerNatives().build());
 	}
 
 	private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,

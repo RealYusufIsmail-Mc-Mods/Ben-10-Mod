@@ -13,31 +13,31 @@ public class ModBlockLootTables extends BlockLootTables {
     @Override
     protected void addTables() {
         //ores
-        add(BlockInit.BLACK_DIAMOND_ORE.get(),
-                createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
-        add(BlockInit.INFINITUM_ORE.get(),
-                createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
-        add(BlockInit.RUBY_ORE.get(),
-                createOreDrop(BlockInit.RUBY_ORE.get(), ItemInit.RUBY.get()));
-        add(BlockInit.OMNITRIX_ORE.get(),
-                createOreDrop(BlockInit.OMNITRIX_ORE.get(), ItemInit.OMNITRIX.get()));
-        add(BlockInit.SPEED_ORE.get(),
-                createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
-        add(BlockInit.LEGENDARY_ORE_BLOCK.get(),
-                createOreDrop(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.LEGENDARY_ORE.get()));
-        add(BlockInit.FIRE_ORE.get(),
-                createOreDrop(BlockInit.FIRE_ORE.get(), ItemInit.FIRE.get()));
+        registerLootTable(BlockInit.BLACK_DIAMOND_ORE.get(),
+                droppingItemWithFortune(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
+        registerLootTable(BlockInit.INFINITUM_ORE.get(),
+                droppingItemWithFortune(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
+        registerLootTable(BlockInit.RUBY_ORE.get(),
+                droppingItemWithFortune(BlockInit.RUBY_ORE.get(), ItemInit.RUBY.get()));
+        registerLootTable(BlockInit.OMNITRIX_ORE.get(),
+                droppingItemWithFortune(BlockInit.OMNITRIX_ORE.get(), ItemInit.OMNITRIX.get()));
+        registerLootTable(BlockInit.SPEED_ORE.get(),
+                droppingItemWithFortune(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
+        registerLootTable(BlockInit.LEGENDARY_ORE_BLOCK.get(),
+                droppingItemWithFortune(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.LEGENDARY_ORE.get()));
+        registerLootTable(BlockInit.FIRE_ORE.get(),
+                droppingItemWithFortune(BlockInit.FIRE_ORE.get(), ItemInit.FIRE.get()));
 
         //blocks
-        dropSelf(BlockInit.OMNITRIX_BLOCK.get());
-        dropSelf(BlockInit.FIRE_BLOCK.get());
-        dropSelf(BlockInit.RUBY_BLOCK.get());
-        dropSelf(BlockInit.SPEED_BLOCK.get());
-        dropSelf(BlockInit.INFINITUM_BLOCK.get());
-        dropSelf(BlockInit.BLACK_DIAMOND_BLOCK.get());
-        dropSelf(BlockInit.IMPERIUM_ORE.get());
-        dropSelf(BlockInit.VILGAX_BLOCK.get());
-        dropSelf(BlockInit.LEGENDARY_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.OMNITRIX_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.FIRE_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.RUBY_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.SPEED_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.INFINITUM_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.BLACK_DIAMOND_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.IMPERIUM_ORE.get());
+        registerDropSelfLootTable(BlockInit.VILGAX_BLOCK.get());
+        registerDropSelfLootTable(BlockInit.LEGENDARY_BLOCK.get());
 
 
 

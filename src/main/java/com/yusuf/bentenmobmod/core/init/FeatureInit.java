@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+
 
 public class FeatureInit {
 
@@ -41,12 +41,11 @@ public class FeatureInit {
 
 
 	public static void addOre(final Biome event, RuleTest rule, BlockState state, int veinSize,
-							  int minHeight, int maxHeight, int amount) {
-		event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
+	 int minHeight, int maxHeight, int amount) {
+		event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 				Feature.ORE.withConfiguration(new OreFeatureConfig(rule, state, veinSize))
-						.decorated(Placement.RANGE.configured(new TopSolidRangeConfig(minHeight, 0, maxHeight)))
-						.squared().count(amount));
-//cuase game to crash. DOnt think is right
+						.decorated(	Placement.COUNT_RANGE.configure(new TopSolidRangeConfig(minHeight,0, maxHeight)))
+						.squared().func_242731_b(amount));
 	}
 }
 
