@@ -4,11 +4,8 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.LootTableProvider;
-import net.minecraft.loot.*;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootTable;
-import net.minecraft.world.storage.loot.LootTableManager;
-import net.minecraft.world.storage.loot.ValidationTracker;
+import net.minecraft.world.storage.loot.*;
 
 import java.util.List;
 import java.util.Map;
@@ -33,7 +30,7 @@ public class ModLootTables extends LootTableProvider {
     }
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationtracker) {
-        map.forEach((id, table) -> LootTableManager.validate(validationtracker, id, table));
+        map.forEach((id, table) -> LootTableManager.func_227508_a_(validationtracker, id, table));
     }
 
 
