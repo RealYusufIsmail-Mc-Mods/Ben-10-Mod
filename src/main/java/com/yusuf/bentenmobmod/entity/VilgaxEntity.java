@@ -3,6 +3,7 @@ package com.yusuf.bentenmobmod.entity;
 import com.yusuf.bentenmobmod.entity.ai.VilgaxAttackGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.brain.memory.WalkTarget;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.CreeperEntity;
@@ -25,7 +26,6 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.storage.loot.functions.SetAttributes;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -104,7 +104,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	}
 
-	public static AttributeModifierMap.MutableAttribute registerAttributes() {
+	public static WalkTarget. registerAttributes() {
 		return MonsterEntity.createMonsterAttributes().add(SharedMonsterAttributes.FOLLOW_RANGE, 35.0D)
 				.add(SharedMonsterAttributes.MOVEMENT_SPEED, (double) 0.23F).add(SharedMonsterAttributes.ATTACK_DAMAGE, 10.0D)
 				.add(SharedMonsterAttributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)

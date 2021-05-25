@@ -1,6 +1,7 @@
 package com.yusuf.bentenmobmod.core.init;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
@@ -39,7 +40,7 @@ public class FeatureInit {
 	}
 
 
-	public static void addOre(final BiomeLoadingEvent event, RuleTest rule, BlockState state, int veinSize,
+	public static void addOre(final Biome event, RuleTest rule, BlockState state, int veinSize,
 							  int minHeight, int maxHeight, int amount) {
 		event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 				Feature.ORE.configured(new OreFeatureConfig(rule, state, veinSize))
