@@ -1,28 +1,14 @@
 package com.yusuf.bentenmobmod.entity;
 
 import com.yusuf.bentenmobmod.entity.ai.VilgaxAttackGoal;
-
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Pose;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.MoveThroughVillageAtNightGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.ZombifiedPiglinEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -39,6 +25,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.storage.loot.functions.SetAttributes;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -111,17 +98,17 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.goalSelector.addGoal(1, new VilgaxAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(6, new MoveThroughVillageAtNightGoal(this, 1));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombifiedPiglinEntity.class));
+		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombieEntity.class));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	}
 
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
-		return MonsterEntity.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.23F).add(Attributes.ATTACK_DAMAGE, 10.0D)
-				.add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
-				.add(Attributes.MAX_HEALTH, 300.0D);
+		return MonsterEntity.createMonsterAttributes().add(SharedMonsterAttributes.FOLLOW_RANGE, 35.0D)
+				.add(SharedMonsterAttributes.MOVEMENT_SPEED, (double) 0.23F).add(SharedMonsterAttributes.ATTACK_DAMAGE, 10.0D)
+				.add(SharedMonsterAttributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
+				.add(SharedMonsterAttributes.MAX_HEALTH, 300.0D);
 	}
 
 	protected boolean supportsBreakDoorGoal() {
@@ -176,7 +163,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	public boolean doHurtTarget(Entity p_70652_1_) {
 		boolean flag = super.doHurtTarget(p_70652_1_);
 		if (flag) {
-			float f = this.level.getCurrentDifficultyAt(this.blockPosition()).getEffectiveDifficulty();
+			float f = this.level.getCurrentDifficultyAt(this.getCommandSenderBlockPosition()).getEffectiveDifficulty();
 			if (this.getMainHandItem().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
 				p_70652_1_.setSecondsOnFire(2 * (int) f);
 			}

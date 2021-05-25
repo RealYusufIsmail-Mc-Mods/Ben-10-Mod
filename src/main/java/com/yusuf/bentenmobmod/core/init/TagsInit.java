@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmobmod.core.init;
 
 import com.yusuf.bentenmobmod.Main;
@@ -80,4 +81,6 @@ public class TagsInit {
     }
 }
 
+
+ */
 

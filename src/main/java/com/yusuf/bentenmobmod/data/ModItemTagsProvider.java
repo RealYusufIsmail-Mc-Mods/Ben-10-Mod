@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmobmod.data;
 
 import com.yusuf.bentenmobmod.Main;
@@ -46,3 +47,5 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     }
 }
+
+ */
