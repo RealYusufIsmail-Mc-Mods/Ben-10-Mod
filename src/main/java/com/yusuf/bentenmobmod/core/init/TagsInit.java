@@ -4,7 +4,6 @@ import com.yusuf.bentenmobmod.Main;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 
@@ -12,7 +11,7 @@ public class TagsInit {
 
     public static final class Blocks {
         ///ores
-        public static final ITag.INamedTag<Block> ORES_BLACK_DIAMOND = forge("ores/black_diamond");
+        public static final .INamedTag<Block> ORES_BLACK_DIAMOND = forge("ores/black_diamond");
         public static final ITag.INamedTag<Block> ORES_RUBY = forge("ores/ruby");
         public static final ITag.INamedTag<Block> ORES_INFINITUM = forge("ores/infinitum");
         public static final ITag.INamedTag<Block> ORES_FIRE = forge("ores/fire");

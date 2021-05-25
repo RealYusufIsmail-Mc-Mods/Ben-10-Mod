@@ -5,8 +5,8 @@ import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.TagsInit;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
 

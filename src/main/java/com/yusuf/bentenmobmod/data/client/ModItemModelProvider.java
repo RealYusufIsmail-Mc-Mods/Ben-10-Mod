@@ -2,10 +2,10 @@ package com.yusuf.bentenmobmod.data.client;
 
 import com.yusuf.bentenmobmod.Main;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
@@ -106,5 +106,11 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
         return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
+    }
+
+
+    @Override
+    public String getName() {
+        return null;
     }
 }
