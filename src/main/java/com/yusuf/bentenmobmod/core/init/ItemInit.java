@@ -14,8 +14,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
 	// ores
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
-
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS,
+			Main.MOD_ID);
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
@@ -122,19 +122,16 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
-					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
-
+					new Item.Properties().durability(600).tab(MainItemGroup.MAIN)));
 	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
-					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
-
+					new Item.Properties().durability(600).tab(MainItemGroup.MAIN)));
 	public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register("heatblast_leggings",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
-					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
-
+					new Item.Properties().durability(600).tab(MainItemGroup.MAIN)));
 	public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
-					new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
+					new Item.Properties().durability(600).tab(MainItemGroup.MAIN)));
 
 	// xlr8 armour
 	public static final RegistryObject<Item> XLR8_HELMET = ITEMS.register("xlr8_helmet",
