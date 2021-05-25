@@ -7,15 +7,16 @@ import net.minecraft.item.ItemStack;
 
 public class MainItemGroup extends ItemGroup {
 
-	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.TABS.length, "main");
+	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.GROUPS.length, "main");
 
 	public MainItemGroup(int index, String label) {
 		super(index, label);
 	}
 
 	@Override
-	public ItemStack makeIcon() {
+	public ItemStack createIcon() {
 		return new ItemStack(ItemInit.OMNITRIX.get());
 	}
+
 
 }
