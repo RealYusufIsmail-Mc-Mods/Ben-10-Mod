@@ -26,7 +26,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.INFINITUM_BLOCK.get())
-                .define('#', ItemInit.INFINITUM.get())
+                .key('#', ItemInit.INFINITUM.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -40,7 +40,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.BLACK_DIAMOND_BLOCK.get())
-                .define('#', ItemInit.BLACK_DIAMOND.get())
+                .key('#', ItemInit.BLACK_DIAMOND.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -48,12 +48,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
         ShapelessRecipeBuilder.shapelessRecipe(ItemInit.FIRE.get(), 9)
 
-                .requires(BlockInit.FIRE_BLOCK.get())
+                .addIngredient(BlockInit.FIRE_BLOCK.get())
                 .unlocks("has_item", has(ItemInit.FIRE.get()))
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.FIRE_BLOCK.get())
-                .define('#', ItemInit.FIRE.get())
+                .key('#', ItemInit.FIRE.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -67,7 +67,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.OMNITRIX_BLOCK.get())
-                .define('#', ItemInit.OMNITRIX.get())
+                .key('#', ItemInit.OMNITRIX.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -81,7 +81,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.SPEED_BLOCK.get())
-                .define('#', ItemInit.SPEED.get())
+                .key('#', ItemInit.SPEED.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -95,7 +95,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.RUBY_BLOCK.get())
-                .define('#', ItemInit.RUBY.get())
+                .key('#', ItemInit.RUBY.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -109,7 +109,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shapedRecipe(BlockInit.LEGENDARY_BLOCK.get())
-                .define('#', ItemInit.LEGENDARY_ORE.get())
+                .key('#', ItemInit.LEGENDARY_ORE.get())
                 .patternLine("###")
                 .patternLine("###")
                 .patternLine("###")
@@ -151,9 +151,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //amour and tools
         ShapedRecipeBuilder.shapedRecipe(ItemInit.AXE.get())
-        .define('#', Items.STICK.getItem())
-        .define('K', ItemInit.RUBY.get())
-        .define('A', ItemInit.LEGENDARY_ORE.get())
+        .key('#', Items.STICK.getItem())
+        .key('K', ItemInit.RUBY.get())
+        .key('A', ItemInit.LEGENDARY_ORE.get())
         .patternLine("KK ")
         .patternLine("A# ")
         .patternLine(" # ")
@@ -172,8 +172,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("heatblast_sword"));
 */
         ShapedRecipeBuilder.shapedRecipe(ItemInit.SWORD.get())
-                .define('#', Items.STICK.getItem())
-                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.LEGENDARY_ORE.get())
                 .patternLine(" A ")
                 .patternLine(" A ")
                 .patternLine(" # ")
@@ -189,8 +189,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .build(consumer,modId("helmet"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.CHESTPLATE.get())
-                .define('#', ItemInit.RUBY.get())
-                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .key('#', ItemInit.RUBY.get())
+                .key('A', ItemInit.LEGENDARY_ORE.get())
                 .patternLine("A A")
                 .patternLine("A#A")
                 .patternLine("AAA")
@@ -198,7 +198,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("chestplate"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.LEGGINGS.get())
-                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .key('A', ItemInit.LEGENDARY_ORE.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .patternLine("A A")
@@ -206,7 +206,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("leggings"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.BOOT.get())
-                .define('A', ItemInit.LEGENDARY_ORE.get())
+                .key('A', ItemInit.LEGENDARY_ORE.get())
                 .patternLine("A A")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.LEGENDARY_ORE.get()))
@@ -215,15 +215,15 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.HEATBLAST_HELMET.get())
-                .define('A', ItemInit.FIRE.get())
+                .key('A', ItemInit.FIRE.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.FIRE.get()))
                 .save(consumer,modId("heatblast_helmet"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.HEATBLAST_CHESTPLATE.get())
-                .define('#', ItemInit.OMNITRIX.get())
-                .define('A', ItemInit.FIRE.get())
+                .key('#', ItemInit.OMNITRIX.get())
+                .key('A', ItemInit.FIRE.get())
                 .patternLine("A A")
                 .patternLine("A#A")
                 .patternLine("AAA")
@@ -231,7 +231,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("heatblast_chestplate"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.HEATBLAST_LEGGINGS.get())
-                .define('A', ItemInit.FIRE.get())
+                .key('A', ItemInit.FIRE.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .patternLine("A A")
@@ -239,7 +239,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("heatblast_leggings"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.HEATBLAST_BOOT.get())
-                .define('A', ItemInit.FIRE.get())
+                .key('A', ItemInit.FIRE.get())
                 .patternLine("A A")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.FIRE.get()))
@@ -247,15 +247,15 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.XLR8_HELMET.get())
-                .define('A', ItemInit.SPEED.get())
+                .key('A', ItemInit.SPEED.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.SPEED.get()))
                 .save(consumer,modId("xlr8_helmet"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.XLR8_CHESTPLATE.get())
-                .define('#', ItemInit.OMNITRIX.get())
-                .define('A', ItemInit.SPEED.get())
+                .key('#', ItemInit.OMNITRIX.get())
+                .key('A', ItemInit.SPEED.get())
                 .patternLine("A A")
                 .patternLine("A#A")
                 .patternLine("AAA")
@@ -263,7 +263,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("xlr8_chestplate"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.XLR8_LEGGINGS.get())
-                .define('A', ItemInit.SPEED.get())
+                .key('A', ItemInit.SPEED.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .patternLine("A A")
@@ -271,7 +271,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("xlr8_leggings"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.XLR8_BOOT.get())
-                .define('A', ItemInit.SPEED.get())
+                .key('A', ItemInit.SPEED.get())
                 .patternLine("A A")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.SPEED.get()))
@@ -280,15 +280,15 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_HELMET.get())
-                .define('A', ItemInit.RUBY.get())
+                .key('A', ItemInit.RUBY.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.RUBY.get()))
                 .save(consumer,modId("fourarms_helmet"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_CHESTPLATE.get())
-                .define('#', ItemInit.OMNITRIX.get())
-                .define('A', ItemInit.RUBY.get())
+                .key('#', ItemInit.OMNITRIX.get())
+                .key('A', ItemInit.RUBY.get())
                 .patternLine("A A")
                 .patternLine("A#A")
                 .patternLine("AAA")
@@ -296,7 +296,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("fourarms_chestplate"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_LEGGINGS.get())
-                .define('A', ItemInit.RUBY.get())
+                .key('A', ItemInit.RUBY.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .patternLine("A A")
@@ -304,7 +304,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("fourarms_leggings"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_BOOT.get())
-                .define('A', ItemInit.RUBY.get())
+                .key('A', ItemInit.RUBY.get())
                 .patternLine("A A")
                 .patternLine("A A")
                 .unlocks("has_item", has(ItemInit.RUBY.get()))
@@ -313,7 +313,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.JACKET.get())
-                .define('A', ItemInit.OMNITRIX.get())
+                .key('A', ItemInit.OMNITRIX.get())
                 .patternLine("A A")
                 .patternLine("AAA")
                 .patternLine("AAA")
@@ -325,8 +325,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //food
         ShapedRecipeBuilder.shapedRecipe(ItemInit.OMNITRIX_APPLE.get())
-                .define('A', ItemInit.OMNITRIX.get())
-                .define('L', Items.APPLE.getItem())
+                .key('A', ItemInit.OMNITRIX.get())
+                .key('L', Items.APPLE.getItem())
                 .patternLine("AAA")
                 .patternLine("ALA")
                 .patternLine("AAA")
@@ -334,8 +334,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("omnitrix_apple"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.ENCHANTED_OMNITRIX_APPLE.get())
-                .define('A', BlockInit.OMNITRIX_BLOCK.get())
-                .define('L', Items.APPLE.getItem())
+                .key('A', BlockInit.OMNITRIX_BLOCK.get())
+                .key('L', Items.APPLE.getItem())
                 .patternLine("AAA")
                 .patternLine("ALA")
                 .patternLine("AAA")
@@ -343,8 +343,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("enchanted_omnitrix_apple"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.FIRE_APPLE.get())
-                .define('A', ItemInit.FIRE.get())
-                .define('L', Items.APPLE.getItem())
+                .key('A', ItemInit.FIRE.get())
+                .key('L', Items.APPLE.getItem())
                 .patternLine("AAA")
                 .patternLine("ALA")
                 .patternLine("AAA")
@@ -352,8 +352,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("fire_apple"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.RUBY_APPLE.get())
-                .define('A', ItemInit.RUBY.get())
-                .define('L', Items.APPLE.getItem())
+                .key('A', ItemInit.RUBY.get())
+                .key('L', Items.APPLE.getItem())
                 .patternLine("AAA")
                 .patternLine("ALA")
                 .patternLine("AAA")
@@ -362,8 +362,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shapedRecipe(Items.ENCHANTED_GOLDEN_APPLE.getItem())
-                .define('A', Items.GOLD_BLOCK.getItem())
-                .define('L', Items.APPLE.getItem())
+                .key('A', Items.GOLD_BLOCK.getItem())
+                .key('L', Items.APPLE.getItem())
                 .patternLine("AAA")
                 .patternLine("ALA")
                 .patternLine("AAA")
@@ -373,8 +373,8 @@ public class ModRecipeProvider extends RecipeProvider {
         //other items
 
         ShapedRecipeBuilder.shapedRecipe(EntityTypesInit.VILGAX_SPAWN_EGG.get())
-                .define('L', ItemInit.OMNITRIX.get())
-                .define('A', ItemInit.RUBY.get())
+                .key('L', ItemInit.OMNITRIX.get())
+                .key('A', ItemInit.RUBY.get())
                 .patternLine("AAA")
                 .patternLine("ALA")
                 .patternLine("AAA")
