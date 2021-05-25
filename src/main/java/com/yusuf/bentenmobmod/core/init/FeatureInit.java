@@ -12,38 +12,38 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 
 public class FeatureInit {
 
-	public static void addOres(final BiomeLoadingEvent event) {
+	public static void addOres(final Biome event) {
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 0, 18, 20);
+				BlockInit.LEGENDARY_ORE_BLOCK.get().getDefaultState(), 3, 0, 18, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.IMPERIUM_ORE.get().defaultBlockState(), 4, 0, 20, 20);
+				BlockInit.IMPERIUM_ORE.get().getDefaultState(), 4, 0, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 0, 15, 20);
+				BlockInit.RUBY_ORE.get().getDefaultState(), 3, 0, 15, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 3, 0, 14, 20);
+				BlockInit.BLACK_DIAMOND_ORE.get().getDefaultState(), 3, 0, 14, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.SPEED_ORE.get().defaultBlockState(), 3, 0, 14, 20);
+				BlockInit.SPEED_ORE.get().getDefaultState(), 3, 0, 14, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
-				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 18, 20);
+				BlockInit.OMNITRIX_ORE.get().getDefaultState(), 3, 0, 18, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
-				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 4, 6, 20, 20);
+				BlockInit.INFINITUM_ORE.get().getDefaultState(), 4, 6, 20, 20);
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
-				BlockInit.FIRE_ORE.get().defaultBlockState(), 4, 7, 21, 20);
+				BlockInit.FIRE_ORE.get().getDefaultState(), 4, 7, 21, 20);
 	}
 
 
 	public static void addOre(final Biome event, RuleTest rule, BlockState state, int veinSize,
 							  int minHeight, int maxHeight, int amount) {
 		event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
-				Feature.ORE.configured(new OreFeatureConfig(rule, state, veinSize))
+				Feature.ORE.withConfiguration(new OreFeatureConfig(rule, state, veinSize))
 						.decorated(Placement.RANGE.configured(new TopSolidRangeConfig(minHeight, 0, maxHeight)))
 						.squared().count(amount));
 //cuase game to crash. DOnt think is right

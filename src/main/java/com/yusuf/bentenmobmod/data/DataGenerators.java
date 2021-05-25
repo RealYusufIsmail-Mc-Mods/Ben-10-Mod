@@ -23,13 +23,17 @@ public final class DataGenerators {
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
 
+        /*
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-        
+        */
         
         gen.addProvider(new ModRecipeProvider(gen));
+        /*
         gen.addProvider(new ModSmitingRecipeBuild(gen));
+
+         */
         gen.addProvider(new ModLootTables(gen));
 
         
