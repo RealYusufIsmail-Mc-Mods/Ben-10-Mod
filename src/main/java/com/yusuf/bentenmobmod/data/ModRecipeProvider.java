@@ -388,7 +388,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //ores
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.RUBY_ORE.get()))
                 .save(consumer, modId("ruby_ore_smelt"));
 
@@ -396,7 +396,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlocks("has_item", has(BlockInit.RUBY_ORE.get()))
                 .save(consumer, modId("ruby_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), ItemInit.OMNITRIX.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), ItemInit.OMNITRIX.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_smelt"));
 
@@ -404,7 +404,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlocks("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.FIRE_ORE.get()), ItemInit.FIRE.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.FIRE_ORE.get()), ItemInit.FIRE.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.FIRE_ORE.get()))
                 .save(consumer, modId("fire_ore_smelt"));
 
@@ -412,7 +412,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlocks("has_item", has(BlockInit.FIRE_ORE.get()))
                 .save(consumer, modId("fire_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.SPEED_ORE.get()), ItemInit.SPEED.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.SPEED_ORE.get()), ItemInit.SPEED.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_smelt"));
 
@@ -420,7 +420,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlocks("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
@@ -428,7 +428,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlocks("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
                 .save(consumer, modId("legendary_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.INFINITUM_ORE.get()), ItemInit.INFINITUM_SCRAP.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.INFINITUM_ORE.get()), ItemInit.INFINITUM_SCRAP.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.INFINITUM_ORE.get()))
                 .save(consumer, modId("infinitum_ore_smelt"));
 
@@ -436,7 +436,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlocks("has_item", has(BlockInit.INFINITUM_ORE.get()))
                 .save(consumer, modId("infinitum_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
+        CookingRecipeBuilder.cookingRecipe(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
                 .unlocks("has_item", has(BlockInit.BLACK_DIAMOND_ORE.get()))
                 .save(consumer, modId("black_diamond_ore_smelt"));
 
@@ -502,7 +502,7 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blastingRecipe(Ingredient.of(ItemInit.INFINITUM_HELMET.get()), ItemInit.INFINITUM.get(), 0.3f, 300)
                 .unlocks("has_item", has(ItemInit.INFINITUM.get()))
                 .save(consumer, modId("infinitum_helmet_blasting_smelt"));
-        CookingRecipeBuilder.blastingRecipe(Ingredient.of(ItemInit.INFINITUM_CHESTPLATE.get()), ItemInit.INFINITUM.get(), 0.3f, 300)
+            CookingRecipeBuilder.blastingRecipe(Ingredient.of(ItemInit.INFINITUM_CHESTPLATE.get()), ItemInit.INFINITUM.get(), 0.3f, 300)
                 .unlocks("has_item", has(ItemInit.INFINITUM.get()))
                 .save(consumer, modId("infinitum_chestplate_blasting_smelt"));
         CookingRecipeBuilder.blastingRecipe(Ingredient.of(ItemInit.INFINITUM_LEGGINGS.get()), ItemInit.INFINITUM.get(), 0.3f, 300)
