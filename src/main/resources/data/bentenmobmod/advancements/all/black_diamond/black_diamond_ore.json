@@ -1,0 +1,38 @@
+{
+  "display": {
+    "title": {
+      "text": "Black Diamond Ingot",
+      "color": "aqua",
+      "bold": true,
+      "italic": true
+    },
+    "description": {
+      "text": "You have made an Black Diamond ingot which means you can use a smithing table to convert diamond tool or armour to black diamond."
+    },
+    "icon": {
+      "item": "bentenmobmod:black_diamond"
+       "nbt": "{Damage:0}"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "minecraft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmobmod:black_diamond",
+            "count": 1
+          }
+        ]
+      }
+    }
+  },
+
+
+
+  "parent": "bentenmobmod:all/black_diamond/black_diamond_scrap"
+}

@@ -1,0 +1,53 @@
+{
+  "display": {
+    "title": {
+      "text": "Made all the black diamond Tools",
+      "color": "aqua",
+      "bold": true
+    },
+    "description": {
+      "text": "You have made all the black diamond tool set which is better than diamond",
+      "color": "aqua",
+      "bold": true
+    },
+    "icon": {
+      "item": "bentenmobmod:black_diamond_sword",
+       "nbt": "{Damage:0}"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "minecraft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmobmod:black_diamond_sword"
+          },
+          {
+            "item": "bentenmobmod:black_diamond_pickaxe"
+          },
+          {
+            "item": "bentenmobmod:black_diamond_axe"
+          },
+          {
+            "item": "bentenmobmod:black_diamond_shovel"
+          },
+          {
+             "item": "bentenmobmod:black_diamond_hoe"
+           }
+
+        ],
+        "count": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    }
+  },
+
+  "parent": "bentenmobmod:all/black_diamond/black_diamond_ore"
+}

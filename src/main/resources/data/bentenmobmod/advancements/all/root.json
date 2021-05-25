@@ -33,13 +33,10 @@
     }
 
 },
-  "rewards": {
-    "loot": [
-      "bentenmobmod:ben10craftingrecipes"
-    ],
+
+
     "experience": 10
   }
 
 
 
-}

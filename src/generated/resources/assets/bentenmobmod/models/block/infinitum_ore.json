@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "bentenmobmod:block/infinitum_ore"
+    "side": "bentenmobmod:block/infinitum_ore_side",
+    "end": "bentenmobmod:block/infinitum_ore_top"
   }
 }
