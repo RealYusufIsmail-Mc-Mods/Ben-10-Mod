@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
 version = '1.16.5-1.13'
-group = 'com.Yusuf.bentenmobmod' 
+group = 'com.yusuf.bentenmobmod' 
 archivesBaseName = 'bentenmobmod'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
