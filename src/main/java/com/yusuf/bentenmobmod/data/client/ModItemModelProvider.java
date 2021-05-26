@@ -109,8 +109,4 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
 
-    @Override
-    public String getName() {
-        return "Ben Ten Mob Mod - Item Models";
-    }
 }
