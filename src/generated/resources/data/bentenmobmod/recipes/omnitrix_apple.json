@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "bentenmobmod:omnitrix"
+    },
+    "L": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:omnitrix_apple"
+  }
+}

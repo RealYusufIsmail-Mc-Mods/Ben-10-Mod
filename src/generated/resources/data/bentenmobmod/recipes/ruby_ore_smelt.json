@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bentenmobmod:ruby_ore"
+  },
+  "result": "bentenmobmod:ruby",
+  "experience": 0.6,
+  "cookingtime": 300
+}
