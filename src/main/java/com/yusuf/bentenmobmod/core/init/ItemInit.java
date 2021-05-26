@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
+
 	// ores
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS,
 			Main.MOD_ID);
@@ -46,54 +47,54 @@ public class ItemInit {
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.SWORD, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> AXE = ITEMS.register("axe",
 			() -> new AxeItem(CustomToolMaterial.AXE, 0, 8f, new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> HEATBLAST_SWORD = ITEMS.register("heatblast_sword",
 			() -> new SwordItem(CustomToolMaterial.HEATBLAST_SWORD, 0, 7f,
-					new Item.Properties().maxDamage(600).maxStackSize(1).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> BLACK_DIAMOND_SWORD = ITEMS.register("black_diamond_sword",
 			() -> new SwordItem(CustomToolMaterial.BLACK_DIAMOND_SWORD, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> BLACK_DIAMOND_AXE = ITEMS.register("black_diamond_axe",
 			() -> new AxeItem(CustomToolMaterial.BLACK_DIAMOND_AXE, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<PickaxeItem> BLACK_DIAMOND_PICKAXE = ITEMS.register("black_diamond_pickaxe",
 			() -> new PickaxeItem(CustomToolMaterial.BLACK_DIAMOND_PICKAXE, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<ShovelItem> BLACK_DIAMOND_SHOVEL = ITEMS.register("black_diamond_shovel",
 			() -> new ShovelItem(CustomToolMaterial.BLACK_DIAMOND_SHOVEL, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<HoeItem> BLACK_DIAMOND_HOE = ITEMS.register("black_diamond_hoe",
 			() -> new HoeItem(CustomToolMaterial.BLACK_DIAMOND_HOE,  7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<SwordItem> INFINITUM_SWORD = ITEMS.register("infinitum_sword",
 			() -> new SwordItem(CustomToolMaterial.INFINITUM_SWORD, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<AxeItem> INFINITUM_AXE = ITEMS.register("infinitum_axe",
 			() -> new AxeItem(CustomToolMaterial.INFINITUM_AXE, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<PickaxeItem> INFINITUM_PICKAXE = ITEMS.register("infinitum_pickaxe",
 			() -> new PickaxeItem(CustomToolMaterial.INFINITUM_PICKAXE, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<ShovelItem> INFINITUM_SHOVEL = ITEMS.register("infinitum_shovel",
 			() -> new ShovelItem(CustomToolMaterial.INFINITUM_SHOVEL, 0, 7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	public static final RegistryObject<HoeItem> INFINITUM_HOE = ITEMS.register("infinitum_hoe",
 			() -> new HoeItem(CustomToolMaterial.INFINITUM_HOE,  7f,
-					new Item.Properties().maxStackSize(1).maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 //armour
 
@@ -122,16 +123,16 @@ public class ItemInit {
 
 	public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.HEAD,
-					new Item.Properties().maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 	public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register("heatblast_chestplate",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.CHEST,
-					new Item.Properties().maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 	public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register("heatblast_leggings",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
-					new Item.Properties().maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 	public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
 			() -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
-					new Item.Properties().maxDamage(600).group(MainItemGroup.MAIN)));
+					new Item.Properties().group(MainItemGroup.MAIN)));
 
 	// xlr8 armour
 	public static final RegistryObject<Item> XLR8_HELMET = ITEMS.register("xlr8_helmet",

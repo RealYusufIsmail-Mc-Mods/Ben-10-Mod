@@ -47,7 +47,7 @@ gentworm: https://www.curseforge.com/members/gentworm/followers
     [[dependencies.bentenmobmod]]
     modId="patchouli"
     mandatory=true
-    versionRange="[1.15.2-35,)"
+    versionRange="[1.15.2-1.2-35.2,)"
     ordering="NONE"
     side="BOTH"
     
