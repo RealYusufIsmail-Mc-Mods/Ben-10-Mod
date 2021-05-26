@@ -116,11 +116,11 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected int getExperienceReward(PlayerEntity p_70693_1_) {
-		if (this.isBaby()) {
-			this.xpReward = (int) ((float) this.xpReward * 2.5F);
+		if (this.isChild()) {
+			this.experienceValue = (int) ((float) this.experienceValue * 2.5F);
 		}
 
-		return super.getExperienceReward(p_70693_1_);
+		return super.getExperiencePoints(p_70693_1_);
 	}
 
 	protected boolean convertsInWater() {
@@ -133,24 +133,24 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
-		if (!super.hurt(p_70097_1_, p_70097_2_)) {
+		if (!super.attackEntityFrom(p_70097_1_, p_70097_2_)) {
 			return false;
-		} else if (!(this.level instanceof ServerWorld)) {
+		} else if (!(this.world instanceof ServerWorld)) {
 			return false;
 		} else {
-			LivingEntity livingentity = this.getTarget();
-			if (livingentity == null && p_70097_1_.getEntity() instanceof LivingEntity) {
-				livingentity = (LivingEntity) p_70097_1_.getEntity();
+			LivingEntity livingentity = this.getAttackTarget();
+			if (livingentity == null && p_70097_1_.getTrueSource() instanceof LivingEntity) {
+				livingentity = (LivingEntity) p_70097_1_.getTrueSource();
 			}
 
-			int i = MathHelper.floor(this.getX());
-			int j = MathHelper.floor(this.getY());
-			int k = MathHelper.floor(this.getZ());
+			int i = MathHelper.floor(this.getPosX());
+			int j = MathHelper.floor(this.getPosY());
+			int k = MathHelper.floor(this.getPosX());
 
 			for (int l = 0; l < 50; ++l) {
-				int i1 = i + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
-				int j1 = j + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
-				int k1 = k + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
+				int i1 = i + MathHelper.nextInt(this.rand, 7, 40) * MathHelper.nextInt(this.rand, -1, 1);
+				int j1 = j + MathHelper.nextInt(this.rand, 7, 40) * MathHelper.nextInt(this.rand, -1, 1);
+				int k1 = k + MathHelper.nextInt(this.rand, 7, 40) * MathHelper.nextInt(this.rand, -1, 1);
 				new BlockPos(i1, j1, k1);
 
 			}
