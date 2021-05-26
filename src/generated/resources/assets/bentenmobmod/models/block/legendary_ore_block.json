@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "bentenmobmod:block/legendary_ore_block"
+  }
+}
