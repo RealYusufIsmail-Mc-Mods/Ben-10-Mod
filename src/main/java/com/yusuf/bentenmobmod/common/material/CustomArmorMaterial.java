@@ -10,20 +10,20 @@ import net.minecraft.util.SoundEvents;
 import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
-	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
-			() -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
-	JACKET("jacket", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
-			() -> Ingredient.of(ItemInit.OMNITRIX.get())),
-	XLR8_ARMOUR("speedy", 30, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
-			() -> Ingredient.of(ItemInit.SPEED.get())),
-	FOURARMS_ARMOUR("fourarms", 50, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1500f, 1.5f,
-			() -> Ingredient.of(ItemInit.RUBY.get())),
-	BLACK_DIAMOND_ARMOUR("black_diamond", 100, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1000f, 10f,
-			() -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-	INFINITUM_ARMOUR("infinitum", 150, new int[] { 10, 11, 20, 7 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1500f, 14f,
-			() -> Ingredient.of(ItemInit.INFINITUM.get())),
-	HEATBLAST_ARMOUR("fire", 30, new int[] { 8, 10, 15, 13 }, 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
-			() -> Ingredient.of(ItemInit.FIRE.get()));
+	ARMOUR("legendary", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
+			() -> Ingredient.fromItems(ItemInit.LEGENDARY_ORE.get())),
+	JACKET("jacket", 30, new int[] { 6, 9, 12, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
+			() -> Ingredient.fromItems(ItemInit.OMNITRIX.get())),
+	XLR8_ARMOUR("speedy", 30, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
+			() -> Ingredient.fromItems(ItemInit.SPEED.get())),
+	FOURARMS_ARMOUR("fourarms", 50, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1500f, 1.5f,
+			() -> Ingredient.fromItems(ItemInit.RUBY.get())),
+	BLACK_DIAMOND_ARMOUR("black_diamond", 100, new int[] { 8, 9, 20, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1000f, 10f,
+			() -> Ingredient.fromItems(ItemInit.BLACK_DIAMOND.get())),
+	INFINITUM_ARMOUR("infinitum", 150, new int[] { 10, 11, 20, 7 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1500f, 14f,
+			() -> Ingredient.fromItems(ItemInit.INFINITUM.get())),
+	HEATBLAST_ARMOUR("fire", 30, new int[] { 8, 10, 15, 13 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 700f, 0.3f,
+			() -> Ingredient.fromItems(ItemInit.FIRE.get()));
 
 
 			
@@ -36,7 +36,6 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 	private final int enchantability;
 	private final SoundEvent equipSound;
 	private final float toghness;
-	private final float knockbackResistance;
 	private final Ingredient repairIngredient;
 
 	
@@ -48,32 +47,31 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 		this.enchantability = enchantability;
 		this.equipSound = equipSound;
 		this.toghness = toghness;
-		this.knockbackResistance = knockbackResistance;
 		this.repairIngredient = repairIngredient.get();
 	}
 	
 	@Override
-	public int getDurabilityForSlot(EquipmentSlotType slot) {
+	public int getDurability(EquipmentSlotType slot) {
 		return baseDurability[slot.getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
-	public int getDefenseForSlot(EquipmentSlotType slot) {
+	public int getDamageReductionAmount(EquipmentSlotType slot) {
 		return this.armorVal[slot.getIndex()];
 	}
 
 	@Override
-	public int getEnchantmentValue() {
+	public int getEnchantability() {
 		return this.enchantability;
 	}
 
 	@Override
-	public SoundEvent getEquipSound() {
+	public SoundEvent getSoundEvent() {
 		return this.equipSound;
 	}
 
 	@Override
-	public Ingredient getRepairIngredient() {
+	public Ingredient getRepairMaterial() {
 		return this.repairIngredient;
 	}
 
@@ -87,10 +85,7 @@ public enum CustomArmorMaterial implements IArmorMaterial {
 		return this.toghness;
 	}
 
-	@Override
-	public float getKnockbackResistance() {
-		return this.knockbackResistance;
-	}
+
 	
 	
 		

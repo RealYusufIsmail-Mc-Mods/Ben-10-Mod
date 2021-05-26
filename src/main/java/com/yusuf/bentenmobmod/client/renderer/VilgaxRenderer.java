@@ -18,14 +18,14 @@ public class VilgaxRenderer extends GeoEntityRenderer<VilgaxEntity>
 
 public VilgaxRenderer(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new VilgaxModel());
-		this.shadowRadius = 0.7F;
+		this.shadowSize = 0.7F;
 	}
 
 
 public RenderType getRenderType(VilgaxEntity animatable, float partialTicks, MatrixStack stack,
 		IRenderTypeBuffer renderTypeBuffer, IVertexBuilder vertexBuilder, int packedLightIn,
 		ResourceLocation textureLocation) {
-	return RenderType.entityTranslucent(getTextureLocation(animatable));
+	return RenderType.getEntityTranslucent(getTextureLocation(animatable));
 }
 
 

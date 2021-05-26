@@ -16,7 +16,7 @@ public class InputEvents {
 	@SubscribeEvent
 	public static void onKeyPress(InputEvent.KeyInputEvent event) {
 		Minecraft mc = Minecraft.getInstance();
-		if (mc.level == null) return;
+		if (mc.world == null) return;
 		onInput(mc, event.getKey(), event.getAction());
 		
 	}
@@ -24,14 +24,14 @@ public class InputEvents {
 	@SubscribeEvent
 	public static void onMouseClick(InputEvent.MouseInputEvent event) {
 		Minecraft mc = Minecraft.getInstance();
-		if (mc.level == null) return;
+		if (mc.world == null) return;
 		onInput(mc, event.getButton(), event.getAction());
 		
 	}
 
 	private static void onInput(Minecraft mc, int key, int action) {
 		
-		if (mc.screen != null && KeybindsInit.fireblastKey.consumeClick()) {
+		if (mc.world != null && KeybindsInit.fireblastKey.isPressed()) {
 			System.out.println("FIREBLAST KEY PRESSED");
 			
 		}
