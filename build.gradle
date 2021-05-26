@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 
 version = '1.15.2-1'
-group = 'com.Yusuf.bentenmobmod' 
+group = 'com.yusuf.bentenmobmod'
 archivesBaseName = 'bentenmobmod'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
