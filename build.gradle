@@ -81,7 +81,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.1.0'
     compile fg.deobf('software.bernie.geckolib:geckolib-forge-1.15.2:3.0.32')
    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-35.2")
 

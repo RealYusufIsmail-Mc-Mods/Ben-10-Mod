@@ -5,7 +5,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.feature.template.RuleTest;
 import net.minecraft.world.gen.placement.Placement;
 import net.minecraft.world.gen.placement.TopSolidRangeConfig;
 
@@ -40,11 +39,11 @@ public class FeatureInit {
 	}
 
 
-	public static void addOre(final Biome event, RuleTest rule, BlockState state, int veinSize,
-	 int minHeight, int maxHeight, int amount) {
+	public static void addOre(final Biome event, OreFeatureConfig.FillerBlockType rule, BlockState state, int veinSize,
+							  int minHeight, int maxHeight, int amount) {
 		event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
 				Feature.ORE.withConfiguration(new OreFeatureConfig(rule, state, veinSize))
-						.decorated(	Placement.COUNT_RANGE.configure(new TopSolidRangeConfig(minHeight,0, maxHeight)))
+						.withPlacement(	Placement.COUNT_RANGE.configure(new TopSolidRangeConfig(minHeight,0, maxHeight)))
 						.squared().func_242731_b(amount));
 	}
 }
