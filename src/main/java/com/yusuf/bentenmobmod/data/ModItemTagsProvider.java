@@ -1,21 +1,22 @@
-/*
+
 package com.yusuf.bentenmobmod.data;
 
-import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import com.yusuf.bentenmobmod.core.init.TagsInit;
-import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
-import net.minecraftforge.client.model.generators.ExistingFileHelper;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagProvider, Main.MOD_ID, existingFileHelper);
+    public ModItemTagsProvider(DataGenerator generatorIn) {
+        super(generatorIn);
     }
     @Override
-    protected void addTags() {
+    public String getName() {
+        return "Bent Ten Mob Mod - Item Tags";
+    }
+    @Override
+    protected void registerTags() {
         //ores
         copy(TagsInit.Blocks.ORES_BLACK_DIAMOND, TagsInit.Items.ORES_BLACK_DIAMOND);
         copy(TagsInit.Blocks.ORES_INFINITUM, TagsInit.Items.ORES_INFINITUM);
@@ -34,18 +35,18 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.STORAGE_VILGAX, TagsInit.Items.STORAGE_VILGAX);
 
         //ingots
-        tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(ItemInit.LEGENDARY_ORE.get());
-        tag(TagsInit.Items.INGOTS_OMNITRIX).add(ItemInit.OMNITRIX.get());
-        tag(TagsInit.Items.INGOTS_FIRE).add(ItemInit.FIRE.get());
-        tag(TagsInit.Items.INGOTS_RUBY).add(ItemInit.RUBY.get());
-        tag(TagsInit.Items.INGOTS_SPEED).add(ItemInit.SPEED.get());
-        tag(TagsInit.Items.INGOTS_BLACK_DIAMOND).add(ItemInit.BLACK_DIAMOND.get());
-        tag(TagsInit.Items.INGOTS_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
-        tag(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
-        tag(TagsInit.Items.INGOTS_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
+        getBuilder(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(ItemInit.LEGENDARY_ORE.get());
+        getBuilder(TagsInit.Items.INGOTS_OMNITRIX).add(ItemInit.OMNITRIX.get());
+        getBuilder(TagsInit.Items.INGOTS_FIRE).add(ItemInit.FIRE.get());
+        getBuilder(TagsInit.Items.INGOTS_RUBY).add(ItemInit.RUBY.get());
+        getBuilder(TagsInit.Items.INGOTS_SPEED).add(ItemInit.SPEED.get());
+        getBuilder(TagsInit.Items.INGOTS_BLACK_DIAMOND).add(ItemInit.BLACK_DIAMOND.get());
+        getBuilder(TagsInit.Items.INGOTS_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
+        getBuilder(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
+        getBuilder(TagsInit.Items.INGOTS_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
 
 
     }
 }
 
- */
+

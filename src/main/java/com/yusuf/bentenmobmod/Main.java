@@ -5,6 +5,7 @@ import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmobmod.core.util.ModResourceLocation;
 import com.yusuf.bentenmobmod.core.world.gen.OreGeneration;
 import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.entity.EntityType;
@@ -70,6 +71,12 @@ public class Main {
 	}
 	private void setup(final FMLCommonSetupEvent event) {
 		OreGeneration.generate();
+	}
+	public static ModResourceLocation getId(String path) {
+		if (path.contains(":")) {
+			throw new IllegalArgumentException("path contains namespace");
+		}
+		return new ModResourceLocation(path);
 	}
 
 }
