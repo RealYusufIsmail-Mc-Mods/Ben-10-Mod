@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "bentenmobmod:fourarms_leggings"
-  },
-  "result": "bentenmobmod:ruby",
-  "experience": 0.3,
-  "cookingtime": 300
-}
