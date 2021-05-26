@@ -5,7 +5,8 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 public class FoodInit {
 	  // Omnitrix Apple
-    public static final Food OMNITRIX_APPLE = new Food.Builder()
+      @Deprecated
+      public static final Food OMNITRIX_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 1200, 0), 1)
             .effect(new EffectInstance(Effects.ABSORPTION, 3600, 1), 1)
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 2400, 0), 1)
