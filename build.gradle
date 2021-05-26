@@ -51,8 +51,9 @@ minecraft {
         data {
             workingDirectory project.file('run')
 
-            property 'forge.logging.console.level', 'debug'
 
+            property 'forge.logging.console.level', 'debug'
+            property 'fml.earlyprogresswindow', 'false'
             args '--mod', 'bentenmobmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources')
 
 
