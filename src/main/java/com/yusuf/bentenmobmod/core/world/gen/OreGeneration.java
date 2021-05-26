@@ -10,7 +10,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class OreGeneration  {
-    private static void setupOreGenerations() {
+    private static void setupOreGeneration() {
         for (Biome biome : ForgeRegistries.BIOMES) {
             biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES,
                     Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE,
@@ -51,6 +51,6 @@ public class OreGeneration  {
 
 
 public static void generate() {
-        setupOreGenerations();
+    setupOreGeneration();
 }
 }
