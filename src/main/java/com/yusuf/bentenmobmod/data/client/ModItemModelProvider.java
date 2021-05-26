@@ -18,22 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        withExistingParent("black_diamond_block", modLoc("block/black_diamond_block"));
-        withExistingParent("black_diamond_ore", modLoc("block/black_diamond_ore"));
-        withExistingParent("infinitum_ore", modLoc("block/infinitum_ore"));
-        withExistingParent("fire_block", modLoc("block/fire_block"));
-        withExistingParent("fire_ore", modLoc("block/fire_ore"));
-        withExistingParent("legendary_block", modLoc("block/legendary_block"));
-        withExistingParent("omnitrix_block", modLoc("block/omnitrix_block"));
-        withExistingParent("speed_block", modLoc("block/speed_block"));
-        withExistingParent("ruby_block", modLoc("block/ruby_block"));
-        withExistingParent("ruby_ore", modLoc("block/ruby_ore"));
-        withExistingParent("infinitum_block", modLoc("block/infinitum_block"));
-        withExistingParent("speed_ore", modLoc("block/speed_ore"));
-        withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
-        withExistingParent("vilgax_block", modLoc("block/vilgax_block"));
-        withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
-        withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
+
 
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
