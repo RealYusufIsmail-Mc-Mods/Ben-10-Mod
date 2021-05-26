@@ -45,7 +45,6 @@ public class FeatureInit {
 				Feature.ORE.configured(new OreFeatureConfig(rule, state, veinSize))
 						.decorated(Placement.RANGE.configured(new TopSolidRangeConfig(minHeight, 0, maxHeight)))
 						.squared().count(amount));
-//cuase game to crash. DOnt think is right
 	}
 }
 
