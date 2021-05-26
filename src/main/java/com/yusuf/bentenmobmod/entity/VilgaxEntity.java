@@ -3,7 +3,6 @@ package com.yusuf.bentenmobmod.entity;
 import com.yusuf.bentenmobmod.entity.ai.VilgaxAttackGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.brain.memory.WalkTarget;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.CreeperEntity;
@@ -103,14 +102,19 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	}
+	protected void registerAttributes() {
+		super.registerAttributes();
+		this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
+		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)0.50);
+		this.getAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(48.0D);
+		this.getAttribute(SharedMonsterAttributes.ATTACK_SPEED).setBaseValue(10.0D);
+		this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(150.0D);
 
-	public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-		return MonsterEntity.func_233666_p_()
-				.createMutableAttribute(SharedMonsterAttributes.FOLLOW_RANGE, 35.0D)
-				.createMutableAttribute(SharedMonsterAttributes.MOVEMENT_SPEED, (double)0.23F)
-				.add(SharedMonsterAttributes.ATTACK_DAMAGE, 10.0D)
-				.createMutableAttribute(SharedMonsterAttributes.ARMOR, 2.0D)
-				.createMutableAttribute(SharedMonsterAttributes.MAX_HEALTH, 300.0D);
+	}
+
+	@Override
+	protected void registerData() {
+
 	}
 
 	protected boolean supportsBreakDoorGoal() {

@@ -14,12 +14,12 @@ public class VilgaxAttackGoal extends MeleeAttackGoal {
       this.vilgax = vilgax;
    }
 
-   public void start() {
+   public void startExecuting() {
       super.startExecuting();
       this.raiseArmTicks = 0;
    }
 
-   public void stop() {
+   public void resetTask() {
       super.resetTask();
       this.vilgax.setAggroed(false);
    }
@@ -27,7 +27,7 @@ public class VilgaxAttackGoal extends MeleeAttackGoal {
    public void tick() {
       super.tick();
       ++this.raiseArmTicks;
-      if (this.raiseArmTicks >= 5 && this.getTicksUntilNextAttack() < this.getAttackInterval() / 2) {
+      if (this.raiseArmTicks >= 5 && this.attackTick < 10) {
          this.vilgax.setAggroed(true);
       } else {
          this.vilgax.setAggroed(false);
