@@ -22,8 +22,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
 
-    mappings channel: 'snapshot', version: '20210309-1.15.1'
-    
+    mappings channel: 'snapshot', version: '20200514-1.15.1'
+
     runs {
         client {
             workingDirectory project.file('run')
@@ -81,7 +81,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.0'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
     compile fg.deobf('software.bernie.geckolib:geckolib-forge-1.15.2:3.0.32')
    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-35.2")
 
