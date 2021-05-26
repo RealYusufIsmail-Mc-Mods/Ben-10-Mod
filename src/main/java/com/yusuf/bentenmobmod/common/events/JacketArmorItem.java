@@ -19,9 +19,9 @@ public class JacketArmorItem extends ArmorItem implements IForgeItem{
 	}
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-			EffectInstance effect = new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
+			EffectInstance effect = new EffectInstance(Effects.RESISTANCE, 100, 2, false, false, true);
 			if (stack.getItem() == ItemInit.JACKET.get()) {
-				player.addEffect(effect);
+				player.addPotionEffect(effect);
 		}
 	}
 }

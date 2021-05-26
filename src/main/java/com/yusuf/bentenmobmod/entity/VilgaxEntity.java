@@ -36,7 +36,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
-	private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(VilgaxEntity.class,
+	private static final DataParameter<Boolean> ATTACKING = EntityDataManager.createKey(VilgaxEntity.class,
 			DataSerializers.BOOLEAN);
 
 	private AnimationFactory factory = new AnimationFactory(this);
@@ -98,17 +98,19 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.goalSelector.addGoal(1, new VilgaxAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(6, new MoveThroughVillageAtNightGoal(this, 1));
 		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombieEntity.class));
+		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setCallsForHelp(ZombieEntity.class));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	}
 
-	public static WalkTarget. registerAttributes() {
-		return MonsterEntity.createMonsterAttributes().add(SharedMonsterAttributes.FOLLOW_RANGE, 35.0D)
-				.add(SharedMonsterAttributes.MOVEMENT_SPEED, (double) 0.23F).add(SharedMonsterAttributes.ATTACK_DAMAGE, 10.0D)
-				.add(SharedMonsterAttributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
-				.add(SharedMonsterAttributes.MAX_HEALTH, 300.0D);
+	public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
+		return MonsterEntity.func_233666_p_()
+				.createMutableAttribute(SharedMonsterAttributes.FOLLOW_RANGE, 35.0D)
+				.createMutableAttribute(SharedMonsterAttributes.MOVEMENT_SPEED, (double)0.23F)
+				.add(SharedMonsterAttributes.ATTACK_DAMAGE, 10.0D)
+				.createMutableAttribute(SharedMonsterAttributes.ARMOR, 2.0D)
+				.createMutableAttribute(SharedMonsterAttributes.MAX_HEALTH, 300.0D);
 	}
 
 	protected boolean supportsBreakDoorGoal() {
@@ -161,11 +163,11 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	public boolean doHurtTarget(Entity p_70652_1_) {
-		boolean flag = super.doHurtTarget(p_70652_1_);
+		boolean flag = super.attackEntityAsMob(p_70652_1_);
 		if (flag) {
-			float f = this.level.getCurrentDifficultyAt(this.getCommandSenderBlockPosition()).getEffectiveDifficulty();
-			if (this.getMainHandItem().isEmpty() && this.isOnFire() && this.random.nextFloat() < f * 0.3F) {
-				p_70652_1_.setSecondsOnFire(2 * (int) f);
+			float f = this.world.getDifficultyForLocation(this.lastPortalPos).getAdditionalDifficulty();
+			if (this.getHeldItemMainhand().isEmpty() && this.isBurning() && this.rand.nextFloat() < f * 0.3F) {
+				p_70652_1_.setFire(2 * (int) f);
 			}
 		}
 
@@ -173,19 +175,19 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PHANTOM_AMBIENT	;
+		return SoundEvents.ENTITY_SQUID_AMBIENT	;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-		return SoundEvents.IRON_GOLEM_HURT;
+		return SoundEvents.ENTITY_SQUID_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.IRON_GOLEM_DEATH;
+		return SoundEvents.ENTITY_SQUID_DEATH;
 	}
 
 	protected SoundEvent getStepSound() {
-		return SoundEvents.IRON_GOLEM_STEP;
+		return SoundEvents.ENTITY_IRON_GOLEM_STEP;
 	}
 
 	protected void playStepSound(BlockPos p_180429_1_, BlockState p_180429_2_) {
@@ -197,48 +199,39 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
-		super.populateDefaultEquipmentSlots(p_180481_1_);
-		if (this.random.nextFloat() < (this.level.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
-			int i = this.random.nextInt(3);
+		super.setEquipmentBasedOnDifficulty(p_180481_1_);
+		if (this.rand.nextFloat() < (this.world.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
+			int i = this.rand.nextInt(3);
 			if (i == 0) {
-				this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SWORD));
+				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SWORD));
 			} else {
-				this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SHOVEL));
+				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SHOVEL));
 			}
 		}
 
 	}
 
-	public void killed(ServerWorld p_241847_1_, LivingEntity p_241847_2_) {
-		super.killed(p_241847_1_, p_241847_2_);
-		{
-			if (p_241847_1_.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
-				return;
-			}
 
-		}
-
-	}
 
 	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
-		return this.isBaby() ? 0.93F : 1.74F;
+		return this.isChild() ? 0.93F : 1.74F;
 	}
 
 	public boolean canHoldItem(ItemStack p_175448_1_) {
-		return p_175448_1_.getItem() == Items.EGG && this.isBaby() && this.isPassenger() ? false
-				: super.canHoldItem(p_175448_1_);
+		return p_175448_1_.getItem() == Items.EGG && this.isChild() && this.isPassenger() ? false
+				: super.canEquipItem(p_175448_1_);
 	}
 
 	protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
-		super.dropCustomDeathLoot(p_213333_1_, p_213333_2_, p_213333_3_);
-		Entity entity = p_213333_1_.getEntity();
+		super.dropSpecialItems(p_213333_1_, p_213333_2_, p_213333_3_);
+		Entity entity = p_213333_1_.getTrueSource();
 		if (entity instanceof CreeperEntity) {
 			CreeperEntity creeperentity = (CreeperEntity) entity;
-			if (creeperentity.canDropMobsSkull()) {
+			if (creeperentity.ableToCauseSkullDrop()) {
 				ItemStack itemstack = null;
 				if (!itemstack.isEmpty()) {
-					creeperentity.increaseDroppedSkulls();
-					this.spawnAtLocation(itemstack);
+					creeperentity.incrementDroppedSkulls();
+					this.entityDropItem(itemstack);
 				}
 			}
 		}

@@ -22,15 +22,15 @@ super(materialIn, slot, builder);
 
 @Override
 public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-	ItemStack boot = player.getItemBySlot(EquipmentSlotType.FEET);
-	ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
-	ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
-	ItemStack helmet = player.getItemBySlot(EquipmentSlotType.HEAD);
+	ItemStack boot = player.getItemStackFromSlot(EquipmentSlotType.FEET);
+	ItemStack chest = player.getItemStackFromSlot(EquipmentSlotType.CHEST);
+	ItemStack legs = player.getItemStackFromSlot(EquipmentSlotType.LEGS);
+	ItemStack helmet = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
 	
 	if(boot.getItem() == ItemInit.BOOT.get() && legs.getItem() == ItemInit.LEGGINGS.get() && chest.getItem() == ItemInit.CHESTPLATE.get() && helmet.getItem() == ItemInit.HELMET.get());
 	{
-	player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
-	player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
+	player.addPotionEffect(new EffectInstance(Effects.STRENGTH, 100, 1, false, false, true));
+	player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 100, 2, false, false, true));
 	}
 }
 }

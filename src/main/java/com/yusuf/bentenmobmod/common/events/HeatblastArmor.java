@@ -26,19 +26,19 @@ public final PlayerAbilities abilities = new PlayerAbilities();
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		
-		ItemStack boots = player.getItemBySlot(EquipmentSlotType.FEET);
-		ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
-		ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
-		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
+		ItemStack boots = player.getItemStackFromSlot(EquipmentSlotType.FEET);
+		ItemStack legs = player.getItemStackFromSlot(EquipmentSlotType.LEGS);
+		ItemStack chest = player.getItemStackFromSlot(EquipmentSlotType.CHEST);
+		ItemStack head = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-			player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 3, false, false, true));
-			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 3, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 3, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
-			player.abilities.mayfly = true;
+			player.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 3, false, false, true));
+			player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, 3, false, false, true));
+			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 100, 3, false, false, true));
+			player.addPotionEffect(new EffectInstance(Effects.STRENGTH, 100, 1, false, false, true));
+			player.abilities.allowFlying = true;
 			player.fallDistance = 0.0F;
-			player.abilities.setFlyingSpeed(0.1F);
+			player.abilities.setFlySpeed(0.1F);
 		}
 		
 		

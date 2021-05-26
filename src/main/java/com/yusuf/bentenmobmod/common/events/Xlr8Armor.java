@@ -20,15 +20,15 @@ public class Xlr8Armor extends ArmorItem implements IForgeItem {
 	@Override
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		
-		ItemStack boots = player.getItemBySlot(EquipmentSlotType.FEET);
-		ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
-		ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
-		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
+		ItemStack boots = player.getItemStackFromSlot(EquipmentSlotType.FEET);
+		ItemStack legs = player.getItemStackFromSlot(EquipmentSlotType.LEGS);
+		ItemStack chest = player.getItemStackFromSlot(EquipmentSlotType.CHEST);
+		ItemStack head = player.getItemStackFromSlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.XLR8_BOOT.get() && legs.getItem() == ItemInit.XLR8_LEGGINGS.get() && chest.getItem() == ItemInit.XLR8_CHESTPLATE.get() && head.getItem() == ItemInit.XLR8_HELMET.get()) {
-			player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 7, false, false, true));
-			player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
-			player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 100, 45, false, false, true));
+			player.addPotionEffect(new EffectInstance(Effects.REGENERATION, 100, 7, false, false, true));
+			player.addPotionEffect(new EffectInstance(Effects.RESISTANCE, 100, 2, false, false, true));
+			player.addPotionEffect(new EffectInstance(Effects.SPEED, 100, 45, false, false, true));
 			 
 		}
 	
