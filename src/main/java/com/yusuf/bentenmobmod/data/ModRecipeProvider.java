@@ -372,7 +372,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //other items
 
-        ShapedRecipeBuilder.shapedRecipe(EntityTypesInit.VILGAX_SPAWN_EGG.get())
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.VILGAX_SPAWN_EGG.get())
                 .key('L', ItemInit.OMNITRIX.get())
                 .key('A', ItemInit.RUBY.get())
                 .patternLine("AAA")

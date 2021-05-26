@@ -102,7 +102,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	}
-	protected void registerAttributes() {
+	public void registerAttributes() {
 		super.registerAttributes();
 		this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(6.0D);
 		this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue((double)0.50);

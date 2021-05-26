@@ -5,6 +5,7 @@ import com.yusuf.bentenmobmod.common.events.*;
 import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -214,5 +215,8 @@ public class ItemInit {
 					new Item.Properties().group(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
 	// other items
 
+	public static final RegistryObject<ModSpawnEggItem> VILGAX_SPAWN_EGG = ITEMS.register("vilgax_spawn_egg",
+			() -> new ModSpawnEggItem(EntityTypesInit.VILGAX_ENTITY, 0xC4AA79, 0x7A5F22,
+					new Item.Properties().group(MainItemGroup.MAIN).maxStackSize(16)));
 //0xC4AA79, 0x7A5F22
 }
