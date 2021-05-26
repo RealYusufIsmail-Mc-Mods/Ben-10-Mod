@@ -34,27 +34,21 @@ gentworm: https://www.curseforge.com/members/gentworm/followers
    
     modId="forge"
     mandatory=true
-    versionRange="[36,)" 
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.bentenmobmod]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,)"
+    versionRange="[1.15.2,)"
     ordering="NONE"
     side="BOTH"
-   
+
     [[dependencies.bentenmobmod]]
     modId="patchouli"
     mandatory=true
-    versionRange="[1.16.4-50,)"
+    versionRange="[1.15.2-35,)"
     ordering="NONE"
     side="BOTH"
     
-    [[dependencies.bentenmobmod]]
-    modId="geckolib3"
-    mandatory=true
-    versionRange="[3.0.30,)"
-    ordering="BEFORE"
-    side="BOTH"
 
