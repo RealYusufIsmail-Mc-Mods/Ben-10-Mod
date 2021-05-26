@@ -1,4 +1,6 @@
+/*
 package com.yusuf.bentenmobmod.core.init;
+
 
 import net.minecraft.block.BlockState;
 import net.minecraft.world.biome.Biome;
@@ -48,4 +50,6 @@ public class FeatureInit {
 	}
 }
 
+
+ */
 
