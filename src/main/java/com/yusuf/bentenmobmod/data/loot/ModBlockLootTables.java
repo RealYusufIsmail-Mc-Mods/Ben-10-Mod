@@ -19,15 +19,10 @@ public class ModBlockLootTables extends BlockLootTables {
                 createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
         add(BlockInit.RUBY_ORE.get(),
                 createOreDrop(BlockInit.RUBY_ORE.get(), ItemInit.RUBY.get()));
-        add(BlockInit.OMNITRIX_ORE.get(),
-                createOreDrop(BlockInit.OMNITRIX_ORE.get(), ItemInit.OMNITRIX.get()));
-        add(BlockInit.SPEED_ORE.get(),
-                createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
-        add(BlockInit.LEGENDARY_ORE_BLOCK.get(),
-                createOreDrop(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.LEGENDARY_ORE.get()));
-        add(BlockInit.FIRE_ORE.get(),
-                createOreDrop(BlockInit.FIRE_ORE.get(), ItemInit.FIRE.get()));
-
+        dropSelf(BlockInit.FIRE_ORE.get());
+        dropSelf(BlockInit.LEGENDARY_ORE_BLOCK.get());
+        dropSelf(BlockInit.SPEED_ORE.get());
+        dropSelf(BlockInit.OMNITRIX_ORE.get());
         //blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
         dropSelf(BlockInit.FIRE_BLOCK.get());
