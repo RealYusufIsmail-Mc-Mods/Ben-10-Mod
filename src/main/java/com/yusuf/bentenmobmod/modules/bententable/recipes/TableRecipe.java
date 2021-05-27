@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmobmod.modules.bententable.recipes;
 
 import net.minecraft.inventory.IInventory;
@@ -60,3 +61,5 @@ public class TableRecipe  implements IRecipe<IInventory> {
         return TableModule.SPAWNER_RECIPE_TYPE;
     }
 }
+
+ */
