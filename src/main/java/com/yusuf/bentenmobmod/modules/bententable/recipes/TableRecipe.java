@@ -10,15 +10,15 @@ import net.minecraft.world.World;
 
 public class TableRecipe  implements IRecipe<IInventory> {
     private final ResourceLocation id;
-    private final TableRecipe.Updgradeore item1;
+    private final TableRecipe.Upgradeore item1;
     private final TableRecipe.Result item2;
-    public TableRecipe(ResourceLocation id, TableRecipe.Updgradeore item1, TableRecipe.Result item2) {
+    public TableRecipe(ResourceLocation id, TableRecipe.Upgradeore item1, TableRecipe.Result item2) {
 
         this.id = id;
         this.item1 = item1;
         this.item2 = item2;
     }
-    public TableRecipe.Updgradeore getItem1() {
+    public TableRecipe.Upgradeore getItem1() {
         return item1;
     }
 
