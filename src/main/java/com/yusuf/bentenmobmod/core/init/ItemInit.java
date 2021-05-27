@@ -5,7 +5,6 @@ import com.yusuf.bentenmobmod.common.events.*;
 import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
