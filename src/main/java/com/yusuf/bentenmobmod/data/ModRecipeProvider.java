@@ -303,6 +303,36 @@ public class ModRecipeProvider extends RecipeProvider {
                 .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
                 .build(consumer,modId("fourarms_leggings"));
 
+        ShapedRecipeBuilder.shapedRecipe(ItemInit..get())
+                .key('A', ItemInit..get())
+                .patternLine("AAA")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
+                .build(consumer,modId("fourarms_helmet"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit..get())
+                .key('#', ItemInit.OMNITRIX.get())
+                .key('A', ItemInit.RUBY.get())
+                .patternLine("A A")
+                .patternLine("A#A")
+                .patternLine("AAA")
+                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
+                .build(consumer,modId("fourarms_chestplate"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_LEGGINGS.get())
+                .key('A', ItemInit.RUBY.get())
+                .patternLine("AAA")
+                .patternLine("A A")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
+                .build(consumer,modId("fourarms_leggings"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_BOOT.get())
+                .key('A', ItemInit.RUBY.get())
+                .patternLine("A A")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
+
         ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_BOOT.get())
                 .key('A', ItemInit.RUBY.get())
                 .patternLine("A A")
