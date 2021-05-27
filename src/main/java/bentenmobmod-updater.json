@@ -2,10 +2,11 @@
 "homepage": "https://realyusufismail.github.io/custom-mod/",
 
   "promos": {
-    "1.16.5-latest": "bentenmobmod-1.16.5-1.12",
-    "1.16.5-recommended": "bentenmobmod-1.16.5-1.12",
+    "1.16.5-latest": "bentenmobmod-1.16.5-1.14",
+    "1.16.5-recommended": "bentenmobmod-1.16.5-1.13",
 
-    "1.15.2-latest": "bentenmobmod-1.15.2-1",
-    "1.15.2-recommended": "bentenmobmod-1.15.2-1"
+    "1.15.2-latest": "bentenmobmod-1.15.2-2",
+    "1.15.2-recommended": "bentenmobmod-1.15.2-2"
   }
 }
+
