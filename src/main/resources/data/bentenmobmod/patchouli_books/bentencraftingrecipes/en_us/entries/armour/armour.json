@@ -33,8 +33,26 @@
       "recipe": "bentenmobmod:fourarms_leggings",
       "recipe2": "bentenmobmod:fourarms_boot"
     },
-
-
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:black_diamond_helmet",
+      "recipe2": "bentenmobmod:black_diamond_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:black_diamond_leggings",
+      "recipe2": "bentenmobmod:black_diamond_boot"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:infinitum_helmet",
+      "recipe2": "bentenmobmod:infinitum_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:infinitum_leggings",
+      "recipe2": "bentenmobmod:infinitum_boot"
+    },
     {
       "type": "crafting",
       "recipe": "bentenmobmod:jacket"

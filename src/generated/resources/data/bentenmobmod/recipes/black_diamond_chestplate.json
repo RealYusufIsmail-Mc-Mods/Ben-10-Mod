@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "A#A",
+    "AAA"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "A": {
+      "item": "bentenmobmod:black_diamond"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:black_diamond_chestplate"
+  }
+}

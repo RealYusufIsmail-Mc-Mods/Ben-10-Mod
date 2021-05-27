@@ -22,6 +22,7 @@ public class ModBlockLootTables extends BlockLootTables {
         registerDropSelfLootTable(BlockInit.RUBY_ORE.get());
         registerDropSelfLootTable(BlockInit.LEGENDARY_ORE_BLOCK.get());
         registerDropSelfLootTable(BlockInit.FIRE_ORE.get());
+        registerDropSelfLootTable(BlockInit.SPEED_ORE.get());
         registerDropSelfLootTable(BlockInit.OMNITRIX_ORE.get());
         registerDropSelfLootTable(BlockInit.OMNITRIX_BLOCK.get());
         registerDropSelfLootTable(BlockInit.FIRE_BLOCK.get());

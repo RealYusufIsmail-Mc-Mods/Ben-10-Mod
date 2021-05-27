@@ -2,7 +2,6 @@ package com.yusuf.bentenmobmod.data;
 
 import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.init.BlockInit;
-import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
@@ -303,44 +302,161 @@ public class ModRecipeProvider extends RecipeProvider {
                 .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
                 .build(consumer,modId("fourarms_leggings"));
 
-        ShapedRecipeBuilder.shapedRecipe(ItemInit..get())
-                .key('A', ItemInit..get())
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_HELMET.get())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
                 .patternLine("AAA")
                 .patternLine("A A")
-                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
-                .build(consumer,modId("fourarms_helmet"));
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_helmet"));
 
-        ShapedRecipeBuilder.shapedRecipe(ItemInit..get())
-                .key('#', ItemInit.OMNITRIX.get())
-                .key('A', ItemInit.RUBY.get())
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_CHESTPLATE.get())
+                .key('#', Items.DIAMOND.getItem())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
                 .patternLine("A A")
                 .patternLine("A#A")
                 .patternLine("AAA")
-                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
-                .build(consumer,modId("fourarms_chestplate"));
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_chestplate"));
 
-        ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_LEGGINGS.get())
-                .key('A', ItemInit.RUBY.get())
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_LEGGINGS.get())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
                 .patternLine("AAA")
                 .patternLine("A A")
                 .patternLine("A A")
-                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
-                .build(consumer,modId("fourarms_leggings"));
-
-        ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_BOOT.get())
-                .key('A', ItemInit.RUBY.get())
-                .patternLine("A A")
-                .patternLine("A A")
-                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
-
-        ShapedRecipeBuilder.shapedRecipe(ItemInit.FOURARMS_BOOT.get())
-                .key('A', ItemInit.RUBY.get())
-                .patternLine("A A")
-                .patternLine("A A")
-                .addCriterion("has_item", hasItem(ItemInit.RUBY.get()))
-                .build(consumer,modId("fourarms_boot"));
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_leggings"));
 
 
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_BOOTS.get())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
+                .patternLine("A A")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_boot"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_SWORD.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
+                .patternLine(" A ")
+                .patternLine(" A ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_sword"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_PICKAXE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
+                .patternLine("AAA")
+                .patternLine(" # ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_pickaxe"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_AXE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
+                .patternLine(" AA")
+                .patternLine(" #A")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_axe"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_SHOVEL.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
+                .patternLine(" A ")
+                .patternLine(" # ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_shovel"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.BLACK_DIAMOND_HOE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.BLACK_DIAMOND.get())
+                .patternLine(" AA")
+                .patternLine(" A ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.BLACK_DIAMOND.get()))
+                .build(consumer,modId("black_diamond_hoe"));
+
+
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_HELMET.get())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine("AAA")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_helmet"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_CHESTPLATE.get())
+                .key('#', ItemInit.BLACK_DIAMOND.get())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine("A A")
+                .patternLine("A#A")
+                .patternLine("AAA")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_chestplate"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_LEGGINGS.get())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine("AAA")
+                .patternLine("A A")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_leggings"));
+
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_BOOTS.get())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine("A A")
+                .patternLine("A A")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_boot"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_SWORD.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine(" A ")
+                .patternLine(" A ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_sword"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_PICKAXE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine("AAA")
+                .patternLine(" # ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_pickaxe"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_AXE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine(" AA")
+                .patternLine(" #A")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_axe"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_SHOVEL.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine(" A ")
+                .patternLine(" # ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_shovel"));
+
+        ShapedRecipeBuilder.shapedRecipe(ItemInit.INFINITUM_HOE.get())
+                .key('#', Items.STICK.getItem())
+                .key('A', ItemInit.INFINITUM.get())
+                .patternLine(" AA")
+                .patternLine(" A ")
+                .patternLine(" # ")
+                .addCriterion("has_item", hasItem(ItemInit.INFINITUM.get()))
+                .build(consumer,modId("infinitum_hoe"));
 
         ShapedRecipeBuilder.shapedRecipe(ItemInit.JACKET.get())
                 .key('A', ItemInit.OMNITRIX.get())

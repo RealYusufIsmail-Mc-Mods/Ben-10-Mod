@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
+    "AAA",
     "A A",
     "A A"
   ],
   "key": {
     "A": {
-      "item": "bentenmobmod:ruby"
+      "item": "bentenmobmod:black_diamond"
     }
   },
   "result": {
-    "item": "bentenmobmod:fourarms_boot"
+    "item": "bentenmobmod:black_diamond_leggings"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "A#A",
+    "AAA"
+  ],
+  "key": {
+    "#": {
+      "item": "bentenmobmod:black_diamond"
+    },
+    "A": {
+      "item": "bentenmobmod:infinitum"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:infinitum_chestplate"
+  }
+}

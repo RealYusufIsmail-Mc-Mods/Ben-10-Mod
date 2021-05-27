@@ -8,11 +8,34 @@
       "recipe": "bentenmobmod:sword",
       "recipe2": "bentenmobmod:heatblast_sword"
     },
-
     {
       "type": "crafting",
       "recipe": "bentenmobmod:axe",
-      "recipe2": "bentenmobmod:bentencraftingrecipes"
+      "recipe2": "bentenmobmod:black_diamond_sword"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:black_diamond_pickaxe",
+      "recipe2": "bentenmobmod:black_diamond_axe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:black_diamond_shovel",
+      "recipe2": "bentenmobmod:black_diamond_hoe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:infinitum_sword",
+      "recipe2": "bentenmobmod:infinitum_pickaxe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:infinitum_axe",
+      "recipe2": "bentenmobmod:infinitum_shovel"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmobmod:infinitum_hoe"
     }
 
   ]

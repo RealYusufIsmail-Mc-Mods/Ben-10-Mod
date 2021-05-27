@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    " A ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "item": "bentenmobmod:infinitum"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:infinitum_sword"
+  }
+}
