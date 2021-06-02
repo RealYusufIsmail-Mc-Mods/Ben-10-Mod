@@ -74,8 +74,8 @@ repositories {
     maven { url 'https://repo.repsy.io/mvn/gandiber/geckolib' }
      maven { url 'https://maven.blamejared.com' }
 }
- 
-   
+
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
