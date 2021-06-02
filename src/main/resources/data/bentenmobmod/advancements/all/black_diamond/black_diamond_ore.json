@@ -10,7 +10,7 @@
       "text": "You have made an Black Diamond ingot which means you can use a smithing table to convert diamond tool or armour to black diamond."
     },
     "icon": {
-      "item": "bentenmobmod:black_diamond"
+      "item": "bentenmobmod:black_diamond",
        "nbt": "{Damage:0}"
     },
     "frame": "goal",
