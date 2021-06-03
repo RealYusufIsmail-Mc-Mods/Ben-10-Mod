@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "A#A",
+    "AAA"
+  ],
+  "key": {
+    "#": {
+      "item": "bentenmobmod:ruby"
+    },
+    "A": {
+      "item": "bentenmobmod:legendary_ore"
+    }
+  },
+  "result": {
+    "item": "bentenmobmod:chestplate"
+  }
+}
