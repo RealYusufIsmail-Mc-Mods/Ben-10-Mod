@@ -12,7 +12,8 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.16.5-1.15'
+
+version = '1.17.5-1.15'
 group = 'com.yusuf.bentenmobmod' 
 archivesBaseName = 'bentenmobmod'
 
