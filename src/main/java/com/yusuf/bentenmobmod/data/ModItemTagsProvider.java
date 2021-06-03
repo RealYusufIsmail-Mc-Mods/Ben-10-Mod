@@ -46,9 +46,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.INGOTS_RUBY).add(ItemInit.RUBY.get());
         tag(TagsInit.Items.INGOTS_SPEED).add(ItemInit.SPEED.get());
         tag(TagsInit.Items.INGOTS_BLACK_DIAMOND).add(ItemInit.BLACK_DIAMOND.get());
-        tag(TagsInit.Items.INGOTS_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
+        tag(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
         tag(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
-        tag(TagsInit.Items.INGOTS_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
+        tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
 
 
     }

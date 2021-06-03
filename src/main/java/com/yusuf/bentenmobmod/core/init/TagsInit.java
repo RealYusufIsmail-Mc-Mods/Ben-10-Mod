@@ -77,9 +77,9 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> INGOTS_RUBY = ItemTags.bind("forge:ingots/ruby");
         public static final ITag.INamedTag<Item> INGOTS_SPEED = ItemTags.bind("forge:ingots/speed");
         public static final ITag.INamedTag<Item> INGOTS_BLACK_DIAMOND = ItemTags.bind("forge:ingots/black_diamond");
-        public static final ITag.INamedTag<Item> INGOTS_BLACK_DIAMOND_SCRAP = ItemTags.bind("forge:ingots/black_diamond_scrap");
+        public static final ITag.INamedTag<Item> SCRAP_BLACK_DIAMOND_SCRAP = ItemTags.bind("forge:scraps/black_diamond_scrap");
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = ItemTags.bind("forge:ingots/infinitum");
-        public static final ITag.INamedTag<Item> INGOTS_INFINITUM_SCRAP = ItemTags.bind("forge:ingots/infinitum_scrap");
+        public static final ITag.INamedTag<Item> SCRAP_INFINITUM_SCRAP = ItemTags.bind("forge:scraps/infinitum_scrap");
 
         //food
 
