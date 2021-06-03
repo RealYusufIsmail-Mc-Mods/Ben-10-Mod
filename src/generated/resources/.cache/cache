@@ -352,10 +352,8 @@ d08ebbb5dab4197600142bfafd555e4da3c976b3 data/forge/tags/blocks/storage_blocks/i
 964b587ec181731f0ddc989f0d44bc08cf0181db data/forge/tags/blocks/storage_blocks/speed.json
 1e102f35c2dfe3268413c10962ab2dcbe08aaf7e data/forge/tags/blocks/storage_blocks/vilgax.json
 de5c66ab328ea35ba87338f203602a4e3a80c800 data/forge/tags/items/ingots/black_diamond.json
-87a223cae730ba3c7a4413c7ccbc30eb0b26842e data/forge/tags/items/ingots/black_diamond_scrap.json
 5e3b7b38e459a07bace5f09c9f2bbd8704896838 data/forge/tags/items/ingots/fire.json
 71d9e7eb3d81d02dbae48f72ae4a3223ad753f6e data/forge/tags/items/ingots/infinitum.json
-dfbaeb8084b9338085923d773e476dbc76ccde37 data/forge/tags/items/ingots/infinitum_scrap.json
 c18b1dc7855677fd3fc9279318c56f980f426125 data/forge/tags/items/ingots/legendary_ore.json
 f67f855bf1169e8c06ae4a9cffcb93d21a059724 data/forge/tags/items/ingots/omnitrix.json
 16134635962f5db2270c903b11061fbb7cf77f9c data/forge/tags/items/ingots/ruby.json
@@ -373,6 +371,8 @@ e4e8c9de482225a2492880bd44059ebd1599ceae data/forge/tags/items/ores/legendary_or
 3b7aac9833151c78b6ddfe50216efcda5895f135 data/forge/tags/items/ores/omnitrix.json
 56b9ad58dee388f9914fafced4f1a942180a413b data/forge/tags/items/ores/ruby.json
 e73bb7a29b08b9278cdde954f93229144f0accbf data/forge/tags/items/ores/speed.json
+87a223cae730ba3c7a4413c7ccbc30eb0b26842e data/forge/tags/items/scraps/black_diamond_scrap.json
+dfbaeb8084b9338085923d773e476dbc76ccde37 data/forge/tags/items/scraps/infinitum_scrap.json
 b54ff1a2f32ef62e24040dbc1dfbfc2492944ab3 data/forge/tags/items/storage_blocks/black_diamond.json
 00687d8bad76892fb1be942d542a33a2e9c62959 data/forge/tags/items/storage_blocks/fire.json
 d08ebbb5dab4197600142bfafd555e4da3c976b3 data/forge/tags/items/storage_blocks/infinitum.json
