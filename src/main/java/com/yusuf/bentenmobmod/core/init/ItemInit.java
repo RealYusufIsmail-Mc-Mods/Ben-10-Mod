@@ -39,6 +39,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> INFINITUM = ITEMS.register("infinitum",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> IMPERIUM = ITEMS.register("imperium",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
 	public static final RegistryObject<Item> INFINITUM_SCRAP = ITEMS.register("infinitum_scrap",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
@@ -50,6 +53,8 @@ public class ItemInit {
 	public static final RegistryObject<Item> RAW_OMNITRIX = ITEMS.register("raw_omnitrix",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> RAW_IMPERIUM = ITEMS.register("raw_imperium",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.SWORD, 0, 7f,

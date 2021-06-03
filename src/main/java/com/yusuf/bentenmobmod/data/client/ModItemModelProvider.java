@@ -47,7 +47,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "boot");
         builder(itemGenerated, "chestplate");
         builder(itemGenerated, "legendary_ore");
-        builder(itemGenerated, "raw_legendary");
         builder(itemGenerated, "omnitrix");
         builder(itemGenerated, "fire");
         builder(itemGenerated, "ruby");
@@ -80,6 +79,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "fourarms_chestplate");
         builder(itemGenerated, "fourarms_leggings");
         builder(itemGenerated, "fourarms_boot");
+        builder(itemGenerated, "raw_legendary");
+        builder(itemGenerated, "raw_omnitrix");
+        builder(itemGenerated, "raw_imperium");
+
+
 
 
 

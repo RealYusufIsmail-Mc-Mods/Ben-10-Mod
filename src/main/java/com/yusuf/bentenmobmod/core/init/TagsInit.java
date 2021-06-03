@@ -80,6 +80,15 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> SCRAP_BLACK_DIAMOND_SCRAP = ItemTags.bind("forge:scraps/black_diamond_scrap");
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = ItemTags.bind("forge:ingots/infinitum");
         public static final ITag.INamedTag<Item> SCRAP_INFINITUM_SCRAP = ItemTags.bind("forge:scraps/infinitum_scrap");
+        public static final ITag.INamedTag<Item> INGOTS_IMPERIUM = ItemTags.bind("forge:ingots/ruby");
+
+        //raw ore
+
+        public static final ITag.INamedTag<Item> RAW_ORE_IMPERIUM = ItemTags.bind("forge:raw_ore/ruby");
+        public static final ITag.INamedTag<Item> RAW_ORE_OMNITRIX = ItemTags.bind("forge:raw_ore/ruby");
+        public static final ITag.INamedTag<Item> RAW_ORE_LEGENDARY = ItemTags.bind("forge:raw_ore/ruby");
+
+
 
         //food
 

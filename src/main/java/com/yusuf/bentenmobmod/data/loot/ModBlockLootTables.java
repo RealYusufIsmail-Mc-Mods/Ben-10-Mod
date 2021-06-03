@@ -31,11 +31,16 @@ public class ModBlockLootTables extends BlockLootTables {
                 createOreDrop(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.RAW_LEGENDARY.get()));
         add(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get(),
                 createOreDrop(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get(), ItemInit.RAW_LEGENDARY.get()));
+        add(BlockInit.IMPERIUM_ORE.get(),
+                createOreDrop(BlockInit.IMPERIUM_ORE.get(), ItemInit.RAW_IMPERIUM.get()));
+        add(BlockInit.DEEPSLATE_IMPERIUM_ORE.get(),
+                createOreDrop(BlockInit.DEEPSLATE_IMPERIUM_ORE.get(), ItemInit.RAW_IMPERIUM.get()));
+        add(BlockInit.OMNITRIX_ORE.get(),
+                createOreDrop(BlockInit.OMNITRIX_ORE.get(), ItemInit.RAW_OMNITRIX.get()));
+        add(BlockInit.DEEPSLATE_OMNITRIX_ORE.get(),
+                createOreDrop(BlockInit.DEEPSLATE_OMNITRIX_ORE.get(), ItemInit.RAW_OMNITRIX.get()));
         dropSelf(BlockInit.FIRE_ORE.get());
-        dropSelf(BlockInit.IMPERIUM_ORE.get());
-        dropSelf(BlockInit.OMNITRIX_ORE.get());
-        dropSelf(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
-        dropSelf(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
+
 
 
 
