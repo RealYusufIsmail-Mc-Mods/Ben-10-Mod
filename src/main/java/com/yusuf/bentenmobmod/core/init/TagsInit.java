@@ -58,8 +58,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_RUBY = forge("ores/deepslate_ruby");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_SPEED = forge("ores/deepslate_speed");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_OMNITRIX = forge("ores/deepslate_omnitrix");
-        public static final ITag.
-                INamedTag<Item> ORES_DEEPSLATE_IMPERIUM = forge("ores/deepslate_imperium");
+        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_IMPERIUM = forge("ores/deepslate_imperium");
         public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCK = forge("ores/legendary_ore_block");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK = forge("ores/legendary_ore_block");
         //blocks
@@ -80,7 +79,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> INGOTS_BLACK_DIAMOND = forge("ingots/black_diamond");
         public static final ITag.INamedTag<Item> INGOTS_BLACK_DIAMOND_SCRAP = forge("ingots/black_diamond_scrap");
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = forge("ingots/infinitum");
-        public static final ITag.INamedTag<Item> INGOTS_INFINITUM_SCRAP = forge("ingots/infinitum_scrap");
+        public static final ITag.INamedTag<Item> INGOTS_INFINITUM_SCRAP = ItemTags.bind("ingots/infinitum_scrap");
 
         //food
 

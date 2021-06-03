@@ -27,11 +27,13 @@ public class ModBlockLootTables extends BlockLootTables {
                 createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
         add(BlockInit.DEEPSLATE_SPEED_ORE.get(),
                 createOreDrop(BlockInit.DEEPSLATE_SPEED_ORE.get(), ItemInit.SPEED.get()));
+        add(BlockInit.LEGENDARY_ORE_BLOCK.get(),
+                createOreDrop(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.RAW_LEGENDARY.get()));
+        add(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get(),
+                createOreDrop(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get(), ItemInit.RAW_LEGENDARY.get()));
         dropSelf(BlockInit.FIRE_ORE.get());
-        dropSelf(BlockInit.LEGENDARY_ORE_BLOCK.get());
         dropSelf(BlockInit.IMPERIUM_ORE.get());
         dropSelf(BlockInit.OMNITRIX_ORE.get());
-        dropSelf(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
         dropSelf(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
         dropSelf(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
 
