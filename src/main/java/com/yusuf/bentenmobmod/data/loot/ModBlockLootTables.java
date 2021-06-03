@@ -22,7 +22,16 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(BlockInit.FIRE_ORE.get());
         dropSelf(BlockInit.LEGENDARY_ORE_BLOCK.get());
         dropSelf(BlockInit.SPEED_ORE.get());
+        dropSelf(BlockInit.IMPERIUM_ORE.get());
         dropSelf(BlockInit.OMNITRIX_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
+        dropSelf(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_SPEED_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_RUBY_ORE.get());
+
+
         //blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
         dropSelf(BlockInit.FIRE_BLOCK.get());
@@ -30,7 +39,6 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(BlockInit.SPEED_BLOCK.get());
         dropSelf(BlockInit.INFINITUM_BLOCK.get());
         dropSelf(BlockInit.BLACK_DIAMOND_BLOCK.get());
-        dropSelf(BlockInit.IMPERIUM_ORE.get());
         dropSelf(BlockInit.VILGAX_BLOCK.get());
         dropSelf(BlockInit.LEGENDARY_BLOCK.get());
 
