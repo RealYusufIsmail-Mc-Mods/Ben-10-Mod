@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:legendary_ore_block"
+    "item": "bentenmobmod:raw_legendary"
   },
   "result": "bentenmobmod:legendary_ore",
   "experience": 0.3,

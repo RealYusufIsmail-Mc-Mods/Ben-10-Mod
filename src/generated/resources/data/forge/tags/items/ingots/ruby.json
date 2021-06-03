@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "bentenmobmod:ruby"
+    "bentenmobmod:ruby",
+    "bentenmobmod:imperium"
   ]
 }

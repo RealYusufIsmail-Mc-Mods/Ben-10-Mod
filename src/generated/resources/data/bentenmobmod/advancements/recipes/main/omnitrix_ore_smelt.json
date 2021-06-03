@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:omnitrix_ore"
+            "tag": "forge:raw_ore/ruby"
           }
         ]
       }

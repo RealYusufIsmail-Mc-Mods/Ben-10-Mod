@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:raw_omnitrix"
+    "item": "bentenmobmod:raw_imperium"
   },
-  "result": "bentenmobmod:omnitrix",
+  "result": "bentenmobmod:black_diamond_scrap",
   "experience": 0.3,
   "cookingtime": 300
 }
