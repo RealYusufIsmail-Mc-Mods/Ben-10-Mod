@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:infinitum_scrap"
+            "tag": "forge:scraps/infinitum_scrap"
           }
         ]
       }

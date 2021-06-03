@@ -7,10 +7,10 @@
   ],
   "key": {
     "L": {
-      "item": "bentenmobmod:omnitrix"
+      "tag": "forge:ingots/omnitrix"
     },
     "A": {
-      "item": "bentenmobmod:ruby"
+      "tag": "forge:ingots/ruby"
     }
   },
   "result": {

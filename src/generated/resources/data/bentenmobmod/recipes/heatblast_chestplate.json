@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "bentenmobmod:omnitrix"
+      "tag": "forge:ingots/omnitrix"
     },
     "A": {
-      "item": "bentenmobmod:fire"
+      "tag": "forge:ingots/fire"
     }
   },
   "result": {

@@ -7,7 +7,7 @@
   ],
   "key": {
     "A": {
-      "item": "bentenmobmod:speed"
+      "tag": "forge:ingots/speed"
     }
   },
   "result": {

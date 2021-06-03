@@ -10,7 +10,7 @@
       "item": "minecraft:stick"
     },
     "A": {
-      "item": "bentenmobmod:legendary_ore"
+      "tag": "forge:ingots/legendary_ore"
     }
   },
   "result": {

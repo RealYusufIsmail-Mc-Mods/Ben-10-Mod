@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:black_diamond_scrap"
+            "tag": "forge:scraps/black_diamond_scrap"
           }
         ]
       }
