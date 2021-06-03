@@ -47,6 +47,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "boot");
         builder(itemGenerated, "chestplate");
         builder(itemGenerated, "legendary_ore");
+        builder(itemGenerated, "raw_legendary");
         builder(itemGenerated, "omnitrix");
         builder(itemGenerated, "fire");
         builder(itemGenerated, "ruby");
