@@ -10,10 +10,10 @@
       "item": "minecraft:stick"
     },
     "K": {
-      "item": "bentenmobmod:ruby"
+      "tag": "forge:ingots/ruby"
     },
     "A": {
-      "item": "bentenmobmod:legendary_ore"
+      "tag": "forge:ingots/legendary_ore"
     }
   },
   "result": {

@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bentenmobmod:infinitum_scrap"
+      "tag": "forge:scraps/infinitum_scrap"
     },
     {
-      "item": "bentenmobmod:infinitum_scrap"
+      "tag": "forge:scraps/infinitum_scrap"
     },
     {
-      "item": "bentenmobmod:infinitum_scrap"
+      "tag": "forge:scraps/infinitum_scrap"
     },
     {
-      "item": "bentenmobmod:infinitum_scrap"
+      "tag": "forge:scraps/infinitum_scrap"
     },
     {
       "item": "minecraft:gold_ingot"

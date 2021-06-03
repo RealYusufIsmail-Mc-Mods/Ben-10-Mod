@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:fire"
+            "tag": "forge:ingots/fire"
           }
         ]
       }

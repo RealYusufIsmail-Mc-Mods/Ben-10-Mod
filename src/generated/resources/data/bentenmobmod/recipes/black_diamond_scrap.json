@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bentenmobmod:black_diamond_scrap"
+      "tag": "forge:scraps/black_diamond_scrap"
     },
     {
-      "item": "bentenmobmod:black_diamond_scrap"
+      "tag": "forge:scraps/black_diamond_scrap"
     },
     {
-      "item": "bentenmobmod:black_diamond_scrap"
+      "tag": "forge:scraps/black_diamond_scrap"
     },
     {
-      "item": "bentenmobmod:black_diamond_scrap"
+      "tag": "forge:scraps/black_diamond_scrap"
     },
     {
       "item": "minecraft:gold_ingot"

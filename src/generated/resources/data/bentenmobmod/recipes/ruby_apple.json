@@ -7,7 +7,7 @@
   ],
   "key": {
     "A": {
-      "item": "bentenmobmod:ruby"
+      "tag": "forge:ingots/ruby"
     },
     "L": {
       "item": "minecraft:apple"
