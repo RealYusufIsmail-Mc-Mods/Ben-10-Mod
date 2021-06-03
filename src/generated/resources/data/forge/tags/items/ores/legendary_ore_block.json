@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "bentenmobmod:legendary_block",
+    "bentenmobmod:deepslate_legendary_ore_block",
+    "bentenmobmod:legendary_block",
+    "bentenmobmod:deepslate_legendary_ore_block"
+  ]
+}

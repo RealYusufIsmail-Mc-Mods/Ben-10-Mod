@@ -13,6 +13,7 @@ public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
 			Main.MOD_ID);
 
+	//blocks
 	public static final RegistryObject<Block> LEGENDARY_BLOCK = BLOCKS
 			.register("legendary_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
@@ -40,7 +41,7 @@ public class BlockInit {
 	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS
 			.register("ruby_block",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
-	/* Black for ores */
+	/* ores */
 
 	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
 			.register("legendary_ore_block",
@@ -74,15 +75,40 @@ public class BlockInit {
 			.register("omnitrix_ore",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
-	/* ore blocks */
-	
+	/* deepslate ores */
+
+	public static final RegistryObject<Block> DEEPSLATE_LEGENDARY_ORE_BLOCK = BLOCKS
+			.register("deepslate_legendary_ore_block",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
+	public static final RegistryObject<Block> DEEPSLATE_RUBY_ORE = BLOCKS
+			.register("deepslate_ruby_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+
+	public static final RegistryObject<Block> DEEPSLATE_BLACK_DIAMOND_ORE = BLOCKS
+			.register("deepslate_black_diamond_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+	public static final RegistryObject<Block> DEEPSLATE_IMPERIUM_ORE = BLOCKS
+			.register("deepslate_imperium_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
+
+
+	public static final RegistryObject<Block> DEEPSLATE_SPEED_ORE = BLOCKS
+			.register("deepslate_speed_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+	public static final RegistryObject<Block> DEEPSLATE_OMNITRIX_ORE = BLOCKS
+			.register("deepslate_omnitrix_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+	/* other blocks */
 	
 	public static final RegistryObject<Block> VILGAX_BLOCK = BLOCKS
 			.register("vilgax_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 
 
-    /* other blocks */
+
 
 
 }
