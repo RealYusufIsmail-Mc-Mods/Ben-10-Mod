@@ -58,7 +58,8 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_RUBY = forge("ores/deepslate_ruby");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_SPEED = forge("ores/deepslate_speed");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_OMNITRIX = forge("ores/deepslate_omnitrix");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_IMPERIUM = forge("ores/deepslate_imperium");
+        public static final ITag.
+                INamedTag<Item> ORES_DEEPSLATE_IMPERIUM = forge("ores/deepslate_imperium");
         public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCK = forge("ores/legendary_ore_block");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK = forge("ores/legendary_ore_block");
         //blocks

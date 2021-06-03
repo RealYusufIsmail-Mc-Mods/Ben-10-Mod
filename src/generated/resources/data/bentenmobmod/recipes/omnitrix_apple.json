@@ -7,7 +7,7 @@
   ],
   "key": {
     "A": {
-      "item": "bentenmobmod:omnitrix"
+      "tag": "forge:ingots/omnitrix"
     },
     "L": {
       "item": "minecraft:apple"

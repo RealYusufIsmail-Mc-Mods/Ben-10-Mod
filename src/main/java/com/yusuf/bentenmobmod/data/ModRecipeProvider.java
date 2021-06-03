@@ -4,6 +4,7 @@ import com.yusuf.bentenmobmod.Main;
 import com.yusuf.bentenmobmod.core.init.BlockInit;
 import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmobmod.core.init.TagsInit;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -327,7 +328,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //food
         ShapedRecipeBuilder.shaped(ItemInit.OMNITRIX_APPLE.get())
-                .define('A', ItemInit.OMNITRIX.get())
+                .define('A', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('L', Items.APPLE.getItem())
                 .pattern("AAA")
                 .pattern("ALA")
