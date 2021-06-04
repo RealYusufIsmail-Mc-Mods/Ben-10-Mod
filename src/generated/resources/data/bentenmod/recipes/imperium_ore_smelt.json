@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bentenmod:imperium_ore"
+  },
+  "result": "bentenmod:imperium",
+  "experience": 0.6,
+  "cookingtime": 300
+}

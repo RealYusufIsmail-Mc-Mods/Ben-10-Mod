@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmod:imperium_ore"
+  },
+  "result": "bentenmod:imperium",
+  "experience": 0.3,
+  "cookingtime": 300
+}
