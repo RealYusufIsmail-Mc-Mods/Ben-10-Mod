@@ -1,8 +1,8 @@
-package com.yusuf.bentenmobmod.client;
+package com.yusuf.bentenmod.client;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.client.renderer.VilgaxRenderer;
-import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
+import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

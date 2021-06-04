@@ -1,4 +1,4 @@
-package com.yusuf.bentenmobmod.compat;
+package com.yusuf.bentenmod.compat;
 
 public class CompatibilityJEI {
 

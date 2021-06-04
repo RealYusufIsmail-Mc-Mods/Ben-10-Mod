@@ -1,4 +1,4 @@
-package com.yusuf.bentenmobmod.client;
+package com.yusuf.bentenmod.client;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;

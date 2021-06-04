@@ -1,9 +1,9 @@
 
-package com.yusuf.bentenmobmod.core.init;
+package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmobmod.entity.VilgaxEntity;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.entity.VilgaxEntity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;

@@ -1,6 +1,6 @@
-package com.yusuf.bentenmobmod.common.material;
+package com.yusuf.bentenmod.common.material;
 
-import com.yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;

@@ -1,5 +1,5 @@
 /*
-package com.yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmod.common.events;
 
 import javax.annotation.Nonnull;
 

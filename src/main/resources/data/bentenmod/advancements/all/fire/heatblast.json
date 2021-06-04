@@ -10,7 +10,7 @@
       "text": "you are now Heatblast"
     },
     "icon": {
-      "item": "bentenmobmod:heatblast_chestplate"
+      "item": "bentenmod:heatblast_chestplate"
     },
     "frame": "goal",
     "show_toast": true,
@@ -23,16 +23,16 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:heatblast_helmet"
+            "item": "bentenmod:heatblast_helmet"
           },
           {
-            "item": "bentenmobmod:heatblast_chestplate"
+            "item": "bentenmod:heatblast_chestplate"
           },
           {
-            "item": "bentenmobmod:heatblast_leggings"
+            "item": "bentenmod:heatblast_leggings"
           },
           {
-            "item": "bentenmobmod:heatblast_boot"
+            "item": "bentenmod:heatblast_boot"
           }
         ],
         "count": {
@@ -42,7 +42,7 @@
       }
     }
   },
-  "parent": "bentenmobmod:all/fire/fire"
+  "parent": "bentenmod:all/fire/fire"
 
 
 }

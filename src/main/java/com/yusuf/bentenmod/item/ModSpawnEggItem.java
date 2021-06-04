@@ -1,4 +1,4 @@
-package com.yusuf.bentenmobmod.item;
+package com.yusuf.bentenmod.item;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.DefaultDispenseItemBehavior;

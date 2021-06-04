@@ -10,7 +10,7 @@
             "text": "you are now XLR8"
         },
         "icon": {
-            "item": "bentenmobmod:xlr8_chestplate"
+            "item": "bentenmod:xlr8_chestplate"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,16 +23,16 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:xlr8_helmet"
+                        "item": "bentenmod:xlr8_helmet"
                     },
                     {
-                        "item": "bentenmobmod:xlr8_chestplate"
+                        "item": "bentenmod:xlr8_chestplate"
                     },
                     {
-                        "item": "bentenmobmod:xlr8_leggings"
+                        "item": "bentenmod:xlr8_leggings"
                     },
                     {
-                        "item": "bentenmobmod:xlr8_boot"
+                        "item": "bentenmod:xlr8_boot"
                     }
                 ],
                 "count": {
@@ -44,5 +44,5 @@
     },
  						  
  
-    "parent": "bentenmobmod:all/speed/speed"
+    "parent": "bentenmod:all/speed/speed"
 }

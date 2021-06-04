@@ -1,7 +1,7 @@
-package com.yusuf.bentenmobmod.entity.ai;
+package com.yusuf.bentenmod.entity.ai;
 
 
-import com.yusuf.bentenmobmod.entity.VilgaxEntity;
+import com.yusuf.bentenmod.entity.VilgaxEntity;
 
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 

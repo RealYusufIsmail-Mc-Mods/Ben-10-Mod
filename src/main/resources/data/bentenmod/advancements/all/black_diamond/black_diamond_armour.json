@@ -11,7 +11,7 @@
       "bold": true
     },
     "icon": {
-      "item": "bentenmobmod:black_diamond_chestplate",
+      "item": "bentenmod:black_diamond_chestplate",
       "nbt": "{Damage:0}"
     },
     "frame": "goal",
@@ -25,16 +25,16 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:black_diamond_helmet"
+            "item": "bentenmod:black_diamond_helmet"
           },
           {
-            "item": "bentenmobmod:black_diamond_chestplate"
+            "item": "bentenmod:black_diamond_chestplate"
           },
           {
-            "item": "bentenmobmod:black_diamond_leggings"
+            "item": "bentenmod:black_diamond_leggings"
           },
           {
-            "item": "bentenmobmod:black_diamond_boots"
+            "item": "bentenmod:black_diamond_boots"
           }
 
         ],
@@ -46,5 +46,5 @@
     }
   },
 
-  "parent": "bentenmobmod:all/black_diamond/black_diamond_ore"
+  "parent": "bentenmod:all/black_diamond/black_diamond_ore"
 }

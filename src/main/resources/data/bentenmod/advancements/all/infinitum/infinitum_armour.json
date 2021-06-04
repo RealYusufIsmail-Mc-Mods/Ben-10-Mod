@@ -11,7 +11,7 @@
       "bold": true
     },
     "icon": {
-      "item": "bentenmobmod:infinitum_chestplate",
+      "item": "bentenmod:infinitum_chestplate",
       "nbt": "{Damage:0}"
     },
     "frame": "goal",
@@ -25,16 +25,16 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:infinitum_helmet"
+            "item": "bentenmod:infinitum_helmet"
           },
           {
-            "item": "bentenmobmod:infinitum_chestplate"
+            "item": "bentenmod:infinitum_chestplate"
           },
           {
-            "item": "bentenmobmod:infinitum_leggings"
+            "item": "bentenmod:infinitum_leggings"
           },
           {
-            "item": "bentenmobmod:infinitum_boots"
+            "item": "bentenmod:infinitum_boots"
           }
 
         ],
@@ -46,5 +46,5 @@
     }
   },
 
-  "parent": "bentenmobmod:all/infinitum/infitum_ore"
+  "parent": "bentenmod:all/infinitum/infitum_ore"
 }

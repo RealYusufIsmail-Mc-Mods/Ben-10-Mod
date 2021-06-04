@@ -1,4 +1,4 @@
-package com.yusuf.bentenmobmod.core.init;
+package com.yusuf.bentenmod.core.init;
 
 import net.minecraft.item.Food;
 import net.minecraft.potion.EffectInstance;

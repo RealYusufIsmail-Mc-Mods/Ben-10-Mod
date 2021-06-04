@@ -1,8 +1,8 @@
-package com.yusuf.bentenmobmod.data.loot;
+package com.yusuf.bentenmod.data.loot;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.core.init.BlockInit;
-import com.yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraftforge.registries.ForgeRegistries;

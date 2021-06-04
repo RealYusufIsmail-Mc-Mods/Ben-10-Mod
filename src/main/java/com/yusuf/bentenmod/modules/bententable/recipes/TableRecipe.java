@@ -1,5 +1,5 @@
 /*
-package com.yusuf.bentenmobmod.modules.bententable.recipes;
+package com.yusuf.bentenmod.modules.bententable.recipes;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

@@ -1,5 +1,5 @@
 /*
-package com.yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmod.common.events;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemTier;

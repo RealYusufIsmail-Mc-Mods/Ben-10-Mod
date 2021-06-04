@@ -1,6 +1,6 @@
-package com.yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmod.common.events;
 
-import com.yusuf.bentenmobmod.Main;
+import com.yusuf.bentenmod.Main;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

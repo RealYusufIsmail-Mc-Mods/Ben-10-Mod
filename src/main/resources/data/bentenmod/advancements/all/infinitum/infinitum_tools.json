@@ -11,7 +11,7 @@
       "bold": true
     },
     "icon": {
-      "item": "bentenmobmod:infinitum_sword",
+      "item": "bentenmod:infinitum_sword",
       "nbt": "{Damage:0}"
     },
     "frame": "goal",
@@ -25,19 +25,19 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:infinitum_sword"
+            "item": "bentenmod:infinitum_sword"
           },
           {
-            "item": "bentenmobmod:infinitum_pickaxe"
+            "item": "bentenmod:infinitum_pickaxe"
           },
           {
-            "item": "bentenmobmod:infinitum_axe"
+            "item": "bentenmod:infinitum_axe"
           },
           {
-            "item": "bentenmobmod:infinitum_shovel"
+            "item": "bentenmod:infinitum_shovel"
           },
           {
-            "item": "bentenmobmod:infinitum_hoe"
+            "item": "bentenmod:infinitum_hoe"
           }
 
         ],
@@ -49,5 +49,5 @@
     }
   },
 
-  "parent": "bentenmobmod:all/infinitum/infitum_ore"
+  "parent": "bentenmod:all/infinitum/infitum_ore"
   }

@@ -16,7 +16,7 @@
       "underlined": true
     },
     "icon": {
-      "item": "bentenmobmod:omnitrix_ore"
+      "item": "bentenmod:omnitrix_ore"
     },
     "frame": "goal",
     "show_toast": true,
@@ -25,7 +25,7 @@
     "background": "minecraft:textures/block/light_blue_wool.png"
   },
   "criteria": {
-    "bentenmobmod": {
+    "bentenmod": {
       "trigger": "minecraft:location",
       "conditions": {
         "dimension": "minecraft:overworld"

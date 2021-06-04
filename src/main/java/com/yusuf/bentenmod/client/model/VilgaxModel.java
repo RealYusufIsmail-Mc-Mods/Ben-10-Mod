@@ -1,7 +1,7 @@
-package com.yusuf.bentenmobmod.client.model;
+package com.yusuf.bentenmod.client.model;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.entity.VilgaxEntity;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.entity.VilgaxEntity;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;

@@ -11,7 +11,7 @@
       "bold": true
     },
     "icon": {
-      "item": "bentenmobmod:black_diamond_sword",
+      "item": "bentenmod:black_diamond_sword",
        "nbt": "{Damage:0}"
     },
     "frame": "goal",
@@ -25,19 +25,19 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:black_diamond_sword"
+            "item": "bentenmod:black_diamond_sword"
           },
           {
-            "item": "bentenmobmod:black_diamond_pickaxe"
+            "item": "bentenmod:black_diamond_pickaxe"
           },
           {
-            "item": "bentenmobmod:black_diamond_axe"
+            "item": "bentenmod:black_diamond_axe"
           },
           {
-            "item": "bentenmobmod:black_diamond_shovel"
+            "item": "bentenmod:black_diamond_shovel"
           },
           {
-             "item": "bentenmobmod:black_diamond_hoe"
+             "item": "bentenmod:black_diamond_hoe"
            }
 
         ],
@@ -49,5 +49,5 @@
     }
   },
 
-  "parent": "bentenmobmod:all/black_diamond/black_diamond_ore"
+  "parent": "bentenmod:all/black_diamond/black_diamond_ore"
 }

@@ -10,7 +10,7 @@
             "text": "you smelted Omnitrix ore and now you can make an the omnitrix apple whcih will give unbelievable power."
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix"
+            "item": "bentenmod:omnitrix"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix",
+                        "item": "bentenmod:omnitrix",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/omnitrix/omnitrix_ore"
+    "parent": "bentenmod:all/omnitrix/omnitrix_ore"
 }

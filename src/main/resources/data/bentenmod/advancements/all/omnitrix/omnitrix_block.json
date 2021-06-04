@@ -10,7 +10,7 @@
             "text": "you have made omnitrix block which unlocks some interesting foods."
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix_block"
+            "item": "bentenmod:omnitrix_block"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix_block",
+                        "item": "bentenmod:omnitrix_block",
                         "count": 1
                     }
                 ]
@@ -33,5 +33,5 @@
 
 
 
-    "parent": "bentenmobmod:all/ruby/ruby"
+    "parent": "bentenmod:all/ruby/ruby"
 }

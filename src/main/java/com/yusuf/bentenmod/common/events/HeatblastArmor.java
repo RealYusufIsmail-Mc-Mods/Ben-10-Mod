@@ -1,6 +1,6 @@
-package com.yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmod.common.events;
 
-import com.yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.init.ItemInit;
 
 import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;

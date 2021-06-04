@@ -1,12 +1,12 @@
-package com.yusuf.bentenmobmod;
+package com.yusuf.bentenmod;
 
 
-import com.yusuf.bentenmobmod.core.init.BlockInit;
-import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmobmod.core.init.FeatureInit;
-import com.yusuf.bentenmobmod.core.init.ItemInit;
-import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmobmod.item.ModSpawnEggItem;
+import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.EntityTypesInit;
+import com.yusuf.bentenmod.core.init.FeatureInit;
+import com.yusuf.bentenmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.item.ModSpawnEggItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -28,12 +28,12 @@ import org.apache.logging.log4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
-@Mod("bentenmobmod")
+@Mod("bentenmod")
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
 public class Main {
 	// Directly reference a log4j logger.
 	public static final Logger LOGGER = LogManager.getLogger();
-	public static final String MOD_ID = "bentenmobmod";
+	public static final String MOD_ID = "bentenmod";
 
 	public Main() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

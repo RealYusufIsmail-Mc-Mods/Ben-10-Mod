@@ -10,14 +10,14 @@
       "item": "minecraft:stick"
     },
     "F": {
-      "item": "bentenmobmod:fire"
+      "item": "bentenmod:fire"
     },
     "O": {
-      "item": "bentenmobmod:omnitrix"
+      "item": "bentenmod:omnitrix"
     }
   },
   "result": {
-    "item": "bentenmobmod:heatblast_sword",
+    "item": "bentenmod:heatblast_sword",
     "nbt": {
       "Enchantments": [
         {

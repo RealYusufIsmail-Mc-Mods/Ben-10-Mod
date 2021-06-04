@@ -1,42 +1,42 @@
 {
   "name": "Weapons crafting recipes",
   "category": "all_items",
-  "icon": "bentenmobmod:sword",
+  "icon": "bentenmod:sword",
   "pages": [
     {
       "type": "crafting",
-      "recipe": "bentenmobmod:sword",
-      "recipe2": "bentenmobmod:heatblast_sword"
+      "recipe": "bentenmod:sword",
+      "recipe2": "bentenmod:heatblast_sword"
     },
     {
       "type": "smithing",
-      "recipe": "bentenmobmod:black_diamond_sword",
-      "recipe2": "bentenmobmod:infinitum_sword"
+      "recipe": "bentenmod:black_diamond_sword",
+      "recipe2": "bentenmod:infinitum_sword"
     },
     {
       "type": "smithing",
-      "recipe": "bentenmobmod:black_diamond_pickaxe",
-      "recipe2": "bentenmobmod:infinitum_pickaxe"
+      "recipe": "bentenmod:black_diamond_pickaxe",
+      "recipe2": "bentenmod:infinitum_pickaxe"
     },
     {
       "type": "smithing",
-      "recipe": "bentenmobmod:black_diamond_axe",
-      "recipe2": "bentenmobmod:infinitum_axe"
+      "recipe": "bentenmod:black_diamond_axe",
+      "recipe2": "bentenmod:infinitum_axe"
     },
     {
       "type": "smithing",
-      "recipe": "bentenmobmod:black_diamond_shovel",
-      "recipe2": "bentenmobmod:infinitum_shovel"
+      "recipe": "bentenmod:black_diamond_shovel",
+      "recipe2": "bentenmod:infinitum_shovel"
     },
     {
       "type": "smithing",
-      "recipe": "bentenmobmod:black_diamond_hoe",
-      "recipe2": "bentenmobmod:infinitum_hoe"
+      "recipe": "bentenmod:black_diamond_hoe",
+      "recipe2": "bentenmod:infinitum_hoe"
     },
     {
       "type": "crafting",
-      "recipe": "bentenmobmod:axe",
-      "recipe2": "bentenmobmod:bentencraftingrecipes"
+      "recipe": "bentenmod:axe",
+      "recipe2": "bentenmod:bentencraftingrecipes"
     }
 
   ]

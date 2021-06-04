@@ -1,9 +1,9 @@
-package com.yusuf.bentenmobmod.data;
+package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.data.client.ModBlockStateProvider;
-import com.yusuf.bentenmobmod.data.client.ModItemModelProvider;
-import com.yusuf.bentenmobmod.data.loot.ModLootTables;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.data.client.ModBlockStateProvider;
+import com.yusuf.bentenmod.data.client.ModItemModelProvider;
+import com.yusuf.bentenmod.data.loot.ModLootTables;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

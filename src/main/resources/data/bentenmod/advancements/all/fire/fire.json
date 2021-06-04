@@ -10,7 +10,7 @@
             "text": "You are now able to make a fire apple."
         },
         "icon": {
-            "item": "bentenmobmod:fire"
+            "item": "bentenmod:fire"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:fire",
+                        "item": "bentenmod:fire",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/fire/fire_ore"
+    "parent": "bentenmod:all/fire/fire_ore"
 }

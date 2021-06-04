@@ -1,10 +1,10 @@
-package com.yusuf.bentenmobmod.data;
+package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.core.init.BlockInit;
-import com.yusuf.bentenmobmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmobmod.core.init.ItemInit;
-import com.yusuf.bentenmobmod.core.init.TagsInit;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.EntityTypesInit;
+import com.yusuf.bentenmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.init.TagsInit;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;

@@ -1,4 +1,4 @@
-package com.yusuf.bentenmobmod.client;
+package com.yusuf.bentenmod.client;
 
 import net.minecraft.client.settings.KeyBinding;
 

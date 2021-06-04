@@ -1,8 +1,8 @@
-package com.yusuf.bentenmobmod.data;
+package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.core.init.BlockInit;
-import com.yusuf.bentenmobmod.core.init.TagsInit;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.TagsInit;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.Tags;

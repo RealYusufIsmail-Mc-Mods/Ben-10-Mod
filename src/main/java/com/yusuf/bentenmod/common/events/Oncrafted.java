@@ -1,7 +1,7 @@
 /*
-package com.yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmod.common.events;
 
-import com.yusuf.bentenmobmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.SwordItem;
 import net.minecraftforge.event.entity.player.PlayerEvent;

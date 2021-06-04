@@ -1,6 +1,6 @@
-package com.yusuf.bentenmobmod.entity;
+package com.yusuf.bentenmod.entity;
 
-import com.yusuf.bentenmobmod.entity.ai.VilgaxAttackGoal;
+import com.yusuf.bentenmod.entity.ai.VilgaxAttackGoal;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.CreatureAttribute;

@@ -10,7 +10,7 @@
             "text": "You have a made an apple stronger than no other apart from a secrete apple."
         },
         "icon": {
-            "item": "bentenmobmod:enchanted_omnitrix_apple"
+            "item": "bentenmod:enchanted_omnitrix_apple"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:enchanted_omnitrix_apple",
+                        "item": "bentenmod:enchanted_omnitrix_apple",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/omnitrix/omnitrix_block"
+    "parent": "bentenmod:all/omnitrix/omnitrix_block"
 }

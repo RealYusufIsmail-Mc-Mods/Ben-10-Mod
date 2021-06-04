@@ -1,4 +1,4 @@
-package com.yusuf.bentenmobmod.data.loot;
+package com.yusuf.bentenmod.data.loot;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;

@@ -1,7 +1,7 @@
-package com.yusuf.bentenmobmod.common.events;
+package com.yusuf.bentenmod.common.events;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.core.init.KeybindsInit;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.core.init.KeybindsInit;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;

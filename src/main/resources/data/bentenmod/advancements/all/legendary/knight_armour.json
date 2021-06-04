@@ -11,7 +11,7 @@
             "bold": true
         },
         "icon": {
-            "item": "bentenmobmod:chestplate"
+            "item": "bentenmod:chestplate"
         },
         "frame": "goal",
         "show_toast": true,
@@ -24,16 +24,16 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:helmet"
+                        "item": "bentenmod:helmet"
                     },
                     {
-                        "item": "bentenmobmod:chestplate"
+                        "item": "bentenmod:chestplate"
                     },
                     {
-                        "item": "bentenmobmod:leggings"
+                        "item": "bentenmod:leggings"
                     },
                     {
-                        "item": "bentenmobmod:boot"
+                        "item": "bentenmod:boot"
                     }
 
                 ],
@@ -45,5 +45,5 @@
         }
     },
 
-    "parent": "bentenmobmod:all/legendary/legendary_ore"
+    "parent": "bentenmod:all/legendary/legendary_ore"
 }

@@ -10,7 +10,7 @@
             "text": "you have made the fastest axe in the game. Nice"
         },
         "icon": {
-            "item": "bentenmobmod:axe"
+            "item": "bentenmod:axe"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:axe",
+                        "item": "bentenmod:axe",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/ruby/ruby"
+    "parent": "bentenmod:all/ruby/ruby"
 }

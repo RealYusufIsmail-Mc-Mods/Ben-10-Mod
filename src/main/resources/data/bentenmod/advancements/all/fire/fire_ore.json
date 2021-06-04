@@ -10,7 +10,7 @@
             "text": "You just mined one of the most OP ores in the game."
         },
         "icon": {
-            "item": "bentenmobmod:fire_ore"
+            "item": "bentenmod:fire_ore"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:fire_ore",
+                        "item": "bentenmod:fire_ore",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/root"
+    "parent": "bentenmod:all/root"
 }

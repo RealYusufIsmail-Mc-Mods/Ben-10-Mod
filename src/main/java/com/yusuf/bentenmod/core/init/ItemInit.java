@@ -1,10 +1,10 @@
-package com.yusuf.bentenmobmod.core.init;
+package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmobmod.Main;
-import com.yusuf.bentenmobmod.common.events.*;
-import com.yusuf.bentenmobmod.common.material.CustomArmorMaterial;
-import com.yusuf.bentenmobmod.common.material.CustomToolMaterial;
-import com.yusuf.bentenmobmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.common.events.*;
+import com.yusuf.bentenmod.common.material.CustomArmorMaterial;
+import com.yusuf.bentenmod.common.material.CustomToolMaterial;
+import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;

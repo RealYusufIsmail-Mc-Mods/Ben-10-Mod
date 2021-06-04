@@ -15,7 +15,7 @@
             "bold": true
         },
         "icon": {
-            "item": "bentenmobmod:legendary_block"
+            "item": "bentenmod:legendary_block"
         },
         "frame": "goal",
         "show_toast": true,
@@ -28,7 +28,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:legendary_block",
+                        "item": "bentenmod:legendary_block",
                         "count": 1
  							  }
  							 
@@ -40,5 +40,5 @@
     "rewards": {
         "experience": 1
     },
-    "parent": "bentenmobmod:all/legendary/legendary_ore"
+    "parent": "bentenmod:all/legendary/legendary_ore"
 }

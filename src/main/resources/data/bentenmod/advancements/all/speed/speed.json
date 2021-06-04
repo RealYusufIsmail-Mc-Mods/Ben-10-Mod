@@ -10,7 +10,7 @@
             "text": "you have speed"
         },
         "icon": {
-            "item": "bentenmobmod:speed"
+            "item": "bentenmod:speed"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:speed",
+                        "item": "bentenmod:speed",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/root"
+    "parent": "bentenmod:all/root"
 }

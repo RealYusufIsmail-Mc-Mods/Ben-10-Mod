@@ -10,7 +10,7 @@
             "text": "you have unlimted rengeration. You are near to imortal"
         },
         "icon": {
-            "item": "bentenmobmod:ruby_apple"
+            "item": "bentenmod:ruby_apple"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:ruby_apple",
+                        "item": "bentenmod:ruby_apple",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/ruby/ruby_block"
+    "parent": "bentenmod:all/ruby/ruby_block"
 }

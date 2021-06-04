@@ -10,7 +10,7 @@
             "text": "You have a made an apple stronger than a normal golden apple."
         },
         "icon": {
-            "item": "bentenmobmod:omnitrix_apple"
+            "item": "bentenmod:omnitrix_apple"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmobmod:omnitrix_apple",
+                        "item": "bentenmod:omnitrix_apple",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmobmod:all/omnitrix/omnitrix"
+    "parent": "bentenmod:all/omnitrix/omnitrix"
 }
