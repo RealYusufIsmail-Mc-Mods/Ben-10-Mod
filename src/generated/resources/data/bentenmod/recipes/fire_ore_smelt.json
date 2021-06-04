@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bentenmod:fire_ore"
+  },
+  "result": "bentenmod:fire",
+  "experience": 0.6,
+  "cookingtime": 300
+}

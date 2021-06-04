@@ -1,0 +1,38 @@
+{
+  "display": {
+    "title": {
+      "text": "Infinitum Ingot",
+      "color": "aqua",
+      "bold": true,
+      "italic": true
+    },
+    "description": {
+      "text": "You have made an Infinitum ingot which means you can use a smithing table to convert netherite tool or armour to infinitum."
+    },
+    "icon": {
+      "item": "bentenmod:infinitum",
+      "nbt": "{Damage:0}"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "minecraft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:infinitum",
+            "count": 1
+          }
+        ]
+      }
+    }
+  },
+
+
+
+  "parent": "bentenmod:all/infinitum/infitum_scrap"
+}

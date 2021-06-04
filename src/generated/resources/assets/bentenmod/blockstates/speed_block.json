@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bentenmod:block/speed_block"
+    }
+  }
+}

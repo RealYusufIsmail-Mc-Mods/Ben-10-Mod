@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmod:black_diamond_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:black_diamond",
+    "count": 9
+  }
+}

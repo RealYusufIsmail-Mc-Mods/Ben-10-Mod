@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "You have made a 9 Speed(ores)",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "You have made a Speed Block"
+        },
+        "icon": {
+            "item": "bentenmod:speed_block"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmod:speed_block",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmod:all/speed/speed"
+}

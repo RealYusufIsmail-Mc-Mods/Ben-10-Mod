@@ -1,0 +1,48 @@
+{
+  "display": {
+    "title": {
+      "text": "You are now able to fly and are resistant to fire",
+      "color": "aqua",
+      "bold": true,
+      "italic": true
+    },
+    "description": {
+      "text": "you are now Heatblast"
+    },
+    "icon": {
+      "item": "bentenmod:heatblast_chestplate"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "minecraft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:heatblast_helmet"
+          },
+          {
+            "item": "bentenmod:heatblast_chestplate"
+          },
+          {
+            "item": "bentenmod:heatblast_leggings"
+          },
+          {
+            "item": "bentenmod:heatblast_boot"
+          }
+        ],
+        "count": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    }
+  },
+  "parent": "bentenmod:all/fire/fire"
+
+
+}

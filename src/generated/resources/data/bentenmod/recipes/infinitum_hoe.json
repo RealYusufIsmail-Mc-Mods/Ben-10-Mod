@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "bentenmod:black_diamond_hoe"
+  },
+  "addition": {
+    "item": "bentenmod:infinitum"
+  },
+  "result": {
+    "item": "bentenmod:infinitum_hoe"
+  }
+}

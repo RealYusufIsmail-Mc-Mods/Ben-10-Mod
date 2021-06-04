@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "A A",
+    "A A"
+  ],
+  "key": {
+    "A": {
+      "tag": "forge:ingots/speed"
+    }
+  },
+  "result": {
+    "item": "bentenmod:xlr8_leggings"
+  }
+}

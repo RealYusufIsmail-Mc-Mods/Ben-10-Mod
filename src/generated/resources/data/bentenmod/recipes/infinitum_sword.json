@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "bentenmod:black_diamond_sword"
+  },
+  "addition": {
+    "item": "bentenmod:infinitum"
+  },
+  "result": {
+    "item": "bentenmod:infinitum_sword"
+  }
+}

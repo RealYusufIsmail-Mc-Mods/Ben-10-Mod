@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmod:omnitrix_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:omnitrix",
+    "count": 9
+  }
+}

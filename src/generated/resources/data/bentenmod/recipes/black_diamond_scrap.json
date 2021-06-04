@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:scraps/black_diamond_scrap"
+    },
+    {
+      "tag": "forge:scraps/black_diamond_scrap"
+    },
+    {
+      "tag": "forge:scraps/black_diamond_scrap"
+    },
+    {
+      "tag": "forge:scraps/black_diamond_scrap"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:black_diamond"
+  }
+}

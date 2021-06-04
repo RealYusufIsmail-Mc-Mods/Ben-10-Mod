@@ -1,4 +1,4 @@
-bentenmobmod-1.12
+bentenmod-1.12
 
 <h1> Changes in update </h1>
 

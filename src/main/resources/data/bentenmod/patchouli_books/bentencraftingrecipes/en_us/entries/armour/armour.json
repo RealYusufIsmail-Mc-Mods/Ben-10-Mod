@@ -1,0 +1,64 @@
+{
+  "name": "Armour crafting recipes",
+  "category": "all_items",
+  "icon": "bentenmod:heatblast_chestplate",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:heatblast_helmet",
+      "recipe2": "bentenmod:heatblast_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:heatblast_leggings",
+      "recipe2": "bentenmod:heatblast_boot"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:xlr8_helmet",
+      "recipe2": "bentenmod:xlr8_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:xlr8_leggings",
+      "recipe2": "bentenmod:xlr8_boot"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:fourarms_helmet",
+      "recipe2": "bentenmod:fourarms_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:fourarms_leggings",
+      "recipe2": "bentenmod:fourarms_boot"
+    },
+
+    {
+      "type": "smithing",
+      "recipe": "bentenmod:black_diamond_helmet",
+      "recipe2": "bentenmod:black_diamond_chestplate"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmod:black_diamond_leggings",
+      "recipe2": "bentenmod:black_diamond_boots"
+    },
+
+    {
+      "type": "smithing",
+      "recipe": "bentenmod:infinitum_helmet",
+      "recipe2": "bentenmod:infinitum_chestplate"
+    },
+    {
+      "type": "smithing",
+      "recipe": "bentenmod:infinitum_leggings",
+      "recipe2": "bentenmod:infinitum_boots"
+    },
+
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:jacket"
+    }
+  ]
+}

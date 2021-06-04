@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmod:infinitum_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:infinitum",
+    "count": 9
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "A#A",
+    "AAA"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:ingots/omnitrix"
+    },
+    "A": {
+      "tag": "forge:ingots/fire"
+    }
+  },
+  "result": {
+    "item": "bentenmod:heatblast_chestplate"
+  }
+}

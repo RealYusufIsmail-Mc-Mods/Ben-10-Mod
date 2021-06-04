@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "bentenmod:jacket"
+  },
+  "result": "bentenmod:omnitrix",
+  "experience": 0.4,
+  "cookingtime": 300
+}

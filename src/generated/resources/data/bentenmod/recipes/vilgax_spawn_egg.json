@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "key": {
+    "L": {
+      "tag": "forge:ingots/omnitrix"
+    },
+    "A": {
+      "tag": "forge:ingots/ruby"
+    }
+  },
+  "result": {
+    "item": "bentenmod:vilgax_spawn_egg"
+  }
+}

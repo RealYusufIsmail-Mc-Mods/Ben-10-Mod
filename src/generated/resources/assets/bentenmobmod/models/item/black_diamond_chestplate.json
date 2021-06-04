@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "bentenmobmod:item/black_diamond_chestplate"
-  }
-}

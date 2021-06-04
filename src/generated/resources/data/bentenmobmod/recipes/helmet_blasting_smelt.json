@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "bentenmobmod:helmet"
-  },
-  "result": "bentenmobmod:legendary_ore",
-  "experience": 0.3,
-  "cookingtime": 300
-}

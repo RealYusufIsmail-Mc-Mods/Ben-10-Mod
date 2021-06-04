@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Made Ruby Apple",
+            "color": "aqua",
+            "bold": true,
+            "italic": true
+        },
+        "description": {
+            "text": "you have unlimted rengeration. You are near to imortal"
+        },
+        "icon": {
+            "item": "bentenmod:ruby_apple"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+  "criteria": {
+        "minecraft": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "bentenmod:ruby_apple",
+                    "count": 1
+ 						            }
+                ]
+            }
+        }
+    },
+ 						  
+ 						  
+ 
+    "parent": "bentenmod:all/ruby/ruby_block"
+}

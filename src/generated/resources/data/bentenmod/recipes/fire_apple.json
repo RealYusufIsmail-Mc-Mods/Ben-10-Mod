@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "tag": "forge:ingots/fire"
+    },
+    "L": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "item": "bentenmod:fire_apple"
+  }
+}

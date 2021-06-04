@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "bentenmod:black_diamond_helmet"
+  },
+  "addition": {
+    "item": "bentenmod:infinitum"
+  },
+  "result": {
+    "item": "bentenmod:infinitum_helmet"
+  }
+}

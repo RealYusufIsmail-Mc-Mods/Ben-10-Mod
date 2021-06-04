@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmod:ruby_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:ruby",
+    "count": 9
+  }
+}
