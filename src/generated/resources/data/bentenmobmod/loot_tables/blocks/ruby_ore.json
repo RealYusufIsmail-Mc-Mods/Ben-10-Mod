@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:ruby_ore"
+              "name": "bentenmod:ruby_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:ruby"
+              "name": "bentenmod:ruby"
             }
           ]
         }

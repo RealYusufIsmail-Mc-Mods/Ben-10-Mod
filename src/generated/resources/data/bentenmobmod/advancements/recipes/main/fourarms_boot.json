@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:fourarms_boot"
+      "bentenmod:fourarms_boot"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:fourarms_boot"
+        "recipe": "bentenmod:fourarms_boot"
       }
     }
   },

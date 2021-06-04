@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:ruby_apple"
+      "bentenmod:ruby_apple"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:ruby_apple"
+        "recipe": "bentenmod:ruby_apple"
       }
     }
   },

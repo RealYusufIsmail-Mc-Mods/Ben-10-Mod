@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:fourarms_boots_blasting_smelt"
+      "bentenmod:fourarms_boots_blasting_smelt"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:fourarms_boots_blasting_smelt"
+        "recipe": "bentenmod:fourarms_boots_blasting_smelt"
       }
     }
   },

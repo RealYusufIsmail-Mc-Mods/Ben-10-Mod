@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:infinitum_chestplate"
+      "bentenmod:infinitum_chestplate"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:infinitum_chestplate"
+        "recipe": "bentenmod:infinitum_chestplate"
       }
     }
   },

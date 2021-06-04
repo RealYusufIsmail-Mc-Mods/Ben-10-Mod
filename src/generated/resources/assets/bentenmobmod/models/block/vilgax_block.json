@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bentenmobmod:block/vilgax_block"
+    "all": "bentenmod:block/vilgax_block"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bentenmobmod:block/legendary_block"
+    "all": "bentenmod:block/legendary_block"
   }
 }

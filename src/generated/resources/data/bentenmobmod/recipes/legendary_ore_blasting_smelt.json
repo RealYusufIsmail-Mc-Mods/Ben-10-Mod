@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:raw_legendary"
+    "item": "bentenmod:raw_legendary"
   },
-  "result": "bentenmobmod:legendary_ore",
+  "result": "bentenmod:legendary_ore",
   "experience": 0.3,
   "cookingtime": 300
 }

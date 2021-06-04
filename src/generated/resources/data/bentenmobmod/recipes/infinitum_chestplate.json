@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "bentenmobmod:black_diamond_chestplate"
+    "item": "bentenmod:black_diamond_chestplate"
   },
   "addition": {
-    "item": "bentenmobmod:infinitum"
+    "item": "bentenmod:infinitum"
   },
   "result": {
-    "item": "bentenmobmod:infinitum_chestplate"
+    "item": "bentenmod:infinitum_chestplate"
   }
 }

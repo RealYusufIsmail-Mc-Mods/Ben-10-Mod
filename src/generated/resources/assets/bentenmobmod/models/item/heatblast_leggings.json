@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmobmod:item/heatblast_leggings"
+    "layer0": "bentenmod:item/heatblast_leggings"
   }
 }

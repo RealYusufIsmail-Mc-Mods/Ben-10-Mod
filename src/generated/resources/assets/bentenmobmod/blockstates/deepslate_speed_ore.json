@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bentenmobmod:block/deepslate_speed_ore"
+      "model": "bentenmod:block/deepslate_speed_ore"
     }
   }
 }

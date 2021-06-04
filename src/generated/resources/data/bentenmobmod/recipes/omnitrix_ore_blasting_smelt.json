@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:raw_omnitrix"
+    "item": "bentenmod:raw_omnitrix"
   },
-  "result": "bentenmobmod:omnitrix",
+  "result": "bentenmod:omnitrix",
   "experience": 0.3,
   "cookingtime": 300
 }

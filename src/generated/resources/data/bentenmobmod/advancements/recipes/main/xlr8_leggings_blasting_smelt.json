@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:xlr8_leggings_blasting_smelt"
+      "bentenmod:xlr8_leggings_blasting_smelt"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:xlr8_leggings_blasting_smelt"
+        "recipe": "bentenmod:xlr8_leggings_blasting_smelt"
       }
     }
   },

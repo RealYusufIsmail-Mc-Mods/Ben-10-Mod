@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bentenmobmod:block/ruby_ore"
+    "all": "bentenmod:block/ruby_ore"
   }
 }

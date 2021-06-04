@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bentenmobmod:block/black_diamond_block"
+      "model": "bentenmod:block/black_diamond_block"
     }
   }
 }

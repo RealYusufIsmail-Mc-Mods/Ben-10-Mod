@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bentenmobmod:block/speed_ore"
+    "all": "bentenmod:block/speed_ore"
   }
 }

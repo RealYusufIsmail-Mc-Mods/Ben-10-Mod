@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:deepslate_black_diamond_ore"
+              "name": "bentenmod:deepslate_black_diamond_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:black_diamond_scrap"
+              "name": "bentenmod:black_diamond_scrap"
             }
           ]
         }

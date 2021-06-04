@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmobmod:black_diamond_block"
+          "name": "bentenmod:black_diamond_block"
         }
       ],
       "conditions": [

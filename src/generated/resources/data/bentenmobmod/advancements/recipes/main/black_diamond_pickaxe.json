@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:black_diamond_pickaxe"
+      "bentenmod:black_diamond_pickaxe"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:black_diamond_pickaxe"
+        "recipe": "bentenmod:black_diamond_pickaxe"
       }
     }
   },

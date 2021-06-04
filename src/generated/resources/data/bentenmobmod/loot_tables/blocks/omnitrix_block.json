@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmobmod:omnitrix_block"
+          "name": "bentenmod:omnitrix_block"
         }
       ],
       "conditions": [

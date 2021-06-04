@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:speed_ore_blasting_smelt"
+      "bentenmod:speed_ore_blasting_smelt"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:speed_ore"
+            "item": "bentenmod:speed_ore"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:speed_ore_blasting_smelt"
+        "recipe": "bentenmod:speed_ore_blasting_smelt"
       }
     }
   },

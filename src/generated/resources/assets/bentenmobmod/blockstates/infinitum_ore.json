@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "bentenmobmod:block/infinitum_ore_horizontal",
+      "model": "bentenmod:block/infinitum_ore_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "bentenmobmod:block/infinitum_ore"
+      "model": "bentenmod:block/infinitum_ore"
     },
     "axis=z": {
-      "model": "bentenmobmod:block/infinitum_ore_horizontal",
+      "model": "bentenmod:block/infinitum_ore_horizontal",
       "x": 90
     }
   }

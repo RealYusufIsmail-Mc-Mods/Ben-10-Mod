@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:black_diamond_helmet"
+    "item": "bentenmod:black_diamond_helmet"
   },
-  "result": "bentenmobmod:black_diamond",
+  "result": "bentenmod:black_diamond",
   "experience": 0.3,
   "cookingtime": 300
 }

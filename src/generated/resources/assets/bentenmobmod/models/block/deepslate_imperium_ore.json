@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bentenmobmod:block/deepslate_imperium_ore"
+    "all": "bentenmod:block/deepslate_imperium_ore"
   }
 }

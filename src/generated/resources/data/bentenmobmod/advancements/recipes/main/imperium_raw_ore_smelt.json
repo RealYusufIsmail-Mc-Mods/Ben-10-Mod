@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:imperium_raw_ore_smelt"
+      "bentenmod:imperium_raw_ore_smelt"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:imperium_raw_ore_smelt"
+        "recipe": "bentenmod:imperium_raw_ore_smelt"
       }
     }
   },

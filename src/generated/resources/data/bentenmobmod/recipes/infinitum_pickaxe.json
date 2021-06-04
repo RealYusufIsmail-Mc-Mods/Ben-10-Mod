@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "bentenmobmod:black_diamond_pickaxe"
+    "item": "bentenmod:black_diamond_pickaxe"
   },
   "addition": {
-    "item": "bentenmobmod:infinitum"
+    "item": "bentenmod:infinitum"
   },
   "result": {
-    "item": "bentenmobmod:infinitum_pickaxe"
+    "item": "bentenmod:infinitum_pickaxe"
   }
 }

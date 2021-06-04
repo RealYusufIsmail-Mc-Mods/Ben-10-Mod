@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:infinitum_helmet"
+    "item": "bentenmod:infinitum_helmet"
   },
-  "result": "bentenmobmod:infinitum",
+  "result": "bentenmod:infinitum",
   "experience": 0.3,
   "cookingtime": 300
 }

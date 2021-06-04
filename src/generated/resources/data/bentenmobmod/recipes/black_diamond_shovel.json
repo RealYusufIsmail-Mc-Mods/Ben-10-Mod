@@ -4,9 +4,9 @@
     "item": "minecraft:diamond_shovel"
   },
   "addition": {
-    "item": "bentenmobmod:black_diamond"
+    "item": "bentenmod:black_diamond"
   },
   "result": {
-    "item": "bentenmobmod:black_diamond_shovel"
+    "item": "bentenmod:black_diamond_shovel"
   }
 }

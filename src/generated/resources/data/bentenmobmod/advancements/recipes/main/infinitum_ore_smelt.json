@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:infinitum_ore_smelt"
+      "bentenmod:infinitum_ore_smelt"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:infinitum_ore"
+            "item": "bentenmod:infinitum_ore"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:infinitum_ore_smelt"
+        "recipe": "bentenmod:infinitum_ore_smelt"
       }
     }
   },

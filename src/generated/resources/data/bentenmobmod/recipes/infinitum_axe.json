@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "bentenmobmod:black_diamond_axe"
+    "item": "bentenmod:black_diamond_axe"
   },
   "addition": {
-    "item": "bentenmobmod:infinitum"
+    "item": "bentenmod:infinitum"
   },
   "result": {
-    "item": "bentenmobmod:infinitum_axe"
+    "item": "bentenmod:infinitum_axe"
   }
 }

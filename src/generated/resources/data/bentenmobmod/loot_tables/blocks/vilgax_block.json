@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmobmod:vilgax_block"
+          "name": "bentenmod:vilgax_block"
         }
       ],
       "conditions": [

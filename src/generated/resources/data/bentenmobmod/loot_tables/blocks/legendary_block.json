@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmobmod:legendary_block"
+          "name": "bentenmod:legendary_block"
         }
       ],
       "conditions": [

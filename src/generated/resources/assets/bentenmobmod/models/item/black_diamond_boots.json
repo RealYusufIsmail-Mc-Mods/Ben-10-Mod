@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmobmod:item/black_diamond_boots"
+    "layer0": "bentenmod:item/black_diamond_boots"
   }
 }

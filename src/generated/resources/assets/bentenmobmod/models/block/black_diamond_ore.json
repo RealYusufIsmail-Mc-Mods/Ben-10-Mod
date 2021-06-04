@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bentenmobmod:block/black_diamond_ore"
+    "all": "bentenmod:block/black_diamond_ore"
   }
 }

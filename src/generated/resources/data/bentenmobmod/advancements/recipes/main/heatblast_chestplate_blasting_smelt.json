@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:heatblast_chestplate_blasting_smelt"
+      "bentenmod:heatblast_chestplate_blasting_smelt"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:heatblast_chestplate_blasting_smelt"
+        "recipe": "bentenmod:heatblast_chestplate_blasting_smelt"
       }
     }
   },

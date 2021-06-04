@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmobmod:item/enchanted_omnitrix_apple"
+    "layer0": "bentenmod:item/enchanted_omnitrix_apple"
   }
 }

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:xlr8_helmet"
+    "item": "bentenmod:xlr8_helmet"
   },
-  "result": "bentenmobmod:speed",
+  "result": "bentenmod:speed",
   "experience": 0.3,
   "cookingtime": 300
 }

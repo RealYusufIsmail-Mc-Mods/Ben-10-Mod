@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:xlr8_chestplate"
+      "bentenmod:xlr8_chestplate"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:xlr8_chestplate"
+        "recipe": "bentenmod:xlr8_chestplate"
       }
     }
   },

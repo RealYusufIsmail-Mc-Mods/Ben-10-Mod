@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:helmet_blasting_smelt"
+      "bentenmod:helmet_blasting_smelt"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:helmet_blasting_smelt"
+        "recipe": "bentenmod:helmet_blasting_smelt"
       }
     }
   },

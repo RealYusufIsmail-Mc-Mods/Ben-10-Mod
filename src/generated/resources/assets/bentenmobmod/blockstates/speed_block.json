@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bentenmobmod:block/speed_block"
+      "model": "bentenmod:block/speed_block"
     }
   }
 }

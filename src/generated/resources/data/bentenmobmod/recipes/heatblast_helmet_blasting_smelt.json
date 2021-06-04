@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:heatblast_helmet"
+    "item": "bentenmod:heatblast_helmet"
   },
-  "result": "bentenmobmod:fire",
+  "result": "bentenmod:fire",
   "experience": 0.3,
   "cookingtime": 300
 }

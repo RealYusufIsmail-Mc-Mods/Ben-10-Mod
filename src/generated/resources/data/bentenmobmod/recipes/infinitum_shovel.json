@@ -1,12 +1,12 @@
 {
   "type": "minecraft:smithing",
   "base": {
-    "item": "bentenmobmod:black_diamond_shovel"
+    "item": "bentenmod:black_diamond_shovel"
   },
   "addition": {
-    "item": "bentenmobmod:infinitum"
+    "item": "bentenmod:infinitum"
   },
   "result": {
-    "item": "bentenmobmod:infinitum_shovel"
+    "item": "bentenmod:infinitum_shovel"
   }
 }

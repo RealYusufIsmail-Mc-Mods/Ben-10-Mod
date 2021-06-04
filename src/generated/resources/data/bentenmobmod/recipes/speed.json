@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bentenmobmod:speed_block"
+      "item": "bentenmod:speed_block"
     }
   ],
   "result": {
-    "item": "bentenmobmod:speed",
+    "item": "bentenmod:speed",
     "count": 9
   }
 }

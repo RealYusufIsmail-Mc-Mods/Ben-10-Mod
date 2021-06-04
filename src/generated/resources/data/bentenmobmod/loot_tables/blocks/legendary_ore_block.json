@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:legendary_ore_block"
+              "name": "bentenmod:legendary_ore_block"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:raw_legendary"
+              "name": "bentenmod:raw_legendary"
             }
           ]
         }

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:infinitum_ore"
+    "item": "bentenmod:infinitum_ore"
   },
-  "result": "bentenmobmod:infinitum_scrap",
+  "result": "bentenmod:infinitum_scrap",
   "experience": 0.3,
   "cookingtime": 300
 }

@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:xlr8_chestplate"
+    "item": "bentenmod:xlr8_chestplate"
   },
-  "result": "bentenmobmod:speed",
+  "result": "bentenmod:speed",
   "experience": 0.3,
   "cookingtime": 300
 }

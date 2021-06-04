@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bentenmobmod:block/omnitrix_block"
+      "model": "bentenmod:block/omnitrix_block"
     }
   }
 }

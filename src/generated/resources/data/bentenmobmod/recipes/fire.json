@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bentenmobmod:fire_block"
+      "item": "bentenmod:fire_block"
     }
   ],
   "result": {
-    "item": "bentenmobmod:fire",
+    "item": "bentenmod:fire",
     "count": 9
   }
 }

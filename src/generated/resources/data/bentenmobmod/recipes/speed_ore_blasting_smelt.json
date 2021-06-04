@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmobmod:speed_ore"
+    "item": "bentenmod:speed_ore"
   },
-  "result": "bentenmobmod:speed",
+  "result": "bentenmod:speed",
   "experience": 0.3,
   "cookingtime": 300
 }

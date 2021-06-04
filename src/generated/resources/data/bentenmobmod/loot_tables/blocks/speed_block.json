@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmobmod:speed_block"
+          "name": "bentenmod:speed_block"
         }
       ],
       "conditions": [

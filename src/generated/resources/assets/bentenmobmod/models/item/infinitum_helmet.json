@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmobmod:item/infinitum_helmet"
+    "layer0": "bentenmod:item/infinitum_helmet"
   }
 }

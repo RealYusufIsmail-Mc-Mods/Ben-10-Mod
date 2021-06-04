@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:black_diamond_ore_blasting_smelt"
+      "bentenmod:black_diamond_ore_blasting_smelt"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmobmod:black_diamond_ore"
+            "item": "bentenmod:black_diamond_ore"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:black_diamond_ore_blasting_smelt"
+        "recipe": "bentenmod:black_diamond_ore_blasting_smelt"
       }
     }
   },

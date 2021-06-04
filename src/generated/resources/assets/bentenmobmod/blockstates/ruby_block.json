@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bentenmobmod:block/ruby_block"
+      "model": "bentenmod:block/ruby_block"
     }
   }
 }

@@ -14,8 +14,8 @@ apply plugin: 'maven-publish'
 
 
 version = '1.17.5-1.15'
-group = 'com.yusuf.bentenmobmod' 
-archivesBaseName = 'bentenmobmod'
+group = 'com.yusuf.bentenmod'
+archivesBaseName = 'bentenmod'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
@@ -31,7 +31,7 @@ minecraft {
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             property 'forge.logging.console.level', 'debug'
             mods {
-                bentenmobmod {
+                bentenmod {
                     source sourceSets.main
                 }
             }
@@ -43,7 +43,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                bentenmobmod {
+                bentenmod {
                     source sourceSets.main
                 }
             }
@@ -53,14 +53,14 @@ minecraft {
             workingDirectory project.file('run')       
 
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'bentenmobmod', '--all',
+            args '--mod', 'bentenmod', '--all',
             '--existing', file('src/main/resources').toString(),
             '--existing', file('src/generated/resources').toString(),
             '--output', file('src/generated/resources/')
 
 
             mods {
-                bentenmobmod {
+                bentenmod {
                     source sourceSets.main
                 }
 
@@ -96,7 +96,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "bentenmobmod",
+            "Specification-Title": "bentenmod",
             "Specification-Vendor": "Yusuf.I",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,

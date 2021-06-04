@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "bentenmobmod:infinitum_ore"
+              "name": "bentenmod:infinitum_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "bentenmobmod:infinitum_scrap"
+              "name": "bentenmod:infinitum_scrap"
             }
           ]
         }

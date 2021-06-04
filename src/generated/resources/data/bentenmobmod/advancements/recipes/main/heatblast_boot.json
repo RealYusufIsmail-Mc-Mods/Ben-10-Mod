@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmobmod:heatblast_boot"
+      "bentenmod:heatblast_boot"
     ]
   },
   "criteria": {
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmobmod:heatblast_boot"
+        "recipe": "bentenmod:heatblast_boot"
       }
     }
   },

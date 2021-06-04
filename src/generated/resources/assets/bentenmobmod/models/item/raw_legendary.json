@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmobmod:item/raw_legendary"
+    "layer0": "bentenmod:item/raw_legendary"
   }
 }

@@ -7,13 +7,13 @@
   ],
   "key": {
     "A": {
-      "item": "bentenmobmod:omnitrix_block"
+      "item": "bentenmod:omnitrix_block"
     },
     "L": {
       "item": "minecraft:apple"
     }
   },
   "result": {
-    "item": "bentenmobmod:enchanted_omnitrix_apple"
+    "item": "bentenmod:enchanted_omnitrix_apple"
   }
 }

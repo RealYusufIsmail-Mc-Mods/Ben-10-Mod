@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmobmod:infinitum_block"
+          "name": "bentenmod:infinitum_block"
         }
       ],
       "conditions": [
