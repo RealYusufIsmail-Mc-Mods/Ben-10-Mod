@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 [[mods]]
 modId="bentenmod"
 version="${1.12}"
-displayName="Ben10 Mob Mod" 
+displayName="Ben10 Mod"
 updateJSONURL="https://raw.githubusercontent.com/realyusufismail/custom-mod/1.15.5-beta/src/main/java/bentenmobmod-updater.json" #optional
 displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
 logoFile="headerimg.png"
@@ -15,7 +15,8 @@ gentworm for helping me with my code."
 
 authors="Yusuf Ismail and gentworm" #optional
 description='''
-Villains and heros in the Ben 10 series. Villains coming out first.	
+A mod which adds Villains, heroes and armour and items from the Ben 10 series. Some Vilans will be added and a lot of items and armour will be added. The omnitrix will be added
+soon.
 
 Dont not copy my mod.
 
