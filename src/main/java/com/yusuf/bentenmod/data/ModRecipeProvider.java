@@ -443,11 +443,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.IMPERIUM_ORE.get()), ItemInit.IMPERIUM.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(BlockInit.IMPERIUM_ORE.get()))
-                .save(consumer, modId("black_diamond_ore_smelt"));
+                .save(consumer, modId("imperium_ore_smelt"));
 
         CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.IMPERIUM_ORE.get()), ItemInit.IMPERIUM.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(BlockInit.IMPERIUM_ORE.get()))
-                .save(consumer, modId("black_diamond_ore_blasting_smelt"));
+                .save(consumer, modId("imperium_ore_blasting_smelt"));
 
         //armour
 
