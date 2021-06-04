@@ -229,6 +229,9 @@ public class ItemInit {
 			() -> new EnchantedGoldenAppleItem(
 					new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
 	// other items
+	public static final RegistryObject<Item> OMNITRIX_WATCH = ITEMS.register("omnitrix_watch",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
 
 //0xC4AA79, 0x7A5F22
 }
