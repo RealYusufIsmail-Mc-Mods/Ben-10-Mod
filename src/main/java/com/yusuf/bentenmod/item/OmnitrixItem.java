@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.item;
 
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,3 +29,6 @@ public class OmnitrixItem extends Item {
 
 
 }
+
+
+ */
