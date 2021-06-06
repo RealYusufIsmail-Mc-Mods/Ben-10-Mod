@@ -12,14 +12,14 @@ import java.awt.event.KeyEvent;
 @OnlyIn(Dist.CLIENT)
 public class KeybindsInit {
 	
-	public static KeyBinding fireblastKey;
-	
+	public static KeyBinding openwatchkey;
+
 	
 	public static void register(final FMLClientSetupEvent event) {
+
+		openwatchkey = create("openwatch_key", KeyEvent.VK_K);
 		
-		fireblastKey = create("fireblast_key", KeyEvent.VK_K);
-		
-		ClientRegistry.registerKeyBinding(fireblastKey);
+		ClientRegistry.registerKeyBinding(openwatchkey);
 	} 
 	
 	private static KeyBinding create(String name, int key) {

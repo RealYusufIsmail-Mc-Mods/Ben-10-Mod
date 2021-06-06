@@ -76,7 +76,6 @@ repositories {
      maven { url 'https://maven.blamejared.com' }
 }
 
-
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
