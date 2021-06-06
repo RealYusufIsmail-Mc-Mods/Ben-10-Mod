@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Mined Legendary ore",
+            "text": "Mined Omnitrix ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You just mined one of the most OP ores in the game"
+            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft a certain apple."
         },
         "icon": {
-            "item": "bentenmod:legendary_ore_block"
+            "item": "bentenmod:raw_omnitrix"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmod:legendary_ore_block",
+                        "item": "bentenmod:raw_omnitrix",
                     "count": 1
  						            }
                 ]

@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Smelted Legendary ore",
+            "text": "Mined Legendary ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "you smelted legendary ore and now you can make a sword and armour"
+            "text": "You just mined one of the most OP ores in the game"
         },
         "icon": {
-            "item": "bentenmod:legendary_ore"
+            "item": "bentenmod:raw_legendary"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmod:legendary_ore",
+                        "item": "bentenmod:raw_legendary",
                     "count": 1
  						            }
                 ]
@@ -33,5 +33,5 @@
  						  
  						  
  
-    "parent": "bentenmod:all/legendary/raw_legendary"
+    "parent": "bentenmod:all/root"
 }
