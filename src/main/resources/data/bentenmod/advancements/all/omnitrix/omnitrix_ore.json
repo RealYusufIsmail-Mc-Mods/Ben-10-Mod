@@ -23,7 +23,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmod:omnitrix_ore",
+                        "item": "bentenmod:raw_omnitrix",
                     "count": 1
  						            }
                 ]
