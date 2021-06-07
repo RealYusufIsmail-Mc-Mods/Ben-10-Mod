@@ -200,7 +200,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" A ")
                 .pattern(" # ")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
-                .save(consumer,modId("sword"));
+                .save(consumer,modId("imperium_sword"));
 
 
 

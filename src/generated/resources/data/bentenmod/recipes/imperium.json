@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmod:imperium_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:imperium",
+    "count": 9
+  }
+}
