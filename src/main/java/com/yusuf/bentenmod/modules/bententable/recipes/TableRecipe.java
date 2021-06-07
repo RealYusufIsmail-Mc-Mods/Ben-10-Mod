@@ -1,4 +1,4 @@
-/*
+
 package com.yusuf.bentenmod.modules.bententable.recipes;
 
 import net.minecraft.inventory.IInventory;
@@ -6,60 +6,75 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class TableRecipe  implements IRecipe<IInventory> {
-    private final ResourceLocation id;
-    private final TableRecipe.Upgradeore item1;
-    private final TableRecipe.Result item2;
-    public TableRecipe(ResourceLocation id, TableRecipe.Upgradeore item1, TableRecipe.Result item2) {
-
-        this.id = id;
-        this.item1 = item1;
-        this.item2 = item2;
-    }
-    public TableRecipe.Upgradeore getItem1() {
-        return item1;
-    }
-
-    public TableRecipe.Result getItem2() {
-        return item2;
-    }
-    @Override
-    public boolean matches(IInventory inv, World worldIn) {
-        return false;
+    /** Set the input ingredients */
+    public final Ingredient input1;
+    public final Ingredient input2;
+    public final Ingredient input3;
+    /** Set the output ItemStack */
+    public final ItemStack output;
+    /** Set recipe id. THIS IS IMPORTANT */
+    private final ResourceLocation recipeId;
+    /** put all of final variables to constructor */
+    public TableRecipe(Ingredient input1, Ingredient input2, Ingredient input3, ItemStack output, ResourceLocation recipeId) {
+        this.input1 = input1;
+        this.input2 = input2;
+        this.input3 = input3;
+        this.output = output;
+        this.recipeId = recipeId;
     }
 
-    @Override
-    public ItemStack assemble(IInventory inv) {
-        return ItemStack.EMPTY;
-    }
+
+    //int value is the index of Container Slot in your Container class
 
     @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return false;
+    public boolean matches(IInventory inventory, World p_77569_2_) {
+        return input1.test(inventory.getItem(0))
+                && input2.test(inventory.getItem(1))
+                && input3.test(inventory.getItem(2));
+    }
+
+    @Override
+    public ItemStack assemble(IInventory p_77572_1_) {
+        return output.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int p_194133_1_, int p_194133_2_) {
+        return true;
     }
 
     @Override
     public ItemStack getResultItem() {
-        return ItemStack.EMPTY;
+        return output;
     }
 
     @Override
     public ResourceLocation getId() {
-        return id;
+        return recipeId;
     }
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return TableModule.SMITHING_SERIALIZER.get();
+        return new Serializer();
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> ingredients = NonNullList.create();
+        ingredients.add(input1);
+        ingredients.add(input2);
+        ingredients.add(input3);
+        return ingredients;
     }
 
     @Override
     public IRecipeType<?> getType() {
-        return TableModule.SPAWNER_RECIPE_TYPE;
+        return RegisterRecipe.TABLE_RECIPE;
     }
 }
-
- */
