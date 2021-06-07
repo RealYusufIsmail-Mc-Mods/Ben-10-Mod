@@ -17,7 +17,8 @@ public class OmnitrixItem extends Item {
         super(properties);
     }
 
-    @Override
+
+
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
         if (!player.isCrouching()) {
             final ItemStack stack = getHeldOmnitrix(player);
