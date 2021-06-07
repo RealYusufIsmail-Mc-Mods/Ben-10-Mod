@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "bentenmod:imperium_pickaxe"
+  },
+  "addition": {
+    "item": "bentenmod:imperium"
+  },
+  "result": {
+    "item": "bentenmod:imperium_pickaxe_upgraded"
+  }
+}
