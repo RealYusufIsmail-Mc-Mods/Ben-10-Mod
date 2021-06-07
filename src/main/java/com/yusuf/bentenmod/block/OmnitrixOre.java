@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.ToolType;
 
 import java.util.Random;
 
@@ -20,9 +19,10 @@ public class OmnitrixOre extends Block {
 
     public OmnitrixOre() {
         super(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)
-                .strength(3)
-                .harvestTool(ToolType.PICKAXE)
+        );
         this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
+
+
     }
 
 

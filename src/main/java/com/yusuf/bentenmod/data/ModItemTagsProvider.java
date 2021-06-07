@@ -58,7 +58,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         //tools
 
-        tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE_UPGRADED).add(ItemInit.IMPERIUM_PICKAXE.get());
+        tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(ItemInit.IMPERIUM_PICKAXE.get());
 
 
 

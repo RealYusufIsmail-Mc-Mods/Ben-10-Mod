@@ -202,6 +202,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
                 .save(consumer,modId("imperium_sword"));
 
+        ShapedRecipeBuilder.shaped(ItemInit.IMPERIUM_PICKAXE.get())
+                .define('#', Items.STICK.getItem())
+                .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern("AAA")
+                .pattern(" # ")
+                .pattern(" # ")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
+                .save(consumer,modId("imperium_pickaxe"));
+
 
 
         ShapedRecipeBuilder.shaped(ItemInit.HELMET.get())

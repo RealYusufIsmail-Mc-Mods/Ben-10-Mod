@@ -103,7 +103,7 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
 
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.IMPERIUM_PICKAXE.get()), Ingredient.of(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
-                .unlocks("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE_UPGRADED))
+                .unlocks("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
                 .save(consumer,modId("imperium_pickaxe_upgraded"));
 
 

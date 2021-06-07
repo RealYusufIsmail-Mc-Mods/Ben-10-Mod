@@ -78,9 +78,7 @@ public class BlockInit {
 			.register("speed_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
-	public static final RegistryObject<Block> OMNITRIX_ORE = BLOCKS
-			.register("omnitrix_ore",
-					() -> new Block(OmnitrixOre.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
 
 
 	/* deepslate ores */
@@ -117,9 +115,11 @@ public class BlockInit {
 
 
 	public static final RegistryObject<TableBlock> TABLE_BLOCK;
+	public static final RegistryObject<OmnitrixOre> OMNITRIX_ORE;
 
 static {
 	TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
+	OMNITRIX_ORE = registerSpecial("omnitrix_ore", OmnitrixOre::new);
 }
 
 
