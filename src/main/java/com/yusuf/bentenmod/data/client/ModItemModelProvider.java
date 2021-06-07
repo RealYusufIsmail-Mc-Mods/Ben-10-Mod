@@ -92,7 +92,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "raw_omnitrix");
         builder(itemGenerated, "raw_imperium");
         builder(itemGenerated, "imperium");
-        builder(itemGenerated, "imperium_sword");
+
 
 
 
@@ -114,7 +114,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "infinitum_pickaxe");
         tool(itemhandHeld, "infinitum_shovel");
         tool(itemhandHeld, "infinitum_hoe");
-
+        tool(itemhandHeld, "imperium_sword");
 
     }
 
