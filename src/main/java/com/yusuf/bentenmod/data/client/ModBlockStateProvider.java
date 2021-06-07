@@ -29,6 +29,7 @@ public class ModBlockStateProvider extends BlockStateProvider{
         simpleBlock(BlockInit.SPEED_BLOCK.get());
         simpleBlock(BlockInit.SPEED_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_ORE.get());
+        simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
         simpleBlock(BlockInit.VILGAX_BLOCK.get());
         simpleBlock(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
         simpleBlock(BlockInit.DEEPSLATE_SPEED_ORE.get());

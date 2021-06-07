@@ -41,6 +41,10 @@ public class BlockInit {
 	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS
 			.register("ruby_block",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
+
+	public static final RegistryObject<Block> IMPERIUM_BLOCK = BLOCKS
+			.register("imperium_block",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK)));
 	/* ores */
 
 	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS

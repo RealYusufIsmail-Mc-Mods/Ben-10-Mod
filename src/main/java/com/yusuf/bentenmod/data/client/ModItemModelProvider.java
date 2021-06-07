@@ -33,6 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
         withExistingParent("vilgax_block", modLoc("block/vilgax_block"));
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
+        withExistingParent("imperium_block", modLoc("block/imperium_block"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
         withExistingParent("deepslate_legendary_ore_block", modLoc("block/deepslate_legendary_ore_block"));
         withExistingParent("deepslate_ruby_ore", modLoc("block/deepslate_ruby_ore"));
@@ -91,6 +92,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "raw_omnitrix");
         builder(itemGenerated, "raw_imperium");
         builder(itemGenerated, "imperium");
+        builder(itemGenerated, "imperium_sword");
 
 
 

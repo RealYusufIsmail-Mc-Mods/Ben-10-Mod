@@ -116,6 +116,20 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(ItemInit.IMPERIUM.get(), 9)
+
+                .requires(BlockInit.IMPERIUM_BLOCK.get())
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(BlockInit.IMPERIUM_BLOCK.get())
+                .define('#',TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
+                .save(consumer);
         
 
         //ingots
@@ -178,6 +192,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" # ")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
                 .save(consumer,modId("sword"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.IMPERIUM_SWORD.get())
+                .define('#', Items.STICK.getItem())
+                .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern(" A ")
+                .pattern(" A ")
+                .pattern(" # ")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
+                .save(consumer,modId("sword"));
+
 
 
         ShapedRecipeBuilder.shaped(ItemInit.HELMET.get())
