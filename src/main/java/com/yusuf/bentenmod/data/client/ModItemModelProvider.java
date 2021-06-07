@@ -115,6 +115,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "infinitum_shovel");
         tool(itemhandHeld, "infinitum_hoe");
         tool(itemhandHeld, "imperium_sword");
+        tool(itemhandHeld, "imperium_pickaxe");
+        tool(itemhandHeld, "imperium_pickaxe_upgraded");
 
     }
 

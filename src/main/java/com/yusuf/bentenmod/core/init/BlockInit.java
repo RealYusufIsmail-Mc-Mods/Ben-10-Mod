@@ -1,13 +1,16 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.RotatedPillarBlock;
+import com.yusuf.bentenmod.block.OmnitrixOre;
+import com.yusuf.bentenmod.block.TableBlock;
+import net.minecraft.block.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
@@ -44,7 +47,7 @@ public class BlockInit {
 
 	public static final RegistryObject<Block> IMPERIUM_BLOCK = BLOCKS
 			.register("imperium_block",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK)));
+					() -> new Block(RedstoneOreBlock.Properties.copy(Blocks.IRON_BLOCK)));
 	/* ores */
 
 	public static final RegistryObject<Block> LEGENDARY_ORE_BLOCK = BLOCKS
@@ -77,7 +80,8 @@ public class BlockInit {
 
 	public static final RegistryObject<Block> OMNITRIX_ORE = BLOCKS
 			.register("omnitrix_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+					() -> new Block(OmnitrixOre.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
 
 	/* deepslate ores */
 
@@ -112,7 +116,17 @@ public class BlockInit {
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
 
 
+	public static final RegistryObject<TableBlock> TABLE_BLOCK;
+
+static {
+	TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
+}
 
 
+	private static <T extends Block> RegistryObject<T> registerSpecial(String name, Supplier<T> blockSupplier) {
+		RegistryObject<T> block = BLOCKS.register(name, blockSupplier);
+		ItemInit.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(16).setNoRepair()));
+		return block;
+	}
 
 }

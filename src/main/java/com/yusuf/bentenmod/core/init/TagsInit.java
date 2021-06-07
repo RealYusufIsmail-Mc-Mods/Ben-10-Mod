@@ -90,7 +90,9 @@ public class TagsInit {
 
 
 
-        //food
+        //tools
+        public static final ITag.INamedTag<Item> TOOLS_IMPERIUM_PICKAXE = ItemTags.bind("forge:tools/imperium_pickaxe");
+
 
 
         private static ITag.INamedTag<Item> forge(String path) {

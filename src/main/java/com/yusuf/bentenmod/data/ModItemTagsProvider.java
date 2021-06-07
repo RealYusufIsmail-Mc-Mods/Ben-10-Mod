@@ -56,6 +56,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.RAW_ORE_OMNITRIX).add(ItemInit.RAW_OMNITRIX.get());
         tag(TagsInit.Items.RAW_ORE_LEGENDARY).add(ItemInit.RAW_LEGENDARY.get());
 
+        //tools
+
+        tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE_UPGRADED).add(ItemInit.IMPERIUM_PICKAXE.get());
+
 
 
 

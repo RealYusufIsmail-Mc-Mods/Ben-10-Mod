@@ -21,7 +21,11 @@ public enum CustomToolMaterial implements IItemTier {
 	INFINITUM_SHOVEL(20, 3000, 70f, 10f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
 	INFINITUM_HOE(20, 3000, 70f, 7f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
 	AXE(50, 2500, 80f, 8, 50, () -> Ingredient.of(ItemInit.RUBY.get())),
-	IMPERIUM_SWORD(20, 3000, 70f, 7.5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
+	IMPERIUM_SWORD(20, 3000, 70f, 7.5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+	IMPERIUM_PICKAXE(20, 2500	, 40f, 6f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+	IMPERIUM_PICKAXE_UPGRADED(20, 3000, 50f, 5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
+
+
 
 
 	private final int harvestLevel;

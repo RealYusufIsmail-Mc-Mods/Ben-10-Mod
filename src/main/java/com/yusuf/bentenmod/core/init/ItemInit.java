@@ -112,6 +112,14 @@ public class ItemInit {
 	 () ->  new SwordItem(CustomToolMaterial.IMPERIUM_SWORD, 0, 7f,
 			 new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<PickaxeItem> IMPERIUM_PICKAXE = ITEMS.register("imperium_pickaxe",
+			() ->  new PickaxeItem(CustomToolMaterial.IMPERIUM_PICKAXE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
+	public static final RegistryObject<PickaxeItem> IMPERIUM_PICKAXE_UPGRADED = ITEMS.register("imperium_pickaxe_upgraded",
+			() ->  new PickaxeItem(CustomToolMaterial.IMPERIUM_PICKAXE_UPGRADED, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
 //armour
 
 	// knight armour
