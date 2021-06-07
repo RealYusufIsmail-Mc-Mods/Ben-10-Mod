@@ -5,7 +5,7 @@ license="BSD 3-Clause License"
 issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 [[mods]]
 modId="bentenmod"
-version="${1.12}"
+version="${1.15}"
 displayName="Ben10 Mod"
 updateJSONURL="https://github.com/RealYusufIsmail/custom-mod/blob/1.17/src/main/java/bentenmobmod-updater.json" #optional
 displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
