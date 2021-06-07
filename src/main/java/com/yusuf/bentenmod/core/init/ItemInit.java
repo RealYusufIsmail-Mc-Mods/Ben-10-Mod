@@ -5,7 +5,6 @@ import com.yusuf.bentenmod.common.events.*;
 import com.yusuf.bentenmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmod.item.OmnitrixWatch;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -242,7 +241,9 @@ public class ItemInit {
 			() -> new EnchantedGoldenAppleItem(
 					new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
 	// other items
+// TODO Open when doing with Gentworm
+	/*
 	public static OmnitrixWatch omnitrix;
-
+*/
 //0xC4AA79, 0x7A5F22
 }
