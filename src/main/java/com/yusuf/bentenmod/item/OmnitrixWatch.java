@@ -11,9 +11,9 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class OmnitrixItem extends Item {
+public class OmnitrixWatch extends Item {
 
-    public OmnitrixItem(Item.Properties properties) {
+    public OmnitrixWatch(Item.Properties properties) {
         super(properties);
     }
 
