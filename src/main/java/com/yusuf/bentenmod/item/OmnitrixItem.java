@@ -17,21 +17,22 @@ public class OmnitrixItem extends Item {
         super(properties);
     }
 
-    @Override //this method is responsible for what happens when you right click
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        if (playerIn.isCrouching()) {
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
+        if (!player.isCrouching()) {
             final ItemStack stack = getHeldOmnitrix(player);
-            GuiHandler.openGUI(world, player, stack);
+            GuiHandler.openScreen(world, player, stack);
+
         }
-        return new ActionResult<ItemStack>(ActionResultType.PASS, player.getHeldItem(hand));
+        return new ActionResult<ItemStack>(ActionResultType.PASS, player.getItemInHand(hand));
     }
 
 
     public static ItemStack getHeldItem(PlayerEntity player, Item item) {
-        if (!player.getHeldItemMainhand().isEmpty() && player.getHeldItemMainhand().getItem() == item) {
-            return player.getHeldItemMainhand();
-        } else if (!player.getHeldItemOffhand().isEmpty() && player.getHeldItemOffhand().getItem() == item) {
-            return player.getHeldItemOffhand();
+        if (!player.getMainHandItem().isEmpty() && player.getMainHandItem().getItem() == item) {
+            return player.getMainHandItem();
+        } else if (!player.getMainHandItem().isEmpty() && player.getMainHandItem().getItem() == item) {
+            return player.getMainHandItem();
         }
 
         return ItemStack.EMPTY;
