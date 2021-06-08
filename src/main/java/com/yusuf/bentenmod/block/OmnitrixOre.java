@@ -1,6 +1,10 @@
 package com.yusuf.bentenmod.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.RedstoneTorchBlock;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
@@ -9,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 
 import java.util.Random;
 
@@ -18,8 +23,15 @@ public class OmnitrixOre extends Block {
 
 
     public OmnitrixOre() {
-        super(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)
+        super(Properties.of(Material.METAL)
+                .strength(30.0F)
+                .harvestTool(ToolType.PICKAXE)
+                .harvestLevel(4)
+                .requiresCorrectToolForDrops()
+                .sound(SoundType.ANCIENT_DEBRIS)
+
         );
+
         this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
 
 
@@ -27,6 +39,7 @@ public class OmnitrixOre extends Block {
 
 
     @OnlyIn(Dist.CLIENT)
+    @Override
     public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
         if (p_180655_1_.getValue(LIT)) {
             spawnParticles(p_180655_2_, p_180655_3_);
@@ -50,7 +63,7 @@ public class OmnitrixOre extends Block {
         }
 
     }
-
+    @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(LIT);
     }
