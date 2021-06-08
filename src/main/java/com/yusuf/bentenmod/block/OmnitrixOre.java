@@ -66,10 +66,6 @@ public class OmnitrixOre extends Block {
 
 
     @Override
-    public int getExpDrop(BlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, int fortune, int silktouch) {
-        return silktouch == 0 ? 1 + RANDOM.nextInt(5) : 0;
-    }
-    @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(LIT);
     }

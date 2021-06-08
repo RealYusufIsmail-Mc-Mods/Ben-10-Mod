@@ -59,7 +59,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_OMNITRIX = ItemTags.bind("forge:ores/deepslate_omnitrix");
         public static final ITag.INamedTag<Item> ORES_DEEPSLATE_IMPERIUM = ItemTags.bind("forge:ores/deepslate_imperium");
         public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCK = ItemTags.bind("forge:ores/legendary_ore_block");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK = ItemTags.bind("forge:ores/legendary_ore_block");
+        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK = ItemTags.bind("forge:ores/deepeslate_legendary_ore_block");
         //blocks
         public static final ITag.INamedTag<Item> STORAGE_LEGENDARY = ItemTags.bind("forge:storage_blocks/legendary");
         public static final ITag.INamedTag<Item> STORAGE_OMNITRIX = ItemTags.bind("forge:storage_blocks/omnitrix");
