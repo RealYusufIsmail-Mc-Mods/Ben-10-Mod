@@ -34,7 +34,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Block> STORAGE_FIRE = BlockTags.bind("forge:storage_blocks/fire");
         public static final ITag.INamedTag<Block> STORAGE_SPEED = BlockTags.bind("forge:storage_blocks/speed");
         public static final ITag.INamedTag<Block> STORAGE_BLACK_DIAMOND = BlockTags.bind("forge:storage_blocks/black_diamond");
-        public static final ITag.INamedTag<Block> STORAGE_VILGAX = BlockTags.bind("forge:storage_blocks/vilgax");
 
         private static ITag.INamedTag<Block> forge(String path) {
             return BlockTags.bind(new ResourceLocation("forge", path).toString());
@@ -68,7 +67,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> STORAGE_FIRE = ItemTags.bind("forge:storage_blocks/fire");
         public static final ITag.INamedTag<Item> STORAGE_SPEED = ItemTags.bind("forge:storage_blocks/speed");
         public static final ITag.INamedTag<Item> STORAGE_BLACK_DIAMOND = ItemTags.bind("forge:storage_blocks/black_diamond");
-        public static final ITag.INamedTag<Item> STORAGE_VILGAX = ItemTags.bind("forge:storage_blocks/vilgax");
 
         //items
         public static final ITag.INamedTag<Item> INGOTS_LEGENDARY_ORE = ItemTags.bind("forge:ingots/legendary_ore");

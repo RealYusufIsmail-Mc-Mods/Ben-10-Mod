@@ -82,8 +82,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND);
 
-        tag(TagsInit.Blocks.STORAGE_VILGAX).add(BlockInit.VILGAX_BLOCK.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_VILGAX);
     }
 }
 

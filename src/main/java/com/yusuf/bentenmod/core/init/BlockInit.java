@@ -109,9 +109,7 @@ public class BlockInit {
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	/* other blocks */
 	
-	public static final RegistryObject<Block> VILGAX_BLOCK = BLOCKS
-			.register("vilgax_block",
-			() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK)));
+
 
 
 	public static final RegistryObject<TableBlock> TABLE_BLOCK;

@@ -37,7 +37,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.STORAGE_FIRE, TagsInit.Items.STORAGE_FIRE);
         copy(TagsInit.Blocks.STORAGE_SPEED, TagsInit.Items.STORAGE_SPEED);
         copy(TagsInit.Blocks.STORAGE_BLACK_DIAMOND, TagsInit.Items.STORAGE_BLACK_DIAMOND);
-        copy(TagsInit.Blocks.STORAGE_VILGAX, TagsInit.Items.STORAGE_VILGAX);
+
 
         //ingots
         tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(ItemInit.LEGENDARY_ORE.get());
