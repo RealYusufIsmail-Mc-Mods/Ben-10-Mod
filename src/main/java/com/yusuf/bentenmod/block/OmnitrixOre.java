@@ -2,12 +2,9 @@ package com.yusuf.bentenmod.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.RedstoneTorchBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.particles.RedstoneParticleData;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -17,8 +14,9 @@ import net.minecraftforge.common.ToolType;
 
 import java.util.Random;
 
+import static net.minecraft.block.RedstoneOreBlock.LIT;
+
 public class OmnitrixOre extends Block {
-    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 
 
 
@@ -32,7 +30,6 @@ public class OmnitrixOre extends Block {
 
         );
 
-        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
 
 
     }
@@ -64,11 +61,6 @@ public class OmnitrixOre extends Block {
 
     }
 
-
-    @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
-        p_206840_1_.add(LIT);
-    }
 
 
 }
