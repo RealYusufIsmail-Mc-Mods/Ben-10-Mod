@@ -40,9 +40,9 @@ public class TableScreen extends ContainerScreen {
 
     @Override
     protected void renderLabels(MatrixStack matrix, int p_230451_2, int p_230451_3 ) {
+        //4210752 is the defeault number can not be changed
         font.draw(matrix, inventory.getDisplayName(), 7, 81, 4210752);
-
-        // TODO Render contatiner title
+        font.draw(matrix, TableTileEntity.TITLE, 87, 3  , 4210752);
     }
 
 

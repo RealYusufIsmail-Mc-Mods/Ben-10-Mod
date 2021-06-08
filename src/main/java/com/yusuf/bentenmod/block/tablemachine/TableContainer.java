@@ -21,10 +21,10 @@ public class TableContainer extends Container {
         addSlot(new Slot((IInventory) te, 0, 13, 18));
         addSlot(new Slot((IInventory) te, 1, 59, 18));
         addSlot(new Slot((IInventory) te, 2, 36, 55));
-        addSlot(new Slot((IInventory) te, 3, 134, 36));
-
+        addSlot(new OutputSlot((IInventory) te, 3, 134, 36));
 
     }
+    
 
     public TableContainer(int id, PlayerInventory playerInv, PacketBuffer buffer) {
         this(id, playerInv, getTileEntity(playerInv, buffer));

@@ -26,14 +26,6 @@ public class OmnitrixOre extends Block {
     }
 
 
-
-
-
-    @Override
-    public int getExpDrop(BlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, int fortune, int silktouch) {
-        return silktouch == 0 ? 1 + RANDOM.nextInt(5) : 0;
-    }
-
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
         if (p_180655_1_.getValue(LIT)) {
