@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "key": {
+    "L": {
+      "tag": "forge:ingots/omnitrix"
+    },
+    "A": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "bentenmod:table_block"
+  }
+}

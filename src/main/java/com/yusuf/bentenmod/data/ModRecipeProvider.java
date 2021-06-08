@@ -5,6 +5,7 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -412,6 +413,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer,modId("vilgax_spawn_egg"));
+
+        ShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get())
+                .define('L', TagsInit.Items.INGOTS_OMNITRIX)
+                .define('A', Blocks.COBBLESTONE.getBlock())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(Blocks.COBBLESTONE.getBlock()))
+                .save(consumer,modId("table_block"));
 
 
         //smelting and blasting recipes
