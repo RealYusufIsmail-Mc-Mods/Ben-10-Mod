@@ -387,6 +387,7 @@ f0eab30614bf19bb8611769365f56151325e321e data/forge/tags/blocks/storage_blocks/l
 0348595a3709b6399c6aac02a3d340c6414df921 data/forge/tags/items/ingots/ruby.json
 19eb348117c62a4b250860528e3008ac0b105eb2 data/forge/tags/items/ingots/speed.json
 145b47044b9117c61965595fe71fcc1064aabbae data/forge/tags/items/ores/black_diamond.json
+5759d1bd352c05a19452cfe1aa8fbb92102870dc data/forge/tags/items/ores/deepeslate_legendary_ore_block.json
 2b15c6d58ab927dcb50dc0202da89be41e22c849 data/forge/tags/items/ores/deepslate_black_diamond.json
 a4e47b22d6e62c322396d58f386103bde10e5679 data/forge/tags/items/ores/deepslate_imperium.json
 ecec2ed8b6463b92013bc932118fea59283dccbd data/forge/tags/items/ores/deepslate_omnitrix.json
@@ -395,7 +396,7 @@ ecec2ed8b6463b92013bc932118fea59283dccbd data/forge/tags/items/ores/deepslate_om
 336afe75fe5ae012cc5f38af4eab82f7b34cf249 data/forge/tags/items/ores/fire.json
 3be6c893dd118b7c7ec45362fc142e1938ab74e0 data/forge/tags/items/ores/imperium.json
 53d50c7660fe2601860b06b1b180d905251b29f3 data/forge/tags/items/ores/infinitum.json
-eafbdb9337a3a00c6f5321c24142be804db40887 data/forge/tags/items/ores/legendary_ore_block.json
+5759d1bd352c05a19452cfe1aa8fbb92102870dc data/forge/tags/items/ores/legendary_ore_block.json
 7a10a863aa8bcf8cadac1c1d7a16accfbbf2fab9 data/forge/tags/items/ores/omnitrix.json
 7dcfe19eaa3060e0f2d2abb3ae3fffd65e4f7d75 data/forge/tags/items/ores/ruby.json
 eb98f8d6e8aa90720f30b2374fd09f17107dfde8 data/forge/tags/items/ores/speed.json
