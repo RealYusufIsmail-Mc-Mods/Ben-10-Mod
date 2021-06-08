@@ -7,7 +7,6 @@ issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 modId="bentenmod"
 version="${1.15}"
 displayName="Ben10 Mod"
-updateJSONURL="https://github.com/RealYusufIsmail/custom-mod/blob/1.17/src/main/java/bentenmobmod-updater.json" #optional
 displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
 logoFile="headerimg.png"
 credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and 
