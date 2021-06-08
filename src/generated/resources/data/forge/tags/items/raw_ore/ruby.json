@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "bentenmod:raw_imperium",
-    "bentenmod:raw_omnitrix",
-    "bentenmod:raw_legendary"
+    "bentenmod:raw_imperium"
   ]
 }
