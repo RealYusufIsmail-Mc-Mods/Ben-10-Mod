@@ -20,7 +20,6 @@ e9ba08e17265bff71d543565dfca2ef9bb78c889 assets/bentenmod/blockstates/omnitrix_b
 0844c900f31e31718413fd6553062691eb7664a3 assets/bentenmod/blockstates/ruby_ore.json
 8c62f8e2aa3aa39376be6f3dc8297ee5c21921bd assets/bentenmod/blockstates/speed_block.json
 9c3ccb9bb5d4394992aa6ced5f06ae492a80cdb3 assets/bentenmod/blockstates/speed_ore.json
-188783e29b6efd3007e36659563ea42632f20538 assets/bentenmod/blockstates/vilgax_block.json
 52434ffc64a5903014317886248f979720995f6c assets/bentenmod/models/block/black_diamond_block.json
 cf97a4db015a83326fe9172cb3c8594378e5a327 assets/bentenmod/models/block/black_diamond_ore.json
 b5c3699af40f0644f84afbadcba4571adb0bda89 assets/bentenmod/models/block/deepslate_black_diamond_ore.json
@@ -44,7 +43,6 @@ c94a241736d248832616cdf30f9bbef363f13da6 assets/bentenmod/models/block/ruby_bloc
 d65136241c1fbb6942fb48542ad7de766b89f083 assets/bentenmod/models/block/ruby_ore.json
 7eb88fa3707563b20e70391772d60d8760a1304a assets/bentenmod/models/block/speed_block.json
 354914ad2335e214c35217ede0eccf4015c74cbb assets/bentenmod/models/block/speed_ore.json
-c797066f077e3d937b41ff511a1f0414c290840a assets/bentenmod/models/block/vilgax_block.json
 2c28859c48ff13cf1aa994b371b4331a46a1740c assets/bentenmod/models/item/axe.json
 d62173e47a34bcd921442044d5979cd54f459ecf assets/bentenmod/models/item/black_diamond.json
 d44bc0874b60339e58001f4fe985010e753a68e1 assets/bentenmod/models/item/black_diamond_axe.json
@@ -121,7 +119,6 @@ d4b3deafdb78ed224bf305f78d858118e1ca9484 assets/bentenmod/models/item/ruby_ore.j
 1d1b31d14511c7e7650295786376207abe80c6e6 assets/bentenmod/models/item/speed_block.json
 4a0c255a9f4ee1c7b49db62e1ca74dbd96bbed06 assets/bentenmod/models/item/speed_ore.json
 5326027d96fed5c9fd93e4e4949286aaa4d011b7 assets/bentenmod/models/item/sword.json
-992491c044a451fe970ecb24d76079247ad28356 assets/bentenmod/models/item/vilgax_block.json
 c5cda739615d81c0e782567766e8ef6e34e8a22c assets/bentenmod/models/item/vilgax_spawn_egg.json
 f4f817930ec4fea3a2f7f22d531fadc5b5e76c44 assets/bentenmod/models/item/xlr8_boot.json
 02ef793617cc11241191215e08e8dbc55930923f assets/bentenmod/models/item/xlr8_chestplate.json
@@ -255,7 +252,6 @@ ceb2c8673d7af58b692f93f6786b30ced46493ba data/bentenmod/loot_tables/blocks/omnit
 d64747757f03fa8eeb4327d35d70dd8409bebe2e data/bentenmod/loot_tables/blocks/speed_block.json
 948e41067a7cfdb57f58d91e8eca1f9d72fe09dd data/bentenmod/loot_tables/blocks/speed_ore.json
 ecdda61c5bcb55e82400bd432a86330c28efe537 data/bentenmod/loot_tables/blocks/table_block.json
-aa536fb4a2818152cd1f67b29baf26e6f62ebd3b data/bentenmod/loot_tables/blocks/vilgax_block.json
 7bd7923082d3285ee5dd80cd04f4ed4ecd11e737 data/bentenmod/recipes/axe.json
 6af0ad899bd49f3369b9c95be6c210fce6c728af data/bentenmod/recipes/black_diamond.json
 634cd565d89814f640e1428a3ac394f6b6f249c3 data/bentenmod/recipes/black_diamond_axe.json
@@ -361,7 +357,7 @@ d60c29fd93215fc3942a006d13d4a640df3dda8b data/bentenmod/recipes/xlr8_chestplate_
 382ed97cbd5a86e09eb0d660add0ad00f243b534 data/bentenmod/recipes/xlr8_helmet_blasting_smelt.json
 c364aac56260a545979fc9b36a3cafd7cb1d5090 data/bentenmod/recipes/xlr8_leggings.json
 13f618d266993f717990f91a9b7905a64bc9ecef data/bentenmod/recipes/xlr8_leggings_blasting_smelt.json
-7ba461278eeb7aaaffd8e33a429a2563861648ce data/forge/tags/blocks/ores.json
+4d10571f906db65bfe69b555428f3c22d6cc8f96 data/forge/tags/blocks/ores.json
 145b47044b9117c61965595fe71fcc1064aabbae data/forge/tags/blocks/ores/black_diamond.json
 2b15c6d58ab927dcb50dc0202da89be41e22c849 data/forge/tags/blocks/ores/deepslate_black_diamond.json
 a4e47b22d6e62c322396d58f386103bde10e5679 data/forge/tags/blocks/ores/deepslate_imperium.json
@@ -381,7 +377,6 @@ c22565874e5e2d42a3707ede9893b98786e194a0 data/forge/tags/blocks/storage_blocks/b
 f0eab30614bf19bb8611769365f56151325e321e data/forge/tags/blocks/storage_blocks/legendary.json
 5a6cd624cb8a1509245b2ce4fa1bfea16b07da51 data/forge/tags/blocks/storage_blocks/omnitrix.json
 7fba9ed7344ee929814f1b136a1277ccc902e181 data/forge/tags/blocks/storage_blocks/speed.json
-0479f753c4458b5ee591ee3cd2b62b56b4c20d6b data/forge/tags/blocks/storage_blocks/vilgax.json
 8e3afd12ff7d6ce09692c7861364fa5faa256469 data/forge/tags/items/ingots/black_diamond.json
 8dd3cb394bc07b8d8a39ec51d5d84bddb0afef92 data/forge/tags/items/ingots/fire.json
 6317be4318e58f52fd43b6bc160dee77c3d36a75 data/forge/tags/items/ingots/infinitum.json
@@ -411,5 +406,4 @@ c22565874e5e2d42a3707ede9893b98786e194a0 data/forge/tags/items/storage_blocks/bl
 f0eab30614bf19bb8611769365f56151325e321e data/forge/tags/items/storage_blocks/legendary.json
 5a6cd624cb8a1509245b2ce4fa1bfea16b07da51 data/forge/tags/items/storage_blocks/omnitrix.json
 7fba9ed7344ee929814f1b136a1277ccc902e181 data/forge/tags/items/storage_blocks/speed.json
-0479f753c4458b5ee591ee3cd2b62b56b4c20d6b data/forge/tags/items/storage_blocks/vilgax.json
 e98c53e998cd67943ddcec1142b034d85c100be1 data/forge/tags/items/tools/imperium_pickaxe.json

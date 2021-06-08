@@ -21,7 +21,6 @@
     "#forge:storage_blocks/infinitum",
     "#forge:storage_blocks/fire",
     "#forge:storage_blocks/speed",
-    "#forge:storage_blocks/black_diamond",
-    "#forge:storage_blocks/vilgax"
+    "#forge:storage_blocks/black_diamond"
   ]
 }
