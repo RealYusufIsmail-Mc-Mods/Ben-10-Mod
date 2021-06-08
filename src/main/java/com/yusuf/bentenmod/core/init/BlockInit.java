@@ -2,7 +2,6 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.block.OmnitrixOre;
-import com.yusuf.bentenmod.block.TableBlock;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -112,11 +111,9 @@ public class BlockInit {
 
 
 
-	public static final RegistryObject<TableBlock> TABLE_BLOCK;
 	public static final RegistryObject<OmnitrixOre> OMNITRIX_ORE;
 
 static {
-	TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
 	OMNITRIX_ORE = registerSpecial("omnitrix_ore", OmnitrixOre::new);
 }
 
