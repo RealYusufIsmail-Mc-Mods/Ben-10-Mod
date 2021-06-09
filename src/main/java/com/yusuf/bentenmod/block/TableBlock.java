@@ -80,7 +80,7 @@ public class TableBlock extends Block {
         return new TableTileEntity();
     }
 
-  
+
 
 }
 
