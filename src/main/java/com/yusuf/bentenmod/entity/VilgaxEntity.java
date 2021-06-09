@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.entity;
 
 import com.yusuf.bentenmod.entity.ai.VilgaxAttackGoal;
+import com.yusuf.bentenmod.entity.ai.VilgaxWaterAvoidingRandomWalkingGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -36,7 +37,8 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
 public class VilgaxEntity extends MonsterEntity implements IAnimatable {
-	private static final DataParameter<Boolean> DATA_DROWNED_CONVERSION_ID = EntityDataManager.defineId(VilgaxEntity.class, DataSerializers.BOOLEAN);
+
+
 
 	private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(VilgaxEntity.class,
 			DataSerializers.BOOLEAN);
@@ -97,7 +99,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
 		this.goalSelector.addGoal(3, new VilgaxAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(4, new MoveThroughVillageAtNightGoal(this, 1));
-		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+		this.goalSelector.addGoal(5, new VilgaxWaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.addBehaviourGoals();
 	}
 
