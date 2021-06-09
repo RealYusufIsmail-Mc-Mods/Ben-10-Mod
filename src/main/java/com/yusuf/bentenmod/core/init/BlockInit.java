@@ -113,9 +113,9 @@ public class BlockInit {
 
 
 
-	public static final RegistryObject<Block> OMNITRIX_ORE = BLOCKS
+	public static final RegistryObject<OmnitrixOre> OMNITRIX_ORE = BLOCKS
 			.register("omnitrix_ore",
-					() -> new Block(OmnitrixOre.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+					() -> new OmnitrixOre(OmnitrixOre.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
 
 
@@ -123,9 +123,7 @@ public class BlockInit {
 	public static final RegistryObject<TableBlock> TABLE_BLOCK;
 
 
-	static {
-		TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
-	}
+	static void register() {}
 
 
 	private static <T extends Block> RegistryObject<T> registerSpecial(String name, Supplier<T> blockSupplier) {

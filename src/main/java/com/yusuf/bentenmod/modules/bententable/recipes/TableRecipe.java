@@ -74,7 +74,7 @@ public class TableRecipe  implements IRecipe<IInventory> {
     }
 
     @Override
-    public IRecipeType<?> getType() {
+     public IRecipeType<?> getType() {
         return RegisterRecipe.TABLE_RECIPE;
     }
 }
