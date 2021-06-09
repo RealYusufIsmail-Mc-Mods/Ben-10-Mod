@@ -5,6 +5,8 @@ import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.util.math.vector.Vector3d;
 
+import javax.annotation.Nullable;
+
 
 public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomWalkingGoal {
     private VilgaxEntity vilgax;
@@ -23,7 +25,7 @@ public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomWalkingGoal {
         this.probability = p_i47302_4_;
     }
 
-
+@Nullable
 @Override
     protected Vector3d getPosition() {
         if (this.vilgax.isInWaterOrBubble()) {
