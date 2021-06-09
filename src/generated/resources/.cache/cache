@@ -20,6 +20,7 @@ e9ba08e17265bff71d543565dfca2ef9bb78c889 assets/bentenmod/blockstates/omnitrix_b
 0844c900f31e31718413fd6553062691eb7664a3 assets/bentenmod/blockstates/ruby_ore.json
 8c62f8e2aa3aa39376be6f3dc8297ee5c21921bd assets/bentenmod/blockstates/speed_block.json
 9c3ccb9bb5d4394992aa6ced5f06ae492a80cdb3 assets/bentenmod/blockstates/speed_ore.json
+8a22a6e220b1595b23b24a1042ae6fd35f91e9db assets/bentenmod/blockstates/table_block.json
 ad418fbdb7ac4f1a2b119fc69e277d104d3ce47c assets/bentenmod/lang/en_us.json
 52434ffc64a5903014317886248f979720995f6c assets/bentenmod/models/block/black_diamond_block.json
 cf97a4db015a83326fe9172cb3c8594378e5a327 assets/bentenmod/models/block/black_diamond_ore.json
@@ -44,6 +45,7 @@ c94a241736d248832616cdf30f9bbef363f13da6 assets/bentenmod/models/block/ruby_bloc
 d65136241c1fbb6942fb48542ad7de766b89f083 assets/bentenmod/models/block/ruby_ore.json
 7eb88fa3707563b20e70391772d60d8760a1304a assets/bentenmod/models/block/speed_block.json
 354914ad2335e214c35217ede0eccf4015c74cbb assets/bentenmod/models/block/speed_ore.json
+3dd8fc88ff66f5252526504033a0da83a47edcaf assets/bentenmod/models/block/table_block.json
 2c28859c48ff13cf1aa994b371b4331a46a1740c assets/bentenmod/models/item/axe.json
 d62173e47a34bcd921442044d5979cd54f459ecf assets/bentenmod/models/item/black_diamond.json
 d44bc0874b60339e58001f4fe985010e753a68e1 assets/bentenmod/models/item/black_diamond_axe.json
@@ -121,6 +123,7 @@ d4b3deafdb78ed224bf305f78d858118e1ca9484 assets/bentenmod/models/item/ruby_ore.j
 1d1b31d14511c7e7650295786376207abe80c6e6 assets/bentenmod/models/item/speed_block.json
 4a0c255a9f4ee1c7b49db62e1ca74dbd96bbed06 assets/bentenmod/models/item/speed_ore.json
 5326027d96fed5c9fd93e4e4949286aaa4d011b7 assets/bentenmod/models/item/sword.json
+8211a1dadce2d8b62d16d68d818e979632bbdabe assets/bentenmod/models/item/table_block.json
 c5cda739615d81c0e782567766e8ef6e34e8a22c assets/bentenmod/models/item/vilgax_spawn_egg.json
 f4f817930ec4fea3a2f7f22d531fadc5b5e76c44 assets/bentenmod/models/item/xlr8_boot.json
 02ef793617cc11241191215e08e8dbc55930923f assets/bentenmod/models/item/xlr8_chestplate.json

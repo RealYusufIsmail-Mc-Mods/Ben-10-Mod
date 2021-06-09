@@ -36,7 +36,7 @@ public class ModBlockStateProvider extends BlockStateProvider{
         simpleBlock(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
         simpleBlock(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
         simpleBlock(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
-
+        simpleBlock(BlockInit.TABLE_BLOCK.get());
 
 
 
