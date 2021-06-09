@@ -99,15 +99,19 @@ public class BlockInit {
 			.register("deepslate_speed_ore",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
-	public static final RegistryObject<Block> DEEPSLATE_OMNITRIX_ORE = BLOCKS
-			.register("deepslate_omnitrix_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+		public static final RegistryObject<Block> DEEPSLATE_OMNITRIX_ORE = BLOCKS
+				.register("deepslate_omnitrix_ore",
+						() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	/* other blocks */
 	
 
 
 
-	public static  RegistryObject<OmnitrixOre> OMNITRIX_ORE;
+
+	public static final RegistryObject<Block> OMNITRIX_ORE = BLOCKS
+			.register("omnitrix_ore",
+					() -> new Block(OmnitrixOre.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
 
 
 
