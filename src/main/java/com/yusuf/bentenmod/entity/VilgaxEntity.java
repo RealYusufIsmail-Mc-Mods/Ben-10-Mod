@@ -1,28 +1,17 @@
 package com.yusuf.bentenmod.entity;
 
 import com.yusuf.bentenmod.entity.ai.VilgaxAttackGoal;
-
+import com.yusuf.bentenmod.entity.ai.VilgaxWaterAvoidingRandomWalkingGoal;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Pose;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.MoveThroughVillageAtNightGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.CreeperEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.monster.ZombifiedPiglinEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -102,15 +91,17 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected void registerGoals() {
-		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+		this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(3, new VilgaxWaterAvoidingRandomWalkingGoal(this, 1.0D));
+		this.goalSelector.addGoal(4, new VilgaxAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(5, new MoveThroughVillageAtNightGoal(this, 1));
+
 		this.addBehaviourGoals();
 	}
 
 	protected void addBehaviourGoals() {
-		this.goalSelector.addGoal(1, new VilgaxAttackGoal(this, 1.0D, false));
-		this.goalSelector.addGoal(6, new MoveThroughVillageAtNightGoal(this, 1));
-		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
+
 		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombifiedPiglinEntity.class));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
