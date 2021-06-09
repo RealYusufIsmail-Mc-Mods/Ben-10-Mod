@@ -97,7 +97,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	protected void registerGoals() {
 		this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
 		this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
-		this.goalSelector.addGoal(3, new VilgaxAttackGoal(this, 1.0D, false));
+		this.goalSelector.addGoal(3, new VilgaxAttackGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(4, new MoveThroughVillageAtNightGoal(this, 1));
 		this.goalSelector.addGoal(5, new VilgaxWaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.addBehaviourGoals();
