@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 
 
 public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomWalkingGoal {
-    public VilgaxEntity vilgax;
+    private VilgaxEntity vilgax;
 
     protected final float probability;
 
