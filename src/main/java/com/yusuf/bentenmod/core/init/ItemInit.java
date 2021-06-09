@@ -220,6 +220,6 @@ public class ItemInit {
 			() -> new EnchantedGoldenAppleItem(
 					new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
 	// other items
-
+	
 //0xC4AA79, 0x7A5F22
 }
