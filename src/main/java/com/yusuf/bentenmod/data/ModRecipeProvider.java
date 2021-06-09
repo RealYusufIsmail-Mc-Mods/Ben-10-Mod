@@ -180,6 +180,25 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("sword"));
 
 
+
+        ShapedRecipeBuilder.shaped(ItemInit.IMPERIUM_SWORD.get())
+                .define('#', Items.STICK.getItem())
+                .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern(" A ")
+                .pattern(" A ")
+                .pattern(" # ")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
+                .save(consumer,modId("imperium_sword"));
+
+        ShapedRecipeBuilder.shaped(ItemInit.IMPERIUM_PICKAXE.get())
+                .define('#', Items.STICK.getItem())
+                .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern("AAA")
+                .pattern(" # ")
+                .pattern(" # ")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
+                .save(consumer,modId("imperium_pickaxe"));
+
         ShapedRecipeBuilder.shaped(ItemInit.HELMET.get())
                 .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
                 .pattern("AAA")

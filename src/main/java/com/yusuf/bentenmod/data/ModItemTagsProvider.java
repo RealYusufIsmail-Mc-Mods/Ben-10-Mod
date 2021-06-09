@@ -42,7 +42,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
         tag(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
         tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
-
+        tag(TagsInit.Items.INGOTS_IMPERIUM).add(ItemInit.IMPERIUM.get());
 
     }
 }

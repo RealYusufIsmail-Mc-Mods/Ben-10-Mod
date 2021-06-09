@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "tag": "forge:ingots/imperium"
+    }
+  },
+  "result": {
+    "item": "bentenmod:imperium_pickaxe"
+  }
+}

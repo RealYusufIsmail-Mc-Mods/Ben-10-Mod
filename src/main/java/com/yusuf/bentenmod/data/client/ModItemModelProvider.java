@@ -34,6 +34,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("vilgax_block", modLoc("block/vilgax_block"));
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
+        withExistingParent("imperium_block", modLoc("block/imperium_block"));
+
 
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
@@ -99,7 +101,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "infinitum_pickaxe");
         tool(itemhandHeld, "infinitum_shovel");
         tool(itemhandHeld, "infinitum_hoe");
-
+        tool(itemhandHeld, "imperium_sword");
+        tool(itemhandHeld, "imperium_pickaxe");
 
     }
 

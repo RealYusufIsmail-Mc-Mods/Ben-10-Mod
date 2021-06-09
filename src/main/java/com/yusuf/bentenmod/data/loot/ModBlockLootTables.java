@@ -33,6 +33,7 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(BlockInit.IMPERIUM_ORE.get());
         dropSelf(BlockInit.VILGAX_BLOCK.get());
         dropSelf(BlockInit.LEGENDARY_BLOCK.get());
+        dropSelf(BlockInit.IMPERIUM_BLOCK.get());
 
 
 
