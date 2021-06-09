@@ -20,7 +20,7 @@ public class OmnitrixOre extends Block {
 
 
 
-    public OmnitrixOre() {
+    public OmnitrixOre(Properties copy) {
         super(Properties.of(Material.METAL)
                 .strength(30.0F)
                 .harvestTool(ToolType.PICKAXE)

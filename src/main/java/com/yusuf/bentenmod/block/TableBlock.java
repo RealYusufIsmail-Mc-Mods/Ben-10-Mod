@@ -10,8 +10,6 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.StateContainer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -23,8 +21,6 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
-
-import static net.minecraft.block.HorizontalBlock.FACING;
 
 public class TableBlock extends Block {
 
@@ -71,10 +67,14 @@ public class TableBlock extends Block {
     /**
      * get the facing direction of block when placed down, this one works same as Furnace
      */
+
+    /*
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
         return defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
+
+     */
 
 
     @Override
@@ -88,10 +88,13 @@ public class TableBlock extends Block {
         return new TableTileEntity();
     }
 
+    /*
     @Override
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(FACING);
     }
+
+     */
 
 }
 
