@@ -119,6 +119,10 @@ public class ItemInit {
 			() ->  new PickaxeItem(CustomToolMaterial.IMPERIUM_PICKAXE_UPGRADED, 0, 7f,
 					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<AxeItem> IMPERIUM_AXE = ITEMS.register("imperium_axe",
+			() ->  new AxeItem(CustomToolMaterial.IMPERIUM_AXE, 0, 7f,
+					new Item.Properties().stacksTo(1).durability(600).tab(MainItemGroup.MAIN)));
+
 //armour
 
 	// knight armour
