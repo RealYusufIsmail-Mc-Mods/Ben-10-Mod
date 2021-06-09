@@ -9,9 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 
-public class LangProvider extends LanguageProvider {
+public class ModLangProvider extends LanguageProvider {
 
-    public LangProvider(DataGenerator gen) {
+    public ModLangProvider(DataGenerator gen) {
         super(gen, Main.MOD_ID, "en_us");
     }
 
