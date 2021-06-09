@@ -2,10 +2,15 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.block.OmnitrixOre;
+import com.yusuf.bentenmod.block.TableBlock;
 import net.minecraft.block.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
