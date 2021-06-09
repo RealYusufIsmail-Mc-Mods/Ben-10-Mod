@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 
 public class TableBlock extends Block {
 
-    public TableBlock() {
+    public TableBlock(Properties copy) {
         super(Properties.of(Material.WOOD)
                 .strength(3)
                 .harvestTool(ToolType.PICKAXE)

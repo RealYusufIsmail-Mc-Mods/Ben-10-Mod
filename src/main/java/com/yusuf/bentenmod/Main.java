@@ -69,6 +69,7 @@ public class Main {
 			event.getRegistry().register(new BlockItem(block, new Item.Properties().tab(MainItemGroup.MAIN))
 					.setRegistryName(block.getRegistryName()));
 
+
 		});
 
 	}
