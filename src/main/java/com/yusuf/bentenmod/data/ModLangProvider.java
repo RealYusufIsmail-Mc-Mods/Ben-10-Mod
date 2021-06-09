@@ -26,7 +26,6 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_BLOCK, "Speed Block");
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
-        block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
 
         //ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");
@@ -37,12 +36,6 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
-        block(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE, "Deepslate Black Diamond Ore");
-        block(BlockInit.DEEPSLATE_IMPERIUM_ORE, "Deepslate Imperium Ore");
-        block(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK, "Deepslate Legendary Ore");
-        block(BlockInit.DEEPSLATE_OMNITRIX_ORE, "Deepslate Omnitrix Ore");
-        block(BlockInit.DEEPSLATE_RUBY_ORE, "Deepslate Ruby Ore");
-        block(BlockInit.DEEPSLATE_SPEED_ORE, "Deepslate Speed Ore");
 
 
         //ingots
@@ -57,10 +50,7 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
 
-        //raw ores
-        item(ItemInit.RAW_LEGENDARY, "Raw Legendary");
-        item(ItemInit.RAW_OMNITRIX, "Raw Omnitrix");
-        item(ItemInit.RAW_IMPERIUM, "Raw Imperium");
+
 
 
         //tools
@@ -79,8 +69,6 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM_HOE, "Infinitum Hoe");
         item(ItemInit.IMPERIUM_SWORD, "Imperium Sword");
         item(ItemInit.IMPERIUM_PICKAXE, "Imperium Pickaxe");
-        item(ItemInit.IMPERIUM_PICKAXE_UPGRADED, "Ultamte Imperium Pickaxe");
-        item(ItemInit.IMPERIUM_AXE, "Imperium Axe");
 
         //armour
         item(ItemInit.HELMET, "Knight helmet");
