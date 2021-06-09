@@ -3,13 +3,9 @@ package com.yusuf.bentenmod.core.init;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.block.OmnitrixOre;
 import net.minecraft.block.*;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.function.Supplier;
 
 public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
@@ -111,17 +107,9 @@ public class BlockInit {
 
 
 
-	public static final RegistryObject<OmnitrixOre> OMNITRIX_ORE;
-
-static {
-	OMNITRIX_ORE = registerSpecial("omnitrix_ore", OmnitrixOre::new);
-}
+	public static  RegistryObject<OmnitrixOre> OMNITRIX_ORE;
 
 
-	private static <T extends Block> RegistryObject<T> registerSpecial(String name, Supplier<T> blockSupplier) {
-		RegistryObject<T> block = BLOCKS.register(name, blockSupplier);
-		ItemInit.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(16).setNoRepair()));
-		return block;
-	}
+
 
 }
