@@ -22,6 +22,7 @@
   "block.bentenmod.speed_block": "Speed Block",
   "block.bentenmod.speed_ore": "Speed Ore",
   "block.bentenmod.table_block": "Upgrade and Crafting Table",
+  "entity.bentenmod.vilgax": "Vilgax Spawn Egg",
   "item.bentenmod.axe": "AXE SLAYER",
   "item.bentenmod.black_diamond": "Black Diamond",
   "item.bentenmod.black_diamond_axe": "Black Diamond Axe",
@@ -76,8 +77,10 @@
   "item.bentenmod.ruby_apple": "Ruby Apple",
   "item.bentenmod.speed": "Speed",
   "item.bentenmod.sword": "ASCALON",
+  "item.bentenmod.vilgax_spawn_egg": "Vilgax Spawn Egg",
   "item.bentenmod.xlr8_boot": "xlr8 boots",
   "item.bentenmod.xlr8_chestplate": "xlr8 chestplate",
   "item.bentenmod.xlr8_helmet": "xlr8 helmet",
-  "item.bentenmod.xlr8_leggings": "xlr8 legging"
+  "item.bentenmod.xlr8_leggings": "xlr8 legging",
+  "itemGroup.main": "Ben Ten Item Group"
 }

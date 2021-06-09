@@ -2,9 +2,14 @@ package com.yusuf.bentenmod.data;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
@@ -115,6 +120,11 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
 
 
+
+        //other items
+        item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
+        add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
+        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax Spawn Egg");
     }
 
 
@@ -124,4 +134,10 @@ public class ModLangProvider extends LanguageProvider {
     private <T extends Block> void block(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
+    private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
+        add(entry.get(), name);
+    }
+
+
+
 }
