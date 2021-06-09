@@ -32,7 +32,7 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.LEGENDARY_ORE_BLOCK, "Legendary Ore");
         block(BlockInit.BLACK_DIAMOND_ORE, "Black Diamond Ore");
         block(BlockInit.OMNITRIX_ORE, "Omnitrix Ore");
-        block(BlockInit.FIRE_BLOCK, "Fire Ore");
+        block(BlockInit.FIRE_ORE, "Fire Ore");
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
