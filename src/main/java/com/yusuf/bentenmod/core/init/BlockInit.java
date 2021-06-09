@@ -115,5 +115,18 @@ public class BlockInit {
 
 
 
+	public static final RegistryObject<TableBlock> TABLE_BLOCK;
+
+
+	static {
+		TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
+	}
+
+
+	private static <T extends Block> RegistryObject<T> registerSpecial(String name, Supplier<T> blockSupplier) {
+		RegistryObject<T> block = BLOCKS.register(name, blockSupplier);
+		ItemInit.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(16).setNoRepair()));
+		return block;
+	}
 
 }
