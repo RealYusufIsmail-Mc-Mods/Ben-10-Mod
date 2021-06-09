@@ -102,7 +102,11 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.FIRE_APPLE, "Fire Apple");
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
 
-
+        
+        
+        item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
+        add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
+        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax Spawn Egg");
     }
 
 
@@ -112,4 +116,10 @@ public class ModLangProvider extends LanguageProvider {
     private <T extends Block> void block(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
+    private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
+        add(entry.get(), name);
+    }
+
+
+
 }
