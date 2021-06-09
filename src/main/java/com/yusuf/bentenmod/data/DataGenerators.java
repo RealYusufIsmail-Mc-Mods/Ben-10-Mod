@@ -31,6 +31,7 @@ public final class DataGenerators {
         gen.addProvider(new ModRecipeProvider(gen));
         gen.addProvider(new ModSmitingRecipeBuild(gen));
         gen.addProvider(new ModLootTables(gen));
+        gen.addProvider(new LangProvider(gen));
 
         
 
