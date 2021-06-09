@@ -68,14 +68,6 @@ public class TableBlock extends Block {
      * get the facing direction of block when placed down, this one works same as Furnace
      */
 
-    /*
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
-        return defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
-    }
-
-     */
-
 
     @Override
     public boolean hasTileEntity(BlockState state) {
@@ -88,13 +80,7 @@ public class TableBlock extends Block {
         return new TableTileEntity();
     }
 
-    /*
-    @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
-        p_206840_1_.add(FACING);
-    }
-
-     */
+  
 
 }
 
