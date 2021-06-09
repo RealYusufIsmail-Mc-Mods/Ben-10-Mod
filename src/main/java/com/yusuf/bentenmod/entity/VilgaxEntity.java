@@ -3,7 +3,6 @@ package com.yusuf.bentenmod.entity;
 import com.yusuf.bentenmod.entity.ai.VilgaxAttackGoal;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -16,11 +15,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -60,8 +57,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         return PlayState.CONTINUE;
 	}
 
-	private int inWaterTime;
-	private int conversionTime;
+
 
 	@Override
 		public void registerControllers(AnimationData data) {
@@ -97,15 +93,15 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	protected void registerGoals() {
-		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+		this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
+		this.goalSelector.addGoal(3, new VilgaxAttackGoal(this, 1.0D, false));
+		this.goalSelector.addGoal(4, new MoveThroughVillageAtNightGoal(this, 1));
+		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.addBehaviourGoals();
 	}
 
 	protected void addBehaviourGoals() {
-		this.goalSelector.addGoal(1, new VilgaxAttackGoal(this, 1.0D, false));
-		this.goalSelector.addGoal(6, new MoveThroughVillageAtNightGoal(this, 1));
-		this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombifiedPiglinEntity.class));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
@@ -119,13 +115,8 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 				.add(Attributes.MAX_HEALTH, 300.0D);
 	}
 
-	public boolean isUnderWaterConverting() {
-		return this.getEntityData().get(DATA_DROWNED_CONVERSION_ID);
-	}
 
-	protected boolean supportsBreakDoorGoal() {
-		return true;
-	}
+
 
 	protected int getExperienceReward(PlayerEntity p_70693_1_) {
 		if (this.isBaby()) {
@@ -135,14 +126,9 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		return super.getExperienceReward(p_70693_1_);
 	}
 
-	protected boolean convertsInWater() {
-		return true;
-	}
+
 
 	
-	protected boolean isSunSensitive() {
-		return true;
-	}
 
 	public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
 		if (!super.hurt(p_70097_1_, p_70097_2_)) {
@@ -184,56 +170,9 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		return flag;
 	}
 
-   @Override
-	public void tick() {
-		if (!this.level.isClientSide && this.isAlive() && !this.isNoAi()) {
-			if (this.isUnderWaterConverting()) {
-				--this.conversionTime;
-
-				if (this.conversionTime < 0 && net.minecraftforge.event.ForgeEventFactory.canLivingConvert(this, EntityType.ZOMBIE, (timer) -> this.conversionTime = timer)) {
-					this.doUnderWaterConversion();
-				}
-			} else if (this.convertsInWater()) {
-				if (this.isEyeInFluid(FluidTags.WATER)) {
-					++this.inWaterTime;
-					if (this.inWaterTime >= 600) {
-						this.startUnderWaterConversion(300);
-					}
-				} else {
-					this.inWaterTime = -1;
-				}
-			}
-		}
-
-		super.tick();
-	}
-	protected void handleAttributes(float p_207304_1_) {
-
-		this.getAttribute(Attributes.KNOCKBACK_RESISTANCE).addPermanentModifier(new AttributeModifier("Random spawn bonus", this.random.nextDouble() * (double)0.05F, AttributeModifier.Operation.ADDITION));
-		double d0 = this.random.nextDouble() * 1.5D * (double)p_207304_1_;
 
 
-	}
-	private void startUnderWaterConversion(int p_204704_1_) {
-		this.conversionTime = p_204704_1_;
-		this.getEntityData().set(DATA_DROWNED_CONVERSION_ID, true);
-	}
 
-	protected void doUnderWaterConversion() {
-		if (!this.isSilent()) {
-			this.level.levelEvent((PlayerEntity)null, 1040, this.blockPosition(), 0);
-		}
-
-	}
-
-	protected void convertToVIlgaxType(EntityType<? extends VilgaxEntity> p_234341_1_) {
-		VilgaxEntity vilgaxentity = this.convertTo(p_234341_1_, true);
-		if (vilgaxentity != null) {
-			vilgaxentity.handleAttributes(vilgaxentity.level.getCurrentDifficultyAt(vilgaxentity.blockPosition()).getSpecialMultiplier());
-			net.minecraftforge.event.ForgeEventFactory.onLivingConvert(this, vilgaxentity);
-		}
-
-	}
 
 	protected SoundEvent getAmbientSound() {
 		return SoundEvents.PHANTOM_AMBIENT	;
@@ -283,15 +222,9 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	}
 
-    @Override
-	public void addAdditionalSaveData(CompoundNBT p_213281_1_) {
-		p_213281_1_.putInt("InWaterTime", this.isInWater() ? this.inWaterTime : -1);
 
-	}
-	@Override
-	public void readAdditionalSaveData(CompoundNBT p_70037_1_) {
-		this.inWaterTime = p_70037_1_.getInt("InWaterTime");
-	}
+
+
 	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
 		return this.isBaby() ? 0.93F : 1.74F;
 	}
