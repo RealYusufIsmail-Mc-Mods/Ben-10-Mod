@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.client.model;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 
 import net.minecraft.util.ResourceLocation;
@@ -17,19 +17,19 @@ public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity> {
 	@Override
 	    public ResourceLocation getModelLocation(VilgaxEntity object)
 	    {
-	        return new ResourceLocation(Main.MOD_ID, "geo/vilgax.geo.json");
+	        return new ResourceLocation(BenTenMod.MOD_ID, "geo/vilgax.geo.json");
 	    }
 
 	@Override
     public ResourceLocation getTextureLocation(VilgaxEntity object)
     {
-	return new ResourceLocation(Main.MOD_ID, "textures/model/entities/vilgax/vilgax_entity.png");
+	return new ResourceLocation(BenTenMod.MOD_ID, "textures/model/entities/vilgax/vilgax_entity.png");
     }
 
 	@Override
 	    public ResourceLocation getAnimationFileLocation(VilgaxEntity object)
 	    {
-	        return new ResourceLocation(Main.MOD_ID, "animations/vilgax.animation.json");
+	        return new ResourceLocation(BenTenMod.MOD_ID, "animations/vilgax.animation.json");
 	    }
 
 	

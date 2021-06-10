@@ -1,7 +1,7 @@
 
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 
@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityTypesInit {
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES,
-			Main.MOD_ID);
+			BenTenMod.MOD_ID);
 	private static final Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
 
 
@@ -37,7 +37,7 @@ public class EntityTypesInit {
 	private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
 																			 EntityType.IFactory<T> factory, EntityClassification classification, float width, float height) {
 		return EntityType.Builder.of(factory, classification).sized(width, height)
-				.build(Main.MOD_ID + ":" + entity_name);
+				.build(BenTenMod.MOD_ID + ":" + entity_name);
 	}
 	
 	// register spawn eggs

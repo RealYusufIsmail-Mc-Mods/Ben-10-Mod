@@ -1,0 +1,13 @@
+{
+  "type": "bentenmod:table_recipe",
+  "input1": {
+    "item": "minecraft:iron_ingot"
+  },
+  "input2": {
+    "item": "minecraft:cobblestone"
+  },
+  "input3": {
+    "item": "minecraft:iron_ingot"
+  },
+  "output": "minecraft:iron_ore"
+}

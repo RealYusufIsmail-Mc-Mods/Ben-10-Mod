@@ -1,10 +1,15 @@
 package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.core.machine.bententable.TableTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
@@ -12,7 +17,7 @@ import net.minecraftforge.fml.RegistryObject;
 public class ModLangProvider extends LanguageProvider {
 
     public ModLangProvider(DataGenerator gen) {
-        super(gen, Main.MOD_ID, "en_us");
+        super(gen, BenTenMod.MOD_ID, "en_us");
     }
 
     @Override
@@ -49,8 +54,6 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM, "Infinitum");
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
-
-
 
 
         //tools
@@ -102,24 +105,22 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.FIRE_APPLE, "Fire Apple");
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
 
-        
-        
+
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
-        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax Spawn Egg");
+        add(EntityTypesInit.VILGAX_ENTITY.get(), "Vilgax Spawn Egg");
+
+        add(TableTileEntity.TITLE.getString(), "Ben 10 Table");
     }
 
 
     private <T extends Item> void item(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
+
     private <T extends Block> void block(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
-    private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
-        add(entry.get(), name);
-    }
-
 
 
 }

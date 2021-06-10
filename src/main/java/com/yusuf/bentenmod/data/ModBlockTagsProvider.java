@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import net.minecraft.data.BlockTagsProvider;
@@ -11,7 +11,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 public class ModBlockTagsProvider extends BlockTagsProvider {
 
     public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, Main.MOD_ID, existingFileHelper);
+        super(generatorIn, BenTenMod.MOD_ID, existingFileHelper);
     }
 
 

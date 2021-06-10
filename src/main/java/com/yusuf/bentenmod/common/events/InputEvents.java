@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.common.events;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.KeybindsInit;
 
 import net.minecraft.client.Minecraft;
@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
+@EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
 public class InputEvents {
 	
 	@SubscribeEvent
@@ -31,7 +31,7 @@ public class InputEvents {
 
 	private static void onInput(Minecraft mc, int key, int action) {
 		
-		if (mc.screen != null && KeybindsInit.fireblastKey.consumeClick()) {
+		if (mc.screen != null && KeybindsInit.fireBlassKey.consumeClick()) {
 			System.out.println("FIREBLAST KEY PRESSED");
 			
 		}

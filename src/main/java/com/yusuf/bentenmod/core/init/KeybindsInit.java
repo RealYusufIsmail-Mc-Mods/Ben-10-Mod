@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -12,17 +12,17 @@ import java.awt.event.KeyEvent;
 @OnlyIn(Dist.CLIENT)
 public class KeybindsInit {
 	
-	public static KeyBinding fireblastKey;
+	public static KeyBinding fireBlassKey;
 	
 	
 	public static void register(final FMLClientSetupEvent event) {
 		
-		fireblastKey = create("fireblast_key", KeyEvent.VK_K);
+		fireBlassKey = create("fireblast_key", KeyEvent.VK_K);
 		
-		ClientRegistry.registerKeyBinding(fireblastKey);
+		ClientRegistry.registerKeyBinding(fireBlassKey);
 	} 
 	
 	private static KeyBinding create(String name, int key) {
-		return new KeyBinding("key." + Main.MOD_ID + "." + name , key, "key.category." + Main.MOD_ID);
+		return new KeyBinding("key." + BenTenMod.MOD_ID + "." + name , key, "key.category." + BenTenMod.MOD_ID);
 	}
 }	

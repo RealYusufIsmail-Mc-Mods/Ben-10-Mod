@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ModSpawnEggItem extends SpawnEggItem {
 
-    protected static final List<ModSpawnEggItem> UNADDED_EGGS = new ArrayList<ModSpawnEggItem>();
+    protected static final List<ModSpawnEggItem> UNADDED_EGGS = new ArrayList<>();
     private final Lazy<? extends EntityType<?>> entityTypeSupplier;
 
     public ModSpawnEggItem(final NonNullSupplier<? extends EntityType<?>> entityTypeSupplier, final int primaryColour,

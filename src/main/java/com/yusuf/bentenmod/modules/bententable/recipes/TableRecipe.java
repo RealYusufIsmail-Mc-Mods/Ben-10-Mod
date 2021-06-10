@@ -1,15 +1,19 @@
 
 package com.yusuf.bentenmod.modules.bententable.recipes;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.*;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class TableRecipe  implements IRecipe<IInventory> {
     /** Set the input ingredients */
@@ -76,5 +80,59 @@ public class TableRecipe  implements IRecipe<IInventory> {
     @Override
     public IRecipeType<?> getType() {
         return RegisterRecipe.TABLE_RECIPE;
+    }
+
+    public static final class Type implements IRecipeType<TableRecipe> {
+        @Override
+        public String toString() {
+            return BenTenMod.MOD_ID + ":table_recipe" ;
+        }
+    }
+
+    public static final class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TableRecipe> {
+        public Serializer() {
+            setRegistryName(BenTenMod.MOD_ID, "table_recipe");
+        }
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public TableRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            final Ingredient input1 = Ingredient.fromJson(getElement(json, "input1"));
+            final Ingredient input2 = Ingredient.fromJson(getElement(json, "input2"));
+            final Ingredient input3 = Ingredient.fromJson(getElement(json, "input3"));
+
+            final ItemStack output;
+            if (json.get("output").isJsonObject())
+                output = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(json, "output"));
+            else {
+                output = new ItemStack(Registry.ITEM.getOptional(new ResourceLocation(JSONUtils.getAsString(json, "output"))).orElseThrow(() -> new IllegalStateException("Oops")));
+            }
+            return new TableRecipe(input1, input2, input3, output, recipeId);
+        }
+
+        @Override
+        public TableRecipe fromNetwork(ResourceLocation recipeId, PacketBuffer buffer) {
+            final Ingredient input1 = Ingredient.fromNetwork(buffer);
+            final Ingredient input2 = Ingredient.fromNetwork(buffer);
+            final Ingredient input3 = Ingredient.fromNetwork(buffer);
+
+            final ItemStack output = buffer.readItem();
+
+            return new TableRecipe(input1, input2, input3, output, recipeId);
+        }
+        @Override
+        public void toNetwork(PacketBuffer buffer, TableRecipe recipe) {
+            recipe.input1.toNetwork(buffer);
+            recipe.input2.toNetwork(buffer);
+            recipe.input3.toNetwork(buffer);
+
+            buffer.writeItemStack(recipe.output, false);
+        }
+
+        private JsonElement getElement(JsonObject json, String memberName) {
+            return JSONUtils.isArrayNode(json, memberName)
+                    ? JSONUtils.getAsJsonArray(json, memberName)
+                    : JSONUtils.getAsJsonObject(json, memberName);
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import net.minecraft.data.DataGenerator;
@@ -103,7 +103,7 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
 
     }
     private static ResourceLocation modId(String path){
-        return new ResourceLocation(Main.MOD_ID, path);
+        return new ResourceLocation(BenTenMod.MOD_ID, path);
     }
 
 }
