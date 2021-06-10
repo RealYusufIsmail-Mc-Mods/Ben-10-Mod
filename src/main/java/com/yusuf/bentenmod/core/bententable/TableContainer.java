@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.core.bententable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
+import com.yusuf.bentenmod.core.util.slot.OutputSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIntArray;
+import net.minecraft.util.IntArray;
 
 import java.util.Objects;
 

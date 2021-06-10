@@ -1,10 +1,7 @@
 package com.yusuf.bentenmod;
 
 
-import com.yusuf.bentenmod.core.init.BlockInit;
-import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.core.init.FeatureInit;
-import com.yusuf.bentenmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.item.ModSpawnEggItem;
 import com.yusuf.bentenmod.modules.bententable.recipes.RegisterRecipe;
 import net.minecraft.entity.EntityType;
@@ -39,6 +36,7 @@ public class Main {
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
 		EntityTypesInit.ENTITY_TYPES.register(bus);
+		ContainerInit.CONTAINERS.register(bus);
 		GeckoLibMod.DISABLE_IN_DEV = false;
 		GeckoLib.initialize();
 		bus.addGenericListener(IRecipeSerializer.class, RegisterRecipe::registerRecipes);

@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.data;
 
 import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.data.client.AdvancedBlockModelProvider;
 import com.yusuf.bentenmod.data.client.ModBlockStateProvider;
 import com.yusuf.bentenmod.data.client.ModItemModelProvider;
 import com.yusuf.bentenmod.data.loot.ModLootTables;
@@ -26,8 +27,8 @@ public final class DataGenerators {
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-        
-        
+
+        gen.addProvider(new AdvancedBlockModelProvider(gen));
         gen.addProvider(new ModRecipeProvider(gen));
         gen.addProvider(new ModSmitingRecipeBuild(gen));
         gen.addProvider(new ModLootTables(gen));

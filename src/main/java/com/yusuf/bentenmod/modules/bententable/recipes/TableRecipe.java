@@ -85,7 +85,7 @@ public class TableRecipe  implements IRecipe<IInventory> {
     public static final class Type implements IRecipeType<TableRecipe> {
         @Override
         public String toString() {
-            return BenTenMod.MOD_ID + ":table_recipe" ;
+            return Main.MOD_ID + ":table_recipe" ;
         }
     }
 
