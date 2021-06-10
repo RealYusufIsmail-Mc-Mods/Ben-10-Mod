@@ -6,7 +6,7 @@
 
 Crafting recipes can be found here: https://realyusufismail.github.io/custom-mod/recipes.html
 
-1.17 Comming soon. Will start to work on as soon as the forge is released.
+This is branch were all the beta code for 1.17 will be wtiien.
 
 This mod can be used in a modpack
 
