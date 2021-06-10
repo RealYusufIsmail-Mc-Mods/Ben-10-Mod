@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "bentenmod:block/deepslate_legendary_ore_block"
-  }
-}
