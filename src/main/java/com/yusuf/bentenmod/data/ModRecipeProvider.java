@@ -5,10 +5,13 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
-import jdk.nashorn.internal.ir.Block;
+import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Consumer;
@@ -18,6 +21,9 @@ public class ModRecipeProvider extends RecipeProvider {
         super(generatorIn);
     }
 
+    private static ResourceLocation modId(String path) {
+        return new ResourceLocation(Main.MOD_ID, path);
+    }
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         //blocks
@@ -572,9 +578,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("jacket_blasting_smelt"));
 
 
+        //EXAMPLE RECIPE
+        TableRecipeBuilder.build(ingredient(Items.IRON_INGOT), ingredient(Blocks.COBBLESTONE), ingredient(Items.IRON_INGOT), Blocks.IRON_ORE)
+                .unlockedBy("test_recipe", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT))
+                .save(consumer, modId("example_recipe"));
+
     }
-    private static ResourceLocation modId(String path){
-        return new ResourceLocation(Main.MOD_ID, path);
+    private Ingredient ingredient(IItemProvider entry) {
+        return Ingredient.of(entry);
     }
 
 }

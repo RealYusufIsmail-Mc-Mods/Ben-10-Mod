@@ -13,12 +13,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class ClientEventBusSubscriber {
-	
+	private ClientEventBusSubscriber() {
+	}
+
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
-		
 		KeybindsInit.register(event);
 		ScreenManager.register(ContainerInit.TABLE.get(), TableScreen::new);
 	}
-
 }
