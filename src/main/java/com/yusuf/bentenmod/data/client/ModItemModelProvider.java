@@ -91,7 +91,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "fourarms_leggings");
         builder(itemGenerated, "fourarms_boot");
         builder(itemGenerated, "imperium");
-
+        builder(itemGenerated, "raw_legendary");
+        builder(itemGenerated, "raw_omnitrix");
+        builder(itemGenerated, "raw_imperium");
 
 
 
