@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.block.tablemachine;
+package com.yusuf.bentenmod.core.bententable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,25 +9,44 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIntArray;
 
 import java.util.Objects;
 
 public class TableContainer extends Container {
+    private final IIntArray data;
 
-    protected TableContainer(int id, PlayerInventory playerInventory, TileEntity te) {
+    /**
+     * ALT + ENTER > CONSTRUCTOR
+     * SHIFT + F6 > CHANGE VARIABLE NAME
+     */
+    protected TableContainer(int id, PlayerInventory inv, TileEntity te, IIntArray data) {
         super(ContainerInit.TABLE.get(), id);
 
-        //Adding the slots to the GUI.
-        addSlot(new Slot((IInventory) te, 0, 13, 18));
-        addSlot(new Slot((IInventory) te, 1, 59, 18));
-        addSlot(new Slot((IInventory) te, 2, 36, 55));
-        addSlot(new OutputSlot((IInventory) te, 3, 134, 36));
+        this.data = data;
 
+        addSlot(new Slot((IInventory) te, 0, 16, 40));
+        addSlot(new Slot((IInventory) te, 1, 43, 40));
+        addSlot(new Slot((IInventory) te, 2, 70, 40));
+
+        addSlot(new OutputSlot((IInventory) te, 3, 138, 40));
+
+        //player inventory
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 9; col++) {
+                this.addSlot(new Slot(inv, col + row * 9 + 9, 8 + col * 18, (166 - (4 - row) * 18 - 10) + 13));
+            }
+        }
+
+        // Player Hotbar
+        for (int col = 0; col < 9; col++) {
+            this.addSlot(new Slot(inv, col, 8 + col * 18, 142 + 13));
+        }
+        addDataSlots(data);
     }
-    
 
     public TableContainer(int id, PlayerInventory playerInv, PacketBuffer buffer) {
-        this(id, playerInv, getTileEntity(playerInv, buffer));
+        this(id, playerInv, getTileEntity(playerInv, buffer), new IntArray(2));
     }
 
     private static TableTileEntity getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
@@ -40,11 +59,11 @@ public class TableContainer extends Container {
         throw new IllegalStateException("Tile Entity Is Not Correct");
     }
 
+
     @Override
     public boolean stillValid(PlayerEntity p_75145_1_) {
-        return false;
+        return true;
     }
-
 
     @Override
     public ItemStack quickMoveStack(PlayerEntity player, int index) {
@@ -60,6 +79,7 @@ public class TableContainer extends Container {
             if (!this.moveItemStackTo(stack1, 0, TableTileEntity.slots, false)) {
                 return ItemStack.EMPTY;
             }
+
             if (stack1.isEmpty()) {
                 slot.set(ItemStack.EMPTY);
             } else {
@@ -69,5 +89,11 @@ public class TableContainer extends Container {
         return stack;
     }
 
-    //the end
+    public int getProcess() {
+        int process = data.get(0);
+        int maxTick = data.get(1);
+        return maxTick != 0 && process != 0 ? process * 24 / maxTick : 0;
+
+    }
 }
+

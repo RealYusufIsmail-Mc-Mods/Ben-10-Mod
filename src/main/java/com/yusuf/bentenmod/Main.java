@@ -5,19 +5,15 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.FeatureInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
-import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.item.ModSpawnEggItem;
 import com.yusuf.bentenmod.modules.bententable.recipes.RegisterRecipe;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -66,16 +62,7 @@ public class Main {
 		EntityTypesInit.registerEntityAttributes();
 	}
 
-	@SubscribeEvent
-	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
-		BlockInit.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
-			event.getRegistry().register(new BlockItem(block, new Item.Properties().tab(MainItemGroup.MAIN))
-					.setRegistryName(block.getRegistryName()));
 
-
-		});
-
-	}
 	private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> create(IForgeRegistry<T> registry) {
 		return DeferredRegister.create(registry, MOD_ID);
 	}

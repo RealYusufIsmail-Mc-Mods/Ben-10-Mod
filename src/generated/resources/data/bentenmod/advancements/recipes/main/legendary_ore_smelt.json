@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "tag": "forge:raw_ore/legendary"
+            "item": "bentenmod:legendary_ore_block"
           }
         ]
       }

@@ -2,11 +2,18 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.block.OmnitrixOre;
-import com.yusuf.bentenmod.block.TableBlock;
+import com.yusuf.bentenmod.core.bententable.TableBlock;
+import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import net.minecraft.block.*;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
+
+import static com.yusuf.bentenmod.core.init.ItemInit.ITEMS;
 
 public class BlockInit {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS,
@@ -32,7 +39,7 @@ public class BlockInit {
 	public static final RegistryObject<Block> FIRE_BLOCK = BLOCKS
 			.register("fire_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
-	
+
 	public static final RegistryObject<Block> SPEED_BLOCK = BLOCKS
 			.register("speed_block",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
@@ -65,11 +72,11 @@ public class BlockInit {
 	public static final RegistryObject<Block> BLACK_DIAMOND_ORE = BLOCKS
 			.register("black_diamond_ore",
 					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
-	
+
 	public static final RegistryObject<Block> FIRE_ORE = BLOCKS
 			.register("fire_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
-	
+
 	public static final RegistryObject<Block> SPEED_ORE = BLOCKS
 			.register("speed_ore",
 			() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
@@ -78,7 +85,7 @@ public class BlockInit {
 
 
 	/* other blocks */
-	
+
 
 
 
@@ -89,9 +96,19 @@ public class BlockInit {
 
 
 
-	public static final RegistryObject<TableBlock> TABLE_BLOCK = BLOCKS
-			.register("table_block",
-					() -> new TableBlock(TableBlock.Properties.copy(Blocks.STONE)));
+	public static final RegistryObject<TableBlock> TABLE_BLOCK;
+
+
+	static {
+		TABLE_BLOCK = BLOCKS.register("table", TableBlock::new);
+		ITEMS.register("table", () -> new BlockItem(TABLE_BLOCK.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
+	}
+
+	private static <T extends Block> RegistryObject<T> registerSpecial(String name, Supplier<T> supplier) {
+		RegistryObject<T> blockReg = BLOCKS.register(name, supplier);
+		ITEMS.register(name, () -> new BlockItem(blockReg.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
+		return blockReg;
+	}
 
 
 

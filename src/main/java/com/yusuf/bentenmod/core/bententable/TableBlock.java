@@ -1,8 +1,8 @@
-package com.yusuf.bentenmod.block;
+package com.yusuf.bentenmod.core.bententable;
 
-import com.yusuf.bentenmod.block.tablemachine.TableTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,6 +10,11 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -22,10 +27,15 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
+/**
+ * @see net.minecraft.block.AbstractFurnaceBlock
+ */
 public class TableBlock extends Block {
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
-    public TableBlock(Properties copy) {
-        super(Properties.of(Material.WOOD)
+    public TableBlock() {
+        super(Properties.of(Material.STONE)
                 .strength(3)
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(1)
@@ -34,8 +44,9 @@ public class TableBlock extends Block {
         );
     }
 
-
-    //handle gui {@Link NetworkHooks #Open gui}
+    /**
+     * handle GUI Open through {@link NetworkHooks#openGui(ServerPlayerEntity, INamedContainerProvider, BlockPos)}
+     */
     @SuppressWarnings("deprecation")
     @Override
     public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
@@ -47,6 +58,15 @@ public class TableBlock extends Block {
             }
         }
         return ActionResultType.SUCCESS;
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
+        p_206840_1_.add(FACING, POWERED);
+    }
+
+    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
+        return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
 
     /**
@@ -64,10 +84,6 @@ public class TableBlock extends Block {
         }
         super.onRemove(state, level, pos, state1, p_196243_5_);
     }
-    /**
-     * get the facing direction of block when placed down, this one works same as Furnace
-     */
-
 
     @Override
     public boolean hasTileEntity(BlockState state) {
@@ -79,8 +95,4 @@ public class TableBlock extends Block {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new TableTileEntity();
     }
-
-
-
 }
-
