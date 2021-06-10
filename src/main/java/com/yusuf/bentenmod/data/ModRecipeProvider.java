@@ -434,7 +434,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("omnitrix_ore_smelt"));
 
         CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), ItemInit.OMNITRIX.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE))
+                .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_blasting_smelt"));
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.FIRE_ORE.get()), ItemInit.FIRE.get(), 0.6f, 300)
