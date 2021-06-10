@@ -91,7 +91,7 @@ public class BlockInit {
 
 	public static final RegistryObject<TableBlock> TABLE_BLOCK = BLOCKS
 			.register("table_block",
-					() -> new TableBlock(TableBlock.Properties.copy(Blocks.STONE)));
+					() -> new TableBlock(TableBlock.copy(Blocks.STONE)));
 
 
 

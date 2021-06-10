@@ -20,13 +20,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Block> ORES_OMNITRIX = BlockTags.bind("forge:ores/omnitrix");
         public static final ITag.INamedTag<Block> ORES_IMPERIUM = BlockTags.bind("forge:ores/imperium");
         public static final ITag.INamedTag<Block> ORES_LEGENDARY_ORE_BLOCK = BlockTags.bind("forge:ores/legendary_ore_block");
-        public static final ITag.INamedTag<Block> ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK = BlockTags.bind("forge:ores/legendary_ore_block");
-        public static final ITag.INamedTag<Block> ORES_DEEPSLATE_BLACK_DIAMOND = BlockTags.bind("forge:ores/deepslate_black_diamond");
-        public static final ITag.INamedTag<Block> ORES_DEEPSLATE_RUBY = BlockTags.bind("forge:ores/deepslate_ruby");
-        public static final ITag.INamedTag<Block> ORES_DEEPSLATE_SPEED = BlockTags.bind("forge:ores/deepslate_speed");
-        public static final ITag.INamedTag<Block> ORES_DEEPSLATE_OMNITRIX = BlockTags.bind("forge:ores/deepslate_omnitrix");
-        public static final ITag.INamedTag<Block> ORES_DEEPSLATE_IMPERIUM = BlockTags.bind("forge:ores/deepslate_imperium");
-
         //blocks
         public static final ITag.INamedTag<Block> STORAGE_LEGENDARY = BlockTags.bind("forge:storage_blocks/legendary");
         public static final ITag.INamedTag<Block> STORAGE_OMNITRIX = BlockTags.bind("forge:storage_blocks/omnitrix");
@@ -53,14 +46,11 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_SPEED = ItemTags.bind("forge:ores/speed");
         public static final ITag.INamedTag<Item> ORES_OMNITRIX = ItemTags.bind("forge:ores/omnitrix");
         public static final ITag.INamedTag<Item> ORES_IMPERIUM = ItemTags.bind("forge:ores/imperium");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_BLACK_DIAMOND = ItemTags.bind("forge:ores/deepslate_black_diamond");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_RUBY = ItemTags.bind("forge:ores/deepslate_ruby");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_SPEED = ItemTags.bind("forge:ores/deepslate_speed");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_OMNITRIX = ItemTags.bind("forge:ores/deepslate_omnitrix");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_IMPERIUM = ItemTags.bind("forge:ores/deepslate_imperium");
-        public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCK = ItemTags.bind("forge:ores/legendary_ore_block");
-        public static final ITag.INamedTag<Item> ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK = ItemTags.bind("forge:ores/deepeslate_legendary_ore_block");
-        //blocks
+
+
+       //blocks
+
+
         public static final ITag.INamedTag<Item> STORAGE_LEGENDARY = ItemTags.bind("forge:storage_blocks/legendary");
         public static final ITag.INamedTag<Item> STORAGE_OMNITRIX = ItemTags.bind("forge:storage_blocks/omnitrix");
         public static final ITag.INamedTag<Item> STORAGE_INFINITUM = ItemTags.bind("forge:storage_blocks/infinitum");
@@ -79,12 +69,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = ItemTags.bind("forge:ingots/infinitum");
         public static final ITag.INamedTag<Item> SCRAP_INFINITUM_SCRAP = ItemTags.bind("forge:scraps/infinitum_scrap");
         public static final ITag.INamedTag<Item> INGOTS_IMPERIUM = ItemTags.bind("forge:ingots/imperium");
-
-        //raw ore
-
-        public static final ITag.INamedTag<Item> RAW_ORE_IMPERIUM = ItemTags.bind("forge:raw_ore/ruby");
-        public static final ITag.INamedTag<Item> RAW_ORE_OMNITRIX = ItemTags.bind("forge:raw_ore/omnitrix");
-        public static final ITag.INamedTag<Item> RAW_ORE_LEGENDARY = ItemTags.bind("forge:raw_ore/legendary");
 
 
 

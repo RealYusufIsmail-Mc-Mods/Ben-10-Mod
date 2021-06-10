@@ -23,13 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.ORES_SPEED, TagsInit.Items.ORES_SPEED);
         copy(TagsInit.Blocks.ORES_OMNITRIX, TagsInit.Items.ORES_OMNITRIX);
         copy(TagsInit.Blocks.ORES_IMPERIUM, TagsInit.Items.ORES_IMPERIUM);
-        copy(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCK, TagsInit.Items.ORES_LEGENDARY_ORE_BLOCK);
-        copy(TagsInit.Blocks.ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK, TagsInit.Items.ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK);
-        copy(TagsInit.Blocks.ORES_DEEPSLATE_BLACK_DIAMOND, TagsInit.Items.ORES_DEEPSLATE_BLACK_DIAMOND);
-        copy(TagsInit.Blocks.ORES_DEEPSLATE_RUBY, TagsInit.Items.ORES_DEEPSLATE_RUBY);
-        copy(TagsInit.Blocks.ORES_DEEPSLATE_SPEED, TagsInit.Items.ORES_DEEPSLATE_SPEED);
-        copy(TagsInit.Blocks.ORES_DEEPSLATE_OMNITRIX, TagsInit.Items.ORES_DEEPSLATE_OMNITRIX);
-        copy(TagsInit.Blocks.ORES_DEEPSLATE_IMPERIUM, TagsInit.Items.ORES_DEEPSLATE_IMPERIUM);
+
        //blocks
         copy(TagsInit.Blocks.STORAGE_LEGENDARY, TagsInit.Items.STORAGE_LEGENDARY);
         copy(TagsInit.Blocks.STORAGE_OMNITRIX, TagsInit.Items.STORAGE_OMNITRIX);
@@ -51,10 +45,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
         tag(TagsInit.Items.INGOTS_IMPERIUM).add(ItemInit.IMPERIUM.get());
 
-        //raw ore
-        tag(TagsInit.Items.RAW_ORE_IMPERIUM).add(ItemInit.RAW_IMPERIUM.get());
-        tag(TagsInit.Items.RAW_ORE_OMNITRIX).add(ItemInit.RAW_OMNITRIX.get());
-        tag(TagsInit.Items.RAW_ORE_LEGENDARY).add(ItemInit.RAW_LEGENDARY.get());
 
         //tools
 

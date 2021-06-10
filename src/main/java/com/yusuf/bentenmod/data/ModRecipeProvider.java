@@ -5,6 +5,7 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
+import jdk.nashorn.internal.ir.Block;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -428,12 +429,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.RUBY_ORE.get()))
                 .save(consumer, modId("ruby_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_OMNITRIX.get()), ItemInit.OMNITRIX.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_OMNITRIX))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), ItemInit.OMNITRIX.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_OMNITRIX.get()), ItemInit.OMNITRIX.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_OMNITRIX))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), ItemInit.OMNITRIX.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE))
                 .save(consumer, modId("omnitrix_ore_blasting_smelt"));
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.FIRE_ORE.get()), ItemInit.FIRE.get(), 0.6f, 300)
@@ -452,12 +453,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_LEGENDARY.get()), ItemInit.LEGENDARY_ORE.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_LEGENDARY))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_LEGENDARY.get()), ItemInit.LEGENDARY_ORE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_LEGENDARY))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.LEGENDARY_ORE_BLOCK.get()), ItemInit.LEGENDARY_ORE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE_BLOCK.get()))
                 .save(consumer, modId("legendary_ore_blasting_smelt"));
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.INFINITUM_ORE.get()), ItemInit.INFINITUM_SCRAP.get(), 0.6f, 300)
@@ -476,12 +477,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND_ORE.get()))
                 .save(consumer, modId("black_diamond_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_IMPERIUM.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_IMPERIUM))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.IMPERIUM_ORE.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.IMPERIUM_ORE.get()))
                 .save(consumer, modId("imperium_raw_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_IMPERIUM.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_IMPERIUM))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.IMPERIUM_ORE.get()), ItemInit.BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.IMPERIUM_ORE.get()))
                 .save(consumer, modId("imperium_raw_ore_blasting_smelt"));
 
         //armour
