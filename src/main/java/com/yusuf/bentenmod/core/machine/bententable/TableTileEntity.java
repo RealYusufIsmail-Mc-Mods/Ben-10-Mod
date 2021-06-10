@@ -71,17 +71,19 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
                 TableRecipe recipe = getRecipe();
                 if (canProcessFromRecipe(recipe)) {
                     currentTick++;
-
+                    level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.TRUE), 3);
                     if (currentTick >= maxTick) {
                         processing(recipe);
                         currentTick = 0;
                     }
                 } else {
+                    level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.FALSE), 3);
                     currentTick = 0;
                     setChanged();
                     return;
                 }
             } else {
+                level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.FALSE), 3);
                 currentTick = 0;
                 setChanged();
                 return;
