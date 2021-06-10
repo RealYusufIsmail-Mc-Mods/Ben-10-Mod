@@ -30,6 +30,10 @@ public class BlockInit {
 	public static final RegistryObject<GeneralBlock> IMPERIUM_BLOCK = register("imperium_block", Blocks.IRON_BLOCK);
 	public static final RegistryObject<GeneralBlock> LEGENDARY_ORE_BLOCK = register("legendary_ore_block", Blocks.NETHERITE_BLOCK);
 
+
+	//deepslate
+
+
 	/* Black for ores */
 	public static final RegistryObject<GeneralBlock> RUBY_ORE = register("ruby_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> IMPERIUM_ORE = register("imperium_ore", Blocks.DIAMOND_ORE);
