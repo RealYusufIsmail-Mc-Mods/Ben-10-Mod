@@ -42,11 +42,29 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCK).add(BlockInit.LEGENDARY_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCK);
 
+        tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
 
+        tag(TagsInit.Blocks.ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK).add(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_DEEPSLATE_LEGENDARY_ORE_BLOCK);
+
+        tag(TagsInit.Blocks.ORES_DEEPSLATE_BLACK_DIAMOND).add(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_DEEPSLATE_BLACK_DIAMOND);
+
+        tag(TagsInit.Blocks.ORES_DEEPSLATE_OMNITRIX).add(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_DEEPSLATE_OMNITRIX);
+
+        tag(TagsInit.Blocks.ORES_DEEPSLATE_RUBY).add(BlockInit.DEEPSLATE_RUBY_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_DEEPSLATE_RUBY);
 
         tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
 
+        tag(TagsInit.Blocks.ORES_DEEPSLATE_SPEED).add(BlockInit.DEEPSLATE_SPEED_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_DEEPSLATE_SPEED);
+
+        tag(TagsInit.Blocks.ORES_DEEPSLATE_IMPERIUM).add(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_DEEPSLATE_IMPERIUM);
       
 
         //blocks
