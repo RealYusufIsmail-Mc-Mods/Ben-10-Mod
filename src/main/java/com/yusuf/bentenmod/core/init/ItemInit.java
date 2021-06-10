@@ -245,7 +245,7 @@ public class ItemInit {
 			() -> new EnchantedGoldenAppleItem(
 					new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
 	// other items
-// TODO Open when doing with Gentworm
+// TODO Open when doing with Gentworm. Later
 	/*
 	public static OmnitrixWatch omnitrix;
 */
