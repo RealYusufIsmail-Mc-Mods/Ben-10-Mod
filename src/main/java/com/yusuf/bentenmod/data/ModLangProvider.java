@@ -42,13 +42,6 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
-        block(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE, "Deepslate Black Diamond Ore");
-        block(BlockInit.DEEPSLATE_IMPERIUM_ORE, "Deepslate Imperium Ore");
-        block(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK, "Deepslate Legendary Ore");
-        block(BlockInit.DEEPSLATE_OMNITRIX_ORE, "Deepslate Omnitrix Ore");
-        block(BlockInit.DEEPSLATE_RUBY_ORE, "Deepslate Ruby Ore");
-        block(BlockInit.DEEPSLATE_SPEED_ORE, "Deepslate Speed Ore");
-
 
         //ingots
         item(ItemInit.LEGENDARY_ORE, "Legendary");
@@ -63,9 +56,6 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
 
         //raw ores
-        item(ItemInit.RAW_LEGENDARY, "Raw Legendary");
-        item(ItemInit.RAW_OMNITRIX, "Raw Omnitrix");
-        item(ItemInit.RAW_IMPERIUM, "Raw Imperium");
 
 
         //tools

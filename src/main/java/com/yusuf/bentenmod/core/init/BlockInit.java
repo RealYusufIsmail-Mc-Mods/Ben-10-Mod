@@ -77,32 +77,6 @@ public class BlockInit {
 
 
 
-	/* deepslate ores */
-
-	public static final RegistryObject<Block> DEEPSLATE_LEGENDARY_ORE_BLOCK = BLOCKS
-			.register("deepslate_legendary_ore_block",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.NETHERITE_BLOCK)));
-	public static final RegistryObject<Block> DEEPSLATE_RUBY_ORE = BLOCKS
-			.register("deepslate_ruby_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
-
-
-	public static final RegistryObject<Block> DEEPSLATE_BLACK_DIAMOND_ORE = BLOCKS
-			.register("deepslate_black_diamond_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
-
-	public static final RegistryObject<Block> DEEPSLATE_IMPERIUM_ORE = BLOCKS
-			.register("deepslate_imperium_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_ORE)));
-
-
-	public static final RegistryObject<Block> DEEPSLATE_SPEED_ORE = BLOCKS
-			.register("deepslate_speed_ore",
-					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
-
-		public static final RegistryObject<Block> DEEPSLATE_OMNITRIX_ORE = BLOCKS
-				.register("deepslate_omnitrix_ore",
-						() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 	/* other blocks */
 	
 
