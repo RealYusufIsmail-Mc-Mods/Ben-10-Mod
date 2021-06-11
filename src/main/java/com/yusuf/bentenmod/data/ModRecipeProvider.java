@@ -6,6 +6,7 @@ import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -406,6 +407,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .unlockedBy("has_item", has(Items.GOLD_INGOT.getItem()))
                 .save(consumer,modId("enchanted_golden_apple"));
+
+        ShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get().getBlock())
+                .define('A', TagsInit.Items.INGOTS_OMNITRIX)
+                .define('L', Blocks.COBBLESTONE.getBlock())
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(Blocks.COBBLESTONE.getBlock()))
+                .save(consumer,modId("table_block"));
 
         //other items
 
