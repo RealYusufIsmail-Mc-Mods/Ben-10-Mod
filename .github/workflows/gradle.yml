@@ -24,5 +24,5 @@ jobs:
       run: ./gradlew build
     - uses: actions/upload-artifact@v2
       with:
-       name: bentenmod-1.16.5-1.13
+       name: bentenmod-1.17-1.16
        path: build/libs
