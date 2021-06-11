@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.core.bententable;
+package com.yusuf.bentenmod.core.machine.bententable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
