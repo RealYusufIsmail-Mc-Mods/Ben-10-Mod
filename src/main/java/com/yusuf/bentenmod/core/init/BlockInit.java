@@ -37,7 +37,7 @@ public class BlockInit {
 	public static final RegistryObject<GeneralBlock> DEEPSLATE_BLACK_DIAMOND_ORE = register("deepslate_black_diamond_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> DEEPSLATE_IMPERIUM_ORE = register("deepslate_imperium_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> DEEPSLATE_SPEED_ORE = register("deepslate_speed_ore", Blocks.ANCIENT_DEBRIS);
-	public static final RegistryObject<GeneralBlock> DEEPSLATE_OMNITRIX_ORE = register("deepslate_omnitrix_ore", Blocks.ANCIENT_DEBRIS);
+	public static final RegistryObject<GeneralBlock> DEEPSLATE_OMNITRIX_ORE = register("deepslate_omnitrix_ore", Blocks.DIAMOND_ORE);
 
 	/* Black for ores */
 	public static final RegistryObject<GeneralBlock> RUBY_ORE = register("ruby_ore", Blocks.ANCIENT_DEBRIS);
