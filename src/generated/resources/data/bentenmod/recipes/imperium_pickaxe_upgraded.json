@@ -4,10 +4,10 @@
     "item": "bentenmod:imperium_pickaxe"
   },
   "input2": {
-    "item": "bentenmod:fire"
+    "item": "bentenmod:imperium"
   },
   "input3": {
-    "item": "bentenmod:fire"
+    "item": "bentenmod:imperium"
   },
   "output": "bentenmod:imperium_pickaxe_upgraded"
 }

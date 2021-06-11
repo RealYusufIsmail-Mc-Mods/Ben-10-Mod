@@ -1,16 +1,16 @@
 {
     "display": {
         "title": {
-            "text": "Mined Imperium ore",
+            "text": "Mined Omnitrix ore",
             "color": "aqua",
             "bold": true,
             "italic": true
         },
         "description": {
-            "text": "You havved mine an ore which is better than iron ore."
+            "text": "You just mined one of the most OP ores in the game which gives you the ablitity to craft a certain apple."
         },
         "icon": {
-            "item": "bentenmod:raw_imperium"
+            "item": "bentenmod:omnitrix_ore"
         },
         "frame": "goal",
         "show_toast": true,
@@ -23,15 +23,15 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "bentenmod:raw_imperium",
+                        "item": "bentenmod:omnitrix_ore",
                     "count": 1
  						            }
                 ]
             }
         }
     },
-
-
-
+ 						  
+ 						  
+ 
     "parent": "bentenmod:all/root"
 }
