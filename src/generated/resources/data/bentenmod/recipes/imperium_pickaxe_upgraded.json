@@ -1,12 +1,13 @@
 {
-  "type": "minecraft:smithing",
-  "base": {
+  "type": "bentenmod:table_recipe",
+  "input1": {
     "item": "bentenmod:imperium_pickaxe"
   },
-  "addition": {
+  "input2": {
     "item": "bentenmod:imperium"
   },
-  "result": {
-    "item": "bentenmod:imperium_pickaxe_upgraded"
-  }
+  "input3": {
+    "item": "bentenmod:imperium"
+  },
+  "output": "bentenmod:imperium_pickaxe_upgraded"
 }

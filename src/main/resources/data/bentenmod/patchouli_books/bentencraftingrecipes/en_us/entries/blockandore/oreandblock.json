@@ -5,14 +5,14 @@
   "pages": [
     {
       "type": "smelting",
-      "recipe": "bentenmod:omnitrix_ore_smelt",
+      "recipe": "bentenmod:omnitrix_raw_ore_smelt",
       "recipe2": "bentenmod:fire_ore_smelt"
 
     },
     {
       "type": "smelting",
       "recipe": "bentenmod:ruby_ore_smelt",
-      "recipe2": "bentenmod:legendary_ore_smelt"
+      "recipe2": "bentenmod:legendary_raw_ore_smelt"
 
     },
     {
@@ -36,7 +36,8 @@
     },
     {
       "type": "crafting",
-      "recipe": "bentenmod:infinitum_block"
+      "recipe": "bentenmod:infinitum_block",
+      "recipe2": "bentenmod:imperium_block"
     }
 
   ]

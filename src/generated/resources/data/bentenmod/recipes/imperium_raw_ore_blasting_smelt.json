@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmod:imperium_ore"
+    "item": "bentenmod:raw_imperium"
   },
   "result": "bentenmod:black_diamond_scrap",
   "experience": 0.3,

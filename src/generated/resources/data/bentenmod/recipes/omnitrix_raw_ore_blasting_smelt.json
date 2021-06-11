@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmod:legendary_ore_block"
+    "item": "bentenmod:raw_omnitrix"
   },
-  "result": "bentenmod:legendary_ore",
+  "result": "bentenmod:omnitrix",
   "experience": 0.3,
   "cookingtime": 300
 }

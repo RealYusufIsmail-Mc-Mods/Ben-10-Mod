@@ -15,16 +15,35 @@ public class ModBlockLootTables extends BlockLootTables {
         //ores
         add(BlockInit.BLACK_DIAMOND_ORE.get(),
                 createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
+        add(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get(),
+                createOreDrop(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
         add(BlockInit.INFINITUM_ORE.get(),
                 createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
         add(BlockInit.RUBY_ORE.get(),
                 createOreDrop(BlockInit.RUBY_ORE.get(), ItemInit.RUBY.get()));
+        add(BlockInit.DEEPSLATE_RUBY_ORE.get(),
+                createOreDrop(BlockInit.DEEPSLATE_RUBY_ORE.get(), ItemInit.RUBY.get()));
+        add(BlockInit.LEGENDARY_ORE_BLOCK.get(),
+                createOreDrop(BlockInit.LEGENDARY_ORE_BLOCK.get(), ItemInit.LEGENDARY_ORE.get()));
+        add(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get(),
+                createOreDrop(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get(), ItemInit.LEGENDARY_ORE.get()));
+        add(BlockInit.IMPERIUM_ORE.get(),
+                createOreDrop(BlockInit.IMPERIUM_ORE.get(), ItemInit.IMPERIUM.get()));
+        add(BlockInit.DEEPSLATE_IMPERIUM_ORE.get(),
+                createOreDrop(BlockInit.DEEPSLATE_IMPERIUM_ORE.get(), ItemInit.IMPERIUM.get()));
+        add(BlockInit.OMNITRIX_ORE.get(),
+                createOreDrop(BlockInit.OMNITRIX_ORE.get(), ItemInit.OMNITRIX.get()));
+        add(BlockInit.DEEPSLATE_OMNITRIX_ORE.get(),
+                createOreDrop(BlockInit.DEEPSLATE_OMNITRIX_ORE.get(), ItemInit.OMNITRIX.get()));
+        add(BlockInit.SPEED_ORE.get(),
+                createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
+        add(BlockInit.DEEPSLATE_SPEED_ORE.get(),
+                createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
 
-        dropSelf(BlockInit.LEGENDARY_ORE_BLOCK.get());
-        dropSelf(BlockInit.IMPERIUM_ORE.get());
-        dropSelf(BlockInit.OMNITRIX_ORE.get());
+
+
+
         dropSelf(BlockInit.FIRE_ORE.get());
-        dropSelf(BlockInit.SPEED_ORE.get());
 
 
 
