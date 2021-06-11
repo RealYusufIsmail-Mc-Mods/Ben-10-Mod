@@ -35,7 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
         withExistingParent("imperium_block", modLoc("block/imperium_block"));
         withExistingParent("table_block", modLoc("block/table"));
-
+//TODO FIX this so it works
 
 
 
