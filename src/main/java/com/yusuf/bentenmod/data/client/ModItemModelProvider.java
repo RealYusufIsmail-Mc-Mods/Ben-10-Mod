@@ -2,6 +2,7 @@ package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.Main;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -34,12 +35,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
         withExistingParent("imperium_block", modLoc("block/imperium_block"));
-        withExistingParent("table_block", modLoc("block/table_block_front"));
-
-
-
-
-
 
 
 
