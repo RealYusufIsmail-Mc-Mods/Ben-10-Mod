@@ -40,8 +40,7 @@ public class Main {
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
 
-//TODO Test mod. Thnen release as a beta
-		
+
 
 
 	};
