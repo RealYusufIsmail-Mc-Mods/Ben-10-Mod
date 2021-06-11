@@ -6,7 +6,6 @@ import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
@@ -578,10 +577,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("jacket_blasting_smelt"));
 
 
-        //EXAMPLE RECIPE
+        //CUSTOM RECIPE
         TableRecipeBuilder.build(ingredient(Items.IRON_INGOT), ingredient(Blocks.COBBLESTONE), ingredient(Items.IRON_INGOT), Blocks.IRON_ORE)
-                .unlockedBy("test_recipe", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT))
-                .save(consumer, modId("example_recipe"));
+                .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
+                .save(consumer, modId("imperium_pickaxe_upgraded"));
 
     }
     private Ingredient ingredient(IItemProvider entry) {

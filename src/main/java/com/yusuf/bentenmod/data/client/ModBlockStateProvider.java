@@ -30,5 +30,7 @@ public class ModBlockStateProvider extends BlockStateProvider{
         simpleBlock(BlockInit.SPEED_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
+
+        horizontalBlock(BlockInit.IMPERIUM_BLOCK.get(),modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"),modLoc("block/infinitum_ore_top"));
     }
 }
