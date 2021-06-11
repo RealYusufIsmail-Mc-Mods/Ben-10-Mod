@@ -6,7 +6,6 @@ import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
@@ -578,7 +577,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         //CUSTOM RECIPE
-        TableRecipeBuilder.build(ingredient(Items.IRON_INGOT), ingredient(Blocks.COBBLESTONE), ingredient(Items.IRON_INGOT), Blocks.IRON_ORE)
+        TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.FIRE.get()), ingredient(ItemInit.FIRE.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
                 .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
                 .save(consumer, modId("imperium_pickaxe_upgraded"));
 
