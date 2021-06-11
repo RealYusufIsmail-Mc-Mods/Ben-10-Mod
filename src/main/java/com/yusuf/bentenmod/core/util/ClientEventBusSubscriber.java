@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.core.util;
 
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.core.bententable.TableScreen;
+import com.yusuf.bentenmod.core.machine.bententable.TableScreen;
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.init.KeybindsInit;
 import net.minecraft.client.gui.ScreenManager;

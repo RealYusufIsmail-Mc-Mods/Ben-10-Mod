@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.core.bententable;
+package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.util.slot.OutputSlot;

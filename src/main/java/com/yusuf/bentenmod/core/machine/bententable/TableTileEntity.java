@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.core.bententable;
+package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.TileEntityInit;
