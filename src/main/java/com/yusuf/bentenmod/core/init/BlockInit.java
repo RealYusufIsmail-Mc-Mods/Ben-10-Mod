@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.core.bententable.TableBlock;
+import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

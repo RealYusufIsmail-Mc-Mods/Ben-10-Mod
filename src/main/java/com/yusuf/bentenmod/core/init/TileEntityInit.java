@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.core.bententable.TableTileEntity;
+import com.yusuf.bentenmod.core.machine.bententable.TableTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

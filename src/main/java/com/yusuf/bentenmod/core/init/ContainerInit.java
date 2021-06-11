@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.core.init;
 
 
-import com.yusuf.bentenmod.core.bententable.TableContainer;
+import com.yusuf.bentenmod.core.machine.bententable.TableContainer;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
