@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "side": "bentenmod:block/infinitum_ore_top",
+    "side": "bentenmod:block/table_block_side",
     "front": "bentenmod:block/table_block_front",
     "top": "bentenmod:block/table_block_bottom"
   }

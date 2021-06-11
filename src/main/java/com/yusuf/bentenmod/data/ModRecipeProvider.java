@@ -411,9 +411,9 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get().getBlock())
                 .define('A', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('L', Blocks.COBBLESTONE.getBlock())
-                .pattern("AAA")
-                .pattern("ALA")
-                .pattern("AAA")
+                .pattern("AA ")
+                .pattern("LL ")
+                .pattern("LL ")
                 .unlockedBy("has_item", has(Blocks.COBBLESTONE.getBlock()))
                 .save(consumer,modId("table_block"));
 
@@ -587,7 +587,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         //CUSTOM RECIPE
-        TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.FIRE.get()), ingredient(ItemInit.FIRE.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
+        TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
                 .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
                 .save(consumer, modId("imperium_pickaxe_upgraded"));
 
