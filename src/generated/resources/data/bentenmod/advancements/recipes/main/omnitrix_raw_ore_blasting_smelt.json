@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "bentenmod:omnitrix_ore_blasting_smelt"
+      "bentenmod:omnitrix_raw_ore_blasting_smelt"
     ]
   },
   "criteria": {
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:omnitrix_ore"
+            "tag": "forge:raw_ore/omnitrix"
           }
         ]
       }
@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "bentenmod:omnitrix_ore_blasting_smelt"
+        "recipe": "bentenmod:omnitrix_raw_ore_blasting_smelt"
       }
     }
   },

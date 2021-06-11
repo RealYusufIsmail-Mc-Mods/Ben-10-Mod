@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "bentenmod:legendary_ore_block"
+    "item": "bentenmod:raw_legendary"
   },
   "result": "bentenmod:legendary_ore",
   "experience": 0.6,

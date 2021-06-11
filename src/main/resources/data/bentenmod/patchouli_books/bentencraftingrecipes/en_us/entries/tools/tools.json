@@ -36,8 +36,19 @@
     {
       "type": "crafting",
       "recipe": "bentenmod:axe",
-      "recipe2": "bentenmod:bentencraftingrecipes"
+      "recipe2": "bentenmod:imperium_axe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:imperium_pickaxe",
+      "recipe2": "bentenmod:imperium_pickaxe_upgraded"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:imperium_sword"
     }
+
+
 
   ]
 }

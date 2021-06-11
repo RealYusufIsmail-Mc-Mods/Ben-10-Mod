@@ -6,7 +6,6 @@ import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
-import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
@@ -422,6 +421,16 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
 
+        ShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get().getBlock())
+                .define('A', TagsInit.Items.INGOTS_OMNITRIX)
+                .define('L', Blocks.COBBLESTONE.getBlock())
+                .pattern("AA ")
+                .pattern("LL ")
+                .pattern("LL ")
+                .unlockedBy("has_item", has(Blocks.COBBLESTONE.getBlock()))
+                .save(consumer,modId("table_block"));
+
+
 
         //smelting and blasting recipes
 
@@ -437,11 +446,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_OMNITRIX.get()), ItemInit.OMNITRIX.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_OMNITRIX))
-                .save(consumer, modId("omnitrix_ore_smelt"));
+                .save(consumer, modId("omnitrix_raw_ore_smelt"));
 
         CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_OMNITRIX.get()), ItemInit.OMNITRIX.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_OMNITRIX))
-                .save(consumer, modId("omnitrix_ore_blasting_smelt"));
+                .save(consumer, modId("omnitrix_raw_ore_blasting_smelt"));
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.FIRE_ORE.get()), ItemInit.FIRE.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(BlockInit.FIRE_ORE.get()))
@@ -461,11 +470,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_LEGENDARY.get()), ItemInit.LEGENDARY_ORE.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_LEGENDARY))
-                .save(consumer, modId("legendary_ore_smelt"));
+                .save(consumer, modId("legendary_raw_ore_smelt"));
 
         CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_LEGENDARY.get()), ItemInit.LEGENDARY_ORE.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.RAW_ORE_LEGENDARY))
-                .save(consumer, modId("legendary_ore_blasting_smelt"));
+                .save(consumer, modId("legendary_raw_ore_blasting_smelt"));
 
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.INFINITUM_ORE.get()), ItemInit.INFINITUM_SCRAP.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(BlockInit.INFINITUM_ORE.get()))
@@ -578,10 +587,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("jacket_blasting_smelt"));
 
 
-        //EXAMPLE RECIPE
-        TableRecipeBuilder.build(ingredient(Items.IRON_INGOT), ingredient(Blocks.COBBLESTONE), ingredient(Items.IRON_INGOT), Blocks.IRON_ORE)
-                .unlockedBy("test_recipe", InventoryChangeTrigger.Instance.hasItems(Items.IRON_INGOT))
-                .save(consumer, modId("example_recipe"));
+
+        //CUSTOM RECIPE
+        TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
+                .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
+                .save(consumer, modId("imperium_pickaxe_upgraded"));
 
     }
     private Ingredient ingredient(IItemProvider entry) {

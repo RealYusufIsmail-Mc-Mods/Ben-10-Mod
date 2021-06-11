@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.core.bententable.TableBlock;
+import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -45,7 +45,7 @@ public class BlockInit {
 	public static final RegistryObject<GeneralBlock> BLACK_DIAMOND_ORE = register("black_diamond_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> FIRE_ORE = register("fire_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> SPEED_ORE = register("speed_ore", Blocks.ANCIENT_DEBRIS);
-	public static final RegistryObject<GeneralBlock> OMNITRIX_ORE = register("omnitrix_ore", Blocks.ANCIENT_DEBRIS);
+	public static final RegistryObject<GeneralBlock> OMNITRIX_ORE = register("omnitrix_ore", Blocks.DIAMOND_ORE);
 	public static final RegistryObject<RotatedPillarBlock> INFINITUM_ORE
 			= registerSpecial("infinitum_ore", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 

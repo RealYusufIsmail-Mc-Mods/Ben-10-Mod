@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.core.bententable;
+package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
