@@ -35,7 +35,7 @@ public class Main {
 		GeckoLibMod.DISABLE_IN_DEV = false;
 		GeckoLib.initialize();
 
-		
+
 		bus.addGenericListener(IRecipeSerializer.class, RegisterRecipe::registerRecipes);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
