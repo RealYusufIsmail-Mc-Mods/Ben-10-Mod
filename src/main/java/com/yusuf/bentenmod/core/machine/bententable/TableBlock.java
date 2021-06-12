@@ -90,6 +90,11 @@ public class TableBlock extends Block {
         return true;
     }
 
+    @Override
+    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
+        return BlockRenderType.MODEL;
+    }
+
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
