@@ -25,7 +25,7 @@ import software.bernie.geckolib3.util.AnimationUtils;
 import java.awt.*;
 import java.util.Collections;
 
-public class GeoProjectilesRenderer<T extends CreatureEntity & IAnimatable> extends EntityRenderer<T>
+public class GeoProjectilesRenderer <T extends CreatureEntity & IAnimatable> extends EntityRenderer<T>
 		implements IGeoRenderer<T> {
 
 	static {
