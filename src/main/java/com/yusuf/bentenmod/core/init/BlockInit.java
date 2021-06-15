@@ -57,7 +57,6 @@ public class BlockInit {
 
 	static {
 		TABLE_BLOCK = BLOCKS.register("table", TableBlock::new);
-		ITEMS.register("table", () -> new BlockItem(TABLE_BLOCK.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
 	}
 
 	//helper methods for register both block and BlockItem at the same time.
