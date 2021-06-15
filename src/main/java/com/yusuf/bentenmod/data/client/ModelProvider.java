@@ -160,9 +160,9 @@ public class ModelProvider {
 
     //TODO FIX this error
     public static final class BlockState extends BlockStateProvider {
-        public BlockState(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-            super(generator, Main.MOD_ID, existingFileHelper);
-            this.generator = generator;
+        public BlockState(DataGenerator gen, ExistingFileHelper exFileHelper) {
+            super(gen, Main.MOD_ID, exFileHelper);
+            this.generator = gen;
         }
         private final DataGenerator generator;
         private static final Logger LOGGER = LogManager.getLogger();

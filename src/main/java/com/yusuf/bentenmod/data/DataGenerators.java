@@ -20,7 +20,7 @@ public final class DataGenerators {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
+       // gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModelProvider.BlockState(gen, existingFileHelper));
         gen.addProvider(new ModelProvider.Item(gen, existingFileHelper));
 
