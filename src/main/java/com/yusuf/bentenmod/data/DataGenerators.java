@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.data;
 
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.data.client.ModBlockStateProvider;
 import com.yusuf.bentenmod.data.client.ModelProvider;
 import com.yusuf.bentenmod.data.loot.ModLootTables;
 import net.minecraft.data.DataGenerator;
@@ -11,7 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public final class DataGenerators {
+public class DataGenerators {
     private DataGenerators() {}
 
 
