@@ -157,9 +157,9 @@ public class ModelProvider {
          */
     }
 
+
+    //TODO FIX this error
     public static final class BlockState extends BlockStateProvider {
-
-
         public BlockState(DataGenerator generator, ExistingFileHelper existingFileHelper) {
             super(generator, Main.MOD_ID, existingFileHelper);
             this.generator = generator;
