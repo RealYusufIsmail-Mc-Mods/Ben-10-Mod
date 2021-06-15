@@ -41,8 +41,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("deepslate_imperium_ore", modLoc("block/deepslate_imperium_ore"));
         withExistingParent("deepslate_speed_ore", modLoc("block/deepslate_speed_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
-        withExistingParent("table", modLoc("block/table"));
-
 
 
 
