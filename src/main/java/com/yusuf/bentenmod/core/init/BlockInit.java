@@ -73,7 +73,5 @@ public class BlockInit {
 		return blockReg;
 	}
 
-	private static RegistryObject<GeneralBlock> register(String name, Block existingBlock) {
-		return register(name, () -> new GeneralBlock(AbstractBlock.Properties.copy(existingBlock)));
-	}
+
 }
