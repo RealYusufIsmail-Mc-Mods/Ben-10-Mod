@@ -420,7 +420,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("vilgax_spawn_egg"));
 
 
-
+/*
         ShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get().getBlock())
                 .define('A', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('L', Blocks.COBBLESTONE.getBlock())
@@ -429,6 +429,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("LL ")
                 .unlockedBy("has_item", has(Blocks.COBBLESTONE.getBlock()))
                 .save(consumer,modId("table_block"));
+
+ */
 
 
 

@@ -1,5 +1,6 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
+import com.yusuf.bentenmod.core.init.TileEntityInit;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,7 +28,7 @@ import javax.annotation.Nullable;
 /**
  * @see net.minecraft.block.AbstractFurnaceBlock
  */
-public class TableBlock extends Block {
+public class TableBlock extends ContainerBlock {
     public static final DirectionProperty FACING = HorizontalBlock.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
@@ -92,9 +93,11 @@ public class TableBlock extends Block {
         return BlockRenderType.MODEL;
     }
 
-    @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new TableTileEntity();
+    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
+        return TileEntityInit.TABLE_TE.get().create();
     }
+
+
+
 }
