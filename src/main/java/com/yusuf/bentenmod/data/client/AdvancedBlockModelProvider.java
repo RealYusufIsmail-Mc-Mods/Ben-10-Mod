@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.GeneralBlock;
 import net.minecraft.block.Block;
@@ -15,6 +16,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,14 +35,18 @@ import java.util.stream.Collectors;
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 
 public class AdvancedBlockModelProvider extends BlockStateProvider {
-    private final DataGenerator generator;
-    private static final Logger LOGGER = LogManager.getLogger();
-    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
 
-    public AdvancedBlockModelProvider(DataGenerator gen) {
-        super(gen);
+
+    public AdvancedBlockModelProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
+        super(gen, Main.MOD_ID, exFileHelper);
         this.generator = gen;
     }
+
+
+
+    private final DataGenerator generator;
+    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();      private final DataGenerator generator;
 
     public void run(DirectoryCache p_200398_1_) {
         Path path = this.generator.getOutputFolder();
