@@ -15,6 +15,8 @@ import org.apache.logging.log4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
+
+
 @Mod("bentenmod")
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
 public class Main {
@@ -43,8 +45,8 @@ public class Main {
 		
 
 
-	};
-		
+	}
+
 
 
 }
