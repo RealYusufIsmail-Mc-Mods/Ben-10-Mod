@@ -21,6 +21,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
 
 
 import javax.annotation.Nonnull;
@@ -46,8 +47,8 @@ public class ModelProvider {
         @Override
         protected void registerModels() {
             block("black_diamond_block");
-            block("black_diamond_ore");
             block("infinitum_ore");
+            block("black_diamond_ore");
             block("fire_block");
             block("fire_ore");
             block("legendary_block");
@@ -162,7 +163,7 @@ public class ModelProvider {
     }
 
 
-    //TODO FIX this error
+   
     public static final class BlockState extends BlockStateProvider {
         public BlockState(DataGenerator gen, ExistingFileHelper existingFileHelper) {
             super(gen, Main.MOD_ID, existingFileHelper);
@@ -219,6 +220,11 @@ public class ModelProvider {
                 saveCollection(cache, path, map1, this::createModelPath);
             }
         }
+
+        @Override
+        protected void registerStatesAndModels() {}
+
+
 
         private <T> void saveCollection(DirectoryCache p_240081_1_, Path p_240081_2_, Map<T, ? extends Supplier<JsonElement>> p_240081_3_, BiFunction<Path, T, Path> p_240081_4_) {
             p_240081_3_.forEach((p_240088_3_, p_240088_4_) -> {
