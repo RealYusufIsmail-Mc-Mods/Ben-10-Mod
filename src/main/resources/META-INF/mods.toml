@@ -2,7 +2,7 @@
 modLoader="javafml"
 loaderVersion="[36,)"
 issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
-license="BSD 3-Clause "New" or "Revised" License"
+license="BSD 3-Clause New or Revised License"
 [[mods]]
 modId="bentenmod"
 version="${file.jarVersion}"
