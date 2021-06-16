@@ -21,7 +21,6 @@ public class Main {
 	// Directly reference a log4j logger.
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "bentenmod";
-	public static boolean DISABLE_IN_DEV = false;
 
 	public Main() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -33,7 +32,7 @@ public class Main {
 		ContainerInit.CONTAINERS.register(bus);
 
 
-
+		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
 
 

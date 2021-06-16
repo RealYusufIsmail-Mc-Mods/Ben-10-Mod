@@ -1,11 +1,11 @@
 
 modLoader="javafml"
 loaderVersion="[36,)"
-license="BSD 3-Clause License"
 issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
+license="BSD 3-Clause "New" or "Revised" License"
 [[mods]]
 modId="bentenmod"
-version="${1.15}"
+version="${file.jarVersion}" 
 displayName="Ben10 Mod"
 displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
 logoFile="headerimg.png"
