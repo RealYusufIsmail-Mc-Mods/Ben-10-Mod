@@ -15,6 +15,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -39,6 +40,7 @@ import java.util.stream.Collectors;
  * @see net.minecraft.data.BlockModelProvider
  */
 public class ModelProvider {
+
     public static final class Item extends net.minecraftforge.client.model.generators.ItemModelProvider {
         public Item(DataGenerator generator, ExistingFileHelper existingFileHelper) {
             super(generator, Main.MOD_ID, existingFileHelper);
@@ -163,8 +165,8 @@ public class ModelProvider {
     }
 
 
-   
     public static final class BlockState extends BlockStateProvider {
+
         public BlockState(DataGenerator gen, ExistingFileHelper existingFileHelper) {
             super(gen, Main.MOD_ID, existingFileHelper);
             this.generator = gen;
@@ -301,7 +303,7 @@ public class ModelProvider {
                 createFurnace(BlockInit.TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 createTrivialCube(BlockInit.BLACK_DIAMOND_BLOCK.get());
                 createTrivialCube(BlockInit.BLACK_DIAMOND_ORE.get());
-                woodProvider(BlockInit.INFINITUM_ORE.get());
+                createTrivialCube(BlockInit.INFINITUM_ORE.get());
                 createTrivialCube(BlockInit.INFINITUM_BLOCK.get());
                 createTrivialCube(BlockInit.FIRE_BLOCK.get());
                 createTrivialCube(BlockInit.FIRE_ORE.get());
@@ -321,6 +323,7 @@ public class ModelProvider {
                 createTrivialCube(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
                 createTrivialCube(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
                 createTrivialCube(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
+
             }
 
             private static IFinishedBlockState createAxisAlignedPillarBlock(Block p_239986_0_, ResourceLocation p_239986_1_) {
