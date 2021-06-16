@@ -24,16 +24,15 @@ public class Main {
 
 	public Main() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		
+		GeckoLibMod.DISABLE_IN_DEV = true;
+		GeckoLib.initialize();
 
 		ItemInit.ITEMS.register(bus);
 		BlockInit.BLOCKS.register(bus);
 		EntityTypesInit.ENTITY_TYPES.register(bus);
 		TileEntityInit.TILE_ENTITY.register(bus);
 		ContainerInit.CONTAINERS.register(bus);
-
-
-		GeckoLibMod.DISABLE_IN_DEV = false;
-		GeckoLib.initialize();
 
 
 		bus.addGenericListener(IRecipeSerializer.class, RegisterRecipe::registerRecipes);
