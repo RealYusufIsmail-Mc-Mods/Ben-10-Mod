@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 license="BSD 3-Clause "New" or "Revised" License"
 [[mods]]
 modId="bentenmod"
-version="${file.jarVersion}" 
+version="${file.jarVersion}"
 displayName="Ben10 Mod"
 displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
 logoFile="headerimg.png"
