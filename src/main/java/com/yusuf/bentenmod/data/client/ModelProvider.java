@@ -280,6 +280,12 @@ public class ModelProvider {
             return BlockStateVariantBuilder.property(BlockStateProperties.HORIZONTAL_FACING).select(Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90)).select(Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180)).select(Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270)).select(Direction.NORTH, BlockModelDefinition.variant());
         }
 
+        @SafeVarargs
+        private final void cube(@Nonnull RegistryObject<GeneralBlock>... registries) {
+            for (RegistryObject<GeneralBlock> registry : registries)
+                createTrivialCube(registry.get());
+        }
+
         private void createTrivialCube(Block p_239975_1_) {
             this.createTrivialBlock(p_239975_1_, TexturedModel.CUBE);
         }
@@ -288,14 +294,14 @@ public class ModelProvider {
             this.blockStateOutput.accept(createSimpleBlock(p_239956_1_, p_239956_2_.create(p_239956_1_, this.modelOutput)));
         }
 
-        private static FinishedVariantBlockState createSimpleBlock(Block p_239978_0_, ResourceLocation p_239978_1_) {
+        private FinishedVariantBlockState createSimpleBlock(Block p_239978_0_, ResourceLocation p_239978_1_) {
             return FinishedVariantBlockState.multiVariant(p_239978_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239978_1_));
         }
 
         //name is wood provider but it use for RotatedPilarBlock (s) in your BlockInit
-            private LogsVariantHelper woodProvider(Block p_240009_1_) {
-                return new LogsVariantHelper(ModelTextures.logColumn(p_240009_1_), blockStateOutput, modelOutput);
-            }
+        private LogsVariantHelper woodProvider(Block p_240009_1_) {
+            return new LogsVariantHelper(ModelTextures.logColumn(p_240009_1_), blockStateOutput, modelOutput);
+        }
 
 
             @Override
@@ -303,7 +309,7 @@ public class ModelProvider {
                 createFurnace(BlockInit.TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 createTrivialCube(BlockInit.BLACK_DIAMOND_BLOCK.get());
                 createTrivialCube(BlockInit.BLACK_DIAMOND_ORE.get());
-                createTrivialCube(BlockInit.INFINITUM_ORE.get());
+                woodProvider(BlockInit.INFINITUM_ORE.get());
                 createTrivialCube(BlockInit.INFINITUM_BLOCK.get());
                 createTrivialCube(BlockInit.FIRE_BLOCK.get());
                 createTrivialCube(BlockInit.FIRE_ORE.get());
@@ -326,25 +332,36 @@ public class ModelProvider {
 
             }
 
-            private static IFinishedBlockState createAxisAlignedPillarBlock(Block p_239986_0_, ResourceLocation p_239986_1_) {
-                return FinishedVariantBlockState.multiVariant(p_239986_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239986_1_)).with(createRotatedPillar());
-            }
-
-            private static BlockStateVariantBuilder createRotatedPillar() {
-                return BlockStateVariantBuilder.property(BlockStateProperties.AXIS).select(Direction.Axis.Y, BlockModelDefinition.variant()).select(Direction.Axis.Z, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90)).select(Direction.Axis.X, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90));
-            }
+        private static IFinishedBlockState createAxisAlignedPillarBlock(Block p_239986_0_, ResourceLocation p_239986_1_) {
+            return FinishedVariantBlockState.multiVariant(p_239986_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239986_1_)).with(createRotatedPillar());
         }
 
-        static class LogsVariantHelper {
-            protected final Consumer<IFinishedBlockState> blockStateOutput;
-            public final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
-            private final ModelTextures logMapping;
+        private static BlockStateVariantBuilder createRotatedPillar() {
+            return BlockStateVariantBuilder.property(BlockStateProperties.AXIS).select(Direction.Axis.Y, BlockModelDefinition.variant()).select(Direction.Axis.Z, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90)).select(Direction.Axis.X, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90));
+        }
+    }
 
-            public LogsVariantHelper(ModelTextures modelTextures, Consumer<IFinishedBlockState> blockStateOutput, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
-                logMapping = modelTextures;
-                this.blockStateOutput = blockStateOutput;
-                this.modelOutput = modelOutput;
-            }
+    static class LogsVariantHelper {
+        protected final Consumer<IFinishedBlockState> blockStateOutput;
+        public final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
+        private final ModelTextures logMapping;
+        public LogsVariantHelper(ModelTextures modelTextures,Consumer<IFinishedBlockState> blockStateOutput, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
+            logMapping = modelTextures;
+            this.blockStateOutput = blockStateOutput;
+            this.modelOutput = modelOutput;
+        }
 
+        public LogsVariantHelper wood(Block p_240070_1_) {
+            ModelTextures modeltextures = this.logMapping.copyAndUpdate(StockTextureAliases.END, this.logMapping.get(StockTextureAliases.SIDE));
+            ResourceLocation resourcelocation = StockModelShapes.CUBE_COLUMN.create(p_240070_1_, modeltextures, modelOutput);
+            blockStateOutput.accept(BlockModels.createAxisAlignedPillarBlock(p_240070_1_, resourcelocation));
+            return this;
+        }
+
+        public LogsVariantHelper log(Block p_240071_1_) {
+            ResourceLocation resourcelocation = StockModelShapes.CUBE_COLUMN.create(p_240071_1_, this.logMapping,modelOutput);
+            blockStateOutput.accept(BlockModels.createAxisAlignedPillarBlock(p_240071_1_, resourcelocation));
+            return this;
+        }
     }
 }
