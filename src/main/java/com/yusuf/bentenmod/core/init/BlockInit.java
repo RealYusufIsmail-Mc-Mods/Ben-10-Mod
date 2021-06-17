@@ -46,8 +46,17 @@ public class BlockInit {
 	public static final RegistryObject<GeneralBlock> FIRE_ORE = register("fire_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> SPEED_ORE = register("speed_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> OMNITRIX_ORE = register("omnitrix_ore", Blocks.DIAMOND_ORE);
-	public static final RegistryObject<RotatedPillarBlock> INFINITUM_ORE
-			= registerSpecial("infinitum_ore", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+	public static final RegistryObject<RotatedPillar> INFINITUM_ORE
+			= registerSpecial("infinitum_ore", () -> new RotatedPillar(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+
+	//block with more than one side or for other blocks with manual models
+	/*
+	public static final RegistryObject<Block> INFINITUM_ORE = BLOCKS
+			.register("infinitum_ore",
+					() -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+	 */
 
 	/* ore blocks */
 

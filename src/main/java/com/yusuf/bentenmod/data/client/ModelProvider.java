@@ -39,6 +39,8 @@ import java.util.stream.Collectors;
 /**
  * @see net.minecraft.data.BlockModelProvider
  */
+import static com.yusuf.bentenmod.core.init.BlockInit.*;
+
 public class ModelProvider {
 
     public static final class Item extends net.minecraftforge.client.model.generators.ItemModelProvider {
@@ -308,29 +310,29 @@ public class ModelProvider {
 
             @Override
             public void run() {
-                createFurnace(BlockInit.TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
-                createTrivialCube(BlockInit.BLACK_DIAMOND_BLOCK.get());
-                createTrivialCube(BlockInit.BLACK_DIAMOND_ORE.get());
-                woodProvider(BlockInit.INFINITUM_ORE.get());
-                createTrivialCube(BlockInit.INFINITUM_BLOCK.get());
-                createTrivialCube(BlockInit.FIRE_BLOCK.get());
-                createTrivialCube(BlockInit.FIRE_ORE.get());
-                createTrivialCube(BlockInit.LEGENDARY_BLOCK.get());
-                createTrivialCube(BlockInit.LEGENDARY_ORE_BLOCK.get());
-                createTrivialCube(BlockInit.OMNITRIX_BLOCK.get());
-                createTrivialCube(BlockInit.OMNITRIX_ORE.get());
-                createTrivialCube(BlockInit.RUBY_BLOCK.get());
-                createTrivialCube(BlockInit.RUBY_ORE.get());
-                createTrivialCube(BlockInit.SPEED_BLOCK.get());
-                createTrivialCube(BlockInit.SPEED_ORE.get());
-                createTrivialCube(BlockInit.IMPERIUM_ORE.get());
-                createTrivialCube(BlockInit.IMPERIUM_BLOCK.get());
-                createTrivialCube(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
-                createTrivialCube(BlockInit.DEEPSLATE_SPEED_ORE.get());
-                createTrivialCube(BlockInit.DEEPSLATE_RUBY_ORE.get());
-                createTrivialCube(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
-                createTrivialCube(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
-                createTrivialCube(BlockInit.DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
+                createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
+                woodProvider(INFINITUM_ORE.get());
+                createTrivialCube(BLACK_DIAMOND_BLOCK.get());
+                createTrivialCube(BLACK_DIAMOND_ORE.get());
+                createTrivialCube(INFINITUM_BLOCK.get());
+                createTrivialCube(FIRE_BLOCK.get());
+                createTrivialCube(FIRE_ORE.get());
+                createTrivialCube(LEGENDARY_BLOCK.get());
+                createTrivialCube(LEGENDARY_ORE_BLOCK.get());
+                createTrivialCube(OMNITRIX_BLOCK.get());
+                createTrivialCube(OMNITRIX_ORE.get());
+                createTrivialCube(RUBY_BLOCK.get());
+                createTrivialCube(RUBY_ORE.get());
+                createTrivialCube(SPEED_BLOCK.get());
+                createTrivialCube(SPEED_ORE.get());
+                createTrivialCube(IMPERIUM_ORE.get());
+                createTrivialCube(IMPERIUM_BLOCK.get());
+                createTrivialCube(DEEPSLATE_BLACK_DIAMOND_ORE.get());
+                createTrivialCube(DEEPSLATE_SPEED_ORE.get());
+                createTrivialCube(DEEPSLATE_RUBY_ORE.get());
+                createTrivialCube(DEEPSLATE_IMPERIUM_ORE.get());
+                createTrivialCube(DEEPSLATE_OMNITRIX_ORE.get());
+                createTrivialCube(DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
 
             }
 
