@@ -72,6 +72,7 @@ public class BlockInit {
 		RegistryObject<GeneralBlock> blockReg = BLOCKS.register(name, supplier);
 		ITEMS.register(name, () -> new BlockItem(blockReg.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
 		return blockReg;
+
 	}
 
 	private static RegistryObject<GeneralBlock> register(String name, Block existingBlock) {
