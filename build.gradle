@@ -7,7 +7,7 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
-    apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
@@ -50,7 +50,6 @@ minecraft {
         }
 
         data {
-            property 'forge.logging.markers', 'REGISTRIES'
             workingDirectory project.file('run')       
 
             property 'forge.logging.console.level', 'debug'
@@ -75,13 +74,14 @@ sourceSets.main.resources {
 
 
 repositories {
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven { url 'https://repo.repsy.io/mvn/gandiber/geckolib' }
      maven { url 'https://maven.blamejared.com' }
 }
 
 dependencies {
+
     minecraft 'net.minecraftforge:forge:1.16.5-36.1.31'
-    compile fg.deobf('software.bernie.geckolib:geckolib-forge-1.15.2:3.0.32')
+   implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.16.5:3.0.32')
    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-50")
 }
 
