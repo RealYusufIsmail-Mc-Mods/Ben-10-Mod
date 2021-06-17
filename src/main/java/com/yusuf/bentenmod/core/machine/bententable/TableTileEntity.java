@@ -6,6 +6,7 @@ import com.yusuf.bentenmod.modules.bententable.recipes.RegisterRecipe;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
@@ -47,13 +48,11 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
         }
     };
 
-    public TableTileEntity(TileEntityType<?> p_i48284_1_) {
-        super(p_i48284_1_);
+    public TableTileEntity() {
+        super(TileEntityInit.TABLE_TE.get());
     }
 
-    public TableTileEntity() {
-        this(TileEntityInit.TABLE_TE.get());
-    }
+
 
     /**
      * This is the MOST IMPORTANT
@@ -161,6 +160,7 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
     public int getContainerSize() {
         return slots;
     }
+
 
     @Nullable
     private TableRecipe getRecipe() {

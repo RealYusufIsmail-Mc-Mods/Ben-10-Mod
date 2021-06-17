@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "bentenmod:block/table_block_top",
+    "front": "bentenmod:block/table_block_front",
+    "side": "bentenmod:block/table_block_side"
+  }
+}

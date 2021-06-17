@@ -1,16 +1,18 @@
 
-modLoader="javafml"
-loaderVersion="[36,)"
-license="BSD 3-Clause License"
+modLoader="javafml" #mandatory
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[36,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+# The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
+# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+license="All rights reserved"
 issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
 [[mods]]
 modId="bentenmod"
-version="${1.15}"
+version="${file.jarVersion}"
 displayName="Ben10 Mod"
 displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
 logoFile="headerimg.png"
-credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and 
-gentworm for helping me with my code." 
+credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code."
 
 authors="Yusuf Ismail and gentworm" #optional
 description='''
@@ -51,10 +53,4 @@ gentworm: https://www.curseforge.com/members/gentworm/followers
     ordering="NONE"
     side="BOTH"
     
-    [[dependencies.bentenmod]]
-    modId="geckolib3"
-    mandatory=true
-    versionRange="[3.0.30,)"
-    ordering="BEFORE"
-    side="BOTH"
 

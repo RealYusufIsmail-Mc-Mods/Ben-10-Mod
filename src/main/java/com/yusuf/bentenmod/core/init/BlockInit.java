@@ -46,8 +46,16 @@ public class BlockInit {
 	public static final RegistryObject<GeneralBlock> FIRE_ORE = register("fire_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> SPEED_ORE = register("speed_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> OMNITRIX_ORE = register("omnitrix_ore", Blocks.DIAMOND_ORE);
-	public static final RegistryObject<RotatedPillarBlock> INFINITUM_ORE
-			= registerSpecial("infinitum_ore", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+	public static final RegistryObject<GeneralBlock> INFINITUM_ORE = register("infinitum_ore", Blocks.DIAMOND_ORE);
+
+
+	//block with more than one side or for other blocks with manual models
+	/*
+	public static final RegistryObject<RotatedPillar> INFINITUM_ORE = BLOCKS
+			.register("infinitum_ore",
+					() -> new RotatedPillar(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+
+	 */
 
 	/* ore blocks */
 
@@ -56,8 +64,7 @@ public class BlockInit {
 	public static final RegistryObject<TableBlock> TABLE_BLOCK;
 
 	static {
-		TABLE_BLOCK = BLOCKS.register("table", TableBlock::new);
-		ITEMS.register("table", () -> new BlockItem(TABLE_BLOCK.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
+		TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
 	}
 
 	//helper methods for register both block and BlockItem at the same time.
@@ -72,6 +79,7 @@ public class BlockInit {
 		RegistryObject<GeneralBlock> blockReg = BLOCKS.register(name, supplier);
 		ITEMS.register(name, () -> new BlockItem(blockReg.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
 		return blockReg;
+
 	}
 
 	private static RegistryObject<GeneralBlock> register(String name, Block existingBlock) {

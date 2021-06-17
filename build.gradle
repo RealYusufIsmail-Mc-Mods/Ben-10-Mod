@@ -80,8 +80,8 @@ repositories {
 
 dependencies {
 
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.4'
-   implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.16.5:3.0.31')
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.31'
+   implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.16.5:3.0.32')
    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-50")
 }
 

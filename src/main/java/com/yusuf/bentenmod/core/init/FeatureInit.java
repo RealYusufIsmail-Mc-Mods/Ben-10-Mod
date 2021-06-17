@@ -15,10 +15,10 @@ public class FeatureInit {
 
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.LEGENDARY_ORE_BLOCK.get().defaultBlockState(), 3, 0, 16, 7);
-/*
+
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.IMPERIUM_ORE.get().defaultBlockState(), 4, 0, 20, 8);
- */
+
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 0, 17, 7);
 

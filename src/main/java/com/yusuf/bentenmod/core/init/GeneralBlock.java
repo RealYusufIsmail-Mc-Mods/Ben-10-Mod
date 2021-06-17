@@ -22,5 +22,6 @@ public class GeneralBlock extends Block {
     public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
+    
 }
 
