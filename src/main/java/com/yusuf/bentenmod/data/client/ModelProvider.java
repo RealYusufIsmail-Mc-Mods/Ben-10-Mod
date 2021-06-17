@@ -173,6 +173,7 @@ public class ModelProvider {
             super(gen, Main.MOD_ID, existingFileHelper);
             this.generator = gen;
         }
+
         private final DataGenerator generator;
         private static final Logger LOGGER = LogManager.getLogger();
         private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
