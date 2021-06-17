@@ -64,7 +64,7 @@ public class BlockInit {
 	public static final RegistryObject<TableBlock> TABLE_BLOCK;
 
 	static {
-		TABLE_BLOCK = registerSpecial("ore_processor", TableBlock::new);
+		TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
 	}
 
 	//helper methods for register both block and BlockItem at the same time.
