@@ -49,7 +49,7 @@ public class ModelProvider {
         @Override
         protected void registerModels() {
             block("black_diamond_block");
-            //block("infinitum_ore");
+            block("infinitum_ore");
             block("black_diamond_ore");
             block("fire_block");
             block("fire_ore");
@@ -224,7 +224,9 @@ public class ModelProvider {
         }
 
         @Override
-        protected void registerStatesAndModels() {}
+        protected void registerStatesAndModels() {
+            axisBlock(BlockInit.INFINITUM_ORE.get(),modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
+        }
 
 
 
@@ -309,7 +311,7 @@ public class ModelProvider {
                 createFurnace(BlockInit.TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 createTrivialCube(BlockInit.BLACK_DIAMOND_BLOCK.get());
                 createTrivialCube(BlockInit.BLACK_DIAMOND_ORE.get());
-                //woodProvider(BlockInit.INFINITUM_ORE.get());
+                woodProvider(BlockInit.INFINITUM_ORE.get());
                 createTrivialCube(BlockInit.INFINITUM_BLOCK.get());
                 createTrivialCube(BlockInit.FIRE_BLOCK.get());
                 createTrivialCube(BlockInit.FIRE_ORE.get());
