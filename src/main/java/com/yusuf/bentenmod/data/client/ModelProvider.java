@@ -311,7 +311,7 @@ public class ModelProvider {
             @Override
             public void run() {
                 createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
-                woodProvider(INFINITUM_ORE.get());
+                createTrivialCube(INFINITUM_ORE.get());
                 createTrivialCube(BLACK_DIAMOND_BLOCK.get());
                 createTrivialCube(BLACK_DIAMOND_ORE.get());
                 createTrivialCube(INFINITUM_BLOCK.get());
