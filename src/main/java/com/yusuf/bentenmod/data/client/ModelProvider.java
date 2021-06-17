@@ -225,7 +225,7 @@ public class ModelProvider {
 
         @Override
         protected void registerStatesAndModels() {
-            axisBlock(BlockInit.INFINITUM_ORE.get(),modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
+
         }
 
 
