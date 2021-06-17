@@ -124,7 +124,7 @@ public class ModLangProvider extends LanguageProvider {
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
-        add(LangKeys.TABLE_BLOACK_SCREEN.getString(), "Upgrade and Crafting");
+        add(LangKeys.TABLE_BLOCK_SCREEN.getString(), "Upgrade and Crafting");
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax Spawn Egg");
     }
 
