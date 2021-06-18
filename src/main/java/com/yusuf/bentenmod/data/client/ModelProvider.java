@@ -269,6 +269,8 @@ public class ModelProvider {
         private final Consumer<IFinishedBlockState> blockStateOutput;
         private final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
 
+
+        /*
         private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
             ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
             ResourceLocation resourcelocation1 = ModelTextures.getBlockTexture(p_239977_1_, "_front_on");
@@ -278,6 +280,15 @@ public class ModelProvider {
             this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
 
+
+         */
+
+        private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
+            ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
+            ResourceLocation resourcelocation2 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
+            }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
+            this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
+        }
         private static BlockStateVariantBuilder createBooleanModelDispatch(BooleanProperty p_239894_0_, ResourceLocation p_239894_1_, ResourceLocation p_239894_2_) {
             return BlockStateVariantBuilder.property(p_239894_0_).select(true, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_1_)).select(false, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_2_));
         }
