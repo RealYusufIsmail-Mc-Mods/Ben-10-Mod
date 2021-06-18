@@ -106,10 +106,6 @@ public class ModelProvider {
             build(itemGenerated, "infinitum_chestplate");
             build(itemGenerated, "infinitum_leggings");
             build(itemGenerated, "infinitum_boots");
-            build(itemGenerated, "fourarms_helmet");
-            build(itemGenerated, "fourarms_chestplate");
-            build(itemGenerated, "fourarms_leggings");
-            build(itemGenerated, "fourarms_boot");
             build(itemGenerated, "imperium");
 
 
