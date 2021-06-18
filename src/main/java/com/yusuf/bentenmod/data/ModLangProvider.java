@@ -91,10 +91,10 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.XLR8_CHESTPLATE, "xlr8 chestplate");
         item(ItemInit.XLR8_LEGGINGS, "xlr8 legging");
         item(ItemInit.XLR8_BOOT, "xlr8 boots");
-        item(ItemInit.FOURARMS_HELMET, "4Arms helmet");
-        item(ItemInit.FOURARMS_CHESTPLATE, "4Arms chestplate");
-        item(ItemInit.FOURARMS_LEGGINGS, "4Arms legging");
-        item(ItemInit.FOURARMS_BOOT, "4Arms boots");
+        //item(ItemInit.FOURARMS_HELMET, "4Arms helmet");
+        //item(ItemInit.FOURARMS_CHESTPLATE, "4Arms chestplate");
+        //item(ItemInit.FOURARMS_LEGGINGS, "4Arms legging");
+        //item(ItemInit.FOURARMS_BOOT, "4Arms boots");
         item(ItemInit.INFINITUM_HELMET, "Infinitum helmet");
         item(ItemInit.INFINITUM_CHESTPLATE, "Infinitum chestplate");
         item(ItemInit.INFINITUM_LEGGINGS, "Infinitum legging");
