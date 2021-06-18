@@ -9,6 +9,7 @@ import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.GeneralBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -23,6 +24,7 @@ import net.minecraftforge.fml.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+
 
 
 import javax.annotation.Nonnull;
@@ -40,6 +42,7 @@ import java.util.stream.Collectors;
  * @see net.minecraft.data.BlockModelProvider
  */
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
+import static net.minecraft.util.Util.name;
 
 public class ModelProvider {
 
@@ -50,77 +53,76 @@ public class ModelProvider {
 
         @Override
         protected void registerModels() {
-            block("black_diamond_block");
-            block("infinitum_ore");
-            block("black_diamond_ore");
-            block("fire_block");
-            block("fire_ore");
-            block("legendary_block");
-            block("omnitrix_block");
-            block("speed_block");
-            block("ruby_block");
-            block("ruby_ore");
-            block("infinitum_block");
-            block("speed_ore");
-            block("omnitrix_ore");
-            block("imperium_ore");
-            block("legendary_ore_block");
-            block("imperium_block");
-            block("deepslate_legendary_ore_block");
-            block("deepslate_ruby_ore");
-            block("deepslate_black_diamond_ore");
-            block("deepslate_imperium_ore");
-            block("deepslate_speed_ore");
-            block("deepslate_omnitrix_ore");
+            //block("black_diamond_block");
+            //block("black_diamond_ore");
+             //block("fire_block");
+             //block("fire_ore");
+             //block("legendary_block");
+             //block("omnitrix_block");
+             //block("speed_block");
+             //block("ruby_block");
+             //block("ruby_ore");
+             //block("infinitum_block");
+             //block("speed_ore");
+             //block("omnitrix_ore");
+             //block("imperium_ore");
+             //block("legendary_ore_block");
+             //block("imperium_block");
+             //block("deepslate_legendary_ore_block");
+             //block("deepslate_ruby_ore");
+             //block("deepslate_black_diamond_ore");
+             //block("deepslate_imperium_ore");
+             //block("deepslate_speed_ore");
+             //block("deepslate_omnitrix_ore");
 
 
             ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
             ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
             //items
-            builder(itemGenerated, "black_diamond");
-            builder(itemGenerated, "black_diamond_scrap");
-            builder(itemGenerated, "infinitum");
-            builder(itemGenerated, "infinitum_scrap");
-            builder(itemGenerated, "boot");
-            builder(itemGenerated, "chestplate");
-            builder(itemGenerated, "legendary_ore");
-            builder(itemGenerated, "omnitrix");
-            builder(itemGenerated, "fire");
-            builder(itemGenerated, "ruby");
-            builder(itemGenerated, "speed");
-            builder(itemGenerated, "helmet");
-            builder(itemGenerated, "leggings");
-            builder(itemGenerated, "jacket");
-            builder(itemGenerated, "heatblast_helmet");
-            builder(itemGenerated, "heatblast_chestplate");
-            builder(itemGenerated, "heatblast_leggings");
-            builder(itemGenerated, "heatblast_boot");
-            builder(itemGenerated, "xlr8_helmet");
-            builder(itemGenerated, "xlr8_chestplate");
-            builder(itemGenerated, "xlr8_leggings");
-            builder(itemGenerated, "xlr8_boot");
-            builder(itemGenerated, "omnitrix_apple");
-            builder(itemGenerated, "enchanted_omnitrix_apple");
-            builder(itemGenerated, "fire_apple");
-            builder(itemGenerated, "ruby_apple");
-            builder(itemGenerated, "vilgax_spawn_egg");
-            builder(itemGenerated, "black_diamond_helmet");
-            builder(itemGenerated, "black_diamond_chestplate");
-            builder(itemGenerated, "black_diamond_leggings");
-            builder(itemGenerated, "black_diamond_boots");
-            builder(itemGenerated, "infinitum_helmet");
-            builder(itemGenerated, "infinitum_chestplate");
-            builder(itemGenerated, "infinitum_leggings");
-            builder(itemGenerated, "infinitum_boots");
-            builder(itemGenerated, "fourarms_helmet");
-            builder(itemGenerated, "fourarms_chestplate");
-            builder(itemGenerated, "fourarms_leggings");
-            builder(itemGenerated, "fourarms_boot");
-            builder(itemGenerated, "imperium");
-            builder(itemGenerated, "raw_legendary");
-            builder(itemGenerated, "raw_omnitrix");
-            builder(itemGenerated, "raw_imperium");
+            build(itemGenerated, "black_diamond");
+            build(itemGenerated, "black_diamond_scrap");
+            build(itemGenerated, "infinitum");
+            build(itemGenerated, "infinitum_scrap");
+            build(itemGenerated, "boot");
+            build(itemGenerated, "chestplate");
+            build(itemGenerated, "legendary_ore");
+            build(itemGenerated, "omnitrix");
+            build(itemGenerated, "fire");
+            build(itemGenerated, "ruby");
+            build(itemGenerated, "speed");
+            build(itemGenerated, "helmet");
+            build(itemGenerated, "leggings");
+            build(itemGenerated, "jacket");
+            build(itemGenerated, "heatblast_helmet");
+            build(itemGenerated, "heatblast_chestplate");
+            build(itemGenerated, "heatblast_leggings");
+            build(itemGenerated, "heatblast_boot");
+            build(itemGenerated, "xlr8_helmet");
+            build(itemGenerated, "xlr8_chestplate");
+            build(itemGenerated, "xlr8_leggings");
+            build(itemGenerated, "xlr8_boot");
+            build(itemGenerated, "omnitrix_apple");
+            build(itemGenerated, "enchanted_omnitrix_apple");
+            build(itemGenerated, "fire_apple");
+            build(itemGenerated, "ruby_apple");
+            build(itemGenerated, "vilgax_spawn_egg");
+            build(itemGenerated, "black_diamond_helmet");
+            build(itemGenerated, "black_diamond_chestplate");
+            build(itemGenerated, "black_diamond_leggings");
+            build(itemGenerated, "black_diamond_boots");
+            build(itemGenerated, "infinitum_helmet");
+            build(itemGenerated, "infinitum_chestplate");
+            build(itemGenerated, "infinitum_leggings");
+            build(itemGenerated, "infinitum_boots");
+            build(itemGenerated, "fourarms_helmet");
+            build(itemGenerated, "fourarms_chestplate");
+            build(itemGenerated, "fourarms_leggings");
+            build(itemGenerated, "fourarms_boot");
+            build(itemGenerated, "imperium");
+            build(itemGenerated, "raw_legendary");
+            build(itemGenerated, "raw_omnitrix");
+            build(itemGenerated, "raw_imperium");
 
 
             //tools
@@ -144,9 +146,10 @@ public class ModelProvider {
 
         }
 
-        private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
-            return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+        private void build(ModelFile itemGenerated, String path) {
+            getBuilder(path).parent(itemGenerated).texture("layer0", "item/" + path);
         }
+
 
         private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
             return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
@@ -168,16 +171,13 @@ public class ModelProvider {
 
 
     public static final class BlockState extends BlockStateProvider {
-
-        public BlockState(DataGenerator gen, ExistingFileHelper existingFileHelper) {
-            super(gen, Main.MOD_ID, existingFileHelper);
-            this.generator = gen;
-        }
-
-        private final DataGenerator generator;
         private static final Logger LOGGER = LogManager.getLogger();
         private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
-
+        private final DataGenerator generator;
+        public BlockState(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+            super(generator, Main.MOD_ID, existingFileHelper);
+            this.generator = generator;
+        }
 
         @SuppressWarnings("deprecation")
         @Override
@@ -226,13 +226,6 @@ public class ModelProvider {
             }
         }
 
-        @Override
-        protected void registerStatesAndModels() {
-
-        }
-
-
-
         private <T> void saveCollection(DirectoryCache p_240081_1_, Path p_240081_2_, Map<T, ? extends Supplier<JsonElement>> p_240081_3_, BiFunction<Path, T, Path> p_240081_4_) {
             p_240081_3_.forEach((p_240088_3_, p_240088_4_) -> {
                 Path path = p_240081_4_.apply(p_240081_2_, p_240088_3_);
@@ -246,6 +239,8 @@ public class ModelProvider {
             });
         }
 
+
+
         private Path createBlockStatePath(Path p_240082_0_, Block p_240082_1_) {
             ResourceLocation resourcelocation = Registry.BLOCK.getKey(p_240082_1_);
             return p_240082_0_.resolve("assets/" + resourcelocation.getNamespace() + "/blockstates/" + resourcelocation.getPath() + ".json");
@@ -255,20 +250,36 @@ public class ModelProvider {
             return p_240083_0_.resolve("assets/" + p_240083_1_.getNamespace() + "/models/" + p_240083_1_.getPath() + ".json");
         }
 
+        @Override
+        protected void registerStatesAndModels() {}
+
 
     }
 
+
     private static final class BlockModels extends BlockModelProvider {
+        private final Consumer<IFinishedBlockState> blockStateOutput;
+        private final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
         public BlockModels(Consumer<IFinishedBlockState> p_i232514_1_, BiConsumer<ResourceLocation, Supplier<JsonElement>> p_i232514_2_, Consumer<net.minecraft.item.Item> p_i232514_3_) {
             super(p_i232514_1_, p_i232514_2_, p_i232514_3_);
 
             blockStateOutput = p_i232514_1_;
             modelOutput = p_i232514_2_;
         }
+        private static BlockStateVariantBuilder createBooleanModelDispatch(BooleanProperty lit, ResourceLocation p_239894_1_, ResourceLocation p_239894_2_) {
+            return BlockStateVariantBuilder.property(BlockStateProperties.LIT).select(true, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_1_)).select(false, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_2_));
+        }
 
-        private final Consumer<IFinishedBlockState> blockStateOutput;
-        private final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
+        private static BlockStateVariantBuilder createHorizontalFacingDispatch() {
+            return BlockStateVariantBuilder.property(BlockStateProperties.HORIZONTAL_FACING).select(Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90)).select(Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180)).select(Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270)).select(Direction.NORTH, BlockModelDefinition.variant());
+        }
 
+        private static FinishedVariantBlockState createSimpleBlock(Block p_239978_0_, ResourceLocation p_239978_1_) {
+            return FinishedVariantBlockState.multiVariant(p_239978_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239978_1_));
+        }
+
+
+        /*
         private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
             ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
             ResourceLocation resourcelocation1 = ModelTextures.getBlockTexture(p_239977_1_, "_front_on");
@@ -278,19 +289,28 @@ public class ModelProvider {
             this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
 
-        private static BlockStateVariantBuilder createBooleanModelDispatch(BooleanProperty p_239894_0_, ResourceLocation p_239894_1_, ResourceLocation p_239894_2_) {
-            return BlockStateVariantBuilder.property(p_239894_0_).select(true, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_1_)).select(false, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_2_));
-        }
-        private static BlockStateVariantBuilder createHorizontalFacingDispatch() {
-            return BlockStateVariantBuilder.property(BlockStateProperties.HORIZONTAL_FACING).select(Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90)).select(Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180)).select(Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270)).select(Direction.NORTH, BlockModelDefinition.variant());
+
+         */
+
+
+
+
+        private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
+            ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
+            ResourceLocation resourcelocation1 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
+            }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
+            this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation1, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
 
-        @SafeVarargs
-        private final void cube(@Nonnull RegistryObject<GeneralBlock>... registries) {
-            for (RegistryObject<GeneralBlock> registry : registries)
-                createTrivialCube(registry.get());
+        //
+/*
+        private void createInfinitum(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
+            ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
+            this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
 
+
+ */
         private void createTrivialCube(Block p_239975_1_) {
             this.createTrivialBlock(p_239975_1_, TexturedModel.CUBE);
         }
@@ -299,21 +319,21 @@ public class ModelProvider {
             this.blockStateOutput.accept(createSimpleBlock(p_239956_1_, p_239956_2_.create(p_239956_1_, this.modelOutput)));
         }
 
-        private FinishedVariantBlockState createSimpleBlock(Block p_239978_0_, ResourceLocation p_239978_1_) {
-            return FinishedVariantBlockState.multiVariant(p_239978_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239978_1_));
+        private void createSmithingTable() {
+            ModelTextures modeltextures = (new ModelTextures()).put(StockTextureAliases.PARTICLE, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_front")).put(StockTextureAliases.DOWN, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_bottom")).put(StockTextureAliases.UP, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_top")).put(StockTextureAliases.NORTH, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_front")).put(StockTextureAliases.SOUTH, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_front")).put(StockTextureAliases.EAST, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_side")).put(StockTextureAliases.WEST, ModelTextures.getBlockTexture(Blocks.SMITHING_TABLE, "_side"));
+            this.blockStateOutput.accept(createSimpleBlock(Blocks.SMITHING_TABLE, StockModelShapes.CUBE.create(Blocks.SMITHING_TABLE, modeltextures, this.modelOutput)));
         }
 
-        //name is wood provider but it use for RotatedPilarBlock (s) in your BlockInit
-        private LogsVariantHelper woodProvider(Block p_240009_1_) {
-            return new LogsVariantHelper(ModelTextures.logColumn(p_240009_1_), blockStateOutput, modelOutput);
+        private void createCraftingTableLike(Block p_239875_1_, Block p_239875_2_, BiFunction<Block, Block, ModelTextures> p_239875_3_) {
+            ModelTextures modeltextures = p_239875_3_.apply(p_239875_1_, p_239875_2_);
+            this.blockStateOutput.accept(createSimpleBlock(p_239875_1_, StockModelShapes.CUBE.create(p_239875_1_, modeltextures, this.modelOutput)));
         }
 
 
             @Override
             public void run() {
                 createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
-                //TODO change texture
-                createTrivialCube(INFINITUM_ORE.get());
+               createTrivialBlock(INFINITUM_ORE.get(), TexturedModel.COLUMN);
                 createTrivialCube(BLACK_DIAMOND_BLOCK.get());
                 createTrivialCube(BLACK_DIAMOND_ORE.get());
                 createTrivialCube(INFINITUM_BLOCK.get());
@@ -338,36 +358,6 @@ public class ModelProvider {
 
             }
 
-        private static IFinishedBlockState createAxisAlignedPillarBlock(Block p_239986_0_, ResourceLocation p_239986_1_) {
-            return FinishedVariantBlockState.multiVariant(p_239986_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239986_1_)).with(createRotatedPillar());
-        }
 
-        private static BlockStateVariantBuilder createRotatedPillar() {
-            return BlockStateVariantBuilder.property(BlockStateProperties.AXIS).select(Direction.Axis.Y, BlockModelDefinition.variant()).select(Direction.Axis.Z, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90)).select(Direction.Axis.X, BlockModelDefinition.variant().with(BlockModelFields.X_ROT, BlockModelFields.Rotation.R90).with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90));
-        }
-    }
-
-    static class LogsVariantHelper {
-        protected final Consumer<IFinishedBlockState> blockStateOutput;
-        public final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
-        private final ModelTextures logMapping;
-        public LogsVariantHelper(ModelTextures modelTextures,Consumer<IFinishedBlockState> blockStateOutput, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
-            logMapping = modelTextures;
-            this.blockStateOutput = blockStateOutput;
-            this.modelOutput = modelOutput;
-        }
-
-        public LogsVariantHelper wood(Block p_240070_1_) {
-            ModelTextures modeltextures = this.logMapping.copyAndUpdate(StockTextureAliases.END, this.logMapping.get(StockTextureAliases.SIDE));
-            ResourceLocation resourcelocation = StockModelShapes.CUBE_COLUMN.create(p_240070_1_, modeltextures, modelOutput);
-            blockStateOutput.accept(BlockModels.createAxisAlignedPillarBlock(p_240070_1_, resourcelocation));
-            return this;
-        }
-
-        public LogsVariantHelper log(Block p_240071_1_) {
-            ResourceLocation resourcelocation = StockModelShapes.CUBE_COLUMN.create(p_240071_1_, this.logMapping,modelOutput);
-            blockStateOutput.accept(BlockModels.createAxisAlignedPillarBlock(p_240071_1_, resourcelocation));
-            return this;
-        }
     }
 }
