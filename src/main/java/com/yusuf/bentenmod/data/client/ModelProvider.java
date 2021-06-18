@@ -324,7 +324,7 @@ public class ModelProvider {
             public void run() {
                 createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 //TODO change texture
-                createTrivialCube(INFINITUM_ORE.get());
+                createFurnace(INFINITUM_ORE.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 createTrivialCube(BLACK_DIAMOND_BLOCK.get());
                 createTrivialCube(BLACK_DIAMOND_ORE.get());
                 createTrivialCube(INFINITUM_BLOCK.get());

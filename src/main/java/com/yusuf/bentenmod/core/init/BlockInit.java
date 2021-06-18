@@ -1,5 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
+import com.yusuf.bentenmod.Blocks.InfinitumOre;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
@@ -46,7 +47,7 @@ public class BlockInit {
 	public static final RegistryObject<GeneralBlock> FIRE_ORE = register("fire_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> SPEED_ORE = register("speed_ore", Blocks.ANCIENT_DEBRIS);
 	public static final RegistryObject<GeneralBlock> OMNITRIX_ORE = register("omnitrix_ore", Blocks.DIAMOND_ORE);
-	public static final RegistryObject<GeneralBlock> INFINITUM_ORE = register("infinitum_ore", Blocks.DIAMOND_ORE);
+
 
 
 	//block with more than one side or for other blocks with manual models
@@ -60,11 +61,12 @@ public class BlockInit {
 	/* ore blocks */
 
 	/* other blocks */
-
+	public static final RegistryObject<InfinitumOre> INFINITUM_ORE;
 	public static final RegistryObject<TableBlock> TABLE_BLOCK;
 
 	static {
 		TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
+		INFINITUM_ORE = registerSpecial("infinitum_ore", InfinitumOre::new);
 	}
 
 	//helper methods for register both block and BlockItem at the same time.
