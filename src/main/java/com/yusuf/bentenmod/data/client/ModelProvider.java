@@ -41,6 +41,7 @@ import java.util.stream.Collectors;
  * @see net.minecraft.data.BlockModelProvider
  */
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
+import static net.minecraft.util.Util.name;
 
 public class ModelProvider {
 
@@ -52,7 +53,6 @@ public class ModelProvider {
         @Override
         protected void registerModels() {
             block("black_diamond_block");
-            block("infinitum_ore");
             block("black_diamond_ore");
             block("fire_block");
             block("fire_ore");
@@ -284,6 +284,9 @@ public class ModelProvider {
 
          */
 
+
+
+
         private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
             ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
             ResourceLocation resourcelocation2 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
@@ -306,6 +309,7 @@ public class ModelProvider {
         private static BlockStateVariantBuilder createHorizontalFacingDispatch() {
             return BlockStateVariantBuilder.property(BlockStateProperties.HORIZONTAL_FACING).select(Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90)).select(Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180)).select(Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270)).select(Direction.NORTH, BlockModelDefinition.variant());
         }
+
 
         @SafeVarargs
         private final void cube(@Nonnull RegistryObject<GeneralBlock>... registries) {
@@ -335,7 +339,6 @@ public class ModelProvider {
             public void run() {
                 createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 //TODO change texture
-                woodProvider(INFINITUM_ORE.get());
                 createTrivialBlock(BLACK_DIAMOND_BLOCK.get(), TexturedModel.CUBE);
                 createTrivialCube(BLACK_DIAMOND_ORE.get());
                 createTrivialCube(INFINITUM_BLOCK.get());
