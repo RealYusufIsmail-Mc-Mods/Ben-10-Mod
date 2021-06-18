@@ -6,8 +6,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.core.init.BlockInit;
-import com.yusuf.bentenmod.core.init.GeneralBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
@@ -16,11 +14,9 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -68,12 +64,7 @@ public class ModelProvider {
             //block("imperium_ore");
             //block("legendary_ore_block");
             //block("imperium_block");
-            //block("deepslate_legendary_ore_block");
-            //block("deepslate_ruby_ore");
-            //block("deepslate_black_diamond_ore");
-            //block("deepslate_imperium_ore");
-            //block("deepslate_speed_ore");
-            //block("deepslate_omnitrix_ore");
+
 
 
             ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
