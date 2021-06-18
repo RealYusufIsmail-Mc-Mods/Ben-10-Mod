@@ -6,8 +6,6 @@
 
 Crafting recipes can be found here: https://realyusufismail.github.io/custom-mod/recipes.html
 
-This is branch were all the beta code for 1.17 will be wtiien.
-
 This mod can be used in a modpack
 
 Copyright 2021, Yusuf Ismail , All rights reserved.
