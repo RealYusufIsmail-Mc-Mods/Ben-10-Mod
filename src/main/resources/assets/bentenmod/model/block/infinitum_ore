@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "tbbm:block/infinitum_ore_top",
-    "front": "tbbm:block/infinitum_ore_front",
-    "side": "tbbm:block/infinitum_ore_side"
-  }
-}
