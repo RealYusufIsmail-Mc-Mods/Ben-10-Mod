@@ -111,9 +111,6 @@ public class ModelProvider {
             build(itemGenerated, "fourarms_leggings");
             build(itemGenerated, "fourarms_boot");
             build(itemGenerated, "imperium");
-            build(itemGenerated, "raw_legendary");
-            build(itemGenerated, "raw_omnitrix");
-            build(itemGenerated, "raw_imperium");
 
 
             //tools

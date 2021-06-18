@@ -32,7 +32,7 @@ public class Main {
 		ContainerInit.CONTAINERS.register(bus);
 
 
-		GeckoLibMod.DISABLE_IN_DEV = false;
+		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
 
 
