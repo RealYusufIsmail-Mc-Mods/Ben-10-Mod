@@ -11,4 +11,5 @@ public class TileEntityInit {
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Main.MOD_ID);
 
     public static final RegistryObject<TileEntityType<TableTileEntity>> TABLE_TE = TILE_ENTITY.register("table", () -> TileEntityType.Builder.of(TableTileEntity::new, BlockInit.TABLE_BLOCK.get()).build(null));
+
 }

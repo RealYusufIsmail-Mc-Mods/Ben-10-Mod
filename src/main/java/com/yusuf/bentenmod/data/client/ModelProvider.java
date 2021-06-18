@@ -25,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 
 
+
 import javax.annotation.Nonnull;
 import java.nio.file.Path;
 import java.util.List;
@@ -289,6 +290,16 @@ public class ModelProvider {
             }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
             this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
+
+        //
+/*
+        private void createInfinitum(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
+            ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
+            this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation)).with(createHorizontalFacingDispatch()));
+        }
+
+
+ */
         private static BlockStateVariantBuilder createBooleanModelDispatch(BooleanProperty p_239894_0_, ResourceLocation p_239894_1_, ResourceLocation p_239894_2_) {
             return BlockStateVariantBuilder.property(p_239894_0_).select(true, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_1_)).select(false, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_2_));
         }
@@ -324,8 +335,8 @@ public class ModelProvider {
             public void run() {
                 createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
                 //TODO change texture
-                createFurnace(INFINITUM_ORE.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
-                createTrivialCube(BLACK_DIAMOND_BLOCK.get());
+                woodProvider(INFINITUM_ORE.get());
+                createTrivialBlock(BLACK_DIAMOND_BLOCK.get(), TexturedModel.CUBE);
                 createTrivialCube(BLACK_DIAMOND_ORE.get());
                 createTrivialCube(INFINITUM_BLOCK.get());
                 createTrivialCube(FIRE_BLOCK.get());
