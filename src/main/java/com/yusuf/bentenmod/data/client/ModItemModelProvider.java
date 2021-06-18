@@ -1,4 +1,6 @@
+/*
 package com.yusuf.bentenmod.data.client;
+
 
 import com.yusuf.bentenmod.Main;
 import net.minecraft.data.DataGenerator;
@@ -120,3 +122,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
     }
 }
+
+
+ */

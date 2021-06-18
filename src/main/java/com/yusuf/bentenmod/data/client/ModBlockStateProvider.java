@@ -1,4 +1,4 @@
-
+/*
 package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.Main;
@@ -34,3 +34,6 @@ public class ModBlockStateProvider extends BlockStateProvider{
         horizontalBlock(BlockInit.TABLE_BLOCK.get(),modLoc("block/table_block_side"), modLoc("block/table_block_front"),modLoc("block/table_block_bottom"));
     }
 }
+
+
+ */
