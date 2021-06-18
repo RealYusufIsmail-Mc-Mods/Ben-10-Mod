@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
@@ -35,3 +36,6 @@ public class FourArmsArmor extends ArmorItem implements IForgeItem {
 
 	}}
 
+
+
+ */
