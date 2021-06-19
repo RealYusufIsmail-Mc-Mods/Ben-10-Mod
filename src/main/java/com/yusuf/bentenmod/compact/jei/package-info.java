@@ -1,6 +1,6 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package com.yusuf.bentenmod.common.langkeys;
+package com.yusuf.bentenmod.compact.jei;
 
 import mcp.MethodsReturnNonnullByDefault;
 

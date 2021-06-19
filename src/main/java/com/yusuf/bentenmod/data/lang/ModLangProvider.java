@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.data.lang;
 
 import com.yusuf.bentenmod.Main;
-import com.yusuf.bentenmod.common.langkeys.LangKeys;
+import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
@@ -12,6 +12,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -83,10 +84,10 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.CHESTPLATE, "Knight Chestplate");
         item(ItemInit.LEGGINGS, "Knight leggings");
         item(ItemInit.BOOT, "Knight Boots");
-        item(ItemInit.HEATBLAST_HELMET, "Heayblast helmet");
-        item(ItemInit.HEATBLAST_CHESTPLATE, "Heayblast chestplate");
-        item(ItemInit.HEATBLAST_LEGGINGS, "Heayblast leggings");
-        item(ItemInit.HEATBLAST_BOOT, "Heayblast boots");
+        item(ItemInit.HEATBLAST_HELMET, "Heatblast helmet");
+        item(ItemInit.HEATBLAST_CHESTPLATE, "Heatblast chestplate");
+        item(ItemInit.HEATBLAST_LEGGINGS, "Heatblast leggings");
+        item(ItemInit.HEATBLAST_BOOT, "Heatblast boots");
         item(ItemInit.XLR8_HELMET, "xlr8 helmet");
         item(ItemInit.XLR8_CHESTPLATE, "xlr8 chestplate");
         item(ItemInit.XLR8_LEGGINGS, "xlr8 legging");
@@ -115,7 +116,8 @@ public class ModLangProvider extends LanguageProvider {
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
-        add(LangKeys.TABLE_BLOACK_SCREEN.getString(), "Upgrade and Crafting");
+        add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
+        add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax Spawn Egg");
     }
 
@@ -128,6 +130,9 @@ public class ModLangProvider extends LanguageProvider {
     }
     private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
         add(entry.get(), name);
+    }
+    private void add(ITextComponent key, String lang) {
+        super.add(key.getString(), lang);
     }
 
 
