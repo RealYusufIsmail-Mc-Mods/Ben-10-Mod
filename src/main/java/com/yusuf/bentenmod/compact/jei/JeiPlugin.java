@@ -1,12 +1,15 @@
-/*
+
 package com.yusuf.bentenmod.compact.jei;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.compact.jei.recipe.TableBlockCategory;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.RecipeTypeInit;
-import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import com.yusuf.bentenmod.core.machine.bententable.TableContainer;
+import com.yusuf.bentenmod.core.machine.bententable.TableScreen;
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.RecipeManager;
@@ -58,7 +61,7 @@ public class JeiPlugin implements IModPlugin {
 
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
-        registration.addRecipeClickArea(TableContainer.class, 93, 35, 23, 17, TableBlockCategory.ID);
+        registration.addRecipeClickArea(TableScreen.class, 0, 0, 0, 0, TableBlockCategory.ID);
+        //TODO Change this.
     }
 }
-*/
