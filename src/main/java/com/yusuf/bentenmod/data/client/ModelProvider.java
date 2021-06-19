@@ -235,7 +235,24 @@ public class ModelProvider {
         }
 
         @Override
-        protected void registerStatesAndModels() {}
+        protected void registerStatesAndModels() {
+            //simpleBlock(BLACK_DIAMOND_BLOCK.get());
+            //simpleBlock(BLACK_DIAMOND_ORE.get());
+            //simpleBlock(INFINITUM_BLOCK.get());
+            //simpleBlock(FIRE_BLOCK.get());
+            //simpleBlock(FIRE_ORE.get());
+            //simpleBlock(LEGENDARY_BLOCK.get());
+            //simpleBlock(LEGENDARY_ORE_BLOCK.get());
+            //simpleBlock(OMNITRIX_BLOCK.get());
+            //simpleBlock(OMNITRIX_ORE.get());
+            //simpleBlock(RUBY_BLOCK.get());
+            //simpleBlock(RUBY_ORE.get());
+            //simpleBlock(SPEED_BLOCK.get());
+            //simpleBlock(SPEED_ORE.get());
+            //simpleBlock(IMPERIUM_ORE.get());
+            //simpleBlock(IMPERIUM_BLOCK.get());
+
+        }
 
 
     }
@@ -310,25 +327,25 @@ public class ModelProvider {
         }
 
 
-        @Override
+
         public void run() {
             createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
             createTrivialBlock(INFINITUM_ORE.get(), TexturedModel.COLUMN);
-            createTrivialCube(BLACK_DIAMOND_BLOCK.get());
-            createTrivialCube(BLACK_DIAMOND_ORE.get());
-            createTrivialCube(INFINITUM_BLOCK.get());
-            createTrivialCube(FIRE_BLOCK.get());
-            createTrivialCube(FIRE_ORE.get());
-            createTrivialCube(LEGENDARY_BLOCK.get());
-            createTrivialCube(LEGENDARY_ORE_BLOCK.get());
-            createTrivialCube(OMNITRIX_BLOCK.get());
-            createTrivialCube(OMNITRIX_ORE.get());
-            createTrivialCube(RUBY_BLOCK.get());
-            createTrivialCube(RUBY_ORE.get());
-            createTrivialCube(SPEED_BLOCK.get());
-            createTrivialCube(SPEED_ORE.get());
-            createTrivialCube(IMPERIUM_ORE.get());
-            createTrivialCube(IMPERIUM_BLOCK.get());
+           createTrivialCube(BLACK_DIAMOND_BLOCK.get());
+           createTrivialCube(BLACK_DIAMOND_ORE.get());
+           createTrivialCube(INFINITUM_BLOCK.get());
+           createTrivialCube(FIRE_BLOCK.get());
+           createTrivialCube(FIRE_ORE.get());
+           createTrivialCube(LEGENDARY_BLOCK.get());
+           createTrivialCube(LEGENDARY_ORE_BLOCK.get());
+           createTrivialCube(OMNITRIX_BLOCK.get());
+           createTrivialCube(OMNITRIX_ORE.get());
+           createTrivialCube(RUBY_BLOCK.get());
+           createTrivialCube(RUBY_ORE.get());
+           createTrivialCube(SPEED_BLOCK.get());
+           createTrivialCube(SPEED_ORE.get());
+           createTrivialCube(IMPERIUM_ORE.get());
+           createTrivialCube(IMPERIUM_BLOCK.get());
 
         }
 

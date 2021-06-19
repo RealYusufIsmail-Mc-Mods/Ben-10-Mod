@@ -43,7 +43,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(VilgaxEntity.class,
 			DataSerializers.BOOLEAN);
 
-	private AnimationFactory factory = new AnimationFactory(this);
+	private final AnimationFactory factory = new AnimationFactory(this);
 
 	private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
 
@@ -112,7 +112,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 	public static AttributeModifierMap.MutableAttribute registerAttributes() {
 		return MonsterEntity.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.23F).add(Attributes.ATTACK_DAMAGE, 10.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.23F).add(Attributes.ATTACK_DAMAGE, 10.0D)
 				.add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
 				.add(Attributes.MAX_HEALTH, 300.0D);
 	}
@@ -232,8 +232,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 	}
 
 	public boolean canHoldItem(ItemStack p_175448_1_) {
-		return p_175448_1_.getItem() == Items.EGG && this.isBaby() && this.isPassenger() ? false
-				: super.canHoldItem(p_175448_1_);
+		return (p_175448_1_.getItem() != Items.EGG || !this.isBaby() || !this.isPassenger()) && super.canHoldItem(p_175448_1_);
 	}
 
 	protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {

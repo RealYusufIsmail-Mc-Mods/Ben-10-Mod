@@ -16,7 +16,7 @@
   "block.bentenmod.speed_block": "Speed Block",
   "block.bentenmod.speed_ore": "Speed Ore",
   "block.bentenmod.table_block": "Upgrade and Crafting Table",
-  "container.bentenmod.Upgrdade": "Upgrade and Crafting Table",
+  "container.bentenmod.table_block": "Upgrade and Crafting Table",
   "desc.bentenmod.upgrade_table": "A table used to upgrade items and tools in the game",
   "entity.bentenmod.vilgax": "Vilgax Spawn Egg",
   "item.bentenmod.axe": "AXE SLAYER",

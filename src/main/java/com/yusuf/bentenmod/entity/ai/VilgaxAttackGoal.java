@@ -27,11 +27,7 @@ public class VilgaxAttackGoal extends MeleeAttackGoal {
    public void tick() {
       super.tick();
       ++this.raiseArmTicks;
-      if (this.raiseArmTicks >= 5 && this.getTicksUntilNextAttack() < this.getAttackInterval() / 2) {
-         this.vilgax.setAggressive(true);
-      } else {
-         this.vilgax.setAggressive(false);
-      }
+       this.vilgax.setAggressive(this.raiseArmTicks >= 5 && this.getTicksUntilNextAttack() < this.getAttackInterval() / 2);
 
    }
 }
