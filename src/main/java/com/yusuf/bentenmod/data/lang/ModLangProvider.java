@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.data;
+package com.yusuf.bentenmod.data.lang;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.common.langkeys.LangKeys;

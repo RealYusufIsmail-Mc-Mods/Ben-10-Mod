@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.data;
+package com.yusuf.bentenmod.data.tags;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.ItemInit;

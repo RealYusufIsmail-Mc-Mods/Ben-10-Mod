@@ -2,7 +2,12 @@ package com.yusuf.bentenmod.data;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.data.client.ModelProvider;
+import com.yusuf.bentenmod.data.lang.ModLangProvider;
 import com.yusuf.bentenmod.data.loot.ModLootTables;
+import com.yusuf.bentenmod.data.recipe.ModRecipeProvider;
+import com.yusuf.bentenmod.data.recipe.ModSmitingRecipeBuild;
+import com.yusuf.bentenmod.data.tags.ModBlockTagsProvider;
+import com.yusuf.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
