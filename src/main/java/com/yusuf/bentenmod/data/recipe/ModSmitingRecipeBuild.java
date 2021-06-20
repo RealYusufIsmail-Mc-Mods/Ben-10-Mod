@@ -99,11 +99,6 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
                 .save(consumer,modId("infinitum_boots"));
 
-
-
-
-
-
     }
     private static ResourceLocation modId(String path){
         return new ResourceLocation(Main.MOD_ID, path);

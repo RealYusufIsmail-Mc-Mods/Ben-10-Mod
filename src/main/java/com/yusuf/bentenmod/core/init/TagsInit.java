@@ -70,8 +70,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> SCRAP_INFINITUM_SCRAP = ItemTags.bind("forge:scraps/infinitum_scrap");
         public static final ITag.INamedTag<Item> INGOTS_IMPERIUM = ItemTags.bind("forge:ingots/imperium");
 
-
-
         //tools
         public static final ITag.INamedTag<Item> TOOLS_IMPERIUM_PICKAXE = ItemTags.bind("forge:tools/imperium_pickaxe");
 

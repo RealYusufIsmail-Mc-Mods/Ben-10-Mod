@@ -49,24 +49,6 @@ public class ModelProvider {
 
         @Override
         protected void registerModels() {
-            //block("black_diamond_block");
-            //block("black_diamond_ore");
-            //block("fire_block");
-            //block("fire_ore");
-            //block("legendary_block");
-            //block("omnitrix_block");
-            //block("speed_block");
-            //block("ruby_block");
-            //block("ruby_ore");
-            //block("infinitum_block");
-            //block("speed_ore");
-            //block("omnitrix_ore");
-            //block("imperium_ore");
-            //block("legendary_ore_block");
-            //block("imperium_block");
-
-
-
             ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
             ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
@@ -223,8 +205,6 @@ public class ModelProvider {
             });
         }
 
-
-
         private Path createBlockStatePath(Path p_240082_0_, Block p_240082_1_) {
             ResourceLocation resourcelocation = Registry.BLOCK.getKey(p_240082_1_);
             return p_240082_0_.resolve("assets/" + resourcelocation.getNamespace() + "/blockstates/" + resourcelocation.getPath() + ".json");
@@ -236,10 +216,7 @@ public class ModelProvider {
 
         @Override
         protected void registerStatesAndModels() {}
-
-
     }
-
 
     private static final class BlockModels extends BlockModelProvider {
         private final Consumer<IFinishedBlockState> blockStateOutput;
@@ -261,10 +238,6 @@ public class ModelProvider {
         private static FinishedVariantBlockState createSimpleBlock(Block p_239978_0_, ResourceLocation p_239978_1_) {
             return FinishedVariantBlockState.multiVariant(p_239978_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239978_1_));
         }
-
-
-
-
 
         private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
             ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
@@ -292,8 +265,6 @@ public class ModelProvider {
             this.blockStateOutput.accept(createSimpleBlock(p_239875_1_, StockModelShapes.CUBE.create(p_239875_1_, modeltextures, this.modelOutput)));
         }
 
-
-
         public void run() {
            createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
            createTrivialBlock(INFINITUM_ORE.get(), TexturedModel.COLUMN);
@@ -314,7 +285,5 @@ public class ModelProvider {
            createTrivialCube(IMPERIUM_BLOCK.get());
 
         }
-
-
     }
 }

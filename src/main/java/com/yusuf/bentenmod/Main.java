@@ -31,19 +31,12 @@ public class Main {
 		TileEntityInit.TILE_ENTITY.register(bus);
 		ContainerInit.CONTAINERS.register(bus);
 
-
 		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
-
 
 		bus.addGenericListener(IRecipeSerializer.class, RegisterRecipe::registerRecipes);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
 
-
-
-
 	}
-
-
 }

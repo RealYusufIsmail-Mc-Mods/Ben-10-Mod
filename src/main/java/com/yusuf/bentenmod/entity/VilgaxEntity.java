@@ -59,36 +59,17 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         return PlayState.CONTINUE;
 	}
 
-
-
 	@Override
 		public void registerControllers(AnimationData data) {
 			data.addAnimationController(new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
 		}
-		
 
-	
-
-	
-	
-	
-	        
-
-
-		
 		@Override
 		public AnimationFactory getFactory()
 		{
 			return this.factory;
 
 		}
-
-		
-
-	
-
-
-	
 
 	public VilgaxEntity(EntityType<? extends VilgaxEntity> p_i48549_1_, World p_i48549_2_) {
 		super(p_i48549_1_, p_i48549_2_);
@@ -116,10 +97,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 				.add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
 				.add(Attributes.MAX_HEALTH, 300.0D);
 	}
-
-
-
-
 	protected int getExperienceReward(PlayerEntity p_70693_1_) {
 		if (this.isBaby()) {
 			this.xpReward = (int) ((float) this.xpReward * 2.5F);
@@ -127,10 +104,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 		return super.getExperienceReward(p_70693_1_);
 	}
-
-
-
-	
 
 	public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
 		if (!super.hurt(p_70097_1_, p_70097_2_)) {
@@ -171,10 +144,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
 		return flag;
 	}
-
-
-
-
 
 	protected SoundEvent getAmbientSound() {
 		return SoundEvents.PHANTOM_AMBIENT	;
@@ -223,9 +192,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 		}
 
 	}
-
-
-
 
 	protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
 		return this.isBaby() ? 0.93F : 1.74F;

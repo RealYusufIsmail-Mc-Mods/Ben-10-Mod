@@ -57,9 +57,6 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
 
-        //raw ores
-
-
         //tools
         item(ItemInit.SWORD, "ASCALON");
         item(ItemInit.AXE, "AXE SLAYER");
@@ -110,8 +107,6 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.ENCHANTED_OMNITRIX_APPLE, "Enchanted Omnitrix Apple");
         item(ItemInit.FIRE_APPLE, "Fire Apple");
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
-
-
 
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
