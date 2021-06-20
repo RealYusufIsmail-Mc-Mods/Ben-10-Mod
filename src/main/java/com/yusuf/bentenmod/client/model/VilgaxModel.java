@@ -31,6 +31,4 @@ public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity> {
 	    {
 	        return new ResourceLocation(Main.MOD_ID, "animations/vilgax.animation.json");
 	    }
-
-	
 }
