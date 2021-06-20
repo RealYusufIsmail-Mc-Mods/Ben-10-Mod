@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 
 public class MainItemGroup extends ItemGroup {
 
-
 	public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.TABS.length, "main");
 
 	public MainItemGroup(int index, String label) {

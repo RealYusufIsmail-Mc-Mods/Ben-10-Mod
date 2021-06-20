@@ -45,9 +45,6 @@ public class ItemInit {
 	public static final RegistryObject<Item> INFINITUM_SCRAP = ITEMS.register("infinitum_scrap",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
-	// raw ores
-
-
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.SWORD, 0, 7f,
@@ -243,6 +240,4 @@ public class ItemInit {
 // TODO Open when doing with Gentworm
 	/*
 	public static OmnitrixWatch omnitrix;
-*/
-//0xC4AA79, 0x7A5F22
 }

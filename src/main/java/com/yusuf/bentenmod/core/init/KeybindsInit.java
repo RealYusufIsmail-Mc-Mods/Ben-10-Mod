@@ -11,10 +11,8 @@ import java.awt.event.KeyEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class KeybindsInit {
-	
 	public static KeyBinding openwatchkey;
 
-	
 	public static void register(final FMLClientSetupEvent event) {
 
 		openwatchkey = create("openwatch_key", KeyEvent.VK_K);

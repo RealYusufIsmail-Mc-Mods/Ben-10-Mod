@@ -33,7 +33,6 @@ public class TableRecipe  implements IRecipe<IInventory> {
         this.recipeId = recipeId;
     }
 
-
     //int value is the index of Container Slot in your Container class
 
     @Override

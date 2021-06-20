@@ -15,7 +15,6 @@ public class RegisterRecipe {
 
     public static final IRecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
 
-
     public static void registerRecipes(RegistryEvent.Register<IRecipeSerializer<?>> event) {
         registerRecipe(event, TABLE_RECIPE, new TableRecipe.Serializer());
     }

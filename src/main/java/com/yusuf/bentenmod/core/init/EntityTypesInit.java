@@ -21,7 +21,6 @@ public class EntityTypesInit {
 			Main.MOD_ID);
 	private static final Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
 
-
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
 			EntityClassification.MONSTER, 1f, 1f);
 
