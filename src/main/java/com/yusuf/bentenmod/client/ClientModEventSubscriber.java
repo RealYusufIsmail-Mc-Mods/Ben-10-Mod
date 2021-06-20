@@ -21,6 +21,5 @@ public class ClientModEventSubscriber {
 				"key.categories." + Main.MOD_ID);
 		ClientRegistry.registerKeyBinding(Keybindings.RELOAD);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
-		
 	}
 }

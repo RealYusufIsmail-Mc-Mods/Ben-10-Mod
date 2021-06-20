@@ -87,5 +87,4 @@ public class GeoProjectilesRenderer<T extends CreatureEntity & IAnimatable> exte
 	public ResourceLocation getTextureLocation(T instance) {
 		return this.modelProvider.getTextureLocation(instance);
 	}
-
 }
