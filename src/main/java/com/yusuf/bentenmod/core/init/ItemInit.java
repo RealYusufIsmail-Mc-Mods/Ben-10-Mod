@@ -240,4 +240,6 @@ public class ItemInit {
 // TODO Open when doing with Gentworm
 	/*
 	public static OmnitrixWatch omnitrix;
+	
+	 */
 }
