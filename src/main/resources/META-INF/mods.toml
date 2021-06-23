@@ -3,13 +3,13 @@ modLoader="javafml" #mandatory
 loaderVersion="[36,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="All rights reserved"
-issueTrackerURL="https://github.com/realyusufismail/custom-mod/issues" #optional
+license="BSD 3-Clause License"
+issueTrackerURL="https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #optional
 [[mods]]
 modId="bentenmod"
 version="${file.jarVersion}"
 displayName="Ben10 Mod"
-displayURL="https://realyusufismail.github.io/custom-mod/recipes.html" #optional
+displayURL="https://realyusufismail.github.io/Ben-10-Mod/recipes.html" #optional
 logoFile="headerimg.png"
 credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code."
 
