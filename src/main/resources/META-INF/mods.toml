@@ -9,6 +9,7 @@ issueTrackerURL="https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #optional
 modId="bentenmod"
 version="${file.jarVersion}"
 displayName="Ben10 Mod"
+updateJSONURL="https://raw.githubusercontent.com/RealYusufIsmail/Ben-10-Mod/1.16.5/update.json"
 displayURL="https://realyusufismail.github.io/Ben-10-Mod/recipes.html" #optional
 logoFile="headerimg.png"
 credits="Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code."
