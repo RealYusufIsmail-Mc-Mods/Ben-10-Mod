@@ -1,5 +1,6 @@
 package com.yusuf.bentenmod.client.renderer;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.client.model.KraabModel;
 import com.yusuf.bentenmod.entity.KraabEntity;
@@ -20,5 +21,10 @@ public class KraabRenderer extends MobRenderer<KraabEntity, KraabModel> {
     @Override
     public ResourceLocation getTextureLocation(KraabEntity entity) {
         return TEXTURES;
+    }
+
+    @Override
+    protected void setupRotations(KraabEntity p_225621_1_, MatrixStack p_225621_2_, float p_225621_3_,
+            float p_225621_4_, float p_225621_5_) {
     }
 }

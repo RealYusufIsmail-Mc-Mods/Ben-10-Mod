@@ -32,5 +32,16 @@ public class KraabEntity extends CreatureEntity {
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
      }
+    
+    @Override
+    public int getHeadRotSpeed() {
+        return 2;
+    }
+    
+    @Override
+    public void tick() {
+        super.tick();
+        updateSwingTime();
+    }
 
 }

@@ -7,11 +7,15 @@ import com.yusuf.bentenmod.entity.KraabEntity;
 
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * Created using Tabula 8.0.0
  */
 public class KraabModel extends EntityModel<KraabEntity> {
+
+    private static final float PI = (float) Math.PI;
+
     public ModelRenderer body1;
     public ModelRenderer upperLeg1;
     public ModelRenderer body2;
@@ -55,7 +59,7 @@ public class KraabModel extends EntityModel<KraabEntity> {
         this.mouth.addBox(-1.0F, 0.0F, -2.0F, 2.0F, 3.0F, 2.0F, 0.0F, 0.0F, 0.0F);
         this.claw1 = new ModelRenderer(this, 0, 51);
         this.claw1.setPos(1.0F, 0.0F, -8.0F);
-        this.claw1.addBox(0.0F, -2.0F, -8.0F, 3.0F, 4.0F, 8.0F, 0.0F, 0.0F, 0.0F);
+        this.claw1.addBox(0.0F, -2.0F, -8.0F, 3.0F, 4.0F, 8.0F, 0.02f);
         this.setRotateAngle(claw1, 0.0F, -0.3864158857389002F, 0.0F);
         this.leftArm1 = new ModelRenderer(this, 0, 36);
         this.leftArm1.setPos(4.0F, 1.0F, 0.0F);
@@ -71,7 +75,7 @@ public class KraabModel extends EntityModel<KraabEntity> {
         this.setRotateAngle(claw22, 0.0F, 0.7853981633974483F, 0.0F);
         this.rightArm1 = new ModelRenderer(this, 0, 36);
         this.rightArm1.setPos(-4.0F, 1.0F, 0.0F);
-        this.rightArm1.addBox(-1.5F, 0.0F, -1.5F, 3.0F, 8.0F, 3.0F, 0.0F, 0.0F, 0.0F);
+        this.rightArm1.addBox(-1.5F, 0.0F, -1.5F, 3.0F, 8.0F, 3.0F, 0.02f);
         this.setRotateAngle(rightArm1, 0.0F, 0.0F, 1.0164797856562695F);
         this.upperLeg3 = new ModelRenderer(this, 32, 0);
         this.upperLeg3.setPos(-3.0F, 1.5F, 3.0F);
@@ -135,7 +139,7 @@ public class KraabModel extends EntityModel<KraabEntity> {
         this.body3.addBox(-4.5F, 0.0F, -4.5F, 9.0F, 6.0F, 9.0F, 0.0F, 0.0F, 0.0F);
         this.claw2 = new ModelRenderer(this, 0, 51);
         this.claw2.setPos(-1.0F, 0.0F, -8.0F);
-        this.claw2.addBox(-3.0F, -2.0F, -8.0F, 3.0F, 4.0F, 8.0F, 0.0F, 0.0F, 0.0F);
+        this.claw2.addBox(-3.0F, -2.0F, -8.0F, 3.0F, 4.0F, 8.0F, 0.02f);
         this.setRotateAngle(claw2, 0.0F, 0.42935100264850773F, 0.0F);
         this.body1 = new ModelRenderer(this, 0, 0);
         this.body1.setPos(0.0F, 11.0F, 0.0F);
@@ -190,8 +194,9 @@ public class KraabModel extends EntityModel<KraabEntity> {
     }
 
     @Override
-    public void renderToBuffer(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) { 
-        ImmutableList.of(this.body1).forEach((modelRenderer) -> { 
+    public void renderToBuffer(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn,
+            int packedOverlayIn, float red, float green, float blue, float alpha) {
+        ImmutableList.of(this.body1).forEach((modelRenderer) -> {
             modelRenderer.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
         });
     }
@@ -206,8 +211,34 @@ public class KraabModel extends EntityModel<KraabEntity> {
     }
 
     @Override
-    public void setupAnim(KraabEntity entityIn, float limbSwing, float limbSwingAmount,
-            float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
+            float netHeadYaw, float headPitch) {
         
+        // Head
+        head1.yRot = netHeadYaw * (PI / 180f);
+
+        // Legs
+        upperLeg1.xRot = -PI / 180 * 60 - Math.abs(MathHelper.cos(limbSwing * 0.5f) * 1f * limbSwingAmount);
+        upperLeg2.xRot = -PI / 180 * 60 - Math.abs(MathHelper.cos(limbSwing * 0.5f + PI / 2) * 1f * limbSwingAmount);
+        upperLeg3.xRot = -PI / 180 * 60 - Math.abs(MathHelper.cos(limbSwing * 0.5f) * 1f * limbSwingAmount);
+        upperLeg4.xRot = -PI / 180 * 60 - Math.abs(MathHelper.cos(limbSwing * 0.5f + PI / 2) * 1f * limbSwingAmount);
+        upperLeg1.yRot = -PI / 180 * 45 + MathHelper.cos(limbSwing * 0.5f) * 1f * limbSwingAmount;
+        upperLeg2.yRot = -PI / 180 * 135 + MathHelper.cos(limbSwing * 0.5f + PI / 2) * 1f * limbSwingAmount;
+        upperLeg3.yRot = PI / 180 * 135 + MathHelper.cos(limbSwing * 0.5f) * 1f * limbSwingAmount;
+        upperLeg4.yRot = PI / 180 * 45 + MathHelper.cos(limbSwing * 0.5f + PI / 2) * 1f * limbSwingAmount;
+
+        // Right Arm
+        rightArm1.zRot = PI / 180 * 60 - MathHelper.cos(ageInTicks * 0.1f) * 0.05f;
+        rightArm2.zRot = -PI / 180 * 40 - MathHelper.cos(ageInTicks * 0.1f) * 0.05f;
+
+        // Attack
+        claw1.yRot = -PI / 180 * 10 - MathHelper.sin(attackTime * PI);
+        claw2.yRot = PI / 180 * 10 + MathHelper.sin(attackTime * PI);
+    }
+
+    @Override
+    public void prepareMobModel(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+        float bodyRot = 180 - MathHelper.rotLerp(partialTick, entityIn.yBodyRotO, entityIn.yBodyRot);
+        body2.yRot = PI / 180f * bodyRot;
     }
 }
