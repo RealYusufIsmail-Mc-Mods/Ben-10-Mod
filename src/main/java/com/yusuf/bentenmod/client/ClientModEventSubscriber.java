@@ -3,8 +3,12 @@ package com.yusuf.bentenmod.client;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.client.renderer.KraabRenderer;
 import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
+import com.yusuf.bentenmod.entity.KraabBoltEntity;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
+
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -23,6 +27,12 @@ public class ClientModEventSubscriber {
 		ClientRegistry.registerKeyBinding(Keybindings.RELOAD);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.KRAAB_ENTITY.get(), KraabRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.KRAAB_BOLT_ENTITY.get(), m -> new EntityRenderer<KraabBoltEntity>(m) {
+            @Override
+            public ResourceLocation getTextureLocation(KraabBoltEntity entity) {
+                return null;
+            }
+		});
 		
 	}
 }

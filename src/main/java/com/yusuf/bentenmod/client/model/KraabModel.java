@@ -213,7 +213,7 @@ public class KraabModel extends EntityModel<KraabEntity> {
     @Override
     public void setupAnim(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
             float netHeadYaw, float headPitch) {
-        
+
         // Head
         head1.yRot = netHeadYaw * (PI / 180f);
 
@@ -232,13 +232,22 @@ public class KraabModel extends EntityModel<KraabEntity> {
         rightArm2.zRot = -PI / 180 * 40 - MathHelper.cos(ageInTicks * 0.1f) * 0.05f;
 
         // Attack
-        claw1.yRot = -PI / 180 * 10 - MathHelper.sin(attackTime * PI);
-        claw2.yRot = PI / 180 * 10 + MathHelper.sin(attackTime * PI);
+        if (!entityIn.isShooting()) {
+            claw1.yRot = -PI / 180 * 10 - MathHelper.sin(attackTime * PI);
+            claw2.yRot = PI / 180 * 10 + MathHelper.sin(attackTime * PI);
+        }
     }
 
     @Override
     public void prepareMobModel(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
         float bodyRot = 180 - MathHelper.rotLerp(partialTick, entityIn.yBodyRotO, entityIn.yBodyRot);
-        body2.yRot = PI / 180f * bodyRot;
+        body2.yRot = (PI / 180f) * bodyRot;
+
+        // Shoot
+        if (entityIn.isShooting()) {
+            float shootTime = entityIn.getShootAnim(partialTick);
+            claw1.yRot = -PI / 180 * 10 - shootTime * 50 * PI / 180;
+            claw2.yRot = PI / 180 * 10 + shootTime * 50 * PI / 180;
+        }
     }
 }
