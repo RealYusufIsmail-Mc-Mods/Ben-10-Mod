@@ -93,9 +93,7 @@ repositories {
         url = uri("https://maven.pkg.github.com/realyusufismail/realyusufismail-core")
         credentials gpr_creds
     }
-    compile fg.deobf("net.yusuf:realyusufismailcore:${project.ryic_version}") {
-        exclude module: "forge"
-    }
+
 }
 
 dependencies {
@@ -105,7 +103,9 @@ dependencies {
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-50")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-
+    compile fg.deobf("net.yusuf:realyusufismailcore:${project.ryic_version}") {
+        exclude module: "forge"
+    }
 }
 
 
