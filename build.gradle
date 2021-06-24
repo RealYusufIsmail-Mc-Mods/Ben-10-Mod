@@ -71,7 +71,10 @@ minecraft {
 sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
-
+def gpr_creds = {
+    username = property('gpr.username')
+    password = property('gpr.token')
+}
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
@@ -85,6 +88,13 @@ repositories {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
+    }
+    maven {
+        url = uri("https://maven.pkg.github.com/realyusufismail/realyusufismail-core")
+        credentials gpr_creds
+    }
+    compile fg.deobf("net.yusuf:realyusufismailcore:${project.ryic_version}") {
+        exclude module: "forge"
     }
 }
 
