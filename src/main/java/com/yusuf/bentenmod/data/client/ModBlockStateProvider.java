@@ -40,7 +40,7 @@ public class ModBlockStateProvider extends BlockStateProvider{
     }
 
 
-
+/*
     private ModelFile.ExistingModelFile getExistingModel(String blockName) {
         return models().getExistingFile(modLoc(blockName));
     }
@@ -51,6 +51,8 @@ public class ModBlockStateProvider extends BlockStateProvider{
         }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
         this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation1, resourcelocation)).with(createHorizontalFacingDispatch()));
     }
+    
+ */
 
 
 }
