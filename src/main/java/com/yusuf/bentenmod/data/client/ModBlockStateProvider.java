@@ -20,7 +20,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class ModBlockStateProvider extends BlockStateProvider {
-   
+
 
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, Main.MOD_ID, exFileHelper);
