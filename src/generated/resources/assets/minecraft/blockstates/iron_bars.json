@@ -7,9 +7,9 @@
     },
     {
       "when": {
+        "west": "false",
         "south": "false",
         "north": "false",
-        "west": "false",
         "east": "false"
       },
       "apply": {
@@ -18,9 +18,9 @@
     },
     {
       "when": {
+        "west": "false",
         "south": "false",
         "north": "true",
-        "west": "false",
         "east": "false"
       },
       "apply": {
@@ -29,9 +29,9 @@
     },
     {
       "when": {
+        "west": "false",
         "south": "false",
         "north": "false",
-        "west": "false",
         "east": "true"
       },
       "apply": {
@@ -41,9 +41,9 @@
     },
     {
       "when": {
+        "west": "false",
         "south": "true",
         "north": "false",
-        "west": "false",
         "east": "false"
       },
       "apply": {
@@ -52,9 +52,9 @@
     },
     {
       "when": {
+        "west": "true",
         "south": "false",
         "north": "false",
-        "west": "true",
         "east": "false"
       },
       "apply": {

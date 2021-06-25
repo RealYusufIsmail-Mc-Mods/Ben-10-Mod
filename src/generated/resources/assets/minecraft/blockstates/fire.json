@@ -2,10 +2,10 @@
   "multipart": [
     {
       "when": {
-        "south": "false",
         "up": "false",
-        "north": "false",
         "west": "false",
+        "south": "false",
+        "north": "false",
         "east": "false"
       },
       "apply": [
@@ -24,10 +24,10 @@
             "north": "true"
           },
           {
-            "south": "false",
             "up": "false",
-            "north": "false",
             "west": "false",
+            "south": "false",
+            "north": "false",
             "east": "false"
           }
         ]
@@ -54,10 +54,10 @@
             "east": "true"
           },
           {
-            "south": "false",
             "up": "false",
-            "north": "false",
             "west": "false",
+            "south": "false",
+            "north": "false",
             "east": "false"
           }
         ]
@@ -88,10 +88,10 @@
             "south": "true"
           },
           {
-            "south": "false",
             "up": "false",
-            "north": "false",
             "west": "false",
+            "south": "false",
+            "north": "false",
             "east": "false"
           }
         ]
@@ -122,10 +122,10 @@
             "west": "true"
           },
           {
-            "south": "false",
             "up": "false",
-            "north": "false",
             "west": "false",
+            "south": "false",
+            "north": "false",
             "east": "false"
           }
         ]
