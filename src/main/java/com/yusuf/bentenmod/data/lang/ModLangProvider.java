@@ -6,6 +6,8 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.entity.KraabBoltEntity;
+import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
@@ -113,7 +115,9 @@ public class ModLangProvider extends LanguageProvider {
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
-        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax Spawn Egg");
+        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
+        entity1(EntityTypesInit.KRAAB_ENTITY, "kraab");
+        entity2(EntityTypesInit.KRAAB_BOLT_ENTITY, "kraab_bolt");
     }
 
 
@@ -124,6 +128,12 @@ public class ModLangProvider extends LanguageProvider {
         add(entry.get(), name);
     }
     private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
+        add(entry.get(), name);
+    }
+    private <T extends Entity> void entity1(RegistryObject<EntityType<KraabEntity>> entry, String name) {
+        add(entry.get(), name);
+    }
+    private <T extends Entity> void entity2(RegistryObject<EntityType<KraabBoltEntity>> entry, String name) {
         add(entry.get(), name);
     }
     private void add(ITextComponent key, String lang) {

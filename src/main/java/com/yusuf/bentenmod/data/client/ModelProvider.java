@@ -61,8 +61,8 @@ public class ModelProvider {
 
         @Override
         protected void registerModels() {
-            ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
-            ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
+            ModelFile itemGenerated = getExistingFile(modLoc("item/generated"));
+            ModelFile itemhandHeld = getExistingFile(modLoc("item/handheld"));
 
             //items
             build(itemGenerated, "black_diamond");
@@ -101,6 +101,7 @@ public class ModelProvider {
             build(itemGenerated, "infinitum_leggings");
             build(itemGenerated, "infinitum_boots");
             build(itemGenerated, "imperium");
+            build(itemGenerated, "krabb_spawn_egg");
 
 
             //tools
