@@ -34,20 +34,9 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-
- // @see net.minecraft.data.BlockModelProvider
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.yusuf.bentenmod.Main;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+/**
+ * @see net.minecraft.data.BlockModelProvider
+ */
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static net.minecraft.util.Util.name;
 
@@ -60,6 +49,24 @@ public class ModelProvider {
 
         @Override
         protected void registerModels() {
+            block("black_diamond_block");
+            block("black_diamond_ore");
+            block("fire_block");
+            block("fire_ore");
+            block("legendary_block");
+            block("omnitrix_block");
+            block("speed_block");
+            block("ruby_block");
+            block("ruby_ore");
+            block("infinitum_block");
+            block("speed_ore");
+            block("omnitrix_ore");
+            block("imperium_ore");
+            block("legendary_ore_block");
+            block("imperium_block");
+
+
+
             ModelFile itemGenerated = getExistingFile(modLoc("item/generated"));
             ModelFile itemhandHeld = getExistingFile(modLoc("item/handheld"));
 
@@ -137,14 +144,14 @@ public class ModelProvider {
             withExistingParent(name, modLoc("block/" + name));
         }
 
-
-        // * @see BlockStateProvider#simpleBlock(Block, net.minecraftforge.client.model.generators.ConfiguredModel...)
-        //  * @see BlockStateProvider#getVariantBuilder(Block)
-        //   * @see VariantBlockStateBuilder#partialState()
-        // * @see VariantBlockStateBuilder#setModels(VariantBlockStateBuilder.PartialBlockstate, ConfiguredModel...)
-        //  * @see Blocks#FURNACE
-
-
+        /**
+         * @see BlockStateProvider#simpleBlock(Block, net.minecraftforge.client.model.generators.ConfiguredModel...)
+         * @see BlockStateProvider#getVariantBuilder(Block)
+         * @see VariantBlockStateBuilder#partialState()
+         * @see VariantBlockStateBuilder#setModels(VariantBlockStateBuilder.PartialBlockstate, ConfiguredModel...)
+         * @see Blocks#FURNACE
+         *
+         */
     }
 
 
@@ -217,6 +224,8 @@ public class ModelProvider {
             });
         }
 
+
+
         private Path createBlockStatePath(Path p_240082_0_, Block p_240082_1_) {
             ResourceLocation resourcelocation = Registry.BLOCK.getKey(p_240082_1_);
             return p_240082_0_.resolve("assets/" + resourcelocation.getNamespace() + "/blockstates/" + resourcelocation.getPath() + ".json");
@@ -228,7 +237,10 @@ public class ModelProvider {
 
         @Override
         protected void registerStatesAndModels() {}
+
+
     }
+
 
     private static final class BlockModels extends BlockModelProvider {
         private final Consumer<IFinishedBlockState> blockStateOutput;
@@ -251,6 +263,21 @@ public class ModelProvider {
             return FinishedVariantBlockState.multiVariant(p_239978_0_, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239978_1_));
         }
 
+
+        /*
+        private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
+            ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
+            ResourceLocation resourcelocation1 = ModelTextures.getBlockTexture(p_239977_1_, "_front_on");
+            ResourceLocation resourcelocation2 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
+                p_239963_1_.put(StockTextureAliases.FRONT, resourcelocation1);
+            }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
+            this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
+        }
+         */
+
+
+
+
         private void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
             ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
             ResourceLocation resourcelocation1 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
@@ -258,7 +285,13 @@ public class ModelProvider {
             this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation1, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
 
-
+        //
+/*
+        private void createInfinitum(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
+            ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
+            this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation)).with(createHorizontalFacingDispatch()));
+        }
+ */
         private void createTrivialCube(Block p_239975_1_) {
             this.createTrivialBlock(p_239975_1_, TexturedModel.CUBE);
         }
@@ -277,25 +310,30 @@ public class ModelProvider {
             this.blockStateOutput.accept(createSimpleBlock(p_239875_1_, StockModelShapes.CUBE.create(p_239875_1_, modeltextures, this.modelOutput)));
         }
 
+
+        @Override
         public void run() {
-           createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
-           createTrivialBlock(INFINITUM_ORE.get(), TexturedModel.COLUMN);
-           createTrivialCube(BLACK_DIAMOND_BLOCK.get());
-           createTrivialCube(BLACK_DIAMOND_ORE.get());
-           createTrivialCube(INFINITUM_BLOCK.get());
-           createTrivialCube(FIRE_BLOCK.get());
-           createTrivialCube(FIRE_ORE.get());
-           createTrivialCube(LEGENDARY_BLOCK.get());
-           createTrivialCube(LEGENDARY_ORE_BLOCK.get());
-           createTrivialCube(OMNITRIX_BLOCK.get());
-           createTrivialCube(OMNITRIX_ORE.get());
-           createTrivialCube(RUBY_BLOCK.get());
-           createTrivialCube(RUBY_ORE.get());
-           createTrivialCube(SPEED_BLOCK.get());
-           createTrivialCube(SPEED_ORE.get());
-           createTrivialCube(IMPERIUM_ORE.get());
-           createTrivialCube(IMPERIUM_BLOCK.get());
+            createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
+            createTrivialBlock(INFINITUM_ORE.get(), TexturedModel.COLUMN);
+            createTrivialCube(BLACK_DIAMOND_BLOCK.get());
+            createTrivialCube(BLACK_DIAMOND_ORE.get());
+            createTrivialCube(INFINITUM_BLOCK.get());
+            createTrivialCube(FIRE_BLOCK.get());
+            createTrivialCube(FIRE_ORE.get());
+            createTrivialCube(LEGENDARY_BLOCK.get());
+            createTrivialCube(LEGENDARY_ORE_BLOCK.get());
+            createTrivialCube(OMNITRIX_BLOCK.get());
+            createTrivialCube(OMNITRIX_ORE.get());
+            createTrivialCube(RUBY_BLOCK.get());
+            createTrivialCube(RUBY_ORE.get());
+            createTrivialCube(SPEED_BLOCK.get());
+            createTrivialCube(SPEED_ORE.get());
+            createTrivialCube(IMPERIUM_ORE.get());
+            createTrivialCube(IMPERIUM_BLOCK.get());
+
 
         }
+
+
     }
 }
