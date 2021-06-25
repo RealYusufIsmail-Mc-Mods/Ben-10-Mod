@@ -1,23 +1,13 @@
 
 package com.yusuf.bentenmod.data.client;
 
-import com.google.gson.JsonElement;
+
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.BlockInit;
-import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
-import net.minecraft.block.Block;
 import net.minecraft.data.*;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
 
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
