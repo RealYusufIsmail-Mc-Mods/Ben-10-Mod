@@ -67,47 +67,47 @@ public class ModelProvider {
 
 
 
-            ModelFile itemGenerated = getExistingFile(modLoc("item/generated"));
-            ModelFile itemhandHeld = getExistingFile(modLoc("item/handheld"));
+            ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
+            ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
             //items
-            build(itemGenerated, "black_diamond");
-            build(itemGenerated, "black_diamond_scrap");
-            build(itemGenerated, "infinitum");
-            build(itemGenerated, "infinitum_scrap");
-            build(itemGenerated, "boot");
-            build(itemGenerated, "chestplate");
-            build(itemGenerated, "legendary_ore");
-            build(itemGenerated, "omnitrix");
-            build(itemGenerated, "fire");
-            build(itemGenerated, "ruby");
-            build(itemGenerated, "speed");
-            build(itemGenerated, "helmet");
-            build(itemGenerated, "leggings");
-            build(itemGenerated, "jacket");
-            build(itemGenerated, "heatblast_helmet");
-            build(itemGenerated, "heatblast_chestplate");
-            build(itemGenerated, "heatblast_leggings");
-            build(itemGenerated, "heatblast_boot");
-            build(itemGenerated, "xlr8_helmet");
-            build(itemGenerated, "xlr8_chestplate");
-            build(itemGenerated, "xlr8_leggings");
-            build(itemGenerated, "xlr8_boot");
-            build(itemGenerated, "omnitrix_apple");
-            build(itemGenerated, "enchanted_omnitrix_apple");
-            build(itemGenerated, "fire_apple");
-            build(itemGenerated, "ruby_apple");
-            build(itemGenerated, "vilgax_spawn_egg");
-            build(itemGenerated, "black_diamond_helmet");
-            build(itemGenerated, "black_diamond_chestplate");
-            build(itemGenerated, "black_diamond_leggings");
-            build(itemGenerated, "black_diamond_boots");
-            build(itemGenerated, "infinitum_helmet");
-            build(itemGenerated, "infinitum_chestplate");
-            build(itemGenerated, "infinitum_leggings");
-            build(itemGenerated, "infinitum_boots");
-            build(itemGenerated, "imperium");
-            build(itemGenerated, "krabb_spawn_egg");
+            builder(itemGenerated, "black_diamond");
+            builder(itemGenerated, "black_diamond_scrap");
+            builder(itemGenerated, "infinitum");
+            builder(itemGenerated, "infinitum_scrap");
+            builder(itemGenerated, "boot");
+            builder(itemGenerated, "chestplate");
+            builder(itemGenerated, "legendary_ore");
+            builder(itemGenerated, "omnitrix");
+            builder(itemGenerated, "fire");
+            builder(itemGenerated, "ruby");
+            builder(itemGenerated, "speed");
+            builder(itemGenerated, "helmet");
+            builder(itemGenerated, "leggings");
+            builder(itemGenerated, "jacket");
+            builder(itemGenerated, "heatblast_helmet");
+            builder(itemGenerated, "heatblast_chestplate");
+            builder(itemGenerated, "heatblast_leggings");
+            builder(itemGenerated, "heatblast_boot");
+            builder(itemGenerated, "xlr8_helmet");
+            builder(itemGenerated, "xlr8_chestplate");
+            builder(itemGenerated, "xlr8_leggings");
+            builder(itemGenerated, "xlr8_boot");
+            builder(itemGenerated, "omnitrix_apple");
+            builder(itemGenerated, "enchanted_omnitrix_apple");
+            builder(itemGenerated, "fire_apple");
+            builder(itemGenerated, "ruby_apple");
+            builder(itemGenerated, "vilgax_spawn_egg");
+            builder(itemGenerated, "black_diamond_helmet");
+            builder(itemGenerated, "black_diamond_chestplate");
+            builder(itemGenerated, "black_diamond_leggings");
+            builder(itemGenerated, "black_diamond_boots");
+            builder(itemGenerated, "infinitum_helmet");
+            builder(itemGenerated, "infinitum_chestplate");
+            builder(itemGenerated, "infinitum_leggings");
+            builder(itemGenerated, "infinitum_boots");
+            builder(itemGenerated, "imperium");
+            builder(itemGenerated, "krabb_spawn_egg");
 
 
             //tools
@@ -131,17 +131,14 @@ public class ModelProvider {
 
         }
 
-        private void build(ModelFile itemGenerated, String path) {
-            getBuilder(path).parent(itemGenerated).texture("layer0", "item/" + path);
+        private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
+            return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
         }
-
-
         private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
-            return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
+            return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
         }
-
         private void block(String name) {
-            withExistingParent(name, modLoc("block/" + name));
+            withExistingParent(name, mcLoc("block/" + name));
         }
 
         /**
