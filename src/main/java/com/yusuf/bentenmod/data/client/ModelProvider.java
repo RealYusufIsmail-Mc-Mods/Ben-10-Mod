@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.data.client;
 
 import com.google.common.collect.Maps;
@@ -36,7 +37,30 @@ import java.util.stream.Collectors;
 
 /**
  * @see net.minecraft.data.BlockModelProvider
- */
+ 
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.yusuf.bentenmod.Main;
+import net.minecraft.data.*;
+import net.minecraft.item.Item;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.nio.file.Path;
+import java.util.Set;
+import java.util.function.BiFunction;
+import java.util.stream.Collectors;
+
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static net.minecraft.util.Util.name;
 
@@ -141,14 +165,7 @@ public class ModelProvider {
             withExistingParent(name, modLoc("block/" + name));
         }
 
-        /**
-         * @see BlockStateProvider#simpleBlock(Block, net.minecraftforge.client.model.generators.ConfiguredModel...)
-         * @see BlockStateProvider#getVariantBuilder(Block)
-         * @see VariantBlockStateBuilder#partialState()
-         * @see VariantBlockStateBuilder#setModels(VariantBlockStateBuilder.PartialBlockstate, ConfiguredModel...)
-         * @see Blocks#FURNACE
-         *
-         */
+
     }
 
 
@@ -270,7 +287,7 @@ public class ModelProvider {
             }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
             this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
-         */
+
 
 
 
@@ -288,7 +305,7 @@ public class ModelProvider {
             ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
             this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation)).with(createHorizontalFacingDispatch()));
         }
- */
+
         private void createTrivialCube(Block p_239975_1_) {
             this.createTrivialBlock(p_239975_1_, TexturedModel.CUBE);
         }
@@ -334,3 +351,4 @@ public class ModelProvider {
 
     }
 }
+*/
