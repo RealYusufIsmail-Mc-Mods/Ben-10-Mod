@@ -7,15 +7,20 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
+plugins {
+    id 'maven'
+    id 'maven-publish'
+
+}
+
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+apply plugin: 'idea'
 
 
-version = '1.16.5-1.18'
-group = 'com.yusuf.bentenmod'
-archivesBaseName = 'bentenmod'
+
+version = "${mod_version}"
+group = 'net.yusuf'
+archivesBaseName = mod_id
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
@@ -125,19 +130,24 @@ jar {
     }
 }
 
-jar.finalizedBy('reobfJar') 
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
-
+jar.finalizedBy('reobfJar')
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/realyusufismail/${project.repoName}")
+            credentials {
+                username = property('gpr.username')
+                password = property('gpr.token')
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            artifactId = mod_id // <<< this line here
+            artifacts {
+                artifact jar
+            }
         }
     }
 }
