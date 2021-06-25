@@ -138,7 +138,7 @@ public class ModelProvider {
             return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
         }
         private void block(String name) {
-            withExistingParent(name, mcLoc("block/" + name));
+            withExistingParent(name, modLoc("block/" + name));
         }
 
         /**
