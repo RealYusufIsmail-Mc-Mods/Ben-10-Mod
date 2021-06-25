@@ -3,6 +3,8 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.entity.KraabBoltEntity;
+import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 
 import net.minecraft.entity.Entity;
@@ -23,14 +25,21 @@ public class EntityTypesInit {
 
 	private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
 			EntityClassification.MONSTER, 1f, 1f);
-
+	private static final EntityType<KraabEntity> kraab = createStandardEntityType("kraab", KraabEntity::new,
+			EntityClassification.MONSTER, 1.3f, 1.8f);
+	private static final EntityType<KraabBoltEntity> kraabBolt = createStandardEntityType("kraab", KraabBoltEntity::new,
+			EntityClassification.MISC, 0.5F, 0.5F);
 	// registering the entities
 	public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
 			() -> vilgax);
-
+	public static final RegistryObject<EntityType<KraabEntity>> KRAAB_ENTITY = ENTITY_TYPES.register("kraab",
+			() -> kraab);
+	public static final RegistryObject<EntityType<KraabBoltEntity>> KRAAB_BOLT_ENTITY = ENTITY_TYPES.register("kraab_bolt",
+			() -> kraabBolt);
 	// This is where to register the actual attributes of the entities
 	public static void registerEntityAttributes() {
 		GlobalEntityTypeAttributes.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
+		GlobalEntityTypeAttributes.put(EntityTypesInit.KRAAB_ENTITY.get(), KraabEntity.registerAttributes().build());
 	}
 
 	private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
