@@ -45,13 +45,26 @@ public class ModBlockStateProvider extends BlockStateProvider{
         return models().getExistingFile(modLoc(blockName));
     }
 
-    public void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
-        ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
-        ResourceLocation resourcelocation1 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
+  private void orientableMachineBlock(IBlockProvider block, String name) {
+         ModelFile.ExistingModelFile = p_239977_2_.create(p_239977_1_, this.modelOutput);
+        ModelFile.ExistingModelFile1 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
         }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
         this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation1, resourcelocation)).with(createHorizontalFacingDispatch()));
     }
-    
+
+
+ private void orientableMachineBlock(IBlockProvider block, String name) {
+        ModelFile.ExistingModelFile offModel = getExistingModel(name);
+        ModelFile.ExistingModelFile onModel = getExistingModel(name + "_on");
+        getVariantBuilder(block.asBlock()).forAllStates(state -> {
+            Direction facing = state.get(BlockStateProperties.HORIZONTAL_FACING);
+            boolean lit = state.get(BlockStateProperties.LIT);
+            return ConfiguredModel.builder()
+                    .modelFile(lit ? onModel : offModel)
+                    .rotationY((int) facing.getOpposite().getHorizontalAngle())
+                    .build();
+        });
+    }
  */
 
 
