@@ -44,11 +44,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(BlockInit.SPEED_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
-        createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
+     // createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
         //TODO Fix this
     }
 
-
+ /*
     public void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
         ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
         ResourceLocation resourcelocation1 = ModelTextures.getBlockTexture(p_239977_1_, "_front_on");
@@ -65,6 +65,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private static BlockStateVariantBuilder createHorizontalFacingDispatch() {
         return BlockStateVariantBuilder.property(BlockStateProperties.HORIZONTAL_FACING).select(Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90)).select(Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180)).select(Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270)).select(Direction.NORTH, BlockModelDefinition.variant());
     }
+
+         */
 
 
 
