@@ -45,6 +45,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(BlockInit.IMPERIUM_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
         createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
+        //TODO Fix this
     }
 
 
