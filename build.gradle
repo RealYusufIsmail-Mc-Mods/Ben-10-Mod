@@ -19,7 +19,7 @@ apply plugin: 'idea'
 
 
 version = "${mod_version}"
-group = 'net.yusuf'
+group = 'com.yusuf'
 archivesBaseName = mod_id
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
