@@ -1,4 +1,4 @@
-
+/*
 package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.Main;
@@ -35,14 +35,16 @@ public class ModBlockStateProvider extends BlockStateProvider{
     }
 
 
-/*
+
     private ModelFile.ExistingModelFile getExistingModel(String blockName) {
         return models().getExistingFile(modLoc(blockName));
     }
 
- */
+
 
 
 }
 
 
+
+ */

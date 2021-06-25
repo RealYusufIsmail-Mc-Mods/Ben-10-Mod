@@ -1,4 +1,4 @@
-/*
+
 package com.yusuf.bentenmod.data.client;
 
 import com.google.common.collect.Maps;
@@ -139,23 +139,13 @@ public class ModelProvider {
 
 
         // * @see BlockStateProvider#simpleBlock(Block, net.minecraftforge.client.model.generators.ConfiguredModel...)
-       //  * @see BlockStateProvider#getVariantBuilder(Block)
-      //   * @see VariantBlockStateBuilder#partialState()
+        //  * @see BlockStateProvider#getVariantBuilder(Block)
+        //   * @see VariantBlockStateBuilder#partialState()
         // * @see VariantBlockStateBuilder#setModels(VariantBlockStateBuilder.PartialBlockstate, ConfiguredModel...)
-       //  * @see Blocks#FURNACE
+        //  * @see Blocks#FURNACE
 
 
-import com.google.common.collect.Maps;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.yusuf.bentenmod.Main;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IFinishedBlockState;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import org.apache.logging.log4j.LogManager;
-
-import java.nio.file.Path;}
+    }
 
 
     public static final class BlockState extends BlockStateProvider {
@@ -309,4 +299,3 @@ import java.nio.file.Path;}
         }
     }
 }
-*/
