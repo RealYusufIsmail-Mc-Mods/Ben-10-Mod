@@ -103,7 +103,7 @@ dependencies {
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:1.16.4-50")
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-    compile fg.deobf("net.yusuf:realyusufismailcore:${project.ryic_version}") {
+    compile fg.deobf("net.yusuf:realyusufismailcore:1.16.5.4.1.1") {
         exclude module: "forge"
     }
 
