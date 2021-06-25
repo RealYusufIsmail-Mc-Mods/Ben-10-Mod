@@ -3,14 +3,9 @@ package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.BlockInit;
-import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.FinishedVariantBlockState;
 import net.minecraft.data.TexturedModel;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModBlockStateProvider extends BlockStateProvider{
