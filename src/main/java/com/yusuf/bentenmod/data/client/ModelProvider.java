@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 
 /**
  * @see net.minecraft.data.BlockModelProvider
- 
+
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
