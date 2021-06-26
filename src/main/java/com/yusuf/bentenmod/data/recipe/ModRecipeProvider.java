@@ -5,6 +5,7 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
+import com.yusuf.bentenmod.core.machine.alientable.AlienTable;
 import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
@@ -563,6 +564,8 @@ public class ModRecipeProvider extends RecipeProvider {
         TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
                 .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
                 .save(consumer, modId("imperium_pickaxe_upgraded"));
+
+
 
     }
     private Ingredient ingredient(IItemProvider entry) {
