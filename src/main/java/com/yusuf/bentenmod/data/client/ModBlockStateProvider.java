@@ -19,8 +19,6 @@ import java.util.function.Supplier;
 
 import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createBooleanModelDispatch;
 import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createHorizontalFacingDispatch;
-
-
 public class ModBlockStateProvider extends BlockStateProvider {
 
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
@@ -30,26 +28,26 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
-        simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
-        axisBlock(BlockInit.INFINITUM_ORE.get(), modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
-        simpleBlock(BlockInit.INFINITUM_BLOCK.get());
-        simpleBlock(BlockInit.FIRE_BLOCK.get());
-        simpleBlock(BlockInit.FIRE_ORE.get());
-        simpleBlock(BlockInit.LEGENDARY_BLOCK.get());
-        simpleBlock(BlockInit.LEGENDARY_ORE_BLOCK.get());
-        simpleBlock(BlockInit.OMNITRIX_BLOCK.get());
-        simpleBlock(BlockInit.OMNITRIX_ORE.get());
-        simpleBlock(BlockInit.RUBY_BLOCK.get());
-        simpleBlock(BlockInit.RUBY_ORE.get());
-        simpleBlock(BlockInit.SPEED_BLOCK.get());
-        simpleBlock(BlockInit.SPEED_ORE.get());
-        simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
-       createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
+            simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
+            simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
+            axisBlock(BlockInit.INFINITUM_ORE.get(), modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
+            simpleBlock(BlockInit.INFINITUM_BLOCK.get());
+            simpleBlock(BlockInit.FIRE_BLOCK.get());
+            simpleBlock(BlockInit.FIRE_ORE.get());
+            simpleBlock(BlockInit.LEGENDARY_BLOCK.get());
+            simpleBlock(BlockInit.LEGENDARY_ORE_BLOCK.get());
+            simpleBlock(BlockInit.OMNITRIX_BLOCK.get());
+            simpleBlock(BlockInit.OMNITRIX_ORE.get());
+            simpleBlock(BlockInit.RUBY_BLOCK.get());
+            simpleBlock(BlockInit.RUBY_ORE.get());
+            simpleBlock(BlockInit.SPEED_BLOCK.get());
+            simpleBlock(BlockInit.SPEED_ORE.get());
+            simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
+           //createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
 
     }
 
-
+/*
     public static final class BlockModels extends BlockModelProvider {
         public final Consumer<IFinishedBlockState> blockStateOutput;
         public final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
@@ -62,6 +60,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
 
+
+ */
 
 
 
