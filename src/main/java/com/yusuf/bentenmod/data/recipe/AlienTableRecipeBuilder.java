@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.data.recipe.old;
+package com.yusuf.bentenmod.data.recipe;
 
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 
 import static com.yusuf.bentenmod.Main.MOD_ID;
 
-public class AlienTableRecipeBuilderOld {
+public class AlienTableRecipeBuilder {
     private final Ingredient input1;
     private final Ingredient input2;
     private final Ingredient input3;
@@ -35,10 +35,10 @@ public class AlienTableRecipeBuilderOld {
     private final Advancement.Builder advancementBuilder =
             Advancement.Builder.advancement();
 
-    public AlienTableRecipeBuilderOld(Ingredient input1, Ingredient input2, Ingredient input3,
-                                      Ingredient input4, Ingredient input5, Ingredient input6,
-                                      Ingredient input7, Ingredient input8, Ingredient input9,
-                                      Item output) {
+    public AlienTableRecipeBuilder(Ingredient input1, Ingredient input2, Ingredient input3,
+                                   Ingredient input4, Ingredient input5, Ingredient input6,
+                                   Ingredient input7, Ingredient input8, Ingredient input9,
+                                   Item output) {
         this.input1 = input1;
         this.input2 = input2;
         this.input3 = input3;
@@ -51,7 +51,7 @@ public class AlienTableRecipeBuilderOld {
         this.output = output;
     }
 
-    public AlienTableRecipeBuilderOld unlockedBy(String creterionId, ICriterionInstance criterion) {
+    public AlienTableRecipeBuilder unlockedBy(String creterionId, ICriterionInstance criterion) {
         advancementBuilder.addCriterion(creterionId, criterion);
         return this;
     }
@@ -62,7 +62,7 @@ public class AlienTableRecipeBuilderOld {
             advancementBuilder.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(IRequirementsStrategy.OR);
         assert output.getItemCategory() != null;
         consumer.accept(
-                new AlienTableRecipeBuilderOld.Output(input1, input2, input3, input4, input5, input6, input7,
+                new AlienTableRecipeBuilder.Output(input1, input2, input3, input4, input5, input6, input7,
                         input8, input9, output, advancementBuilder,
                         new ResourceLocation(rl.getNamespace(), "recipes/" + output.getItemCategory().getRecipeFolderName() + "/" + rl.getPath())
                         , rl
