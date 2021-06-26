@@ -5,8 +5,7 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
-import com.yusuf.bentenmod.core.machine.alientable.AlienTable;
-import com.yusuf.bentenmod.data.recipe.TableRecipeBuilder;
+import com.yusuf.bentenmod.data.recipe.old.AlienTableRecipeBuilderOld;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
@@ -253,14 +252,14 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
 
-        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_HELMET.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.HEATBLAST_HELMET.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer,modId("heatblast_helmet"));
 
-        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_CHESTPLATE.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.HEATBLAST_CHESTPLATE.get())
                 .define('#',TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
@@ -269,7 +268,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer,modId("heatblast_chestplate"));
 
-        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_LEGGINGS.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.HEATBLAST_LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("AAA")
                 .pattern("A A")
@@ -277,7 +276,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer,modId("heatblast_leggings"));
 
-        ShapedRecipeBuilder.shaped(ItemInit.HEATBLAST_BOOT.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.HEATBLAST_BOOT.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
                 .pattern("A A")
@@ -285,14 +284,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("heatblast_boot"));
 
 
-        ShapedRecipeBuilder.shaped(ItemInit.XLR8_HELMET.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.XLR8_HELMET.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer,modId("xlr8_helmet"));
 
-        ShapedRecipeBuilder.shaped(ItemInit.XLR8_CHESTPLATE.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.XLR8_CHESTPLATE.get())
                 .define('#',TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
@@ -301,7 +300,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer,modId("xlr8_chestplate"));
 
-        ShapedRecipeBuilder.shaped(ItemInit.XLR8_LEGGINGS.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.XLR8_LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("AAA")
                 .pattern("A A")
@@ -309,7 +308,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer,modId("xlr8_leggings"));
 
-        ShapedRecipeBuilder.shaped(ItemInit.XLR8_BOOT.get())
+        AlienTableRecipeBuilder.shaped(ItemInit.XLR8_BOOT.get())
                 .define('A',  TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
                 .pattern("A A")
@@ -317,7 +316,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("xlr8_boot"));
 
 
-
+/**
+ * @see CraftingTableRecipe
+ */
 
 
 
@@ -389,7 +390,9 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer,modId("table_block"));
 
         //other items
-
+/**
+ * @see ShapedRecipeBuilder
+ */
         ShapedRecipeBuilder.shaped(EntityTypesInit.VILGAX_SPAWN_EGG.get())
                 .define('L', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_RUBY)
@@ -398,6 +401,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer,modId("vilgax_spawn_egg"));
+
 
 
 
