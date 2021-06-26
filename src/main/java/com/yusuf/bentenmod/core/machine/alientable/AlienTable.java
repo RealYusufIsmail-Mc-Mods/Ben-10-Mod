@@ -26,8 +26,8 @@ import net.minecraftforge.fml.network.NetworkHooks;
  * @see CraftingTableBlock
  */
 public class AlienTable extends Block {
-    private static final ITextComponent AlienTableContainer = new TranslationTextComponent("container.crafting");
 
+    private static final ITextComponent AlienTableContainer = new TranslationTextComponent("container.crafting");
     public AlienTable() {
         super(Properties.of(Material.HEAVY_METAL)
                 .strength(3)
