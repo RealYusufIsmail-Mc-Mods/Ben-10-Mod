@@ -1,4 +1,4 @@
-
+/*
 package com.yusuf.bentenmod.compact.jei;
 
 import com.yusuf.bentenmod.Main;
@@ -65,3 +65,6 @@ public class JeiPlugin implements IModPlugin {
         //TODO Change this.
     }
 }
+
+
+ */

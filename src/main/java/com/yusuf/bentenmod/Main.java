@@ -2,7 +2,7 @@ package com.yusuf.bentenmod;
 
 
 import com.yusuf.bentenmod.core.init.*;
-import com.yusuf.bentenmod.modules.bententable.recipes.RegisterRecipe;
+import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -34,7 +34,7 @@ public class Main {
 		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
 
-		bus.addGenericListener(IRecipeSerializer.class, RegisterRecipe::registerRecipes);
+		bus.addGenericListener(IRecipeSerializer.class, RegisterRecipeInit::registerRecipes);
 		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
 		MinecraftForge.EVENT_BUS.register(this);
 

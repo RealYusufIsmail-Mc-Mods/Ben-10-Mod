@@ -2,7 +2,7 @@ package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.TileEntityInit;
-import com.yusuf.bentenmod.modules.bententable.recipes.RegisterRecipe;
+import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -168,7 +168,7 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
             return null;
         } else {
             assert level != null;
-            return level.getRecipeManager().getRecipeFor(RegisterRecipe.TABLE_RECIPE, this, level).orElse(null);
+            return level.getRecipeManager().getRecipeFor(RegisterRecipeInit.TABLE_RECIPE, this, level).orElse(null);
         }
     }
 }

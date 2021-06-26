@@ -4,6 +4,7 @@ package com.yusuf.bentenmod.modules.bententable.recipes;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
@@ -78,7 +79,7 @@ public class TableRecipe  implements IRecipe<IInventory> {
 
     @Override
     public IRecipeType<?> getType() {
-        return RegisterRecipe.TABLE_RECIPE;
+        return RegisterRecipeInit.TABLE_RECIPE;
     }
 
     public static final class Type implements IRecipeType<TableRecipe> {

@@ -1,4 +1,4 @@
-
+/*
 package com.yusuf.bentenmod.compact.jei.recipe;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -87,3 +87,5 @@ public class TableBlockCategory implements IRecipeCategory<TableRecipe> {
 }
 
 
+
+ */

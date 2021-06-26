@@ -36,7 +36,7 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
-
+        block(BlockInit.ALIEN_TABLE, "Alien Crafting Table");
         //ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");
         block(BlockInit.LEGENDARY_ORE_BLOCK, "Legendary Ore");
@@ -112,12 +112,12 @@ public class ModLangProvider extends LanguageProvider {
 
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
+        item(EntityTypesInit.KRAAB_SPAWN_EGG, "Krabb Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
         entity1(EntityTypesInit.KRAAB_ENTITY, "kraab");
-        entity2(EntityTypesInit.KRAAB_BOLT_ENTITY, "kraab_bolt");
     }
 
 
@@ -131,9 +131,6 @@ public class ModLangProvider extends LanguageProvider {
         add(entry.get(), name);
     }
     private <T extends Entity> void entity1(RegistryObject<EntityType<KraabEntity>> entry, String name) {
-        add(entry.get(), name);
-    }
-    private <T extends Entity> void entity2(RegistryObject<EntityType<KraabBoltEntity>> entry, String name) {
         add(entry.get(), name);
     }
     private void add(ITextComponent key, String lang) {
