@@ -2,18 +2,30 @@
 package com.yusuf.bentenmod.data.client;
 
 
+import com.google.gson.JsonElement;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.init.BlockInit;
+import net.minecraft.block.Block;
 import net.minecraft.data.*;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.yusuf.realyusufismailcore.data.client.ModelProvider;
+
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
+import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createBooleanModelDispatch;
+import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createHorizontalFacingDispatch;
 
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
-
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, Main.MOD_ID, exFileHelper);
+
     }
 
     @Override
@@ -32,31 +44,26 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(BlockInit.RUBY_ORE.get());
         simpleBlock(BlockInit.SPEED_BLOCK.get());
         simpleBlock(BlockInit.SPEED_ORE.get());
-        simpleBlock(BlockInit.IMPERIUM_ORE.get());
         simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
-     // createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
-        //TODO Fix this
+       createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
+
     }
 
- /*
-    public void createFurnace(Block p_239977_1_, TexturedModel.ISupplier p_239977_2_) {
-        ResourceLocation resourcelocation = p_239977_2_.create(p_239977_1_, this.modelOutput);
-        ResourceLocation resourcelocation1 = ModelTextures.getBlockTexture(p_239977_1_, "_front_on");
-        ResourceLocation resourcelocation2 = p_239977_2_.get(p_239977_1_).updateTextures((p_239963_1_) -> {
-            p_239963_1_.put(StockTextureAliases.FRONT, resourcelocation1);
-        }).createWithSuffix(p_239977_1_, "_on", this.modelOutput);
-        this.blockStateOutput.accept(FinishedVariantBlockState.multiVariant(p_239977_1_).with(createBooleanModelDispatch(BlockStateProperties.LIT, resourcelocation2, resourcelocation)).with(createHorizontalFacingDispatch()));
-    }
 
-    private static BlockStateVariantBuilder createBooleanModelDispatch(BooleanProperty lit, ResourceLocation p_239894_1_, ResourceLocation p_239894_2_) {
-        return BlockStateVariantBuilder.property(BlockStateProperties.LIT).select(true, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_1_)).select(false, BlockModelDefinition.variant().with(BlockModelFields.MODEL, p_239894_2_));
-    }
+    public static final class BlockModels extends BlockModelProvider {
+        public final Consumer<IFinishedBlockState> blockStateOutput;
+        public final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
+        public BlockModels(Consumer<IFinishedBlockState> p_i232514_1_, BiConsumer<ResourceLocation, Supplier<JsonElement>> p_i232514_2_, Consumer<net.minecraft.item.Item> p_i232514_3_) {
+            super(p_i232514_1_, p_i232514_2_, p_i232514_3_);
 
-    private static BlockStateVariantBuilder createHorizontalFacingDispatch() {
-        return BlockStateVariantBuilder.property(BlockStateProperties.HORIZONTAL_FACING).select(Direction.EAST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R90)).select(Direction.SOUTH, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R180)).select(Direction.WEST, BlockModelDefinition.variant().with(BlockModelFields.Y_ROT, BlockModelFields.Rotation.R270)).select(Direction.NORTH, BlockModelDefinition.variant());
-    }
+            blockStateOutput = p_i232514_1_;
+            modelOutput = p_i232514_2_;
+        }
 
-         */
+
+
+
+
 
 
 

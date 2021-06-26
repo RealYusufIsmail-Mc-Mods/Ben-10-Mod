@@ -10,6 +10,7 @@ import com.yusuf.bentenmod.data.recipe.ModSmitingRecipeBuild;
 import com.yusuf.bentenmod.data.tags.ModBlockTagsProvider;
 import com.yusuf.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,8 +28,7 @@ public class DataGenerators {
 
          gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
          gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
-       // gen.addProvider(new ModelProvider.BlockState(gen, existingFileHelper));
-       // gen.addProvider(new ModelProvider.Item(gen, existingFileHelper));
+
 
 
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
