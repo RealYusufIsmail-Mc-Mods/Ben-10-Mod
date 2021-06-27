@@ -87,10 +87,7 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
         tess.end();
     }
 
-    @Override
-    protected void endVertex(MatrixStack matrixStack, int p_230451_2_, int p_230451_3_) {
-        //dont draw nothin...
-    }
+    
 
     @Override
     protected void renderTooltip(MatrixStack matrixStack, int x, int y) {
