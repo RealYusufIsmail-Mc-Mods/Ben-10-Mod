@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.gui;
 import com.mojang.datafixers.util.Pair;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.backpack.BackpackItem;
+import com.yusuf.bentenmod.core.init.ContainerInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ClickType;
@@ -22,7 +23,7 @@ import javax.annotation.Nonnull;
 public class SBContainer extends Container {
 
     public SBContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
-        super(Main.BACKPACK_CONTAINER.get(), id);
+        super(ContainerInit.BACKPACK_CONTAINER.get(), id);
 
         playerInv = playerInventory;
         ItemStack stack = findBackpack(playerInventory.player);

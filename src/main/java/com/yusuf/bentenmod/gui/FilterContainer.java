@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.gui;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.backpack.BackpackItemHandler;
+import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.network.FilterMessage;
 import com.yusuf.bentenmod.network.ToggleMessage;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,7 +20,7 @@ import javax.annotation.Nonnull;
 
 public class FilterContainer  extends Container {
     public FilterContainer(int id, PlayerInventory playerInventory, PacketBuffer buffer) {
-        super(Main.FILTER_CONTAINER.get(), id);
+        super(ContainerInit.FILTER_CONTAINER.get(), id);
         player = playerInventory.player;
 
         item = findBackpack(player);

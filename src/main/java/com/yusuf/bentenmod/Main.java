@@ -45,6 +45,9 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
+import static com.yusuf.bentenmod.core.init.ContainerInit.BACKPACK_CONTAINER;
+import static com.yusuf.bentenmod.core.init.ContainerInit.FILTER_CONTAINER;
+
 
 @Mod("bentenmod")
 @Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
@@ -55,9 +58,6 @@ public class Main {
 	//register for backpack
 	public static boolean curiosLoaded;
 	private final NonNullList<KeyBinding> keyBinds = NonNullList.create();
-	private static final DeferredRegister<ContainerType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, MOD_ID);
-	public static final RegistryObject<ContainerType<SBContainer>> BACKPACK_CONTAINER = CONTAINERS.register("sb_container", () -> IForgeContainerType.create(SBContainer::new));
-	public static final RegistryObject<ContainerType<FilterContainer>> FILTER_CONTAINER = CONTAINERS.register("sb_filter_container", () -> IForgeContainerType.create(FilterContainer::new));
 
 	public static SimpleChannel network;
 	public static SBNetwork sbnetwork = new SBNetwork();
