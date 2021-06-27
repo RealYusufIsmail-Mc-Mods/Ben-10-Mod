@@ -161,9 +161,9 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
 
         @Override
         public void renderButton(MatrixStack stack, int p_renderButton_1_, int p_renderButton_2_, float p_renderButton_3_) {
-            getMinecraft().getTextureManager().bindTexture(state ? ON : OFF);
+            getMinecraft().getTextureManager().bind(state ? ON : OFF);
             drawTexturedQuad(x, y, width, height,0,0,1,1, 100);
-            Minecraft.getInstance().fontRenderer.draw(stack, I18n.format(textKey), x + 34, y + 4, 0x404040);
+            Minecraft.getInstance().font.draw(stack, I18n.get(textKey), x + 34, y + 4, 0x404040);
         }
     }
 }
