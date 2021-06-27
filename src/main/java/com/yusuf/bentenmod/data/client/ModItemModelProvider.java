@@ -81,7 +81,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "infinitum_boots");
         builder(itemGenerated, "imperium");
         builder(itemGenerated, "krabb_spawn_egg");
-
+        //TODO add model for backpack
 
         //tools
         tool(itemhandHeld, "axe");

@@ -52,7 +52,6 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
         addButton(new SwitchButton(leftPos + 80, topPos + 8, "bentenmod.whitelist", ((menu.getFilterOpts() & 1) > 0) , (button)-> ((SwitchButton)button).state = (menu.setFilterOpts(menu.getFilterOpts() ^ 1) & 1) > 0));
         addButton(new SwitchButton(leftPos + 80, topPos + 8 + 18, "bentenmod.nbtdata", ((menu.getFilterOpts() & 2) > 0) , (button)-> ((SwitchButton)button).state = (menu.setFilterOpts(menu.getFilterOpts() ^ 2) & 2) > 0));
         addButton(new SwitchButton(leftPos + 80, topPos + 8 + 54, "bentenmod.autopickup", menu.getPickup() , (button)-> ((SwitchButton)button).state = menu.togglePickup()));
-//TODO Fix the rest of the errors
     }
 
     private final ResourceLocation GUI = new ResourceLocation(Main.MOD_ID, "textures/gui/filter_gui.png");
