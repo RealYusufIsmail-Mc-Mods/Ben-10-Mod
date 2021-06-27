@@ -47,6 +47,7 @@ import top.theillusivec4.curios.api.SlotTypePreset;
 
 import static com.yusuf.bentenmod.core.init.ContainerInit.BACKPACK_CONTAINER;
 import static com.yusuf.bentenmod.core.init.ContainerInit.FILTER_CONTAINER;
+import static net.yusuf.realyusufismailcore.client.Keybindings.keyBinds;
 
 
 @Mod("bentenmod")
@@ -57,7 +58,6 @@ public class Main {
 	public static final String MOD_ID = "bentenmod";
 	//register for backpack
 	public static boolean curiosLoaded;
-	private final NonNullList<KeyBinding> keyBinds = NonNullList.create();
 
 	public static SimpleChannel network;
 	public static SBNetwork sbnetwork = new SBNetwork();
