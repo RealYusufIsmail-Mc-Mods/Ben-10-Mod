@@ -2,6 +2,8 @@ package com.yusuf.bentenmod.backpack;
 
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.gui.FilterContainer;
+import com.yusuf.bentenmod.gui.SBContainer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -9,8 +11,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Rarity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -24,16 +26,17 @@ import net.minecraftforge.fml.network.PacketDistributor;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
+import top.theillusivec4.curios.api.CuriosApi;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BenTenBackpackItem {
+public class BackpackItem extends Item{
     public Backpack backpack;
 
-    public BenTenBackpackItem(Backpack backpack) {
-            super(new Item.Properties().stacksTo(1).tab(MainItemGroup.MAIN));
+    public BackpackItem(Backpack backpack) {
+        super(new Item.Properties().tab(MainItemGroup.MAIN));
         this.backpack = backpack;
     }
 
@@ -48,20 +51,20 @@ public class BenTenBackpackItem {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        if (!worldIn.isRemote) {
-            if (playerIn.isSneaking()) {
+    public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
+            if (!worldIn.isClientSide) {
+            if (playerIn.isShiftKeyDown()) {
                 //filter
-                playerIn.openContainer(new SimpleNamedContainerProvider((windowId, playerInventory, playerEntity) ->
+                playerIn.openMenu(new SimpleNamedContainerProvider((windowId, playerInventory, playerEntity) ->
                         new FilterContainer(windowId, playerInventory, null), new StringTextComponent("Backpack Filter")));
 
             } else {
                 //open
-                playerIn.openContainer(new SimpleNamedContainerProvider((windowId, playerInventory, playerEntity) ->
-                        new SBContainer(windowId, playerInventory, null), playerIn.getHeldItem(handIn).getDisplayName()));
+                playerIn.openMenu(new SimpleNamedContainerProvider((windowId, playerInventory, playerEntity) ->
+                        new SBContainer(windowId, playerInventory, null), playerIn.getItemInHand(handIn).getDisplayName()));
             }
         }
-        return ActionResult.success(playerIn.getHeldItem(handIn));
+        return ActionResult.success(playerIn.getItemInHand(handIn));
     }
 
     @Nullable
@@ -77,9 +80,9 @@ public class BenTenBackpackItem {
 
         nbt.putBoolean("Pickup", Pickup);
         if (playerEntity instanceof ServerPlayerEntity)
-            SimplyBackpacks.network.send(PacketDistributor.PLAYER.with(()-> (ServerPlayerEntity) playerEntity), new ToggleMessageMessage(Pickup));
+            Main.network.send(PacketDistributor.PLAYER.with(()-> (ServerPlayerEntity) playerEntity), new ToggleMessageMessage(Pickup));
         else
-            playerEntity.sendStatusMessage(new StringTextComponent(I18n.format(Pickup?"simplybackpacks.autopickupenabled":"simplybackpacks.autopickupdisabled")), true);
+            playerEntity.displayClientMessage(new StringTextComponent(I18n.get(Pickup?"bentenmod.autopickupenabled":"bentenmod.autopickupdisabled")), true);
 
     }
 
@@ -95,9 +98,9 @@ public class BenTenBackpackItem {
                         ItemStack stack = handler.getStackInSlot(i);
 
                         if (!stack.isEmpty()) {
-                            if (stack.isItemEqual(item)) {
+                            if (stack.sameItem(item)) {
                                 if (nbtMatch)
-                                    return ItemStack.areItemStackTagsEqual(stack, item) == whitelist;
+                                    return ItemStack.tagMatches(stack, item) == whitelist;
                                 else
                                     return whitelist;
                             }
@@ -114,7 +117,7 @@ public class BenTenBackpackItem {
 
         return backpack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
                 .map(handler -> {
-                    if (!(handler instanceof BackpackItemHandler))
+                    if (!(handler instanceof BackpackItem))
                         return false;
 
                     if (!filterItem(stack, backpack))
@@ -136,11 +139,11 @@ public class BenTenBackpackItem {
 
 
     private boolean hasTranslation(String key) {
-        return !I18n.format(key).equals(key);
+        return !I18n.get(key).equals(key);
     }
 
     private String fallbackString(String key, String fallback) {
-        String tmp = I18n.format(key);
+        String tmp = I18n.get(key);
         return tmp.equals(key)?fallback:tmp;
     }
 
@@ -149,7 +152,7 @@ public class BenTenBackpackItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        String translationKey = getTranslationKey();
+        String translationKey = getDescriptionId();
 
         boolean pickupEnabled = stack.getOrCreateTag().getBoolean("Pickup");
         if (pickupEnabled)
@@ -194,9 +197,9 @@ public class BenTenBackpackItem {
                 return stack;
         }
 
-        for (int i = 0; i < (justHotbar ? 9 : player.inventory.mainInventory.size()); i++) {
-            if (isBackpack(player.inventory.getStackInSlot(i))) {
-                return player.inventory.getStackInSlot(i);
+        for (int i = 0; i < (justHotbar ? 9 : player.inventory.items.size()); i++) {
+            if (isBackpack(player.inventory.getItem(i))) {
+                return player.inventory.getItem(i);
             }
         }
 
