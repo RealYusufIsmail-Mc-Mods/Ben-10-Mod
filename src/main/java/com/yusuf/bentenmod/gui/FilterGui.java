@@ -9,8 +9,10 @@ import com.yusuf.bentenmod.backpack.BackpackItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.client.gui.widget.Widget;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
@@ -68,25 +70,25 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
     protected void renderBg(MatrixStack matrixStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0f, 1.0f, 1.0f ,1.0f);
 
-        this.getMinecraft().textureManager.bindTexture(GUI);
-        drawTexturedQuad(guiLeft, guiTop, xSize, ySize, 0, 0, 1, 1, 0);
+        this.getMinecraft().textureManager.bind(GUI);
+        drawTexturedQuad(leftPos, topPos, imageWidth, imageHeight, 0, 0, 1, 1, 0);
     }
 
     private void drawTexturedQuad(int x, int y, int width, int height, float tx, float ty, float tw, float th, float z) {
         Tessellator tess = Tessellator.getInstance();
-        BufferBuilder buffer = tess.getBuffer();
+        BufferBuilder buffer = tess.getBuilder();
 
         buffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-        buffer.vertex((double)x + 0, (double) y + height, z).texture(tx,ty + th).endVertex();
-        buffer.vertex((double) x + width,(double) y + height, z).texture(tx + tw,ty + th).endVertex();
-        buffer.vertex((double) x + width, (double) y + 0, z).texture(tx + tw,ty).endVertex();
-        buffer.vertex((double) x + 0, (double) y + 0, z).texture(tx,ty).endVertex();
+        buffer.vertex((double)x + 0, (double) y + height, z).uv(tx,ty + th).endVertex();
+        buffer.vertex((double) x + width,(double) y + height, z).uv(tx + tw,ty + th).endVertex();
+        buffer.vertex((double) x + width, (double) y + 0, z).uv(tx + tw,ty).endVertex();
+        buffer.vertex((double) x + 0, (double) y + 0, z).uv(tx,ty).endVertex();
 
-        tess.draw();
+        tess.end();
     }
 
     @Override
-    protected void drawForeground(MatrixStack matrixStack, int p_230451_2_, int p_230451_3_) {
+    protected void endVertex(MatrixStack matrixStack, int p_230451_2_, int p_230451_3_) {
         //dont draw nothin...
     }
 
@@ -117,7 +119,7 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
         public void renderButton(MatrixStack stack, int mouseX, int mouseY, float partialTicks) {
             RenderSystem.pushMatrix();
             RenderSystem.color4f(1.0f,1.0f,1.0f,1.0f);
-            FontRenderer fontRenderer = Minecraft.getInstance().fontRenderer;
+            FontRenderer fontRenderer = Minecraft.getInstance().font;
 
             boolean hovered = mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
 
@@ -125,17 +127,17 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
             RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
             RenderSystem.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 
-            container.item.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(cap -> {
+            menu.item.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(cap -> {
                 BackpackFilterHandler filterHandler = ((BackpackItemHandler) cap).getFilterHandler();
 
                 ItemStack tmp = filterHandler.getStackInSlot(slot);
-                itemRenderer.zLevel = 100F;
+                itemRenderer.blitOffset = 100F;
                 //RenderHelper.enableGUIStandardItemLighting();
                 RenderSystem.enableDepthTest();
-                RenderHelper.enableGuiDepthLighting();
-                itemRenderer.renderItemAndEffectIntoGUI(tmp, x, y);
-                itemRenderer.renderItemOverlayIntoGUI(fontRenderer, tmp, x, y, "");
-                itemRenderer.zLevel = 0F;
+                RenderHelper.setupFor3DItems();
+                itemRenderer.renderAndDecorateItem(tmp, x, y);
+                itemRenderer.renderGuiItemDecorations(fontRenderer, tmp, x, y, "");
+                itemRenderer.blitOffset = 0F;
             });
 
             if (hovered)
