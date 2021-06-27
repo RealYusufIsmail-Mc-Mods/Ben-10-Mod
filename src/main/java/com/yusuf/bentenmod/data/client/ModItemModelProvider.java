@@ -82,7 +82,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "imperium");
         builder(itemGenerated, "krabb_spawn_egg");
         builder(itemGenerated, "ben_ten_backpack");
-        
+
         //tools
         tool(itemhandHeld, "axe");
         tool(itemhandHeld, "sword");
