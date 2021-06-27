@@ -81,6 +81,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "infinitum_boots");
         builder(itemGenerated, "imperium");
         builder(itemGenerated, "krab_spawn_egg");
+        //TODO make the textures for them.
         builder(itemGenerated, "ben_ten_backpack");
 
         //tools
