@@ -6,8 +6,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.ResourceLocation;
 
+/**
+ * Represents a singleton instance of a backpack. Sets up each backpack in it's own way
+ */
 public enum Backpack {
-    BEN_TEN_BACKPACK(Rarity.EPIC, 18, "ben_ten_backpack_gui.png", 176, 150, 7, 67);
+    BEN_TEN_BACKPACK(Rarity.EPIC, 33, "ben_ten_backpack_gui.png", 212, 168, 25, 85);
 
     public Rarity rarity;
     public int slots;
