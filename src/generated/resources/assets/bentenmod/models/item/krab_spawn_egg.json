@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmod:item/krabb_spawn_egg"
+    "layer0": "bentenmod:item/krab_spawn_egg"
   }
 }

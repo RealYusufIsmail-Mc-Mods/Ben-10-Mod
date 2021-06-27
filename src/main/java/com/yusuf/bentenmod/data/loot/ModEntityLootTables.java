@@ -18,6 +18,7 @@ public class ModEntityLootTables extends EntityLootTables {
     @Override
     protected void addTables() {
         add(EntityTypesInit.VILGAX_ENTITY.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(ItemInit.ENCHANTED_OMNITRIX_APPLE.get()).apply(SetCount.setCount(RandomValueRange.between(0.0F, 2.0F))).apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 2.0F))))));
+        add(EntityTypesInit.KRAAB_ENTITY.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(ItemInit.RAW_CRAB.get()).apply(SetCount.setCount(RandomValueRange.between(0.0F, 1.0F))).apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 1.0F))))));
 
     }
     @Override

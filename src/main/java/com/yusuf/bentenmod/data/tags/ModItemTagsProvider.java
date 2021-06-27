@@ -45,12 +45,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
         tag(TagsInit.Items.INGOTS_IMPERIUM).add(ItemInit.IMPERIUM.get());
 
-
         //tools
-
         tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(ItemInit.IMPERIUM_PICKAXE.get());
 
-
+        //foods
+        tag(TagsInit.Items.RAW_CRAB).add(ItemInit.RAW_CRAB.get());
 
 
 

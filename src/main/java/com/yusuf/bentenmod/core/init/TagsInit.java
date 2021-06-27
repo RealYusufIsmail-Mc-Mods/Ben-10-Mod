@@ -2,6 +2,7 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.Main;
 import net.minecraft.block.Block;
+import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
@@ -73,6 +74,8 @@ public class TagsInit {
         //tools
         public static final ITag.INamedTag<Item> TOOLS_IMPERIUM_PICKAXE = ItemTags.bind("forge:tools/imperium_pickaxe");
 
+        //food
+        public static final ITag.INamedTag<Item> RAW_CRAB = ItemTags.bind("forge:foods/raw_crab");
 
 
         private static ITag.INamedTag<Item> forge(String path) {

@@ -561,7 +561,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item",has(TagsInit.Items.INGOTS_OMNITRIX))
                 .save(consumer, modId("jacket_blasting_smelt"));
 
+        //food
+        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_CRAB.get()), ItemInit.COOKED_CRAB.get(), 0.4f, 300)
+                .unlockedBy("has_item",has(TagsInit.Items.RAW_CRAB))
+                .save(consumer, modId("cooked_crab_blasting_smelt"));
 
+        CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_CRAB.get()), ItemInit.COOKED_CRAB.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(TagsInit.Items.RAW_CRAB))
+                .save(consumer, modId("cooked_crab_smelt"));
         //CUSTOM RECIPE
         TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
                 .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))

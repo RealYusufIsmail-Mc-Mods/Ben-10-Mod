@@ -117,7 +117,7 @@ public class ModLangProvider extends LanguageProvider {
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
-        entity1(EntityTypesInit.KRAAB_ENTITY, "kraab");
+        entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
         item(ItemInit.BEN_TEN_BACKPACK, "Ben 10 BackPack");
     }
 

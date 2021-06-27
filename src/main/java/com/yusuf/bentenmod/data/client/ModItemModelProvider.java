@@ -80,7 +80,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "infinitum_leggings");
         builder(itemGenerated, "infinitum_boots");
         builder(itemGenerated, "imperium");
-        builder(itemGenerated, "krabb_spawn_egg");
+        builder(itemGenerated, "krab_spawn_egg");
         builder(itemGenerated, "ben_ten_backpack");
 
         //tools

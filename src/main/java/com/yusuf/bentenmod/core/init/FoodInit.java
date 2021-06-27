@@ -4,7 +4,7 @@ import net.minecraft.item.Food;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 public class FoodInit {
-	  // Omnitrix Apple
+    // Omnitrix Apple
     public static final Food OMNITRIX_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 1200, 0), 1)
             .effect(new EffectInstance(Effects.ABSORPTION, 3600, 1), 1)
@@ -26,7 +26,7 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.SLOW_FALLING, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
     
- // Ruby  Apple
+    // Ruby Apple
     public static final Food RUBY_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 900000, 0), 1)
             .effect(new EffectInstance(Effects.ABSORPTION, 6000, 6), 1)
@@ -36,14 +36,22 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.DIG_SPEED, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
 
-
-
     //Fire APPLE
-public static final Food FIRE_APPLE = new Food.Builder()
-.effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
-.effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
-.nutrition(4).saturationMod(1.2f).alwaysEat().build();
+    public static final Food FIRE_APPLE = new Food.Builder()
+        .effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
+        .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
+        .nutrition(4).saturationMod(1.2f).alwaysEat().build();
     		 
-    		 
+    //raw crab
+    public static final Food RAW_CRAB = new Food.Builder()
+            .nutrition(2).saturationMod(0.4F)
+            .effect(new EffectInstance(Effects.HUNGER, 600, 0), 0.3F)
+            .meat().build();
+
+    //cooked crab
+    public static final Food COOKED_CRAB = new Food.Builder()
+            .nutrition(6).saturationMod(0.8F)
+            .build();
+
     				 
 }
