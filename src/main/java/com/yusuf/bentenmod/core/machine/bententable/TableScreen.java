@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.core.machine.bententable;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.common.LangKeys;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
@@ -43,7 +44,7 @@ public class TableScreen extends ContainerScreen<TableContainer> {
      */
     @Override
     protected void renderLabels(MatrixStack matrix, int p_230451_2_, int p_230451_3_) {
-        font.draw(matrix, inventory.getDisplayName(), 7, 81, 4210752);
-        font.draw(matrix, TableTileEntity.TITLE, 5, 10, 4210752);
+        this.font.draw(matrix, inventory.getDisplayName(), 7, 81, 4210752);
+        font.draw(matrix, LangKeys.TABLE_SCREEN, 5, 10, 4210752);
     }
 }
