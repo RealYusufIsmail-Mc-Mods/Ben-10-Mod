@@ -4,6 +4,7 @@ import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.backpack.BackpackItemHandler;
 import com.yusuf.bentenmod.network.FilterMessage;
+import com.yusuf.bentenmod.network.ToggleMessage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ClickType;

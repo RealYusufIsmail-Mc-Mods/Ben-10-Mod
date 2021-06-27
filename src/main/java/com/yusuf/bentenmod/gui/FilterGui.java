@@ -49,9 +49,9 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
             }
         }
 
-        addButton(new SwitchButton(leftPos + 80, topPos + 8, "bentenmod.whitelist", ((menu.getFilterOpts() & 1) > 0) , (button)-> ((SwitchButton)button).state = (container.setFilterOpts(container.getFilterOpts() ^ 1) & 1) > 0));
-        addButton(new SwitchButton(leftPos + 80, topPos + 8 + 18, "bentenmod.nbtdata", ((menu.getFilterOpts() & 2) > 0) , (button)-> ((SwitchButton)button).state = (container.setFilterOpts(container.getFilterOpts() ^ 2) & 2) > 0));
-        addButton(new SwitchButton(leftPos + 80, topPos + 8 + 54, "bentenmod.autopickup", menu.getPickup() , (button)-> ((SwitchButton)button).state = container.togglePickup()));
+        addButton(new SwitchButton(leftPos + 80, topPos + 8, "bentenmod.whitelist", ((menu.getFilterOpts() & 1) > 0) , (button)-> ((SwitchButton)button).state = (menu.setFilterOpts(menu.getFilterOpts() ^ 1) & 1) > 0));
+        addButton(new SwitchButton(leftPos + 80, topPos + 8 + 18, "bentenmod.nbtdata", ((menu.getFilterOpts() & 2) > 0) , (button)-> ((SwitchButton)button).state = (menu.setFilterOpts(menu.getFilterOpts() ^ 2) & 2) > 0));
+        addButton(new SwitchButton(leftPos + 80, topPos + 8 + 54, "bentenmod.autopickup", menu.getPickup() , (button)-> ((SwitchButton)button).state = menu.togglePickup()));
 //TODO Fix the rest of the errors
     }
 
@@ -61,7 +61,7 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(matrixStack);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
-        this.drawMouseoverTooltip(matrixStack, mouseX, mouseY);
+        this.renderTooltip(matrixStack, mouseX, mouseY);
     }
 
 
@@ -93,12 +93,12 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
     }
 
     @Override
-    protected void drawMouseoverTooltip(MatrixStack matrixStack, int x, int y) {
-        super.drawMouseoverTooltip(matrixStack, x, y);
+    protected void renderTooltip(MatrixStack matrixStack, int x, int y) {
+        super.renderTooltip(matrixStack, x, y);
 
         for(Widget button : buttons) {
             if (button.isMouseOver(x,y) && button instanceof SlotButton) {
-                container.item.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(cap -> {
+                menu.item.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(cap -> {
                     if (!((BackpackItemHandler) cap).getFilterHandler().getStackInSlot(((SlotButton)button).slot).isEmpty())
                         renderTooltip(matrixStack, ((BackpackItemHandler) cap).getFilterHandler().getStackInSlot(((SlotButton)button).slot), x, y);
                 });

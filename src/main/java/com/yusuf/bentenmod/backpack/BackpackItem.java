@@ -4,6 +4,7 @@ import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.gui.FilterContainer;
 import com.yusuf.bentenmod.gui.SBContainer;
+import com.yusuf.bentenmod.network.ToggleMessageMessage;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;

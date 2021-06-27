@@ -49,7 +49,7 @@ public class SBGui extends ContainerScreen<SBContainer> {
     }
 
     @Override
-    protected void drawMouseoverTooltip(MatrixStack p_230451_1_, int mouseX, int mouseY) {
+    protected void renderTooltip(MatrixStack p_230451_1_, int mouseX, int mouseY) {
         this.font.draw(p_230451_1_, this.title.getString(), 7,6,0x404040);
     }
 
@@ -57,7 +57,7 @@ public class SBGui extends ContainerScreen<SBContainer> {
     public void render(MatrixStack p_230430_1_, int p_render_1_, int p_render_2_, float p_render_3_) {
         this.renderBackground(p_230430_1_);
         super.render(p_230430_1_,p_render_1_, p_render_2_, p_render_3_);
-        this.drawMouseoverTooltip(p_230430_1_, p_render_1_, p_render_2_);
+        this.renderTooltip(p_230430_1_, p_render_1_, p_render_2_);
     }
 
 
