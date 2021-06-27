@@ -4,6 +4,7 @@ import com.yusuf.bentenmod.Main;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
+import net.yusuf.realyusufismailcore.network.ToggleMessageMessage;
 
 public class SBNetwork {
     public ResourceLocation channelName;

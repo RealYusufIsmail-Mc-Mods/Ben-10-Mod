@@ -4,7 +4,6 @@ import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.gui.FilterContainer;
 import com.yusuf.bentenmod.gui.SBContainer;
-import com.yusuf.bentenmod.network.ToggleMessageMessage;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,6 +25,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fml.network.PacketDistributor;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
+import net.yusuf.realyusufismailcore.network.ToggleMessageMessage;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import top.theillusivec4.curios.api.CuriosApi;
 

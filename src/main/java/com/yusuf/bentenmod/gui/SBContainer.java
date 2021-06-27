@@ -3,7 +3,6 @@ package com.yusuf.bentenmod.gui;
 import com.mojang.datafixers.util.Pair;
 import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.backpack.BackpackItem;
-import com.yusuf.bentenmod.backpack.SBContainerSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ClickType;
@@ -14,6 +13,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.yusuf.realyusufismailcore.backpack.SBContainerSlot;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import top.theillusivec4.curios.api.CuriosApi;
 
