@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.TileEntityInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
@@ -19,7 +20,6 @@ import javax.annotation.Nullable;
 
 public class TableTileEntity extends LockableLootTileEntity implements ITickableTileEntity {
     public static final int slots = 4;
-    public static final ITextComponent TITLE = new TranslationTextComponent("container." + Main.MOD_ID, ".table_block");
     private final int maxTick = 200;
     private NonNullList<ItemStack> items = NonNullList.withSize(slots, ItemStack.EMPTY);
     private int currentTick;
@@ -149,7 +149,7 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
 
     @Override
     protected ITextComponent getDefaultName() {
-        return TITLE;
+        return LangKeys.TABLE_SCREEN;
     }
 
     @Override
