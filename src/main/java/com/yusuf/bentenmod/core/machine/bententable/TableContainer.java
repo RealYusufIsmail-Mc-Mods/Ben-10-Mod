@@ -23,7 +23,7 @@ public class TableContainer extends Container {
      * SHIFT + F6 > CHANGE VARIABLE NAME
      */
     protected TableContainer(int id, PlayerInventory inv, TileEntity te, IIntArray data) {
-        super(ContainerInit.TABLE.get(), id);
+        super(ContainerInit.TABLE_CONTAINER.get(), id);
 
         this.data = data;
 

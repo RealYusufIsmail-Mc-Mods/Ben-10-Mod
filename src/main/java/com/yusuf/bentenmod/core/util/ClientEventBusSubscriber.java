@@ -19,6 +19,6 @@ public class ClientEventBusSubscriber {
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event) {
 		KeybindsInit.register(event);
-		ScreenManager.register(ContainerInit.TABLE.get(), TableScreen::new);
+		ScreenManager.register(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
 	}
 }
