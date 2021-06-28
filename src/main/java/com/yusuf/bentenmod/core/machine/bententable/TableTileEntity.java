@@ -52,7 +52,7 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
     }
 
     public TableTileEntity() {
-        this(TileEntityInit.TABLE_TE.get());
+        this(TileEntityInit.TABLE_TILE.get());
     }
 
     /**
