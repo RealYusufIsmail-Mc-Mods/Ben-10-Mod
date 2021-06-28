@@ -112,7 +112,7 @@ public class ModLangProvider extends LanguageProvider {
 
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
-        item(EntityTypesInit.KRAB_SPAWN_EGG, "Krab Spawn Egg");
+        item(EntityTypesInit.KRAAB_SPAWN_EGG, "Krab Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
