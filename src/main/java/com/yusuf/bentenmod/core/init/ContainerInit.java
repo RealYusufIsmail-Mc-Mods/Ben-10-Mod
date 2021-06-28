@@ -17,9 +17,7 @@ public class ContainerInit {
     public static final DeferredRegister<ContainerType<?>>CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, MOD_ID);
 
     public static final RegistryObject<ContainerType<TableContainer>> TABLE_CONTAINER = CONTAINERS.register("table", () -> IForgeContainerType.create(TableContainer::new));
-    public static final RegistryObject<ContainerType<AlienTableContainer>> ALIEN_TABLE_CONTAINER = CONTAINERS.register("alien_table", () -> IForgeContainerType.create(AlienTableContainer::new));
     public static final RegistryObject<ContainerType<SBContainer>> BACKPACK_CONTAINER = CONTAINERS.register("sb_container", () -> IForgeContainerType.create(SBContainer::new));
     public static final RegistryObject<ContainerType<FilterContainer>> FILTER_CONTAINER = CONTAINERS.register("sb_filter_container", () -> IForgeContainerType.create(FilterContainer::new));
-
 
 }
