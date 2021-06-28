@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.network;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -13,8 +13,8 @@ public class SBNetwork {
     private SimpleChannel network;
 
     public SimpleChannel register() {
-        channelName = new ResourceLocation(Main.MOD_ID, "network");
-        networkVersion = new ResourceLocation(Main.MOD_ID, "1").toString();
+        channelName = new ResourceLocation(BenTenMod.MOD_ID, "network");
+        networkVersion = new ResourceLocation(BenTenMod.MOD_ID, "1").toString();
 
         network = NetworkRegistry.ChannelBuilder.named(channelName)
                 .clientAcceptedVersions(version -> true)

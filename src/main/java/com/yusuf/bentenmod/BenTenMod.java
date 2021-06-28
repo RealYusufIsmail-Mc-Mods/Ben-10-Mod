@@ -4,7 +4,6 @@ package com.yusuf.bentenmod;
 import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
-import com.yusuf.bentenmod.gui.FilterContainer;
 import com.yusuf.bentenmod.gui.FilterGui;
 import com.yusuf.bentenmod.gui.SBContainer;
 import com.yusuf.bentenmod.gui.SBGui;
@@ -14,19 +13,15 @@ import com.yusuf.bentenmod.network.ToggleMessage;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -35,8 +30,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import software.bernie.example.GeckoLibMod;
@@ -51,8 +44,8 @@ import static net.yusuf.realyusufismailcore.client.Keybindings.keyBinds;
 
 
 @Mod("bentenmod")
-@Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
-public class Main {
+@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Bus.MOD)
+public class BenTenMod {
 	// Directly reference a log4j logger.
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MOD_ID = "bentenmod";
@@ -61,7 +54,7 @@ public class Main {
 
 	public static SimpleChannel network;
 	public static SBNetwork sbnetwork = new SBNetwork();
-	public Main() {
+	public BenTenMod() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
 		ItemInit.ITEMS.register(bus);

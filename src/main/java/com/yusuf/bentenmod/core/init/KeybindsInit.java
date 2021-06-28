@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -21,6 +21,6 @@ public class KeybindsInit {
 	} 
 	
 	private static KeyBinding create(String name, int key) {
-		return new KeyBinding("key." + Main.MOD_ID + "." + name , key, "key.category." + Main.MOD_ID);
+		return new KeyBinding("key." + BenTenMod.MOD_ID + "." + name , key, "key.category." + BenTenMod.MOD_ID);
 	}
 }	

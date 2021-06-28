@@ -2,7 +2,7 @@
 package com.yusuf.bentenmod.data.client;
 
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -13,7 +13,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, Main.MOD_ID, existingFileHelper);
+        super(generator, BenTenMod.MOD_ID, existingFileHelper);
     }
 
 

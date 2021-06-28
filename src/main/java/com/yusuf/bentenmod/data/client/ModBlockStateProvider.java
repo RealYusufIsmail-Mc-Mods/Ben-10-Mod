@@ -2,27 +2,16 @@
 package com.yusuf.bentenmod.data.client;
 
 
-import com.google.gson.JsonElement;
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.BlockInit;
-import net.minecraft.block.Block;
 import net.minecraft.data.*;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.yusuf.realyusufismailcore.data.client.ModelProvider;
 
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
-
-import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createBooleanModelDispatch;
-import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createHorizontalFacingDispatch;
 public class ModBlockStateProvider extends BlockStateProvider {
 
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, Main.MOD_ID, exFileHelper);
+        super(gen, BenTenMod.MOD_ID, exFileHelper);
 
     }
 

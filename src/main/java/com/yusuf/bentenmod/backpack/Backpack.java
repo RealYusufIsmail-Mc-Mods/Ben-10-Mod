@@ -1,8 +1,6 @@
 package com.yusuf.bentenmod.backpack;
 
-import com.yusuf.bentenmod.Main;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.Item;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.ResourceLocation;
 
@@ -24,7 +22,7 @@ public enum Backpack {
     Backpack(Rarity rarity, int slots, String location, int xSize, int ySize, int slotXOffset, int slotYOffset) {
         this.rarity = rarity;
         this.slots = slots;
-        this.location = new ResourceLocation(Main.MOD_ID, "textures/gui/" + location);
+        this.location = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/" + location);
         this.xSize = xSize;
         this.ySize = ySize;
         this.slotXOffset = slotXOffset;

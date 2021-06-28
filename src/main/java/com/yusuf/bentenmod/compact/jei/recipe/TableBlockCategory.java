@@ -2,7 +2,7 @@
 package com.yusuf.bentenmod.compact.jei.recipe;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
@@ -20,8 +20,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 public class TableBlockCategory implements IRecipeCategory<TableRecipe> {
-    public static final ResourceLocation ID = new ResourceLocation(Main.MOD_ID, "table_block_category");
-    private static final ResourceLocation TEXTURE_ID = new ResourceLocation(Main.MOD_ID, "textures/gui/table_block_jei.png");
+    public static final ResourceLocation ID = new ResourceLocation(BenTenMod.MOD_ID, "table_block_category");
+    private static final ResourceLocation TEXTURE_ID = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/table_block_jei.png");
 
     private final IDrawable background;
     private final IDrawableAnimated arrow;

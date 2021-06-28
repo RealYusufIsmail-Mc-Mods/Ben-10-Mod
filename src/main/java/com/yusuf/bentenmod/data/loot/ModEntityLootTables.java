@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.data.loot;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.data.loot.EntityLootTables;
@@ -25,7 +25,7 @@ public class ModEntityLootTables extends EntityLootTables {
     protected Iterable<EntityType<?>> getKnownEntities()
     {
         return StreamSupport.stream(ForgeRegistries.ENTITIES.spliterator(), false)
-                .filter(entry -> entry.getRegistryName() != null && entry.getRegistryName().getNamespace().equals(Main.MOD_ID))
+                .filter(entry -> entry.getRegistryName() != null && entry.getRegistryName().getNamespace().equals(BenTenMod.MOD_ID))
                 .collect(Collectors.toSet());
     }
 

@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.gui;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.backpack.BackpackItemHandler;
 import com.yusuf.bentenmod.core.init.ContainerInit;
@@ -100,7 +100,7 @@ public class FilterContainer  extends Container {
         nbt.putBoolean("Pickup",Pickup);
 
         if (player.getCommandSenderWorld().isClientSide)
-            Main.network.sendToServer(new ToggleMessage());
+            BenTenMod.network.sendToServer(new ToggleMessage());
         return Pickup;
     }
 
@@ -109,7 +109,7 @@ public class FilterContainer  extends Container {
         nbt.putInt("Filter-OPT", newOpts);
         item.setTag(nbt);
         if (player.getCommandSenderWorld().isClientSide)
-            Main.network.sendToServer(new FilterMessage(newOpts));
+            BenTenMod.network.sendToServer(new FilterMessage(newOpts));
         return newOpts;
     }
 

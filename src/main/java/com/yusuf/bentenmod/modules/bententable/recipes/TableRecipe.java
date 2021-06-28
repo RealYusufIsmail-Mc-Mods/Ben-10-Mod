@@ -3,7 +3,7 @@ package com.yusuf.bentenmod.modules.bententable.recipes;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -85,13 +85,13 @@ public class TableRecipe  implements IRecipe<IInventory> {
     public static final class Type implements IRecipeType<TableRecipe> {
         @Override
         public String toString() {
-            return Main.MOD_ID + ":table_recipe" ;
+            return BenTenMod.MOD_ID + ":table_recipe" ;
         }
     }
 
     public static final class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TableRecipe> {
         public Serializer() {
-            setRegistryName(Main.MOD_ID, "table_recipe");
+            setRegistryName(BenTenMod.MOD_ID, "table_recipe");
         }
 
         @SuppressWarnings("deprecation")

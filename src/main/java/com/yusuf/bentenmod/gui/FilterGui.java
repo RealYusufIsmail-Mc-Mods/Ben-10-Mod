@@ -3,7 +3,7 @@ package com.yusuf.bentenmod.gui;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.backpack.BackpackFilterHandler;
 import com.yusuf.bentenmod.backpack.BackpackItemHandler;
 import net.minecraft.client.Minecraft;
@@ -54,7 +54,7 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
         addButton(new SwitchButton(leftPos + 80, topPos + 8 + 54, "bentenmod.autopickup", menu.getPickup() , (button)-> ((SwitchButton)button).state = menu.togglePickup()));
     }
 
-    private final ResourceLocation GUI = new ResourceLocation(Main.MOD_ID, "textures/gui/filter_gui.png");
+    private final ResourceLocation GUI = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/filter_gui.png");
 
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
@@ -151,8 +151,8 @@ public class FilterGui extends ContainerScreen<FilterContainer> {
             state = initial;
         }
 
-        private final ResourceLocation OFF = new ResourceLocation(Main.MOD_ID, "textures/gui/switch_off.png");
-        private final ResourceLocation ON = new ResourceLocation(Main.MOD_ID, "textures/gui/switch_on.png");
+        private final ResourceLocation OFF = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/switch_off.png");
+        private final ResourceLocation ON = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/switch_on.png");
 
         public boolean state;
         private final String textKey;

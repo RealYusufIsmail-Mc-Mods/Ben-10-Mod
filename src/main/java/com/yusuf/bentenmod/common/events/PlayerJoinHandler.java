@@ -1,12 +1,12 @@
 package com.yusuf.bentenmod.common.events;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = Main.MOD_ID)
+@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID)
 
 public class PlayerJoinHandler {
 

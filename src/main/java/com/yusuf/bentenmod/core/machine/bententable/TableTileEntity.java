@@ -1,6 +1,5 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
-import com.yusuf.bentenmod.Main;
 import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.TileEntityInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
@@ -14,7 +13,6 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 
 import javax.annotation.Nullable;
 

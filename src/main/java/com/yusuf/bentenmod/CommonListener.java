@@ -2,5 +2,5 @@ package com.yusuf.bentenmod;
 
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonListener {}

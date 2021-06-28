@@ -1,12 +1,11 @@
 package com.yusuf.bentenmod.data.lang;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmod.entity.KraabBoltEntity;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.block.Block;
@@ -21,7 +20,7 @@ import net.minecraftforge.fml.RegistryObject;
 public class ModLangProvider extends LanguageProvider {
 
     public ModLangProvider(DataGenerator gen) {
-        super(gen, Main.MOD_ID, "en_us");
+        super(gen, BenTenMod.MOD_ID, "en_us");
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.data.loot;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.block.Block;
@@ -46,7 +46,7 @@ public class ModBlockLootTables extends BlockLootTables {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues().stream()
-                .filter(block -> Main.MOD_ID.equals(block.getRegistryName().getNamespace()))
+                .filter(block -> BenTenMod.MOD_ID.equals(block.getRegistryName().getNamespace()))
                 .collect(Collectors.toSet());
     }
     }

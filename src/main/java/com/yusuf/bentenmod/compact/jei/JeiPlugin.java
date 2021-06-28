@@ -1,7 +1,7 @@
 /*
 package com.yusuf.bentenmod.compact.jei;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.compact.jei.recipe.TableBlockCategory;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.RecipeTypeInit;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 @mezz.jei.api.JeiPlugin
 public class JeiPlugin implements IModPlugin {
-    private static final ResourceLocation ID = new ResourceLocation(Main.MOD_ID, "jei_compat");
+    private static final ResourceLocation ID = new ResourceLocation(BenTenMod.MOD_ID, "jei_compat");
 
     @Override
     public ResourceLocation getPluginUid() {

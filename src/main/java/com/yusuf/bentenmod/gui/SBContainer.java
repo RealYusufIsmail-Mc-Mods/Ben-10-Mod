@@ -1,7 +1,7 @@
 package com.yusuf.bentenmod.gui;
 
 import com.mojang.datafixers.util.Pair;
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import net.minecraft.entity.player.PlayerEntity;
@@ -171,7 +171,7 @@ public class SBContainer extends Container {
         }
 
         // Before a full inventory, check the players curios if loaded
-        if (Main.curiosLoaded) {
+        if (BenTenMod.curiosLoaded) {
             ItemStack stack = CuriosApi.getCuriosHelper().findEquippedCurio(BackpackItem::isBackpack, playerEntity)
                     .map(ImmutableTriple::getRight).orElse(ItemStack.EMPTY);
 

@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import static com.yusuf.bentenmod.Main.MOD_ID;
+import static com.yusuf.bentenmod.BenTenMod.MOD_ID;
 
 public class AlienTableRecipeBuilder {
     private final Ingredient input1;

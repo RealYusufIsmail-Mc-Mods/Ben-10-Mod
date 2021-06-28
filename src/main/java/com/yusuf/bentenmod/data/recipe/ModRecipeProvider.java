@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.data.recipe;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
@@ -20,7 +20,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     private static ResourceLocation modId(String path) {
-        return new ResourceLocation(Main.MOD_ID, path);
+        return new ResourceLocation(BenTenMod.MOD_ID, path);
     }
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {

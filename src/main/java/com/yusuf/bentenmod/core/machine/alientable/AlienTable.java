@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -44,7 +45,7 @@ public class AlienTable extends Block {
             return ActionResultType.SUCCESS;
         } else {
             player.openMenu(state.getMenuProvider(worldIn, pos));
-            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+            player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
     }

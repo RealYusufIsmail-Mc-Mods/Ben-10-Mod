@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.backpack.Backpack;
 import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.common.events.*;
@@ -15,7 +15,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ItemInit {
 	// ores
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BenTenMod.MOD_ID);
 
 	public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));

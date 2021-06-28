@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.machine.alientable.AlienTable;
 import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 import static com.yusuf.bentenmod.core.init.ItemInit.ITEMS;
 
 public class BlockInit {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Main.MOD_ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BenTenMod.MOD_ID);
 
 	public static final RegistryObject<GeneralBlock> LEGENDARY_BLOCK = register("legendary_block", Blocks.NETHERITE_BLOCK);
 	public static final RegistryObject<GeneralBlock> OMNITRIX_BLOCK = register("omnitrix_block", Blocks.NETHERITE_BLOCK);

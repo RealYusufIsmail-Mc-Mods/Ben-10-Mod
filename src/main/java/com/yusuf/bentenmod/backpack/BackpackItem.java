@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.backpack;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.gui.FilterContainer;
 import com.yusuf.bentenmod.gui.SBContainer;
@@ -81,7 +81,7 @@ public class BackpackItem extends Item{
 
         nbt.putBoolean("Pickup", Pickup);
         if (playerEntity instanceof ServerPlayerEntity)
-            Main.network.send(PacketDistributor.PLAYER.with(()-> (ServerPlayerEntity) playerEntity), new ToggleMessageMessage(Pickup));
+            BenTenMod.network.send(PacketDistributor.PLAYER.with(()-> (ServerPlayerEntity) playerEntity), new ToggleMessageMessage(Pickup));
         else
             playerEntity.displayClientMessage(new StringTextComponent(I18n.get(Pickup?"bentenmod.autopickupenabled":"bentenmod.autopickupdisabled")), true);
 
@@ -190,7 +190,7 @@ public class BackpackItem extends Item{
             return player.getMainHandItem();
         }
 
-        if (Main.curiosLoaded) {
+        if (BenTenMod.curiosLoaded) {
             ItemStack stack = CuriosApi.getCuriosHelper().findEquippedCurio(BackpackItem::isBackpack, player)
                     .map(ImmutableTriple::getRight).orElse(ItemStack.EMPTY);
 

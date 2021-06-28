@@ -1,6 +1,6 @@
 package com.yusuf.bentenmod.data;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.data.client.ModBlockStateProvider;
 import com.yusuf.bentenmod.data.client.ModItemModelProvider;
 import com.yusuf.bentenmod.data.lang.ModLangProvider;
@@ -10,13 +10,12 @@ import com.yusuf.bentenmod.data.recipe.ModSmitingRecipeBuild;
 import com.yusuf.bentenmod.data.tags.ModBlockTagsProvider;
 import com.yusuf.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
-@Mod.EventBusSubscriber(modid = Main.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     private DataGenerators() {}
 

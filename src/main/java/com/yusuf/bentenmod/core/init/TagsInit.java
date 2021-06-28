@@ -1,8 +1,7 @@
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.Main;
+import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.block.Block;
-import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ITag;
@@ -34,7 +33,7 @@ public class TagsInit {
         }
 
         private static ITag.INamedTag<Block> mod(String path) {
-            return BlockTags.bind(new ResourceLocation(Main.MOD_ID, path).toString());
+            return BlockTags.bind(new ResourceLocation(BenTenMod.MOD_ID, path).toString());
         }
     }
 
@@ -83,7 +82,7 @@ public class TagsInit {
         }
 
         private static ITag.INamedTag<Item> mod(String path) {
-            return ItemTags.bind(new ResourceLocation(Main.MOD_ID, path).toString());
+            return ItemTags.bind(new ResourceLocation(BenTenMod.MOD_ID, path).toString());
         }
     }
 }

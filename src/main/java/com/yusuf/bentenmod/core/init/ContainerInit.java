@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
 
-import com.yusuf.bentenmod.core.machine.alientable.AlienTableContainer;
 import com.yusuf.bentenmod.core.machine.bententable.TableContainer;
 import com.yusuf.bentenmod.gui.FilterContainer;
 import com.yusuf.bentenmod.gui.SBContainer;
@@ -11,7 +10,7 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.yusuf.bentenmod.Main.MOD_ID;
+import static com.yusuf.bentenmod.BenTenMod.MOD_ID;
 
 public class ContainerInit {
     public static final DeferredRegister<ContainerType<?>>CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, MOD_ID);
