@@ -47,29 +47,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
 	private void createFurnace(RegistryObject<TableBlock> tableBlock, ISupplier orientableOnlyTop) {
-		
-	}
-
-/*
-    public static final class BlockModels extends BlockModelProvider {
-        public final Consumer<IFinishedBlockState> blockStateOutput;
-        public final BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput;
-        public BlockModels(Consumer<IFinishedBlockState> p_i232514_1_, BiConsumer<ResourceLocation, Supplier<JsonElement>> p_i232514_2_, Consumer<net.minecraft.item.Item> p_i232514_3_) {
-            super(p_i232514_1_, p_i232514_2_, p_i232514_3_);
-
-            blockStateOutput = p_i232514_1_;
-            modelOutput = p_i232514_2_;
-        }
-
-
-
-
- */
-
-
-
-
-
+    }
 }
 
 
