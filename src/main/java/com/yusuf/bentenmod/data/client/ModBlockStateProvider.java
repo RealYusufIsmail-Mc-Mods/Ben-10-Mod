@@ -4,9 +4,16 @@ package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
+
+import net.minecraft.block.Block;
 import net.minecraft.data.*;
+import net.minecraft.data.TexturedModel.ISupplier;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.RegistryObject;
 
 import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createFurnace;
 
@@ -38,6 +45,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
             createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
 
     }
+
+	private void createFurnace(RegistryObject<TableBlock> tableBlock, ISupplier orientableOnlyTop) {
+		
+	}
 
 /*
     public static final class BlockModels extends BlockModelProvider {
