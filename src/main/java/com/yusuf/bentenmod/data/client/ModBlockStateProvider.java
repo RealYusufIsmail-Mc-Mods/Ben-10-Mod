@@ -16,6 +16,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 
 import static net.yusuf.realyusufismailcore.data.client.ModelProvider.BlockModels.createFurnace;
+import static com.yusuf.bentenmod.core.init.BlockInit.*;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -26,28 +27,27 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-            simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
-            simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
-            axisBlock(BlockInit.INFINITUM_ORE.get(), modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
-            simpleBlock(BlockInit.INFINITUM_BLOCK.get());
-            simpleBlock(BlockInit.FIRE_BLOCK.get());
-            simpleBlock(BlockInit.FIRE_ORE.get());
-            simpleBlock(BlockInit.LEGENDARY_BLOCK.get());
-            simpleBlock(BlockInit.LEGENDARY_ORE_BLOCK.get());
-            simpleBlock(BlockInit.OMNITRIX_BLOCK.get());
-            simpleBlock(BlockInit.OMNITRIX_ORE.get());
-            simpleBlock(BlockInit.RUBY_BLOCK.get());
-            simpleBlock(BlockInit.RUBY_ORE.get());
-            simpleBlock(BlockInit.SPEED_BLOCK.get());
-            simpleBlock(BlockInit.SPEED_ORE.get());
-            simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
-            simpleBlock(BlockInit.IMPERIUM_ORE.get());
-            createFurnace(BlockInit.TABLE_BLOCK, TexturedModel.ORIENTABLE_ONLY_TOP);
+            simpleBlock(BLACK_DIAMOND_BLOCK.get());
+            simpleBlock(BLACK_DIAMOND_ORE.get());
+            axisBlock(INFINITUM_ORE.get(), modLoc("block/infinitum_ore_side"), modLoc("block/infinitum_ore_top"));
+            simpleBlock(INFINITUM_BLOCK.get());
+            simpleBlock(FIRE_BLOCK.get());
+            simpleBlock(FIRE_ORE.get());
+            simpleBlock(LEGENDARY_BLOCK.get());
+            simpleBlock(LEGENDARY_ORE_BLOCK.get());
+            simpleBlock(OMNITRIX_BLOCK.get());
+            simpleBlock(OMNITRIX_ORE.get());
+            simpleBlock(RUBY_BLOCK.get());
+            simpleBlock(RUBY_ORE.get());
+            simpleBlock(SPEED_BLOCK.get());
+            simpleBlock(SPEED_ORE.get());
+            simpleBlock(IMPERIUM_BLOCK.get());
+            simpleBlock(IMPERIUM_ORE.get());
+            createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
 
     }
 
-	private void createFurnace(RegistryObject<TableBlock> tableBlock, ISupplier orientableOnlyTop) {
-    }
+
 }
 
 
