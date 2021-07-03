@@ -36,6 +36,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
         withExistingParent("imperium_block", modLoc("block/imperium_block"));
+        //block("imperium_block");
+
 
 
 
@@ -81,8 +83,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "infinitum_boots");
         builder(itemGenerated, "imperium");
         builder(itemGenerated, "krab_spawn_egg");
-        //TODO make the textures for them.
-        builder(itemGenerated, "ben_ten_backpack");
 
         //tools
         tool(itemhandHeld, "axe");
@@ -111,6 +111,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
         return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
     }
+    public void block(String name) {
+        withExistingParent(name, modLoc("block/" + name));
+    }
+
 }
 
 

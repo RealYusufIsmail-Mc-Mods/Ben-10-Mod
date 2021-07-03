@@ -1,8 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.backpack.Backpack;
-import com.yusuf.bentenmod.backpack.BackpackItem;
 import com.yusuf.bentenmod.common.events.*;
 import com.yusuf.bentenmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmod.common.material.CustomToolMaterial;
@@ -247,7 +245,6 @@ public class ItemInit {
 	// other items
 
 
-	public static final RegistryObject<Item> BEN_TEN_BACKPACK = ITEMS.register("ben_ten_backpack", () -> new BackpackItem(Backpack.BEN_TEN_BACKPACK));
 
 
 }

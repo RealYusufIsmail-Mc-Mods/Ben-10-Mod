@@ -117,7 +117,6 @@ public class ModLangProvider extends LanguageProvider {
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
         entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
-        item(ItemInit.BEN_TEN_BACKPACK, "Ben 10 BackPack");
     }
 
 
