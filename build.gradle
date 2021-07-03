@@ -98,9 +98,6 @@ repositories {
         url = uri("https://maven.pkg.github.com/realyusufismail/realyusufismail-core")
         credentials gpr_creds
     }
-    maven {
-        url = "https://maven.theillusivec4.top/"
-    }
 
 }
 
@@ -113,8 +110,6 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}")
     compile fg.deobf("net.yusuf:realyusufismailcore:${ryic_version}") {
         exclude module: "forge"
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${cf_version}")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${cf_version}:api")
     }
 
 
