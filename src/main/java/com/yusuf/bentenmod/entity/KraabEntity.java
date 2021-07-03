@@ -91,7 +91,7 @@ public class KraabEntity extends CreatureEntity {
         private static final int MAX_DISTANCE = 100;
         private static final int MAX_TIMER = 40;
 
-        private KraabEntity entity;
+        private final KraabEntity entity;
         private int cooldown, attackTimer;
 
         public ShootGoal(KraabEntity entity) {
