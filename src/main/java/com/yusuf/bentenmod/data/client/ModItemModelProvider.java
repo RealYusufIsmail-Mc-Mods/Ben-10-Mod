@@ -84,6 +84,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "infinitum_boots");
         builder(itemGenerated, "imperium");
         builder(itemGenerated, "copper");
+        builder(itemGenerated, "kraab_spawn_egg");
 
 
         //tools

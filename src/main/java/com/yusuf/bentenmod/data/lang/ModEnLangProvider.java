@@ -36,6 +36,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
         block(BlockInit.ALIEN_TABLE, "Alien Crafting Table");
+        block(BlockInit.COPPER_BLOCK, "Copper Block");
 
 
         //ores
