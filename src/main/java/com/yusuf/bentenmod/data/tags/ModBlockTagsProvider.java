@@ -42,7 +42,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCK).add(BlockInit.LEGENDARY_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCK);
 
-
+        tag(TagsInit.Blocks.ORES_COPPER).add(BlockInit.COPPER_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_COPPER);
 
         tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
@@ -67,6 +68,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND);
+
+        tag(TagsInit.Blocks.STORAGE_COPPER).add(BlockInit.COPPER_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_COPPER);
 
     }
 }

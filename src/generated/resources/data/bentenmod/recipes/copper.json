@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bentenmod:copper_block"
+    }
+  ],
+  "result": {
+    "item": "bentenmod:copper",
+    "count": 9
+  }
+}

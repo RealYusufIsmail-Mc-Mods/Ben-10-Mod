@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "bentenmod:copper_ore",
+    "bentenmod:copper"
+  ]
+}

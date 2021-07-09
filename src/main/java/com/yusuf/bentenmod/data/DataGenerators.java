@@ -3,7 +3,7 @@ package com.yusuf.bentenmod.data;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.data.client.ModBlockStateProvider;
 import com.yusuf.bentenmod.data.client.ModItemModelProvider;
-import com.yusuf.bentenmod.data.lang.ModLangProvider;
+import com.yusuf.bentenmod.data.lang.ModEnLangProvider;
 import com.yusuf.bentenmod.data.loot.ModLootTables;
 import com.yusuf.bentenmod.data.recipe.ModRecipeProvider;
 import com.yusuf.bentenmod.data.recipe.ModSmitingRecipeBuild;
@@ -37,7 +37,7 @@ public class DataGenerators {
         gen.addProvider(new ModRecipeProvider(gen));
         gen.addProvider(new ModSmitingRecipeBuild(gen));
         gen.addProvider(new ModLootTables(gen));
-        gen.addProvider(new ModLangProvider(gen));
+        gen.addProvider(new ModEnLangProvider(gen));
 
 
 

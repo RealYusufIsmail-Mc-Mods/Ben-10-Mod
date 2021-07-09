@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.core.init;
 import net.minecraft.item.Food;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+@SuppressWarnings("all")
 public class FoodInit {
     // Omnitrix Apple
     public static final Food OMNITRIX_APPLE = new Food.Builder()

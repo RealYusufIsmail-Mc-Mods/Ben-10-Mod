@@ -31,6 +31,10 @@ public class FeatureInit {
 		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
 				BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 16, 6);
 
+		/* Only for Crabbe at the moment
+		addOre(event, OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+				BlockInit.COPPER_ORE.get().defaultBlockState(), 5, 0, 30, 7);
+		 */
 		addOre(event, OreFeatureConfig.FillerBlockType.NETHERRACK,
 				BlockInit.INFINITUM_ORE.get().defaultBlockState(), 3, 8, 21, 5);
 

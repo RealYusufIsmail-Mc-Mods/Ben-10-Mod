@@ -135,6 +135,20 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
                 .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(ItemInit.COPPER.get(), 9)
+
+                .requires(BlockInit.COPPER_BLOCK.get())
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_COPPER))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(BlockInit.COPPER_BLOCK.get())
+                .define('#',TagsInit.Items.INGOTS_COPPER)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_COPPER))
+                .save(consumer);
         
 
         //ingots
@@ -424,6 +438,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_blasting_smelt"));
 
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.COPPER_ORE.get()), ItemInit.COPPER.get(), 0.6f, 500)
+                .unlockedBy("has_item", has(BlockInit.COPPER_ORE.get()))
+                .save(consumer, modId("copper_ore_smelt"));
+
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.COPPER_ORE.get()), ItemInit.COPPER.get(), 0.2938392f, 500)
+                .unlockedBy("has_item", has(BlockInit.COPPER_ORE.get()))
+                .save(consumer, modId("copper_ore_blasting_smelt"));
+
         CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.FIRE_ORE.get()), ItemInit.FIRE.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(BlockInit.FIRE_ORE.get()))
                 .save(consumer, modId("fire_ore_smelt"));
@@ -562,14 +584,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("jacket_blasting_smelt"));
 
         //food
-        CookingRecipeBuilder.blasting(Ingredient.of(ItemInit.RAW_CRAB.get()), ItemInit.COOKED_CRAB.get(), 0.4f, 300)
-                .unlockedBy("has_item",has(TagsInit.Items.RAW_CRAB))
-                .save(consumer, modId("cooked_crab_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(ItemInit.RAW_CRAB.get()), ItemInit.COOKED_CRAB.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.RAW_CRAB))
-                .save(consumer, modId("cooked_crab_smelt"));
-        //CUSTOM RECIPE
         TableRecipeBuilder.build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
                 .unlockedBy("has_item", has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
                 .save(consumer, modId("imperium_pickaxe_upgraded"));

@@ -25,6 +25,7 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(BlockInit.OMNITRIX_ORE.get());
         dropSelf(BlockInit.FIRE_ORE.get());
         dropSelf(BlockInit.SPEED_ORE.get());
+        dropSelf(BlockInit.COPPER_ORE.get());
 
 
 
@@ -40,6 +41,7 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(BlockInit.IMPERIUM_BLOCK.get());
         dropSelf(BlockInit.TABLE_BLOCK.get());
         dropSelf(BlockInit.ALIEN_TABLE.get());
+        dropSelf(BlockInit.COPPER_BLOCK.get());
 
 
     }

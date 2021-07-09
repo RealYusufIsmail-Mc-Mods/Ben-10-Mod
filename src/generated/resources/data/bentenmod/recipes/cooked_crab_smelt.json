@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "bentenmod:raw_crab"
-  },
-  "result": "bentenmod:cooked_crab",
-  "experience": 0.6,
-  "cookingtime": 300
-}

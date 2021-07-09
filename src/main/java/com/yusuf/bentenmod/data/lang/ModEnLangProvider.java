@@ -17,9 +17,9 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 
-public class ModLangProvider extends LanguageProvider {
+public class ModEnLangProvider extends LanguageProvider {
 
-    public ModLangProvider(DataGenerator gen) {
+    public ModEnLangProvider(DataGenerator gen) {
         super(gen, BenTenMod.MOD_ID, "en_us");
     }
 
@@ -36,6 +36,8 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
         block(BlockInit.ALIEN_TABLE, "Alien Crafting Table");
+
+
         //ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");
         block(BlockInit.LEGENDARY_ORE_BLOCK, "Legendary Ore");
@@ -45,6 +47,7 @@ public class ModLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
+        block(BlockInit.COPPER_ORE, "Copper Ore");
 
         //ingots
         item(ItemInit.LEGENDARY_ORE, "Legendary");
@@ -57,6 +60,7 @@ public class ModLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM, "Infinitum");
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
+        item(ItemInit.COPPER, "Copper");
 
         //tools
         item(ItemInit.SWORD, "ASCALON");

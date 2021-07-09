@@ -45,6 +45,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> INFINITUM_SCRAP = ITEMS.register("infinitum_scrap",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
+	public static final RegistryObject<Item> COPPER = ITEMS.register("copper",
+			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
 	// tools
 	public static final RegistryObject<SwordItem> SWORD = ITEMS.register("sword",
 			() -> new SwordItem(CustomToolMaterial.SWORD, 0, 7f,
@@ -224,12 +227,6 @@ public class ItemInit {
 					new Item.Properties().tab(MainItemGroup.MAIN)));
 	// Food
 	public static final RegistryObject<Item> OMNITRIX_APPLE = ITEMS.register("omnitrix_apple",
-			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
-
-	public static final RegistryObject<Item> RAW_CRAB = ITEMS.register("raw_crab",
-			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
-
-	public static final RegistryObject<Item> COOKED_CRAB = ITEMS.register("cooked_crab",
 			() -> new Item(new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.OMNITRIX_APPLE)));
 
 	public static final RegistryObject<Item> ENCHANTED_OMNITRIX_APPLE = ITEMS.register("enchanted_omnitrix_apple",

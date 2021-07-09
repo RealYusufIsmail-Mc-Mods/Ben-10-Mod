@@ -23,6 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.ORES_SPEED, TagsInit.Items.ORES_SPEED);
         copy(TagsInit.Blocks.ORES_OMNITRIX, TagsInit.Items.ORES_OMNITRIX);
         copy(TagsInit.Blocks.ORES_IMPERIUM, TagsInit.Items.ORES_IMPERIUM);
+        copy(TagsInit.Blocks.ORES_COPPER, TagsInit.Items.ORES_COPPER);
 
        //blocks
         copy(TagsInit.Blocks.STORAGE_LEGENDARY, TagsInit.Items.STORAGE_LEGENDARY);
@@ -31,6 +32,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.STORAGE_FIRE, TagsInit.Items.STORAGE_FIRE);
         copy(TagsInit.Blocks.STORAGE_SPEED, TagsInit.Items.STORAGE_SPEED);
         copy(TagsInit.Blocks.STORAGE_BLACK_DIAMOND, TagsInit.Items.STORAGE_BLACK_DIAMOND);
+        copy(TagsInit.Blocks.STORAGE_COPPER, TagsInit.Items.STORAGE_COPPER);
 
 
         //ingots
@@ -44,12 +46,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
         tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
         tag(TagsInit.Items.INGOTS_IMPERIUM).add(ItemInit.IMPERIUM.get());
+        tag(TagsInit.Items.ORES_COPPER).add(ItemInit.COPPER.get());
 
         //tools
         tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(ItemInit.IMPERIUM_PICKAXE.get());
 
         //foods
-        tag(TagsInit.Items.RAW_CRAB).add(ItemInit.RAW_CRAB.get());
 
 
 

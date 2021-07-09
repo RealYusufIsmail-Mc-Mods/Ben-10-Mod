@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "bentenmod:raw_crab"
-  },
-  "result": "bentenmod:cooked_crab",
-  "experience": 0.4,
-  "cookingtime": 300
-}
