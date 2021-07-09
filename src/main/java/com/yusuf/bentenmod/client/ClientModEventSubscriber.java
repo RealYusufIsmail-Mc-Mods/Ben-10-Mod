@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.client;
 
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.client.renderer.KraabRenderer;
 import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.client.settings.KeyBinding;
@@ -22,5 +23,6 @@ public class ClientModEventSubscriber {
 				"key.categories." + BenTenMod.MOD_ID);
 		ClientRegistry.registerKeyBinding(Keybindings.RELOAD);
 		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.KRAAB_ENTITY.get(), KraabRenderer::new);
 	}
 }
