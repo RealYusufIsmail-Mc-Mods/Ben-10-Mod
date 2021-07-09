@@ -27,9 +27,9 @@ public final PlayerAbilities abilities = new PlayerAbilities();
 	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
 		
 		ItemStack boots = player.getItemBySlot(EquipmentSlotType.FEET);
-		ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
+		ItemStack legs =  player.getItemBySlot(EquipmentSlotType.LEGS);
 		ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
-		ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
+		ItemStack head =  player.getItemBySlot(EquipmentSlotType.HEAD);
 		
 		if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
 			player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 3, false, false, true));
