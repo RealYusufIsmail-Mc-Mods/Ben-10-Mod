@@ -1,4 +1,3 @@
-
 package com.yusuf.bentenmod.data.client;
 
 
@@ -15,7 +14,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
     }
-
 
 
     @Override
@@ -36,8 +34,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
         withExistingParent("imperium_block", modLoc("block/imperium_block"));
-
-
 
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
@@ -108,8 +104,9 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
+
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
-        return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
+        return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
     }
 
 }
