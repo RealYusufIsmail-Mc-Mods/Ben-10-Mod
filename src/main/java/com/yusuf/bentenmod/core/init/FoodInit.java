@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.core.init;
 import net.minecraft.item.Food;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+
 @SuppressWarnings("all")
 public class FoodInit {
     // Omnitrix Apple
@@ -26,7 +27,7 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.NIGHT_VISION, 2400, 0), 1)
             .effect(new EffectInstance(Effects.SLOW_FALLING, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
-    
+
     // Ruby Apple
     public static final Food RUBY_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 900000, 0), 1)
@@ -39,10 +40,10 @@ public class FoodInit {
 
     //Fire APPLE
     public static final Food FIRE_APPLE = new Food.Builder()
-        .effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
-        .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
-        .nutrition(4).saturationMod(1.2f).alwaysEat().build();
-    		 
+            .effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
+            .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
+            .nutrition(4).saturationMod(1.2f).alwaysEat().build();
+
     //raw crab
     public static final Food RAW_CRAB = new Food.Builder()
             .nutrition(2).saturationMod(0.4F)
@@ -54,5 +55,5 @@ public class FoodInit {
             .nutrition(6).saturationMod(0.8F)
             .build();
 
-    				 
+
 }
