@@ -37,8 +37,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
             simpleBlock(SPEED_ORE.get());
             simpleBlock(IMPERIUM_BLOCK.get());
             simpleBlock(IMPERIUM_ORE.get());
-            simpleBlock(COPPER_ORE.get());
-            simpleBlock(COPPER_BLOCK.get());
             //createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
 
     }

@@ -36,7 +36,6 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
         block(BlockInit.ALIEN_TABLE, "Alien Crafting Table");
-        block(BlockInit.COPPER_BLOCK, "Copper Block");
 
 
         //ores
@@ -48,7 +47,6 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
-        block(BlockInit.COPPER_ORE, "Copper Ore");
 
         //ingots
         item(ItemInit.LEGENDARY_ORE, "Legendary");
@@ -61,7 +59,6 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM, "Infinitum");
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
-        item(ItemInit.COPPER, "Copper");
 
         //tools
         item(ItemInit.SWORD, "ASCALON");

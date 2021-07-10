@@ -1,7 +1,5 @@
 28f945164ae0fe073098ed25f16146b4117e50cb assets/bentenmod/blockstates/black_diamond_block.json
 7dcab265dabca9b9e8db0181044c9466da16cb94 assets/bentenmod/blockstates/black_diamond_ore.json
-1c65da0d964c84914bc645cf5dd8c48eab16ca11 assets/bentenmod/blockstates/copper_block.json
-72b4193cc08fce6ab16dd37f8977dec8b69f2665 assets/bentenmod/blockstates/copper_ore.json
 34af601a357a9c16cf9149ae4088abe54310c26f assets/bentenmod/blockstates/fire_block.json
 8db2d1c775a6aec333ad4a8a938117a45c27ff43 assets/bentenmod/blockstates/fire_ore.json
 43061edc9e9480a2e27b46686791c7bff05f2380 assets/bentenmod/blockstates/imperium_block.json
@@ -16,11 +14,9 @@ e9ba08e17265bff71d543565dfca2ef9bb78c889 assets/bentenmod/blockstates/omnitrix_b
 0844c900f31e31718413fd6553062691eb7664a3 assets/bentenmod/blockstates/ruby_ore.json
 8c62f8e2aa3aa39376be6f3dc8297ee5c21921bd assets/bentenmod/blockstates/speed_block.json
 9c3ccb9bb5d4394992aa6ced5f06ae492a80cdb3 assets/bentenmod/blockstates/speed_ore.json
-efcfa778cab67c23fc44f6113976f54168127d17 assets/bentenmod/lang/en_us.json
+90cea180a51f64e3b164599b990dbc2295f7635e assets/bentenmod/lang/en_us.json
 52434ffc64a5903014317886248f979720995f6c assets/bentenmod/models/block/black_diamond_block.json
 cf97a4db015a83326fe9172cb3c8594378e5a327 assets/bentenmod/models/block/black_diamond_ore.json
-e28fd0e634b67fcb1425b9c3fe205b7a73f09ed4 assets/bentenmod/models/block/copper_block.json
-f36d7a275807ef16f140c876f7298bd1bc04a8bd assets/bentenmod/models/block/copper_ore.json
 66ee323b4d7fe9cacf9111c3599aefe9bf5cfb21 assets/bentenmod/models/block/fire_block.json
 a552f63a9527aaf80e0b4a39fd11d0717670f424 assets/bentenmod/models/block/fire_ore.json
 baf49ef6d1db01b5ab1b7228fdf185b19863b6ea assets/bentenmod/models/block/imperium_block.json
@@ -53,8 +49,6 @@ db9d7d480c553af91b7859a1cbe55bbc332219a9 assets/bentenmod/models/item/black_diam
 6f9c9504c6e93dd5aab2c5b441205e1ba06b14fc assets/bentenmod/models/item/boot.json
 fcd91fcf316a02751a3f24103953ced697221f1e assets/bentenmod/models/item/chestplate.json
 a837f7f616ec5a3d076cc794397ea26a7aea23a3 assets/bentenmod/models/item/copper.json
-2d2285efe10a585ba6e14392c9d38edc7609dffe assets/bentenmod/models/item/copper_block.json
-1e4e640e05f8bdc091008d624c3bd6f43b734206 assets/bentenmod/models/item/copper_ore.json
 f1c8568ba371ee44a3decd6601aa80cba2a9b037 assets/bentenmod/models/item/enchanted_omnitrix_apple.json
 9d035bf100bb4695c718a3a33acb3fd5ecdc5af2 assets/bentenmod/models/item/fire.json
 0dda72f56ae2fab6b8fa30dbe4bfb2529042f262 assets/bentenmod/models/item/fire_apple.json
@@ -133,10 +127,6 @@ f75efa19a5497d87c775d9adcf8ba656ba3d2647 data/bentenmod/advancements/recipes/mai
 7ec3de0a54ce90ee7c40ad43377000c8cf91b5b2 data/bentenmod/advancements/recipes/main/boots_blasting_smelt.json
 0a2fe5c7fa82b1b912e880f1d80ee06c238a3cb5 data/bentenmod/advancements/recipes/main/chestplate.json
 55db75d71e749202d376ad050d4640b0efd05d86 data/bentenmod/advancements/recipes/main/chestplate_blasting_smelt.json
-a5b8ad367027a2a0508dd906ddb1b3db6b651389 data/bentenmod/advancements/recipes/main/copper.json
-20e3dff7bc99464e145e2a3c60f9906987a4f390 data/bentenmod/advancements/recipes/main/copper_block.json
-05d164e7a96b6a091f17c8d9d3ca1d2e02b83afd data/bentenmod/advancements/recipes/main/copper_ore_blasting_smelt.json
-3579c07a06e012d03bcbcd5deba2c66079dd633a data/bentenmod/advancements/recipes/main/copper_ore_smelt.json
 1efa18bd4a6eb9662e54668d10f84bb44608f57a data/bentenmod/advancements/recipes/main/enchanted_omnitrix_apple.json
 07b098cafb07b2b0fa94cd7048faacdeaeabc436 data/bentenmod/advancements/recipes/main/fire.json
 e3cc16a16e515bc6680b1caaf48050db32f21043 data/bentenmod/advancements/recipes/main/fire_apple.json
@@ -213,8 +203,6 @@ ea60bf6b2a7f48a6f4fa596b1c0fc4a7b627aa15 data/bentenmod/advancements/recipes/mai
 b2de317d2080e051e6a5274400412d80fceae713 data/bentenmod/loot_tables/blocks/alien_table.json
 1f00672035f9035a6b2f0fa202be7eaf22003c03 data/bentenmod/loot_tables/blocks/black_diamond_block.json
 fd97f53ca7ea9eb1944981075100391d96f28cdd data/bentenmod/loot_tables/blocks/black_diamond_ore.json
-dae8e59984180061e45fc71061c725773f734771 data/bentenmod/loot_tables/blocks/copper_block.json
-69cd980d2c41327395bc18bd91ce68c49d928eae data/bentenmod/loot_tables/blocks/copper_ore.json
 5bb5ed7bd1530fea36081ab601856c8e1c21b3f5 data/bentenmod/loot_tables/blocks/fire_block.json
 b70fcfae6ad3776d38c105afa7fce198a6fc979e data/bentenmod/loot_tables/blocks/fire_ore.json
 970a2f6090e79ea82de92155658a3117ce0af1ea data/bentenmod/loot_tables/blocks/imperium_block.json
@@ -230,7 +218,7 @@ bc59d9a1497d008e71c55ca012c84dcbc05525ed data/bentenmod/loot_tables/blocks/legen
 d64747757f03fa8eeb4327d35d70dd8409bebe2e data/bentenmod/loot_tables/blocks/speed_block.json
 a7dcbe2db8cdbde9c5e8f4025feb302a73a4ec4e data/bentenmod/loot_tables/blocks/speed_ore.json
 ecdda61c5bcb55e82400bd432a86330c28efe537 data/bentenmod/loot_tables/blocks/table_block.json
-8151ea60c1413fe0301587404ce1e91f93da99a6 data/bentenmod/loot_tables/entities/kraab.json
+f4bcd79d3c9f93821771df5d0a59a22bdd943990 data/bentenmod/loot_tables/entities/kraab.json
 bcfba572de39d13bb74990056f9030b6702ed423 data/bentenmod/loot_tables/entities/vilgax.json
 7bd7923082d3285ee5dd80cd04f4ed4ecd11e737 data/bentenmod/recipes/axe.json
 6af0ad899bd49f3369b9c95be6c210fce6c728af data/bentenmod/recipes/black_diamond.json
@@ -255,10 +243,6 @@ a2d704738d8effb23e0433653e2acfe58afd1a9e data/bentenmod/recipes/boot.json
 d6a0f3a9927054797dc4d019b9e389d300847efe data/bentenmod/recipes/boots_blasting_smelt.json
 2745a7a9e3d285d509c6427e484e0017c08552ce data/bentenmod/recipes/chestplate.json
 e095ec20b9f24219ee8a03fc377a0ed7cc66048e data/bentenmod/recipes/chestplate_blasting_smelt.json
-1c5d69e831bf82e103632b36eee8339f8f725c79 data/bentenmod/recipes/copper.json
-e3882d5f145662775700f31eafaa87ebcb7a3771 data/bentenmod/recipes/copper_block.json
-2a10d3294a6c09f833bac68081b0ef79b958f629 data/bentenmod/recipes/copper_ore_blasting_smelt.json
-43470e50f59598fc0522f606f49c82f34089291c data/bentenmod/recipes/copper_ore_smelt.json
 94f09491e2eff25c5c9cc39ede8ea5b2944adb5c data/bentenmod/recipes/enchanted_golden_apple.json
 61cd746855436b421fdf297897d09de0b3d8ccb3 data/bentenmod/recipes/enchanted_omnitrix_apple.json
 ce04d45f64d6b29b88b796f72f4f8f05958450ab data/bentenmod/recipes/fire.json
@@ -334,9 +318,8 @@ d60c29fd93215fc3942a006d13d4a640df3dda8b data/bentenmod/recipes/xlr8_chestplate_
 382ed97cbd5a86e09eb0d660add0ad00f243b534 data/bentenmod/recipes/xlr8_helmet_blasting_smelt.json
 c364aac56260a545979fc9b36a3cafd7cb1d5090 data/bentenmod/recipes/xlr8_leggings.json
 13f618d266993f717990f91a9b7905a64bc9ecef data/bentenmod/recipes/xlr8_leggings_blasting_smelt.json
-c745912a44e536d957d8eb96e28d391542f055ec data/forge/tags/blocks/ores.json
+c33cf653f7954b8f7732d2a1d0a9deccb8d5e628 data/forge/tags/blocks/ores.json
 145b47044b9117c61965595fe71fcc1064aabbae data/forge/tags/blocks/ores/black_diamond.json
-c8595dcd04d3e4269ff2489de74203448d3b0ca9 data/forge/tags/blocks/ores/copper.json
 336afe75fe5ae012cc5f38af4eab82f7b34cf249 data/forge/tags/blocks/ores/fire.json
 3be6c893dd118b7c7ec45362fc142e1938ab74e0 data/forge/tags/blocks/ores/imperium.json
 53d50c7660fe2601860b06b1b180d905251b29f3 data/forge/tags/blocks/ores/infinitum.json
@@ -345,7 +328,6 @@ f0eab30614bf19bb8611769365f56151325e321e data/forge/tags/blocks/ores/legendary_o
 7dcfe19eaa3060e0f2d2abb3ae3fffd65e4f7d75 data/forge/tags/blocks/ores/ruby.json
 eb98f8d6e8aa90720f30b2374fd09f17107dfde8 data/forge/tags/blocks/ores/speed.json
 c22565874e5e2d42a3707ede9893b98786e194a0 data/forge/tags/blocks/storage_blocks/black_diamond.json
-c8595dcd04d3e4269ff2489de74203448d3b0ca9 data/forge/tags/blocks/storage_blocks/copper.json
 5c924db7a234ecfc6eaf3944de972343fa525738 data/forge/tags/blocks/storage_blocks/fire.json
 0332f48f93faa2e04f6aaaa0eef15a7c808ec641 data/forge/tags/blocks/storage_blocks/infinitum.json
 f0eab30614bf19bb8611769365f56151325e321e data/forge/tags/blocks/storage_blocks/legendary.json
@@ -360,7 +342,6 @@ edaab7c9de843ae20ed4288bd9fc4eddf0a99cdc data/forge/tags/items/ingots/imperium.j
 87c63dfa2b7ccf526ebe19f97af14b0409d496ac data/forge/tags/items/ingots/ruby.json
 19eb348117c62a4b250860528e3008ac0b105eb2 data/forge/tags/items/ingots/speed.json
 145b47044b9117c61965595fe71fcc1064aabbae data/forge/tags/items/ores/black_diamond.json
-a174b8685645ca5f2766ab74dc820a6a11b5d321 data/forge/tags/items/ores/copper.json
 336afe75fe5ae012cc5f38af4eab82f7b34cf249 data/forge/tags/items/ores/fire.json
 3be6c893dd118b7c7ec45362fc142e1938ab74e0 data/forge/tags/items/ores/imperium.json
 53d50c7660fe2601860b06b1b180d905251b29f3 data/forge/tags/items/ores/infinitum.json
@@ -370,7 +351,6 @@ eb98f8d6e8aa90720f30b2374fd09f17107dfde8 data/forge/tags/items/ores/speed.json
 c0c70d4f8584206ab1878f955b2cb4aefd569b26 data/forge/tags/items/scraps/black_diamond_scrap.json
 3d29ba5a62a4e3349b00fd6aeace13fe90602f29 data/forge/tags/items/scraps/infinitum_scrap.json
 c22565874e5e2d42a3707ede9893b98786e194a0 data/forge/tags/items/storage_blocks/black_diamond.json
-c8595dcd04d3e4269ff2489de74203448d3b0ca9 data/forge/tags/items/storage_blocks/copper.json
 5c924db7a234ecfc6eaf3944de972343fa525738 data/forge/tags/items/storage_blocks/fire.json
 0332f48f93faa2e04f6aaaa0eef15a7c808ec641 data/forge/tags/items/storage_blocks/infinitum.json
 f0eab30614bf19bb8611769365f56151325e321e data/forge/tags/items/storage_blocks/legendary.json

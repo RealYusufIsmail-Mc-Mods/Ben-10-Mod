@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "bentenmod:copper_ore"
-  },
-  "result": "bentenmod:copper",
-  "experience": 0.6,
-  "cookingtime": 500
-}

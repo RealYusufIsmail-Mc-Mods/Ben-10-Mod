@@ -20,7 +20,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Block> ORES_OMNITRIX = BlockTags.bind("forge:ores/omnitrix");
         public static final ITag.INamedTag<Block> ORES_IMPERIUM = BlockTags.bind("forge:ores/imperium");
         public static final ITag.INamedTag<Block> ORES_LEGENDARY_ORE_BLOCK = BlockTags.bind("forge:ores/legendary_ore_block");
-        public static final ITag.INamedTag<Block> ORES_COPPER = BlockTags.bind("forge:ores/copper");
 
         //blocks
         public static final ITag.INamedTag<Block> STORAGE_LEGENDARY = BlockTags.bind("forge:storage_blocks/legendary");
@@ -29,7 +28,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Block> STORAGE_FIRE = BlockTags.bind("forge:storage_blocks/fire");
         public static final ITag.INamedTag<Block> STORAGE_SPEED = BlockTags.bind("forge:storage_blocks/speed");
         public static final ITag.INamedTag<Block> STORAGE_BLACK_DIAMOND = BlockTags.bind("forge:storage_blocks/black_diamond");
-        public static final ITag.INamedTag<Block> STORAGE_COPPER = BlockTags.bind("forge:storage_blocks/copper");
 
 
         private static ITag.INamedTag<Block> forge(String path) {
@@ -50,7 +48,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_SPEED = ItemTags.bind("forge:ores/speed");
         public static final ITag.INamedTag<Item> ORES_OMNITRIX = ItemTags.bind("forge:ores/omnitrix");
         public static final ITag.INamedTag<Item> ORES_IMPERIUM = ItemTags.bind("forge:ores/imperium");
-        public static final ITag.INamedTag<Item> ORES_COPPER = ItemTags.bind("forge:ores/copper");
 
 
        //blocks
@@ -62,8 +59,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> STORAGE_FIRE = ItemTags.bind("forge:storage_blocks/fire");
         public static final ITag.INamedTag<Item> STORAGE_SPEED = ItemTags.bind("forge:storage_blocks/speed");
         public static final ITag.INamedTag<Item> STORAGE_BLACK_DIAMOND = ItemTags.bind("forge:storage_blocks/black_diamond");
-        public static final ITag.INamedTag<Item> STORAGE_COPPER = ItemTags.bind("forge:storage_blocks/copper");
-
         //items
         public static final ITag.INamedTag<Item> INGOTS_LEGENDARY_ORE = ItemTags.bind("forge:ingots/legendary_ore");
         public static final ITag.INamedTag<Item> INGOTS_OMNITRIX = ItemTags.bind("forge:ingots/omnitrix");
@@ -75,8 +70,6 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = ItemTags.bind("forge:ingots/infinitum");
         public static final ITag.INamedTag<Item> SCRAP_INFINITUM_SCRAP = ItemTags.bind("forge:scraps/infinitum_scrap");
         public static final ITag.INamedTag<Item> INGOTS_IMPERIUM = ItemTags.bind("forge:ingots/imperium");
-        public static final ITag.INamedTag<Item> INGOTS_COPPER = ItemTags.bind("forge:ingots/copper");
-
 
         //tools
         public static final ITag.INamedTag<Item> TOOLS_IMPERIUM_PICKAXE = ItemTags.bind("forge:tools/imperium_pickaxe");

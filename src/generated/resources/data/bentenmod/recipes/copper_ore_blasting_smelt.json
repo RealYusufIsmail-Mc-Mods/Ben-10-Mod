@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "bentenmod:copper_ore"
-  },
-  "result": "bentenmod:copper",
-  "experience": 0.2938392,
-  "cookingtime": 500
-}

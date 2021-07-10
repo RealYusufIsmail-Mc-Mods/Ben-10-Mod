@@ -36,9 +36,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
         withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
         withExistingParent("imperium_block", modLoc("block/imperium_block"));
-        withExistingParent("copper_block", modLoc("block/copper_block"));
-        withExistingParent("copper_ore", modLoc("block/copper_ore"));
-
 
 
 
@@ -113,9 +110,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
         return getBuilder(name).parent(itemhandHeld).texture("layer0",  "item/" + name);
-    }
-    public void block(String name) {
-        withExistingParent(name, modLoc("block/" + name));
     }
 
 }

@@ -5,6 +5,7 @@ import net.minecraft.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.dispenser.IBlockSource;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.CompoundNBT;
@@ -22,14 +23,14 @@ public class ModSpawnEggItem extends SpawnEggItem {
     private final Lazy<? extends EntityType<?>> entityTypeSupplier;
 
     public ModSpawnEggItem(final NonNullSupplier<? extends EntityType<?>> entityTypeSupplier, final int primaryColour,
-                           final int secondaryColour, final Properties properties) {
+                           final int secondaryColour, final Item.Properties properties) {
         super(null, primaryColour, secondaryColour, properties);
         this.entityTypeSupplier = Lazy.of(entityTypeSupplier::get);
         UNADDED_EGGS.add(this);
     }
 
     public ModSpawnEggItem(final RegistryObject<? extends EntityType<?>> entityTypeSupplier, final int primaryColour,
-                           final int secondaryColour, final Properties properties) {
+                           final int secondaryColour, final Item.Properties properties) {
         super(null, primaryColour, secondaryColour, properties);
         this.entityTypeSupplier = Lazy.of(entityTypeSupplier::get);
         UNADDED_EGGS.add(this);
@@ -59,4 +60,6 @@ public class ModSpawnEggItem extends SpawnEggItem {
         return this.entityTypeSupplier.get();
     }
 }
+
+
 
