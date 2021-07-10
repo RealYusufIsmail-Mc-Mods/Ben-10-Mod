@@ -17,7 +17,6 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 
 
-
 version = "${mod_version}"
 group = 'com.yusuf'
 archivesBaseName = mod_id
@@ -26,9 +25,9 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-  
+
     mappings channel: 'official', version: "${mc_version}"
-    
+
     runs {
         client {
             workingDirectory project.file('run')
@@ -55,13 +54,13 @@ minecraft {
         }
 
         data {
-            workingDirectory project.file('run')       
+            workingDirectory project.file('run')
 
             property 'forge.logging.console.level', 'debug'
             args '--mod', 'bentenmod', '--all',
-            '--existing', file('src/main/resources').toString(),
-            '--existing', file('src/generated/resources').toString(),
-            '--output', file('src/generated/resources/')
+                    '--existing', file('src/main/resources').toString(),
+                    '--existing', file('src/generated/resources').toString(),
+                    '--output', file('src/generated/resources/')
 
 
             mods {
@@ -113,19 +112,18 @@ dependencies {
     }
 
 
-
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "bentenmod",
-            "Specification-Vendor": "Yusuf.I",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"Yusuf.I",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "bentenmod",
+                "Specification-Vendor"    : "Yusuf.I",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "Yusuf.I",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
