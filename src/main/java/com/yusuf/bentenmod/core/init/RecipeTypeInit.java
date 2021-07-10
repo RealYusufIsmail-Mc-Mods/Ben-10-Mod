@@ -1,6 +1,5 @@
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.item.crafting.IRecipeType;
 

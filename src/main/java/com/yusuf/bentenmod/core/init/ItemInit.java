@@ -1,7 +1,10 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.common.events.*;
+import com.yusuf.bentenmod.common.events.HeatblastArmor;
+import com.yusuf.bentenmod.common.events.JacketArmorItem;
+import com.yusuf.bentenmod.common.events.LegendaryArmor;
+import com.yusuf.bentenmod.common.events.Xlr8Armor;
 import com.yusuf.bentenmod.common.material.CustomArmorMaterial;
 import com.yusuf.bentenmod.common.material.CustomToolMaterial;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;

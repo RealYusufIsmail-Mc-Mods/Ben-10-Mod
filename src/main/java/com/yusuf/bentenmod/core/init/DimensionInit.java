@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
-
 import net.minecraft.util.RegistryKey;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;

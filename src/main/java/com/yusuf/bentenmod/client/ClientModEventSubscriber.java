@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.client;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.client.renderer.KraabRenderer;
 import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.entity.KraabBoltEntity;

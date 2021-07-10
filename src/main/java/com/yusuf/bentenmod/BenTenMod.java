@@ -2,7 +2,6 @@ package com.yusuf.bentenmod;
 
 
 import com.yusuf.bentenmod.core.init.*;
-import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;

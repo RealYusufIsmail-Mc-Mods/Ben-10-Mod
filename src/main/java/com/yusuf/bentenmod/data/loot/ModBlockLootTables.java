@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.data.loot;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.data.loot.BlockLootTables;

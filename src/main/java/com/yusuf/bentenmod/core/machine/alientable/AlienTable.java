@@ -1,7 +1,5 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
-import com.yusuf.bentenmod.common.LangKeys;
-import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,8 +9,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
-import net.minecraft.inventory.container.WorkbenchContainer;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IWorldPosCallable;
@@ -22,7 +18,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
-import net.minecraftforge.fml.network.NetworkHooks;
 
 /**
  * @see CraftingTableBlock

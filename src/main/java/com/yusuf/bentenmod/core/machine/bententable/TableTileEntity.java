@@ -1,8 +1,8 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
-import com.yusuf.bentenmod.core.init.TileEntityInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
+import com.yusuf.bentenmod.core.init.TileEntityInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
