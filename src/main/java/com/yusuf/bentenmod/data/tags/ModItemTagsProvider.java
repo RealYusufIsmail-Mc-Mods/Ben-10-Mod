@@ -13,6 +13,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, ExistingFileHelper existingFileHelper) {
         super(dataGenerator, blockTagProvider, BenTenMod.MOD_ID, existingFileHelper);
     }
+
     @Override
     protected void addTags() {
         //ores
@@ -24,7 +25,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.ORES_OMNITRIX, TagsInit.Items.ORES_OMNITRIX);
         copy(TagsInit.Blocks.ORES_IMPERIUM, TagsInit.Items.ORES_IMPERIUM);
 
-       //blocks
+        //blocks
         copy(TagsInit.Blocks.STORAGE_LEGENDARY, TagsInit.Items.STORAGE_LEGENDARY);
         copy(TagsInit.Blocks.STORAGE_OMNITRIX, TagsInit.Items.STORAGE_OMNITRIX);
         copy(TagsInit.Blocks.STORAGE_INFINITUM, TagsInit.Items.STORAGE_INFINITUM);
@@ -49,7 +50,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(ItemInit.IMPERIUM_PICKAXE.get());
 
         //foods
-
 
 
     }

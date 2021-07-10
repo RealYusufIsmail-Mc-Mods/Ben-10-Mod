@@ -11,16 +11,16 @@ import java.awt.event.KeyEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class KeybindsInit {
-	public static KeyBinding openwatchkey;
+    public static KeyBinding openwatchkey;
 
-	public static void register(final FMLClientSetupEvent event) {
+    public static void register(final FMLClientSetupEvent event) {
 
-		openwatchkey = create("openwatch_key", KeyEvent.VK_K);
-		
-		ClientRegistry.registerKeyBinding(openwatchkey);
-	} 
-	
-	private static KeyBinding create(String name, int key) {
-		return new KeyBinding("key." + BenTenMod.MOD_ID + "." + name , key, "key.category." + BenTenMod.MOD_ID);
-	}
+        openwatchkey = create("openwatch_key", KeyEvent.VK_K);
+
+        ClientRegistry.registerKeyBinding(openwatchkey);
+    }
+
+    private static KeyBinding create(String name, int key) {
+        return new KeyBinding("key." + BenTenMod.MOD_ID + "." + name, key, "key.category." + BenTenMod.MOD_ID);
+    }
 }	

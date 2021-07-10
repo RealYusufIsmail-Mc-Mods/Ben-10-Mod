@@ -1,4 +1,3 @@
-
 package com.yusuf.bentenmod.modules.bententable.recipes;
 
 import com.google.gson.JsonElement;
@@ -16,16 +15,25 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class TableRecipe  implements IRecipe<IInventory> {
-    /** Set the input ingredients */
+public class TableRecipe implements IRecipe<IInventory> {
+    /**
+     * Set the input ingredients
+     */
     public final Ingredient input1;
     public final Ingredient input2;
     public final Ingredient input3;
-    /** Set the output ItemStack */
+    /**
+     * Set the output ItemStack
+     */
     public final ItemStack output;
-    /** Set recipe id. THIS IS IMPORTANT */
+    /**
+     * Set recipe id. THIS IS IMPORTANT
+     */
     private final ResourceLocation recipeId;
-    /** put all of final variables to constructor */
+
+    /**
+     * put all of final variables to constructor
+     */
     public TableRecipe(Ingredient input1, Ingredient input2, Ingredient input3, ItemStack output, ResourceLocation recipeId) {
         this.input1 = input1;
         this.input2 = input2;
@@ -85,7 +93,7 @@ public class TableRecipe  implements IRecipe<IInventory> {
     public static final class Type implements IRecipeType<TableRecipe> {
         @Override
         public String toString() {
-            return BenTenMod.MOD_ID + ":table_recipe" ;
+            return BenTenMod.MOD_ID + ":table_recipe";
         }
     }
 
@@ -120,6 +128,7 @@ public class TableRecipe  implements IRecipe<IInventory> {
 
             return new TableRecipe(input1, input2, input3, output, recipeId);
         }
+
         @Override
         public void toNetwork(PacketBuffer buffer, TableRecipe recipe) {
             recipe.input1.toNetwork(buffer);

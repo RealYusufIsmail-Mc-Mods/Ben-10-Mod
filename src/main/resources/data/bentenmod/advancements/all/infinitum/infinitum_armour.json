@@ -36,7 +36,6 @@
           {
             "item": "bentenmod:infinitum_boots"
           }
-
         ],
         "count": {
           "min": 1,
@@ -45,6 +44,5 @@
       }
     }
   },
-
   "parent": "bentenmod:all/infinitum/infitum_ore"
 }

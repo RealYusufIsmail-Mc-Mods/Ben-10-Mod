@@ -5,11 +5,8 @@ import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 
 
 public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomWalkingGoal {
-    private VilgaxEntity vilgax;
-
     protected final float probability;
-
-
+    private VilgaxEntity vilgax;
 
 
     public VilgaxWaterAvoidingRandomWalkingGoal(VilgaxEntity vilgax, double p_i47301_2_) {
@@ -20,8 +17,6 @@ public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomWalkingGoal {
         super(vilgax, p_i47302_2_);
         this.probability = p_i47302_4_;
     }
-
-
 
 
 }

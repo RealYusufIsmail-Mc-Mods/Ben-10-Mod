@@ -28,8 +28,6 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(SPEED_ORE.get());
 
 
-
-
         //blocks
         dropSelf(OMNITRIX_BLOCK.get());
         dropSelf(FIRE_BLOCK.get());
@@ -44,11 +42,12 @@ public class ModBlockLootTables extends BlockLootTables {
 
 
     }
+
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues().stream()
                 .filter(block -> BenTenMod.MOD_ID.equals(block.getRegistryName().getNamespace()))
                 .collect(Collectors.toSet());
     }
-    }
+}
 

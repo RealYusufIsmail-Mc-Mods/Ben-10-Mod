@@ -50,7 +50,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_IMPERIUM = ItemTags.bind("forge:ores/imperium");
 
 
-       //blocks
+        //blocks
 
 
         public static final ITag.INamedTag<Item> STORAGE_LEGENDARY = ItemTags.bind("forge:storage_blocks/legendary");

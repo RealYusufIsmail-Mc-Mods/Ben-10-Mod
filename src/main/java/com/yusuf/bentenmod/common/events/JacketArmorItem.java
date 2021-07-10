@@ -11,17 +11,18 @@ import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class JacketArmorItem extends ArmorItem implements IForgeItem{
+public class JacketArmorItem extends ArmorItem implements IForgeItem {
 
-	public JacketArmorItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
-		super(materialIn, slot, builder);		
-	}
-	@Override
-	public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-			EffectInstance effect = new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
-			if (stack.getItem() == ItemInit.JACKET.get()) {
-				player.addEffect(effect);
-		}
-	}
+    public JacketArmorItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+        super(materialIn, slot, builder);
+    }
+
+    @Override
+    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+        EffectInstance effect = new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
+        if (stack.getItem() == ItemInit.JACKET.get()) {
+            player.addEffect(effect);
+        }
+    }
 }
 

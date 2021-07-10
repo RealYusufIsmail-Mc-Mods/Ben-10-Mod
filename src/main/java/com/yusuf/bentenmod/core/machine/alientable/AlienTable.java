@@ -49,7 +49,6 @@ public class AlienTable extends Block {
     }
 
 
-
     @Override
     public INamedContainerProvider getMenuProvider(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedContainerProvider((id, inventory, player) -> {

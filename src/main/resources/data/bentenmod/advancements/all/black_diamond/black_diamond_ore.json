@@ -11,7 +11,7 @@
     },
     "icon": {
       "item": "bentenmod:black_diamond",
-       "nbt": "{Damage:0}"
+      "nbt": "{Damage:0}"
     },
     "frame": "goal",
     "show_toast": true,
@@ -31,8 +31,5 @@
       }
     }
   },
-
-
-
   "parent": "bentenmod:all/black_diamond/black_diamond_scrap"
 }

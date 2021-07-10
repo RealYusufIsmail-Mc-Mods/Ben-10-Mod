@@ -33,7 +33,6 @@
       "recipe": "bentenmod:fourarms_leggings",
       "recipe2": "bentenmod:fourarms_boot"
     },
-
     {
       "type": "smithing",
       "recipe": "bentenmod:black_diamond_helmet",
@@ -44,7 +43,6 @@
       "recipe": "bentenmod:black_diamond_leggings",
       "recipe2": "bentenmod:black_diamond_boots"
     },
-
     {
       "type": "smithing",
       "recipe": "bentenmod:infinitum_helmet",
@@ -55,7 +53,6 @@
       "recipe": "bentenmod:infinitum_leggings",
       "recipe2": "bentenmod:infinitum_boots"
     },
-
     {
       "type": "crafting",
       "recipe": "bentenmod:jacket"

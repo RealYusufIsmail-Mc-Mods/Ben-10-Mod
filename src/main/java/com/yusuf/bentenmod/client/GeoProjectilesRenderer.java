@@ -26,65 +26,65 @@ import java.awt.*;
 import java.util.Collections;
 
 public class GeoProjectilesRenderer<T extends CreatureEntity & IAnimatable> extends EntityRenderer<T>
-		implements IGeoRenderer<T> {
+        implements IGeoRenderer<T> {
 
-	static {
-		AnimationController.addModelFetcher((IAnimatable object) -> {
-			if (object instanceof CreatureEntity) {
-				return (IAnimatableModel<?>) AnimationUtils.getGeoModelForEntity((CreatureEntity) object);
-			}
-			return null;
-		});
-	}
+    static {
+        AnimationController.addModelFetcher((IAnimatable object) -> {
+            if (object instanceof CreatureEntity) {
+                return (IAnimatableModel<?>) AnimationUtils.getGeoModelForEntity((CreatureEntity) object);
+            }
+            return null;
+        });
+    }
 
-	private final AnimatedGeoModel<T> modelProvider;
+    private final AnimatedGeoModel<T> modelProvider;
 
-	protected GeoProjectilesRenderer(EntityRendererManager renderManager, AnimatedGeoModel<T> modelProvider) {
-		super(renderManager);
-		this.modelProvider = modelProvider;
-	}
+    protected GeoProjectilesRenderer(EntityRendererManager renderManager, AnimatedGeoModel<T> modelProvider) {
+        super(renderManager);
+        this.modelProvider = modelProvider;
+    }
 
-	@Override
-	public void render(T entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
-			IRenderTypeBuffer bufferIn, int packedLightIn) {
-		GeoModel model = modelProvider.getModel(modelProvider.getModelLocation(entityIn));
-		matrixStackIn.pushPose();
-		matrixStackIn.mulPose(
-				Vector3f.YP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.yRotO, entityIn.yRot) - 90.0F));
-		matrixStackIn
-				.mulPose(Vector3f.ZP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.xRotO, entityIn.xRot)));
-		Minecraft.getInstance().textureManager.bind(getTextureLocation(entityIn));
-		Color renderColor = getRenderColor(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn);
-		RenderType renderType = getRenderType(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn,
-				getTextureLocation(entityIn));
-		render(model, entityIn, partialTicks, renderType, matrixStackIn, bufferIn, null, packedLightIn,
-				getPackedOverlay(entityIn, 0), (float) renderColor.getRed() / 255f,
-				(float) renderColor.getBlue() / 255f, (float) renderColor.getGreen() / 255f,
-				(float) renderColor.getAlpha() / 255);
+    public static int getPackedOverlay(CreatureEntity livingEntityIn, float uIn) {
+        return OverlayTexture.pack(OverlayTexture.u(uIn), OverlayTexture.v(false));
+    }
 
-		float lastLimbDistance = 0.0F;
-		float limbSwing = 0.0F;
-		EntityModelData entityModelData = new EntityModelData();
-		AnimationEvent<T> predicate = new AnimationEvent<T>(entityIn, limbSwing, lastLimbDistance, partialTicks,
-				!(lastLimbDistance > -0.15F && lastLimbDistance < 0.15F), Collections.singletonList(entityModelData));
-		if (modelProvider instanceof IAnimatableModel) {
-			((IAnimatableModel<T>) modelProvider).setLivingAnimations(entityIn, this.getUniqueID(entityIn), predicate);
-		}
-		matrixStackIn.popPose();
-		super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
-	}
+    @Override
+    public void render(T entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
+                       IRenderTypeBuffer bufferIn, int packedLightIn) {
+        GeoModel model = modelProvider.getModel(modelProvider.getModelLocation(entityIn));
+        matrixStackIn.pushPose();
+        matrixStackIn.mulPose(
+                Vector3f.YP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.yRotO, entityIn.yRot) - 90.0F));
+        matrixStackIn
+                .mulPose(Vector3f.ZP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.xRotO, entityIn.xRot)));
+        Minecraft.getInstance().textureManager.bind(getTextureLocation(entityIn));
+        Color renderColor = getRenderColor(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn);
+        RenderType renderType = getRenderType(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn,
+                getTextureLocation(entityIn));
+        render(model, entityIn, partialTicks, renderType, matrixStackIn, bufferIn, null, packedLightIn,
+                getPackedOverlay(entityIn, 0), (float) renderColor.getRed() / 255f,
+                (float) renderColor.getBlue() / 255f, (float) renderColor.getGreen() / 255f,
+                (float) renderColor.getAlpha() / 255);
 
-	public static int getPackedOverlay(CreatureEntity livingEntityIn, float uIn) {
-		return OverlayTexture.pack(OverlayTexture.u(uIn), OverlayTexture.v(false));
-	}
+        float lastLimbDistance = 0.0F;
+        float limbSwing = 0.0F;
+        EntityModelData entityModelData = new EntityModelData();
+        AnimationEvent<T> predicate = new AnimationEvent<T>(entityIn, limbSwing, lastLimbDistance, partialTicks,
+                !(lastLimbDistance > -0.15F && lastLimbDistance < 0.15F), Collections.singletonList(entityModelData));
+        if (modelProvider instanceof IAnimatableModel) {
+            ((IAnimatableModel<T>) modelProvider).setLivingAnimations(entityIn, this.getUniqueID(entityIn), predicate);
+        }
+        matrixStackIn.popPose();
+        super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
+    }
 
-	@Override
-	public GeoModelProvider<T> getGeoModelProvider() {
-		return this.modelProvider;
-	}
+    @Override
+    public GeoModelProvider<T> getGeoModelProvider() {
+        return this.modelProvider;
+    }
 
-	@Override
-	public ResourceLocation getTextureLocation(T instance) {
-		return this.modelProvider.getTextureLocation(instance);
-	}
+    @Override
+    public ResourceLocation getTextureLocation(T instance) {
+        return this.modelProvider.getTextureLocation(instance);
+    }
 }

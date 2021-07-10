@@ -10,11 +10,11 @@ public class AlienTableContainer extends WorkbenchContainer {
     private final IWorldPosCallable access;
 
 
-
     public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable p_i50090_3_) {
         super(id, playerInventory, p_i50090_3_);
         this.access = p_i50090_3_;
     }
+
     @Override
     public boolean stillValid(PlayerEntity player) {
         return stillValid(this.access, player, BlockInit.ALIEN_TABLE.get());

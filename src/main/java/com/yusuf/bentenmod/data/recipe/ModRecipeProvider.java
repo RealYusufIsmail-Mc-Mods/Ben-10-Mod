@@ -24,6 +24,7 @@ public class ModRecipeProvider extends RecipeProvider {
     private static ResourceLocation modId(String path) {
         return new ResourceLocation(BenTenMod.MOD_ID, path);
     }
+
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         //blocks
@@ -34,7 +35,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(INFINITUM_BLOCK.get())
-                .define('#',TagsInit.Items.INGOTS_INFINITUM)
+                .define('#', TagsInit.Items.INGOTS_INFINITUM)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -48,14 +49,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(BLACK_DIAMOND_BLOCK.get())
-                .define('#',TagsInit.Items.INGOTS_BLACK_DIAMOND)
+                .define('#', TagsInit.Items.INGOTS_BLACK_DIAMOND)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
                 .save(consumer);
         ShapelessRecipeBuilder.shapeless(FIRE.get(), 9)
-    
+
                 .requires(FIRE_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer);
@@ -117,7 +118,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(LEGENDARY_BLOCK.get())
-                .define('#',TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('#', TagsInit.Items.INGOTS_LEGENDARY_ORE)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -131,14 +132,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(IMPERIUM_BLOCK.get())
-                .define('#',TagsInit.Items.INGOTS_IMPERIUM)
+                .define('#', TagsInit.Items.INGOTS_IMPERIUM)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
                 .save(consumer);
 
-        
 
         //ingots
 
@@ -169,7 +169,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("infinitum_scrap"));
 
 
-
         //amour and tools
         ShapedRecipeBuilder.shaped(AXE.get())
                 .define('#', Items.STICK.getItem())
@@ -179,7 +178,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A# ")
                 .pattern(" # ")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer,modId("axe"));
+                .save(consumer, modId("axe"));
 
 /*
         ShapedRecipeBuilder.shaped(HEATBLAST_SWORD.get())
@@ -199,7 +198,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" A ")
                 .pattern(" # ")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
-                .save(consumer,modId("sword"));
+                .save(consumer, modId("sword"));
 
         ShapedRecipeBuilder.shaped(IMPERIUM_SWORD.get())
                 .define('#', Items.STICK.getItem())
@@ -208,7 +207,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" A ")
                 .pattern(" # ")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
-                .save(consumer,modId("imperium_sword"));
+                .save(consumer, modId("imperium_sword"));
 
         ShapedRecipeBuilder.shaped(IMPERIUM_PICKAXE.get())
                 .define('#', Items.STICK.getItem())
@@ -217,8 +216,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern(" # ")
                 .pattern(" # ")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
-                .save(consumer,modId("imperium_pickaxe"));
-
+                .save(consumer, modId("imperium_pickaxe"));
 
 
         ShapedRecipeBuilder.shaped(HELMET.get())
@@ -226,16 +224,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
-                .save(consumer,modId("helmet"));
+                .save(consumer, modId("helmet"));
 
         ShapedRecipeBuilder.shaped(CHESTPLATE.get())
-                .define('#',TagsInit.Items.INGOTS_RUBY)
+                .define('#', TagsInit.Items.INGOTS_RUBY)
                 .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
                 .pattern("A A")
                 .pattern("A#A")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
-                .save(consumer,modId("chestplate"));
+                .save(consumer, modId("chestplate"));
 
         ShapedRecipeBuilder.shaped(LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
@@ -243,15 +241,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
-                .save(consumer,modId("leggings"));
+                .save(consumer, modId("leggings"));
 
         ShapedRecipeBuilder.shaped(BOOT.get())
                 .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
-                .save(consumer,modId("boot"));
-
+                .save(consumer, modId("boot"));
 
 
         ShapedRecipeBuilder.shaped(HEATBLAST_HELMET.get())
@@ -259,16 +256,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
-                .save(consumer,modId("heatblast_helmet"));
+                .save(consumer, modId("heatblast_helmet"));
 
         ShapedRecipeBuilder.shaped(HEATBLAST_CHESTPLATE.get())
-                .define('#',TagsInit.Items.INGOTS_OMNITRIX)
+                .define('#', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
                 .pattern("A#A")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
-                .save(consumer,modId("heatblast_chestplate"));
+                .save(consumer, modId("heatblast_chestplate"));
 
         ShapedRecipeBuilder.shaped(HEATBLAST_LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
@@ -276,14 +273,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
-                .save(consumer,modId("heatblast_leggings"));
+                .save(consumer, modId("heatblast_leggings"));
 
         ShapedRecipeBuilder.shaped(HEATBLAST_BOOT.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
-                .save(consumer,modId("heatblast_boot"));
+                .save(consumer, modId("heatblast_boot"));
 
 
         ShapedRecipeBuilder.shaped(XLR8_HELMET.get())
@@ -291,16 +288,16 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
-                .save(consumer,modId("xlr8_helmet"));
+                .save(consumer, modId("xlr8_helmet"));
 
         ShapedRecipeBuilder.shaped(XLR8_CHESTPLATE.get())
-                .define('#',TagsInit.Items.INGOTS_OMNITRIX)
+                .define('#', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
                 .pattern("A#A")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
-                .save(consumer,modId("xlr8_chestplate"));
+                .save(consumer, modId("xlr8_chestplate"));
 
         ShapedRecipeBuilder.shaped(XLR8_LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
@@ -308,18 +305,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
-                .save(consumer,modId("xlr8_leggings"));
+                .save(consumer, modId("xlr8_leggings"));
 
         ShapedRecipeBuilder.shaped(XLR8_BOOT.get())
-                .define('A',  TagsInit.Items.INGOTS_SPEED)
+                .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
-                .save(consumer,modId("xlr8_boot"));
-
-
-
-
+                .save(consumer, modId("xlr8_boot"));
 
 
         ShapedRecipeBuilder.shaped(JACKET.get())
@@ -328,9 +321,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
-                .save(consumer,modId("jacket"));
-
-
+                .save(consumer, modId("jacket"));
 
 
         //food
@@ -341,7 +332,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ALA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
-                .save(consumer,modId("omnitrix_apple"));
+                .save(consumer, modId("omnitrix_apple"));
 
         ShapedRecipeBuilder.shaped(ENCHANTED_OMNITRIX_APPLE.get())
                 .define('A', OMNITRIX_BLOCK.get())
@@ -350,7 +341,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ALA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
-                .save(consumer,modId("enchanted_omnitrix_apple"));
+                .save(consumer, modId("enchanted_omnitrix_apple"));
 
         ShapedRecipeBuilder.shaped(FIRE_APPLE.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
@@ -358,8 +349,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("AAA")
                 .pattern("ALA")
                 .pattern("AAA")
-                .unlockedBy("has_item", has( TagsInit.Items.INGOTS_FIRE))
-                .save(consumer,modId("fire_apple"));
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
+                .save(consumer, modId("fire_apple"));
 
         ShapedRecipeBuilder.shaped(RUBY_APPLE.get())
                 .define('A', TagsInit.Items.INGOTS_RUBY)
@@ -368,7 +359,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ALA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer,modId("ruby_apple"));
+                .save(consumer, modId("ruby_apple"));
 
 
         ShapedRecipeBuilder.shaped(Items.ENCHANTED_GOLDEN_APPLE.getItem())
@@ -378,7 +369,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ALA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(Items.GOLD_INGOT.getItem()))
-                .save(consumer,modId("enchanted_golden_apple"));
+                .save(consumer, modId("enchanted_golden_apple"));
 
         ShapedRecipeBuilder.shaped(TABLE_BLOCK.get().getBlock())
                 .define('A', TagsInit.Items.INGOTS_OMNITRIX)
@@ -387,7 +378,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("LL ")
                 .pattern("LL ")
                 .unlockedBy("has_item", has(Blocks.COBBLESTONE.getBlock()))
-                .save(consumer,modId("table_block"));
+                .save(consumer, modId("table_block"));
 
         //other items
 /**
@@ -400,11 +391,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("ALA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer,modId("vilgax_spawn_egg"));
-
-
-
-
+                .save(consumer, modId("vilgax_spawn_egg"));
 
 
         //smelting and blasting recipes
@@ -528,7 +515,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
                 .save(consumer, modId("black_diamond_chestplate_blasting_smelt"));
         CookingRecipeBuilder.blasting(Ingredient.of(BLACK_DIAMOND_LEGGINGS.get()), BLACK_DIAMOND.get(), 0.3f, 300)
-                .unlockedBy("has_item",has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
                 .save(consumer, modId("black_diamond_leggings_blasting_smelt"));
         CookingRecipeBuilder.blasting(Ingredient.of(BLACK_DIAMOND_BOOTS.get()), BLACK_DIAMOND.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
@@ -562,7 +549,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("heatblast_boots_blasting_smelt"));
 
         CookingRecipeBuilder.blasting(Ingredient.of(JACKET.get()), OMNITRIX.get(), 0.4f, 300)
-                .unlockedBy("has_item",has(TagsInit.Items.INGOTS_OMNITRIX))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
                 .save(consumer, modId("jacket_blasting_smelt"));
 
         //food
@@ -572,8 +559,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("imperium_pickaxe_upgraded"));
 
 
-
     }
+
     private Ingredient ingredient(IItemProvider entry) {
         return Ingredient.of(entry);
     }

@@ -36,7 +36,6 @@
           {
             "item": "bentenmod:black_diamond_boots"
           }
-
         ],
         "count": {
           "min": 1,
@@ -45,6 +44,5 @@
       }
     }
   },
-
   "parent": "bentenmod:all/black_diamond/black_diamond_ore"
 }

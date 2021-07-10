@@ -19,89 +19,89 @@ public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionB
         super(generatorIn);
     }
 
+    private static ResourceLocation modId(String path) {
+        return new ResourceLocation(BenTenMod.MOD_ID, path);
+    }
+
     @Override
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
         // THIS is where you call `smithing` or other recipe builders..
         // i.e.
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SWORD), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get())
-        .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-        .save(consumer,modId("black_diamond_sword"));
+                .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
+                .save(consumer, modId("black_diamond_sword"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_AXE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_AXE.get())
-                .unlocks("has_item",has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_axe"));
+                .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
+                .save(consumer, modId("black_diamond_axe"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_PICKAXE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_PICKAXE.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_pickaxe"));
+                .save(consumer, modId("black_diamond_pickaxe"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SHOVEL), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SHOVEL.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_shovel"));
+                .save(consumer, modId("black_diamond_shovel"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_HOE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_HOE.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_hoe"));
+                .save(consumer, modId("black_diamond_hoe"));
 
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_HELMET), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_HELMET.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_helmet"));
+                .save(consumer, modId("black_diamond_helmet"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_CHESTPLATE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_CHESTPLATE.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_chestplate"));
+                .save(consumer, modId("black_diamond_chestplate"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_LEGGINGS), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_LEGGINGS.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_leggings"));
+                .save(consumer, modId("black_diamond_leggings"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_BOOTS), Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_BOOTS.get())
-                .unlocks("has_item",has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
-                .save(consumer,modId("black_diamond_boots"));
+                .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
+                .save(consumer, modId("black_diamond_boots"));
 
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SWORD.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SWORD.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_sword"));
+                .save(consumer, modId("infinitum_sword"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_AXE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_AXE.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_axe"));
+                .save(consumer, modId("infinitum_axe"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_PICKAXE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_PICKAXE.get())
-                .unlocks("has_item",has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_pickaxe"));
+                .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
+                .save(consumer, modId("infinitum_pickaxe"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SHOVEL.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SHOVEL.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_shovel"));
+                .save(consumer, modId("infinitum_shovel"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_HOE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_HOE.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_hoe"));
-
+                .save(consumer, modId("infinitum_hoe"));
 
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_HELMET.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_HELMET.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_helmet"));
+                .save(consumer, modId("infinitum_helmet"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_CHESTPLATE.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_CHESTPLATE.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_chestplate"));
+                .save(consumer, modId("infinitum_chestplate"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_LEGGINGS.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_LEGGINGS.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_leggings"));
+                .save(consumer, modId("infinitum_leggings"));
 
         SmithingRecipeBuilder.smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_BOOTS.get()), Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_BOOTS.get())
                 .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
-                .save(consumer,modId("infinitum_boots"));
+                .save(consumer, modId("infinitum_boots"));
 
-    }
-    private static ResourceLocation modId(String path){
-        return new ResourceLocation(BenTenMod.MOD_ID, path);
     }
 
 }

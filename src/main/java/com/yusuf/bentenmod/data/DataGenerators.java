@@ -17,7 +17,8 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
-    private DataGenerators() {}
+    private DataGenerators() {
+    }
 
 
     @SubscribeEvent
@@ -25,9 +26,8 @@ public class DataGenerators {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
-         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
-
+        gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
 
 
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
@@ -38,7 +38,6 @@ public class DataGenerators {
         gen.addProvider(new ModSmitingRecipeBuild(gen));
         gen.addProvider(new ModLootTables(gen));
         gen.addProvider(new ModEnLangProvider(gen));
-
 
 
     }

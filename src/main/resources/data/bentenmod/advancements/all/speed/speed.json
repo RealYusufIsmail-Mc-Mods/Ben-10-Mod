@@ -1,37 +1,34 @@
 {
-    "display": {
-        "title": {
-            "text": "You have mined speed ore and can now becoome XLR8",
-            "color": "aqua",
-            "bold": true,
-            "italic": true
-        },
-        "description": {
-            "text": "you have speed"
-        },
-        "icon": {
-            "item": "bentenmod:speed"
-        },
-        "frame": "goal",
-        "show_toast": true,
-        "announce_to_chat": true,
-        "hidden": false
+  "display": {
+    "title": {
+      "text": "You have mined speed ore and can now becoome XLR8",
+      "color": "aqua",
+      "bold": true,
+      "italic": true
     },
+    "description": {
+      "text": "you have speed"
+    },
+    "icon": {
+      "item": "bentenmod:speed"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
   "criteria": {
-        "minecraft": {
-            "trigger": "minecraft:inventory_changed",
-            "conditions": {
-                "items": [
-                    {
-                        "item": "bentenmod:speed",
-                    "count": 1
- 						            }
-                ]
-            }
-        }
-    },
- 						  
- 						  
- 
-    "parent": "bentenmod:all/root"
+    "minecraft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:speed",
+            "count": 1
+          }
+        ]
+      }
+    }
+  },
+  "parent": "bentenmod:all/root"
 }

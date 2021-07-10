@@ -48,12 +48,12 @@ public class KraabEntity extends CreatureEntity {
         this.entityData.define(SHOOTING, false);
     }
 
-    private void setShooting(boolean b) {
-        entityData.set(SHOOTING, b);
-    }
-
     public boolean isShooting() {
         return entityData.get(SHOOTING);
+    }
+
+    private void setShooting(boolean b) {
+        entityData.set(SHOOTING, b);
     }
 
     @Override

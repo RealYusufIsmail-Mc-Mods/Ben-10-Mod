@@ -91,7 +91,7 @@ public class TableRecipeBuilder {
             json.add("input1", input1.toJson());
             json.add("input2", input2.toJson());
             json.add("input3", input3.toJson());
-            json.addProperty("output", Registry.ITEM.getKey(output).toString() );
+            json.addProperty("output", Registry.ITEM.getKey(output).toString());
         }
 
         @Override

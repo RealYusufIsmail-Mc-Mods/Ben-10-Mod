@@ -12,7 +12,7 @@
     },
     "icon": {
       "item": "bentenmod:black_diamond_sword",
-       "nbt": "{Damage:0}"
+      "nbt": "{Damage:0}"
     },
     "frame": "goal",
     "show_toast": true,
@@ -37,9 +37,8 @@
             "item": "bentenmod:black_diamond_shovel"
           },
           {
-             "item": "bentenmod:black_diamond_hoe"
-           }
-
+            "item": "bentenmod:black_diamond_hoe"
+          }
         ],
         "count": {
           "min": 1,
@@ -48,6 +47,5 @@
       }
     }
   },
-
   "parent": "bentenmod:all/black_diamond/black_diamond_ore"
 }

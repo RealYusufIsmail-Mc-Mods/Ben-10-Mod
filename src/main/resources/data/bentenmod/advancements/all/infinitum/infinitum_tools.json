@@ -39,7 +39,6 @@
           {
             "item": "bentenmod:infinitum_hoe"
           }
-
         ],
         "count": {
           "min": 1,
@@ -48,6 +47,5 @@
       }
     }
   },
-
   "parent": "bentenmod:all/infinitum/infitum_ore"
-  }
+}

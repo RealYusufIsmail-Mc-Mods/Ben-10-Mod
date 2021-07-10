@@ -25,7 +25,7 @@ public class TableScreen extends ContainerScreen<TableContainer> {
         // BenTenMod Screen
         blit(matrix, leftPos, topPos, 0, 0, 176, 179);
 
-        blit(matrix, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1 , 17);
+        blit(matrix, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1, 17);
     }
 
     /**

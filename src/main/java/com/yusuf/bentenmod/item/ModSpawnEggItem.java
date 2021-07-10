@@ -55,6 +55,7 @@ public class ModSpawnEggItem extends SpawnEggItem {
         }
         UNADDED_EGGS.clear();
     }
+
     @Override
     public EntityType<?> getType(CompoundNBT nbt) {
         return this.entityTypeSupplier.get();

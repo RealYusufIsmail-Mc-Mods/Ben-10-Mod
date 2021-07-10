@@ -125,19 +125,22 @@ public class ModEnLangProvider extends LanguageProvider {
     private <T extends Item> void item(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
+
     private <T extends Block> void block(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
+
     private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
         add(entry.get(), name);
     }
+
     private <T extends Entity> void entity1(RegistryObject<EntityType<KraabEntity>> entry, String name) {
         add(entry.get(), name);
     }
+
     private void add(ITextComponent key, String lang) {
         super.add(key.getString(), lang);
     }
-
 
 
 }

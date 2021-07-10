@@ -23,14 +23,13 @@ public class ModEntityLootTables extends EntityLootTables {
         add(EntityTypesInit.KRAAB_ENTITY.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1)).add(ItemLootEntry.lootTableItem(ItemInitCore.COPPER.get()).apply(SetCount.setCount(RandomValueRange.between(0.0F, 6.0F))).apply(LootingEnchantBonus.lootingMultiplier(RandomValueRange.between(0.0F, 6.0F))))));
 
     }
+
     @Override
-    protected Iterable<EntityType<?>> getKnownEntities()
-    {
+    protected Iterable<EntityType<?>> getKnownEntities() {
         return StreamSupport.stream(ForgeRegistries.ENTITIES.spliterator(), false)
                 .filter(entry -> entry.getRegistryName() != null && entry.getRegistryName().getNamespace().equals(BenTenMod.MOD_ID))
                 .collect(Collectors.toSet());
     }
-
 
 
 }

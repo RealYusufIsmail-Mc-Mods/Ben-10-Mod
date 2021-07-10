@@ -109,6 +109,7 @@ public class AlienTableRecipeBuilder {
             this.advancementId = advancementId;
             this.id = id;
         }
+
         @SuppressWarnings("deprecation")
         @Override
         public void serializeRecipeData(JsonObject json) {
@@ -121,8 +122,9 @@ public class AlienTableRecipeBuilder {
             json.add("input7", input7.toJson());
             json.add("input8", input8.toJson());
             json.add("input9", input9.toJson());
-            json.addProperty("output", Registry.ITEM.getKey(output).toString() );
+            json.addProperty("output", Registry.ITEM.getKey(output).toString());
         }
+
         @Override
         public ResourceLocation getId() {
             return id;
@@ -132,6 +134,7 @@ public class AlienTableRecipeBuilder {
         public IRecipeSerializer<?> getType() {
             return Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getValue(new ResourceLocation(MOD_ID, "alien_table_recipe")));
         }
+
         @Nullable
         @Override
         public JsonObject serializeAdvancement() {
