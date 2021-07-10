@@ -10,19 +10,19 @@ import net.minecraft.util.SoundEvents;
 import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
-    ARMOUR("legendary", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
+    ARMOUR("legendary", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
             () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
-    JACKET("jacket", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
+    JACKET("jacket", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
             () -> Ingredient.of(ItemInit.OMNITRIX.get())),
-    XLR8_ARMOUR("speedy", 30, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
+    XLR8_ARMOUR("speedy", 30, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
             () -> Ingredient.of(ItemInit.SPEED.get())),
-    FOURARMS_ARMOUR("fourarms", 50, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 1500f, 1.5f,
+    FOURARMS_ARMOUR("fourarms", 50, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 1.5f,
             () -> Ingredient.of(ItemInit.RUBY.get())),
-    BLACK_DIAMOND_ARMOUR("black_diamond", 100, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 1000f, 10f,
+    BLACK_DIAMOND_ARMOUR("black_diamond", 40, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 6.0F, 0.4f,
             () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    INFINITUM_ARMOUR("infinitum", 150, new int[]{10, 11, 20, 7}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 1500f, 14f,
+    INFINITUM_ARMOUR("infinitum", 50, new int[]{10, 11, 20, 7}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.8f,
             () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    HEATBLAST_ARMOUR("fire", 30, new int[]{8, 10, 15, 13}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 700f, 0.3f,
+    HEATBLAST_ARMOUR("fire", 30, new int[]{8, 10, 15, 13}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
             () -> Ingredient.of(ItemInit.FIRE.get()));
 
 
