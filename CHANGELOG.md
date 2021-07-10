@@ -3,9 +3,9 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.16.5-1.19] - 29/06/2021
+## [1.16.5-1.19] - 15/07/2021
 
-### Added a ben ten backpack and this mod now requires RealYusufIsmail core which stores some important code for all my mods. It also means the mods size has been reduced. That's it for this update.
+### Added a ben ten Table and this mod now requires RealYusufIsmail core which stores some important code for all my mods. It also means the mods size has been reduced. Reduced the size of the mod, and some big fixes. Added copper. That's it for this update.
 
 ## [1.16.5-1.17] - 19/06/2021
 
