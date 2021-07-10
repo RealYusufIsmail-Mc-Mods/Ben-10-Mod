@@ -1,22 +1,33 @@
 
 package com.yusuf.bentenmod.data.client;
 
-import com.google.gson.JsonElement;
 import com.yusuf.bentenmod.BenTenMod;
 
+import net.minecraft.block.Block;
 import net.minecraft.data.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import javax.annotation.Nonnull;
+
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 
+/**
+ * @see BlockStateProvider#simpleBlock(Block) 
+ */
 public class ModBlockStateProvider extends BlockStateProvider {
-
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, BenTenMod.MOD_ID, exFileHelper);
 
     }
 
 
+
+    @Nonnull
+    @Override
+    public String getName() {
+        return "Ben 10 Mod - Block States/Models";
+    }
 
 
     @Override
@@ -37,7 +48,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
             simpleBlock(SPEED_ORE.get());
             simpleBlock(IMPERIUM_BLOCK.get());
             simpleBlock(IMPERIUM_ORE.get());
-            //createFurnace(TABLE_BLOCK.get(), TexturedModel.ORIENTABLE_ONLY_TOP);
+          // orientableMachineBlock(TABLE_BLOCK.get(), "table_block");
 
     }
 

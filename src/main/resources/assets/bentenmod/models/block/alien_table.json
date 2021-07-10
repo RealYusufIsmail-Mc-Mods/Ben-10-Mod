@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "minecraft:block/alien_table_front",
+    "north": "minecraft:block/alien_table_front",
+    "south": "minecraft:block/alien_table_side",
+    "east": "minecraft:block/alien_table_side",
+    "west": "minecraft:block/alien_table_front",
+    "up": "minecraft:block/alien_table_top",
+    "down": "minecraft:block/stone"
+  }
+}
