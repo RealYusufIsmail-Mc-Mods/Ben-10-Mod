@@ -1,5 +1,6 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
+import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
@@ -29,6 +30,8 @@ import net.minecraftforge.fml.network.NetworkHooks;
 public class AlienTable extends Block {
 
     private static final ITextComponent AlienTableContainer = new TranslationTextComponent("container.crafting");
+
+
     public AlienTable() {
         super(Properties.of(Material.HEAVY_METAL)
                 .strength(3)
