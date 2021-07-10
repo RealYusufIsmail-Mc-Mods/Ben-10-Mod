@@ -6,6 +6,8 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Supplier;
 
@@ -75,6 +77,7 @@ public enum CustomArmorMaterial implements IArmorMaterial {
     }
 
     @Override
+    @OnlyIn(Dist.CLIENT)
     public String getName() {
         return this.name;
     }
@@ -88,6 +91,4 @@ public enum CustomArmorMaterial implements IArmorMaterial {
     public float getKnockbackResistance() {
         return this.knockbackResistance;
     }
-
-
 }
