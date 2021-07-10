@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
-
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;

@@ -6,8 +6,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.util.IWorldPosCallable;
 
-import java.rmi.registry.RegistryHandler;
-
 public class AlienTableContainer extends WorkbenchContainer {
     private final IWorldPosCallable access;
 
