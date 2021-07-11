@@ -7,6 +7,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 public class LangKeys {
     public static final ITextComponent TABLE_SCREEN = text("container", "table_block");
     public static final ITextComponent TABLE_DISC = text("desc", "upgrade_table");
+    public static final ITextComponent ALIEN_TABLE_SCREEN = text("container", "alien_table");
     public static final ITextComponent ALIEN_TABLE_DISC = text("desc", "alien_create_table");
     public static final ITextComponent TABLE_JEI = text("jei", "table_block");
 

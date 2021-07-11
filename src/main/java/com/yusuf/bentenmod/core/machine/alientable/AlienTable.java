@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.common.LangKeys;
-import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -9,8 +8,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.SimpleNamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
@@ -34,6 +33,11 @@ public class AlienTable extends Block {
 
     private static final ITextComponent AlienTableContainer = new TranslationTextComponent("container.alien_table");
 
+    /**
+     * @see TranslationTextComponent
+     * @see Container
+     * @see
+     */
 
     public AlienTable() {
         super(Properties.of(Material.HEAVY_METAL)
@@ -72,7 +76,7 @@ public class AlienTable extends Block {
 
     @Override
     public INamedContainerProvider getMenuProvider(BlockState state, World world, BlockPos pos) {
-        return new SimpleNamedContainerProvider((id, inventory, player) -> {
+        return new AlienTableSimpleNamedContainerProvider((id, inventory, player) -> {
             return new AlienTableContainer(id, inventory, IWorldPosCallable.create(world, pos));
         }, AlienTableContainer);
 

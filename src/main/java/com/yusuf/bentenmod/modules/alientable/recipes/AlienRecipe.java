@@ -2,6 +2,6 @@ package com.yusuf.bentenmod.modules.alientable.recipes;
 
 public class AlienRecipe {
     /**
-     * @see net.minecraft.block.CraftingTable
+     * @see net.minecraft.block.CraftingTableBlock
      */
 }

@@ -117,6 +117,7 @@ public class ModEnLangProvider extends LanguageProvider {
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
+        add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
         add(LangKeys.ALIEN_TABLE_DISC, "A crafting table use to create aliens from the ben 10 series");
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
         entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
