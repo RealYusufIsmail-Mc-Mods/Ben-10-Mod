@@ -9,7 +9,7 @@ import static net.minecraft.stats.Stats.CUSTOM;
 
 public class SatsInit {
   public static final ResourceLocation INTERACT_WITH_ALIEN_TABLE = makeCustomStat("interact_with_alien_table", IStatFormatter.DEFAULT);
-  private static ResourceLocation makeCustomStat(String key, IStatFormatter formatter) {
+  public static ResourceLocation makeCustomStat(String key, IStatFormatter formatter) {
     ResourceLocation resourceLocation = new ResourceLocation(key);
     Registry.register(Registry.CUSTOM_STAT, key, resourceLocation);
     CUSTOM.get(resourceLocation, formatter);

@@ -53,11 +53,11 @@ public class AlienTable extends Block {
 
 
     @Override
-    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public ActionResultType use(BlockState state, World worldIn , BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (worldIn.isClientSide) {
             return ActionResultType.SUCCESS;
         } else {
-            NetworkHooks.openGui((ServerPlayerEntity) player, (AlienTableTileEntity) te, pos);
+            NetworkHooks.openGui((ServerPlayerEntity) player, (AlienTableTileEntity) hit, pos);
             player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
@@ -65,6 +65,7 @@ public class AlienTable extends Block {
 
     /**
      * @see Stats
+     * @see CraftingTableBlock
      */
     @Override
     public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
