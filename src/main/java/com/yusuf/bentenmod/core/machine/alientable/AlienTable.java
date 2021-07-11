@@ -9,6 +9,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
@@ -56,7 +57,7 @@ public class AlienTable extends Block {
         if (worldIn.isClientSide) {
             return ActionResultType.SUCCESS;
         } else {
-            NetworkHooks.openGui(state.getMenuProvider(worldIn, pos)));NetworkHooks
+            NetworkHooks.openGui((ServerPlayerEntity) player, (AlienTableTileEntity) te, pos);
             player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
