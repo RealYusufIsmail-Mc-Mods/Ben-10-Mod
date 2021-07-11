@@ -23,6 +23,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
+import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -31,7 +32,6 @@ import java.util.List;
  * @see CraftingTableBlock
  */
 public class AlienTable extends Block {
-
     private static final ITextComponent AlienTableContainer = new TranslationTextComponent("container.alien_table");
 
     /**
@@ -42,8 +42,8 @@ public class AlienTable extends Block {
     public AlienTable() {
         super(Properties.of(Material.HEAVY_METAL)
                 .strength(3)
-                .harvestTool(ToolType.PICKAXE)
-                .harvestLevel(1)
+                .harvestTool(ToolType.AXE)
+                .harvestLevel(2)
                 .requiresCorrectToolForDrops()
                 .sound(SoundType.NETHER_ORE)
         );
