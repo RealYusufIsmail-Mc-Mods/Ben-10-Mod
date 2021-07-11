@@ -56,7 +56,7 @@ public class AlienTable extends Block {
         if (worldIn.isClientSide) {
             return ActionResultType.SUCCESS;
         } else {
-            player.openMenu(state.getMenuProvider(worldIn, pos));
+            NetworkHooks.openGui(state.getMenuProvider(worldIn, pos)));NetworkHooks
             player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
