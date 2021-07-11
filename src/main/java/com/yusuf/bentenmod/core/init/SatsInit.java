@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.core.init;
 
 import net.minecraft.stats.IStatFormatter;
@@ -9,7 +10,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class SatsInit {
-    public static final StatType<ResourceLocation> CUSTOM = makeRegistryStatType("custom", Registry.CUSTOM_STAT);
+    /**
+     * @see StatType
+     */
+/*
+    public static final ForgeRegistries<ResourceLocation> CUSTOM = makeRegistryStatType("custom", ForgeRegistries.CONTAINERS);
     public static final ResourceLocation INTERACT_WITH_ALIEN_TABLE = makeCustomStat("interact_with_alien_table", IStatFormatter.DEFAULT);
 
     private static ResourceLocation makeCustomStat(String p_199084_0_, IStatFormatter p_199084_1_) {
@@ -27,7 +32,11 @@ public class SatsInit {
      * @return
      * @see DeferredRegister
      */
-    private static <T> StatType<T> makeRegistryStatType(String p_199085_0_, Registry<T> p_199085_1_) {
+/*
+    private static <T> ForgeRegistries makeRegistryStatType(String p_199085_0_, ForgeRegistries p_199085_1_) {
         return Registry.register(ForgeRegistries.STAT_TYPES, p_199085_0_, new StatType<>(p_199085_1_));
     }
 }
+
+
+ */

@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.SimpleNamedContainerProvider;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IWorldPosCallable;
@@ -52,10 +53,18 @@ public class AlienTable extends Block {
             return ActionResultType.SUCCESS;
         } else {
             player.openMenu(state.getMenuProvider(worldIn, pos));
-            player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
+            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
             return ActionResultType.CONSUME;
         }
     }
+
+    /**
+     * @see Stats
+     * @param p_190948_1_
+     * @param p_190948_2_
+     * @param p_190948_3_
+     * @param p_190948_4_
+     */
     @Override
     public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
         p_190948_3_.add(LangKeys.ALIEN_TABLE_DISC);
