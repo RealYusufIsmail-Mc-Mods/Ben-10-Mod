@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.common.LangKeys;
+import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -36,7 +37,6 @@ public class AlienTable extends Block {
     /**
      * @see TranslationTextComponent
      * @see Container
-     * @see
      */
 
     public AlienTable() {
@@ -57,17 +57,13 @@ public class AlienTable extends Block {
             return ActionResultType.SUCCESS;
         } else {
             player.openMenu(state.getMenuProvider(worldIn, pos));
-            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+            player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
     }
 
     /**
      * @see Stats
-     * @param p_190948_1_
-     * @param p_190948_2_
-     * @param p_190948_3_
-     * @param p_190948_4_
      */
     @Override
     public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
@@ -76,10 +72,8 @@ public class AlienTable extends Block {
 
     @Override
     public INamedContainerProvider getMenuProvider(BlockState state, World world, BlockPos pos) {
-        return new AlienTableSimpleNamedContainerProvider((id, inventory, player) -> {
-            return new AlienTableContainer(id, inventory, IWorldPosCallable.create(world, pos));
-        }, AlienTableContainer);
-
+        return new AlienTableSimpleNamedContainerProvider((id, inventory, player)
+                -> new AlienTableContainer(id, inventory, IWorldPosCallable.create(world, pos)), AlienTableContainer);
     }
 }
 
