@@ -1,4 +1,4 @@
-package com.yusuf.bentenmod.core.machine.alientable;
+package com.yusuf.bentenmod.core.machine.testtable;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
@@ -6,11 +6,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.IIntArray;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 
-public class AlienTableTileEntity  extends LockableLootTileEntity implements ITickableTileEntity {
-    protected AlienTableTileEntity(TileEntityType<?> p_i48284_1_) {
+public class TestTileEntity extends LockableLootTileEntity {
+    public static final int slots = 9;
+    private NonNullList<ItemStack> items = NonNullList.withSize(slots, ItemStack.EMPTY);
+
+    protected TestTileEntity(TileEntityType<?> p_i48284_1_) {
         super(p_i48284_1_);
     }
 
@@ -36,11 +40,8 @@ public class AlienTableTileEntity  extends LockableLootTileEntity implements ITi
 
     @Override
     public int getContainerSize() {
-        return 0;
+        return slots;
     }
 
-    @Override
-    public void tick() {
-
-    }
+   
 }
