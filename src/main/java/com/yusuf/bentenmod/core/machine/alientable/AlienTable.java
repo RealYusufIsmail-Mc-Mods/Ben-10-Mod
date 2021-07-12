@@ -59,7 +59,7 @@ public class AlienTable extends Block {
             return ActionResultType.SUCCESS;
         } else {
             //NetworkHooks.openGui((ServerPlayerEntity) player, (TestTileEntity) hit, pos);
-            NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider)  pos);
+            //NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider)  pos);
             player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
