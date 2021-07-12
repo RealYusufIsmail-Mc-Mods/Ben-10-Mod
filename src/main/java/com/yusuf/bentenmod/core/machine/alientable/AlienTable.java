@@ -2,7 +2,6 @@ package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.SatsInit;
-import com.yusuf.bentenmod.core.machine.testtable.TestTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -10,7 +9,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
@@ -58,8 +56,8 @@ public class AlienTable extends Block {
         if (worldIn.isClientSide) {
             return ActionResultType.SUCCESS;
         } else {
-            //NetworkHooks.openGui((ServerPlayerEntity) player, (TestTileEntity) hit, pos);
             //NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider)  pos);
+            player.openMenu(state.getMenuProvider(worldIn, pos));
             player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
             return ActionResultType.CONSUME;
         }
