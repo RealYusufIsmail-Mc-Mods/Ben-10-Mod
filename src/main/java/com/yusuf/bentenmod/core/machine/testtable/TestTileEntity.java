@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.core.machine.testtable;
 
 import net.minecraft.tileentity.TileEntity;
@@ -12,3 +13,5 @@ public class TestTileEntity extends TileEntity {
 
 
 }
+
+ */

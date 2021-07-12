@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.core.machine.testtable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
@@ -19,10 +20,7 @@ import java.util.Objects;
 public class TestContainer extends Container {
     private final IIntArray data;
 
-    /**
-     * ALT + ENTER > CONSTRUCTOR
-     * SHIFT + F6 > CHANGE VARIABLE NAME
-     */
+
     protected TestContainer(int id, PlayerInventory inv, TileEntity te, IIntArray data) {
         super(ContainerInit.TEST_CONTAINER.get(), id);
 
@@ -92,3 +90,5 @@ public class TestContainer extends Container {
 
 
 }
+
+*/

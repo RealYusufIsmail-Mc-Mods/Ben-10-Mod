@@ -1,6 +1,8 @@
+/*
 package com.yusuf.bentenmod.core.machine.testtable;
 
 import com.yusuf.bentenmod.core.machine.bententable.TableTileEntity;
+import com.yusuf.bentenmod.core.machine.testtable.TestTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
@@ -28,9 +30,7 @@ public class TestTable extends Block {
                 .sound(SoundType.NETHER_ORE)
         );
     }
-    /**
-     * handle GUI Open through {@link NetworkHooks#openGui(ServerPlayerEntity, INamedContainerProvider, BlockPos)}
-     */
+
     @SuppressWarnings("deprecation")
     @Override
     public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
@@ -44,3 +44,6 @@ public class TestTable extends Block {
         return ActionResultType.SUCCESS;
     }
 }
+
+
+ */
