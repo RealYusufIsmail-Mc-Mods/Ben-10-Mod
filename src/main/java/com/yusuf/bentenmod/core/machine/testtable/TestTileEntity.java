@@ -1,5 +1,7 @@
 package com.yusuf.bentenmod.core.machine.testtable;
 
+import com.yusuf.bentenmod.common.LangKeys;
+import com.yusuf.bentenmod.core.machine.bententable.TableContainer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
@@ -20,7 +22,7 @@ public class TestTileEntity extends LockableLootTileEntity {
 
     @Override
     protected NonNullList<ItemStack> getItems() {
-        return null;
+        return this.items;
     }
 
     @Override
@@ -30,12 +32,12 @@ public class TestTileEntity extends LockableLootTileEntity {
 
     @Override
     protected ITextComponent getDefaultName() {
-        return null;
+        return LangKeys.ALIEN_TABLE_SCREEN;
     }
 
     @Override
     protected Container createMenu(int p_213906_1_, PlayerInventory p_213906_2_) {
-        return null;
+        return new TestContainer(p_213906_1_, p_213906_2_, this, data);
     }
 
     @Override
@@ -43,5 +45,5 @@ public class TestTileEntity extends LockableLootTileEntity {
         return slots;
     }
 
-   
+
 }
