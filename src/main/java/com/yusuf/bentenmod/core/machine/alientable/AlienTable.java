@@ -9,6 +9,8 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
@@ -52,17 +54,24 @@ public class AlienTable extends Block {
 
 
     @Override
-    public ActionResultType use(BlockState state, World worldIn , BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (worldIn.isClientSide) {
-            return ActionResultType.SUCCESS;
-        } else {
-            //NetworkHooks.openGui((ServerPlayerEntity) player, (INamedContainerProvider)  pos);
-            player.openMenu(state.getMenuProvider(worldIn, pos));
-            player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
+    public ActionResultType use(BlockState p_225533_1_, World world, BlockPos pos, PlayerEntity player, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+        if(!world.isClientSide){
+            INamedContainerProvider containerProvider = new INamedContainerProvider() {
+                @Override
+                public ITextComponent getDisplayName() {
+                    return LangKeys.ALIEN_TABLE_SCREEN;
+                }
+                @Nullable
+                @Override
+                public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+                    return new ShapeBuilderContainer(i, world, pos, playerInventory, playerEntity) ;
 
+                }
+            };
+            NetworkHooks.openGui((ServerPlayerEntity) player, containerProvider, pos);
         }
         return ActionResultType.SUCCESS;
-    }
+}
 
     /**
      * @see Stats
