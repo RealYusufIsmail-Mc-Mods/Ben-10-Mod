@@ -63,8 +63,8 @@ public class AlienTable extends Block {
                 }
                 @Nullable
                 @Override
-                public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                    return new ShapeBuilderContainer(i, world, pos, playerInventory, playerEntity) ;
+                public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+                    return new AlienTableContainer(id, world, pos, playerInventory, playerEntity);
 
                 }
             };
@@ -82,10 +82,6 @@ public class AlienTable extends Block {
         p_190948_3_.add(LangKeys.ALIEN_TABLE_DISC);
     }
 
-    @Override
-    public INamedContainerProvider getMenuProvider(BlockState state, World world, BlockPos pos) {
-        return new AlienTableSimpleNamedContainerProvider((id, inventory, player)
-                -> new AlienTableContainer(id, inventory, IWorldPosCallable.create(world, pos)), AlienTableContainer);
-    }
+
 }
 
