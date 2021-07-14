@@ -1,6 +1,7 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.core.init.BlockInit;
+import com.yusuf.bentenmod.core.init.ContainerInit;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.ContainerType;
@@ -14,21 +15,17 @@ public class AlienTableContainer extends WorkbenchContainer {
 
 
 
-    public AlienTableContainer(int id, PlayerInventory playerInventory) {
-        this(id, playerInventory, IWorldPosCallable.NULL);
+    public AlienTableContainer(int id, PlayerInventory playerInventory, PlayerEntity playerEntity, BlockPos pos, World world) {
+        this(id, playerInventory, playerEntity, pos, world, IWorldPosCallable.NULL);
     }
 
-    public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable access) {
-        super(ContainerType.CRAFTING, id);
+
+    public AlienTableContainer(int id, PlayerInventory playerInventory, PlayerEntity playerEntity, BlockPos pos, World world, IWorldPosCallable access) {
+        super(ContainerInit.ALIEN_TABLE_CONTAINER, id);
         this.access = access;
     }
 
-    /*
-    public AlienTableContainer(int id, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-        super();
-    }
 
-     */
 
     @Override
     public boolean stillValid(PlayerEntity player) {
