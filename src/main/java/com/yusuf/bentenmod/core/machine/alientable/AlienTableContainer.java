@@ -21,7 +21,7 @@ public class AlienTableContainer extends WorkbenchContainer {
 
 
     public AlienTableContainer(int id, PlayerInventory playerInventory, PlayerEntity playerEntity, BlockPos pos, World world, IWorldPosCallable access) {
-        super(ContainerInit.ALIEN_TABLE_CONTAINER, id, playerInventory );
+        super(ContainerInit.ALIEN_TABLE_CONTAINER, id, playerInventory, playerEntity, pos, world);
         this.access = access;
     }
 
