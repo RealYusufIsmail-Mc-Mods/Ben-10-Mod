@@ -81,7 +81,7 @@ public class ModAdvancementProvider implements IDataProvider {
             //black diamond
             Advancement black_diamond = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(BLACK_DIAMOND_SCRAP.get(), title("black_diamond"), description("black_diamond"), null, FrameType.TASK, true, true, false)
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("black diamond scrap"), description("You have got a black diamond scrap. Gain more to able to get an ingot"), null, FrameType.TASK, true, true, false)
                     .addCriterion("get_ore", getItem(BLACK_DIAMOND_ORE.get()))
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND_SCRAP.get()))
                     .save(consumer, id("black_diamond"));
