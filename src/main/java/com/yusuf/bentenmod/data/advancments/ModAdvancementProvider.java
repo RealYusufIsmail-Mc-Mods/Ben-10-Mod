@@ -56,7 +56,6 @@ public class ModAdvancementProvider implements IDataProvider {
                 } catch (IOException ioexception) {
                     LOGGER.error("Couldn't save advancement {}", path1, ioexception);
                 }
-
             }
         };
 
@@ -79,7 +78,6 @@ public class ModAdvancementProvider implements IDataProvider {
                     .display(rootIcon, title("root"), description("root"), new ResourceLocation("minecraft:textures/block/light_blue_wool.png"), FrameType.TASK, false, false, false)
                     .addCriterion("get_item", getItem(Items.CRAFTING_TABLE))
                     .save(consumer, id("root"));
-
             //black diamond
             Advancement black_diamond = Advancement.Builder.advancement()
                     .parent(root)
