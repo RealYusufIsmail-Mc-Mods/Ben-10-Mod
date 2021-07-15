@@ -5,10 +5,10 @@
       "item": "bentenmod:black_diamond_scrap"
     },
     "title": {
-      "translate": "advancements.silentgear.black_diamond.title"
+      "translate": "advancements.bentenmod.black_diamond.title"
     },
     "description": {
-      "translate": "advancements.silentgear.black_diamond.description"
+      "translate": "advancements.bentenmod.black_diamond.description"
     },
     "frame": "task",
     "show_toast": true,

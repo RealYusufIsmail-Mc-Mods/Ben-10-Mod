@@ -130,11 +130,11 @@ public class ModAdvancementProvider implements IDataProvider {
         }
 
         private static ITextComponent title(String key) {
-            return new TranslationTextComponent("advancements.silentgear." + key + ".title");
+            return new TranslationTextComponent("advancements.bentenmod." + key + ".title");
         }
 
         private static ITextComponent description(String key) {
-            return new TranslationTextComponent("advancements.silentgear." + key + ".description");
+            return new TranslationTextComponent("advancements.bentenmod." + key + ".description");
         }
     }
 }

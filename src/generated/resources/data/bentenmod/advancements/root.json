@@ -4,10 +4,10 @@
       "item": "bentenmod:omnitrix"
     },
     "title": {
-      "translate": "advancements.silentgear.root.title"
+      "translate": "advancements.bentenmod.root.title"
     },
     "description": {
-      "translate": "advancements.silentgear.root.description"
+      "translate": "advancements.bentenmod.root.description"
     },
     "frame": "task",
     "show_toast": false,
