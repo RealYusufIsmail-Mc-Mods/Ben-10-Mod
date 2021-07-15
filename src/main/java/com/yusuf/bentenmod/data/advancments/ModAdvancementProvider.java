@@ -7,6 +7,7 @@ import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.ICriterionInstance;
+import net.minecraft.advancements.IRequirementsStrategy;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
@@ -80,13 +81,13 @@ public class ModAdvancementProvider implements IDataProvider {
                     .save(consumer, id("root"));
 
             //black diamond
-            Advancement azureSilver = Advancement.Builder.advancement()
+            Advancement black_diamond = Advancement.Builder.advancement()
                     .parent(root)
                     .display(BLACK_DIAMOND_SCRAP.get(), title("black_diamond"), description("black_diamond"), null, FrameType.TASK, true, true, false)
                     .addCriterion("get_ore", getItem(BLACK_DIAMOND_ORE.get()))
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND_SCRAP.get()))
                     .save(consumer, id("black_diamond"));
-            /*
+
             Advancement armor = Advancement.Builder.advancement()
                     .parent(black_diamond)
                     .display(BLACK_DIAMOND_HELMET.get(), title("black_diamond_helmet"), description("armor"), null, FrameType.TASK, true, true, false)
@@ -96,7 +97,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("boots", getItem(BLACK_DIAMOND_BOOTS.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("armor"));
-             */
+
         }
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
             return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
