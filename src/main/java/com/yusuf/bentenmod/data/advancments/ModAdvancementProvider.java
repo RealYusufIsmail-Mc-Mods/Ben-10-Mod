@@ -75,25 +75,33 @@ public class ModAdvancementProvider implements IDataProvider {
         public void accept(Consumer<Advancement> consumer) {
             ItemStack rootIcon = new ItemStack(OMNITRIX.get());
             Advancement root = Advancement.Builder.advancement()
-                    .display(rootIcon, title("Download Ben ten mob mod"), description("Thank you for downloading my mod."), new ResourceLocation("minecraft:textures/block/light_blue_wool.png"), FrameType.TASK, true, false, false)
+                    .display(rootIcon, title("Download Ben ten mob mod"), description("Thank you for downloading my mod."),
+                            new ResourceLocation("minecraft:textures/block/light_blue_wool.png"), FrameType.TASK,
+                            true, false, false)
                     .addCriterion("get_item", getItem(Items.CRAFTING_TABLE))
                     .save(consumer, id("root"));
             //black diamond
             Advancement black_diamond_scrap = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(BLACK_DIAMOND_SCRAP.get(), title("Black Diamond Scrap"), description("You have got a black diamond scrap. Gain more to able to get an ingot"), null, FrameType.CHALLENGE, true, true, false)
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("Black Diamond Scrap"),
+                            description("You have got a black diamond scrap. Gain more to able to get an ingot"),
+                            null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND_SCRAP.get()))
                     .save(consumer, id("black_diamond"));
 
             Advancement black_diamond_ingot = Advancement.Builder.advancement()
                     .parent(black_diamond_scrap)
-                    .display(BLACK_DIAMOND_SCRAP.get(), title("Black Diamond"), description("You have made a black diamond ingot. You cant covert diamond armour to black diamond armour using a smiting table"), null, FrameType.CHALLENGE, true, true, false)
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("Black Diamond"),
+                            description("You have made a black diamond ingot. You cant covert diamond armour to black diamond armour using a smiting table"),
+                            null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND.get()))
                     .save(consumer, id("black_diamond_ingot"));
 
             Advancement armor = Advancement.Builder.advancement()
                     .parent(black_diamond_ingot)
-                    .display(BLACK_DIAMOND_HELMET.get(), title("black_diamond_armour"), description("You have crafted all the black diamond armour set. You are op"), null, FrameType.CHALLENGE, true, true, false)
+                    .display(BLACK_DIAMOND_HELMET.get(), title("black_diamond_armour"),
+                            description("You have crafted all the black diamond armour set. You are op"),
+                            null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("helmet", getItem(BLACK_DIAMOND_HELMET.get()))
                     .addCriterion("chestplate", getItem(BLACK_DIAMOND_CHESTPLATE.get()))
                     .addCriterion("leggings", getItem(BLACK_DIAMOND_LEGGINGS.get()))
