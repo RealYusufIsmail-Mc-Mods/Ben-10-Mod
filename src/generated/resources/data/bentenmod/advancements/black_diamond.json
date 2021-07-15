@@ -1,0 +1,48 @@
+{
+  "parent": "bentenmod:root",
+  "display": {
+    "icon": {
+      "item": "bentenmod:black_diamond_scrap"
+    },
+    "title": {
+      "translate": "advancements.silentgear.black_diamond.title"
+    },
+    "description": {
+      "translate": "advancements.silentgear.black_diamond.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_ore"
+          }
+        ]
+      }
+    },
+    "get_scrap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_scrap"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_ore"
+    ],
+    [
+      "get_scrap"
+    ]
+  ]
+}
