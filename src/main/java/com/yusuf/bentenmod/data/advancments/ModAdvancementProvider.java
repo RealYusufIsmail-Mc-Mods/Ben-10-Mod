@@ -1,7 +1,5 @@
 package com.yusuf.bentenmod.data.advancments;
 
-
-
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -9,7 +7,6 @@ import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.ICriterionInstance;
-import net.minecraft.advancements.IRequirementsStrategy;
 import net.minecraft.advancements.criterion.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
@@ -34,7 +31,6 @@ import java.util.function.Consumer;
 
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
-
 
 public class ModAdvancementProvider implements IDataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -100,7 +96,6 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("boots", getItem(BLACK_DIAMOND_BOOTS.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("armor"));
-
              */
         }
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
