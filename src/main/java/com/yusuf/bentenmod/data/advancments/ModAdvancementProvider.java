@@ -32,6 +32,9 @@ import java.util.function.Consumer;
 
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
+import static net.yusuf.realyusufismailcore.core.init.ItemInitCore.*;
+import static net.yusuf.realyusufismailcore.core.init.BlockInitCore.*;
+
 
 public class ModAdvancementProvider implements IDataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -87,11 +90,11 @@ public class ModAdvancementProvider implements IDataProvider {
                             description("You have got a black diamond scrap. Gain more to able to get an ingot"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND_SCRAP.get()))
-                    .save(consumer, id("black_diamond"));
+                    .save(consumer, id("black_diamond_scrap"));
 
             Advancement black_diamond_ingot = Advancement.Builder.advancement()
                     .parent(black_diamond_scrap)
-                    .display(BLACK_DIAMOND_SCRAP.get(), title("Black Diamond"),
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("Got A Black Diamond Scrap"),
                             description("You have made a black diamond ingot. You cant covert diamond armour to black diamond armour using a smiting table"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND.get()))
@@ -99,7 +102,7 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement armor = Advancement.Builder.advancement()
                     .parent(black_diamond_ingot)
-                    .display(BLACK_DIAMOND_HELMET.get(), title("black_diamond_armour"),
+                    .display(BLACK_DIAMOND_HELMET.get(), title("Gained all the dark armour set."),
                             description("You have crafted all the black diamond armour set. You are op"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("helmet", getItem(BLACK_DIAMOND_HELMET.get()))
@@ -108,6 +111,23 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("boots", getItem(BLACK_DIAMOND_BOOTS.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("black_diamond_armour"));
+
+            //copper
+            Advancement copper_ingot = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("Got a copper ingot"),
+                            description("You have got a copper ingot by beating the villain krabb. Congrats."),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(COPPER.get()))
+                    .save(consumer, id("copper_ingot"));
+
+            Advancement copper_block = Advancement.Builder.advancement()
+                    .parent(copper_ingot)
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("Made a copper block"),
+                            description("You have a made a copper block by using nine ingots."),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(COPPER_BLOCK.get()))
+                    .save(consumer, id("copper_block"));
 
         }
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
