@@ -1,6 +1,5 @@
 package com.yusuf.bentenmod;
 
-
 import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.core.util.ModResourceLocation;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -14,7 +13,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
-
 
 @Mod("bentenmod")
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Bus.MOD)
@@ -46,5 +44,4 @@ public class BenTenMod {
         }
         return new ModResourceLocation(path);
     }
-
 }
