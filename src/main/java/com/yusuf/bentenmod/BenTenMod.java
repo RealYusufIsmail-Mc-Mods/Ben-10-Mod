@@ -2,6 +2,7 @@ package com.yusuf.bentenmod;
 
 
 import com.yusuf.bentenmod.core.init.*;
+import com.yusuf.bentenmod.core.util.ModResourceLocation;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -39,4 +40,11 @@ public class BenTenMod {
         MinecraftForge.EVENT_BUS.register(this);
 
     }
+    public static ModResourceLocation getId(String path) {
+        if (path.contains(":")) {
+            throw new IllegalArgumentException("path contains namespace");
+        }
+        return new ModResourceLocation(path);
+    }
+
 }
