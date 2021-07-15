@@ -158,6 +158,7 @@ public class ModAdvancementProvider implements IDataProvider {
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_ore", getItem(FIRE_ORE.get()))
                     .save(consumer, id("fire_ore"));
+            //TODO Finish making the advancements,
         }
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
             return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
