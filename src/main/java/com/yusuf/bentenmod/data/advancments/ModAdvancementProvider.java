@@ -100,17 +100,38 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("get_scrap", getItem(BLACK_DIAMOND.get()))
                     .save(consumer, id("black_diamond_ingot"));
 
-            Advancement armor = Advancement.Builder.advancement()
+            Advancement black_diamond_block = Advancement.Builder.advancement()
+                    .parent(black_diamond_scrap)
+                    .display(BLACK_DIAMOND_SCRAP.get(), title("Made A Black Diamond Block"),
+                            description("You have a made a copper block by using nine Black Diamond ingots."),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(BLACK_DIAMOND_BLOCK.get()))
+                    .save(consumer, id("black_diamond_block"));
+
+            Advancement black_diamond_armour = Advancement.Builder.advancement()
                     .parent(black_diamond_ingot)
                     .display(BLACK_DIAMOND_HELMET.get(), title("Gained all the dark armour set."),
-                            description("You have crafted all the black diamond armour set. You are op"),
+                            description("You have used a smiting table to make all the black diamond armour set. You are op"),
                             null, FrameType.CHALLENGE, true, true, false)
-                    .addCriterion("helmet", getItem(BLACK_DIAMOND_HELMET.get()))
-                    .addCriterion("chestplate", getItem(BLACK_DIAMOND_CHESTPLATE.get()))
-                    .addCriterion("leggings", getItem(BLACK_DIAMOND_LEGGINGS.get()))
-                    .addCriterion("boots", getItem(BLACK_DIAMOND_BOOTS.get()))
+                    .addCriterion("black_diamond_helmet", getItem(BLACK_DIAMOND_HELMET.get()))
+                    .addCriterion("black_diamond_chestplate", getItem(BLACK_DIAMOND_CHESTPLATE.get()))
+                    .addCriterion("black_diamond_leggings", getItem(BLACK_DIAMOND_LEGGINGS.get()))
+                    .addCriterion("black_diamond_boots", getItem(BLACK_DIAMOND_BOOTS.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("black_diamond_armour"));
+
+            Advancement armor = Advancement.Builder.advancement()
+                    .parent(black_diamond_ingot)
+                    .display(BLACK_DIAMOND_HELMET.get(), title("Made all Black Diamond tools."),
+                            description("You have used a smiting table to make all the black diamond tool set. You are op"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("black_diamond_sword", getItem(BLACK_DIAMOND_SWORD.get()))
+                    .addCriterion("black_diamond_pickaxe", getItem(BLACK_DIAMOND_PICKAXE.get()))
+                    .addCriterion("black_diamond_shovel", getItem(BLACK_DIAMOND_SHOVEL.get()))
+                    .addCriterion("black_diamond_axe", getItem(BLACK_DIAMOND_AXE.get()))
+                    .addCriterion("black_diamond_hoe", getItem(BLACK_DIAMOND_HOE.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("black_diamond_tools"));
 
             //copper
             Advancement copper_ingot = Advancement.Builder.advancement()
@@ -124,10 +145,12 @@ public class ModAdvancementProvider implements IDataProvider {
             Advancement copper_block = Advancement.Builder.advancement()
                     .parent(copper_ingot)
                     .display(BLACK_DIAMOND_SCRAP.get(), title("Made a copper block"),
-                            description("You have a made a copper block by using nine ingots."),
+                            description("You have a made a copper block by using nine Copper ingots."),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_block", getItem(COPPER_BLOCK.get()))
                     .save(consumer, id("copper_block"));
+
+            //
 
         }
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
