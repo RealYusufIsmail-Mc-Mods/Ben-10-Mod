@@ -6,10 +6,10 @@
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.bentenmod.Made all Black Diamond tools..title"
+      "translate": "advancements.bentenmod.black_diamond_tools.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have used a smiting table to make all the black diamond tool set. You are op.description"
+      "translate": "advancements.bentenmod.black_diamond_tools.description"
     },
     "frame": "challenge",
     "show_toast": true,

@@ -4,10 +4,10 @@
       "item": "bentenmod:omnitrix"
     },
     "title": {
-      "translate": "advancements.bentenmod.Download Ben ten mob mod.title"
+      "translate": "advancements.bentenmod.root.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.Thank you for downloading my mod..description"
+      "translate": "advancements.bentenmod.root.description"
     },
     "frame": "task",
     "show_toast": true,

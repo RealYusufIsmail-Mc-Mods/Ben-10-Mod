@@ -6,10 +6,10 @@
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.bentenmod.Gained all the dark armour set..title"
+      "translate": "advancements.bentenmod.black_diamond_armour.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have used a smiting table to make all the black diamond armour set. You are op.description"
+      "translate": "advancements.bentenmod.black_diamond_armour.description"
     },
     "frame": "challenge",
     "show_toast": true,

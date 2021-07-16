@@ -5,10 +5,10 @@
       "item": "realyusufismailcore:copper_block"
     },
     "title": {
-      "translate": "advancements.bentenmod.Made a copper block.title"
+      "translate": "advancements.bentenmod.copper_block.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have a made a copper block by using nine Copper ingots..description"
+      "translate": "advancements.bentenmod.copper_block.description"
     },
     "frame": "challenge",
     "show_toast": true,

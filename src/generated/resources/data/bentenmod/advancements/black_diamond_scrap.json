@@ -5,10 +5,10 @@
       "item": "bentenmod:black_diamond_scrap"
     },
     "title": {
-      "translate": "advancements.bentenmod.Black Diamond Scrap.title"
+      "translate": "advancements.bentenmod.black_diamond_scrap.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have got a black diamond scrap. Gain more to able to get an ingot.description"
+      "translate": "advancements.bentenmod.black_diamond_scrap.description"
     },
     "frame": "challenge",
     "show_toast": true,

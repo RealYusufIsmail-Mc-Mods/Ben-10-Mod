@@ -20,6 +20,8 @@ public class BenTenMod {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "bentenmod";
+    public static final String RESOURCE_PREFIX = MOD_ID + ":";
+    public static final String MOD_NAME = "Ben Ten Mod";
 
     public BenTenMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

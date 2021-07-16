@@ -5,10 +5,10 @@
       "item": "bentenmod:black_diamond_block"
     },
     "title": {
-      "translate": "advancements.bentenmod.Made A Black Diamond Block.title"
+      "translate": "advancements.bentenmod.black_diamond_block.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have a made a copper block by using nine Black Diamond ingots..description"
+      "translate": "advancements.bentenmod.black_diamond_block.description"
     },
     "frame": "challenge",
     "show_toast": true,

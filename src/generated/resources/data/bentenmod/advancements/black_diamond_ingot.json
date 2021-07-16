@@ -5,10 +5,10 @@
       "item": "bentenmod:black_diamond"
     },
     "title": {
-      "translate": "advancements.bentenmod.Got A Black Diamond Scrap.title"
+      "translate": "advancements.bentenmod.black_diamond_ingot.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have made a black diamond ingot. You cant covert diamond armour to black diamond armour using a smiting table.description"
+      "translate": "advancements.bentenmod.black_diamond_ingot.description"
     },
     "frame": "challenge",
     "show_toast": true,

@@ -5,10 +5,10 @@
       "item": "realyusufismailcore:copper"
     },
     "title": {
-      "translate": "advancements.bentenmod.Got a copper ingot.title"
+      "translate": "advancements.bentenmod.copper_ingot.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.You have got a copper ingot by beating the villain krabb. Congrats..description"
+      "translate": "advancements.bentenmod.copper_ingot.description"
     },
     "frame": "challenge",
     "show_toast": true,
