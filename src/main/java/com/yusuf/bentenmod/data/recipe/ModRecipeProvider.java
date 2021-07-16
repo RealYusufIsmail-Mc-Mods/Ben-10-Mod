@@ -352,6 +352,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("fire_apple"));
 
+        /*
         ShapedRecipeBuilder.shaped(RUBY_APPLE.get())
                 .define('A', TagsInit.Items.INGOTS_RUBY)
                 .define('L', Items.APPLE.getItem())
@@ -361,7 +362,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer, modId("ruby_apple"));
 
-
+         */
         ShapedRecipeBuilder.shaped(Items.ENCHANTED_GOLDEN_APPLE.getItem())
                 .define('A', Items.GOLD_BLOCK.getItem())
                 .define('L', Items.APPLE.getItem())
