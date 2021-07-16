@@ -1,0 +1,35 @@
+{
+  "parent": "bentenmod:omnitrix_ingot",
+  "display": {
+    "icon": {
+      "item": "bentenmod:omnitrix_apple"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.omnitrix_apple.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.omnitrix_apple.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:omnitrix_apple"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_item"
+    ]
+  ]
+}

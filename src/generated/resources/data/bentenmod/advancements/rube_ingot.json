@@ -1,0 +1,35 @@
+{
+  "parent": "bentenmod:root",
+  "display": {
+    "icon": {
+      "item": "bentenmod:ruby"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.rube_ingot.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.rube_ingot.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:ruby"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_ingot"
+    ]
+  ]
+}

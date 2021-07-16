@@ -189,6 +189,64 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("heatblast_boots", getItem(HEATBLAST_BOOTS.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("heatblast_armour"));
+
+            Advancement heatblast_sword = Advancement.Builder.advancement()
+                    .parent(fire_ingot)
+                    .display(HEATBLAST_HELMET.get(), title("heatblast_sword"),
+                            description("heatblast_sword"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("heatblast_sword", getItem(HEATBLAST_SWORD.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("heatblast_sword"));
+
+            //omnitrix
+            Advancement omnitrix_ore = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(OMNITRIX_ORE.get(), title("omnitrix_ore"),
+                            description("omnitrix_ore"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ore", getItem(OMNITRIX_ORE.get()))
+                    .save(consumer, id("omnitrix_ore"));
+
+            Advancement omnitrix_ingot = Advancement.Builder.advancement()
+                    .parent(omnitrix_ore)
+                    .display(OMNITRIX.get(), title("omnitrix_ingot"),
+                            description("omnitrix_ingot"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(OMNITRIX.get()))
+                    .save(consumer, id("omnitrix_ingot"));
+
+            Advancement omnitrix_apple = simpleGetItem(consumer, OMNITRIX_APPLE.get(), omnitrix_ingot);
+            Advancement enchanted_omnitrix_apple = simpleGetItem(consumer, ENCHANTED_OMNITRIX_APPLE.get(), omnitrix_ingot);
+
+            Advancement omnitrix_block = Advancement.Builder.advancement()
+                    .parent(omnitrix_ingot)
+                    .display(OMNITRIX_BLOCK.get(), title("omnitrix_block"),
+                            description("omnitrix_block"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(OMNITRIX_BLOCK.get()))
+                    .save(consumer, id("omnitrix_block"));
+
+
+            //ruby
+            Advancement rube_ore = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(RUBY_ORE.get(), title("rube_ore"),
+                            description("rube_ore"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ore", getItem(RUBY_ORE.get()))
+                    .save(consumer, id("rube_ore"));
+
+            Advancement rube_ingot = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(RUBY.get(), title("rube_ingot"),
+                            description("rube_ingot"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(RUBY.get()))
+                    .save(consumer, id("rube_ingot"));
+
+            Advancement ruby_apple = simpleGetItem(consumer, RUBY_APPLE.get(), rube_ingot);
+
         }
         //TODO Finish making the advancements,
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {

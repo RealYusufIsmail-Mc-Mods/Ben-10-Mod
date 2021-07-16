@@ -414,7 +414,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_blasting_smelt"));
 
-
         CookingRecipeBuilder.smelting(Ingredient.of(FIRE_ORE.get()), FIRE.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(FIRE_ORE.get()))
                 .save(consumer, modId("fire_ore_smelt"));

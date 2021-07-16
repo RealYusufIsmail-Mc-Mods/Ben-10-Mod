@@ -1,0 +1,35 @@
+{
+  "parent": "bentenmod:omnitrix_ingot",
+  "display": {
+    "icon": {
+      "item": "bentenmod:omnitrix_block"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.omnitrix_block.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.omnitrix_block.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:omnitrix_block"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_block"
+    ]
+  ]
+}

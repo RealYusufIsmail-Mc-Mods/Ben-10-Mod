@@ -6,6 +6,7 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
+import com.yusuf.bentenmod.data.advancments.ModAdvancementProvider;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.block.Block;
@@ -143,6 +144,5 @@ public class ModEnLangProvider extends LanguageProvider {
     private void add(ITextComponent key, String lang) {
         super.add(key.getString(), lang);
     }
-
 
 }
