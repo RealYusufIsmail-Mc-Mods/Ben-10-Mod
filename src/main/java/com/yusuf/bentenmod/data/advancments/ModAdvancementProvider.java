@@ -21,6 +21,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.yusuf.realyusufismailcore.advancements.GenericIntTrigger;
+import net.yusuf.realyusufismailcore.block.IBlockProvider;
 import net.yusuf.realyusufismailcore.util.NameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -152,21 +153,33 @@ public class ModAdvancementProvider implements IDataProvider {
             //fire
             Advancement fire_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(FIRE_ORE.get(), title("Mined Fire Ore"),
-                            description("Mined Fire ore from the nether. Get smelting"),
+                    .display(FIRE_ORE.get(), title("fire_ore"),
+                            description("fire_ore"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_ore", getItem(FIRE_ORE.get()))
                     .save(consumer, id("fire_ore"));
 
             Advancement fire_ingot = Advancement.Builder.advancement()
                     .parent(fire_ore)
-                    .display(FIRE.get(), title("Smelted Fire Ore"),
-                            description("You have smelted fire ore"),
+                    .display(FIRE.get(), title("fire_ingot"),
+                            description("fire_ingot"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_ingot", getItem(FIRE.get()))
                     .save(consumer, id("fire_ingot"));
-            //TODO Finish making the advancements,
+
+            Advancement fire_apple = simpleGetItem(consumer, FIRE_APPLE.get(), fire_ingot);
+
+            Advancement fire_block = Advancement.Builder.advancement()
+                    .parent(fire_ingot)
+                    .display(FIRE_BLOCK.get(), title("fire_block"),
+                            description("fire_block"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(FIRE_BLOCK.get()))
+                    .save(consumer, id("fire_block"));
+
+
         }
+        //TODO Finish making the advancements,
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
             return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
         }
