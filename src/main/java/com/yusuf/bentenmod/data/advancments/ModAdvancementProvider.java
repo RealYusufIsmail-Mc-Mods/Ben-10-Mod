@@ -178,6 +178,17 @@ public class ModAdvancementProvider implements IDataProvider {
                     .save(consumer, id("fire_block"));
 
 
+            Advancement heatblast_armour = Advancement.Builder.advancement()
+                    .parent(fire_ingot)
+                    .display(HEATBLAST_HELMET.get(), title("heatblast_armour"),
+                            description("heatblast_armour"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("heatblast_helmet", getItem(HEATBLAST_HELMET.get()))
+                    .addCriterion("heatblast_chestplate", getItem(HEATBLAST_CHESTPLATE.get()))
+                    .addCriterion("heatblast_leggings", getItem(HEATBLAST_LEGGINGS.get()))
+                    .addCriterion("heatblast_boots", getItem(HEATBLAST_BOOTS.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("heatblast_armour"));
         }
         //TODO Finish making the advancements,
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {

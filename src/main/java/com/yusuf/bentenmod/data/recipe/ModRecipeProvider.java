@@ -275,7 +275,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("heatblast_leggings"));
 
-        ShapedRecipeBuilder.shaped(HEATBLAST_BOOT.get())
+        ShapedRecipeBuilder.shaped(HEATBLAST_BOOTS.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
                 .pattern("A A")
@@ -544,7 +544,7 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blasting(Ingredient.of(HEATBLAST_LEGGINGS.get()), FIRE.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("heatblast_leggings_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(HEATBLAST_BOOT.get()), FIRE.get(), 0.3f, 300)
+        CookingRecipeBuilder.blasting(Ingredient.of(HEATBLAST_BOOTS.get()), FIRE.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("heatblast_boots_blasting_smelt"));
 

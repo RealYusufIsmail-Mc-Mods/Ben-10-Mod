@@ -29,7 +29,7 @@ public class HeatblastArmor extends ArmorItem implements IForgeItem {
         ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
         ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
 
-        if (boots.getItem() == ItemInit.HEATBLAST_BOOT.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
+        if (boots.getItem() == ItemInit.HEATBLAST_BOOTS.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
             player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 3, false, false, true));
             player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 3, false, false, true));
             player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 3, false, false, true));

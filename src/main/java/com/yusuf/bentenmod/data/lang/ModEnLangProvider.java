@@ -87,7 +87,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.HEATBLAST_HELMET, "Heatblast helmet");
         item(ItemInit.HEATBLAST_CHESTPLATE, "Heatblast chestplate");
         item(ItemInit.HEATBLAST_LEGGINGS, "Heatblast leggings");
-        item(ItemInit.HEATBLAST_BOOT, "Heatblast boots");
+        item(ItemInit.HEATBLAST_BOOTS, "Heatblast boots");
         item(ItemInit.XLR8_HELMET, "xlr8 helmet");
         item(ItemInit.XLR8_CHESTPLATE, "xlr8 chestplate");
         item(ItemInit.XLR8_LEGGINGS, "xlr8 legging");

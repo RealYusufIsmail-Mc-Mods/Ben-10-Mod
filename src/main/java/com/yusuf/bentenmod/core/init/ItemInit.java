@@ -153,7 +153,7 @@ public class ItemInit {
             () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
-    public static final RegistryObject<Item> HEATBLAST_BOOT = ITEMS.register("heatblast_boot",
+    public static final RegistryObject<Item> HEATBLAST_BOOTS = ITEMS.register("heatblast_boot",
             () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
