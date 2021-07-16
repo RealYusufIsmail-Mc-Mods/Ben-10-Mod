@@ -158,6 +158,14 @@ public class ModAdvancementProvider implements IDataProvider {
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("get_ore", getItem(FIRE_ORE.get()))
                     .save(consumer, id("fire_ore"));
+
+            Advancement fire_ingot = Advancement.Builder.advancement()
+                    .parent(fire_ore)
+                    .display(FIRE.get(), title("Smelted Fire Ore"),
+                            description("You have smelted fire ore"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(FIRE.get()))
+                    .save(consumer, id("fire_ingot"));
             //TODO Finish making the advancements,
         }
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
