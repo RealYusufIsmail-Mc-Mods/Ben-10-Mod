@@ -35,7 +35,6 @@ import static com.yusuf.bentenmod.core.init.ItemInit.*;
 import static net.yusuf.realyusufismailcore.core.init.ItemInitCore.*;
 import static net.yusuf.realyusufismailcore.core.init.BlockInitCore.*;
 
-
 public class ModAdvancementProvider implements IDataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
