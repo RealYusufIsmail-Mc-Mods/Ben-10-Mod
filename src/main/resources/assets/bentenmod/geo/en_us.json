@@ -4,5 +4,7 @@
   "advancements.bentenmod.black_diamond_block.title": "Made Black Diamond Block",
   "advancements.bentenmod.black_diamond_block.description": "You have made a Black Diamond block using nine Black Diamond ingot.",
   "advancements.bentenmod.black_diamond_armour.title": "Made all the black diamond armour set",
-  "advancements.bentenmod.black_diamond_armour.description": "You have made all the black diamond armour set which is better than diamond."
+  "advancements.bentenmod.black_diamond_armour.description": "You have made all the black diamond armour set which is better than diamond.",
+  "advancements.bentenmod.black_diamond_ingot.title": "Made Black Diamond Ingot",
+  "advancements.bentenmod.black_diamond_ingot.description": "You have made an Black Diamond ingot which means you can use a smiting table to convert diamond tool or armour to black diamond."
 }
