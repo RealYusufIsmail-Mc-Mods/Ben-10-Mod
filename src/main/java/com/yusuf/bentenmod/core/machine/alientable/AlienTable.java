@@ -55,10 +55,9 @@ public class AlienTable extends Block {
         );
     }
 
-/*
+
     @Override
     public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
-        super.use(p_225533_1_, level, pos, playerEntity, p_225533_5_, p_225533_6_
         if (!level.isClientSide()) {
             INamedContainerProvider containerProvider = new INamedContainerProvider() {
                 @Override
@@ -77,8 +76,9 @@ public class AlienTable extends Block {
         return ActionResultType.SUCCESS;
 }
 
- */
 
+
+    /*
     public ActionResultType use(BlockState p_225533_1_, World p_225533_2_, BlockPos p_225533_3_, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
         if (p_225533_2_.isClientSide) {
             return ActionResultType.SUCCESS;
@@ -88,6 +88,7 @@ public class AlienTable extends Block {
             return ActionResultType.CONSUME;
         }
     }
+    */
 
     /**
      * @see Stats
@@ -98,12 +99,15 @@ public class AlienTable extends Block {
         p_190948_3_.add(LangKeys.ALIEN_TABLE_DISC);
     }
 
+    /*
     @Override
     public INamedContainerProvider getMenuProvider(BlockState p_220052_1_, World p_220052_2_, BlockPos p_220052_3_) {
         return new AlienTableSimpleNamedContainerProvider((p_220270_2_, p_220270_3_, p_220270_4_) -> {
             return new AlienTableContainer(p_220270_2_, p_220270_3_, IWorldPosCallable.create(p_220052_2_, p_220052_3_));
         }, CONTAINER_TITLE);
     }
+
+     */
 
 }
 
