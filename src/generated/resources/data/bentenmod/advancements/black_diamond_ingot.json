@@ -1,0 +1,35 @@
+{
+  "parent": "bentenmod:black_diamond_scrap",
+  "display": {
+    "icon": {
+      "item": "bentenmod:black_diamond"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.Got A Black Diamond Scrap.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.You have made a black diamond ingot. You cant covert diamond armour to black diamond armour using a smiting table.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_scrap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_scrap"
+    ]
+  ]
+}

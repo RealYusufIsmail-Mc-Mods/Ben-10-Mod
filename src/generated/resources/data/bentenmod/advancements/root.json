@@ -4,13 +4,13 @@
       "item": "bentenmod:omnitrix"
     },
     "title": {
-      "translate": "advancements.bentenmod.root.title"
+      "translate": "advancements.bentenmod.Download Ben ten mob mod.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.root.description"
+      "translate": "advancements.bentenmod.Thank you for downloading my mod..description"
     },
     "frame": "task",
-    "show_toast": false,
+    "show_toast": true,
     "announce_to_chat": false,
     "hidden": false,
     "background": "minecraft:textures/block/light_blue_wool.png"

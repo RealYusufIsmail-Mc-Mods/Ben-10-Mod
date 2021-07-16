@@ -1,0 +1,80 @@
+{
+  "parent": "bentenmod:black_diamond_ingot",
+  "display": {
+    "icon": {
+      "item": "bentenmod:black_diamond_sword",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.Made all Black Diamond tools..title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.You have used a smiting table to make all the black diamond tool set. You are op.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "black_diamond_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_sword"
+          }
+        ]
+      }
+    },
+    "black_diamond_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_pickaxe"
+          }
+        ]
+      }
+    },
+    "black_diamond_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_shovel"
+          }
+        ]
+      }
+    },
+    "black_diamond_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_axe"
+          }
+        ]
+      }
+    },
+    "black_diamond_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:black_diamond_hoe"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "black_diamond_sword",
+      "black_diamond_pickaxe",
+      "black_diamond_shovel",
+      "black_diamond_axe",
+      "black_diamond_hoe"
+    ]
+  ]
+}

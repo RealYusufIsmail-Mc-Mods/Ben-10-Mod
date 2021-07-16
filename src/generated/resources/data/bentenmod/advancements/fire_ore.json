@@ -1,0 +1,35 @@
+{
+  "parent": "bentenmod:root",
+  "display": {
+    "icon": {
+      "item": "bentenmod:fire_ore"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.Mined Fire Ore.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.Mined Fire ore from the nether. Get smelting.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "bentenmod:fire_ore"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_ore"
+    ]
+  ]
+}

@@ -38,7 +38,7 @@ import java.util.List;
  * @see CraftingTableBlock
  */
 public class AlienTable extends Block {
-    private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.alien_table");
+    //private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.alien_table");
 
     /**
      * @see TranslationTextComponent

@@ -1,0 +1,35 @@
+{
+  "parent": "bentenmod:root",
+  "display": {
+    "icon": {
+      "item": "realyusufismailcore:copper"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.Got a copper ingot.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.You have got a copper ingot by beating the villain krabb. Congrats..description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "realyusufismailcore:copper"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_ingot"
+    ]
+  ]
+}

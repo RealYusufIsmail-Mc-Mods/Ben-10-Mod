@@ -5,27 +5,17 @@
       "item": "bentenmod:black_diamond_scrap"
     },
     "title": {
-      "translate": "advancements.bentenmod.black_diamond.title"
+      "translate": "advancements.bentenmod.Black Diamond Scrap.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.black_diamond.description"
+      "translate": "advancements.bentenmod.You have got a black diamond scrap. Gain more to able to get an ingot.description"
     },
-    "frame": "task",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
   "criteria": {
-    "get_ore": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "item": "bentenmod:black_diamond_ore"
-          }
-        ]
-      }
-    },
     "get_scrap": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -38,9 +28,6 @@
     }
   },
   "requirements": [
-    [
-      "get_ore"
-    ],
     [
       "get_scrap"
     ]
