@@ -15,6 +15,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fml.RegistryObject;
 
@@ -111,6 +112,23 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.ENCHANTED_OMNITRIX_APPLE, "Enchanted Omnitrix Apple");
         item(ItemInit.FIRE_APPLE, "Fire Apple");
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
+
+        //advancemnets
+        add(new TranslationTextComponent("advancements.bentenmod.root.title"), "Download Ben ten mod");
+        add(new TranslationTextComponent("advancements.bentenmod.root.description"), "Thank you for downloading my mod");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_block.title"), "Made Black Diamond Block");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_block.description"), "You have made a Black Diamond block using nine Black Diamond ingot.");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_ingot.title"), "Made Black Diamond Ingo");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_ingot.description"), "You have made an Black Diamond ingot which means you can use a smiting table to convert diamond tool or armour to black diamond.");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_scrap.title"), "Mined Black Diamond and received Black Diamond scrap");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_scrap.description"), "Get 3 more to be able to make an ingot to make armour and tools in smiting table.");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_tools.title"), "Made all the black diamond Tools");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_tools.description"), "You have made all the black diamond tool set which is better than diamond");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_armour.title"), "Made all the black diamond armour set");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_armour.description"), "You have made all the black diamond armour set which is better than diamond.");
+
+
+
 
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
