@@ -1,5 +1,5 @@
 {
-  "parent": "bentenmod:rube_ingot",
+  "parent": "bentenmod:ruby_ingot",
   "display": {
     "icon": {
       "item": "bentenmod:axe",
@@ -11,7 +11,7 @@
     "description": {
       "translate": "advancements.bentenmod.ruby_axe.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

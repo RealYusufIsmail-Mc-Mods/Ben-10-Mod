@@ -120,6 +120,17 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.FIRE_APPLE, "Fire Apple");
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
 
+        //other items
+        item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
+        item(EntityTypesInit.KRAAB_SPAWN_EGG, "Krab Spawn Egg");
+        add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
+        add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
+        add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
+        add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
+        add(LangKeys.ALIEN_TABLE_DISC, "A crafting table use to create aliens from the ben 10 series");
+        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
+        entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
+
         //advancements
         add(new TranslationTextComponent("advancements.bentenmod.root.title"), "Download Ben ten mod");
         add(new TranslationTextComponent("advancements.bentenmod.root.description"), "Thank you for downloading my mod");
@@ -144,17 +155,73 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslationTextComponent("advancements.bentenmod.legendary_ore.title"), "Mined Legendary ore");
         add(new TranslationTextComponent("advancements.bentenmod.legendary_ore.description"), "You just mined one of the most OP ores in the game");
         //speed advancements
+        add(new TranslationTextComponent("advancements.bentenmod.speed_ingot.title"), "You have mined speed ore and can now craft XLR8");
+        add(new TranslationTextComponent("advancements.bentenmod.speed_ingot.description"), "you have speed");
+        add(new TranslationTextComponent("advancements.bentenmod.speed_block.title"), "You have made a Speed Block");
+        add(new TranslationTextComponent("advancements.bentenmod.speed_block.description"), "You have made a Speed Block using nine speed ingots");
+        add(new TranslationTextComponent("advancements.bentenmod.xlr8_armour.title"), "you are now XLR8");
+        add(new TranslationTextComponent("advancements.bentenmod.xlr8_armour.description"), "You are now the fastest player/entity in the game WOW!");
+        //imperium advancements
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_ore.title"), "Mined Imperium ore");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_ore.description"), "You have mined an ore which is better than iron ore.");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_ingot.title"), "Smelted Imperium ore");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_ingot.description"), "You have smelted imperium ore and now can craft armour and items");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_block.title"), "Smelted Legendary ore");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_block.description"), "You smelted legendary ore and now you can make a sword and armour");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_tools.title"), "Made all the Imperium Tools");
+        add(new TranslationTextComponent("advancements.bentenmod.imperium_tools.description"), "You have made all the imperium tool set which is better than iron");
+        add(new TranslationTextComponent("advancements.bentenmod.upgraded_imperium_pickaxe.title"), "Made the Upgraded Imperium Pickaxe");
+        add(new TranslationTextComponent("advancements.bentenmod.upgraded_imperium_pickaxe.description"), "You have made the Upgraded Imperium Pickaxe which is better than the normal Imperium Pickaxe");
+        //ruby advancements
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_ore.title"), "Mined Ruby ore");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_ore.description"), "You just mined one of the most OP ores in the game which gives you the ability to craft an apple which gives you ultimate regeneration.");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_ingot.title"), "Smelted Ruby ore");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_ingot.description"), "you smelted Ruby ore");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_block.title"), "Made Ruby block");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_block.description"), "you made a ruby block and can now make a ruby apple which gives you regeneration for a long time");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_apple.title"), "Made Ruby Apple");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_apple.description"), "you have a made a very op apple. Which gives regeneration for a long time");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_axe.title"), "Made the fastest axe in the game");
+        add(new TranslationTextComponent("advancements.bentenmod.ruby_axe.description"), "you have made the fastest axe in the game. Nice");
+        //omnitrix advancements
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_ore.title"), "Mined Omnitrix ore");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_ore.description"), "You just mined one of the most OP ores in the game which gives you the ability to craft certain apples.");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_ingot.title"), "Smelted Omnitrix ore");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_ingot.description"), "You smelted Omnitrix ore and now you can make an the omnitrix apple which will give unbelievable power.");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_block.title"), "Made a Omnitrix block");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_block.description"), "you have made omnitrix block which unlocks a certain enchanted apple.");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_apple.title"), "Made an Omnitrix apple");
+        add(new TranslationTextComponent("advancements.bentenmod.omnitrix_apple.description"), "You have a made an apple stronger than a normal golden apple");
+        add(new TranslationTextComponent("advancements.bentenmod.enchanted_omnitrix_apple.title"), "You have a made an apple stronger than a normal golden apple.");
+        add(new TranslationTextComponent("advancements.bentenmod.enchanted_omnitrix_apple.description"), "You have a made an apple stronger than no other apart from a secrete apple.");
+        //fire advancements
+        add(new TranslationTextComponent("advancements.bentenmod.fire_ore.title"), "Mined fire ore");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_ore.description"), "You just mined one of the most OP ores in the game.");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_ingot.title"), "Smelted Fire Ore");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_ingot.description"), "You are now able to make a fire apple and Heatblast.");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_block.title"), "Made a Fire block");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_block.description"), "You have crafted a fire block.");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_apple.title"), "Made a Fire Apple");
+        add(new TranslationTextComponent("advancements.bentenmod.fire_apple.description"), "You are immunte to fire now.");
+        add(new TranslationTextComponent("advancements.bentenmod.heatblast_armour.title"), "you are now Heatblast");
+        add(new TranslationTextComponent("advancements.bentenmod.heatblast_armour.description"), "You are now able to fly and are resistant to fire");
+        //copper
+        add(new TranslationTextComponent("advancements.bentenmod.copper_ingot.title"), "Obtained Copper inogt");
+        add(new TranslationTextComponent("advancements.bentenmod.copper_ingot.description"), "You have obtained copper ingot by slaying Kraab");
+        add(new TranslationTextComponent("advancements.bentenmod.copper_block.title"), "Made a Copper block");
+        add(new TranslationTextComponent("advancements.bentenmod.copper_block.description"), "You just made a copper block");
+        //ininitum advancements
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_scrap.title"), "Mined Infinitum and received Infinitum scrap");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_scrap.description"), "Get 3 more to be able to make an ingot to make armour and tools in smiting table.");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_ingot.title"), "Made an Infinitum Ingot");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_ingot.description"), "You have made an Infinitum ingot which means you can use a smiting table to convert netherite tool or armour to infinitum.");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_block.title"), "Made an Infinitum block");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_block.description"), "You have crafted an Infinitum block.");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_armour.title"), "Made all the Infinitum armour set");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_armour.description"), "You have made all the Infinitum armour set which is better than Black diamond and netherite.");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_tools.title"), "Made all the Infinitum Tools");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_tools.description"), "You have made all the Infinitum tool set which is better than Black Diamond and Netherite.");
 
-        //other items
-        item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
-        item(EntityTypesInit.KRAAB_SPAWN_EGG, "Krab Spawn Egg");
-        add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
-        add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
-        add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
-        add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
-        add(LangKeys.ALIEN_TABLE_DISC, "A crafting table use to create aliens from the ben 10 series");
-        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
-        entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
     }
 
 

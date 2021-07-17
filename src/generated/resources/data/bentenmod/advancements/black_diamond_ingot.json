@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.bentenmod.black_diamond_ingot.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

@@ -1,27 +1,27 @@
 {
-  "parent": "bentenmod:root",
+  "parent": "bentenmod:ruby_ore",
   "display": {
     "icon": {
-      "item": "bentenmod:speed_ore"
+      "item": "bentenmod:ruby"
     },
     "title": {
-      "translate": "advancements.bentenmod.speed_ore.title"
+      "translate": "advancements.bentenmod.ruby_ingot.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.speed_ore.description"
+      "translate": "advancements.bentenmod.ruby_ingot.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
   "criteria": {
-    "get_ore": {
+    "get_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:speed_ore"
+            "item": "bentenmod:ruby"
           }
         ]
       }
@@ -29,7 +29,7 @@
   },
   "requirements": [
     [
-      "get_ore"
+      "get_ingot"
     ]
   ]
 }

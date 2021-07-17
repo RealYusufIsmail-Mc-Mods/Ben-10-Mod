@@ -1,15 +1,15 @@
 {
-  "parent": "bentenmod:black_diamond_ingot",
+  "parent": "bentenmod:infinitum_ingot",
   "display": {
     "icon": {
-      "item": "bentenmod:black_diamond_sword",
+      "item": "bentenmod:infinitum_sword",
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.bentenmod.black_diamond_tools.title"
+      "translate": "advancements.bentenmod.infinitum_tools.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.black_diamond_tools.description"
+      "translate": "advancements.bentenmod.infinitum_tools.description"
     },
     "frame": "goal",
     "show_toast": true,
@@ -17,52 +17,52 @@
     "hidden": false
   },
   "criteria": {
-    "black_diamond_sword": {
+    "infinitum_sword": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:black_diamond_sword"
+            "item": "bentenmod:infinitum_sword"
           }
         ]
       }
     },
-    "black_diamond_pickaxe": {
+    "infinitum_pickaxe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:black_diamond_pickaxe"
+            "item": "bentenmod:infinitum_pickaxe"
           }
         ]
       }
     },
-    "black_diamond_shovel": {
+    "infinitum_shovel": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:black_diamond_shovel"
+            "item": "bentenmod:infinitum_shovel"
           }
         ]
       }
     },
-    "black_diamond_axe": {
+    "infinitum_axe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:black_diamond_axe"
+            "item": "bentenmod:infinitum_axe"
           }
         ]
       }
     },
-    "black_diamond_hoe": {
+    "infinitum_hoe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:black_diamond_hoe"
+            "item": "bentenmod:infinitum_hoe"
           }
         ]
       }
@@ -70,11 +70,11 @@
   },
   "requirements": [
     [
-      "black_diamond_sword",
-      "black_diamond_pickaxe",
-      "black_diamond_shovel",
-      "black_diamond_axe",
-      "black_diamond_hoe"
+      "infinitum_sword",
+      "infinitum_pickaxe",
+      "infinitum_shovel",
+      "infinitum_axe",
+      "infinitum_hoe"
     ]
   ]
 }

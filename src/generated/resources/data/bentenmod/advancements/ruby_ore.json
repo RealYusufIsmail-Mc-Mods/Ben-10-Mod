@@ -5,12 +5,12 @@
       "item": "bentenmod:ruby_ore"
     },
     "title": {
-      "translate": "advancements.bentenmod.rube_ore.title"
+      "translate": "advancements.bentenmod.ruby_ore.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.rube_ore.description"
+      "translate": "advancements.bentenmod.ruby_ore.description"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
