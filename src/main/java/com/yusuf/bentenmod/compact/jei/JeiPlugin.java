@@ -65,6 +65,3 @@ public class JeiPlugin implements IModPlugin {
         //TODO Change this.
     }
 }
-
-
- 
