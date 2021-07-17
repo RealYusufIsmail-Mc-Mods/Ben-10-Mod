@@ -77,6 +77,8 @@ public class TagsInit {
         //food
         public static final ITag.INamedTag<Item> RAW_CRAB = ItemTags.bind("forge:foods/raw_crab");
 
+        //raw ores
+        public static final ITag.INamedTag<Item> RAW_ORE = ItemTags.bind("forge:scraps/raw_ore");
 
         private static ITag.INamedTag<Item> forge(String path) {
             return ItemTags.bind(new ResourceLocation("forge", path).toString());

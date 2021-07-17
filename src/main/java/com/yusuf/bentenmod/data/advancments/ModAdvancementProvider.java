@@ -247,6 +247,25 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement ruby_apple = simpleGetItem(consumer, RUBY_APPLE.get(), rube_ingot);
 
+            Advancement ruby_block = Advancement.Builder.advancement()
+                    .parent(rube_ingot)
+                    .display(RUBY_BLOCK.get(), title("ruby_block"),
+                            description("ruby_block"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(RUBY_BLOCK.get()))
+                    .save(consumer, id("ruby_block"));
+
+            Advancement ruby_axe = Advancement.Builder.advancement()
+                    .parent(rube_ingot)
+                    .display(AXE.get(), title("ruby_axe"),
+                            description("ruby_axe"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("exe", getItem(AXE.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("ruby_axe"));
+
+                //imperium
+
         }
         //TODO Finish making the advancements,
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {

@@ -1,12 +1,19 @@
 package com.yusuf.bentenmod.data.tags;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.init.TagsInit;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
+import net.minecraft.data.TagsProvider;
+import net.minecraft.item.Item;
+import net.minecraft.tags.ITag;
+import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.Arrays;
+
+import static com.yusuf.bentenmod.core.init.ItemInit.*;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
@@ -35,22 +42,28 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 
         //ingots
-        tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(ItemInit.LEGENDARY_ORE.get());
-        tag(TagsInit.Items.INGOTS_OMNITRIX).add(ItemInit.OMNITRIX.get());
-        tag(TagsInit.Items.INGOTS_FIRE).add(ItemInit.FIRE.get());
-        tag(TagsInit.Items.INGOTS_RUBY).add(ItemInit.RUBY.get());
-        tag(TagsInit.Items.INGOTS_SPEED).add(ItemInit.SPEED.get());
-        tag(TagsInit.Items.INGOTS_BLACK_DIAMOND).add(ItemInit.BLACK_DIAMOND.get());
-        tag(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP).add(ItemInit.BLACK_DIAMOND_SCRAP.get());
-        tag(TagsInit.Items.INGOTS_INFINITUM).add(ItemInit.INFINITUM.get());
-        tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(ItemInit.INFINITUM_SCRAP.get());
-        tag(TagsInit.Items.INGOTS_IMPERIUM).add(ItemInit.IMPERIUM.get());
+        tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(LEGENDARY_ORE.get());
+        tag(TagsInit.Items.INGOTS_OMNITRIX).add(OMNITRIX.get());
+        tag(TagsInit.Items.INGOTS_FIRE).add(FIRE.get());
+        tag(TagsInit.Items.INGOTS_RUBY).add(RUBY.get());
+        tag(TagsInit.Items.INGOTS_SPEED).add(SPEED.get());
+        tag(TagsInit.Items.INGOTS_BLACK_DIAMOND).add(BLACK_DIAMOND.get());
+        tag(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP).add(BLACK_DIAMOND_SCRAP.get());
+        tag(TagsInit.Items.INGOTS_INFINITUM).add(INFINITUM.get());
+        tag(TagsInit.Items.SCRAP_INFINITUM_SCRAP).add(INFINITUM_SCRAP.get());
+        tag(TagsInit.Items.INGOTS_IMPERIUM).add(IMPERIUM.get());
 
         //tools
-        tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(ItemInit.IMPERIUM_PICKAXE.get());
+        tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(IMPERIUM_PICKAXE.get());
 
-        //foods
+        //raw ores
+        builder(TagsInit.Items.RAW_ORE, RAW_LEGENDARY.get(), RAW_OMNITRIX.get(), RAW_IMPERIUM.get());
+    }
+    private void builder(ITag.INamedTag<Item> tag, IItemProvider... items) {
+        getBuilder(tag).add(Arrays.stream(items).map(IItemProvider::asItem).toArray(Item[]::new));
+    }
 
-
+    protected TagsProvider.Builder<Item> getBuilder(ITag.INamedTag<Item> tag) {
+        return tag(tag);
     }
 }
