@@ -5,13 +5,7 @@ import com.yusuf.bentenmod.core.init.TagsInit;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.ItemTagsProvider;
-import net.minecraft.data.TagsProvider;
-import net.minecraft.item.Item;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.Arrays;
 
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
 
@@ -24,13 +18,13 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags() {
         //ores
-        copy(TagsInit.Blocks.ORES_BLACK_DIAMOND, TagsInit.Items.ORES_BLACK_DIAMOND);
+        copy(TagsInit.Blocks.ORES_BLACK_DIAMONDS, TagsInit.Items.ORES_BLACK_DIAMONDS);
         copy(TagsInit.Blocks.ORES_INFINITUM, TagsInit.Items.ORES_INFINITUM);
-        copy(TagsInit.Blocks.ORES_RUBY, TagsInit.Items.ORES_RUBY);
+        copy(TagsInit.Blocks.ORES_RUBYS, TagsInit.Items.ORES_RUBYS);
         copy(TagsInit.Blocks.ORES_FIRE, TagsInit.Items.ORES_FIRE);
-        copy(TagsInit.Blocks.ORES_SPEED, TagsInit.Items.ORES_SPEED);
-        copy(TagsInit.Blocks.ORES_OMNITRIX, TagsInit.Items.ORES_OMNITRIX);
-        copy(TagsInit.Blocks.ORES_IMPERIUM, TagsInit.Items.ORES_IMPERIUM);
+        copy(TagsInit.Blocks.ORES_SPEEDS, TagsInit.Items.ORES_SPEEDS);
+        copy(TagsInit.Blocks.ORES_OMNITRIXS, TagsInit.Items.ORES_OMNITRIXS);
+        copy(TagsInit.Blocks.ORES_IMPERIUMS, TagsInit.Items.ORES_IMPERIUMS);
         copy(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCKS, TagsInit.Items.ORES_LEGENDARY_ORE_BLOCKS);
 
 
@@ -59,13 +53,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE).add(IMPERIUM_PICKAXE.get());
 
         //raw ores
-        builder(TagsInit.Items.RAW_ORE, RAW_LEGENDARY.get(), RAW_OMNITRIX.get(), RAW_IMPERIUM.get());
-    }
-    private void builder(ITag.INamedTag<Item> tag, IItemProvider... items) {
-        getBuilder(tag).add(Arrays.stream(items).map(IItemProvider::asItem).toArray(Item[]::new));
-    }
-
-    protected TagsProvider.Builder<Item> getBuilder(ITag.INamedTag<Item> tag) {
-        return tag(tag);
+        tag(TagsInit.Items.RAW_ORE).add(RAW_LEGENDARY.get(), RAW_OMNITRIX.get(), RAW_IMPERIUM.get());
     }
 }

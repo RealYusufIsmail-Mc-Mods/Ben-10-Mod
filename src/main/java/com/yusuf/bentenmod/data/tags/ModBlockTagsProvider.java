@@ -18,32 +18,29 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags() {
         //ores
-        tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BLACK_DIAMOND_ORE.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
-
         tag(TagsInit.Blocks.ORES_FIRE).add(FIRE_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_FIRE);
 
-        tag(TagsInit.Blocks.ORES_OMNITRIX).add(OMNITRIX_ORE.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_OMNITRIX);
+        tag(TagsInit.Blocks.ORES_OMNITRIXS).add(OMNITRIX_ORE.get(), DEEPSLATE_OMNITRIX_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_OMNITRIXS);
 
         tag(TagsInit.Blocks.ORES_INFINITUM).add(INFINITUM_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_INFINITUM);
 
-        tag(TagsInit.Blocks.ORES_RUBY).add(RUBY_ORE.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_RUBY);
+        tag(TagsInit.Blocks.ORES_RUBYS).add(RUBY_ORE.get(), DEEPSLATE_RUBY_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_RUBYS);
 
-        tag(TagsInit.Blocks.ORES_SPEED).add(SPEED_ORE.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_SPEED);
+        tag(TagsInit.Blocks.ORES_SPEEDS).add(SPEED_ORE.get(), DEEPSLATE_SPEED_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_SPEEDS);
 
-        tag(TagsInit.Blocks.ORES_IMPERIUM).add(IMPERIUM_ORE.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_IMPERIUM);
+        tag(TagsInit.Blocks.ORES_IMPERIUMS).add(IMPERIUM_ORE.get(), DEEPSLATE_IMPERIUM_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_IMPERIUMS);
 
         tag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCKS).add(LEGENDARY_BLOCK.get(), DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCKS);
 
-        tag(TagsInit.Blocks.ORES_BLACK_DIAMOND).add(BLACK_DIAMOND_ORE.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMOND);
+        tag(TagsInit.Blocks.ORES_BLACK_DIAMONDS).add(BLACK_DIAMOND_ORE.get(), DEEPSLATE_BLACK_DIAMOND_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMONDS);
 
         //blocks
         tag(TagsInit.Blocks.STORAGE_LEGENDARY).add(LEGENDARY_BLOCK.get());

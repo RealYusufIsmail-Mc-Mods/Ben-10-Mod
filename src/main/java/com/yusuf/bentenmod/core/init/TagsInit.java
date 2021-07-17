@@ -12,14 +12,14 @@ public class TagsInit {
 
     public static final class Blocks {
         ///ores
-        public static final ITag.INamedTag<Block> ORES_BLACK_DIAMOND = BlockTags.bind("forge:ores/black_diamond");
-        public static final ITag.INamedTag<Block> ORES_RUBY = BlockTags.bind("forge:ores/ruby");
+        public static final ITag.INamedTag<Block> ORES_BLACK_DIAMONDS = BlockTags.bind("forge:ores/black_diamonds");
+        public static final ITag.INamedTag<Block> ORES_RUBYS = BlockTags.bind("forge:ores/rubsy");
         public static final ITag.INamedTag<Block> ORES_INFINITUM = BlockTags.bind("forge:ores/infinitum");
         public static final ITag.INamedTag<Block> ORES_FIRE = BlockTags.bind("forge:ores/fire");
-        public static final ITag.INamedTag<Block> ORES_SPEED = BlockTags.bind("forge:ores/speed");
-        public static final ITag.INamedTag<Block> ORES_OMNITRIX = BlockTags.bind("forge:ores/omnitrix");
-        public static final ITag.INamedTag<Block> ORES_IMPERIUM = BlockTags.bind("forge:ores/imperium");
-        public static final ITag.INamedTag<Block> ORES_LEGENDARY_ORE_BLOCKS = BlockTags.bind("forge:ores/legendary_ore_block");
+        public static final ITag.INamedTag<Block> ORES_SPEEDS = BlockTags.bind("forge:ores/speeds");
+        public static final ITag.INamedTag<Block> ORES_OMNITRIXS = BlockTags.bind("forge:ores/omnitrixs");
+        public static final ITag.INamedTag<Block> ORES_IMPERIUMS = BlockTags.bind("forge:ores/imperiums");
+        public static final ITag.INamedTag<Block> ORES_LEGENDARY_ORE_BLOCKS = BlockTags.bind("forge:ores/legendary_ore_blocks");
 
         //blocks
         public static final ITag.INamedTag<Block> STORAGE_LEGENDARY = BlockTags.bind("forge:storage_blocks/legendary");
@@ -41,14 +41,14 @@ public class TagsInit {
 
     public static final class Items {
         //ores
-        public static final ITag.INamedTag<Item> ORES_BLACK_DIAMOND = ItemTags.bind("forge:ores/black_diamond");
-        public static final ITag.INamedTag<Item> ORES_RUBY = ItemTags.bind("forge:ores/ruby");
+        public static final ITag.INamedTag<Item> ORES_BLACK_DIAMONDS = ItemTags.bind("forge:ores/black_diamonds");
+        public static final ITag.INamedTag<Item> ORES_RUBYS = ItemTags.bind("forge:ores/rubys");
         public static final ITag.INamedTag<Item> ORES_INFINITUM = ItemTags.bind("forge:ores/infinitum");
         public static final ITag.INamedTag<Item> ORES_FIRE = ItemTags.bind("forge:ores/fire");
-        public static final ITag.INamedTag<Item> ORES_SPEED = ItemTags.bind("forge:ores/speed");
-        public static final ITag.INamedTag<Item> ORES_OMNITRIX = ItemTags.bind("forge:ores/omnitrix");
-        public static final ITag.INamedTag<Item> ORES_IMPERIUM = ItemTags.bind("forge:ores/imperium");
-        public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCKS = ItemTags.bind("forge:ores/legendary_ore_block");
+        public static final ITag.INamedTag<Item> ORES_SPEEDS = ItemTags.bind("forge:ores/speeds");
+        public static final ITag.INamedTag<Item> ORES_OMNITRIXS = ItemTags.bind("forge:ores/omnitrixs");
+        public static final ITag.INamedTag<Item> ORES_IMPERIUMS = ItemTags.bind("forge:ores/imperiums");
+        public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCKS = ItemTags.bind("forge:ores/legendary_ore_blocks");
 
 
         //blocks
