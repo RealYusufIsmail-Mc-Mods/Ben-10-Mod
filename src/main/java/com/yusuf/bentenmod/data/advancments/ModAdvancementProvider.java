@@ -309,10 +309,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("upgraded_imperium_pickaxe"));
 
-
             //speed
-
-
             Advancement speed_ingot = Advancement.Builder.advancement()
                     .parent(root)
                     .display(SPEED.get(), title("speed_ingot"),
@@ -342,7 +339,6 @@ public class ModAdvancementProvider implements IDataProvider {
                     .save(consumer, id("xlr8_armour"));
 
             //legendary
-
             Advancement legendary_ore = Advancement.Builder.advancement()
                     .parent(root)
                     .display(LEGENDARY_ORE.get(), title("legendary_ore"),
@@ -389,7 +385,6 @@ public class ModAdvancementProvider implements IDataProvider {
                     .save(consumer, id("knight_armour"));
 
             //infinitum
-
             Advancement infinitum_scrap = Advancement.Builder.advancement()
                     .parent(root)
                     .display(INFINITUM_SCRAP.get(), title("infinitum_scrap"),
