@@ -1,5 +1,5 @@
 {
-  "type": "bentenmod:alien_table",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     " F ",
     " O ",
