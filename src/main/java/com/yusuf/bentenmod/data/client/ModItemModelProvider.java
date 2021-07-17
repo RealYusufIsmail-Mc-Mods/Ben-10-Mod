@@ -32,9 +32,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("speed_ore", modLoc("block/speed_ore"));
         withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
         withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
-        withExistingParent("legendary_ore_block", modLoc("block/legendary_ore_block"));
+        withExistingParent("legendary_ore", modLoc("block/legendary_ore"));
         withExistingParent("imperium_block", modLoc("block/imperium_block"));
-        withExistingParent("deepslate_legendary_ore_block", modLoc("block/deepslate_legendary_ore_block"));
+        withExistingParent("deepslate_legendary_ore", modLoc("block/deepslate_legendary_ore"));
         withExistingParent("deepslate_ruby_ore", modLoc("block/deepslate_ruby_ore"));
         withExistingParent("deepslate_black_diamond_ore", modLoc("block/deepslate_black_diamond_ore"));
         withExistingParent("deepslate_imperium_ore", modLoc("block/deepslate_imperium_ore"));
@@ -49,9 +49,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "black_diamond_scrap");
         builder(itemGenerated, "infinitum");
         builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "boot");
+        builder(itemGenerated, "boots");
         builder(itemGenerated, "chestplate");
-        builder(itemGenerated, "legendary_ore");
+        builder(itemGenerated, "legendary");
         builder(itemGenerated, "omnitrix");
         builder(itemGenerated, "fire");
         builder(itemGenerated, "ruby");
@@ -62,11 +62,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "heatblast_helmet");
         builder(itemGenerated, "heatblast_chestplate");
         builder(itemGenerated, "heatblast_leggings");
-        builder(itemGenerated, "heatblast_boot");
+        builder(itemGenerated, "heatblast_boots");
         builder(itemGenerated, "xlr8_helmet");
         builder(itemGenerated, "xlr8_chestplate");
         builder(itemGenerated, "xlr8_leggings");
-        builder(itemGenerated, "xlr8_boot");
+        builder(itemGenerated, "xlr8_boots");
         builder(itemGenerated, "omnitrix_apple");
         builder(itemGenerated, "enchanted_omnitrix_apple");
         builder(itemGenerated, "fire_apple");

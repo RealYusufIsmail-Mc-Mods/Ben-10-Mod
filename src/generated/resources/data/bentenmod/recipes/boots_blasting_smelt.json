@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmod:boot"
+    "item": "bentenmod:boots"
   },
   "result": "bentenmod:legendary_ore",
   "experience": 0.3,

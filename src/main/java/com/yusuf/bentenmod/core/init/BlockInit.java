@@ -31,10 +31,9 @@ public class BlockInit {
     public static final RegistryObject<GeneralBlock> SPEED_BLOCK = register("speed_block", Blocks.NETHERITE_BLOCK);
     public static final RegistryObject<GeneralBlock> RUBY_BLOCK = register("ruby_block", Blocks.NETHERITE_BLOCK);
     public static final RegistryObject<GeneralBlock> IMPERIUM_BLOCK = register("imperium_block", Blocks.IRON_BLOCK);
-    public static final RegistryObject<GeneralBlock> LEGENDARY_ORE_BLOCK = register("legendary_ore_block", Blocks.NETHERITE_BLOCK);
 
     //deepslate ores
-    public static final RegistryObject<GeneralBlock> DEEPSLATE_LEGENDARY_ORE_BLOCK = register("deepslate_legendary_ore_block", Blocks.ANCIENT_DEBRIS);
+    public static final RegistryObject<GeneralBlock> DEEPSLATE_LEGENDARY_ORE = register("deepslate_legendary_ore", Blocks.ANCIENT_DEBRIS);
     public static final RegistryObject<GeneralBlock> DEEPSLATE_RUBY_ORE = register("deepslate_ruby_ore", Blocks.DIAMOND_ORE);
     public static final RegistryObject<GeneralBlock> DEEPSLATE_BLACK_DIAMOND_ORE = register("deepslate_black_diamond_ore", Blocks.ANCIENT_DEBRIS);
     public static final RegistryObject<GeneralBlock> DEEPSLATE_IMPERIUM_ORE = register("deepslate_imperium_ore", Blocks.ANCIENT_DEBRIS);
@@ -42,6 +41,7 @@ public class BlockInit {
     public static final RegistryObject<GeneralBlock> DEEPSLATE_OMNITRIX_ORE = register("deepslate_omnitrix_ore", Blocks.ANCIENT_DEBRIS);
 
     //ores
+    public static final RegistryObject<GeneralBlock> LEGENDARY_ORE = register("legendary_ore", Blocks.NETHERITE_BLOCK);
     public static final RegistryObject<GeneralBlock> RUBY_ORE = register("ruby_ore", Blocks.ANCIENT_DEBRIS);
     public static final RegistryObject<GeneralBlock> IMPERIUM_ORE = register("imperium_ore", Blocks.DIAMOND_ORE);
     public static final RegistryObject<GeneralBlock> BLACK_DIAMOND_ORE = register("black_diamond_ore", Blocks.ANCIENT_DEBRIS);

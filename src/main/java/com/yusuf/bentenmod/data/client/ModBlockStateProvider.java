@@ -34,7 +34,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(FIRE_BLOCK.get());
         simpleBlock(FIRE_ORE.get());
         simpleBlock(LEGENDARY_BLOCK.get());
-        simpleBlock(LEGENDARY_ORE_BLOCK.get());
+        simpleBlock(LEGENDARY_ORE.get());
         simpleBlock(OMNITRIX_BLOCK.get());
         simpleBlock(OMNITRIX_ORE.get());
         simpleBlock(RUBY_BLOCK.get());
@@ -48,7 +48,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(DEEPSLATE_RUBY_ORE.get());
         simpleBlock(DEEPSLATE_IMPERIUM_ORE.get());
         simpleBlock(DEEPSLATE_OMNITRIX_ORE.get());
-        simpleBlock(DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
+        simpleBlock(DEEPSLATE_LEGENDARY_ORE.get());
         // orientableMachineBlock(TABLE_BLOCK.get(), "table_block");
     }
 }

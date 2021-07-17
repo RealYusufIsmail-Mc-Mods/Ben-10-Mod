@@ -42,7 +42,7 @@ public class ModEnLangProvider extends LanguageProvider {
 
         //ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");
-        block(BlockInit.LEGENDARY_ORE_BLOCK, "Legendary Ore");
+        block(BlockInit.LEGENDARY_ORE, "Legendary Ore");
         block(BlockInit.BLACK_DIAMOND_ORE, "Black Diamond Ore");
         block(BlockInit.OMNITRIX_ORE, "Omnitrix Ore");
         block(BlockInit.FIRE_ORE, "Fire Ore");
@@ -50,8 +50,15 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
 
+        //deepslate ores
+        block(BlockInit.DEEPSLATE_IMPERIUM_ORE, "Deepslate Imperium Ore");
+        block(BlockInit.DEEPSLATE_LEGENDARY_ORE, "Deepslate Legendary Ore");
+        block(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE, "Deepslate Black Diamond Ore");
+        block(BlockInit.DEEPSLATE_OMNITRIX_ORE, "Deepslate Omnitrix Ore");
+        block(BlockInit.DEEPSLATE_SPEED_ORE, "Deepslate Speed Ore");
+        block(BlockInit.DEEPSLATE_RUBY_ORE, "Deepslate Ruby Ore");
         //ingots
-        item(ItemInit.LEGENDARY_ORE, "Legendary");
+        item(ItemInit.LEGENDARY, "Legendary");
         item(ItemInit.OMNITRIX, "Omnitrix");
         item(ItemInit.FIRE, "Fire(ingot)");
         item(ItemInit.RUBY, "Ruby");
@@ -85,7 +92,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.HELMET, "Knight helmet");
         item(ItemInit.CHESTPLATE, "Knight Chestplate");
         item(ItemInit.LEGGINGS, "Knight leggings");
-        item(ItemInit.BOOT, "Knight Boots");
+        item(ItemInit.BOOTS, "Knight Boots");
         item(ItemInit.HEATBLAST_HELMET, "Heatblast helmet");
         item(ItemInit.HEATBLAST_CHESTPLATE, "Heatblast chestplate");
         item(ItemInit.HEATBLAST_LEGGINGS, "Heatblast leggings");
@@ -93,7 +100,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.XLR8_HELMET, "xlr8 helmet");
         item(ItemInit.XLR8_CHESTPLATE, "xlr8 chestplate");
         item(ItemInit.XLR8_LEGGINGS, "xlr8 legging");
-        item(ItemInit.XLR8_BOOT, "xlr8 boots");
+        item(ItemInit.XLR8_BOOTS, "xlr8 boots");
         //item(ItemInit.FOURARMS_HELMET, "4Arms helmet");
         //item(ItemInit.FOURARMS_CHESTPLATE, "4Arms chestplate");
         //item(ItemInit.FOURARMS_LEGGINGS, "4Arms legging");
@@ -113,9 +120,10 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.FIRE_APPLE, "Fire Apple");
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
 
-        //advancemnets
+        //advancements
         add(new TranslationTextComponent("advancements.bentenmod.root.title"), "Download Ben ten mod");
         add(new TranslationTextComponent("advancements.bentenmod.root.description"), "Thank you for downloading my mod");
+        //black diamond advancements
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_block.title"), "Made Black Diamond Block");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_block.description"), "You have made a Black Diamond block using nine Black Diamond ingot.");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_ingot.title"), "Made Black Diamond Ingo");
@@ -126,9 +134,16 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_tools.description"), "You have made all the black diamond tool set which is better than diamond");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_armour.title"), "Made all the black diamond armour set");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_armour.description"), "You have made all the black diamond armour set which is better than diamond.");
-
-
-
+        //legendary advancements
+        add(new TranslationTextComponent("advancements.bentenmod.legendary_block.title"), "Made a Legendary block");
+        add(new TranslationTextComponent("advancements.bentenmod.legendary_block.description"), "You are rich enough to make a Legendary Block");
+        add(new TranslationTextComponent("advancements.bentenmod.knight_armour.title"), "Made knight armour");
+        add(new TranslationTextComponent("advancements.bentenmod.knight_armour.description"), "You have the most powerful armour. All hall the strongest knight");
+        add(new TranslationTextComponent("advancements.bentenmod.legendary_ingot.title"), "Smelted Legendary ore");
+        add(new TranslationTextComponent("advancements.bentenmod.legendary_ingot.description"), "You smelted legendary ore and now you can make a sword and armour");
+        add(new TranslationTextComponent("advancements.bentenmod.legendary_ore.title"), "Mined Legendary ore");
+        add(new TranslationTextComponent("advancements.bentenmod.legendary_ore.description"), "You just mined one of the most OP ores in the game");
+        //speed advancements
 
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");

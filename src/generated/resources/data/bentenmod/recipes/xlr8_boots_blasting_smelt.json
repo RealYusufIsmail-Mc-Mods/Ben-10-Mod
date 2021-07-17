@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "bentenmod:xlr8_boot"
+    "item": "bentenmod:xlr8_boots"
   },
   "result": "bentenmod:speed",
   "experience": 0.3,

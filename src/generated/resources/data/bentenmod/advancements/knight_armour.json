@@ -1,15 +1,15 @@
 {
-  "parent": "bentenmod:fire_ingot",
+  "parent": "bentenmod:legendary_ingot",
   "display": {
     "icon": {
       "item": "bentenmod:heatblast_chestplate",
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.bentenmod.heatblast_armour.title"
+      "translate": "advancements.bentenmod.knight_armour.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.heatblast_armour.description"
+      "translate": "advancements.bentenmod.knight_armour.description"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -17,42 +17,42 @@
     "hidden": false
   },
   "criteria": {
-    "heatblast_helmet": {
+    "knightt_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_helmet"
+            "item": "bentenmod:helmet"
           }
         ]
       }
     },
-    "heatblast_chestplate": {
+    "knight_chestplate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_chestplate"
+            "item": "bentenmod:chestplate"
           }
         ]
       }
     },
-    "heatblast_leggings": {
+    "knight_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_leggings"
+            "item": "bentenmod:leggings"
           }
         ]
       }
     },
-    "heatblast_boots": {
+    "knight_boots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_boots"
+            "item": "bentenmod:boots"
           }
         ]
       }
@@ -60,10 +60,10 @@
   },
   "requirements": [
     [
-      "heatblast_helmet",
-      "heatblast_chestplate",
-      "heatblast_leggings",
-      "heatblast_boots"
+      "knightt_helmet",
+      "knight_chestplate",
+      "knight_leggings",
+      "knight_boots"
     ]
   ]
 }

@@ -26,7 +26,7 @@ public class LegendaryArmor extends ArmorItem implements IForgeItem {
         ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
         ItemStack helmet = player.getItemBySlot(EquipmentSlotType.HEAD);
 
-        if (boot.getItem() == ItemInit.BOOT.get() && legs.getItem() == ItemInit.LEGGINGS.get() && chest.getItem() == ItemInit.CHESTPLATE.get() && helmet.getItem() == ItemInit.HELMET.get())
+        if (boot.getItem() == ItemInit.BOOTS.get() && legs.getItem() == ItemInit.LEGGINGS.get() && chest.getItem() == ItemInit.CHESTPLATE.get() && helmet.getItem() == ItemInit.HELMET.get())
             ;
         {
             player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));

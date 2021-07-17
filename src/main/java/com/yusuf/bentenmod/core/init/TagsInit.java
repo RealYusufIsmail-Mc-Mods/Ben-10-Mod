@@ -19,7 +19,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Block> ORES_SPEEDS = BlockTags.bind("forge:ores/speeds");
         public static final ITag.INamedTag<Block> ORES_OMNITRIXS = BlockTags.bind("forge:ores/omnitrixs");
         public static final ITag.INamedTag<Block> ORES_IMPERIUMS = BlockTags.bind("forge:ores/imperiums");
-        public static final ITag.INamedTag<Block> ORES_LEGENDARY_ORE_BLOCKS = BlockTags.bind("forge:ores/legendary_ore_blocks");
+        public static final ITag.INamedTag<Block> ORES_LEGENDARY_ORES = BlockTags.bind("forge:ores/legendary_ores");
 
         //blocks
         public static final ITag.INamedTag<Block> STORAGE_LEGENDARY = BlockTags.bind("forge:storage_blocks/legendary");
@@ -48,7 +48,7 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> ORES_SPEEDS = ItemTags.bind("forge:ores/speeds");
         public static final ITag.INamedTag<Item> ORES_OMNITRIXS = ItemTags.bind("forge:ores/omnitrixs");
         public static final ITag.INamedTag<Item> ORES_IMPERIUMS = ItemTags.bind("forge:ores/imperiums");
-        public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORE_BLOCKS = ItemTags.bind("forge:ores/legendary_ore_blocks");
+        public static final ITag.INamedTag<Item> ORES_LEGENDARY_ORES = ItemTags.bind("forge:ores/legendary_ores");
 
 
         //blocks

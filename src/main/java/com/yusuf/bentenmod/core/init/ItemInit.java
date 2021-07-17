@@ -18,7 +18,7 @@ public class ItemInit {
     // ores
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BenTenMod.MOD_ID);
 
-    public static final RegistryObject<Item> LEGENDARY_ORE = ITEMS.register("legendary_ore",
+    public static final RegistryObject<Item> LEGENDARY = ITEMS.register("legendary",
             () -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
     public static final RegistryObject<Item> OMNITRIX = ITEMS.register("omnitrix",
@@ -141,7 +141,7 @@ public class ItemInit {
             () -> new LegendaryArmor(CustomArmorMaterial.ARMOUR, EquipmentSlotType.LEGS,
                     new Item.Properties().tab(MainItemGroup.MAIN)));
 
-    public static final RegistryObject<Item> BOOT = ITEMS.register("boot",
+    public static final RegistryObject<Item> BOOTS = ITEMS.register("boots",
             () -> new LegendaryArmor(CustomArmorMaterial.ARMOUR, EquipmentSlotType.FEET,
                     new Item.Properties().tab(MainItemGroup.MAIN)));
     // ben ten clothing
@@ -163,7 +163,7 @@ public class ItemInit {
             () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.LEGS,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
-    public static final RegistryObject<Item> HEATBLAST_BOOTS = ITEMS.register("heatblast_boot",
+    public static final RegistryObject<Item> HEATBLAST_BOOTS = ITEMS.register("heatblast_boots",
             () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlotType.FEET,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
@@ -180,7 +180,7 @@ public class ItemInit {
             () -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.LEGS,
                     new Item.Properties().tab(MainItemGroup.MAIN)));
 
-    public static final RegistryObject<Item> XLR8_BOOT = ITEMS.register("xlr8_boot",
+    public static final RegistryObject<Item> XLR8_BOOTS = ITEMS.register("xlr8_boots",
             () -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR, EquipmentSlotType.FEET,
                     new Item.Properties().tab(MainItemGroup.MAIN)));
     // 4 Arms

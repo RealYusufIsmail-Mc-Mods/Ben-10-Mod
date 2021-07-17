@@ -1,15 +1,14 @@
 {
-  "parent": "bentenmod:fire_ingot",
+  "parent": "bentenmod:legendary_ingot",
   "display": {
     "icon": {
-      "item": "bentenmod:heatblast_sword",
-      "nbt": "{Damage:0}"
+      "item": "bentenmod:legendary_block"
     },
     "title": {
-      "translate": "advancements.bentenmod.heatblast_sword.title"
+      "translate": "advancements.bentenmod.legendary_block.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.heatblast_sword.description"
+      "translate": "advancements.bentenmod.legendary_block.description"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -17,12 +16,12 @@
     "hidden": false
   },
   "criteria": {
-    "heatblast_sword": {
+    "get_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_sword"
+            "item": "bentenmod:legendary_block"
           }
         ]
       }
@@ -30,7 +29,7 @@
   },
   "requirements": [
     [
-      "heatblast_sword"
+      "get_block"
     ]
   ]
 }

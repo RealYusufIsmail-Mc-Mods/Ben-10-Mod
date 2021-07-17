@@ -110,7 +110,7 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement black_diamond_armour = Advancement.Builder.advancement()
                     .parent(black_diamond_ingot)
-                    .display(BLACK_DIAMOND_HELMET.get(), title("black_diamond_armour"),
+                    .display(BLACK_DIAMOND_CHESTPLATE.get(), title("black_diamond_armour"),
                             description("black_diamond_armour"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("black_diamond_helmet", getItem(BLACK_DIAMOND_HELMET.get()))
@@ -180,7 +180,7 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement heatblast_armour = Advancement.Builder.advancement()
                     .parent(fire_ingot)
-                    .display(HEATBLAST_HELMET.get(), title("heatblast_armour"),
+                    .display(HEATBLAST_CHESTPLATE.get(), title("heatblast_armour"),
                             description("heatblast_armour"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("heatblast_helmet", getItem(HEATBLAST_HELMET.get()))
@@ -192,7 +192,7 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement heatblast_sword = Advancement.Builder.advancement()
                     .parent(fire_ingot)
-                    .display(HEATBLAST_HELMET.get(), title("heatblast_sword"),
+                    .display(HEATBLAST_SWORD.get(), title("heatblast_sword"),
                             description("heatblast_sword"),
                             null, FrameType.CHALLENGE, true, true, false)
                     .addCriterion("heatblast_sword", getItem(HEATBLAST_SWORD.get()))
@@ -260,12 +260,139 @@ public class ModAdvancementProvider implements IDataProvider {
                     .display(AXE.get(), title("ruby_axe"),
                             description("ruby_axe"),
                             null, FrameType.CHALLENGE, true, true, false)
-                    .addCriterion("exe", getItem(AXE.get()))
+                    .addCriterion("axe", getItem(AXE.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("ruby_axe"));
 
                 //imperium
+            Advancement imperium_ore = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(IMPERIUM_ORE.get(), title("imperium_ore"),
+                            description("imperium_ore"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ore", getItem(IMPERIUM_ORE.get()))
+                    .save(consumer, id("imperium_ore"));
 
+            Advancement imperium_ingot = Advancement.Builder.advancement()
+                    .parent(imperium_ore)
+                    .display(IMPERIUM.get(), title("imperium_ingot"),
+                            description("imperium_ingot"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(IMPERIUM.get()))
+                    .save(consumer, id("imperium_ingot"));
+
+            Advancement imperium_block = Advancement.Builder.advancement()
+                    .parent(imperium_ingot)
+                    .display(IMPERIUM_BLOCK.get(), title("imperium_block"),
+                            description("imperium_block"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(IMPERIUM_BLOCK.get()))
+                    .save(consumer, id("imperium_block"));
+
+            Advancement imperium_tools = Advancement.Builder.advancement()
+                    .parent(imperium_ingot)
+                    .display(IMPERIUM_SWORD.get(), title("imperium_tools"),
+                            description("imperium_tools"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("imperium_pickaxe", getItem(IMPERIUM_PICKAXE.get()))
+                    .addCriterion("imperium_sword", getItem(IMPERIUM_SWORD.get()))
+                    .addCriterion("imperium_axe", getItem(IMPERIUM_AXE.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("imperium_tools"));
+
+            Advancement upgraded_imperium_pickaxe = Advancement.Builder.advancement()
+                    .parent(imperium_tools)
+                    .display(IMPERIUM_PICKAXE_UPGRADED.get(), title("upgraded_imperium_pickaxe"),
+                            description("upgraded_imperium_pickaxe"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("upgraded_imperium_pickaxe", getItem(IMPERIUM_PICKAXE_UPGRADED.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("upgraded_imperium_pickaxe"));
+
+
+            //speed
+            Advancement speed_ore = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(SPEED_ORE.get(), title("speed_ore"),
+                            description("speed_ore"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ore", getItem(SPEED_ORE.get()))
+                    .save(consumer, id("speed_ore"));
+
+            Advancement speed_ingot = Advancement.Builder.advancement()
+                    .parent(speed_ore)
+                    .display(SPEED.get(), title("speed_ingot"),
+                            description("speed_ingot"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(SPEED.get()))
+                    .save(consumer, id("speed_ingot"));
+
+            Advancement speed_block = Advancement.Builder.advancement()
+                    .parent(speed_ingot)
+                    .display(SPEED_BLOCK.get(), title("speed_block"),
+                            description("speed_block"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(SPEED_BLOCK.get()))
+                    .save(consumer, id("speed_block"));
+
+            Advancement xlr8_armour = Advancement.Builder.advancement()
+                    .parent(speed_ingot)
+                    .display(XLR8_CHESTPLATE.get(), title("xlr8_armour"),
+                            description("xlr8_armour"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("xlr8_helmet", getItem(XLR8_HELMET.get()))
+                    .addCriterion("xlr8_chestplate", getItem(XLR8_CHESTPLATE.get()))
+                    .addCriterion("xlr8_leggings", getItem(XLR8_LEGGINGS.get()))
+                    .addCriterion("xlr8_boots", getItem(XLR8_BOOTS.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("xlr8_armour"));
+
+            //legendary
+
+            Advancement legendary_ore = Advancement.Builder.advancement()
+                    .parent(root)
+                    .display(LEGENDARY_ORE.get(), title("legendary_ore"),
+                            description("legendary_ore"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ore", getItem(LEGENDARY_ORE.get()))
+                    .save(consumer, id("legendary_ore"));
+
+            Advancement legendary_ingot = Advancement.Builder.advancement()
+                    .parent(legendary_ore)
+                    .display(LEGENDARY.get(), title("legendary_ingot"),
+                            description("legendary_ingot"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_ingot", getItem(LEGENDARY.get()))
+                    .save(consumer, id("legendary_ingot"));
+
+            Advancement legendary_block = Advancement.Builder.advancement()
+                    .parent(legendary_ingot)
+                    .display(LEGENDARY_BLOCK.get(), title("legendary_block"),
+                            description("legendary_block"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("get_block", getItem(LEGENDARY_BLOCK.get()))
+                    .save(consumer, id("legendary_block"));
+
+            Advancement ascalon = Advancement.Builder.advancement()
+                    .parent(legendary_ingot)
+                    .display(SWORD.get(), title("ascalon"),
+                            description("ascalon"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("ascalon", getItem(SWORD.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("ascalon"));
+
+            Advancement knight_armour = Advancement.Builder.advancement()
+                    .parent(legendary_ingot)
+                    .display(HEATBLAST_CHESTPLATE.get(), title("knight_armour"),
+                            description("knight_armour"),
+                            null, FrameType.CHALLENGE, true, true, false)
+                    .addCriterion("knightt_helmet", getItem(HELMET.get()))
+                    .addCriterion("knight_chestplate", getItem(CHESTPLATE.get()))
+                    .addCriterion("knight_leggings", getItem(LEGGINGS.get()))
+                    .addCriterion("knight_boots", getItem(BOOTS.get()))
+                    .requirements(IRequirementsStrategy.OR)
+                    .save(consumer, id("knight_armour"));
         }
         //TODO Finish making the advancements,
         private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {

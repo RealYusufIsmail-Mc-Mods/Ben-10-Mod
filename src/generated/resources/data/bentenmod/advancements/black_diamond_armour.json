@@ -2,7 +2,7 @@
   "parent": "bentenmod:black_diamond_ingot",
   "display": {
     "icon": {
-      "item": "bentenmod:black_diamond_helmet",
+      "item": "bentenmod:black_diamond_chestplate",
       "nbt": "{Damage:0}"
     },
     "title": {

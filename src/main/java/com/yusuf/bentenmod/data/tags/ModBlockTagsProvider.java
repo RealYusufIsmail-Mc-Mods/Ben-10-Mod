@@ -36,8 +36,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.ORES_IMPERIUMS).add(IMPERIUM_ORE.get(), DEEPSLATE_IMPERIUM_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_IMPERIUMS);
 
-        tag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCKS).add(LEGENDARY_BLOCK.get(), DEEPSLATE_LEGENDARY_ORE_BLOCK.get());
-        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCKS);
+        tag(TagsInit.Blocks.ORES_LEGENDARY_ORES).add(LEGENDARY_ORE.get(), DEEPSLATE_LEGENDARY_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_LEGENDARY_ORES);
 
         tag(TagsInit.Blocks.ORES_BLACK_DIAMONDS).add(BLACK_DIAMOND_ORE.get(), DEEPSLATE_BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMONDS);

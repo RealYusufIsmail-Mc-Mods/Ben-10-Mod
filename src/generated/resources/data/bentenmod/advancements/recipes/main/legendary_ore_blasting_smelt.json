@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:legendary_ore_block"
+            "item": "bentenmod:legendary_ore"
           }
         ]
       }

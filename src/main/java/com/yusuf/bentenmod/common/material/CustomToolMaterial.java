@@ -8,7 +8,7 @@ import java.util.function.Supplier;
 
 public enum CustomToolMaterial implements IItemTier {
 
-    SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
+    SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
     HEATBLAST_SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.FIRE.get())),
     BLACK_DIAMOND_SWORD(20, 2000, 60f, 12f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
     BLACK_DIAMOND_AXE(20, 2500, 60f, 11f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),

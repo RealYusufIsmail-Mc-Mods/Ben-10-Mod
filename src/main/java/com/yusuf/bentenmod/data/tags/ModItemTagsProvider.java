@@ -25,7 +25,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(TagsInit.Blocks.ORES_SPEEDS, TagsInit.Items.ORES_SPEEDS);
         copy(TagsInit.Blocks.ORES_OMNITRIXS, TagsInit.Items.ORES_OMNITRIXS);
         copy(TagsInit.Blocks.ORES_IMPERIUMS, TagsInit.Items.ORES_IMPERIUMS);
-        copy(TagsInit.Blocks.ORES_LEGENDARY_ORE_BLOCKS, TagsInit.Items.ORES_LEGENDARY_ORE_BLOCKS);
+        copy(TagsInit.Blocks.ORES_LEGENDARY_ORES, TagsInit.Items.ORES_LEGENDARY_ORES);
 
 
         //blocks
@@ -38,7 +38,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 
         //ingots
-        tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(LEGENDARY_ORE.get());
+        tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(LEGENDARY.get());
         tag(TagsInit.Items.INGOTS_OMNITRIX).add(OMNITRIX.get());
         tag(TagsInit.Items.INGOTS_FIRE).add(FIRE.get());
         tag(TagsInit.Items.INGOTS_RUBY).add(RUBY.get());

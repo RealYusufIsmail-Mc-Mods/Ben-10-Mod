@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements IArmorMaterial {
     ARMOUR("legendary", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
-            () -> Ingredient.of(ItemInit.LEGENDARY_ORE.get())),
+            () -> Ingredient.of(ItemInit.LEGENDARY.get())),
     JACKET("jacket", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
             () -> Ingredient.of(ItemInit.OMNITRIX.get())),
     XLR8_ARMOUR("speedy", 30, new int[]{8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,

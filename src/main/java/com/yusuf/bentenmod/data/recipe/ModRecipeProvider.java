@@ -243,7 +243,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
                 .save(consumer, modId("leggings"));
 
-        ShapedRecipeBuilder.shaped(BOOT.get())
+        ShapedRecipeBuilder.shaped(BOOTS.get())
                 .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
                 .pattern("A A")
                 .pattern("A A")
@@ -307,7 +307,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_leggings"));
 
-        ShapedRecipeBuilder.shaped(XLR8_BOOT.get())
+        ShapedRecipeBuilder.shaped(XLR8_BOOTS.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
                 .pattern("A A")
@@ -431,12 +431,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(LEGENDARY_ORE_BLOCK.get()), LEGENDARY_ORE.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(LEGENDARY_ORE_BLOCK.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY_ORE.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(LEGENDARY_ORE.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(LEGENDARY_ORE_BLOCK.get()), LEGENDARY_ORE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(LEGENDARY_ORE_BLOCK.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY_ORE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(LEGENDARY_ORE.get()))
                 .save(consumer, modId("legendary_ore_blasting_smelt"));
 
         CookingRecipeBuilder.smelting(Ingredient.of(INFINITUM_ORE.get()), INFINITUM_SCRAP.get(), 0.6f, 300)
@@ -474,7 +474,7 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blasting(Ingredient.of(LEGGINGS.get()), LEGENDARY_ORE.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
                 .save(consumer, modId("leggings_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(BOOT.get()), LEGENDARY_ORE.get(), 0.3f, 300)
+        CookingRecipeBuilder.blasting(Ingredient.of(BOOTS.get()), LEGENDARY_ORE.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
                 .save(consumer, modId("boots_blasting_smelt"));
 
@@ -488,7 +488,7 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blasting(Ingredient.of(XLR8_LEGGINGS.get()), SPEED.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_leggings_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(XLR8_BOOT.get()), SPEED.get(), 0.3f, 300)
+        CookingRecipeBuilder.blasting(Ingredient.of(XLR8_BOOTS.get()), SPEED.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_boots_blasting_smelt"));
 

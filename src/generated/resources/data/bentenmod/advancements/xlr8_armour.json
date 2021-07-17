@@ -1,15 +1,15 @@
 {
-  "parent": "bentenmod:fire_ingot",
+  "parent": "bentenmod:speed_ingot",
   "display": {
     "icon": {
-      "item": "bentenmod:heatblast_chestplate",
+      "item": "bentenmod:xlr8_chestplate",
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.bentenmod.heatblast_armour.title"
+      "translate": "advancements.bentenmod.xlr8_armour.title"
     },
     "description": {
-      "translate": "advancements.bentenmod.heatblast_armour.description"
+      "translate": "advancements.bentenmod.xlr8_armour.description"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -17,42 +17,42 @@
     "hidden": false
   },
   "criteria": {
-    "heatblast_helmet": {
+    "xlr8_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_helmet"
+            "item": "bentenmod:xlr8_helmet"
           }
         ]
       }
     },
-    "heatblast_chestplate": {
+    "xlr8_chestplate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_chestplate"
+            "item": "bentenmod:xlr8_chestplate"
           }
         ]
       }
     },
-    "heatblast_leggings": {
+    "xlr8_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_leggings"
+            "item": "bentenmod:xlr8_leggings"
           }
         ]
       }
     },
-    "heatblast_boots": {
+    "xlr8_boots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:heatblast_boots"
+            "item": "bentenmod:xlr8_boots"
           }
         ]
       }
@@ -60,10 +60,10 @@
   },
   "requirements": [
     [
-      "heatblast_helmet",
-      "heatblast_chestplate",
-      "heatblast_leggings",
-      "heatblast_boots"
+      "xlr8_helmet",
+      "xlr8_chestplate",
+      "xlr8_leggings",
+      "xlr8_boots"
     ]
   ]
 }

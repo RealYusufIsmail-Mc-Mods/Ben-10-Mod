@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bentenmod:legendary_ore_block"
+          "name": "bentenmod:legendary_ore"
         }
       ],
       "conditions": [
