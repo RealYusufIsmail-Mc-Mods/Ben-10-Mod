@@ -205,6 +205,8 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslationTextComponent("advancements.bentenmod.fire_apple.description"), "You are immunte to fire now.");
         add(new TranslationTextComponent("advancements.bentenmod.heatblast_armour.title"), "you are now Heatblast");
         add(new TranslationTextComponent("advancements.bentenmod.heatblast_armour.description"), "You are now able to fly and are resistant to fire");
+        add(new TranslationTextComponent("advancements.bentenmod.heatblast_sword.title"), "you have made Heatblast sword");
+        add(new TranslationTextComponent("advancements.bentenmod.heatblast_sword.description"), "You have made a sword which gives you the ability to set a mob/entity on fire by hitting it.");
         //copper
         add(new TranslationTextComponent("advancements.bentenmod.copper_ingot.title"), "Obtained Copper inogt");
         add(new TranslationTextComponent("advancements.bentenmod.copper_ingot.description"), "You have obtained copper ingot by slaying Kraab");
@@ -221,28 +223,21 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_armour.description"), "You have made all the Infinitum armour set which is better than Black diamond and netherite.");
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_tools.title"), "Made all the Infinitum Tools");
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_tools.description"), "You have made all the Infinitum tool set which is better than Black Diamond and Netherite.");
-
     }
-
 
     private <T extends Item> void item(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
-
     private <T extends Block> void block(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
-
     private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
         add(entry.get(), name);
     }
-
     private <T extends Entity> void entity1(RegistryObject<EntityType<KraabEntity>> entry, String name) {
         add(entry.get(), name);
     }
-
     private void add(ITextComponent key, String lang) {
         super.add(key.getString(), lang);
     }
-
 }
