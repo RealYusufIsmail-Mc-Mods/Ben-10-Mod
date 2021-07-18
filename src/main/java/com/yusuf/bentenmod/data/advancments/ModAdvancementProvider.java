@@ -21,7 +21,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.yusuf.realyusufismailcore.advancements.GenericIntTrigger;
-import net.yusuf.realyusufismailcore.block.IBlockProvider;
 import net.yusuf.realyusufismailcore.util.NameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
