@@ -56,8 +56,8 @@ public class AlienTable extends Block {
     }
 
 
-    @Override
-    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+
+    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, IWorldPosCallable p_i50090_3_, BlockRayTraceResult p_225533_6_) {
         if (!level.isClientSide()) {
             INamedContainerProvider containerProvider = new INamedContainerProvider() {
                 @Override
@@ -67,7 +67,7 @@ public class AlienTable extends Block {
                 @Nullable
                 @Override
                 public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                    return new AlienTableContainer(id, level, pos, playerInventory, playerEntity);
+                    return new AlienTableContainer(id, level, pos, playerInventory, playerEntity, p_i50090_3_ );
 
                 }
             };

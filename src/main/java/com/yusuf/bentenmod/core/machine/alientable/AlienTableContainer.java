@@ -7,7 +7,9 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.CraftResultInventory;
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.inventory.container.CraftingResultSlot;
 import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.ICraftingRecipe;
@@ -21,7 +23,10 @@ import java.util.Optional;
 
 
 public class AlienTableContainer extends WorkbenchContainer {
-    //private final IWorldPosCallable access;
+    private final IWorldPosCallable access;
+    private PlayerEntity player;
+    private final CraftingInventory craftSlots = new CraftingInventory(this, 3, 3);
+    private final CraftResultInventory resultSlots = new CraftResultInventory();
 
     /*
        public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable access) {
@@ -30,28 +35,38 @@ public class AlienTableContainer extends WorkbenchContainer {
     }
      */
 
-    public AlienTableContainer(int id, World level, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+    public AlienTableContainer(int id, World level, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity, IWorldPosCallable p_i50090_3_) {
         super(id, playerInventory);
+        this.access = p_i50090_3_;
+        this.player = playerInventory.player;
+        this.addSlot(new CraftingResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
     }
 
     @Override
-    protected static void slotChangedCraftingGrid(int p_217066_0_, World p_217066_1_, PlayerEntity p_217066_2_, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
-        if (!p_217066_1_.isClientSide) {
-            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)p_217066_2_;
+    protected static void slotChangedCraftingGrid(int id, World pos, PlayerEntity playerInventory, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
+        if (!pos.isClientSide) {
+            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)playerInventory;
             ItemStack itemstack = ItemStack.EMPTY;
-            Optional<ICraftingRecipe> optional = p_217066_1_.getServer().getRecipeManager().getRecipeFor(IRecipeType.CRAFTING, p_217066_3_, p_217066_1_);
+            Optional<ICraftingRecipe> optional = pos.getServer().getRecipeManager().getRecipeFor(IRecipeType.CRAFTING, p_217066_3_, pos);
             if (optional.isPresent()) {
                 ICraftingRecipe icraftingrecipe = optional.get();
-                if (p_217066_4_.setRecipeUsed(p_217066_1_, serverplayerentity, icraftingrecipe)) {
+                if (p_217066_4_.setRecipeUsed(pos, serverplayerentity, icraftingrecipe)) {
                     itemstack = icraftingrecipe.assemble(p_217066_3_);
                 }
             }
 
             p_217066_4_.setItem(0, itemstack);
-            serverplayerentity.connection.send(new SSetSlotPacket(p_217066_0_, 0, itemstack));
+            serverplayerentity.connection.send(new SSetSlotPacket(id, 0, itemstack));
         }
     }
+    @Override
+    public void slotsChanged(IInventory p_75130_1_) {
+        this.access.execute((p_217069_1_, p_217069_2_) -> {
+            slotChangedCraftingGrid(this.containerId, p_217069_1_, this.player, this.craftSlots, this.resultSlots);
+        });
+    }
+
 
 }
 
