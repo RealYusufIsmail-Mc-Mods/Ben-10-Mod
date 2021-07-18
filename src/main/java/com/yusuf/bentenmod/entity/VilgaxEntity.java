@@ -26,6 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -35,6 +36,8 @@ import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
+
+import java.util.Random;
 
 public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
@@ -142,6 +145,10 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         }
 
         return flag;
+    }
+
+    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn ){
+        return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
     protected SoundEvent getAmbientSound() {

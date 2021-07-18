@@ -4,8 +4,10 @@ import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.core.util.ModResourceLocation;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -20,7 +22,6 @@ public class BenTenMod {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "bentenmod";
-    public static final String RESOURCE_PREFIX = MOD_ID + ":";
     public static final String MOD_NAME = "Ben Ten Mod";
 
     public BenTenMod() {
@@ -36,9 +37,13 @@ public class BenTenMod {
         GeckoLib.initialize();
 
         bus.addGenericListener(IRecipeSerializer.class, RegisterRecipeInit::registerRecipes);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, FeatureInit::addOres);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerationInit::addOres);
+        MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
-
+    }
+    @SubscribeEvent
+    public void onBiomeLoad(BiomeLoadingEvent event) {
+        EntitySpawingInit.onBiomesLoad(event);
     }
     public static ModResourceLocation getId(String path) {
         if (path.contains(":")) {

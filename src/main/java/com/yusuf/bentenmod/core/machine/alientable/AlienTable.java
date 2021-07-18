@@ -79,6 +79,6 @@ public class AlienTable extends Block {
     @Override
     public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
         p_190948_3_.add(LangKeys.ALIEN_TABLE_DISC);
-    }   
+    }
 }
 

@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.entity;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.*;
@@ -11,10 +12,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
 import java.util.EnumSet;
+import java.util.Random;
 
 public class KraabEntity extends CreatureEntity {
 
@@ -42,10 +46,14 @@ public class KraabEntity extends CreatureEntity {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
 
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SHOOTING, false);
+    }
+    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn ){
+        return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
     public boolean isShooting() {
