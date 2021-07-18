@@ -6,6 +6,6 @@ import net.minecraft.item.crafting.IRecipeType;
 
 public class RecipeTypeInit {
     public static final IRecipeType<TableRecipe> TABLE_BLOCK = new TableRecipe.Type();
-    //public static final IRecipeType<TableRecipe> ALIEN_TABLE = new AlienRecipe.Type();
+    public static final IRecipeType<TableRecipe> ALIEN_TABLE = new AlienRecipe.Type();
 
 }
