@@ -7,7 +7,7 @@ import com.yusuf.bentenmod.data.client.ModItemModelProvider;
 import com.yusuf.bentenmod.data.lang.ModEnLangProvider;
 import com.yusuf.bentenmod.data.loot.ModLootTables;
 import com.yusuf.bentenmod.data.recipe.ModRecipeProvider;
-import com.yusuf.bentenmod.data.recipe.ModSmitingRecipeBuild;
+import com.yusuf.bentenmod.data.recipe.ModSmithingRecipeBuild;
 import com.yusuf.bentenmod.data.tags.ModBlockTagsProvider;
 import com.yusuf.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.data.DataGenerator;
@@ -36,7 +36,7 @@ public class DataGenerators {
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
 
         gen.addProvider(new ModRecipeProvider(gen));
-        gen.addProvider(new ModSmitingRecipeBuild(gen));
+        gen.addProvider(new ModSmithingRecipeBuild(gen));
         gen.addProvider(new ModLootTables(gen));
         gen.addProvider(new ModEnLangProvider(gen));
         gen.addProvider(new ModAdvancementProvider(gen));

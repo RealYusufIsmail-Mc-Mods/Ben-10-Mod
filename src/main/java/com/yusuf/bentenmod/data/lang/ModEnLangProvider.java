@@ -138,9 +138,9 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_block.title"), "Made Black Diamond Block");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_block.description"), "You have made a Black Diamond block using nine Black Diamond ingot.");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_ingot.title"), "Made Black Diamond Ingo");
-        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_ingot.description"), "You have made an Black Diamond ingot which means you can use a smiting table to convert diamond tool or armour to black diamond.");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_ingot.description"), "You have made an Black Diamond ingot which means you can use a smithing table to convert diamond tool or armour to black diamond.");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_scrap.title"), "Mined Black Diamond and received Black Diamond scrap");
-        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_scrap.description"), "Get 3 more to be able to make an ingot to make armour and tools in smiting table.");
+        add(new TranslationTextComponent("advancements.bentenmod.black_diamond_scrap.description"), "Get 3 more to be able to make an ingot to make armour and tools in smithing table.");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_tools.title"), "Made all the black diamond Tools");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_tools.description"), "You have made all the black diamond tool set which is better than diamond");
         add(new TranslationTextComponent("advancements.bentenmod.black_diamond_armour.title"), "Made all the black diamond armour set");
@@ -214,9 +214,9 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslationTextComponent("advancements.bentenmod.copper_block.description"), "You just made a copper block");
         //ininitum advancements
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_scrap.title"), "Mined Infinitum and received Infinitum scrap");
-        add(new TranslationTextComponent("advancements.bentenmod.infinitum_scrap.description"), "Get 3 more to be able to make an ingot to make armour and tools in smiting table.");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_scrap.description"), "Get 3 more to be able to make an ingot to make armour and tools in smithing table.");
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_ingot.title"), "Made an Infinitum Ingot");
-        add(new TranslationTextComponent("advancements.bentenmod.infinitum_ingot.description"), "You have made an Infinitum ingot which means you can use a smiting table to convert netherite tool or armour to infinitum.");
+        add(new TranslationTextComponent("advancements.bentenmod.infinitum_ingot.description"), "You have made an Infinitum ingot which means you can use a smithing table to convert netherite tool or armour to infinitum.");
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_block.title"), "Made an Infinitum block");
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_block.description"), "You have crafted an Infinitum block.");
         add(new TranslationTextComponent("advancements.bentenmod.infinitum_armour.title"), "Made all the Infinitum armour set");

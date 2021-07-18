@@ -11,7 +11,7 @@
     {
       "type": "crafting",
       "recipe": "bentenmod:heatblast_leggings",
-      "recipe2": "bentenmod:heatblast_boot"
+      "recipe2": "bentenmod:heatblast_boots"
     },
     {
       "type": "crafting",
@@ -21,17 +21,7 @@
     {
       "type": "crafting",
       "recipe": "bentenmod:xlr8_leggings",
-      "recipe2": "bentenmod:xlr8_boot"
-    },
-    {
-      "type": "crafting",
-      "recipe": "bentenmod:fourarms_helmet",
-      "recipe2": "bentenmod:fourarms_chestplate"
-    },
-    {
-      "type": "crafting",
-      "recipe": "bentenmod:fourarms_leggings",
-      "recipe2": "bentenmod:fourarms_boot"
+      "recipe2": "bentenmod:xlr8_boots"
     },
     {
       "type": "smithing",
@@ -52,6 +42,16 @@
       "type": "smithing",
       "recipe": "bentenmod:infinitum_leggings",
       "recipe2": "bentenmod:infinitum_boots"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:helmet",
+      "recipe2": "bentenmod:chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:leggings",
+      "recipe2": "bentenmod:boots"
     },
     {
       "type": "crafting",

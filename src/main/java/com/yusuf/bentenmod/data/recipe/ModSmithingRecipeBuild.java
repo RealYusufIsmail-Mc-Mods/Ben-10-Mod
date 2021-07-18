@@ -14,8 +14,8 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.function.Consumer;
 
-public class ModSmitingRecipeBuild extends RecipeProvider implements IConditionBuilder {
-    public ModSmitingRecipeBuild(DataGenerator generatorIn) {
+public class ModSmithingRecipeBuild extends RecipeProvider implements IConditionBuilder {
+    public ModSmithingRecipeBuild(DataGenerator generatorIn) {
         super(generatorIn);
     }
 
