@@ -44,16 +44,4 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
 
-    //raw crab
-    public static final Food RAW_CRAB = new Food.Builder()
-            .nutrition(2).saturationMod(0.4F)
-            .effect(new EffectInstance(Effects.HUNGER, 600, 0), 0.3F)
-            .meat().build();
-
-    //cooked crab
-    public static final Food COOKED_CRAB = new Food.Builder()
-            .nutrition(6).saturationMod(0.8F)
-            .build();
-
-
 }

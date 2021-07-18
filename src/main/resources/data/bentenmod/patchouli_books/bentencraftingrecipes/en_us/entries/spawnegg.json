@@ -1,7 +1,7 @@
 {
-  "name": "Weapons crafting recipes",
+  "name": "Spawn E crafting recipes",
   "category": "all_items",
-  "icon": "bentenmod:sword",
+  "icon": "bentenmod:vilgax_spawn_egg",
   "pages": [
     {
       "type": "crafting",
