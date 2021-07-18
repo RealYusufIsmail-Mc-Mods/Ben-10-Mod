@@ -28,9 +28,9 @@ public class TableScreen extends ContainerScreen<TableContainer> {
         blit(matrix, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1, 17);
     }
 
-    /**
-     * CTRL + O > OVERRIDE METHODS
-     */
+
+     //CTRL + O > OVERRIDE METHODS
+
     @Override
     public void render(MatrixStack matrix, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
         renderBackground(matrix);
@@ -38,7 +38,7 @@ public class TableScreen extends ContainerScreen<TableContainer> {
         renderTooltip(matrix, p_230430_2_, p_230430_3_);
     }
 
-    /**
+    /*
      * CTRL + O > OVERRIDE METHODS
      * 4210752 is the default number, can't be changed
      */

@@ -18,7 +18,7 @@ import java.util.Objects;
 public class TableContainer extends Container {
     private final IIntArray data;
 
-    /**
+    /*
      * ALT + ENTER > CONSTRUCTOR
      * SHIFT + F6 > CHANGE VARIABLE NAME
      */

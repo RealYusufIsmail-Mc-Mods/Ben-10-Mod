@@ -53,10 +53,10 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
         this(TileEntityInit.TABLE_TILE.get());
     }
 
-    /**
-     * This is the MOST IMPORTANT
-     * This method will be called  <strong> EVERY SINGLE TICK <strong/>
-     */
+
+     //This is the MOST IMPORTANT
+     //This method will be called  <strong> EVERY SINGLE TICK <strong/>
+
     @Override
     public void tick() {
         assert level != null;
