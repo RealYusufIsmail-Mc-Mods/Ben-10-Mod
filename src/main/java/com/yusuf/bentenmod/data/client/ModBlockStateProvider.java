@@ -78,8 +78,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("top", modLoc("block/table_block_top"));
         builder.texture("front", modLoc("block/table_block_front"));
         builder.texture("side", modLoc("block/table_block_side"));
-
     }
+    //TODO add alien table texture
 }
 
 
