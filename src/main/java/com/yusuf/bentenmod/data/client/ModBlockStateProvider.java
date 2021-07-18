@@ -55,6 +55,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // orientableMachineBlock(TABLE_BLOCK.get(), "table_block");
         tableBlock();
         tableBlockOn();
+        //alienTableBlock();
     }
     @Override
     public void horizontalBlock(Block block, ModelFile model) {
@@ -78,7 +79,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("front", modLoc("block/table_block_front"));
         builder.texture("side", modLoc("block/table_block_side"));
 
-        this.simpleBlockItem(TABLE_BLOCK.get(), builder);
     }
 }
 
