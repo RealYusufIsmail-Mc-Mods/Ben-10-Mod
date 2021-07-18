@@ -1,0 +1,12 @@
+{
+  "name": "Weapons crafting recipes",
+  "category": "all_items",
+  "icon": "bentenmod:sword",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "bentenmod:vilgax_spawn_egg",
+      "recipe2": "bentenmod:kraab_spawn_egg"
+    }
+  ]
+}

@@ -225,6 +225,7 @@ dced7633702ac9132e11bb6919bd10a5b49c9de8 data/bentenmod/advancements/recipes/mai
 7cd876088a96d155ed2f02e734e853d530f37f6d data/bentenmod/advancements/recipes/main/infinitum_sword.json
 250bf0a2485a535d9a06854f5785d5641681047c data/bentenmod/advancements/recipes/main/jacket.json
 99e6e23b4642c359dee6322e1178b754d4c61884 data/bentenmod/advancements/recipes/main/jacket_blasting_smelt.json
+dd1f103ae9dd271b9801a6ac46e3fb7a3de67f02 data/bentenmod/advancements/recipes/main/kraab_spawn_egg.json
 11d98f06ed968ae8b65aa0641a3891045fe4708b data/bentenmod/advancements/recipes/main/legendary_block.json
 174a716b3c2c3aec3b7d81a4639845bcc8e99153 data/bentenmod/advancements/recipes/main/legendary_ore.json
 f761783120982fd769de490e89e1320b7ac60598 data/bentenmod/advancements/recipes/main/legendary_ore_blasting_smelt.json
@@ -358,6 +359,7 @@ f03ca2aacd74c170ae3c2b56d57a09cb29542759 data/bentenmod/recipes/infinitum_shovel
 b76aa55f131853f4f64c5f41eae8d084d085d94b data/bentenmod/recipes/infinitum_sword.json
 c8aabff964e016097495fb5fff0ebb472e523ee6 data/bentenmod/recipes/jacket.json
 67f35fca1c20e79da2ebf61d4ac2349b691cdf26 data/bentenmod/recipes/jacket_blasting_smelt.json
+3fae7b27de8775132e7bbebb683c26cda05adc72 data/bentenmod/recipes/kraab_spawn_egg.json
 1c067eca5a45c63694a61d1cc5fd67a772132239 data/bentenmod/recipes/legendary_block.json
 68aaceba62114a06cee8bab2f7525a53c2ffefab data/bentenmod/recipes/legendary_ore.json
 eab9cc05119693856d1efbc08e00842ceb1dfb5a data/bentenmod/recipes/legendary_ore_blasting_smelt.json
@@ -379,7 +381,7 @@ ec76f4723758646ed8c324f34bc2676870652aee data/bentenmod/recipes/speed_ore_blasti
 72eb9c7193c4181af3c0c8165e574d78ba327eee data/bentenmod/recipes/speed_ore_smelt.json
 93e4adddde038eb2eb8add1aa84b2453bccada43 data/bentenmod/recipes/sword.json
 62ea125294da9b5e3e8809387cc704f3081f8cbc data/bentenmod/recipes/table_block.json
-1bc63f290a70951dcc6eba8b668c0d69325601fb data/bentenmod/recipes/vilgax_spawn_egg.json
+eef302eb5abaa0bf46b30f4973b4231f16ce6d0d data/bentenmod/recipes/vilgax_spawn_egg.json
 09942460d80d44abd756285356905755151f149a data/bentenmod/recipes/xlr8_boot.json
 9480421c3532570127d1adacb20a8b13bf49944d data/bentenmod/recipes/xlr8_boots_blasting_smelt.json
 ee5f4db2dae1281ec0dc33099d11b700c0858247 data/bentenmod/recipes/xlr8_chestplate.json
@@ -410,6 +412,7 @@ edaab7c9de843ae20ed4288bd9fc4eddf0a99cdc data/forge/tags/items/ingots/imperium.j
 e011332df5c0e6f43dbfb41987257a74baded71d data/forge/tags/items/ingots/legendary_ore.json
 99e76f04c144bb038720b4a5114bfe8360e21691 data/forge/tags/items/ingots/omnitrix.json
 87c63dfa2b7ccf526ebe19f97af14b0409d496ac data/forge/tags/items/ingots/ruby.json
+cd2154f24f95f4114798a4e5797b837a300cb233 data/forge/tags/items/ingots/spawn_eggs.json
 19eb348117c62a4b250860528e3008ac0b105eb2 data/forge/tags/items/ingots/speed.json
 4db07ad3bae60f0f789844afb024b0cc2cb9b70f data/forge/tags/items/ores/black_diamonds.json
 336afe75fe5ae012cc5f38af4eab82f7b34cf249 data/forge/tags/items/ores/fire.json

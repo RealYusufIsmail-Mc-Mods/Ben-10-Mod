@@ -7,8 +7,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.Tag;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -386,13 +388,22 @@ public class ModRecipeProvider extends RecipeProvider {
  * @see ShapedRecipeBuilder
  */
         ShapedRecipeBuilder.shaped(EntityTypesInit.VILGAX_SPAWN_EGG.get())
-                .define('L', TagsInit.Items.INGOTS_OMNITRIX)
+                .define('L', Items.EGG.getItem())
                 .define('A', TagsInit.Items.INGOTS_RUBY)
                 .pattern("AAA")
                 .pattern("ALA")
                 .pattern("AAA")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer, modId("vilgax_spawn_egg"));
+
+        ShapedRecipeBuilder.shaped(EntityTypesInit.KRAAB_SPAWN_EGG.get())
+                .define('L', Items.EGG.getItem())
+                .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern("AAA")
+                .pattern("ALA")
+                .pattern("AAA")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
+                .save(consumer, modId("kraab_spawn_egg"));
 
 
         //smelting and blasting recipes

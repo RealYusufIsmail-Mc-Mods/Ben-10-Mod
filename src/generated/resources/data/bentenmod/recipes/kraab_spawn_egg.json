@@ -10,10 +10,10 @@
       "item": "minecraft:egg"
     },
     "A": {
-      "tag": "forge:ingots/ruby"
+      "tag": "forge:ingots/imperium"
     }
   },
   "result": {
-    "item": "bentenmod:vilgax_spawn_egg"
+    "item": "bentenmod:kraab_spawn_egg"
   }
 }

@@ -71,12 +71,10 @@ public class TagsInit {
         public static final ITag.INamedTag<Item> INGOTS_INFINITUM = ItemTags.bind("forge:ingots/infinitum");
         public static final ITag.INamedTag<Item> SCRAP_INFINITUM_SCRAP = ItemTags.bind("forge:scraps/infinitum_scrap");
         public static final ITag.INamedTag<Item> INGOTS_IMPERIUM = ItemTags.bind("forge:ingots/imperium");
+        public static final ITag.INamedTag<Item> SPAW_EGGS = ItemTags.bind("forge:ingots/spawn_eggs");
 
         //tools
         public static final ITag.INamedTag<Item> TOOLS_IMPERIUM_PICKAXE = ItemTags.bind("forge:tools/imperium_pickaxe");
-
-        //food
-        public static final ITag.INamedTag<Item> RAW_CRAB = ItemTags.bind("forge:foods/raw_crab");
 
         //raw ores
         public static final ITag.INamedTag<Item> RAW_ORE = ItemTags.bind("forge:scraps/raw_ore");

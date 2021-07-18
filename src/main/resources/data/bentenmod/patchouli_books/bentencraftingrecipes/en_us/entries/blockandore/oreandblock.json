@@ -34,7 +34,8 @@
     },
     {
       "type": "crafting",
-      "recipe": "bentenmod:infinitum_block"
+      "recipe": "bentenmod:infinitum_block",
+      "recipe": "bentenmod:imperium_block"
     }
   ]
 }
