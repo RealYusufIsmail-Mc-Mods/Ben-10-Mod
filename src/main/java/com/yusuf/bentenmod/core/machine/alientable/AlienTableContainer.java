@@ -27,44 +27,6 @@ import java.util.Optional;
  */
 
 public class AlienTableContainer extends Container {
-    /*
-    private final IWorldPosCallable access;
-    private PlayerEntity player;
-    private final CraftingInventory craftSlots = new CraftingInventory(this, 3, 3);
-    private final CraftResultInventory resultSlots = new CraftResultInventory();
-
-
-    public AlienTableContainer(int id, World level, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity, IWorldPosCallable iWorldPosCallable) {
-        super(id, playerInventory);
-        this.access = iWorldPosCallable;
-        this.player = playerInventory.player;
-        this.addSlot(new CraftingResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
-
-    }
-
-    protected static void slotChangedCraftingGrid(int id, World pos, PlayerEntity playerInventory, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_, BlockPos p_220052_3_) {
-        if (!pos.isClientSide) {
-            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)playerInventory;
-            ItemStack itemstack = ItemStack.EMPTY;
-            Optional<AlienRecipe> optional = pos.getServer().getRecipeManager().getRecipeFor(RegisterRecipeInit.ALIEN_RECIPE, p_217066_3_, pos);
-            if (optional.isPresent()) {
-                ICraftingRecipe icraftingrecipe = optional.get();
-                if (p_217066_4_.setRecipeUsed(pos, serverplayerentity, icraftingrecipe)) {
-                    itemstack = icraftingrecipe.assemble(p_217066_3_);
-                }
-            }
-
-            p_217066_4_.setItem(0, itemstack);
-            serverplayerentity.connection.send(new SSetSlotPacket(id, 0, itemstack));
-        }
-    }
-    @Override
-    public void slotsChanged(IInventory p_75130_1_) {
-        this.access.execute((p_217069_1_, p_217069_2_) -> {
-            slotChangedCraftingGrid(this.containerId, p_217069_1_, this.player, this.craftSlots, this.resultSlots);
-        });
-    }
-*/
     private final CraftingInventory craftSlots = new CraftingInventory(this, 3, 3);
     private final CraftResultInventory resultSlots = new CraftResultInventory();
     private final IWorldPosCallable access;
