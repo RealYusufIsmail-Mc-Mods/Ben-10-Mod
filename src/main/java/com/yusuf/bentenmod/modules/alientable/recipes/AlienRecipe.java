@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.Set;
 
-public class AlienRecipe implements ICraftingRecipe {
+public class AlienRecipe implements IRecipe<CreaftinInventory> {
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
 
