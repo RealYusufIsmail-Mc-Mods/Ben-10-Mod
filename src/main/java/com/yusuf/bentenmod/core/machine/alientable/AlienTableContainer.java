@@ -92,6 +92,7 @@ public class AlienTableContainer extends Container {
         this.craftSlots.fillStackedContents(p_201771_1_);
     }
 
+
     public void clearCraftingContent() {
         this.craftSlots.clearContent();
         this.resultSlots.clearContent();
