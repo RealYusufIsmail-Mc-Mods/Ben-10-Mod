@@ -63,7 +63,6 @@ public class AlienTableContainer extends Container {
 
     }
 
-
     protected static void slotChangedCraftingGrid(int p_217066_0_, World p_217066_1_, PlayerEntity p_217066_2_, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
         if (!p_217066_1_.isClientSide) {
             ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)p_217066_2_;
@@ -81,6 +80,7 @@ public class AlienTableContainer extends Container {
             serverplayerentity.connection.send(new SSetSlotPacket(p_217066_0_, 0, itemstack));
         }
     }
+    //TODO fix this
     @Override
     public void slotsChanged(IInventory p_75130_1_) {
         this.access.execute((p_217069_1_, p_217069_2_) -> {
@@ -91,7 +91,6 @@ public class AlienTableContainer extends Container {
     public void fillCraftSlotsStackedContents(RecipeItemHelper p_201771_1_) {
         this.craftSlots.fillStackedContents(p_201771_1_);
     }
-
 
     public void clearCraftingContent() {
         this.craftSlots.clearContent();
