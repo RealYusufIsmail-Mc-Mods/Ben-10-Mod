@@ -1,0 +1,19 @@
+{
+  "type": "bentenmd:alien_table",
+  "pattern": [
+    "A A",
+    "A#A",
+    "AAA"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:ingots/omnitrix"
+    },
+    "A": {
+      "tag": "forge:ingots/speed"
+    }
+  },
+  "result": {
+    "item": "bentenmod:xlr8_chestplate"
+  }
+}
