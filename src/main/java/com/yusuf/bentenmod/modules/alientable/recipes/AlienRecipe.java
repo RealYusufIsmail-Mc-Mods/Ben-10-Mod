@@ -9,10 +9,7 @@ import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.ICraftingRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
+import net.minecraft.item.crafting.*;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
@@ -25,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.Set;
 
-public class AlienRecipe implements IRecipe<CreaftinInventory> {
+public class AlienRecipe implements IRecipe<CraftingInventory> {
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
 
@@ -211,6 +208,12 @@ public class AlienRecipe implements IRecipe<CreaftinInventory> {
     public IRecipeSerializer<?> getSerializer() {
         return new Serializer();
     }
+
+    @Override
+    public IRecipeType<?> getType() {
+        return AlienRecipeType.CRAFTING;
+    }
+
     private static String[] patternFromJson(JsonArray p_192407_0_) {
         String[] astring = new String[p_192407_0_.size()];
         if (astring.length > MAX_HEIGHT) {
