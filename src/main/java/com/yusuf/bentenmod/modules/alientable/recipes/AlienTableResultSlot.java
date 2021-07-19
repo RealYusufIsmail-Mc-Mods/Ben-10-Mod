@@ -1,61 +1,22 @@
 package com.yusuf.bentenmod.modules.alientable.recipes;
 
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.IRecipeHolder;
-import net.minecraft.inventory.container.Slot;
+import net.minecraft.inventory.container.CraftingResultSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.util.NonNullList;
 
-public class AlienTableResultSlot extends Slot {
-    private final CraftingInventory craftSlots;
+public class AlienTableResultSlot extends CraftingResultSlot {
     private final PlayerEntity player;
-    private int removeCount;
+    private final CraftingInventory craftSlots;
 
     public AlienTableResultSlot(PlayerEntity p_i45790_1_, CraftingInventory p_i45790_2_, IInventory p_i45790_3_, int p_i45790_4_, int p_i45790_5_, int p_i45790_6_) {
-        super(p_i45790_3_, p_i45790_4_, p_i45790_5_, p_i45790_6_);
+        super(p_i45790_1_, p_i45790_2_, p_i45790_3_, p_i45790_4_, p_i45790_5_, p_i45790_6_);
         this.player = p_i45790_1_;
         this.craftSlots = p_i45790_2_;
-    }
-    @Override
-    public boolean mayPlace(ItemStack p_75214_1_) {
-        return false;
-    }
-
-    @Override
-    public ItemStack remove(int p_75209_1_) {
-        if (this.hasItem()) {
-            this.removeCount += Math.min(p_75209_1_, this.getItem().getCount());
-        }
-
-        return super.remove(p_75209_1_);
-    }
-
-    @Override
-    protected void onQuickCraft(ItemStack p_75210_1_, int p_75210_2_) {
-        this.removeCount += p_75210_2_;
-        this.checkTakeAchievements(p_75210_1_);
-    }
-
-    @Override
-    protected void onSwapCraft(int p_190900_1_) {
-        this.removeCount += p_190900_1_;
-    }
-
-    @Override
-    protected void checkTakeAchievements(ItemStack p_75208_1_) {
-        if (this.removeCount > 0) {
-            p_75208_1_.onCraftedBy(this.player.level, this.player, this.removeCount);
-            net.minecraftforge.fml.hooks.BasicEventHooks.firePlayerCraftingEvent(this.player, p_75208_1_, this.craftSlots);
-        }
-
-        if (this.container instanceof IRecipeHolder) {
-            ((IRecipeHolder)this.container).awardUsedRecipes(this.player);
-        }
-
-        this.removeCount = 0;
     }
 
     @Override
