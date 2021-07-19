@@ -1,6 +1,7 @@
 
 package com.yusuf.bentenmod.core.machine.alientable;
 
+import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipe;
@@ -107,7 +108,7 @@ public class AlienTableContainer extends Container {
     }
     @Override
     public boolean stillValid(PlayerEntity p_75145_1_) {
-        return stillValid(this.access, p_75145_1_, Blocks.CRAFTING_TABLE);
+        return stillValid(this.access, p_75145_1_, BlockInit.ALIEN_TABLE.get());
     }
     @Override
     public ItemStack quickMoveStack(PlayerEntity p_82846_1_, int p_82846_2_) {
