@@ -3,6 +3,8 @@ package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.RecipeTypeInit;
+import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
+import com.yusuf.bentenmod.modules.alientable.recipes.IAlienRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -49,7 +51,7 @@ public class AlienTableContainer extends WorkbenchContainer {
         if (!pos.isClientSide) {
             ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)playerInventory;
             ItemStack itemstack = ItemStack.EMPTY;
-            Optional<ICraftingRecipe> optional = pos.getServer().getRecipeManager().getRecipeFor(RecipeTypeInit.ALIEN_TABLE, p_217066_3_, pos);
+            Optional<IAlienRecipe> optional = pos.getServer().getRecipeManager().getRecipeFor(RegisterRecipeInit.ALIEN_RECIPE, p_217066_3_, pos);
             if (optional.isPresent()) {
                 ICraftingRecipe icraftingrecipe = optional.get();
                 if (p_217066_4_.setRecipeUsed(pos, serverplayerentity, icraftingrecipe)) {
