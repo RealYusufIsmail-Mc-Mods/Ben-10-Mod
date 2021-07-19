@@ -10,12 +10,14 @@ public class AlienTableScreen extends ContainerScreen<AlienTableContainer> {
     private static final ResourceLocation CRAFTING_TABLE_GUI_TEXTURES = new ResourceLocation("textures/gui/container/crafting_table.png");
     public AlienTableScreen(AlienTableContainer p_i51105_1_, PlayerInventory p_i51105_2_, ITextComponent p_i51105_3_) {
         super(p_i51105_1_, p_i51105_2_, p_i51105_3_);
+        this.imageWidth = 176;
+        this.imageHeight = 166;
     }
 
     @Override
     protected void renderBg(MatrixStack matrixStack, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
         this.minecraft.textureManager.bind(CRAFTING_TABLE_GUI_TEXTURES);
-        int x = (this.width - this.imageWidth) / 3;
+        int x = (this.width - this.imageWidth) / 2;
         int y = (this.height - this.imageHeight) / 2;
         this.blit(matrixStack, x, y, 0, 0, this.imageHeight, this.imageWidth);
     }
