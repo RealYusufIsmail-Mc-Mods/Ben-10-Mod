@@ -3,6 +3,7 @@ package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipe;
+import com.yusuf.bentenmod.modules.alientable.recipes.AlienTableResultSlot;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -39,7 +40,7 @@ public class AlienTableContainer extends Container {
         super(ContainerType.CRAFTING, p_i50090_1_);
         this.access = p_i50090_3_;
         this.player = p_i50090_2_.player;
-        this.addSlot(new CraftingResultSlot(p_i50090_2_.player, this.craftSlots, this.resultSlots, 0, 124, 35));
+        this.addSlot(new AlienTableResultSlot(p_i50090_2_.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 3; ++j) {
@@ -63,7 +64,7 @@ public class AlienTableContainer extends Container {
         if (!p_217066_1_.isClientSide) {
             ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)p_217066_2_;
             ItemStack itemstack = ItemStack.EMPTY;
-            Optional<ICraftingRecipe> optional = p_217066_1_.getServer().getRecipeManager().getRecipeFor(IRecipeType.CRAFTING, p_217066_3_, p_217066_1_);
+            Optional<AlienRecipe> optional = p_217066_1_.getServer().getRecipeManager().getRecipeFor(RegisterRecipeInit.ALIEN_RECIPE, p_217066_3_, p_217066_1_);
             if (optional.isPresent()) {
                 ICraftingRecipe icraftingrecipe = optional.get();
                 if (p_217066_4_.setRecipeUsed(p_217066_1_, serverplayerentity, icraftingrecipe)) {
