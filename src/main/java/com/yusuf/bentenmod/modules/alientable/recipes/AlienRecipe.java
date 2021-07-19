@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.*;
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
@@ -211,7 +212,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
 
     @Override
     public IRecipeType<?> getType() {
-        return AlienRecipeType.CRAFTING;
+        return RegisterRecipeInit.ALIEN_RECIPE;
     }
 
     private static String[] patternFromJson(JsonArray p_192407_0_) {
