@@ -17,9 +17,9 @@ public class AlienTableScreen extends ContainerScreen<AlienTableContainer> {
     @Override
     protected void renderBg(MatrixStack matrixStack, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
         this.minecraft.textureManager.bind(CRAFTING_TABLE_GUI_TEXTURES);
-        int x = (this.width - this.imageWidth) / 2;
-        int y = (this.height - this.imageHeight) / 2;
-        this.blit(matrixStack, x, y, 0, 0, this.imageHeight, this.imageWidth);
+        int i = this.leftPos;
+        int j = (this.height - this.imageHeight) / 2;
+        this.blit(matrixStack, i, j, 0, 0, this.imageWidth, this.imageHeight);
     }
 
     @Override
