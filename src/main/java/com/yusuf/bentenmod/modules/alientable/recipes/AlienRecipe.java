@@ -215,6 +215,13 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         return RegisterRecipeInit.ALIEN_RECIPE;
     }
 
+    public static final class Type implements IRecipeType<AlienRecipe> {
+        @Override
+        public String toString() {
+            return BenTenMod.MOD_ID + ":alien_recipe";
+        }
+    }
+
     private static String[] patternFromJson(JsonArray p_192407_0_) {
         String[] astring = new String[p_192407_0_.size()];
         if (astring.length > MAX_HEIGHT) {

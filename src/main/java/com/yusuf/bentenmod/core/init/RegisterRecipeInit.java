@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipe;
-import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipeType;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
@@ -18,7 +17,7 @@ import static net.minecraft.item.crafting.IRecipeType.register;
 
 public class RegisterRecipeInit {
     public static final IRecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
-    public static final IRecipeType<AlienRecipe> ALIEN_RECIPE =  new AlienRecipeType();
+    public static final IRecipeType<AlienRecipe> ALIEN_RECIPE = new AlienRecipe.Type();
     private static void registerRecipe(RegistryEvent.Register<IRecipeSerializer<?>> event, IRecipeType<?> type,
                                        IRecipeSerializer<?> serializer) {
         Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(type.toString()), type);
