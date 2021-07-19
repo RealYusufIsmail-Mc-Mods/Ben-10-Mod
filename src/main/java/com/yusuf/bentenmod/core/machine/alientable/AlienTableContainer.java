@@ -26,17 +26,31 @@ public class AlienTableContainer extends WorkbenchContainer {
     private PlayerEntity player;
     private final CraftingInventory craftSlots = new CraftingInventory(this, 3, 3);
     private final CraftResultInventory resultSlots = new CraftResultInventory();
-    
-    public AlienTableContainer(int id, World level, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity, IWorldPosCallable p_i50090_3_) {
+
+
+    public AlienTableContainer(int id, World level, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity, IWorldPosCallable iWorldPosCallable) {
         super(id, playerInventory);
-        this.access = p_i50090_3_;
+        this.access = iWorldPosCallable;
         this.player = playerInventory.player;
         this.addSlot(new CraftingResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
     }
 
 
-    protected static void slotChangedCraftingGrid(int id, World pos, PlayerEntity playerInventory, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
+
+    /*
+    public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable iWorldPosCallable) {
+        super(id, playerInventory);
+        this.access = iWorldPosCallable;
+        this.player = playerInventory.player;
+        this.addSlot(new CraftingResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
+
+    }
+
+
+     */
+
+    protected static void slotChangedCraftingGrid(int id, World pos, PlayerEntity playerInventory, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_, BlockPos p_220052_3_) {
         if (!pos.isClientSide) {
             ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)playerInventory;
             ItemStack itemstack = ItemStack.EMPTY;

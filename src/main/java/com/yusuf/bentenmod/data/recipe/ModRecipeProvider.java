@@ -250,7 +250,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
-                .save(consumer, modId("boot"));
+                .save(consumer, modId("boots"));
 
 
         ShapedRecipeBuilder.shaped(HEATBLAST_HELMET.get())
@@ -282,7 +282,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
-                .save(consumer, modId("heatblast_boot"));
+                .save(consumer, modId("heatblast_boots"));
 
 
         ShapedRecipeBuilder.shaped(XLR8_HELMET.get())
@@ -314,7 +314,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
-                .save(consumer, modId("xlr8_boot"));
+                .save(consumer, modId("xlr8_boots"));
 
 
         ShapedRecipeBuilder.shaped(JACKET.get())
