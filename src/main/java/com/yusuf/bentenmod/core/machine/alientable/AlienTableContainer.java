@@ -37,18 +37,8 @@ public class AlienTableContainer extends WorkbenchContainer {
     }
 
 
+    
 
-    /*
-    public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable iWorldPosCallable) {
-        super(id, playerInventory);
-        this.access = iWorldPosCallable;
-        this.player = playerInventory.player;
-        this.addSlot(new CraftingResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
-
-    }
-
-
-     */
 
     protected static void slotChangedCraftingGrid(int id, World pos, PlayerEntity playerInventory, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_, BlockPos p_220052_3_) {
         if (!pos.isClientSide) {

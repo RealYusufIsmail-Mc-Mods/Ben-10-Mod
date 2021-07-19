@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.data.recipe;
 
 
@@ -21,3 +22,5 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
         return Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getValue(new ResourceLocation(MOD_ID, "alien_recipe")));
     }
 }
+
+ */
