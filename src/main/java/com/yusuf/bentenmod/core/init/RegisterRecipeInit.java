@@ -1,7 +1,6 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipe;
-import com.yusuf.bentenmod.modules.alientable.recipes.IAlienRecipe;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
