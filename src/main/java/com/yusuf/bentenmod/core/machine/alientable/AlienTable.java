@@ -81,7 +81,7 @@ public class AlienTable extends Block {
                 @Nullable
                 @Override
                 public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-                    return new AlienTableContainer(id, level, pos, playerInventory, playerEntity);
+                    return new AlienTableContainer(id, playerInventory, IWorldPosCallable.NULL);
 
                 }
             };
