@@ -1,6 +1,7 @@
 
 package com.yusuf.bentenmod.core.machine.alientable;
 
+import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipe;
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienTableResultSlot;
@@ -33,14 +34,14 @@ public class AlienTableContainer extends Container {
     private final IWorldPosCallable access;
     private final PlayerEntity player;
 
-    public AlienTableContainer(int p_i50089_1_, PlayerInventory p_i50089_2_) {
-        this(p_i50089_1_, p_i50089_2_, IWorldPosCallable.NULL);
+    public AlienTableContainer(int id, PlayerInventory playerInventory) {
+        this(id, playerInventory, IWorldPosCallable.NULL);
     }
-    public AlienTableContainer(int p_i50090_1_, PlayerInventory p_i50090_2_, IWorldPosCallable p_i50090_3_) {
-        super(ContainerType.CRAFTING, p_i50090_1_);
+    public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable p_i50090_3_) {
+        super(ContainerInit.ALIEN_TABLE_CONTAINER, id);
         this.access = p_i50090_3_;
-        this.player = p_i50090_2_.player;
-        this.addSlot(new AlienTableResultSlot(p_i50090_2_.player, this.craftSlots, this.resultSlots, 0, 124, 35));
+        this.player = playerInventory.player;
+        this.addSlot(new AlienTableResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 3; ++j) {
@@ -50,7 +51,7 @@ public class AlienTableContainer extends Container {
 
         for(int k = 0; k < 3; ++k) {
             for(int i1 = 0; i1 < 9; ++i1) {
-                this.addSlot(new Slot(p_i50090_2_, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
+                this.addSlot(new Slot(playerInventory, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
             }
         }
 
@@ -59,6 +60,7 @@ public class AlienTableContainer extends Container {
         }
 
     }
+
 
     protected static void slotChangedCraftingGrid(int p_217066_0_, World p_217066_1_, PlayerEntity p_217066_2_, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
         if (!p_217066_1_.isClientSide) {

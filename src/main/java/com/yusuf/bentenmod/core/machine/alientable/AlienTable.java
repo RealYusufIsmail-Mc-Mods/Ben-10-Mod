@@ -55,9 +55,7 @@ public class AlienTable extends Block {
         );
     }
 
-
-
-
+    /*
     @Override
     public ActionResultType use(BlockState p_225533_1_, World p_225533_2_, BlockPos p_225533_3_, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
         if (p_225533_2_.isClientSide) {
@@ -68,6 +66,28 @@ public class AlienTable extends Block {
             return ActionResultType.CONSUME;
         }
     }
+
+     */
+
+
+    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+        if (!level.isClientSide()) {
+            INamedContainerProvider containerProvider = new INamedContainerProvider() {
+                @Override
+                public ITextComponent getDisplayName() {
+                    return LangKeys.ALIEN_TABLE_SCREEN;
+                }
+                @Nullable
+                @Override
+                public Container createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+                    return new AlienTableContainer(id, level, pos, playerInventory, playerEntity );
+
+                }
+            };
+            NetworkHooks.openGui((ServerPlayerEntity) playerEntity, containerProvider, pos);
+        }
+        return ActionResultType.SUCCESS;
+}
 
     @Override
     public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
