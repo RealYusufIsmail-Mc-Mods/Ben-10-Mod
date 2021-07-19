@@ -15,6 +15,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.SSetSlotPacket;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
@@ -34,8 +35,8 @@ public class AlienTableContainer extends Container {
     private final IWorldPosCallable access;
     private final PlayerEntity player;
 
-    public AlienTableContainer(int id, PlayerInventory playerInventory) {
-        this(id, playerInventory, IWorldPosCallable.NULL);
+    public AlienTableContainer(int p_i50089_1_, PlayerInventory p_i50089_2_, PacketBuffer buffer) {
+        this(p_i50089_1_, p_i50089_2_, IWorldPosCallable.NULL);
     }
     public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable p_i50090_3_) {
         super(ContainerInit.ALIEN_TABLE_CONTAINER, id);
