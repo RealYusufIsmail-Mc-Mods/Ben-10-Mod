@@ -207,19 +207,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return new Serializer();
-    }
-
-    @Override
-    public IRecipeType<?> getType() {
-        return RegisterRecipeInit.ALIEN_RECIPE;
-    }
-
-    public static final class Type implements IRecipeType<AlienRecipe> {
-        @Override
-        public String toString() {
-            return BenTenMod.MOD_ID + ":alien_recipe";
-        }
+        return new TableRecipe.Serializer();
     }
 
     private static String[] patternFromJson(JsonArray p_192407_0_) {
@@ -255,6 +243,18 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         } else {
             int i = JSONUtils.getAsInt(p_199798_0_, "count", 1);
             return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true);
+        }
+    }
+
+    @Override
+    public IRecipeType<?> getType() {
+        return RegisterRecipeInit.ALIEN_RECIPE;
+    }
+
+    public static final class Type implements IRecipeType<AlienRecipe> {
+        @Override
+        public String toString() {
+            return BenTenMod.MOD_ID + ":alien_recipe";
         }
     }
 

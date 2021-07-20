@@ -68,6 +68,9 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM, "Infinitum");
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
+        item(ItemInit.RAW_IMPERIUM, "Raw Imperium");
+        item(ItemInit.RAW_LEGENDARY, "Raw Legendaryy");
+        item(ItemInit.RAW_OMNITRIX, "Raw Omnitrix");
 
         //tools
         item(ItemInit.SWORD, "ASCALON");

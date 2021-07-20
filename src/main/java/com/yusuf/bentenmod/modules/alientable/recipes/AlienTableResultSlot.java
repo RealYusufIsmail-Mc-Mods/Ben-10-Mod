@@ -38,7 +38,7 @@ public class AlienTableResultSlot extends CraftingResultSlot {
                     itemstack1.grow(itemstack.getCount());
                     this.craftSlots.setItem(i, itemstack1);
                 } else if (!this.player.inventory.add(itemstack1)) {
-                    this.player.drop(itemstack1, false);
+                    this.player.drop(itemstack1, true);
                 }
             }
         }
