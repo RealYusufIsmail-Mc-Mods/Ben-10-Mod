@@ -206,10 +206,6 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         return this.id;
     }
 
-    @Override
-    public IRecipeSerializer<?> getSerializer() {
-        return new AlienRecipe.Serializer();
-    }
 
     private static String[] patternFromJson(JsonArray p_192407_0_) {
         String[] astring = new String[p_192407_0_.size()];
@@ -245,6 +241,11 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
             int i = JSONUtils.getAsInt(p_199798_0_, "count", 1);
             return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true);
         }
+    }
+
+    @Override
+    public IRecipeSerializer<?> getSerializer() {
+        return new AlienRecipe.Serializer();
     }
 
     @Override
