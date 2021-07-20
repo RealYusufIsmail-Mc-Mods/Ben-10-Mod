@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "bentenmod:legendary_ore"
   },
-  "result": "bentenmod:legendary_ore",
+  "result": "bentenmod:legendary",
   "experience": 0.6,
   "cookingtime": 300
 }

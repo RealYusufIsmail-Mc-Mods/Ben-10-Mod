@@ -116,15 +116,15 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(LEGENDARY_ORE.get(), 9)
 
                 .requires(LEGENDARY_BLOCK.get())
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer);
 
         ShapedRecipeBuilder.shaped(LEGENDARY_BLOCK.get())
-                .define('#', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('#', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer);
 
         ShapelessRecipeBuilder.shapeless(IMPERIUM.get(), 9)
@@ -175,7 +175,7 @@ public class ModRecipeProvider extends RecipeProvider {
         ShapedRecipeBuilder.shaped(AXE.get())
                 .define('#', Items.STICK.getItem())
                 .define('K', TagsInit.Items.INGOTS_RUBY)
-                .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('A', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("KK ")
                 .pattern("A# ")
                 .pattern(" # ")
@@ -195,11 +195,11 @@ public class ModRecipeProvider extends RecipeProvider {
 */
         ShapedRecipeBuilder.shaped(SWORD.get())
                 .define('#', Items.STICK.getItem())
-                .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('A', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern(" A ")
                 .pattern(" A ")
                 .pattern(" # ")
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("sword"));
 
         ShapedRecipeBuilder.shaped(IMPERIUM_SWORD.get())
@@ -222,34 +222,34 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shaped(HELMET.get())
-                .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('A', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("AAA")
                 .pattern("A A")
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("helmet"));
 
         ShapedRecipeBuilder.shaped(CHESTPLATE.get())
                 .define('#', TagsInit.Items.INGOTS_RUBY)
-                .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('A', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("A A")
                 .pattern("A#A")
                 .pattern("AAA")
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("chestplate"));
 
         ShapedRecipeBuilder.shaped(LEGGINGS.get())
-                .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('A', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("AAA")
                 .pattern("A A")
                 .pattern("A A")
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("leggings"));
 
         ShapedRecipeBuilder.shaped(BOOTS.get())
-                .define('A', TagsInit.Items.INGOTS_LEGENDARY_ORE)
+                .define('A', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("A A")
                 .pattern("A A")
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("boots"));
 
 
@@ -442,11 +442,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY_ORE.get(), 0.6f, 300)
+        CookingRecipeBuilder.smelting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY.get(), 0.6f, 300)
                 .unlockedBy("has_item", has(LEGENDARY_ORE.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY_ORE.get(), 0.3f, 300)
+        CookingRecipeBuilder.blasting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(LEGENDARY_ORE.get()))
                 .save(consumer, modId("legendary_ore_blasting_smelt"));
 
@@ -476,17 +476,17 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //armour
 
-        CookingRecipeBuilder.blasting(Ingredient.of(HELMET.get()), LEGENDARY_ORE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+        CookingRecipeBuilder.blasting(Ingredient.of(HELMET.get()), LEGENDARY.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("helmet_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(CHESTPLATE.get()), LEGENDARY_ORE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+        CookingRecipeBuilder.blasting(Ingredient.of(CHESTPLATE.get()), LEGENDARY.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("chestplate_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(LEGGINGS.get()), LEGENDARY_ORE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+        CookingRecipeBuilder.blasting(Ingredient.of(LEGGINGS.get()), LEGENDARY.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("leggings_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(BOOTS.get()), LEGENDARY_ORE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY_ORE))
+        CookingRecipeBuilder.blasting(Ingredient.of(BOOTS.get()), LEGENDARY.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer, modId("boots_blasting_smelt"));
 
 

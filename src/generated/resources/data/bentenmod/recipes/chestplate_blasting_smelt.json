@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "bentenmod:chestplate"
   },
-  "result": "bentenmod:legendary_ore",
+  "result": "bentenmod:legendary",
   "experience": 0.3,
   "cookingtime": 300
 }

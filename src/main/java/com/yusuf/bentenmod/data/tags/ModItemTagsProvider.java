@@ -40,7 +40,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
 
         //ingots
-        tag(TagsInit.Items.INGOTS_LEGENDARY_ORE).add(LEGENDARY.get());
+        tag(TagsInit.Items.INGOTS_LEGENDARY).add(LEGENDARY.get());
         tag(TagsInit.Items.INGOTS_OMNITRIX).add(OMNITRIX.get());
         tag(TagsInit.Items.INGOTS_FIRE).add(FIRE.get());
         tag(TagsInit.Items.INGOTS_RUBY).add(RUBY.get());
