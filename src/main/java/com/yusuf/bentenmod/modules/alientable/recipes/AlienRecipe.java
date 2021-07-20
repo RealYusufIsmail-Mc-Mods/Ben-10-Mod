@@ -6,7 +6,6 @@ import com.google.common.collect.Sets;
 import com.google.gson.*;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
-import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -173,6 +172,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
     }
 
 
+
     private static Map<String, Ingredient> keyFromJson(JsonObject p_192408_0_) {
         Map<String, Ingredient> map = Maps.newHashMap();
 
@@ -208,7 +208,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
 
     @Override
     public IRecipeSerializer<?> getSerializer() {
-        return new TableRecipe.Serializer();
+        return new AlienRecipe.Serializer();
     }
 
     private static String[] patternFromJson(JsonArray p_192407_0_) {
