@@ -1,3 +1,4 @@
+/*
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.common.LangKeys;
@@ -29,3 +30,5 @@ public class AlienTableSimpleNamedContainerProvider implements INamedContainerPr
         return this.menuConstructor.createMenu(p_createMenu_1_, p_createMenu_2_, p_createMenu_3_);
     }
 }
+
+ */
