@@ -253,14 +253,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("boots"));
 
 
-        ShapedRecipeBuilder.shaped(HEATBLAST_HELMET.get())
+        AlienTableRecipeBuilder.alien(HEATBLAST_HELMET.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("heatblast_helmet"));
 
-        ShapedRecipeBuilder.shaped(HEATBLAST_CHESTPLATE.get())
+        AlienTableRecipeBuilder.alien(HEATBLAST_CHESTPLATE.get())
                 .define('#', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
@@ -269,7 +269,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("heatblast_chestplate"));
 
-        ShapedRecipeBuilder.shaped(HEATBLAST_LEGGINGS.get())
+        AlienTableRecipeBuilder.alien(HEATBLAST_LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("AAA")
                 .pattern("A A")
@@ -277,7 +277,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer, modId("heatblast_leggings"));
 
-        ShapedRecipeBuilder.shaped(HEATBLAST_BOOTS.get())
+        AlienTableRecipeBuilder.alien(HEATBLAST_BOOTS.get())
                 .define('A', TagsInit.Items.INGOTS_FIRE)
                 .pattern("A A")
                 .pattern("A A")
@@ -285,14 +285,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("heatblast_boots"));
 
 
-        ShapedRecipeBuilder.shaped(XLR8_HELMET.get())
+        AlienTableRecipeBuilder.alien(XLR8_HELMET.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("AAA")
                 .pattern("A A")
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_helmet"));
 
-        ShapedRecipeBuilder.shaped(XLR8_CHESTPLATE.get())
+        AlienTableRecipeBuilder.alien(XLR8_CHESTPLATE.get())
                 .define('#', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
@@ -301,7 +301,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_chestplate"));
 
-        ShapedRecipeBuilder.shaped(XLR8_LEGGINGS.get())
+        AlienTableRecipeBuilder.alien(XLR8_LEGGINGS.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("AAA")
                 .pattern("A A")
@@ -309,7 +309,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_leggings"));
 
-        ShapedRecipeBuilder.shaped(XLR8_BOOTS.get())
+        AlienTableRecipeBuilder.alien(XLR8_BOOTS.get())
                 .define('A', TagsInit.Items.INGOTS_SPEED)
                 .pattern("A A")
                 .pattern("A A")
@@ -317,7 +317,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("xlr8_boots"));
 
 
-        ShapedRecipeBuilder.shaped(JACKET.get())
+        AlienTableRecipeBuilder.alien(JACKET.get())
                 .define('A', TagsInit.Items.INGOTS_OMNITRIX)
                 .pattern("A A")
                 .pattern("AAA")
@@ -336,7 +336,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
                 .save(consumer, modId("omnitrix_apple"));
 
-        ShapedRecipeBuilder.shaped(ENCHANTED_OMNITRIX_APPLE.get())
+        AlienTableRecipeBuilder.alien(ENCHANTED_OMNITRIX_APPLE.get())
                 .define('A', OMNITRIX_BLOCK.get())
                 .define('L', Items.APPLE.getItem())
                 .pattern("AAA")
@@ -387,7 +387,7 @@ public class ModRecipeProvider extends RecipeProvider {
 /**
  * @see ShapedRecipeBuilder
  */
-        AlienTableRecipeBuilder.alien(EntityTypesInit.VILGAX_SPAWN_EGG.get())
+        ShapedRecipeBuilder.shaped(EntityTypesInit.VILGAX_SPAWN_EGG.get())
                 .define('L', Items.EGG.getItem())
                 .define('A', TagsInit.Items.INGOTS_RUBY)
                 .pattern("AAA")

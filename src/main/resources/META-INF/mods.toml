@@ -38,7 +38,7 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
-modId = "geckolib"
+modId = "geckolib3"
 mandatory = true
 versionRange = "[1.16.5:3.0.41,)"
 ordering = "NONE"

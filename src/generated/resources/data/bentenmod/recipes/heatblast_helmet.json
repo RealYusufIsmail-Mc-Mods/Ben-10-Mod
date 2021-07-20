@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "bentenmod:alien_recipe",
   "pattern": [
     "AAA",
     "A A"
