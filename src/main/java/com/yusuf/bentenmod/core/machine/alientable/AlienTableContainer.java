@@ -30,7 +30,7 @@ import java.util.Optional;
  * @see WorkbenchContainer
  */
 
-public class AlienTableContainer extends Container {
+public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> {
     private final CraftingInventory craftSlots = new CraftingInventory(this, 3, 3);
     private final CraftResultInventory resultSlots = new CraftResultInventory();
     private final IWorldPosCallable access;
