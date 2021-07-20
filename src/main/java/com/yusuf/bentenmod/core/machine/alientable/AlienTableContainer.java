@@ -26,6 +26,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Optional;
 
+import static com.yusuf.bentenmod.BenTenMod.LOGGER;
+
 /**
  * @see WorkbenchContainer
  */
@@ -68,7 +70,7 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
             ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)p_217066_2_;
             ItemStack itemstack = ItemStack.EMPTY;
             Optional<AlienRecipe> optional = p_217066_1_.getServer().getRecipeManager().getRecipeFor(RegisterRecipeInit.ALIEN_RECIPE, p_217066_3_, p_217066_1_);
-            System.out.println(optional.isPresent());
+            LOGGER.info(optional.isPresent());
             if (optional.isPresent()) {
                 AlienRecipe icraftingrecipe = optional.get();
                 if (p_217066_4_.setRecipeUsed(p_217066_1_, serverplayerentity, icraftingrecipe)) {
