@@ -7,15 +7,16 @@ import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.IRecipeHolder;
 import net.minecraft.inventory.container.CraftingResultSlot;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class AlienTableResultSlot extends CraftingResultSlot {
+public class AlienTableResultSlot extends Slot {
     private final PlayerEntity player;
     private final CraftingInventory craftSlots;
     private int removeCount;
     public AlienTableResultSlot(PlayerEntity p_i45790_1_, CraftingInventory p_i45790_2_, IInventory p_i45790_3_, int p_i45790_4_, int p_i45790_5_, int p_i45790_6_) {
-        super(p_i45790_1_, p_i45790_2_, p_i45790_3_, p_i45790_4_, p_i45790_5_, p_i45790_6_);
+        super(p_i45790_3_, p_i45790_4_, p_i45790_5_, p_i45790_6_);
         this.player = p_i45790_1_;
         this.craftSlots = p_i45790_2_;
     }
