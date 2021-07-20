@@ -43,7 +43,7 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
         super(ContainerInit.ALIEN_TABLE_CONTAINER.get(), id);
         this.access = p_i50090_3_;
         this.player = playerInventory.player;
-        this.addSlot(new AlienTableResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
+        //this.addSlot(new AlienTableResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
         for(int i = 0; i < 3; ++i) {
             for(int j = 0; j < 3; ++j) {

@@ -387,7 +387,7 @@ public class ModRecipeProvider extends RecipeProvider {
 /**
  * @see ShapedRecipeBuilder
  */
-        ShapedRecipeBuilder.shaped(EntityTypesInit.VILGAX_SPAWN_EGG.get())
+        AlienTableRecipeBuilder.alien(EntityTypesInit.VILGAX_SPAWN_EGG.get())
                 .define('L', Items.EGG.getItem())
                 .define('A', TagsInit.Items.INGOTS_RUBY)
                 .pattern("AAA")
