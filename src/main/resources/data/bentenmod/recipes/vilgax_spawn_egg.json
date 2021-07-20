@@ -1,0 +1,19 @@
+{
+  "type": "bentenmod:alien_recipe",
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:egg"
+    },
+    "A": {
+      "item": "bentenmod:ruby"
+    }
+  },
+  "result": {
+    "item": "bentenmod:vilgax_spawn_egg"
+  }
+}
