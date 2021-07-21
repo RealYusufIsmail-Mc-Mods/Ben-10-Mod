@@ -58,11 +58,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
         alienTableBlock();
 
     }
+
     @Override
     public void horizontalBlock(Block block, ModelFile model) {
         super.horizontalBlock(block, model);
         this.simpleBlockItem(block, model);
     }
+
     public void tableBlock() {
         ResourceLocation name = TABLE_BLOCK.get().getRegistryName();
         assert name != null;
@@ -72,6 +74,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("side", modLoc("block/table_block_side"));
         this.simpleBlockItem(TABLE_BLOCK.get(), builder);
     }
+
     public void tableBlockOn() {
         String name = "table_block_on";
         assert name != null;
@@ -80,6 +83,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("front", modLoc("block/table_block_front"));
         builder.texture("side", modLoc("block/table_block_side"));
     }
+
     public void alienTableBlock() {
         ResourceLocation name = ALIEN_TABLE.get().getRegistryName();
         assert name != null;

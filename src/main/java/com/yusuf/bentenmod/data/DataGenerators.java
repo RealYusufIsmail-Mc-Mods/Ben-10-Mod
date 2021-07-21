@@ -42,6 +42,5 @@ public class DataGenerators {
         gen.addProvider(new ModAdvancementProvider(gen));
 
 
-
     }
 }

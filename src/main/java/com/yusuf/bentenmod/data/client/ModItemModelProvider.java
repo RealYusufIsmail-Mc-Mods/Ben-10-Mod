@@ -118,6 +118,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
         return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
     }
+
     private void block(String name) {
         withExistingParent(name, modLoc("block/" + name));
     }

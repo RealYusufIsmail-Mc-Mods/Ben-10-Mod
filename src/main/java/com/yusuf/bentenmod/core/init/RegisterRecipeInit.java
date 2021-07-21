@@ -13,11 +13,10 @@ import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
 import java.util.Map;
 
-import static net.minecraft.item.crafting.IRecipeType.register;
-
 public class RegisterRecipeInit {
     public static final IRecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
     public static final IRecipeType<AlienRecipe> ALIEN_RECIPE = new AlienRecipe.Type();
+
     private static void registerRecipe(RegistryEvent.Register<IRecipeSerializer<?>> event, IRecipeType<?> type,
                                        IRecipeSerializer<?> serializer) {
         Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(type.toString()), type);
@@ -29,7 +28,7 @@ public class RegisterRecipeInit {
         registerRecipe(event, ALIEN_RECIPE, new AlienRecipe.Serializer());
     }
 
-    public static Map<ResourceLocation, IRecipe<?>> getRecipes(IRecipeType<?> type, RecipeManager manager){
+    public static Map<ResourceLocation, IRecipe<?>> getRecipes(IRecipeType<?> type, RecipeManager manager) {
         final Map<IRecipeType<?>, Map<ResourceLocation, IRecipe<?>>> recipes = ObfuscationReflectionHelper
                 .getPrivateValue(RecipeManager.class, manager, "field_199522_d");
         return recipes.get(type);

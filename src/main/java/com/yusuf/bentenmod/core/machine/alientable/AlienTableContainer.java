@@ -1,4 +1,3 @@
-
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.core.init.BlockInit;
@@ -6,20 +5,22 @@ import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienRecipe;
 import com.yusuf.bentenmod.modules.alientable.recipes.AlienTableResultSlot;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.CraftResultInventory;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.*;
+import net.minecraft.inventory.container.RecipeBookContainer;
+import net.minecraft.inventory.container.Slot;
+import net.minecraft.inventory.container.WorkbenchContainer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.RecipeBookCategory;
+import net.minecraft.item.crafting.RecipeItemHelper;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.server.SSetSlotPacket;
 import net.minecraft.util.IWorldPosCallable;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -41,25 +42,26 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
     public AlienTableContainer(int id, PlayerInventory playerInventory, PacketBuffer packetBuffer) {
         this(id, playerInventory, IWorldPosCallable.NULL);
     }
+
     public AlienTableContainer(int id, PlayerInventory playerInventory, IWorldPosCallable p_i50090_3_) {
         super(ContainerInit.ALIEN_TABLE_CONTAINER.get(), id);
         this.access = p_i50090_3_;
         this.player = playerInventory.player;
         this.addSlot(new AlienTableResultSlot(playerInventory.player, this.craftSlots, this.resultSlots, 0, 124, 35));
 
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 3; ++j) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
                 this.addSlot(new Slot(this.craftSlots, j + i * 3, 30 + j * 18, 17 + i * 18));
             }
         }
 
-        for(int k = 0; k < 3; ++k) {
-            for(int i1 = 0; i1 < 9; ++i1) {
+        for (int k = 0; k < 3; ++k) {
+            for (int i1 = 0; i1 < 9; ++i1) {
                 this.addSlot(new Slot(playerInventory, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
             }
         }
 
-        for(int l = 0; l < 9; ++l) {
+        for (int l = 0; l < 9; ++l) {
             this.addSlot(new Slot(playerInventory, l, 8 + l * 18, 142));
         }
 
@@ -67,7 +69,7 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
 
     protected static void slotChangedCraftingGrid(int p_217066_0_, World p_217066_1_, PlayerEntity p_217066_2_, CraftingInventory p_217066_3_, CraftResultInventory p_217066_4_) {
         if (!p_217066_1_.isClientSide) {
-            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity)p_217066_2_;
+            ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) p_217066_2_;
             ItemStack itemstack = ItemStack.EMPTY;
             Optional<AlienRecipe> optional = p_217066_1_.getServer().getRecipeManager().getRecipeFor(RegisterRecipeInit.ALIEN_RECIPE, p_217066_3_, p_217066_1_);
             LOGGER.info(optional.isPresent());
@@ -82,6 +84,7 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
             serverplayerentity.connection.send(new SSetSlotPacket(p_217066_0_, 0, itemstack));
         }
     }
+
     //TODO fix this
     @Override
     public void slotsChanged(IInventory p_75130_1_) {
@@ -102,6 +105,7 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
     public boolean recipeMatches(IRecipe<? super CraftingInventory> p_201769_1_) {
         return p_201769_1_.matches(this.craftSlots, this.player.level);
     }
+
     @Override
     public void removed(PlayerEntity p_75134_1_) {
         super.removed(p_75134_1_);
@@ -109,10 +113,12 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
             this.clearContainer(p_75134_1_, p_217068_2_, this.craftSlots);
         });
     }
+
     @Override
     public boolean stillValid(PlayerEntity p_75145_1_) {
         return stillValid(this.access, p_75145_1_, BlockInit.ALIEN_TABLE.get());
     }
+
     @Override
     public ItemStack quickMoveStack(PlayerEntity p_82846_1_, int p_82846_2_) {
         ItemStack itemstack = ItemStack.EMPTY;
@@ -161,6 +167,7 @@ public class AlienTableContainer extends RecipeBookContainer<CraftingInventory> 
 
         return itemstack;
     }
+
     @Override
     public boolean canTakeItemForPickAll(ItemStack p_94530_1_, Slot p_94530_2_) {
         return p_94530_2_.container != this.resultSlots && super.canTakeItemForPickAll(p_94530_1_, p_94530_2_);

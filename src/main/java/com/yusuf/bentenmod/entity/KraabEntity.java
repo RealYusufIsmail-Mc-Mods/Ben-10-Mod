@@ -36,6 +36,10 @@ public class KraabEntity extends CreatureEntity {
                 .add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.ATTACK_DAMAGE, 4).add(Attributes.MAX_HEALTH, 25);
     }
 
+    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return worldIn.getRawBrightness(pos, 0) > 8;
+    }
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new ShootGoal(this));
@@ -46,14 +50,10 @@ public class KraabEntity extends CreatureEntity {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
 
-
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SHOOTING, false);
-    }
-    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn ){
-        return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
     public boolean isShooting() {

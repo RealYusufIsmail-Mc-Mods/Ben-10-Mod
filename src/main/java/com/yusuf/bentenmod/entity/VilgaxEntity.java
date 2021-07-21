@@ -58,6 +58,10 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
                 .add(Attributes.MAX_HEALTH, 300.0D);
     }
 
+    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+        return worldIn.getRawBrightness(pos, 0) > 8;
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
 
         if (event.isMoving()) {
@@ -145,10 +149,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         }
 
         return flag;
-    }
-
-    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn ){
-        return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
     protected SoundEvent getAmbientSound() {

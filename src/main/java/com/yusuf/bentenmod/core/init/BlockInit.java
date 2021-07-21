@@ -52,8 +52,6 @@ public class BlockInit {
             = registerSpecial("infinitum_ore", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
 
-
-
     //custom tables
     public static final RegistryObject<TableBlock> TABLE_BLOCK;
     public static final RegistryObject<AlienTable> ALIEN_TABLE; //custom crafting table

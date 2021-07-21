@@ -3,7 +3,6 @@ package com.yusuf.bentenmod.core.util;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.init.KeybindsInit;
-import com.yusuf.bentenmod.core.machine.alientable.AlienTableScreen;
 import com.yusuf.bentenmod.core.machine.bententable.TableScreen;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;

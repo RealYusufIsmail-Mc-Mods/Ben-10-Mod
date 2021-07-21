@@ -29,7 +29,7 @@ public class TableScreen extends ContainerScreen<TableContainer> {
     }
 
 
-     //CTRL + O > OVERRIDE METHODS
+    //CTRL + O > OVERRIDE METHODS
 
     @Override
     public void render(MatrixStack matrix, int p_230430_2_, int p_230430_3_, float p_230430_4_) {

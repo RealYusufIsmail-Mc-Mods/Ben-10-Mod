@@ -34,7 +34,6 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(DEEPSLATE_SPEED_ORE.get());
 
 
-
         //blocks
         dropSelf(OMNITRIX_BLOCK.get());
         dropSelf(FIRE_BLOCK.get());

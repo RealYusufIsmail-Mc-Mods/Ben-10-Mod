@@ -1,4 +1,3 @@
-
 package com.yusuf.bentenmod.data.recipe;
 
 
@@ -7,7 +6,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.ICriterionInstance;
@@ -52,8 +50,6 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
     }
 
 
-
-
     public static AlienTableRecipeBuilder alien(IItemProvider p_200470_0_) {
         return alien(p_200470_0_, 1);
     }
@@ -61,14 +57,17 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
     public static AlienTableRecipeBuilder alien(IItemProvider p_200468_0_, int p_200468_1_) {
         return new AlienTableRecipeBuilder(p_200468_0_, p_200468_1_);
     }
+
     @Override
     public AlienTableRecipeBuilder define(Character p_200469_1_, ITag<Item> p_200469_2_) {
         return this.define(p_200469_1_, Ingredient.of(p_200469_2_));
     }
+
     @Override
     public AlienTableRecipeBuilder define(Character p_200462_1_, IItemProvider p_200462_2_) {
         return this.define(p_200462_1_, Ingredient.of(p_200462_2_));
     }
+
     @Override
     public AlienTableRecipeBuilder define(Character p_200471_1_, Ingredient p_200471_2_) {
         if (this.key.containsKey(p_200471_1_)) {
@@ -80,6 +79,7 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
             return this;
         }
     }
+
     @Override
     public AlienTableRecipeBuilder pattern(String p_200472_1_) {
         if (!this.rows.isEmpty() && p_200472_1_.length() != this.rows.get(0).length()) {
@@ -89,20 +89,24 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
             return this;
         }
     }
+
     @Override
     public AlienTableRecipeBuilder unlockedBy(String p_200465_1_, ICriterionInstance p_200465_2_) {
         this.advancement.addCriterion(p_200465_1_, p_200465_2_);
         return this;
     }
+
     @Override
     public AlienTableRecipeBuilder group(String p_200473_1_) {
         this.group = p_200473_1_;
         return this;
     }
+
     @Override
     public void save(Consumer<IFinishedRecipe> p_200464_1_) {
         this.save(p_200464_1_, Registry.ITEM.getKey(this.result));
     }
+
     @Override
     public void save(Consumer<IFinishedRecipe> p_200466_1_, String p_200466_2_) {
         ResourceLocation resourcelocation = Registry.ITEM.getKey(this.result);
@@ -112,6 +116,7 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
             this.save(p_200466_1_, new ResourceLocation(p_200466_2_));
         }
     }
+
     @Override
     public void save(Consumer<IFinishedRecipe> p_200467_1_, ResourceLocation p_200467_2_) {
         this.ensureValid(p_200467_2_);
@@ -126,8 +131,8 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
             Set<Character> set = Sets.newHashSet(this.key.keySet());
             set.remove(' ');
 
-            for(String s : this.rows) {
-                for(int i = 0; i < s.length(); ++i) {
+            for (String s : this.rows) {
+                for (int i = 0; i < s.length(); ++i) {
                     char c0 = s.charAt(i);
                     if (!this.key.containsKey(c0) && c0 != ' ') {
                         throw new IllegalStateException("Pattern in recipe " + p_200463_1_ + " uses undefined symbol '" + c0 + "'");
@@ -177,14 +182,14 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
 
             JsonArray jsonarray = new JsonArray();
 
-            for(String s : this.pattern) {
+            for (String s : this.pattern) {
                 jsonarray.add(s);
             }
 
             p_218610_1_.add("pattern", jsonarray);
             JsonObject jsonobject = new JsonObject();
 
-            for(Map.Entry<Character, Ingredient> entry : this.key.entrySet()) {
+            for (Map.Entry<Character, Ingredient> entry : this.key.entrySet()) {
                 jsonobject.add(String.valueOf(entry.getKey()), entry.getValue().toJson());
             }
 
@@ -197,10 +202,12 @@ public class AlienTableRecipeBuilder extends ShapedRecipeBuilder {
 
             p_218610_1_.add("result", jsonobject1);
         }
+
         @Override
         public IRecipeSerializer<?> getType() {
             return Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getValue(new ResourceLocation(MOD_ID, "alien_recipe")));
         }
+
         @Override
         public ResourceLocation getId() {
             return this.id;
