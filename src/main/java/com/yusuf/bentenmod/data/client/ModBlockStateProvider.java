@@ -72,6 +72,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("side", modLoc("block/table_block_side"));
         this.simpleBlockItem(TABLE_BLOCK.get(), builder);
     }
+    public void tableBlockOn() {
+        String name = "table_block_on";
+        assert name != null;
+        BlockModelBuilder builder = this.models().withExistingParent(name, "block/orientable");
+        builder.texture("top", modLoc("block/table_block_top"));
+        builder.texture("front", modLoc("block/table_block_front"));
+        builder.texture("side", modLoc("block/table_block_side"));
+    }
     public void alienTableBlock() {
         ResourceLocation name = ALIEN_TABLE.get().getRegistryName();
         assert name != null;
@@ -85,15 +93,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("down", modLoc("block/emerald_block"));
         this.simpleBlockItem(ALIEN_TABLE.get(), builder);
     }
-    public void tableBlockOn() {
-        String name = "table_block_on";
-        assert name != null;
-        BlockModelBuilder builder = this.models().withExistingParent(name, "block/orientable");
-        builder.texture("top", modLoc("block/table_block_top"));
-        builder.texture("front", modLoc("block/table_block_front"));
-        builder.texture("side", modLoc("block/table_block_side"));
-    }
-    //TODO add alien table texture
 }
 
 
