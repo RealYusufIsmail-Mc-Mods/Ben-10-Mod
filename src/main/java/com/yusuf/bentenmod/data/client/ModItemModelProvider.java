@@ -41,7 +41,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("deepslate_speed_ore", modLoc("block/deepslate_speed_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
-        block("alien_table");
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
