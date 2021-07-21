@@ -9,7 +9,10 @@ import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.NonNullList;
@@ -26,21 +29,12 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
 
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
-
-
-    public static void setCraftingSize(int width, int height) {
-        if (MAX_WIDTH < width) MAX_WIDTH = width;
-        if (MAX_HEIGHT < height) MAX_HEIGHT = height;
-    }
-
     private final int width;
     private final int height;
     private final NonNullList<Ingredient> recipeItems;
     private final ItemStack result;
     private final ResourceLocation id;
     private final String group;
-
-
     public AlienRecipe(ResourceLocation p_i48162_1_, String p_i48162_2_, int p_i48162_3_, int p_i48162_4_, NonNullList<Ingredient> p_i48162_5_, ItemStack p_i48162_6_) {
         this.id = p_i48162_1_;
         this.group = p_i48162_2_;
@@ -50,21 +44,9 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         this.result = p_i48162_6_;
     }
 
-    @Override
-    public boolean matches(CraftingInventory p_77569_1_, World p_77569_2_) {
-        for (int i = 0; i <= p_77569_1_.getWidth() - this.width; ++i) {
-            for (int j = 0; j <= p_77569_1_.getHeight() - this.height; ++j) {
-                if (this.matches(p_77569_1_, i, j, true)) {
-                    return true;
-                }
-
-                if (this.matches(p_77569_1_, i, j, false)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
+    public static void setCraftingSize(int width, int height) {
+        if (MAX_WIDTH < width) MAX_WIDTH = width;
+        if (MAX_HEIGHT < height) MAX_HEIGHT = height;
     }
 
     private static NonNullList<Ingredient> dissolvePattern(String[] p_192402_0_, Map<String, Ingredient> p_192402_1_, int p_192402_2_, int p_192402_3_) {
@@ -72,8 +54,8 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         Set<String> set = Sets.newHashSet(p_192402_1_.keySet());
         set.remove(" ");
 
-        for(int i = 0; i < p_192402_0_.length; ++i) {
-            for(int j = 0; j < p_192402_0_[i].length(); ++j) {
+        for (int i = 0; i < p_192402_0_.length; ++i) {
+            for (int j = 0; j < p_192402_0_[i].length(); ++j) {
                 String s = p_192402_0_[i].substring(j, j + 1);
                 Ingredient ingredient = p_192402_1_.get(s);
                 if (ingredient == null) {
@@ -99,7 +81,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         int k = 0;
         int l = 0;
 
-        for(int i1 = 0; i1 < p_194134_0_.length; ++i1) {
+        for (int i1 = 0; i1 < p_194134_0_.length; ++i1) {
             String s = p_194134_0_[i1];
             i = Math.min(i, firstNonSpace(s));
             int j1 = lastNonSpace(s);
@@ -120,7 +102,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         } else {
             String[] astring = new String[p_194134_0_.length - l - k];
 
-            for(int k1 = 0; k1 < astring.length; ++k1) {
+            for (int k1 = 0; k1 < astring.length; ++k1) {
                 astring[k1] = p_194134_0_[k1 + k].substring(i, j + 1);
             }
 
@@ -130,7 +112,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
 
     private static int firstNonSpace(String p_194135_0_) {
         int i;
-        for(i = 0; i < p_194135_0_.length() && p_194135_0_.charAt(i) == ' '; ++i) {
+        for (i = 0; i < p_194135_0_.length() && p_194135_0_.charAt(i) == ' '; ++i) {
         }
 
         return i;
@@ -138,10 +120,83 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
 
     private static int lastNonSpace(String p_194136_0_) {
         int i;
-        for(i = p_194136_0_.length() - 1; i >= 0 && p_194136_0_.charAt(i) == ' '; --i) {
+        for (i = p_194136_0_.length() - 1; i >= 0 && p_194136_0_.charAt(i) == ' '; --i) {
         }
 
         return i;
+    }
+
+    private static Map<String, Ingredient> keyFromJson(JsonObject p_192408_0_) {
+        Map<String, Ingredient> map = Maps.newHashMap();
+
+        for (Map.Entry<String, JsonElement> entry : p_192408_0_.entrySet()) {
+            if (entry.getKey().length() != 1) {
+                throw new JsonSyntaxException("Invalid key entry: '" + entry.getKey() + "' is an invalid symbol (must be 1 character only).");
+            }
+
+            if (" ".equals(entry.getKey())) {
+                throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
+            }
+
+            map.put(entry.getKey(), Ingredient.fromJson(entry.getValue()));
+        }
+
+        map.put(" ", Ingredient.EMPTY);
+        return map;
+    }
+
+    private static String[] patternFromJson(JsonArray p_192407_0_) {
+        String[] astring = new String[p_192407_0_.size()];
+        if (astring.length > MAX_HEIGHT) {
+            throw new JsonSyntaxException("Invalid pattern: too many rows, " + MAX_HEIGHT + " is maximum");
+        } else if (astring.length == 0) {
+            throw new JsonSyntaxException("Invalid pattern: empty pattern not allowed");
+        } else {
+            for (int i = 0; i < astring.length; ++i) {
+                String s = JSONUtils.convertToString(p_192407_0_.get(i), "pattern[" + i + "]");
+                if (s.length() > MAX_WIDTH) {
+                    throw new JsonSyntaxException("Invalid pattern: too many columns, " + MAX_WIDTH + " is maximum");
+                }
+
+                if (i > 0 && astring[0].length() != s.length()) {
+                    throw new JsonSyntaxException("Invalid pattern: each row must be the same width");
+                }
+
+                astring[i] = s;
+            }
+
+            return astring;
+        }
+    }
+
+    public static ItemStack itemFromJson(JsonObject p_199798_0_) {
+        String s = JSONUtils.getAsString(p_199798_0_, "item");
+        Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
+            return new JsonSyntaxException("Unknown item '" + s + "'");
+        });
+        if (p_199798_0_.has("data")) {
+            throw new JsonParseException("Disallowed data tag found");
+        } else {
+            int i = JSONUtils.getAsInt(p_199798_0_, "count", 1);
+            return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true);
+        }
+    }
+
+    @Override
+    public boolean matches(CraftingInventory p_77569_1_, World p_77569_2_) {
+        for (int i = 0; i <= p_77569_1_.getWidth() - this.width; ++i) {
+            for (int j = 0; j <= p_77569_1_.getHeight() - this.height; ++j) {
+                if (this.matches(p_77569_1_, i, j, true)) {
+                    return true;
+                }
+
+                if (this.matches(p_77569_1_, i, j, false)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private boolean matches(CraftingInventory p_77573_1_, int p_77573_2_, int p_77573_3_, boolean p_77573_4_) {
@@ -171,26 +226,6 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         return this.getResultItem().copy();
     }
 
-
-
-    private static Map<String, Ingredient> keyFromJson(JsonObject p_192408_0_) {
-        Map<String, Ingredient> map = Maps.newHashMap();
-
-        for(Map.Entry<String, JsonElement> entry : p_192408_0_.entrySet()) {
-            if (entry.getKey().length() != 1) {
-                throw new JsonSyntaxException("Invalid key entry: '" + (String)entry.getKey() + "' is an invalid symbol (must be 1 character only).");
-            }
-
-            if (" ".equals(entry.getKey())) {
-                throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
-            }
-
-            map.put(entry.getKey(), Ingredient.fromJson(entry.getValue()));
-        }
-
-        map.put(" ", Ingredient.EMPTY);
-        return map;
-    }
     @Override
     public boolean canCraftInDimensions(int p_194133_1_, int p_194133_2_) {
         return true;
@@ -204,43 +239,6 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
     @Override
     public ResourceLocation getId() {
         return this.id;
-    }
-
-
-    private static String[] patternFromJson(JsonArray p_192407_0_) {
-        String[] astring = new String[p_192407_0_.size()];
-        if (astring.length > MAX_HEIGHT) {
-            throw new JsonSyntaxException("Invalid pattern: too many rows, " + MAX_HEIGHT + " is maximum");
-        } else if (astring.length == 0) {
-            throw new JsonSyntaxException("Invalid pattern: empty pattern not allowed");
-        } else {
-            for(int i = 0; i < astring.length; ++i) {
-                String s = JSONUtils.convertToString(p_192407_0_.get(i), "pattern[" + i + "]");
-                if (s.length() > MAX_WIDTH) {
-                    throw new JsonSyntaxException("Invalid pattern: too many columns, " + MAX_WIDTH + " is maximum");
-                }
-
-                if (i > 0 && astring[0].length() != s.length()) {
-                    throw new JsonSyntaxException("Invalid pattern: each row must be the same width");
-                }
-
-                astring[i] = s;
-            }
-
-            return astring;
-        }
-    }
-    public static ItemStack itemFromJson(JsonObject p_199798_0_) {
-        String s = JSONUtils.getAsString(p_199798_0_, "item");
-        Item item = Registry.ITEM.getOptional(new ResourceLocation(s)).orElseThrow(() -> {
-            return new JsonSyntaxException("Unknown item '" + s + "'");
-        });
-        if (p_199798_0_.has("data")) {
-            throw new JsonParseException("Disallowed data tag found");
-        } else {
-            int i = JSONUtils.getAsInt(p_199798_0_, "count", 1);
-            return net.minecraftforge.common.crafting.CraftingHelper.getItemStack(p_199798_0_, true);
-        }
     }
 
     @Override
@@ -264,6 +262,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
         public Serializer() {
             setRegistryName(BenTenMod.MOD_ID, "alien_recipe");
         }
+
         @Override
         public AlienRecipe fromJson(ResourceLocation p_199425_1_, JsonObject p_199425_2_) {
             String s = JSONUtils.getAsString(p_199425_2_, "group", "");
@@ -284,7 +283,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
             String s = p_199426_2_.readUtf(32767);
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i * j, Ingredient.EMPTY);
 
-            for(int k = 0; k < nonnulllist.size(); ++k) {
+            for (int k = 0; k < nonnulllist.size(); ++k) {
                 nonnulllist.set(k, Ingredient.fromNetwork(p_199426_2_));
             }
 
@@ -299,7 +298,7 @@ public class AlienRecipe implements IRecipe<CraftingInventory> {
             p_199427_1_.writeVarInt(p_199427_2_.height);
             p_199427_1_.writeUtf(p_199427_2_.group);
 
-            for(Ingredient ingredient : p_199427_2_.recipeItems) {
+            for (Ingredient ingredient : p_199427_2_.recipeItems) {
                 ingredient.toNetwork(p_199427_1_);
             }
 

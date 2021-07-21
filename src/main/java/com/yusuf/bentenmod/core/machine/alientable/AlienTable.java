@@ -1,8 +1,6 @@
 package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.common.LangKeys;
-
-import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -35,7 +33,7 @@ import java.util.List;
  * @see CraftingTableBlock
  */
 public class AlienTable extends Block {
-   //private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.alien_table");
+    //private static final ITextComponent CONTAINER_TITLE = new TranslationTextComponent("container.alien_table");
 
     /**
      * @see TranslationTextComponent
@@ -60,6 +58,7 @@ public class AlienTable extends Block {
                 public ITextComponent getDisplayName() {
                     return LangKeys.ALIEN_TABLE_SCREEN;
                 }
+
                 @Nullable
                 @Override
                 public AlienTableContainer createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
@@ -72,7 +71,7 @@ public class AlienTable extends Block {
             return ActionResultType.CONSUME;
         }
         return ActionResultType.SUCCESS;
-}
+    }
 
     @Override
     public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {

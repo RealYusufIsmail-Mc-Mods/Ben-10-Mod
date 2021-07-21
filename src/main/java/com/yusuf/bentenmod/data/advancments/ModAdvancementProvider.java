@@ -32,16 +32,22 @@ import java.util.function.Consumer;
 
 import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
-import static net.yusuf.realyusufismailcore.core.init.ItemInitCore.*;
-import static net.yusuf.realyusufismailcore.core.init.BlockInitCore.*;
+import static net.yusuf.realyusufismailcore.core.init.BlockInitCore.COPPER_BLOCK;
+import static net.yusuf.realyusufismailcore.core.init.ItemInitCore.COPPER;
 
 public class ModAdvancementProvider implements IDataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     private final DataGenerator generator;
+
     public ModAdvancementProvider(DataGenerator generator) {
         this.generator = generator;
     }
+
+    private static Path getPath(Path pathIn, Advancement advancementIn) {
+        return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/" + advancementIn.getId().getPath() + ".json");
+    }
+
     @Override
     public void run(DirectoryCache cache) {
         Path path = this.generator.getOutputFolder();
@@ -63,15 +69,53 @@ public class ModAdvancementProvider implements IDataProvider {
 
         new Advancements().accept(consumer);
     }
+
     @Override
     public String getName() {
         return "Ben 10 mod - Advancements";
     }
 
-    private static Path getPath(Path pathIn, Advancement advancementIn) {
-        return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/" + advancementIn.getId().getPath() + ".json");
-    }
     private static class Advancements implements Consumer<Consumer<Advancement>> {
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
+            return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
+        }
+
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent, String key) {
+            return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
+        }
+
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, ItemStack icon, Advancement parent, String key) {
+            return Advancement.Builder.advancement()
+                    .parent(parent)
+                    .display(icon, title(key), description(key), null, FrameType.TASK, true, true, false)
+                    .addCriterion("get_item", getItem(item))
+                    .save(consumer, id(key));
+        }
+
+        private static String id(String path) {
+            return BenTenMod.getId(path).toString();
+        }
+
+        private static ICriterionInstance getItem(IItemProvider... items) {
+            return InventoryChangeTrigger.Instance.hasItems(items);
+        }
+
+        private static ICriterionInstance getItem(ITag<Item> tag) {
+            return InventoryChangeTrigger.Instance.hasItems(new ItemPredicate(tag, null, MinMaxBounds.IntBound.ANY, MinMaxBounds.IntBound.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NBTPredicate.ANY));
+        }
+
+        private static ICriterionInstance genericInt(ResourceLocation id, int value) {
+            return GenericIntTrigger.Instance.instance(id, value);
+        }
+
+        private static ITextComponent title(String key) {
+            return new TranslationTextComponent("advancements.bentenmod." + key + ".title");
+        }
+
+        private static ITextComponent description(String key) {
+            return new TranslationTextComponent("advancements.bentenmod." + key + ".description");
+        }
+
         @SuppressWarnings({"unused", "OverlyLongMethod"})
         @Override
         public void accept(Consumer<Advancement> consumer) {
@@ -432,44 +476,6 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("infinitum_hoe", getItem(INFINITUM_HOE.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("infinitum_tools"));
-        }
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
-            return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
-        }
-
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent, String key) {
-            return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
-        }
-
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, ItemStack icon, Advancement parent, String key) {
-            return Advancement.Builder.advancement()
-                    .parent(parent)
-                    .display(icon, title(key), description(key), null, FrameType.TASK, true, true, false)
-                    .addCriterion("get_item", getItem(item))
-                    .save(consumer, id(key));
-        }
-        private static String id(String path) {
-            return BenTenMod.getId(path).toString();
-        }
-
-        private static ICriterionInstance getItem(IItemProvider... items) {
-            return InventoryChangeTrigger.Instance.hasItems(items);
-        }
-
-        private static ICriterionInstance getItem(ITag<Item> tag) {
-            return InventoryChangeTrigger.Instance.hasItems(new ItemPredicate(tag, null, MinMaxBounds.IntBound.ANY, MinMaxBounds.IntBound.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NBTPredicate.ANY));
-        }
-
-        private static ICriterionInstance genericInt(ResourceLocation id, int value) {
-            return GenericIntTrigger.Instance.instance(id, value);
-        }
-
-        private static ITextComponent title(String key) {
-            return new TranslationTextComponent("advancements.bentenmod." + key + ".title");
-        }
-
-        private static ITextComponent description(String key) {
-            return new TranslationTextComponent("advancements.bentenmod." + key + ".description");
         }
     }
 }

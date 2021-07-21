@@ -40,14 +40,16 @@ public class BenTenMod {
         MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
     }
-    @SubscribeEvent
-    public void onBiomeLoad(BiomeLoadingEvent event) {
-        EntitySpawingInit.onBiomesLoad(event);
-    }
+
     public static ModResourceLocation getId(String path) {
         if (path.contains(":")) {
             throw new IllegalArgumentException("path contains namespace");
         }
         return new ModResourceLocation(path);
+    }
+
+    @SubscribeEvent
+    public void onBiomeLoad(BiomeLoadingEvent event) {
+        EntitySpawingInit.onBiomesLoad(event);
     }
 }
