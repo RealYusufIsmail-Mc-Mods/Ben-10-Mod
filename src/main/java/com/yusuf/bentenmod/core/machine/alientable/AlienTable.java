@@ -68,7 +68,7 @@ public class AlienTable extends Block {
                 }
             };
             NetworkHooks.openGui((ServerPlayerEntity) player, containerProvider, pos);
-            player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
+            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
             return ActionResultType.CONSUME;
         }
         return ActionResultType.SUCCESS;
