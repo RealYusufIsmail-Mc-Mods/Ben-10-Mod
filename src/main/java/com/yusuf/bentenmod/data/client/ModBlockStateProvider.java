@@ -55,7 +55,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // orientableMachineBlock(TABLE_BLOCK.get(), "table_block");
         tableBlock();
         tableBlockOn();
-        //alienTableBlock();
+        alienTableBlock();
+
     }
     @Override
     public void horizontalBlock(Block block, ModelFile model) {
@@ -70,6 +71,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("front", modLoc("block/table_block_front"));
         builder.texture("side", modLoc("block/table_block_side"));
         this.simpleBlockItem(TABLE_BLOCK.get(), builder);
+    }
+    public void alienTableBlock() {
+        ResourceLocation name = ALIEN_TABLE.get().getRegistryName();
+        assert name != null;
+        BlockModelBuilder builder = this.models().withExistingParent(name.getPath(), "block/orientable");
+        builder.texture("particle", modLoc("block/alien_table_front"));
+        builder.texture("north", modLoc("block/alien_table_front"));
+        builder.texture("south", modLoc("block/alien_table_side"));
+        builder.texture("east", modLoc("block/alien_table_side"));
+        builder.texture("west", modLoc("block/alien_table_front"));
+        builder.texture("up", modLoc("block/alien_table_front"));
+        builder.texture("down", modLoc("block/emerald_block"));
+        this.simpleBlockItem(ALIEN_TABLE.get(), builder);
     }
     public void tableBlockOn() {
         String name = "table_block_on";

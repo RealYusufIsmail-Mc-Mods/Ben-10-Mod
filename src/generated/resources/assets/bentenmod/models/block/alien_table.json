@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "particle": "bentenmod:block/alien_table_front",
+    "north": "bentenmod:block/alien_table_front",
+    "south": "bentenmod:block/alien_table_side",
+    "east": "bentenmod:block/alien_table_side",
+    "west": "bentenmod:block/alien_table_front",
+    "up": "bentenmod:block/alien_table_front",
+    "down": "bentenmod:block/emerald_block"
+  }
+}

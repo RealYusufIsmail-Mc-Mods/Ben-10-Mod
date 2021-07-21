@@ -2,6 +2,7 @@ package com.yusuf.bentenmod.core.machine.alientable;
 
 import com.yusuf.bentenmod.common.LangKeys;
 
+import com.yusuf.bentenmod.core.init.SatsInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.IWorldPosCallable;
@@ -51,7 +53,7 @@ public class AlienTable extends Block {
     }
 
     @Override
-    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity player, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
         if (!level.isClientSide()) {
             INamedContainerProvider containerProvider = new INamedContainerProvider() {
                 @Override
@@ -60,12 +62,14 @@ public class AlienTable extends Block {
                 }
                 @Nullable
                 @Override
-                public AlienTableContainer createMenu(int id, PlayerInventory playerInventory, PlayerEntity playerEntity) {
+                public AlienTableContainer createMenu(int id, PlayerInventory playerInventory, PlayerEntity player) {
                     return new AlienTableContainer(id, playerInventory, IWorldPosCallable.NULL);
 
                 }
             };
-            NetworkHooks.openGui((ServerPlayerEntity) playerEntity, containerProvider, pos);
+            NetworkHooks.openGui((ServerPlayerEntity) player, containerProvider, pos);
+            player.awardStat(SatsInit.INTERACT_WITH_ALIEN_TABLE);
+            return ActionResultType.CONSUME;
         }
         return ActionResultType.SUCCESS;
 }
