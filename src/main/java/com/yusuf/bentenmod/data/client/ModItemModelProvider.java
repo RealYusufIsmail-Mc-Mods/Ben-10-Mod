@@ -41,7 +41,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("deepslate_speed_ore", modLoc("block/deepslate_speed_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
-
+        block("alien_table");
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
@@ -117,7 +117,9 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
         return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
     }
-
+    private void block(String name) {
+        withExistingParent(name, modLoc("block/" + name));
+    }
 }
 
 
