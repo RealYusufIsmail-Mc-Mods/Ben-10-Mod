@@ -10,30 +10,28 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
-
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
     }
 
-
     @Override
     protected void registerModels() {
-        withExistingParent("black_diamond_block", modLoc("block/black_diamond_block"));
-        withExistingParent("black_diamond_ore", modLoc("block/black_diamond_ore"));
-        withExistingParent("infinitum_ore", modLoc("block/infinitum_ore"));
-        withExistingParent("fire_block", modLoc("block/fire_block"));
-        withExistingParent("fire_ore", modLoc("block/fire_ore"));
-        withExistingParent("legendary_block", modLoc("block/legendary_block"));
-        withExistingParent("omnitrix_block", modLoc("block/omnitrix_block"));
-        withExistingParent("speed_block", modLoc("block/speed_block"));
-        withExistingParent("ruby_block", modLoc("block/ruby_block"));
-        withExistingParent("ruby_ore", modLoc("block/ruby_ore"));
-        withExistingParent("infinitum_block", modLoc("block/infinitum_block"));
-        withExistingParent("speed_ore", modLoc("block/speed_ore"));
-        withExistingParent("omnitrix_ore", modLoc("block/omnitrix_ore"));
-        withExistingParent("imperium_ore", modLoc("block/imperium_ore"));
-        withExistingParent("legendary_ore", modLoc("block/legendary_ore"));
-        withExistingParent("imperium_block", modLoc("block/imperium_block"));
+        block("black_diamond_block");
+        block("black_diamond_ore");
+        block("infinitum_ore");
+        block("fire_block");
+        block("fire_ore");
+        block("legendary_block");
+        block("omnitrix_block");
+        block("speed_block");
+        block("ruby_block");
+        block("ruby_ore");
+        block("infinitum_block");
+        block("speed_ore");
+        block("omnitrix_ore");
+        block("imperium_ore");
+        block("legendary_ore");
+        block("imperium_block");
         withExistingParent("deepslate_legendary_ore", modLoc("block/deepslate_legendary_ore"));
         withExistingParent("deepslate_ruby_ore", modLoc("block/deepslate_ruby_ore"));
         withExistingParent("deepslate_black_diamond_ore", modLoc("block/deepslate_black_diamond_ore"));
@@ -41,6 +39,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent("deepslate_speed_ore", modLoc("block/deepslate_speed_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
         withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
+
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
