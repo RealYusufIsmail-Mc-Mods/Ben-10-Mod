@@ -32,13 +32,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         block("imperium_ore");
         block("legendary_ore");
         block("imperium_block");
-        withExistingParent("deepslate_legendary_ore", modLoc("block/deepslate_legendary_ore"));
-        withExistingParent("deepslate_ruby_ore", modLoc("block/deepslate_ruby_ore"));
-        withExistingParent("deepslate_black_diamond_ore", modLoc("block/deepslate_black_diamond_ore"));
-        withExistingParent("deepslate_imperium_ore", modLoc("block/deepslate_imperium_ore"));
-        withExistingParent("deepslate_speed_ore", modLoc("block/deepslate_speed_ore"));
-        withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
-        withExistingParent("deepslate_omnitrix_ore", modLoc("block/deepslate_omnitrix_ore"));
+        block("deepslate_legendary_ore");
+        block("deepslate_ruby_ore");
+        block("deepslate_black_diamond_ore");
+        block("deepslate_imperium_ore");
+        block("deepslate_speed_ore");
+        block("deepslate_omnitrix_ore");
+        block("deepslate_omnitrix_ore");
+        //To have a custom file name use withExistingParent
+        //example withExistingParent("deepslate_omnitrix_ore_name", modLoc("block/deepslate_omnitrix_ore"));
+
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
