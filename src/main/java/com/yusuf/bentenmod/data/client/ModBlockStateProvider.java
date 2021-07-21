@@ -81,7 +81,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("south", modLoc("block/alien_table_side"));
         builder.texture("east", modLoc("block/alien_table_side"));
         builder.texture("west", modLoc("block/alien_table_front"));
-        builder.texture("up", modLoc("block/alien_table_front"));
+        builder.texture("up", modLoc("block/alien_table_top"));
         builder.texture("down", modLoc("block/emerald_block"));
         this.simpleBlockItem(ALIEN_TABLE.get(), builder);
     }
