@@ -58,7 +58,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.DEEPSLATE_RUBY_ORE, "Deepslate Ruby Ore");
         //ingots
         item(ItemInit.LEGENDARY, "Legendary");
-        item(ItemInit.OMNITRIX, "Omnitrix");
+        item(ItemInit.OMNITRIX, "Omnitrix Ingot");
         item(ItemInit.FIRE, "Fire(ingot)");
         item(ItemInit.RUBY, "Ruby");
         item(ItemInit.SPEED, "Speed");
