@@ -30,6 +30,7 @@ mandatory = true
 versionRange = "[36.2.0,)"
 ordering = "NONE"
 side = "BOTH"
+
 [[dependencies.bentenmod]]
 modId = "minecraft"
 mandatory = true
