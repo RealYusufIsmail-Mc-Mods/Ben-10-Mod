@@ -88,6 +88,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "raw_legendary");
         builder(itemGenerated, "raw_omnitrix");
         builder(itemGenerated, "raw_imperium");
+        builder(itemGenerated, "omnitrix_watch");
 
 
         //tools
