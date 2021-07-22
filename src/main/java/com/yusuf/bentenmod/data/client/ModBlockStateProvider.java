@@ -52,7 +52,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(DEEPSLATE_IMPERIUM_ORE.get());
         simpleBlock(DEEPSLATE_OMNITRIX_ORE.get());
         simpleBlock(DEEPSLATE_LEGENDARY_ORE.get());
-        // orientableMachineBlock(TABLE_BLOCK.get(), "table_block");
         tableBlock();
         tableBlockOn();
         alienTableBlock();
