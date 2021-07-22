@@ -12,16 +12,17 @@ updateJSONURL = "https://raw.githubusercontent.com/RealYusufIsmail/Ben-10-Mod/1.
 logoFile = "headerimg.png"
 credits = "Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code and vemerion for adding features to this mod."
 
-authors = "Yusuf Ismail and gentworm" #optional
+authors = "Yusuf Arfan Ismail, Gentworm and callout_662" #optional
 description = '''
 A mod which adds Villains, heroes and armour and items from the Ben 10 series. Some Vilans will be added and a lot of items and armour will be added. The omnitrix will be added
 soon.
 Dont not copy my mod.
-made by Yusuf Ismail.
+made by Yusuf Arfan Ismail.
 Github is https://github.com/realyusufismail
 join discord for support and teasers https://discord.gg/g858J6q
-PierogiP: https://www.curseforge.com/members/polisch_pierogi/
-gentworm: https://www.curseforge.com/members/gentworm/followers
+Credits for callout_662 for making the textures.
+callout_662: https://www.curseforge.com/members/callout662/projects
+Gentworm: https://www.curseforge.com/members/gentworm/followers
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.bentenmod]] #optional
