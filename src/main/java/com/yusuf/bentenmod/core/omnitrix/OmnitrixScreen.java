@@ -10,5 +10,5 @@ public class OmnitrixScreen extends Screen {
         super(p_i51108_1_);
     }
     public static final ResourceLocation SCREEN_ID = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");
-
+    
 }
