@@ -4,17 +4,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
-plugins {
-    id 'maven'
-    id 'maven-publish'
-
-}
-
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'idea'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
 
 
 version = "${mod_version}"
@@ -130,22 +127,14 @@ jar {
 
 jar.finalizedBy('reobfJar')
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/realyusufismail/${project.repoName}")
-            credentials {
-                username = property('gpr.username')
-                password = property('gpr.token')
-            }
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
         }
     }
-    publications {
-        maven(MavenPublication) {
-            artifactId = mod_id // <<< this line here
-            artifacts {
-                artifact jar
-            }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
         }
     }
 }
