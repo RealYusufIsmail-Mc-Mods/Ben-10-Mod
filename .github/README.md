@@ -6,8 +6,6 @@
 
 Crafting recipes can be found here: https://realyusufismail.github.io/custom-mod/recipes.html
 
-1.17 Comming soon. Will start to work on as soon as the forge is released.
-
 This mod can be used in a modpack
 
 Copyright 2021, Yusuf Ismail , All rights reserved.
