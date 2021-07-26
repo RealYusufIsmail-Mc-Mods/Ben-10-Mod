@@ -44,12 +44,6 @@ public class AlienRecipe extends ShapedRecipe {
         this.result = p_i48162_6_;
     }
 
-    @Override
-    public IRecipeSerializer<?> getSerializer() {
-        return new AlienRecipe.Serializer();
-    }
-
-
     private static Map<String, Ingredient> keyFromJson(JsonObject p_192408_0_) {
         Map<String, Ingredient> map = Maps.newHashMap();
 
@@ -178,6 +172,11 @@ public class AlienRecipe extends ShapedRecipe {
         return RegisterRecipeInit.ALIEN_RECIPE;
     }
 
+    @Override
+    public IRecipeSerializer<?> getSerializer() {
+        return new AlienRecipe.Serializer();
+    }
+
     public static final class Type implements IRecipeType<AlienRecipe> {
         @Override
         public String toString() {
@@ -186,8 +185,9 @@ public class AlienRecipe extends ShapedRecipe {
     }
 
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AlienRecipe> {
-        private static final ResourceLocation NAME = new ResourceLocation("bentenmod", "alien_recipe");
-
+        public Serializer() {
+            setRegistryName(BenTenMod.MOD_ID, "table_recipe");
+        }
         @Override
         public AlienRecipe fromJson(ResourceLocation p_199425_1_, JsonObject p_199425_2_) {
             String s = JSONUtils.getAsString(p_199425_2_, "group", "");
