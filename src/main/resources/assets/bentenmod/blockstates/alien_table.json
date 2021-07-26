@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "minecraft:block/alien_table"
+      "model": "bentenmod:block/alien_table"
     }
   }
 }
