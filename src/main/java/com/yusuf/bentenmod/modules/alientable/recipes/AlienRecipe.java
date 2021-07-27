@@ -177,13 +177,6 @@ public class AlienRecipe extends ShapedRecipe {
         return new AlienRecipe.Serializer();
     }
 
-    public static final class Type implements IRecipeType<AlienRecipe> {
-        @Override
-        public String toString() {
-            return BenTenMod.MOD_ID + ":alien_recipe";
-        }
-    }
-
     public static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<AlienRecipe> {
         public Serializer() {
             setRegistryName(BenTenMod.MOD_ID, "table_recipe");
