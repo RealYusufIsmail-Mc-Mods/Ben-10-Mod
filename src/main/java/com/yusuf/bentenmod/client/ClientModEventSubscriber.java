@@ -5,7 +5,6 @@ import com.yusuf.bentenmod.client.renderer.KraabRenderer;
 import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.core.machine.alientable.AlienTableScreen;
 import com.yusuf.bentenmod.entity.KraabBoltEntity;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -36,7 +35,6 @@ public class ClientModEventSubscriber {
                 return null;
             }
         });
-        ScreenManager.register(ContainerInit.ALIEN_TABLE_CONTAINER.get(), AlienTableScreen::new);
 
     }
 }
