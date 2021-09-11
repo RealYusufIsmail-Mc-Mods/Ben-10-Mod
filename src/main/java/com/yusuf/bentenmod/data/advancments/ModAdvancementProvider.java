@@ -24,13 +24,13 @@ import net.yusuf.realyusufismailcore.advancements.GenericIntTrigger;
 import net.yusuf.realyusufismailcore.util.NameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.yusuf.bentenmod.core.init.*;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
 import static net.yusuf.realyusufismailcore.core.init.BlockInitCore.COPPER_BLOCK;
 import static net.yusuf.realyusufismailcore.core.init.ItemInitCore.COPPER;
@@ -145,10 +145,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement black_diamond_block = Advancement.Builder.advancement()
                     .parent(black_diamond_scrap)
-                    .display(BLACK_DIAMOND_BLOCK.get(), title("black_diamond_block"),
+                    .display(BlockInit.BLACK_DIAMOND_BLOCK.get(), title("black_diamond_block"),
                             description("black_diamond_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(BLACK_DIAMOND_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.BLACK_DIAMOND_BLOCK.get()))
                     .save(consumer, id("black_diamond_block"));
 
             Advancement black_diamond_armour = Advancement.Builder.advancement()
@@ -196,10 +196,10 @@ public class ModAdvancementProvider implements IDataProvider {
             //fire
             Advancement fire_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(FIRE_ORE.get(), title("fire_ore"),
+                    .display(BlockInit.FIRE_ORE.get(), title("fire_ore"),
                             description("fire_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(FIRE_ORE.get()))
+                    .addCriterion("get_ore", getItem(BlockInit.FIRE_ORE.get()))
                     .save(consumer, id("fire_ore"));
 
             Advancement fire_ingot = Advancement.Builder.advancement()
@@ -214,10 +214,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement fire_block = Advancement.Builder.advancement()
                     .parent(fire_ingot)
-                    .display(FIRE_BLOCK.get(), title("fire_block"),
+                    .display(BlockInit.FIRE_BLOCK.get(), title("fire_block"),
                             description("fire_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(FIRE_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.FIRE_BLOCK.get()))
                     .save(consumer, id("fire_block"));
 
 
@@ -245,10 +245,10 @@ public class ModAdvancementProvider implements IDataProvider {
             //omnitrix
             Advancement omnitrix_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(OMNITRIX_ORE.get(), title("omnitrix_ore"),
+                    .display(BlockInit.OMNITRIX_ORE.get(), title("omnitrix_ore"),
                             description("omnitrix_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(OMNITRIX_ORE.get()))
+                    .addCriterion("get_ore", getItem(BlockInit.OMNITRIX_ORE.get()))
                     .save(consumer, id("omnitrix_ore"));
 
             Advancement omnitrix_ingot = Advancement.Builder.advancement()
@@ -264,20 +264,20 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement omnitrix_block = Advancement.Builder.advancement()
                     .parent(omnitrix_ingot)
-                    .display(OMNITRIX_BLOCK.get(), title("omnitrix_block"),
+                    .display(BlockInit.OMNITRIX_BLOCK.get(), title("omnitrix_block"),
                             description("omnitrix_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(OMNITRIX_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.OMNITRIX_BLOCK.get()))
                     .save(consumer, id("omnitrix_block"));
 
 
             //ruby
             Advancement ruby_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(RUBY_ORE.get(), title("ruby_ore"),
+                    .display(BlockInit.RUBY_ORE.get(), title("ruby_ore"),
                             description("ruby_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(RUBY_ORE.get()))
+                    .addCriterion("get_ore", getItem(BlockInit.RUBY_ORE.get()))
                     .save(consumer, id("ruby_ore"));
 
             Advancement ruby_ingot = Advancement.Builder.advancement()
@@ -292,10 +292,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement ruby_block = Advancement.Builder.advancement()
                     .parent(ruby_ingot)
-                    .display(RUBY_BLOCK.get(), title("ruby_block"),
+                    .display(BlockInit.RUBY_BLOCK.get(), title("ruby_block"),
                             description("ruby_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(RUBY_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.RUBY_BLOCK.get()))
                     .save(consumer, id("ruby_block"));
 
             Advancement ruby_axe = Advancement.Builder.advancement()
@@ -310,10 +310,10 @@ public class ModAdvancementProvider implements IDataProvider {
             //imperium
             Advancement imperium_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(IMPERIUM_ORE.get(), title("imperium_ore"),
+                    .display(BlockInit.IMPERIUM_ORE.get(), title("imperium_ore"),
                             description("imperium_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(IMPERIUM_ORE.get()))
+                    .addCriterion("get_ore", getItem(BlockInit.IMPERIUM_ORE.get()))
                     .save(consumer, id("imperium_ore"));
 
             Advancement imperium_ingot = Advancement.Builder.advancement()
@@ -326,10 +326,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement imperium_block = Advancement.Builder.advancement()
                     .parent(imperium_ingot)
-                    .display(IMPERIUM_BLOCK.get(), title("imperium_block"),
+                    .display(BlockInit.IMPERIUM_BLOCK.get(), title("imperium_block"),
                             description("imperium_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(IMPERIUM_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.IMPERIUM_BLOCK.get()))
                     .save(consumer, id("imperium_block"));
 
             Advancement imperium_tools = Advancement.Builder.advancement()
@@ -363,10 +363,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement speed_block = Advancement.Builder.advancement()
                     .parent(speed_ingot)
-                    .display(SPEED_BLOCK.get(), title("speed_block"),
+                    .display(BlockInit.SPEED_BLOCK.get(), title("speed_block"),
                             description("speed_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(SPEED_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.SPEED_BLOCK.get()))
                     .save(consumer, id("speed_block"));
 
             Advancement xlr8_armour = Advancement.Builder.advancement()
@@ -384,10 +384,10 @@ public class ModAdvancementProvider implements IDataProvider {
             //legendary
             Advancement legendary_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(LEGENDARY_ORE.get(), title("legendary_ore"),
+                    .display(BlockInit.LEGENDARY_ORE.get(), title("legendary_ore"),
                             description("legendary_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(LEGENDARY_ORE.get()))
+                    .addCriterion("get_ore", getItem(BlockInit.LEGENDARY_ORE.get()))
                     .save(consumer, id("legendary_ore"));
 
             Advancement legendary_ingot = Advancement.Builder.advancement()
@@ -400,10 +400,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement legendary_block = Advancement.Builder.advancement()
                     .parent(legendary_ingot)
-                    .display(LEGENDARY_BLOCK.get(), title("legendary_block"),
+                    .display(BlockInit.LEGENDARY_BLOCK.get(), title("legendary_block"),
                             description("legendary_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(LEGENDARY_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.LEGENDARY_BLOCK.get()))
                     .save(consumer, id("legendary_block"));
 
             Advancement ascalon = Advancement.Builder.advancement()
@@ -446,10 +446,10 @@ public class ModAdvancementProvider implements IDataProvider {
 
             Advancement infinitum_block = Advancement.Builder.advancement()
                     .parent(infinitum_ingot)
-                    .display(INFINITUM_BLOCK.get(), title("infinitum_block"),
+                    .display(BlockInit.INFINITUM_BLOCK.get(), title("infinitum_block"),
                             description("infinitum_block"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_block", getItem(INFINITUM_BLOCK.get()))
+                    .addCriterion("get_block", getItem(BlockInit.INFINITUM_BLOCK.get()))
                     .save(consumer, id("infinitum_block"));
 
             Advancement infinitum_armour = Advancement.Builder.advancement()

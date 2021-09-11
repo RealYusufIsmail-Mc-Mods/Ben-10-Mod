@@ -2,9 +2,8 @@ package com.yusuf.bentenmod.data.lang;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
-import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.core.init.ItemInit;
+import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
@@ -36,8 +35,6 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
-        block(BlockInit.ALIEN_TABLE, "Alien Crafting Table");
-
 
         //ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");

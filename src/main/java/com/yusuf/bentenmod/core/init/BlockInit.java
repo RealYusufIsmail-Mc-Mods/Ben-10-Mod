@@ -2,7 +2,6 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmod.core.machine.alientable.AlienTable;
 import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -54,11 +53,9 @@ public class BlockInit {
 
     //custom tables
     public static final RegistryObject<TableBlock> TABLE_BLOCK;
-    //public static final RegistryObject<AlienTable> ALIEN_TABLE; //custom crafting table
 
     static {
         TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
-        //ALIEN_TABLE = registerSpecial("alien_table", AlienTable::new);
     }
 
 

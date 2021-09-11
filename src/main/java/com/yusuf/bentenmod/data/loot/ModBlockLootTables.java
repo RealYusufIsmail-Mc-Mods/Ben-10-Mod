@@ -1,5 +1,6 @@
 package com.yusuf.bentenmod.data.loot;
 
+import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.block.Block;
@@ -8,45 +9,41 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.stream.Collectors;
 
-import static com.yusuf.bentenmod.core.init.BlockInit.*;
 
 public class ModBlockLootTables extends BlockLootTables {
     @Override
     protected void addTables() {
         //ores
-        add(BLACK_DIAMOND_ORE.get(),
-                createOreDrop(BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
-        add(INFINITUM_ORE.get(),
-                createOreDrop(INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
-        add(SPEED_ORE.get(),
-                createOreDrop(SPEED_ORE.get(), ItemInit.SPEED.get()));
+        add(BlockInit.BLACK_DIAMOND_ORE.get(),
+                createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
+        add(BlockInit.INFINITUM_ORE.get(),
+                createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
+        add(BlockInit.SPEED_ORE.get(),
+                createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
 
-        dropSelf(LEGENDARY_ORE.get());
-        dropSelf(IMPERIUM_ORE.get());
-        dropSelf(OMNITRIX_ORE.get());
-        dropSelf(FIRE_ORE.get());
-        dropSelf(RUBY_ORE.get());
-        dropSelf(DEEPSLATE_BLACK_DIAMOND_ORE.get());
-        dropSelf(DEEPSLATE_IMPERIUM_ORE.get());
-        dropSelf(DEEPSLATE_OMNITRIX_ORE.get());
-        dropSelf(DEEPSLATE_LEGENDARY_ORE.get());
-        dropSelf(DEEPSLATE_RUBY_ORE.get());
-        dropSelf(DEEPSLATE_SPEED_ORE.get());
+        dropSelf(BlockInit.LEGENDARY_ORE.get());
+        dropSelf(BlockInit.IMPERIUM_ORE.get());
+        dropSelf(BlockInit.OMNITRIX_ORE.get());
+        dropSelf(BlockInit.FIRE_ORE.get());
+        dropSelf(BlockInit.RUBY_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_RUBY_ORE.get());
+        dropSelf(BlockInit.DEEPSLATE_SPEED_ORE.get());
 
 
         //blocks
-        dropSelf(OMNITRIX_BLOCK.get());
-        dropSelf(FIRE_BLOCK.get());
-        dropSelf(RUBY_BLOCK.get());
-        dropSelf(SPEED_BLOCK.get());
-        dropSelf(INFINITUM_BLOCK.get());
-        dropSelf(BLACK_DIAMOND_BLOCK.get());
-        dropSelf(LEGENDARY_BLOCK.get());
-        dropSelf(IMPERIUM_BLOCK.get());
-        dropSelf(TABLE_BLOCK.get());
-        dropSelf(ALIEN_TABLE.get());
-
-
+        dropSelf(BlockInit.OMNITRIX_BLOCK.get());
+        dropSelf(BlockInit.FIRE_BLOCK.get());
+        dropSelf(BlockInit.RUBY_BLOCK.get());
+        dropSelf(BlockInit.SPEED_BLOCK.get());
+        dropSelf(BlockInit.INFINITUM_BLOCK.get());
+        dropSelf(BlockInit.BLACK_DIAMOND_BLOCK.get());
+        dropSelf(BlockInit.LEGENDARY_BLOCK.get());
+        dropSelf(BlockInit.IMPERIUM_BLOCK.get());
+        dropSelf(BlockInit.TABLE_BLOCK.get());
     }
 
     @Override

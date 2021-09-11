@@ -1,8 +1,7 @@
 package com.yusuf.bentenmod.data.recipe;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.core.init.TagsInit;
+import com.yusuf.bentenmod.core.init.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.*;
 import net.minecraft.item.Items;
@@ -12,7 +11,6 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.function.Consumer;
 
-import static com.yusuf.bentenmod.core.init.BlockInit.*;
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
 
 
@@ -30,11 +28,11 @@ public class ModRecipeProvider extends RecipeProvider {
         //blocks
         ShapelessRecipeBuilder.shapeless(INFINITUM.get(), 9)
 
-                .requires(INFINITUM_BLOCK.get())
+                .requires(BlockInit.INFINITUM_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(INFINITUM_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.INFINITUM_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_INFINITUM)
                 .pattern("###")
                 .pattern("###")
@@ -44,11 +42,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(BLACK_DIAMOND.get(), 9)
 
-                .requires(BLACK_DIAMOND_BLOCK.get())
+                .requires(BlockInit.BLACK_DIAMOND_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(BLACK_DIAMOND_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.BLACK_DIAMOND_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_BLACK_DIAMOND)
                 .pattern("###")
                 .pattern("###")
@@ -57,11 +55,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer);
         ShapelessRecipeBuilder.shapeless(FIRE.get(), 9)
 
-                .requires(FIRE_BLOCK.get())
+                .requires(BlockInit.FIRE_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_FIRE))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(FIRE_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.FIRE_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_FIRE)
                 .pattern("###")
                 .pattern("###")
@@ -71,11 +69,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(OMNITRIX.get(), 9)
 
-                .requires(OMNITRIX_BLOCK.get())
+                .requires(BlockInit.OMNITRIX_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(OMNITRIX_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.OMNITRIX_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_OMNITRIX)
                 .pattern("###")
                 .pattern("###")
@@ -85,11 +83,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(SPEED.get(), 9)
 
-                .requires(SPEED_BLOCK.get())
+                .requires(BlockInit.SPEED_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(SPEED_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.SPEED_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_SPEED)
                 .pattern("###")
                 .pattern("###")
@@ -99,11 +97,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RUBY.get(), 9)
 
-                .requires(RUBY_BLOCK.get())
+                .requires(BlockInit.RUBY_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(RUBY_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.RUBY_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_RUBY)
                 .pattern("###")
                 .pattern("###")
@@ -111,13 +109,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(LEGENDARY_ORE.get(), 9)
+        ShapelessRecipeBuilder.shapeless(BlockInit.LEGENDARY_ORE.get(), 9)
 
-                .requires(LEGENDARY_BLOCK.get())
+                .requires(BlockInit.LEGENDARY_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_LEGENDARY))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(LEGENDARY_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.LEGENDARY_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_LEGENDARY)
                 .pattern("###")
                 .pattern("###")
@@ -127,11 +125,11 @@ public class ModRecipeProvider extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(IMPERIUM.get(), 9)
 
-                .requires(IMPERIUM_BLOCK.get())
+                .requires(BlockInit.IMPERIUM_BLOCK.get())
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(IMPERIUM_BLOCK.get())
+        ShapedRecipeBuilder.shaped(BlockInit.IMPERIUM_BLOCK.get())
                 .define('#', TagsInit.Items.INGOTS_IMPERIUM)
                 .pattern("###")
                 .pattern("###")
@@ -335,7 +333,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(consumer, modId("omnitrix_apple"));
 
         AlienTableRecipeBuilder.alien(ENCHANTED_OMNITRIX_APPLE.get())
-                .define('A', OMNITRIX_BLOCK.get())
+                .define('A', BlockInit.OMNITRIX_BLOCK.get())
                 .define('L', Items.APPLE.getItem())
                 .pattern("AAA")
                 .pattern("ALA")
@@ -372,7 +370,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(Items.GOLD_INGOT.getItem()))
                 .save(consumer, modId("enchanted_golden_apple"));
 
-        ShapedRecipeBuilder.shaped(TABLE_BLOCK.get().getBlock())
+        ShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get().getBlock())
                 .define('A', TagsInit.Items.INGOTS_OMNITRIX)
                 .define('L', Blocks.COBBLESTONE.getBlock())
                 .pattern("AA ")
@@ -408,68 +406,68 @@ public class ModRecipeProvider extends RecipeProvider {
 
         //ores
 
-        CookingRecipeBuilder.smelting(Ingredient.of(RUBY_ORE.get()), RUBY.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(RUBY_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), RUBY.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.RUBY_ORE.get()))
                 .save(consumer, modId("ruby_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(RUBY_ORE.get()), RUBY.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(RUBY_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.RUBY_ORE.get()), RUBY.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.RUBY_ORE.get()))
                 .save(consumer, modId("ruby_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(OMNITRIX_ORE.get()), OMNITRIX.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(OMNITRIX_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), OMNITRIX.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(OMNITRIX_ORE.get()), OMNITRIX.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(OMNITRIX_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.OMNITRIX_ORE.get()), OMNITRIX.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.OMNITRIX_ORE.get()))
                 .save(consumer, modId("omnitrix_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(FIRE_ORE.get()), FIRE.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(FIRE_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.FIRE_ORE.get()), FIRE.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.FIRE_ORE.get()))
                 .save(consumer, modId("fire_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(FIRE_ORE.get()), FIRE.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(FIRE_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.FIRE_ORE.get()), FIRE.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.FIRE_ORE.get()))
                 .save(consumer, modId("fire_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(SPEED_ORE.get()), SPEED.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(SPEED_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.SPEED_ORE.get()), SPEED.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(SPEED_ORE.get()), SPEED.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(SPEED_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.SPEED_ORE.get()), SPEED.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.SPEED_ORE.get()))
                 .save(consumer, modId("speed_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(LEGENDARY_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.LEGENDARY_ORE.get()), LEGENDARY.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE.get()))
                 .save(consumer, modId("legendary_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(LEGENDARY_ORE.get()), LEGENDARY.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(LEGENDARY_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.LEGENDARY_ORE.get()), LEGENDARY.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.LEGENDARY_ORE.get()))
                 .save(consumer, modId("legendary_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(INFINITUM_ORE.get()), INFINITUM_SCRAP.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(INFINITUM_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.INFINITUM_ORE.get()), INFINITUM_SCRAP.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.INFINITUM_ORE.get()))
                 .save(consumer, modId("infinitum_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(INFINITUM_ORE.get()), INFINITUM_SCRAP.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(INFINITUM_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.INFINITUM_ORE.get()), INFINITUM_SCRAP.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.INFINITUM_ORE.get()))
                 .save(consumer, modId("infinitum_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(BLACK_DIAMOND_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(BLACK_DIAMOND_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND_ORE.get()))
                 .save(consumer, modId("black_diamond_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(BLACK_DIAMOND_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(BLACK_DIAMOND_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.BLACK_DIAMOND_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.BLACK_DIAMOND_ORE.get()))
                 .save(consumer, modId("black_diamond_ore_blasting_smelt"));
 
-        CookingRecipeBuilder.smelting(Ingredient.of(IMPERIUM_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
-                .unlockedBy("has_item", has(IMPERIUM_ORE.get()))
+        CookingRecipeBuilder.smelting(Ingredient.of(BlockInit.IMPERIUM_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.6f, 300)
+                .unlockedBy("has_item", has(BlockInit.IMPERIUM_ORE.get()))
                 .save(consumer, modId("imperium_raw_ore_smelt"));
 
-        CookingRecipeBuilder.blasting(Ingredient.of(IMPERIUM_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(IMPERIUM_ORE.get()))
+        CookingRecipeBuilder.blasting(Ingredient.of(BlockInit.IMPERIUM_ORE.get()), BLACK_DIAMOND_SCRAP.get(), 0.3f, 300)
+                .unlockedBy("has_item", has(BlockInit.IMPERIUM_ORE.get()))
                 .save(consumer, modId("imperium_raw_ore_blasting_smelt"));
 
         //armour
