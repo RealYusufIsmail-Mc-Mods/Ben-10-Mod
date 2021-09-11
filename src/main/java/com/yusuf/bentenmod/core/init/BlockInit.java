@@ -54,11 +54,11 @@ public class BlockInit {
 
     //custom tables
     public static final RegistryObject<TableBlock> TABLE_BLOCK;
-    public static final RegistryObject<AlienTable> ALIEN_TABLE; //custom crafting table
+    //public static final RegistryObject<AlienTable> ALIEN_TABLE; //custom crafting table
 
     static {
         TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
-        ALIEN_TABLE = registerSpecial("alien_table", AlienTable::new);
+        //ALIEN_TABLE = registerSpecial("alien_table", AlienTable::new);
     }
 
 
