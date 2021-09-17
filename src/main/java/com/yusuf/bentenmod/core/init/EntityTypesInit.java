@@ -5,14 +5,7 @@ import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.entity.KraabBoltEntity;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
-import net.minecraft.item.Item;
-import net.minecraft.item.Item.Properties;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 

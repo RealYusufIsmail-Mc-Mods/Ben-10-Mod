@@ -3,14 +3,14 @@ package com.yusuf.bentenmod.data.loot;
 import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.block.Block;
-import net.minecraft.data.loot.BlockLootTables;
+import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.stream.Collectors;
 
 
-public class ModBlockLootTables extends BlockLootTables {
+public class ModBlockLootTables extends BlockLoot {
     @Override
     protected void addTables() {
         //ores
