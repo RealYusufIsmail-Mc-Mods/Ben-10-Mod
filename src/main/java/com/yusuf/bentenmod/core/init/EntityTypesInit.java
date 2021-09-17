@@ -41,13 +41,15 @@ import com.yusuf.bentenmod.entity.KraabBoltEntity;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.levelgen.structure.RuinedPortalPiece;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class EntityTypesInit {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES,
             BenTenMod.MOD_ID);
-    private static final Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
+    private static final Item.Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
 
     private static final EntityType<VilgaxEntity> vilgax = createStandardEntityType("vilgax", VilgaxEntity::new,
             EntityClassification.MONSTER, 1f, 1f);

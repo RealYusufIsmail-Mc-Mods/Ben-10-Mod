@@ -37,6 +37,5 @@
 @ParametersAreNonnullByDefault
 package com.yusuf.bentenmod.common.events;
 
-import mcp.MethodsReturnNonnullByDefault;
-
+import com.mojang.math.MethodsReturnNonnullByDefault;
 import javax.annotation.ParametersAreNonnullByDefault;

@@ -37,6 +37,6 @@
 @ParametersAreNonnullByDefault
 package com.yusuf.bentenmod.modules.bententable.recipes;
 
-import mcp.MethodsReturnNonnullByDefault;
+import com.mojang.math.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
