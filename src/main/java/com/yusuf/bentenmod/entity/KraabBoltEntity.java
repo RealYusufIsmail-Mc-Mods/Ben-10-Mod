@@ -36,31 +36,42 @@
 package com.yusuf.bentenmod.entity;
 
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
+import net.minecraft.network.protocol.Packet;
 import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
-public class KraabBoltEntity extends AbstractArrowEntity {
+public class KraabBoltEntity extends AbstractArrow {
 
     private static final int MAX_DURATION = 40;
 
     private int duration;
 
-    public KraabBoltEntity(EntityType<? extends KraabBoltEntity> type, World world) {
+    public KraabBoltEntity(EntityType<? extends KraabBoltEntity> type, Level world) {
         super(type, world);
         this.setNoGravity(true);
         this.setBaseDamage(6);
     }
 
-    public KraabBoltEntity(double x, double y, double z, World world, Entity owner) {
+    public KraabBoltEntity(double x, double y, double z, Level world, Entity owner) {
         super(EntityTypesInit.KRAAB_BOLT_ENTITY.get(), x, y, z, world);
         this.setNoGravity(true);
         this.setBaseDamage(6);
@@ -76,20 +87,22 @@ public class KraabBoltEntity extends AbstractArrowEntity {
 
         if (level.isClientSide) {
             for (int i = 0; i < 10; i++)
-                level.addParticle(new RedstoneParticleData(1, 1, 0, 1), getRandomX(1), getRandomY(), getRandomZ(1), 0,
+                level.addParticle(new Particle(1, 1, 0, 1), getRandomX(1), getRandomY(), getRandomZ(1), 0,
                         0, 0);
         }
     }
 
     @Override
-    protected void onHit(RayTraceResult result) {
+    protected void onHitBlock(BlockHitResult result) {
         super.onHit(result);
         if (!level.isClientSide)
             remove();
     }
+    //TODO Fox this
+
 
     @Override
-    protected void onHitEntity(EntityRayTraceResult result) {
+    protected void onHitEntity(EntityHitResult result) {
         if (!level.isClientSide) {
             Entity target = result.getEntity();
             Entity shooter = getOwner();
@@ -103,7 +116,7 @@ public class KraabBoltEntity extends AbstractArrowEntity {
     }
 
     @Override
-    public IPacket<?> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

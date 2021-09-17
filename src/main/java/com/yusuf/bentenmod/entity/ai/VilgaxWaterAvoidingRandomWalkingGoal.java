@@ -36,10 +36,10 @@
 package com.yusuf.bentenmod.entity.ai;
 
 import com.yusuf.bentenmod.entity.VilgaxEntity;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 
 
-public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomWalkingGoal {
+public class VilgaxWaterAvoidingRandomWalkingGoal extends RandomStrollGoal {
     protected final float probability;
     private VilgaxEntity vilgax;
 

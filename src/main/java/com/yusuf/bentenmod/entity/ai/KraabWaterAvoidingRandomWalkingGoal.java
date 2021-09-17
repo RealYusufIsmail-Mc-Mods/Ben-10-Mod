@@ -33,41 +33,26 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.common.events;
+package com.yusuf.bentenmod.entity.ai;
 
-import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.client.renderer.EffectInstance;
-import net.minecraft.world.WorldlyContainer;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.common.extensions.IForgeItem;
+import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.VilgaxEntity;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 
-public class LegendaryArmor extends ArmorItem implements IForgeItem {
+public class KraabWaterAvoidingRandomWalkingGoal extends RandomStrollGoal {
+    protected final float probability;
+    private VilgaxEntity vilgax;
 
-    public LegendaryArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
 
-        super(materialIn, slot, builder);
-
+    public KraabWaterAvoidingRandomWalkingGoal(KraabEntity kraab, double p_i47301_2_) {
+        this(kraab, p_i47301_2_, 0.001F);
     }
 
-    @Override
-    public void ArmorItem(ItemStack stack, Level world, Player player) {
-        ItemStack boot = player.getItemBySlot(EquipmentSlot.FEET);
-        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
-        ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
-
-        if (boot.getItem() == ItemInit.BOOTS.get() && legs.getItem() == ItemInit.LEGGINGS.get() && chest.getItem() == ItemInit.CHESTPLATE.get() && helmet.getItem() == ItemInit.HELMET.get())
-            ;
-        {
-            player.addEffect(new EffectInstance(Effect.DAMAGE_BOOST, 100, 1, false, false, true));
-            player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
-        }
+    public KraabWaterAvoidingRandomWalkingGoal(KraabEntity kraab, double p_i47302_2_, float p_i47302_4_) {
+        super(kraab, p_i47302_2_);
+        this.probability = p_i47302_4_;
     }
+
+
 }
 

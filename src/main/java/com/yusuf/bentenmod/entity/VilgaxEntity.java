@@ -38,20 +38,33 @@ package com.yusuf.bentenmod.entity;
 import com.yusuf.bentenmod.entity.ai.VilgaxAttackGoal;
 import com.yusuf.bentenmod.entity.ai.VilgaxWaterAvoidingRandomWalkingGoal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.ZombifiedPiglin;
+import net.minecraft.world.entity.npc.Villager;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.sounds.SoundEvent;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -65,12 +78,12 @@ import java.util.Random;
 public class VilgaxEntity extends Monster implements IAnimatable {
 
 
-    private static final DataParameter<Boolean> ATTACKING = SynchedEntityData.defineId(VilgaxEntity.class,
-            DataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(VilgaxEntity.class,
+            EntityDataSerializers.BOOLEAN);
 
     private final AnimationFactory factory = new AnimationFactory(this);
 
-    public VilgaxEntity(EntityType<? extends VilgaxEntity> p_i48549_1_, World p_i48549_2_) {
+    public VilgaxEntity(EntityType<? extends VilgaxEntity> p_i48549_1_, Level p_i48549_2_) {
         super(p_i48549_1_, p_i48549_2_);
     }
 
@@ -81,8 +94,8 @@ public class VilgaxEntity extends Monster implements IAnimatable {
                 .add(Attributes.MAX_HEALTH, 300.0D);
     }
 
-    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return worldIn.getRawBrightness(pos, 0) > 8;
+    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, Level level, MobSpawnType reason, BlockPos pos, Random randomIn) {
+        return level.getRawBrightness(pos, 0) > 8;
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
@@ -111,22 +124,21 @@ public class VilgaxEntity extends Monster implements IAnimatable {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(2, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(3, new VilgaxAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(4, new MoveThroughVillageAtNightGoal(this, 1));
-        this.goalSelector.addGoal(5, new VilgaxWaterAvoidingRandomWalkingGoal(this, 1.0D));
+        this.goalSelector.addGoal(4, new VilgaxWaterAvoidingRandomWalkingGoal(this, 1.0D));
         this.addBehaviourGoals();
     }
 
     protected void addBehaviourGoals() {
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombifiedPiglinEntity.class));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
+        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(ZombifiedPiglin.class));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Villager.class, false));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
     }
 
-    protected int getExperienceReward(PlayerEntity p_70693_1_) {
+    protected int getExperienceReward(Player p_70693_1_) {
         if (this.isBaby()) {
             this.xpReward = (int) ((float) this.xpReward * 2.5F);
         }
@@ -137,7 +149,7 @@ public class VilgaxEntity extends Monster implements IAnimatable {
     public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
         if (!super.hurt(p_70097_1_, p_70097_2_)) {
             return false;
-        } else if (!(this.level instanceof ServerWorld)) {
+        } else if (!(this.level instanceof ServerLevel)) {
             return false;
         } else {
             LivingEntity livingentity = this.getTarget();
@@ -145,14 +157,14 @@ public class VilgaxEntity extends Monster implements IAnimatable {
                 livingentity = (LivingEntity) p_70097_1_.getEntity();
             }
 
-            int i = MathHelper.floor(this.getX());
-            int j = MathHelper.floor(this.getY());
-            int k = MathHelper.floor(this.getZ());
+            int i = Mth.floor(this.getX());
+            int j = Mth.floor(this.getY());
+            int k = Mth.floor(this.getZ());
 
             for (int l = 0; l < 50; ++l) {
-                int i1 = i + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
-                int j1 = j + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
-                int k1 = k + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
+                int i1 = i + Mth.nextInt(this.random, 7, 40) * Mth.nextInt(this.random, -1, 1);
+                int j1 = j + Mth.nextInt(this.random, 7, 40) * Mth.nextInt(this.random, -1, 1);
+                int k1 = k + Mth.nextInt(this.random, 7, 40) * Mth.nextInt(this.random, -1, 1);
                 new BlockPos(i1, j1, k1);
 
             }
@@ -194,8 +206,8 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         this.playSound(this.getStepSound(), 0.15F, 1.0F);
     }
 
-    public CreatureAttribute getMobType() {
-        return CreatureAttribute.UNDEAD;
+    public MobType getMobType() {
+        return MobType.UNDEAD;
     }
 
     protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
@@ -203,15 +215,15 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         if (this.random.nextFloat() < (this.level.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
             int i = this.random.nextInt(3);
             if (i == 0) {
-                this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SWORD));
+                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
             } else {
-                this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SHOVEL));
+                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SHOVEL));
             }
         }
 
     }
 
-    public void killed(ServerWorld p_241847_1_, LivingEntity p_241847_2_) {
+    public void killed(ServerLevel p_241847_1_, LivingEntity p_241847_2_) {
         super.killed(p_241847_1_, p_241847_2_);
         {
             if (p_241847_1_.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
@@ -222,7 +234,7 @@ public class VilgaxEntity extends Monster implements IAnimatable {
 
     }
 
-    protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
+    protected float getStandingEyeHeight(Pose p_213348_1_, Entity p_213348_2_) {
         return this.isBaby() ? 0.93F : 1.74F;
     }
 
@@ -233,8 +245,7 @@ public class VilgaxEntity extends Monster implements IAnimatable {
     protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
         super.dropCustomDeathLoot(p_213333_1_, p_213333_2_, p_213333_3_);
         Entity entity = p_213333_1_.getEntity();
-        if (entity instanceof Creeper) {
-            Creeper creeperentity = (Creeper) entity;
+        if (entity instanceof Creeper creeperentity) {
             if (creeperentity.canDropMobsSkull()) {
                 ItemStack itemstack = null;
                 if (!itemstack.isEmpty()) {

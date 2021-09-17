@@ -35,54 +35,57 @@
 
 package com.yusuf.bentenmod.entity;
 
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import com.mojang.math.Vector3d;
+import com.yusuf.bentenmod.entity.ai.KraabWaterAvoidingRandomWalkingGoal;
+import com.yusuf.bentenmod.entity.ai.VilgaxWaterAvoidingRandomWalkingGoal;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ambient.AmbientCreature;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 import java.util.Random;
 
-public class KraabEntity extends CreatureEntity {
+public class KraabEntity extends Monster {
 
-    private static final DataParameter<Boolean> SHOOTING = EntityDataManager.defineId(KraabEntity.class,
-            DataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> SHOOTING = SynchedEntityData.defineId(KraabEntity.class,
+            EntityDataSerializers.BOOLEAN);
 
     private float shootTimer;
 
-    public KraabEntity(EntityType<? extends KraabEntity> type, World world) {
-        super(type, world);
+    public KraabEntity(EntityType<? extends KraabEntity> type, Level level) {
+        super(type, level);
     }
 
-    public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35)
+    public static AttributeSupplier.Builder registerAttributes() {
+        return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35)
                 .add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.ATTACK_DAMAGE, 4).add(Attributes.MAX_HEALTH, 25);
     }
 
-    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
-        return worldIn.getRawBrightness(pos, 0) > 8;
+    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, Level level, MobSpawnType reason, BlockPos pos, Random randomIn) {
+        return level.getRawBrightness(pos, 0) > 8;
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new ShootGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomWalkingGoal(this, 1));
-        this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8));
-        this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.addGoal(2, new KraabWaterAvoidingRandomWalkingGoal(this, 1));
+        this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1, false));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        super.registerGoals();
     }
 
     @Override
@@ -121,8 +124,8 @@ public class KraabEntity extends CreatureEntity {
     }
 
     public void shoot(LivingEntity target) {
-        Vector3d direction = Vector3d.directionFromRotation(0, yRot).yRot((float) Math.PI / 2);
-        Vector3d pos = position().add(0, 1, 0).add(direction);
+        Vec3 direction = Vec3.directionFromRotation(0, yRotO).yRot((float) Math.PI / 2);
+        Vec3 pos = position().add(0, 1, 0).add(direction);
         KraabBoltEntity bolt = new KraabBoltEntity(pos.x, pos.y, pos.z, level, this);
         bolt.shoot(target.getX() - pos.x, target.getEyeY() - 1 - pos.y, target.getZ() - pos.z, 0.75f, 6);
         level.addFreshEntity(bolt);
