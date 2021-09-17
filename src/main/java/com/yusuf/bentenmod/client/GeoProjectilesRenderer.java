@@ -27,8 +27,7 @@ import software.bernie.geckolib3.renderers.geo.IGeoRenderer;
 import software.bernie.geckolib3.util.AnimationUtils;
 
 @SuppressWarnings("unchecked")
-public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends EntityRenderer<T>
-        implements IGeoRenderer<T> {
+public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends EntityRenderer<T> implements IGeoRenderer<T> {
 
     static {
         AnimationController.addModelFetcher((IAnimatable object) -> {
@@ -41,21 +40,21 @@ public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends Enti
 
     private final AnimatedGeoModel<T> modelProvider;
 
-    protected GeoProjectilesRenderer(EntityRendererManager renderManager, AnimatedGeoModel<T> modelProvider) {
+    protected GeoProjectilesRenderer(EntityRendererProvider.Context renderManager, AnimatedGeoModel<T> modelProvider) {
         super(renderManager);
         this.modelProvider = modelProvider;
     }
 
     @Override
-    public void render(T entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
-                       IRenderTypeBuffer bufferIn, int packedLightIn) {
+    public void render(T entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn,
+                       MultiBufferSource bufferIn, int packedLightIn) {
         GeoModel model = modelProvider.getModel(modelProvider.getModelLocation(entityIn));
         matrixStackIn.pushPose();
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(
-                MathHelper.lerp(partialTicks, entityIn.yRotO, entityIn.yRot) - 90.0F));
+                Mth.lerp(partialTicks, entityIn.yRotO, entityIn.getYRot()) - 90.0F));
         matrixStackIn.mulPose(Vector3f.ZP
-                .rotationDegrees(MathHelper.lerp(partialTicks, entityIn.xRotO, entityIn.xRot)));
-        Minecraft.getInstance().textureManager.bind(getTextureLocation(entityIn));
+                .rotationDegrees(Mth.lerp(partialTicks, entityIn.xRotO, entityIn.getXRot())));
+        RenderSystem.setShaderTexture(0, getTextureLocation(entityIn));
         Color renderColor = getRenderColor(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn);
         RenderType renderType = getRenderType(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn,
                 getTextureLocation(entityIn));

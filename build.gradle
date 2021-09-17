@@ -12,7 +12,6 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-
 version = "${mod_version}"
 group = 'com.yusuf'
 archivesBaseName = mod_id
