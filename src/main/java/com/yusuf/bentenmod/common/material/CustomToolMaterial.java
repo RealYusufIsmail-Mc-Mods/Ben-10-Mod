@@ -1,12 +1,12 @@
 package com.yusuf.bentenmod.common.material;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum CustomToolMaterial implements IItemTier {
+public enum CustomToolMaterial implements Tier {
 
     SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
     HEATBLAST_SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.FIRE.get())),

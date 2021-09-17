@@ -1,17 +1,17 @@
 package com.yusuf.bentenmod.common.material;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Supplier;
 
-public enum CustomArmorMaterial implements IArmorMaterial {
+public enum CustomArmorMaterial implements ArmorMaterial {
     ARMOUR("legendary", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
             () -> Ingredient.of(ItemInit.LEGENDARY.get())),
     JACKET("jacket", 30, new int[]{6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
@@ -51,13 +51,13 @@ public enum CustomArmorMaterial implements IArmorMaterial {
         this.repairIngredient = repairIngredient.get();
     }
 
-    @Override
-    public int getDurabilityForSlot(EquipmentSlotType slot) {
-        return baseDurability[slot.getIndex()] * this.durabilityMultiplier;
-    }
 
     @Override
-    public int getDefenseForSlot(EquipmentSlotType slot) {
+    public int getDurabilityForSlot(EquipmentSlot slot) {
+        return this.armorVal[slot.getIndex()];
+    }
+
+    public int getDefenseForSlot(EquipmentSlot slot) {
         return this.armorVal[slot.getIndex()];
     }
 

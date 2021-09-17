@@ -3,13 +3,13 @@ package com.yusuf.bentenmod.core.init;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.yusuf.realyusufismailcore.core.init.GeneralBlock;
@@ -48,7 +48,7 @@ public class BlockInit {
     public static final RegistryObject<GeneralBlock> SPEED_ORE = register("speed_ore", Blocks.ANCIENT_DEBRIS);
     public static final RegistryObject<GeneralBlock> OMNITRIX_ORE = register("omnitrix_ore", Blocks.DIAMOND_ORE);
     public static final RegistryObject<RotatedPillarBlock> INFINITUM_ORE
-            = registerSpecial("infinitum_ore", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS)));
+            = registerSpecial("infinitum_ore", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS)));
 
 
     //custom tables
@@ -74,6 +74,6 @@ public class BlockInit {
     }
 
     private static RegistryObject<GeneralBlock> register(String name, Block existingBlock) {
-        return register(name, () -> new GeneralBlock(AbstractBlock.Properties.copy(existingBlock)));
+        return register(name, () -> new GeneralBlock(BlockBehaviour.Properties.copy(existingBlock)));
     }
 }
