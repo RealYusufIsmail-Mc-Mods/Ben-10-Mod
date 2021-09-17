@@ -97,7 +97,8 @@ repositories {
 dependencies {
 
     minecraft "net.minecraftforge:forge:${forge_version}"
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    //fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-${geckolib_version}")
     compileOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}")
     implementation fg.deobf("net.yusuf:realyusufismailcore:${ryic_version}") {
