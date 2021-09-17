@@ -78,7 +78,6 @@ def gpr_creds = {
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven { url 'https://maven.blamejared.com' }
     maven {
         // location of the maven that hosts JEI files
         name = "Progwml6 maven"
