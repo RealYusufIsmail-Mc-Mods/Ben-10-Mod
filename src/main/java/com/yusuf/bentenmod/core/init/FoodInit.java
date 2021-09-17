@@ -47,9 +47,9 @@ public class FoodInit {
             .effect(new EffectInstance(Potions.ABSORPTION, 3600, 1), 1)
             .effect(new EffectInstance(Potions.FIRE_RESISTANCE, 2400, 0), 1)
             .effect(new EffectInstance(Potions.MOVEMENT_SPEED, 600, 0), 1)
-            .effect(new EffectInstance(Potions.DAMAGE_RESISTANCE, 1200, 0), 1)
+            .effect(new EffectInstance(Potions., 1200, 0), 1)
             .effect(new EffectInstance(Potions.WATER_BREATHING, 600, 0), 1)
-            .effect(new EffectInstance(Potions.DIG_SPEED, 2400, 0), 1)
+            .effect(new EffectInstance(Potions.STRONG_SWIFTNESS, 2400, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
     // Enchanted Omnitrix Apple
     public static final FoodProperties ENCHANTED_OMNITRIX_APPLE = new FoodProperties.Builder()
