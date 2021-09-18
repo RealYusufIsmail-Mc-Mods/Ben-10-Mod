@@ -38,6 +38,8 @@ package com.yusuf.bentenmod.common.events;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.client.renderer.EffectInstance;
 import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -56,7 +58,7 @@ public class LegendaryArmor extends ArmorItem implements IForgeItem {
     }
 
     @Override
-    public void ArmorItem(ItemStack stack, Level world, Player player) {
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
         ItemStack boot = player.getItemBySlot(EquipmentSlot.FEET);
         ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
         ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
@@ -65,8 +67,8 @@ public class LegendaryArmor extends ArmorItem implements IForgeItem {
         if (boot.getItem() == ItemInit.BOOTS.get() && legs.getItem() == ItemInit.LEGGINGS.get() && chest.getItem() == ItemInit.CHESTPLATE.get() && helmet.getItem() == ItemInit.HELMET.get())
             ;
         {
-            player.addEffect(new EffectInstance(Effect.DAMAGE_BOOST, 100, 1, false, false, true));
-            player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 1, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
         }
     }
 }

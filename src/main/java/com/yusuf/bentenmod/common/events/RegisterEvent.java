@@ -38,7 +38,7 @@ package com.yusuf.bentenmod.common.events;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.item.ModSpawnEggItem;
-import net.minecraft.entity.EntityType;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

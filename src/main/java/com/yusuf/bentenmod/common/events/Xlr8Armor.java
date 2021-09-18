@@ -36,34 +36,36 @@
 package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.world.World;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class Xlr8Armor extends ArmorItem implements IForgeItem {
 
-    public Xlr8Armor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+    public Xlr8Armor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
         super(materialIn, slot, builder);
+
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
 
-        ItemStack boots = player.getItemBySlot(EquipmentSlotType.FEET);
-        ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
-        ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
-        ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
+        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
 
         if (boots.getItem() == ItemInit.XLR8_BOOTS.get() && legs.getItem() == ItemInit.XLR8_LEGGINGS.get() && chest.getItem() == ItemInit.XLR8_CHESTPLATE.get() && head.getItem() == ItemInit.XLR8_HELMET.get()) {
-            player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 7, false, false, true));
-            player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
-            player.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 100, 45, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 7, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 45, false, false, true));
 
         }
 

@@ -36,25 +36,28 @@
 package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.world.World;
+import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class JacketArmorItem extends ArmorItem implements IForgeItem {
+public class JacketArmorItem extends ArmorItem implements IForgeItem  {
 
-    public JacketArmorItem(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+    public JacketArmorItem(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
         super(materialIn, slot, builder);
+
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
-        EffectInstance effect = new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        MobEffectInstance effect = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
         if (stack.getItem() == ItemInit.JACKET.get()) {
             player.addEffect(effect);
         }

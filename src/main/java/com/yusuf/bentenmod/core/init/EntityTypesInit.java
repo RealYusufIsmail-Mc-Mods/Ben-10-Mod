@@ -42,17 +42,22 @@ import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.levelgen.structure.RuinedPortalPiece;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Map;
+
 
 public class EntityTypesInit {
+
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES,
             BenTenMod.MOD_ID);
     private static final Item.Properties spawn_egg_props = new Item.Properties().tab(MainItemGroup.MAIN);
@@ -77,11 +82,12 @@ public class EntityTypesInit {
             () -> kraabBolt);
 
     // This is where to register the actual attributes of the entities
-    public static void registerEntityAttributes() {
-        AttributeSupplier.builder(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
-        AttributeSupplier.builder(EntityTypesInit.KRAAB_ENTITY.get(), KraabEntity.registerAttributes().build());
+    public void registerEntityAttributes() {
+        EntityAttributeCreationEventInit.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
+        EntityAttributeCreationEventInit.put(EntityTypesInit.KRAAB_ENTITY.get(), KraabEntity.registerAttributes().build());
         }
         //TODO Fox this
+
 
     private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
                                                                              EntityType.EntityFactory<T> factory, MobCategory classification, float width, float height) {

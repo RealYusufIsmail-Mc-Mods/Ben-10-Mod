@@ -35,48 +35,48 @@
 
 package com.yusuf.bentenmod.core.init;
 
-import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.alchemy.Potions;
 
 @SuppressWarnings("all")
 public class FoodInit {
     // Omnitrix Apple
     public static final FoodProperties OMNITRIX_APPLE = new FoodProperties.Builder()
-            .effect(new EffectInstance(Potions.REGENERATION, 1200, 0), 1)
-            .effect(new EffectInstance(Potions.ABSORPTION, 3600, 1), 1)
-            .effect(new EffectInstance(Potions.FIRE_RESISTANCE, 2400, 0), 1)
-            .effect(new EffectInstance(Potions.MOVEMENT_SPEED, 600, 0), 1)
-            .effect(new EffectInstance(Potions., 1200, 0), 1)
-            .effect(new EffectInstance(Potions.WATER_BREATHING, 600, 0), 1)
-            .effect(new EffectInstance(Potions.STRONG_SWIFTNESS, 2400, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.REGENERATION, 1200, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.ABSORPTION, 3600, 1), 1)
+            .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2400, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 2400, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
     // Enchanted Omnitrix Apple
     public static final FoodProperties ENCHANTED_OMNITRIX_APPLE = new FoodProperties.Builder()
-            .effect(new EffectInstance(Potions.REGENERATION, 6000, 0), 1)
-            .effect(new EffectInstance(Potions.ABSORPTION, 4800, 3), 1)
-            .effect(new EffectInstance(Potions.FIRE_RESISTANCE, 4800, 0), 1)
-            .effect(new EffectInstance(Potions.MOVEMENT_SPEED, 4800, 0), 1)
-            .effect(new EffectInstance(Potions.WATER_BREATHING, 3600, 0), 1)
-            .effect(new EffectInstance(Potions.DIG_SPEED, 6000, 0), 1)
-            .effect(new EffectInstance(Potions.NIGHT_VISION, 2400, 0), 1)
-            .effect(new EffectInstance(Potions.SLOW_FALLING, 6000, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.REGENERATION, 6000, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.ABSORPTION, 4800, 3), 1)
+            .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 4800, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 4800, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 3600, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 6000, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 2400, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.SLOW_FALLING, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
 
     // Ruby Apple
     public static final FoodProperties RUBY_APPLE = new FoodProperties.Builder()
-            .effect(new EffectInstance(Potions.REGENERATION, 7000, 0), 1)
-            .effect(new EffectInstance(Potions.ABSORPTION, 6000, 6), 1)
-            .effect(new EffectInstance(Potions.FIRE_RESISTANCE, 4800, 0), 1)
-            .effect(new EffectInstance(Potions.MOVEMENT_SPEED, 4800, 0), 1)
-            .effect(new EffectInstance(Potions.WATER_BREATHING, 3600, 0), 1)
-            .effect(new EffectInstance(Potions.DIG_SPEED, 6000, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.REGENERATION, 7000, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.ABSORPTION, 6000, 6), 1)
+            .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 4800, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 4800, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 3600, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
 
     //Fire APPLE
     public static final FoodProperties FIRE_APPLE = new FoodProperties.Builder()
-            .effect(new EffectInstance(Potions.STRONG_STRENGTH, 4800, 2), 1)
-            .effect(new EffectInstance(Potions.FIRE_RESISTANCE, 6000, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 4800, 2), 1)
+            .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
 
     //TODO Fix this.

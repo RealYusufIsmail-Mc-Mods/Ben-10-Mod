@@ -33,41 +33,34 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.common.events;
+package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.core.init.KeybindsInit;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.InputEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.DefaultAttributes;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.event.IModBusEvent;
+import net.minecraftforge.network.NetworkFilters;
 
-@EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Bus.FORGE, value = Dist.CLIENT)
-public class InputEvents {
+import java.util.Map;
 
-    @SubscribeEvent
-    public static void onKeyPress(InputEvent.KeyInputEvent event) {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.level == null) return;
-        onInput(mc, event.getKey(), event.getAction());
+public class EntityAttributeCreationEventInit extends Event implements IModBusEvent
+{
+    private static EntityAttributeCreationEventInit map;
+    public final Map<EntityType<? extends LivingEntity>, AttributeSupplier> map;
 
+    public EntityAttributeCreationEventInit(Map<EntityType<? extends LivingEntity>, AttributeSupplier> map)
+    {
+        EntityAttributeCreationEventInit.map = map;
     }
 
-    @SubscribeEvent
-    public static void onMouseClick(InputEvent.MouseInputEvent event) {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.level == null) return;
-        onInput(mc, event.getButton(), event.getAction());
-
+    public static void put(EntityType<? extends LivingEntity> entity, AttributeSupplier map)
+    {
+        if (DefaultAttributes.hasSupplier(entity))
+            throw new IllegalStateException("Duplicate DefaultAttributes entry: " + entity);
+        EntityAttributeCreationEventInit.map.put(entity, map);
     }
 
-    private static void onInput(Minecraft mc, int key, int action) {
-
-        if (mc.screen != null && KeybindsInit.openwatchkey.consumeClick()) {
-            System.out.println("FIREBLAST KEY PRESSED");
-
-        }
-    }
 }
+

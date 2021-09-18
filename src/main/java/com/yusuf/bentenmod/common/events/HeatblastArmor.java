@@ -36,42 +36,44 @@
 package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.entity.player.PlayerAbilities;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.world.World;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Abilities;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class HeatblastArmor extends ArmorItem implements IForgeItem {
-    public final PlayerAbilities abilities = new PlayerAbilities();
+    public final Abilities abilities = new Abilities();
 
-    public HeatblastArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
+    public HeatblastArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
         super(materialIn, slot, builder);
 
     }
 
 
     @Override
-    public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
 
-        ItemStack boots = player.getItemBySlot(EquipmentSlotType.FEET);
-        ItemStack legs = player.getItemBySlot(EquipmentSlotType.LEGS);
-        ItemStack chest = player.getItemBySlot(EquipmentSlotType.CHEST);
-        ItemStack head = player.getItemBySlot(EquipmentSlotType.HEAD);
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
+        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
 
         if (boots.getItem() == ItemInit.HEATBLAST_BOOTS.get() && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get() && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get() && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
-            player.addEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 100, 3, false, false, true));
-            player.addEffect(new EffectInstance(Effects.REGENERATION, 100, 3, false, false, true));
-            player.addEffect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 100, 3, false, false, true));
-            player.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 100, 1, false, false, true));
-            player.abilities.mayfly = true;
+            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100, 3, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 100, 3, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 3, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 1, false, false, true));
+            player.getAbilities().mayfly = true;
             player.fallDistance = 0.0F;
-            player.abilities.setFlyingSpeed(0.1F);
+            player.getAbilities().setFlyingSpeed(0.1F);
         }
 
 
