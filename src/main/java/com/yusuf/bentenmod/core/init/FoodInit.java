@@ -79,5 +79,4 @@ public class FoodInit {
             .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 6000, 0), 1)
             .nutrition(4).saturationMod(1.2f).alwaysEat().build();
 
-    //TODO Fix this.
 }

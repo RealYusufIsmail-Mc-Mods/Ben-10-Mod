@@ -38,17 +38,15 @@ package com.yusuf.bentenmod.data.recipe;
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.ICriterionInstance;
-import net.minecraft.advancements.IRequirementsStrategy;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.Registry;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -74,19 +72,19 @@ public class TableRecipeBuilder {
         this.output = output;
     }
 
-    public static TableRecipeBuilder build(Ingredient input1, Ingredient input2, Ingredient input3, IItemProvider output) {
+    public static TableRecipeBuilder build(Ingredient input1, Ingredient input2, Ingredient input3, Item output) {
         return new TableRecipeBuilder(input1, input2, input3, output.asItem());
     }
 
-    public TableRecipeBuilder unlockedBy(String creterionId, ICriterionInstance criterion) {
+    public TableRecipeBuilder unlockedBy(String creterionId, InventoryChangeTrigger.TriggerInstance criterion) {
         advancementBuilder.addCriterion(creterionId, criterion);
         return this;
     }
 
-    public void save(Consumer<IFinishedRecipe> consumer, ResourceLocation rl) {
+    public void save(Consumer<FinishedRecipe> consumer, ResourceLocation rl) {
         ensureValid(rl);
         if (!advancementBuilder.getCriteria().isEmpty())
-            advancementBuilder.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(IRequirementsStrategy.OR);
+            advancementBuilder.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(RequirementsStrategy.OR);
         assert output.getItemCategory() != null;
         consumer.accept(
                 new Output(input1, input2, input3, output, advancementBuilder,
@@ -101,7 +99,7 @@ public class TableRecipeBuilder {
         }
     }
 
-    private final class Output implements IFinishedRecipe {
+    private final class Output implements FinishedRecipe {
 
         private final Ingredient input1;
         private final Ingredient input2;
@@ -136,7 +134,7 @@ public class TableRecipeBuilder {
         }
 
         @Override
-        public IRecipeSerializer<?> getType() {
+        public RecipeSerializer<?> getType() {
             return Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getValue(new ResourceLocation(MOD_ID, "table_recipe")));
         }
 

@@ -37,6 +37,7 @@ package com.yusuf.bentenmod;
 
 import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.core.util.ModResourceLocation;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.*;
@@ -67,7 +68,7 @@ public class BenTenMod {
         GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();
 
-        bus.addGenericListener(GenericEvent.class, RegisterRecipeInit::registerRecipes);
+        bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerationInit::addOres);
         MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);

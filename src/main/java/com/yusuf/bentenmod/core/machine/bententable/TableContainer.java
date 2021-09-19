@@ -42,11 +42,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.yusuf.realyusufismailcore.util.OutputSlot;
-import org.antlr.runtime.misc.IntArray;
+
 
 import java.util.Objects;
 
@@ -57,7 +58,7 @@ public class TableContainer extends AbstractContainerMenu {
      * ALT + ENTER > CONSTRUCTOR
      * SHIFT + F6 > CHANGE VARIABLE NAME
      */
-    protected TableContainer(int id, Container inv, BlockEntity be, ContainerData data) {
+    protected TableContainer(int id, Inventory inv, BlockEntity be, ContainerData data) {
         super(ContainerInit.TABLE_CONTAINER.get(), id);
 
         this.data = data;
@@ -83,7 +84,7 @@ public class TableContainer extends AbstractContainerMenu {
     }
 
     public TableContainer(int id, Inventory playerInv, FriendlyByteBuf buffer) {
-        this(id, playerInv, getBlockEntity(playerInv, buffer), new IntArray(2));
+        this(id, playerInv, getBlockEntity(playerInv, buffer), new SimpleContainerData(2));
     }
 
     private static TableBlockEntity getBlockEntity(final Inventory playerInv, final FriendlyByteBuf data) {

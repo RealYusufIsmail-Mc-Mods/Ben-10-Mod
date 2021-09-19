@@ -39,12 +39,14 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
-import net.minecraft.client.gui.screens.inventory.ContainerScreen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class TableScreen extends ContainerScreen<TableContainer> {
+import java.net.NetworkInterface;
+
+public class TableScreen extends AbstractContainerScreen<TableContainer> {
     public static final ResourceLocation SCREEN_ID = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/table_screen.png");
 
     public TableScreen(TableContainer p_i51105_1_, Inventory p_i51105_2_, TextComponent p_i51105_3_) {
@@ -54,8 +56,8 @@ public class TableScreen extends ContainerScreen<TableContainer> {
     @SuppressWarnings("deprecation")
     @Override
     protected void renderBg(PoseStack matrix, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
-        RenderSystem.color4f(1, 1, 1, 1);
-        minecraft.getTextureManager().bind(SCREEN_ID);
+        RenderSystem.setShaderColor(1, 1, 1, 1);
+        minecraft.getTextureManager().getTexture(SCREEN_ID);
 
         // BenTenMod Screen
         blit(matrix, leftPos, topPos, 0, 0, 176, 179);
@@ -67,7 +69,7 @@ public class TableScreen extends ContainerScreen<TableContainer> {
     //CTRL + O > OVERRIDE METHODS
 
     @Override
-    public void render(MatrixStack matrix, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
+    public void render(PoseStack matrix, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
         renderBackground(matrix);
         super.render(matrix, p_230430_2_, p_230430_3_, p_230430_4_);
         renderTooltip(matrix, p_230430_2_, p_230430_3_);
@@ -78,8 +80,8 @@ public class TableScreen extends ContainerScreen<TableContainer> {
      * 4210752 is the default number, can't be changed
      */
     @Override
-    protected void renderLabels(MatrixStack matrix, int p_230451_2_, int p_230451_3_) {
-        this.font.draw(matrix, inventory.getDisplayName(), 7, 81, 4210752);
+    protected void renderLabels(PoseStack matrix, int p_230451_2_, int p_230451_3_) {
+        this.font.draw(matrix, this.playerInventoryTitle, 7, 81, 4210752);
         font.draw(matrix, LangKeys.TABLE_SCREEN, 5, 10, 4210752);
     }
 }

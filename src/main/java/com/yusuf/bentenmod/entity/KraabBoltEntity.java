@@ -35,19 +35,10 @@
 
 package com.yusuf.bentenmod.entity;
 
+import com.mojang.math.Vector3f;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.IPacket;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.particles.RedstoneParticleData;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.EntityRayTraceResult;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -56,7 +47,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 public class KraabBoltEntity extends AbstractArrow {
@@ -82,12 +72,12 @@ public class KraabBoltEntity extends AbstractArrow {
     public void tick() {
         super.tick();
         if (!level.isClientSide && duration++ > MAX_DURATION) {
-            remove();
+            discard();
         }
 
         if (level.isClientSide) {
             for (int i = 0; i < 10; i++)
-                level.addParticle(new Particle(1, 1, 0, 1), getRandomX(1), getRandomY(), getRandomZ(1), 0,
+                level.addParticle(new DustParticleOptions(new Vector3f(1, 1, 0), 1), getRandomX(1), getRandomY(), getRandomZ(1), 0,
                         0, 0);
         }
     }
@@ -96,9 +86,9 @@ public class KraabBoltEntity extends AbstractArrow {
     protected void onHitBlock(BlockHitResult result) {
         super.onHit(result);
         if (!level.isClientSide)
-            remove();
+            discard();
     }
-    //TODO Fox this
+
 
 
     @Override
