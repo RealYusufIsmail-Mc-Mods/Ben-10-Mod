@@ -52,7 +52,6 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.antlr.runtime.misc.IntArray;
 
 import javax.annotation.Nullable;
 
@@ -86,6 +85,7 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
         }
     };
 
+
     public TableBlockEntity(BlockEntityType<?> p_i48284_1_) {
         super(p_i48284_1_);
     }
@@ -93,6 +93,7 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
     public TableBlockEntity() {
         this(TileEntityInit.TABLE_TILE.get());
     }
+
 
 
     //This is the MOST IMPORTANT
@@ -106,7 +107,7 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
             ItemStack input2 = items.get(1);
             ItemStack input3 = items.get(2);
 
-            if (!empty(input1) && !empty(input2) && !empty(input3)) {
+            if (empty(input1) && empty(input2) && empty(input3)) {
                 TableRecipe recipe = getRecipe();
                 if (canProcessFromRecipe(recipe)) {
                     currentTick++;
@@ -152,7 +153,7 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
     }
 
     private boolean canProcessFromRecipe(@Nullable TableRecipe recipe) {
-        if (!empty(items.get(0)) && !empty(items.get(1)) && !empty(items.get(2)) && recipe != null) {
+        if (empty(items.get(0)) && empty(items.get(1)) && empty(items.get(2)) && recipe != null) {
             ItemStack stack = recipe.getResultItem();
             if (stack.isEmpty()) {
                 return false;
@@ -173,7 +174,7 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
 
 
     private boolean empty(ItemStack stack) {
-        return stack.isEmpty();
+        return !stack.isEmpty();
     }
 
     @Override

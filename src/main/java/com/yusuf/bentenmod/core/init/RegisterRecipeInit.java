@@ -50,14 +50,14 @@ import java.util.Map;
 public class RegisterRecipeInit {
     public static final RecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
 
-    private static void registerRecipe(RegistryEvent.Register<RecipeSerializer<?>> event, RecipeType<?> type,
+    private static void registerRecipe(RegistryEvent.Register<RecipeSerializer<?>> event,
                                        RecipeSerializer<?> serializer) {
-        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(type.toString()), type);
+        Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(RegisterRecipeInit.TABLE_RECIPE.toString()), (RecipeType<?>) RegisterRecipeInit.TABLE_RECIPE);
         event.getRegistry().register(serializer);
     }
 
     public static void registerRecipes(RegistryEvent.Register<RecipeSerializer<?>> event) {
-        registerRecipe(event, TABLE_RECIPE, new TableRecipe.Serializer());
+        registerRecipe(event, new TableRecipe.Serializer());
     }
 
     public static Map<ResourceLocation, Recipe<?>> getRecipes(RecipeType<?> type, RecipeManager manager) {
