@@ -35,11 +35,10 @@
 
 package com.yusuf.bentenmod.core.util;
 
+import com.mojang.blaze3d.platform.ScreenManager;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ContainerInit;
-import com.yusuf.bentenmod.core.init.KeybindsInit;
 import com.yusuf.bentenmod.core.machine.bententable.TableScreen;
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -53,7 +52,6 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        KeybindsInit.register(event);
-        ScreenManager.register(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
+        ScreenManager.clamp(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
     }
 }

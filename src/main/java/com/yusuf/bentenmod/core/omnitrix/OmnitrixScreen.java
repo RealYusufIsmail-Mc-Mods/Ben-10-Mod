@@ -36,12 +36,12 @@
 package com.yusuf.bentenmod.core.omnitrix;
 
 import com.yusuf.bentenmod.BenTenMod;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.resources.ResourceLocation;
 
 public class OmnitrixScreen extends Screen {
-    protected OmnitrixScreen(ITextComponent p_i51108_1_) {
+    protected OmnitrixScreen(TextComponent p_i51108_1_) {
         super(p_i51108_1_);
     }
     public static final ResourceLocation SCREEN_ID = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");

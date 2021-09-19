@@ -37,9 +37,9 @@ package com.yusuf.bentenmod.data.tags;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.TagsInit;
-import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.ItemTagsProvider;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static com.yusuf.bentenmod.core.init.EntityTypesInit.KRAAB_SPAWN_EGG;

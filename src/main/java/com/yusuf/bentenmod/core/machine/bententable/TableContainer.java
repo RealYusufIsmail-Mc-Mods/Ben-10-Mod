@@ -66,7 +66,7 @@ public class TableContainer extends AbstractContainerMenu {
         addSlot(new Slot((Container) be, 1, 43, 40));
         addSlot(new Slot((Container) be, 2, 70, 40));
 
-        addSlot(new OutputSlot((Inventory) be, 3, 138, 40));
+        addSlot(new OutputSlot((Container) be, 3, 138, 40));
 
         //player inventory
         for (int row = 0; row < 3; row++) {
@@ -83,7 +83,7 @@ public class TableContainer extends AbstractContainerMenu {
     }
 
     public TableContainer(int id, Inventory playerInv, FriendlyByteBuf buffer) {
-        this(id, playerInv, getBlockEntity(playerInv, buffer), new Container(2));
+        this(id, playerInv, getBlockEntity(playerInv, buffer), new IntArray(2));
     }
 
     private static TableBlockEntity getBlockEntity(final Inventory playerInv, final FriendlyByteBuf data) {

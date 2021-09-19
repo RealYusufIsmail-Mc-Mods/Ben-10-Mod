@@ -36,9 +36,9 @@
 package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.BenTenMod;
-import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -48,9 +48,6 @@ import com.yusuf.bentenmod.core.init.*;
 import javax.annotation.Nonnull;
 
 
-/**
- * @see BlockStateProvider#simpleBlock(Block)
- */
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, BenTenMod.MOD_ID, exFileHelper);

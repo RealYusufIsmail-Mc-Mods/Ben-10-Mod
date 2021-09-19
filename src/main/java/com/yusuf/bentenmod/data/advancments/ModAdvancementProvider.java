@@ -41,20 +41,19 @@ import com.google.gson.GsonBuilder;
 import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
-import net.minecraft.advancements.ICriterionInstance;
-import net.minecraft.advancements.IRequirementsStrategy;
-import net.minecraft.advancements.criterion.*;
+import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DirectoryCache;
-import net.minecraft.data.IDataProvider;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.data.DataProvider;
+import net.minecraft.data.HashCache;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.yusuf.realyusufismailcore.advancements.GenericIntTrigger;
 import net.yusuf.realyusufismailcore.util.NameUtils;
 import org.apache.logging.log4j.LogManager;
@@ -70,7 +69,7 @@ import static com.yusuf.bentenmod.core.init.ItemInit.*;
 import static net.yusuf.realyusufismailcore.core.init.BlockInitCore.COPPER_BLOCK;
 import static net.yusuf.realyusufismailcore.core.init.ItemInitCore.COPPER;
 
-public class ModAdvancementProvider implements IDataProvider {
+public class ModAdvancementProvider implements DataProvider {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
     private final DataGenerator generator;
@@ -84,7 +83,7 @@ public class ModAdvancementProvider implements IDataProvider {
     }
 
     @Override
-    public void run(DirectoryCache cache) {
+    public void run(HashCache p_123925_) throws IOException {
         Path path = this.generator.getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
         //noinspection OverlyLongLambda
@@ -95,7 +94,7 @@ public class ModAdvancementProvider implements IDataProvider {
                 Path path1 = getPath(path, p_204017_3_);
 
                 try {
-                    IDataProvider.save(GSON, cache, p_204017_3_.deconstruct().serializeToJson(), path1);
+                    DataProvider.save(GSON, p_123925_, p_204017_3_.deconstruct().serializeToJson(), path1);
                 } catch (IOException ioexception) {
                     LOGGER.error("Couldn't save advancement {}", path1, ioexception);
                 }
@@ -105,21 +104,23 @@ public class ModAdvancementProvider implements IDataProvider {
         new Advancements().accept(consumer);
     }
 
+
+
     @Override
     public String getName() {
         return "Ben 10 mod - Advancements";
     }
 
     private static class Advancements implements Consumer<Consumer<Advancement>> {
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent) {
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent) {
             return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
         }
 
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, Advancement parent, String key) {
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent, String key) {
             return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
         }
 
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, IItemProvider item, ItemStack icon, Advancement parent, String key) {
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, ItemStack icon, Advancement parent, String key) {
             return Advancement.Builder.advancement()
                     .parent(parent)
                     .display(icon, title(key), description(key), null, FrameType.TASK, true, true, false)
@@ -131,24 +132,24 @@ public class ModAdvancementProvider implements IDataProvider {
             return BenTenMod.getId(path).toString();
         }
 
-        private static ICriterionInstance getItem(IItemProvider... items) {
-            return InventoryChangeTrigger.Instance.hasItems(items);
+        private static InventoryChangeTrigger.TriggerInstance getItem(ItemLike... items) {
+            return InventoryChangeTrigger.TriggerInstance.hasItems(items);
         }
 
-        private static ICriterionInstance getItem(ITag<Item> tag) {
-            return InventoryChangeTrigger.Instance.hasItems(new ItemPredicate(tag, null, MinMaxBounds.IntBound.ANY, MinMaxBounds.IntBound.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NBTPredicate.ANY));
+        private static InventoryChangeTrigger.TriggerInstance getItem(Tag<Item> tag) {
+            return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, null, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
         }
 
-        private static ICriterionInstance genericInt(ResourceLocation id, int value) {
+        private static GenericIntTrigger.Instance genericInt(ResourceLocation id, int value) {
             return GenericIntTrigger.Instance.instance(id, value);
         }
 
-        private static ITextComponent title(String key) {
-            return new TranslationTextComponent("advancements.bentenmod." + key + ".title");
+        private static Component title(String key) {
+            return new TranslatableComponent("advancements.bentenmod." + key + ".title");
         }
 
-        private static ITextComponent description(String key) {
-            return new TranslationTextComponent("advancements.bentenmod." + key + ".description");
+        private static Component description(String key) {
+            return new TranslatableComponent("advancements.bentenmod." + key + ".description");
         }
 
         @SuppressWarnings({"unused", "OverlyLongMethod"})
@@ -195,7 +196,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("black_diamond_chestplate", getItem(BLACK_DIAMOND_CHESTPLATE.get()))
                     .addCriterion("black_diamond_leggings", getItem(BLACK_DIAMOND_LEGGINGS.get()))
                     .addCriterion("black_diamond_boots", getItem(BLACK_DIAMOND_BOOTS.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("black_diamond_armour"));
 
             Advancement black_diamond_tools = Advancement.Builder.advancement()
@@ -208,7 +209,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("black_diamond_shovel", getItem(BLACK_DIAMOND_SHOVEL.get()))
                     .addCriterion("black_diamond_axe", getItem(BLACK_DIAMOND_AXE.get()))
                     .addCriterion("black_diamond_hoe", getItem(BLACK_DIAMOND_HOE.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("black_diamond_tools"));
 
             //copper
@@ -265,7 +266,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("heatblast_chestplate", getItem(HEATBLAST_CHESTPLATE.get()))
                     .addCriterion("heatblast_leggings", getItem(HEATBLAST_LEGGINGS.get()))
                     .addCriterion("heatblast_boots", getItem(HEATBLAST_BOOTS.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("heatblast_armour"));
 
             Advancement heatblast_sword = Advancement.Builder.advancement()
@@ -274,7 +275,7 @@ public class ModAdvancementProvider implements IDataProvider {
                             description("heatblast_sword"),
                             null, FrameType.GOAL, true, true, false)
                     .addCriterion("heatblast_sword", getItem(HEATBLAST_SWORD.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("heatblast_sword"));
 
             //omnitrix
@@ -339,7 +340,7 @@ public class ModAdvancementProvider implements IDataProvider {
                             description("ruby_axe"),
                             null, FrameType.GOAL, true, true, false)
                     .addCriterion("axe", getItem(AXE.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("ruby_axe"));
 
             //imperium
@@ -375,7 +376,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("imperium_pickaxe", getItem(IMPERIUM_PICKAXE.get()))
                     .addCriterion("imperium_sword", getItem(IMPERIUM_SWORD.get()))
                     .addCriterion("imperium_axe", getItem(IMPERIUM_AXE.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("imperium_tools"));
 
             Advancement upgraded_imperium_pickaxe = Advancement.Builder.advancement()
@@ -384,7 +385,7 @@ public class ModAdvancementProvider implements IDataProvider {
                             description("upgraded_imperium_pickaxe"),
                             null, FrameType.GOAL, true, true, false)
                     .addCriterion("upgraded_imperium_pickaxe", getItem(IMPERIUM_PICKAXE_UPGRADED.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("upgraded_imperium_pickaxe"));
 
             //speed
@@ -413,7 +414,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("xlr8_chestplate", getItem(XLR8_CHESTPLATE.get()))
                     .addCriterion("xlr8_leggings", getItem(XLR8_LEGGINGS.get()))
                     .addCriterion("xlr8_boots", getItem(XLR8_BOOTS.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("xlr8_armour"));
 
             //legendary
@@ -447,7 +448,7 @@ public class ModAdvancementProvider implements IDataProvider {
                             description("ascalon"),
                             null, FrameType.GOAL, true, true, false)
                     .addCriterion("ascalon", getItem(SWORD.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("ascalon"));
 
             Advancement knight_armour = Advancement.Builder.advancement()
@@ -459,7 +460,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("knight_chestplate", getItem(CHESTPLATE.get()))
                     .addCriterion("knight_leggings", getItem(LEGGINGS.get()))
                     .addCriterion("knight_boots", getItem(BOOTS.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("knight_armour"));
 
             //infinitum
@@ -496,7 +497,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("infinitum_chestplate", getItem(INFINITUM_CHESTPLATE.get()))
                     .addCriterion("infinitum_leggings", getItem(INFINITUM_LEGGINGS.get()))
                     .addCriterion("infinitum_boots", getItem(INFINITUM_BOOTS.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("infinitum_armour"));
 
             Advancement infinitum_tools = Advancement.Builder.advancement()
@@ -509,7 +510,7 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("infinitum_shovel", getItem(INFINITUM_SHOVEL.get()))
                     .addCriterion("infinitum_axe", getItem(INFINITUM_AXE.get()))
                     .addCriterion("infinitum_hoe", getItem(INFINITUM_HOE.get()))
-                    .requirements(IRequirementsStrategy.OR)
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("infinitum_tools"));
         }
     }

@@ -36,7 +36,7 @@
 package com.yusuf.bentenmod.core.util;
 
 import com.yusuf.bentenmod.BenTenMod;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 public class ModResourceLocation extends ResourceLocation {
     public ModResourceLocation(String resourceName) {

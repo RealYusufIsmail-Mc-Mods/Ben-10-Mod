@@ -36,6 +36,7 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
@@ -52,7 +53,7 @@ public class TableScreen extends ContainerScreen<TableContainer> {
 
     @SuppressWarnings("deprecation")
     @Override
-    protected void renderBg(MatrixStack matrix, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
+    protected void renderBg(PoseStack matrix, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
         RenderSystem.color4f(1, 1, 1, 1);
         minecraft.getTextureManager().bind(SCREEN_ID);
 
