@@ -37,18 +37,23 @@ package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
+import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.VilgaxEntity;
 import com.yusuf.bentenmod.item.ModSpawnEggItem;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegisterEvent {
     @SubscribeEvent
-    public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
+    public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event, EntityAttributeCreationEvent entityAttributeCreationEvent) {
         ModSpawnEggItem.initSpawnEggs();
-        EntityTypesInit.registerEntityAttributes();
+        // This is where to register the actual attributes of the entities
+        entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
+        entityAttributeCreationEvent.put(EntityTypesInit.KRAAB_ENTITY.get(), KraabEntity.registerAttributes().build());
     }
 }

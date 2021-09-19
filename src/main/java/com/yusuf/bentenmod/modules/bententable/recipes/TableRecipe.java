@@ -48,6 +48,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class TableRecipe implements IRecipe<IInventory> {
@@ -96,7 +97,6 @@ public class TableRecipe implements IRecipe<IInventory> {
         return true;
     }
 
-    @Override
     public ItemStack getResultItem() {
         return output;
     }

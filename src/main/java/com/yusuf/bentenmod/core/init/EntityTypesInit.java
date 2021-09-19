@@ -81,14 +81,6 @@ public class EntityTypesInit {
     public static final RegistryObject<EntityType<KraabBoltEntity>> KRAAB_BOLT_ENTITY = ENTITY_TYPES.register("kraab_bolt",
             () -> kraabBolt);
 
-    // This is where to register the actual attributes of the entities
-    public void registerEntityAttributes() {
-        EntityAttributeCreationEventInit.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
-        EntityAttributeCreationEventInit.put(EntityTypesInit.KRAAB_ENTITY.get(), KraabEntity.registerAttributes().build());
-        }
-        //TODO Fox this
-
-
     private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
                                                                              EntityType.EntityFactory<T> factory, MobCategory classification, float width, float height) {
         return EntityType.Builder.of(factory, classification).sized(width, height)

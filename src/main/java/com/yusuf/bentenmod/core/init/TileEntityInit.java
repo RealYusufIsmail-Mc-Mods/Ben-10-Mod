@@ -36,14 +36,14 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.core.machine.bententable.TableTileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraftforge.fml.RegistryObject;
+import com.yusuf.bentenmod.core.machine.bententable.TableBlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class TileEntityInit {
-    public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, BenTenMod.MOD_ID);
+    public static final DeferredRegister<BlockEntityType<?>> TILE_ENTITY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, BenTenMod.MOD_ID);
 
-    public static final RegistryObject<TileEntityType<TableTileEntity>> TABLE_TILE = TILE_ENTITY.register("table", () -> TileEntityType.Builder.of(TableTileEntity::new, BlockInit.TABLE_BLOCK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<TableBlockEntity>> TABLE_TILE = TILE_ENTITY.register("table", () -> BlockEntityType.Builder.of(TableBlockEntity::new, BlockInit.TABLE_BLOCK.get()).build(null));
 }

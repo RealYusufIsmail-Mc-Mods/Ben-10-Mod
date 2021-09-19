@@ -39,24 +39,30 @@ import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.core.init.TileEntityInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.ITickableTileEntity;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import org.antlr.runtime.misc.IntArray;
 
 import javax.annotation.Nullable;
 
-public class TableTileEntity extends LockableLootTileEntity implements ITickableTileEntity {
+public class TableBlockEntity extends RandomizableContainerBlockEntity implements BlockEntityTicker {
     public static final int slots = 4;
     private final int maxTick = 200;
     private NonNullList<ItemStack> items = NonNullList.withSize(slots, ItemStack.EMPTY);
     private int currentTick;
-    public IIntArray data = new IIntArray() {
+    public ContainerData data = new ContainerData() {
+
         @Override
         public int get(int index) {
             switch (index) {
@@ -80,11 +86,11 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
         }
     };
 
-    public TableTileEntity(TileEntityType<?> p_i48284_1_) {
+    public TableBlockEntity(BlockEntityType<?> p_i48284_1_) {
         super(p_i48284_1_);
     }
 
-    public TableTileEntity() {
+    public TableBlockEntity() {
         this(TileEntityInit.TABLE_TILE.get());
     }
 
@@ -93,7 +99,7 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
     //This method will be called  <strong> EVERY SINGLE TICK <strong/>
 
     @Override
-    public void tick() {
+    public void tick(Level p_155253_, BlockPos p_155254_, BlockState p_155255_, BlockEntity p_155256_) {
         assert level != null;
         if (!level.isClientSide) {
             ItemStack input1 = items.get(0);
@@ -181,12 +187,12 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
     }
 
     @Override
-    protected ITextComponent getDefaultName() {
+    protected Component getDefaultName() {
         return LangKeys.TABLE_SCREEN;
     }
 
     @Override
-    protected Container createMenu(int p_213906_1_, PlayerInventory p_213906_2_) {
+    protected AbstractContainerMenu createMenu(int p_213906_1_, Inventory p_213906_2_) {
         return new TableContainer(p_213906_1_, p_213906_2_, this, data);
     }
 

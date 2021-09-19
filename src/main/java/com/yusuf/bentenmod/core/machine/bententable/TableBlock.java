@@ -36,76 +36,65 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.*;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.fmllegacy.network.NetworkHooks;
+
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-/**
- * @see net.minecraft.block.AbstractFurnaceBlock
- */
 public class TableBlock extends Block {
-    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
     public TableBlock() {
         super(Properties.of(Material.STONE)
                 .strength(3)
-                .harvestTool(ToolType.PICKAXE)
-                .harvestLevel(1)
+                .noDrops()
                 .requiresCorrectToolForDrops()
                 .sound(SoundType.WOOD)
         );
     }
 
-    /**
-     * handle GUI Open through {@link NetworkHooks#openGui(ServerPlayerEntity, INamedContainerProvider, BlockPos)}
-     */
     @SuppressWarnings("deprecation")
     @Override
-    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+    public InteractionResult use(BlockState p_225533_1_, Level level, BlockPos pos, Player playerEntity, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {
         super.use(p_225533_1_, level, pos, playerEntity, p_225533_5_, p_225533_6_);
         if (!level.isClientSide()) {
-            TileEntity te = level.getBlockEntity(pos);
-            if (te instanceof TableTileEntity) {
-                NetworkHooks.openGui((ServerPlayerEntity) playerEntity, (INamedContainerProvider) te, pos);
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof TableBlockEntity) {
+                NetworkHooks.openGui((ServerPlayer) playerEntity, (MenuProvider) be, pos);
             }
         }
-        return ActionResultType.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {
         p_206840_1_.add(FACING, POWERED);
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
+    public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
 
@@ -114,11 +103,11 @@ public class TableBlock extends Block {
      */
     @SuppressWarnings("deprecation")
     @Override
-    public void onRemove(BlockState state, World level, BlockPos pos, BlockState state1, boolean p_196243_5_) {
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState state1, boolean p_196243_5_) {
         if (!state.is(state1.getBlock())) {
-            TileEntity te = level.getBlockEntity(pos);
-            if (te instanceof TableTileEntity) {
-                InventoryHelper.dropContents(level, pos, (IInventory) te);
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof TableBlockEntity) {
+                Containers.dropContents(level, pos, (Container) be);
                 level.updateNeighbourForOutputSignal(pos, this);
             }
         }
@@ -126,18 +115,12 @@ public class TableBlock extends Block {
     }
 
     @Override
-    public boolean hasTileEntity(BlockState state) {
+    public boolean hasAnalogOutputSignal(BlockState state) {
         return true;
     }
 
-    @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new TableTileEntity();
-    }
-
-    @Override
-    public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
+    public void appendHoverText(ItemStack p_190948_1_, @Nullable BlockGetter p_190948_2_, List<Component> p_190948_3_, TooltipFlag p_190948_4_) {
         p_190948_3_.add(LangKeys.TABLE_DISC);
     }
 }

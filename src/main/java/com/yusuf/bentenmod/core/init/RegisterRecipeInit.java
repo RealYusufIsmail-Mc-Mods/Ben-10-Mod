@@ -36,32 +36,32 @@
 package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.IRecipeType;
-import net.minecraft.item.crafting.RecipeManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.Map;
 
 public class RegisterRecipeInit {
-    public static final IRecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
+    public static final RecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
 
-    private static void registerRecipe(RegistryEvent.Register<IRecipeSerializer<?>> event, IRecipeType<?> type,
-                                       IRecipeSerializer<?> serializer) {
+    private static void registerRecipe(RegistryEvent.Register<RecipeSerializer<?>> event, RecipeType<?> type,
+                                       RecipeSerializer<?> serializer) {
         Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(type.toString()), type);
         event.getRegistry().register(serializer);
     }
 
-    public static void registerRecipes(RegistryEvent.Register<IRecipeSerializer<?>> event) {
+    public static void registerRecipes(RegistryEvent.Register<RecipeSerializer<?>> event) {
         registerRecipe(event, TABLE_RECIPE, new TableRecipe.Serializer());
     }
 
-    public static Map<ResourceLocation, IRecipe<?>> getRecipes(IRecipeType<?> type, RecipeManager manager) {
-        final Map<IRecipeType<?>, Map<ResourceLocation, IRecipe<?>>> recipes = ObfuscationReflectionHelper
+    public static Map<ResourceLocation, Recipe<?>> getRecipes(RecipeType<?> type, RecipeManager manager) {
+        final Map<RecipeType<?>, Map<ResourceLocation, Recipe<?>>> recipes = ObfuscationReflectionHelper
                 .getPrivateValue(RecipeManager.class, manager, "field_199522_d");
         return recipes.get(type);
     }

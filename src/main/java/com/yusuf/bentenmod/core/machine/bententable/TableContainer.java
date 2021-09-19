@@ -36,37 +36,37 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIntArray;
-import net.minecraft.util.IntArray;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.yusuf.realyusufismailcore.util.OutputSlot;
+import org.antlr.runtime.misc.IntArray;
 
 import java.util.Objects;
 
-public class TableContainer extends Container {
-    private final IIntArray data;
+public class TableContainer extends AbstractContainerMenu {
+    private final ContainerData data;
 
     /*
      * ALT + ENTER > CONSTRUCTOR
      * SHIFT + F6 > CHANGE VARIABLE NAME
      */
-    protected TableContainer(int id, PlayerInventory inv, TileEntity te, IIntArray data) {
+    protected TableContainer(int id, Container inv, BlockEntity be, ContainerData data) {
         super(ContainerInit.TABLE_CONTAINER.get(), id);
 
         this.data = data;
 
-        addSlot(new Slot((IInventory) te, 0, 16, 40));
-        addSlot(new Slot((IInventory) te, 1, 43, 40));
-        addSlot(new Slot((IInventory) te, 2, 70, 40));
+        addSlot(new Slot((Container) be, 0, 16, 40));
+        addSlot(new Slot((Container) be, 1, 43, 40));
+        addSlot(new Slot((Container) be, 2, 70, 40));
 
-        addSlot(new OutputSlot((IInventory) te, 3, 138, 40));
+        addSlot(new OutputSlot((Inventory) be, 3, 138, 40));
 
         //player inventory
         for (int row = 0; row < 3; row++) {
@@ -82,38 +82,32 @@ public class TableContainer extends Container {
         addDataSlots(data);
     }
 
-    public TableContainer(int id, PlayerInventory playerInv, PacketBuffer buffer) {
-        this(id, playerInv, getTileEntity(playerInv, buffer), new IntArray(2));
+    public TableContainer(int id, Inventory playerInv, FriendlyByteBuf buffer) {
+        this(id, playerInv, getBlockEntity(playerInv, buffer), new Container(2));
     }
 
-    private static TableTileEntity getTileEntity(final PlayerInventory playerInv, final PacketBuffer data) {
+    private static TableBlockEntity getBlockEntity(final Inventory playerInv, final FriendlyByteBuf data) {
         Objects.requireNonNull(playerInv, "Player Inventory cannot be null.");
         Objects.requireNonNull(data, "Packet Buffer cannot be null.");
-        final TileEntity te = playerInv.player.level.getBlockEntity(data.readBlockPos());
-        if (te instanceof TableTileEntity) {
-            return (TableTileEntity) te;
+        final BlockEntity te = playerInv.player.level.getBlockEntity(data.readBlockPos());
+        if (te instanceof TableBlockEntity) {
+            return (TableBlockEntity) te;
         }
         throw new IllegalStateException("Tile Entity Is Not Correct");
     }
 
-
     @Override
-    public boolean stillValid(PlayerEntity p_75145_1_) {
-        return true;
-    }
-
-    @Override
-    public ItemStack quickMoveStack(PlayerEntity player, int index) {
+    public ItemStack quickMoveStack(Player player, int index) {
         ItemStack stack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
             ItemStack stack1 = slot.getItem();
             stack = stack1.copy();
-            if (index < TableTileEntity.slots
-                    && !this.moveItemStackTo(stack1, TableTileEntity.slots, this.slots.size(), true)) {
+            if (index < TableBlockEntity.slots
+                    && !this.moveItemStackTo(stack1, TableBlockEntity.slots, this.slots.size(), true)) {
                 return ItemStack.EMPTY;
             }
-            if (!this.moveItemStackTo(stack1, 0, TableTileEntity.slots, false)) {
+            if (!this.moveItemStackTo(stack1, 0, TableBlockEntity.slots, false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -132,5 +126,11 @@ public class TableContainer extends Container {
         return maxTick != 0 && process != 0 ? process * 24 / maxTick : 0;
 
     }
+
+    @Override
+    public boolean stillValid(Player p_18946_) {
+        return true;
+    }
+
 }
 
