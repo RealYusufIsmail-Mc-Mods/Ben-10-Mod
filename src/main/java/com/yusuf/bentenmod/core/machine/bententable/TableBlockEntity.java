@@ -87,14 +87,9 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
     };
 
 
-    public TableBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
-        super(blockEntityType, blockPos, blockState);
+    public TableBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityInit.TABLE_BLOCK_ENTITY.get(), blockPos, blockState);
     }
-
-    public TableBlockEntity() {
-        this(BlockEntityInit.TABLE_BLOCK_ENTITY.get(),BlockPos.ZERO, BlockInit.TABLE_BLOCK.get().defaultBlockState());
-    }
-
 
     //This is the MOST IMPORTANT
     //This method will be called  <strong> EVERY SINGLE TICK <strong/>
