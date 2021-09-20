@@ -65,7 +65,7 @@ public class KraabEntity extends Monster {
 
     private float shootTimer;
 
-    protected KraabEntity(EntityType<? extends KraabEntity> type, Level level) {
+    public KraabEntity(EntityType<? extends KraabEntity> type, Level level) {
         super(type, level);
     }
 
