@@ -42,8 +42,9 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class TileEntityInit {
-    public static final DeferredRegister<BlockEntityType<?>> TILE_ENTITY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, BenTenMod.MOD_ID);
+public class BlockEntityInit {
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, BenTenMod.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<TableBlockEntity>> TABLE_TILE = TILE_ENTITY.register("table", () -> BlockEntityType.Builder.of(TableBlockEntity::new, BlockInit.TABLE_BLOCK.get()).build(null));
+    public static final RegistryObject<BlockEntityType<TableBlockEntity>> TABLE_BLOCK_ENTITY = BLOCK_ENTITY.register("table", () -> BlockEntityType.Builder.of(TableBlockEntity::new, BlockInit.TABLE_BLOCK.get()).build(null));
+
 }

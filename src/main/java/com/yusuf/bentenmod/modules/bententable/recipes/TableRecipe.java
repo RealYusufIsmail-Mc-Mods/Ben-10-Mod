@@ -44,14 +44,13 @@ import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
-public class TableRecipe implements Recipe<Inventory> {
+public class TableRecipe implements Recipe<Container> {
     /**
      * Set the input ingredients
      */
@@ -79,16 +78,15 @@ public class TableRecipe implements Recipe<Inventory> {
     }
 
     //int value is the index of Container Slot in your Container class
-
     @Override
-    public boolean matches(Inventory inventory, Level p_77569_2_) {
-        return input1.test(inventory.getItem(0))
-                && input2.test(inventory.getItem(1))
-                && input3.test(inventory.getItem(2));
+    public boolean matches(Container p_44002_, Level p_44003_) {
+        return input1.test(p_44002_.getItem(0))
+                && input2.test(p_44002_.getItem(1))
+                && input3.test(p_44002_.getItem(2));
     }
 
     @Override
-    public ItemStack assemble(Inventory p_77572_1_) {
+    public ItemStack assemble(Container p_44001_) {
         return output.copy();
     }
 

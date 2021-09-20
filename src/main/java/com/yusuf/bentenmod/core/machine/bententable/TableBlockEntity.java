@@ -36,8 +36,9 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
+import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
-import com.yusuf.bentenmod.core.init.TileEntityInit;
+import com.yusuf.bentenmod.core.init.BlockEntityInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -55,7 +56,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class TableBlockEntity extends BlockEntity implements BlockEntityTicker {
+public class TableBlockEntity extends RandomizableContainerBlockEntity implements BlockEntityTicker {
     public static final int slots = 4;
     private final int maxTick = 200;
     private NonNullList<ItemStack> items = NonNullList.withSize(slots, ItemStack.EMPTY);
@@ -86,14 +87,13 @@ public class TableBlockEntity extends BlockEntity implements BlockEntityTicker {
     };
 
 
-    public TableBlockEntity(BlockEntityType<?> p_i48284_1_) {
-        super(p_i48284_1_);
+    public TableBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+        super(blockEntityType, blockPos, blockState);
     }
 
     public TableBlockEntity() {
-        this(TileEntityInit.TABLE_TILE.get());
+        this(BlockEntityInit.TABLE_BLOCK_ENTITY.get(),BlockPos.ZERO, BlockInit.TABLE_BLOCK.get().defaultBlockState());
     }
-
 
 
     //This is the MOST IMPORTANT
@@ -177,23 +177,27 @@ public class TableBlockEntity extends BlockEntity implements BlockEntityTicker {
         return !stack.isEmpty();
     }
 
+    @Override
     protected NonNullList<ItemStack> getItems() {
         return this.items;
     }
 
-
+    @Override
     protected void setItems(NonNullList<ItemStack> p_199721_1_) {
         this.items = p_199721_1_;
     }
 
+    @Override
     protected Component getDefaultName() {
         return LangKeys.TABLE_SCREEN;
     }
 
+    @Override
     protected AbstractContainerMenu createMenu(int p_213906_1_, Inventory p_213906_2_) {
         return new TableContainer(p_213906_1_, p_213906_2_, this, data);
     }
 
+    @Override
     public int getContainerSize() {
         return slots;
     }

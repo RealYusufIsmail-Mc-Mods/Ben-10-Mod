@@ -62,14 +62,14 @@ public class BenTenMod {
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
         EntityTypesInit.ENTITY_TYPES.register(bus);
-        TileEntityInit.TILE_ENTITY.register(bus);
+        BlockEntityInit.BLOCK_ENTITY.register(bus);
         ContainerInit.CONTAINERS.register(bus);
 
         GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();
 
         bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerationInit::addOres);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenertationInit::addOres);
         MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
     }
