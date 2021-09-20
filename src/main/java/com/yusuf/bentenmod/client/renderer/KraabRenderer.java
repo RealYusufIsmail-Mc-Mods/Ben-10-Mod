@@ -37,6 +37,7 @@ package com.yusuf.bentenmod.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.client.ClientModEventSubscriber;
 import com.yusuf.bentenmod.client.model.KraabModel;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -49,7 +50,7 @@ public class KraabRenderer extends MobRenderer<KraabEntity, KraabModel> {
             "textures/model/entities/kraab.png");
 
     public KraabRenderer(EntityRendererProvider.Context renderManagerIn) {
-        super(renderManagerIn, new KraabModel(), 0.7f);
+        super(renderManagerIn, new KraabModel(renderManagerIn.bakeLayer(ClientModEventSubscriber.KRAAB)), 0.7f);
     }
 
     @Override
