@@ -55,7 +55,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class TableBlockEntity extends RandomizableContainerBlockEntity implements BlockEntityTicker {
+public class TableBlockEntity extends BlockEntity implements BlockEntityTicker {
     public static final int slots = 4;
     private final int maxTick = 200;
     private NonNullList<ItemStack> items = NonNullList.withSize(slots, ItemStack.EMPTY);
@@ -177,27 +177,23 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
         return !stack.isEmpty();
     }
 
-    @Override
     protected NonNullList<ItemStack> getItems() {
         return this.items;
     }
 
-    @Override
+
     protected void setItems(NonNullList<ItemStack> p_199721_1_) {
         this.items = p_199721_1_;
     }
 
-    @Override
     protected Component getDefaultName() {
         return LangKeys.TABLE_SCREEN;
     }
 
-    @Override
     protected AbstractContainerMenu createMenu(int p_213906_1_, Inventory p_213906_2_) {
         return new TableContainer(p_213906_1_, p_213906_2_, this, data);
     }
 
-    @Override
     public int getContainerSize() {
         return slots;
     }
