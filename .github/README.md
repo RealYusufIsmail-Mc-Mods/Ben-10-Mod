@@ -8,4 +8,13 @@ Crafting recipes can be found here: https://realyusufismail.github.io/custom-mod
 
 This mod can be used in a modpack
 
+to contribute to this mod you need to add this to you gradle.properties
+```
+//Your GitHub username
+gpr.username=RealYusufIsmail
+
+// Your GitHub generated token (bunch of hex digits) with read permission
+gpr.token=paste_your_token_here
+```
+
 Copyright 2021, Yusuf Ismail , All rights reserved.
