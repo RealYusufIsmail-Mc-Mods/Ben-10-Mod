@@ -45,7 +45,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class EntitySpawingInit {
+    public class EntitySpawingInit {
     @SubscribeEvent
     public static void onBiomesLoad(BiomeLoadingEvent event) {
         if (event.getCategory() == Biome.BiomeCategory.NETHER)

@@ -67,19 +67,25 @@ public class EntityTypesInit {
     // registering the entities
     public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
             () -> vilgax);
-    // register spawn eggs
-    public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register("vilgax_spawn_egg",
-            () -> new SpawnEggItem(vilgax, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+
     private static final EntityType<KraabEntity> kraab = createStandardEntityType("kraab", KraabEntity::new,
             MobCategory.MONSTER, 1.3f, 1.8f);
     public static final RegistryObject<EntityType<KraabEntity>> KRAAB_ENTITY = ENTITY_TYPES.register("kraab",
             () -> kraab);
-    public static final RegistryObject<Item> KRAAB_SPAWN_EGG = ItemInit.ITEMS.register("kraab_spawn_egg",
-            () -> new SpawnEggItem(kraab, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+
     private static final EntityType<KraabBoltEntity> kraabBolt = createStandardEntityType("kraab", KraabBoltEntity::new,
             MobCategory.MISC, 0.5F, 0.5F);
+
     public static final RegistryObject<EntityType<KraabBoltEntity>> KRAAB_BOLT_ENTITY = ENTITY_TYPES.register("kraab_bolt",
             () -> kraabBolt);
+
+    // register spawn eggs
+    public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register("vilgax_spawn_egg",
+            () -> new SpawnEggItem(vilgax, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+
+    public static final RegistryObject<Item> KRAAB_SPAWN_EGG = ItemInit.ITEMS.register("kraab_spawn_egg",
+            () -> new SpawnEggItem(kraab, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+
 
     private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
                                                                              EntityType.EntityFactory<T> factory, MobCategory classification, float width, float height) {

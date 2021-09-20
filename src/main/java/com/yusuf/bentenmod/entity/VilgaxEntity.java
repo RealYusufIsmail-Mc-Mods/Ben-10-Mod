@@ -63,6 +63,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.sounds.SoundEvent;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -87,6 +88,10 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         super(p_i48549_1_, p_i48549_2_);
     }
 
+    public static <T extends Mob> boolean canVilgaxSpawn(EntityType<T> tEntityType, ServerLevelAccessor serverLevelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, Random random) {
+        return serverLevelAccessor.getRawBrightness(blockPos, 0) > 8;
+    }
+
     public static AttributeSupplier.Builder registerAttributes() {
         return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.23F).add(Attributes.ATTACK_DAMAGE, 10.0D)
@@ -94,9 +99,6 @@ public class VilgaxEntity extends Monster implements IAnimatable {
                 .add(Attributes.MAX_HEALTH, 300.0D);
     }
 
-    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, Level level, MobSpawnType reason, BlockPos pos, Random randomIn) {
-        return level.getRawBrightness(pos, 0) > 8;
-    }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
 
@@ -256,6 +258,5 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         }
 
     }
-
 
 }

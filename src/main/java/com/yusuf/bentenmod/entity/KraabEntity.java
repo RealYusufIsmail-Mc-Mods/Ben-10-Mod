@@ -52,6 +52,7 @@ import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
@@ -64,7 +65,7 @@ public class KraabEntity extends Monster {
 
     private float shootTimer;
 
-    public KraabEntity(EntityType<? extends KraabEntity> type, Level level) {
+    protected KraabEntity(EntityType<? extends KraabEntity> type, Level level) {
         super(type, level);
     }
 
@@ -73,8 +74,8 @@ public class KraabEntity extends Monster {
                 .add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.ATTACK_DAMAGE, 4).add(Attributes.MAX_HEALTH, 25);
     }
 
-    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, Level level, MobSpawnType reason, BlockPos pos, Random randomIn) {
-        return level.getRawBrightness(pos, 0) > 8;
+    public static <T extends Mob> boolean canKrabEntitySpawn(EntityType<T> tEntityType, ServerLevelAccessor serverLevelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, Random random) {
+        return serverLevelAccessor.getRawBrightness(blockPos, 0) > 8;
     }
 
     @Override
