@@ -39,6 +39,7 @@ import com.mojang.blaze3d.platform.ScreenManager;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import com.yusuf.bentenmod.core.machine.bententable.TableScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -52,6 +53,6 @@ public class ClientEventBusSubscriber {
 
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
-        ScreenManager.clamp(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
+        MenuScreens.register(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
     }
 }

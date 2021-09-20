@@ -40,8 +40,10 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 
 import java.net.NetworkInterface;
@@ -49,20 +51,20 @@ import java.net.NetworkInterface;
 public class TableScreen extends AbstractContainerScreen<TableContainer> {
     public static final ResourceLocation SCREEN_ID = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/table_screen.png");
 
-    public TableScreen(TableContainer p_i51105_1_, Inventory p_i51105_2_, TextComponent p_i51105_3_) {
+    public TableScreen(TableContainer p_i51105_1_, Inventory p_i51105_2_, Component p_i51105_3_) {
         super(p_i51105_1_, p_i51105_2_, p_i51105_3_);
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    protected void renderBg(PoseStack matrix, float p_230450_2_, int p_230450_3_, int p_230450_4_) {
+    protected void renderBg(PoseStack p_97787_, float p_97788_, int p_97789_, int p_97790_) {
         RenderSystem.setShaderColor(1, 1, 1, 1);
         minecraft.getTextureManager().getTexture(SCREEN_ID);
 
         // BenTenMod Screen
-        blit(matrix, leftPos, topPos, 0, 0, 176, 179);
+        blit(p_97787_, leftPos, topPos, 0, 0, 176, 179);
 
-        blit(matrix, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1, 17);
+        blit(p_97787_, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1, 17);
     }
 
 
