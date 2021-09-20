@@ -50,7 +50,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RegisterEvent {
     @SubscribeEvent
-    public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event, EntityAttributeCreationEvent entityAttributeCreationEvent) {
+    public static void onRegisterEntities(EntityAttributeCreationEvent entityAttributeCreationEvent) {
         ModSpawnEggItem.initSpawnEggs();
         // This is where to register the actual attributes of the entities
         entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());

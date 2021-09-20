@@ -36,14 +36,18 @@
 package com.yusuf.bentenmod.client;
 
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.client.model.KraabModel;
 import com.yusuf.bentenmod.client.renderer.KraabRenderer;
 import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.entity.KraabBoltEntity;
+
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -63,4 +67,12 @@ public class ClientModEventSubscriber {
         });
 
     }
+    
+    public static ModelLayerLocation KRAAB = new ModelLayerLocation(new ResourceLocation(BenTenMod.MOD_ID, "kraab"), "main");
+    
+    @SubscribeEvent
+    public static void onRegisterEntityRendererLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(KRAAB, KraabModel::createLayer);
+    }
+
 }

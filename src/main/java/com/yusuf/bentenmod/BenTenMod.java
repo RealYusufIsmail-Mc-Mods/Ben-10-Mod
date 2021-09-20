@@ -69,7 +69,7 @@ public class BenTenMod {
         GeckoLib.initialize();
 
         bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
-        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenertationInit::addOres);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerationInit::addOres);
         MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
     }
