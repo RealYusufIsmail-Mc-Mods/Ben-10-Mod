@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "bentenmod:imperium_ore"
+    "item": "bentenmod:raw_imperium"
   },
-  "result": "bentenmod:black_diamond_scrap",
+  "result": "bentenmod:imperium",
   "experience": 0.6,
   "cookingtime": 300
 }

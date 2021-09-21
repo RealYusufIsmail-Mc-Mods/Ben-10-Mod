@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:ruby_ore"
+            "items": [
+              "bentenmod:ruby_ore"
+            ]
           }
         ]
       }

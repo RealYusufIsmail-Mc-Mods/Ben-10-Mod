@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:fire_ore"
+            "items": [
+              "bentenmod:fire_ore"
+            ]
           }
         ]
       }

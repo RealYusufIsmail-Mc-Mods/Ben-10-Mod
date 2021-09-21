@@ -11,7 +11,9 @@
       "conditions": {
         "items": [
           {
-            "item": "bentenmod:infinitum_ore"
+            "items": [
+              "bentenmod:infinitum_ore"
+            ]
           }
         ]
       }
