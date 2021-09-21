@@ -40,8 +40,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RangeDecoratorConfiguration;
-import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
 import net.minecraft.world.level.levelgen.placement.FeatureDecorator;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -51,22 +49,40 @@ public class OreGenerationInit {
     public static void addOres(final BiomeLoadingEvent event) {
 
         addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
-                BlockInit.LEGENDARY_ORE.get().defaultBlockState(), 3, 0, 16, 7);
+                BlockInit.LEGENDARY_ORE.get().defaultBlockState(), 3, 11, 17, 7);
 
         addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
-                BlockInit.IMPERIUM_ORE.get().defaultBlockState(), 4, 0, 20, 8);
+                BlockInit.DEEPSLATE_LEGENDARY_ORE.get().defaultBlockState(), 3, 0, 11, 7);
 
         addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
-                BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 0, 17, 7);
+                BlockInit.IMPERIUM_ORE.get().defaultBlockState(), 4, 11, 20, 8);
 
         addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
-                BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 5, 0, 14, 7);
+                BlockInit.DEEPSLATE_IMPERIUM_ORE.get().defaultBlockState(), 4, 0, 11, 8);
 
         addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
-                BlockInit.SPEED_ORE.get().defaultBlockState(), 3, 0, 14, 5);
+                BlockInit.RUBY_ORE.get().defaultBlockState(), 3, 11, 17, 7);
 
         addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
-                BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 16, 6);
+                BlockInit.DEEPSLATE_RUBY_ORE.get().defaultBlockState(), 3, 0, 11, 7);
+
+        addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
+                BlockInit.BLACK_DIAMOND_ORE.get().defaultBlockState(), 5, 11, 15, 7);
+
+        addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
+                BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().defaultBlockState(), 5, 0, 11, 7);
+
+        addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
+                BlockInit.SPEED_ORE.get().defaultBlockState(), 3, 11, 15, 5);
+
+        addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
+                BlockInit.DEEPSLATE_SPEED_ORE.get().defaultBlockState(), 3, 0, 11, 5);
+
+        addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
+                BlockInit.OMNITRIX_ORE.get().defaultBlockState(), 3, 11, 16, 6);
+
+        addOre(event, OreConfiguration.Predicates.NATURAL_STONE,
+                BlockInit.DEEPSLATE_OMNITRIX_ORE.get().defaultBlockState(), 3, 0, 11, 6);
 
         addOre(event, OreConfiguration.Predicates.NETHERRACK,
                 BlockInit.INFINITUM_ORE.get().defaultBlockState(), 3, 8, 21, 5);

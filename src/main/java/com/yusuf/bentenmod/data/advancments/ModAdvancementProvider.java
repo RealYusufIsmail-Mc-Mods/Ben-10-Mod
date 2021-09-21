@@ -39,7 +39,9 @@ import com.google.common.collect.Sets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.core.init.BlockInit;
 import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.*;
@@ -58,8 +60,8 @@ import net.yusuf.realyusufismailcore.advancements.GenericIntTrigger;
 import net.yusuf.realyusufismailcore.util.NameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.yusuf.bentenmod.core.init.*;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
@@ -83,7 +85,8 @@ public class ModAdvancementProvider implements DataProvider {
     }
 
     @Override
-    public void run(HashCache p_123925_) throws IOException {
+    @ParametersAreNonnullByDefault
+    public void run(HashCache p_123925_) {
         Path path = this.generator.getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
         //noinspection OverlyLongLambda
@@ -112,45 +115,6 @@ public class ModAdvancementProvider implements DataProvider {
     }
 
     private static class Advancements implements Consumer<Consumer<Advancement>> {
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent) {
-            return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
-        }
-
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent, String key) {
-            return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
-        }
-
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, ItemStack icon, Advancement parent, String key) {
-            return Advancement.Builder.advancement()
-                    .parent(parent)
-                    .display(icon, title(key), description(key), null, FrameType.TASK, true, true, false)
-                    .addCriterion("get_item", getItem(item))
-                    .save(consumer, id(key));
-        }
-
-        private static String id(String path) {
-            return BenTenMod.getId(path).toString();
-        }
-
-        private static InventoryChangeTrigger.TriggerInstance getItem(ItemLike... items) {
-            return InventoryChangeTrigger.TriggerInstance.hasItems(items);
-        }
-
-        private static InventoryChangeTrigger.TriggerInstance getItem(Tag<Item> tag) {
-            return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, null, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
-        }
-
-        private static GenericIntTrigger.Instance genericInt(ResourceLocation id, int value) {
-            return GenericIntTrigger.Instance.instance(id, value);
-        }
-
-        private static Component title(String key) {
-            return new TranslatableComponent("advancements.bentenmod." + key + ".title");
-        }
-
-        private static Component description(String key) {
-            return new TranslatableComponent("advancements.bentenmod." + key + ".description");
-        }
 
         @SuppressWarnings({"unused", "OverlyLongMethod"})
         @Override
@@ -281,10 +245,10 @@ public class ModAdvancementProvider implements DataProvider {
             //omnitrix
             Advancement omnitrix_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(BlockInit.OMNITRIX_ORE.get(), title("omnitrix_ore"),
+                    .display(RAW_OMNITRIX.get(), title("omnitrix_ore"),
                             description("omnitrix_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(BlockInit.OMNITRIX_ORE.get()))
+                    .addCriterion("get_ore", getItem(RAW_OMNITRIX.get()))
                     .save(consumer, id("omnitrix_ore"));
 
             Advancement omnitrix_ingot = Advancement.Builder.advancement()
@@ -346,10 +310,10 @@ public class ModAdvancementProvider implements DataProvider {
             //imperium
             Advancement imperium_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(BlockInit.IMPERIUM_ORE.get(), title("imperium_ore"),
+                    .display(RAW_IMPERIUM.get(), title("imperium_ore"),
                             description("imperium_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(BlockInit.IMPERIUM_ORE.get()))
+                    .addCriterion("get_ore", getItem(RAW_IMPERIUM.get()))
                     .save(consumer, id("imperium_ore"));
 
             Advancement imperium_ingot = Advancement.Builder.advancement()
@@ -420,10 +384,10 @@ public class ModAdvancementProvider implements DataProvider {
             //legendary
             Advancement legendary_ore = Advancement.Builder.advancement()
                     .parent(root)
-                    .display(BlockInit.LEGENDARY_ORE.get(), title("legendary_ore"),
+                    .display(RAW_LEGENDARY.get(), title("legendary_ore"),
                             description("legendary_ore"),
                             null, FrameType.GOAL, true, true, false)
-                    .addCriterion("get_ore", getItem(BlockInit.LEGENDARY_ORE.get()))
+                    .addCriterion("get_ore", getItem(RAW_LEGENDARY.get()))
                     .save(consumer, id("legendary_ore"));
 
             Advancement legendary_ingot = Advancement.Builder.advancement()
@@ -513,5 +477,46 @@ public class ModAdvancementProvider implements DataProvider {
                     .requirements(RequirementsStrategy.OR)
                     .save(consumer, id("infinitum_tools"));
         }
+
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent) {
+            return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
+        }
+
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent, String key) {
+            return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
+        }
+
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, ItemStack icon, Advancement parent, String key) {
+            return Advancement.Builder.advancement()
+                    .parent(parent)
+                    .display(icon, title(key), description(key), null, FrameType.TASK, true, true, false)
+                    .addCriterion("get_item", getItem(item))
+                    .save(consumer, id(key));
+        }
+
+        private static String id(String path) {
+            return BenTenMod.getId(path).toString();
+        }
+
+        private static CriterionTriggerInstance getItem(ItemLike... items) {
+            return InventoryChangeTrigger.TriggerInstance.hasItems(items);
+        }
+
+        private static CriterionTriggerInstance getItem(Tag<Item> tag) {
+            return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, null, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE, EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
+        }
+
+        private static CriterionTriggerInstance genericInt(ResourceLocation id, int value) {
+            return GenericIntTrigger.Instance.instance(id, value);
+        }
+
+        private static Component title(String key) {
+            return new TranslatableComponent("advancements.bentenmod." + key + ".title");
+        }
+
+        private static Component description(String key) {
+            return new TranslatableComponent("advancements.bentenmod." + key + ".description");
+        }
+
     }
 }
