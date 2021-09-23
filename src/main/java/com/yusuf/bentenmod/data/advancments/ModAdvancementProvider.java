@@ -56,7 +56,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.yusuf.realyusufismailcore.advancements.GenericIntTrigger;
+import net.yusuf.realyusufismailcore.data.support.advancements.GenericIntTrigger;
 import net.yusuf.realyusufismailcore.util.NameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
