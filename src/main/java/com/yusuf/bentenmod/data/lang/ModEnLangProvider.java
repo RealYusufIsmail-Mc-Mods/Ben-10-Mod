@@ -37,8 +37,9 @@ package com.yusuf.bentenmod.data.lang;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
+import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.core.init.*;
+import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
 import com.yusuf.bentenmod.entity.KraabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
@@ -260,8 +261,7 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslatableComponent("advancements.bentenmod.infinitum_tools.description"), "You have made all the Infinitum tool set which is better than Black Diamond and Netherite.");
     }
 
-
-    private <T extends Item> void item(RegistryObject<T> entry, String name) {
+    private  <T extends Item> void item(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
 

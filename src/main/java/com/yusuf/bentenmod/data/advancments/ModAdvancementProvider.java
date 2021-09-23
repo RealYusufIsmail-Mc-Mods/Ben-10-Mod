@@ -80,10 +80,6 @@ public class ModAdvancementProvider implements DataProvider {
         this.generator = generator;
     }
 
-    private static Path getPath(Path pathIn, Advancement advancementIn) {
-        return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/" + advancementIn.getId().getPath() + ".json");
-    }
-
     @Override
     @ParametersAreNonnullByDefault
     public void run(HashCache p_123925_) {
@@ -107,11 +103,14 @@ public class ModAdvancementProvider implements DataProvider {
         new Advancements().accept(consumer);
     }
 
-
-
     @Override
     public String getName() {
-        return "Ben 10 mod - Advancements";
+        return "Ben Ten Moc - Advancements";
+    }
+
+
+    private static Path getPath(Path pathIn, Advancement advancementIn) {
+        return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/" + advancementIn.getId().getPath() + ".json");
     }
 
     private static class Advancements implements Consumer<Consumer<Advancement>> {
@@ -478,15 +477,16 @@ public class ModAdvancementProvider implements DataProvider {
                     .save(consumer, id("infinitum_tools"));
         }
 
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent) {
+
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, ItemLike item, Advancement parent) {
             return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
         }
 
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, Advancement parent, String key) {
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, ItemLike item, Advancement parent, String key) {
             return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
         }
 
-        private static Advancement simpleGetItem(Consumer<Advancement> consumer, Item item, ItemStack icon, Advancement parent, String key) {
+        private static Advancement simpleGetItem(Consumer<Advancement> consumer, ItemLike item, ItemStack icon, Advancement parent, String key) {
             return Advancement.Builder.advancement()
                     .parent(parent)
                     .display(icon, title(key), description(key), null, FrameType.TASK, true, true, false)

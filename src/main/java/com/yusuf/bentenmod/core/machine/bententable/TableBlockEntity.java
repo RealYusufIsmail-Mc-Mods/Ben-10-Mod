@@ -36,7 +36,6 @@
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
-import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.core.init.BlockEntityInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
@@ -50,7 +49,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
