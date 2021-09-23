@@ -39,11 +39,11 @@ package com.yusuf.bentenmod.data.client;
 import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.yusuf.realyusufismailcore.data.support.client.ModItemModelProviderSupport;
 
-public class ModItemModelProvider extends ItemModelProvider {
+public class ModItemModelProvider extends ModItemModelProviderSupport {
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
@@ -147,15 +147,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     }
 
-    private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
+    @Override
+    protected ItemModelBuilder builder(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
 
-    private ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
+    @Override
+    protected ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
         return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
     }
 
-    private void block(String name) {
+    @Override
+    protected void block(String name) {
         withExistingParent(name, modLoc("block/" + name));
     }
 }
