@@ -50,10 +50,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.LanguageProvider;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.yusuf.realyusufismailcore.data.support.lang.ModEnLangProviderSupport;
 
-public class ModEnLangProvider extends LanguageProvider {
+public class ModEnLangProvider extends ModEnLangProviderSupport {
 
     public ModEnLangProvider(DataGenerator gen) {
         super(gen, BenTenMod.MOD_ID, "en_us");
@@ -261,11 +261,13 @@ public class ModEnLangProvider extends LanguageProvider {
         add(new TranslatableComponent("advancements.bentenmod.infinitum_tools.description"), "You have made all the Infinitum tool set which is better than Black Diamond and Netherite.");
     }
 
-    private  <T extends Item> void item(RegistryObject<T> entry, String name) {
+    @Override
+    protected  <T extends Item> void item(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
 
-    private <T extends Block> void block(RegistryObject<T> entry, String name) {
+    @Override
+    protected <T extends Block> void block(RegistryObject<T> entry, String name) {
         add(entry.get(), name);
     }
 
@@ -277,7 +279,8 @@ public class ModEnLangProvider extends LanguageProvider {
         add(entry.get(), name);
     }
 
-    private void add(Component translatableComponent, String lang) {
+    @Override
+    protected void add(Component translatableComponent, String lang) {
         super.add(translatableComponent.getString(), lang);
     }
 }
