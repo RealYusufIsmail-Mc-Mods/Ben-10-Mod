@@ -269,6 +269,7 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         add(entry.get(), name);
     }
 
+    @Override
     protected <T extends Entity> void entity(EntityType<?> key, String name) {
         add(key.getDescriptionId(), name);
     }
