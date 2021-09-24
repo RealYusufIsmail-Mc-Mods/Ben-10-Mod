@@ -62,15 +62,15 @@ public class EntityTypesInit {
     public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
             () -> vilgax);
 
-    private static final EntityType<CrabEntity> crab = createStandardEntityType("kraab", CrabEntity::new,
+    private static final EntityType<CrabEntity> crab = createStandardEntityType("crab", CrabEntity::new,
             MobCategory.MONSTER, 1.3f, 1.8f);
-    public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY = ENTITY_TYPES.register("kraab",
+    public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY = ENTITY_TYPES.register("crab",
             () -> crab);
 
-    private static final EntityType<CrabBoltEntity> crabBolt = createStandardEntityType("kraab", CrabBoltEntity::new,
+    private static final EntityType<CrabBoltEntity> crabBolt = createStandardEntityType("crab", CrabBoltEntity::new,
             MobCategory.MISC, 0.5F, 0.5F);
 
-    public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY = ENTITY_TYPES.register("kraab_bolt",
+    public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY = ENTITY_TYPES.register("crab_bolt",
             () -> crabBolt);
 
     // register spawn eggs

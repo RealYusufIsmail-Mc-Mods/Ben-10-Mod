@@ -108,7 +108,7 @@
   "container.bentenmod.table_block": "Upgrade and Crafting Table",
   "desc.bentenmod.alien_create_table": "A crafting table use to create aliens from the ben 10 series",
   "desc.bentenmod.upgrade_table": "A table used to upgrade items and tools in the game",
-  "entity.bentenmod.kraab": "crab",
+  "entity.bentenmod.crab": "crab",
   "entity.bentenmod.vilgax": "Vilgax",
   "item.bentenmod.axe": "AXE SLAYER",
   "item.bentenmod.black_diamond": "Black Diamond",
