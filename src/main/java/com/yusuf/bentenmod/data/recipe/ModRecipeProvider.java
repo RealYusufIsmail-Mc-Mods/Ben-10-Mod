@@ -429,7 +429,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
                 .save(consumer, modId("vilgax_spawn_egg"));
 
-        ShapedRecipeBuilder.shaped(EntityTypesInit.KRAAB_SPAWN_EGG.get())
+        ShapedRecipeBuilder.shaped(EntityTypesInit.CRAB_SPAWN_EGG.get())
                 .define('L', Items.EGG.asItem())
                 .define('A', TagsInit.Items.INGOTS_IMPERIUM)
                 .pattern("AAA")

@@ -40,7 +40,6 @@ import com.yusuf.bentenmod.data.advancments.ModAdvancementProvider;
 import com.yusuf.bentenmod.data.client.ModBlockStateProvider;
 import com.yusuf.bentenmod.data.client.ModItemModelProvider;
 import com.yusuf.bentenmod.data.lang.ModEnLangProvider;
-import com.yusuf.bentenmod.data.loot.ModLootTables;
 import com.yusuf.bentenmod.data.recipe.ModRecipeProvider;
 import com.yusuf.bentenmod.data.recipe.ModSmithingRecipeBuild;
 import com.yusuf.bentenmod.data.tags.ModBlockTagsProvider;
@@ -62,7 +61,7 @@ public class DataGenerators {
 
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(new ModLootTables(gen));
+        //gen.addProvider(new ModLootTables(gen));
 
         //lang
         gen.addProvider(new ModEnLangProvider(gen));

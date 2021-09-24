@@ -42,8 +42,7 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import static com.yusuf.bentenmod.core.init.EntityTypesInit.KRAAB_SPAWN_EGG;
-import static com.yusuf.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
+import static com.yusuf.bentenmod.core.init.EntityTypesInit.*;
 import static com.yusuf.bentenmod.core.init.ItemInit.*;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
@@ -93,6 +92,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(TagsInit.Items.RAW_ORE).add(RAW_LEGENDARY.get(), RAW_OMNITRIX.get(), RAW_IMPERIUM.get());
 
         //others
-        tag(TagsInit.Items.SPAW_EGGS).add(VILGAX_SPAWN_EGG.get(), KRAAB_SPAWN_EGG.get());
+        tag(TagsInit.Items.SPAW_EGGS).add(VILGAX_SPAWN_EGG.get(), CRAB_SPAWN_EGG.get());
     }
 }

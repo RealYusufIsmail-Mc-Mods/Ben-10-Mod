@@ -156,7 +156,7 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         //other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
-        item(EntityTypesInit.KRAAB_SPAWN_EGG, "Krab Spawn Egg");
+        item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");

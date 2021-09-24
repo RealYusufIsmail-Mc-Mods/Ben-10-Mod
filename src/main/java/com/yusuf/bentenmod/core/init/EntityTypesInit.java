@@ -77,7 +77,7 @@ public class EntityTypesInit {
     public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register("vilgax_spawn_egg",
             () -> new SpawnEggItem(vilgax, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
-    public static final RegistryObject<Item> KRAAB_SPAWN_EGG = ItemInit.ITEMS.register("kraab_spawn_egg",
+    public static final RegistryObject<Item> CRAB_SPAWN_EGG = ItemInit.ITEMS.register("crab_spawn_egg",
             () -> new SpawnEggItem(crab, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
 
