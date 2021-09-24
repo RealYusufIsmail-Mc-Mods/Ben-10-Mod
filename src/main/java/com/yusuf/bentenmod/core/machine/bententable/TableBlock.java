@@ -46,6 +46,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -59,11 +60,10 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
-
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class TableBlock extends Block {
+public class TableBlock<T extends BlockEntity> extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
@@ -114,9 +114,11 @@ public class TableBlock extends Block {
         super.onRemove(state, level, pos, state1, p_196243_5_);
     }
 
+
+    @Nullable
     @Override
-    public boolean hasAnalogOutputSignal(BlockState state) {
-        return true;
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)  {
+        return new TableBlockEntity(pos, state);
     }
 
     @Override
