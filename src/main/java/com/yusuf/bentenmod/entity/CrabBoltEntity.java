@@ -49,20 +49,20 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
-public class KraabBoltEntity extends AbstractArrow {
+public class CrabBoltEntity extends AbstractArrow {
 
     private static final int MAX_DURATION = 40;
 
     private int duration;
 
-    public KraabBoltEntity(EntityType<? extends KraabBoltEntity> type, Level world) {
+    public CrabBoltEntity(EntityType<? extends CrabBoltEntity> type, Level world) {
         super(type, world);
         this.setNoGravity(true);
         this.setBaseDamage(6);
     }
 
-    public KraabBoltEntity(double x, double y, double z, Level world, Entity owner) {
-        super(EntityTypesInit.KRAAB_BOLT_ENTITY.get(), x, y, z, world);
+    public CrabBoltEntity(double x, double y, double z, Level world, Entity owner) {
+        super(EntityTypesInit.CRAB_BOLT_ENTITY.get(), x, y, z, world);
         this.setNoGravity(true);
         this.setBaseDamage(6);
         this.setOwner(owner);

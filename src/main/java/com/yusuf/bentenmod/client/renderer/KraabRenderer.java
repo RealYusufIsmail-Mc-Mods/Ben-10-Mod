@@ -39,12 +39,12 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.client.ClientModEventSubscriber;
 import com.yusuf.bentenmod.client.model.KraabModel;
-import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.CrabEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class KraabRenderer extends MobRenderer<KraabEntity, KraabModel> {
+public class KraabRenderer extends MobRenderer<CrabEntity, KraabModel> {
 
     private static final ResourceLocation TEXTURES = new ResourceLocation(BenTenMod.MOD_ID,
             "textures/model/entities/kraab.png");
@@ -54,12 +54,12 @@ public class KraabRenderer extends MobRenderer<KraabEntity, KraabModel> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(KraabEntity entity) {
+    public ResourceLocation getTextureLocation(CrabEntity entity) {
         return TEXTURES;
     }
 
     @Override
-    protected void setupRotations(KraabEntity p_225621_1_, PoseStack p_225621_2_, float p_225621_3_,
+    protected void setupRotations(CrabEntity p_225621_1_, PoseStack p_225621_2_, float p_225621_3_,
                                   float p_225621_4_, float p_225621_5_) {
     }
 }

@@ -37,12 +37,10 @@ package com.yusuf.bentenmod.common.events;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.CrabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import com.yusuf.bentenmod.item.ModSpawnEggItem;
-import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -54,6 +52,6 @@ public class RegisterEvent {
         ModSpawnEggItem.initSpawnEggs();
         // This is where to register the actual attributes of the entities
         entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxEntity.registerAttributes().build());
-        entityAttributeCreationEvent.put(EntityTypesInit.KRAAB_ENTITY.get(), KraabEntity.registerAttributes().build());
+        entityAttributeCreationEvent.put(EntityTypesInit.CRAB_ENTITY.get(), CrabEntity.registerAttributes().build());
     }
 }

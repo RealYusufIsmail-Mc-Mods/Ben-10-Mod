@@ -41,8 +41,6 @@ import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmod.entity.KraabEntity;
-import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -62,7 +60,7 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
     @Override
     protected void addTranslations() {
         //block
-        block(BlockInit.LEGENDARY_BLOCK, "Legerndary Block");
+        block(BlockInit.LEGENDARY_BLOCK, "Legendary Block");
         block(BlockInit.OMNITRIX_BLOCK, "Omnitrix Block");
         block(BlockInit.BLACK_DIAMOND_BLOCK, "Black Diamond Block");
         block(BlockInit.INFINITUM_BLOCK, "Infinitun Block");
@@ -164,8 +162,8 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
         add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
         add(LangKeys.ALIEN_TABLE_DISC, "A crafting table use to create aliens from the ben 10 series");
-        entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
-        entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
+        entity(EntityTypesInit.VILGAX_ENTITY.get(), "Vilgax");
+        entity(EntityTypesInit.CRAB_ENTITY.get(), "crab");
 
         //advancements
         add(new TranslatableComponent("advancements.bentenmod.root.title"), "Download Ben ten mod");
@@ -271,12 +269,8 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         add(entry.get(), name);
     }
 
-    private <T extends Entity> void entity(RegistryObject<EntityType<VilgaxEntity>> entry, String name) {
-        add(entry.get(), name);
-    }
-
-    private <T extends Entity> void entity1(RegistryObject<EntityType<KraabEntity>> entry, String name) {
-        add(entry.get(), name);
+    protected <T extends Entity> void entity(EntityType<?> key, String name) {
+        add(key.getDescriptionId(), name);
     }
 
     @Override

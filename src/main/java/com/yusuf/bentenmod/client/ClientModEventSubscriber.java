@@ -40,7 +40,7 @@ import com.yusuf.bentenmod.client.model.KraabModel;
 import com.yusuf.bentenmod.client.renderer.KraabRenderer;
 import com.yusuf.bentenmod.client.renderer.VilgaxRenderer;
 import com.yusuf.bentenmod.core.init.EntityTypesInit;
-import com.yusuf.bentenmod.entity.KraabBoltEntity;
+import com.yusuf.bentenmod.entity.CrabBoltEntity;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -58,10 +58,10 @@ public class ClientModEventSubscriber {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
         EntityRenderers.register(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
-        EntityRenderers.register(EntityTypesInit.KRAAB_ENTITY.get(), KraabRenderer::new);
-        EntityRenderers.register(EntityTypesInit.KRAAB_BOLT_ENTITY.get(), m -> new EntityRenderer<KraabBoltEntity>(m) {
+        EntityRenderers.register(EntityTypesInit.CRAB_ENTITY.get(), KraabRenderer::new);
+        EntityRenderers.register(EntityTypesInit.CRAB_BOLT_ENTITY.get(), m -> new EntityRenderer<CrabBoltEntity>(m) {
             @Override
-            public ResourceLocation getTextureLocation(KraabBoltEntity entity) {
+            public ResourceLocation getTextureLocation(CrabBoltEntity entity) {
                 return null;
             }
         });

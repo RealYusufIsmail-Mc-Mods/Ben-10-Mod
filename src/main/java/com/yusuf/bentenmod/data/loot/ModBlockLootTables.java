@@ -35,13 +35,14 @@
 
 package com.yusuf.bentenmod.data.loot;
 
-import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.core.init.BlockInit;
 import com.yusuf.bentenmod.core.init.ItemInit;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -88,9 +89,6 @@ public class ModBlockLootTables extends BlockLoot {
         add(BlockInit.DEEPSLATE_RUBY_ORE.get(),
                 createOreDrop(BlockInit.DEEPSLATE_LEGENDARY_ORE.get(), ItemInit.RUBY.get()));
 
-
-        dropSelf(BlockInit.FIRE_ORE.get());
-
         //blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
         dropSelf(BlockInit.FIRE_BLOCK.get());
@@ -100,13 +98,14 @@ public class ModBlockLootTables extends BlockLoot {
         dropSelf(BlockInit.BLACK_DIAMOND_BLOCK.get());
         dropSelf(BlockInit.LEGENDARY_BLOCK.get());
         dropSelf(BlockInit.IMPERIUM_BLOCK.get());
+        dropSelf(BlockInit.FIRE_ORE.get());
         dropSelf(BlockInit.TABLE_BLOCK.get());
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues().stream()
-                .filter(block -> BenTenMod.MOD_ID.equals(block.getRegistryName().getNamespace()))
+                .filter(block -> BenTenMod.MOD_ID.equals(Objects.requireNonNull(block.getRegistryName()).getNamespace()))
                 .collect(Collectors.toSet());
     }
 }

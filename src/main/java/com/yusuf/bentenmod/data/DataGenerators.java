@@ -62,16 +62,21 @@ public class DataGenerators {
 
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
+        gen.addProvider(new ModLootTables(gen));
 
+        //lang
+        gen.addProvider(new ModEnLangProvider(gen));
 
+        //recipe
+        gen.addProvider(new ModRecipeProvider(gen));
+        gen.addProvider(new ModSmithingRecipeBuild(gen));
+
+        //advancements
+        gen.addProvider(new ModAdvancementProvider(gen));
+
+        //tags
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-
-        gen.addProvider(new ModRecipeProvider(gen));
-        gen.addProvider(new ModSmithingRecipeBuild(gen));
-        gen.addProvider(new ModAdvancementProvider(gen));
-        gen.addProvider(new ModLootTables(gen));
-        gen.addProvider(new ModEnLangProvider(gen));
     }
 }

@@ -37,23 +37,17 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmod.entity.KraabBoltEntity;
-import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.CrabBoltEntity;
+import com.yusuf.bentenmod.entity.CrabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.ai.attributes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
-import net.minecraft.world.level.levelgen.structure.RuinedPortalPiece;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.Map;
 
 
 public class EntityTypesInit {
@@ -68,23 +62,23 @@ public class EntityTypesInit {
     public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY = ENTITY_TYPES.register("vilgax",
             () -> vilgax);
 
-    private static final EntityType<KraabEntity> kraab = createStandardEntityType("kraab", KraabEntity::new,
+    private static final EntityType<CrabEntity> crab = createStandardEntityType("kraab", CrabEntity::new,
             MobCategory.MONSTER, 1.3f, 1.8f);
-    public static final RegistryObject<EntityType<KraabEntity>> KRAAB_ENTITY = ENTITY_TYPES.register("kraab",
-            () -> kraab);
+    public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY = ENTITY_TYPES.register("kraab",
+            () -> crab);
 
-    private static final EntityType<KraabBoltEntity> kraabBolt = createStandardEntityType("kraab", KraabBoltEntity::new,
+    private static final EntityType<CrabBoltEntity> crabBolt = createStandardEntityType("kraab", CrabBoltEntity::new,
             MobCategory.MISC, 0.5F, 0.5F);
 
-    public static final RegistryObject<EntityType<KraabBoltEntity>> KRAAB_BOLT_ENTITY = ENTITY_TYPES.register("kraab_bolt",
-            () -> kraabBolt);
+    public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY = ENTITY_TYPES.register("kraab_bolt",
+            () -> crabBolt);
 
     // register spawn eggs
     public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register("vilgax_spawn_egg",
             () -> new SpawnEggItem(vilgax, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
     public static final RegistryObject<Item> KRAAB_SPAWN_EGG = ItemInit.ITEMS.register("kraab_spawn_egg",
-            () -> new SpawnEggItem(kraab, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+            () -> new SpawnEggItem(crab, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
 
     private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,

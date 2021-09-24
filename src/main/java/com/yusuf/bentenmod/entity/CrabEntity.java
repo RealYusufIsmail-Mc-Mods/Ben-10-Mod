@@ -35,9 +35,7 @@
 
 package com.yusuf.bentenmod.entity;
 
-import com.mojang.math.Vector3d;
-import com.yusuf.bentenmod.entity.ai.KraabWaterAvoidingRandomWalkingGoal;
-import com.yusuf.bentenmod.entity.ai.VilgaxWaterAvoidingRandomWalkingGoal;
+import com.yusuf.bentenmod.entity.ai.CrabWaterAvoidingRandomWalkingGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -46,9 +44,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -58,14 +54,14 @@ import net.minecraft.world.phys.Vec3;
 import java.util.EnumSet;
 import java.util.Random;
 
-public class KraabEntity extends Monster {
+public class CrabEntity extends Monster {
 
-    private static final EntityDataAccessor<Boolean> SHOOTING = SynchedEntityData.defineId(KraabEntity.class,
+    private static final EntityDataAccessor<Boolean> SHOOTING = SynchedEntityData.defineId(CrabEntity.class,
             EntityDataSerializers.BOOLEAN);
 
     private float shootTimer;
 
-    public KraabEntity(EntityType<? extends KraabEntity> type, Level level) {
+    public CrabEntity(EntityType<? extends CrabEntity> type, Level level) {
         super(type, level);
     }
 
@@ -81,7 +77,7 @@ public class KraabEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new ShootGoal(this));
-        this.goalSelector.addGoal(2, new KraabWaterAvoidingRandomWalkingGoal(this, 1));
+        this.goalSelector.addGoal(2, new CrabWaterAvoidingRandomWalkingGoal(this, 1));
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1, false));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
@@ -127,7 +123,7 @@ public class KraabEntity extends Monster {
     public void shoot(LivingEntity target) {
         Vec3 direction = Vec3.directionFromRotation(0, yRotO).yRot((float) Math.PI / 2);
         Vec3 pos = position().add(0, 1, 0).add(direction);
-        KraabBoltEntity bolt = new KraabBoltEntity(pos.x, pos.y, pos.z, level, this);
+        CrabBoltEntity bolt = new CrabBoltEntity(pos.x, pos.y, pos.z, level, this);
         bolt.shoot(target.getX() - pos.x, target.getEyeY() - 1 - pos.y, target.getZ() - pos.z, 0.75f, 6);
         level.addFreshEntity(bolt);
     }
@@ -138,10 +134,10 @@ public class KraabEntity extends Monster {
         private static final int MAX_DISTANCE = 100;
         private static final int MAX_TIMER = 40;
 
-        private final KraabEntity entity;
+        private final CrabEntity entity;
         private int cooldown, attackTimer;
 
-        public ShootGoal(KraabEntity entity) {
+        public ShootGoal(CrabEntity entity) {
             this.entity = entity;
             this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
         }

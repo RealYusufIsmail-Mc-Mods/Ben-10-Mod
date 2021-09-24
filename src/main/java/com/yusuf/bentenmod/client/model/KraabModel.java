@@ -38,7 +38,7 @@ package com.yusuf.bentenmod.client.model;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.CrabEntity;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -52,7 +52,7 @@ import net.minecraft.util.Mth;
 /**
  * Created using Tabula 8.0.0
  */
-public class KraabModel extends EntityModel<KraabEntity> {
+public class KraabModel extends EntityModel<CrabEntity> {
 
     private static final float PI = (float) Math.PI;
 
@@ -173,7 +173,7 @@ public class KraabModel extends EntityModel<KraabEntity> {
     }
 
     @Override
-    public void setupAnim(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
+    public void setupAnim(CrabEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
                           float netHeadYaw, float headPitch) {
 
         // Head
@@ -201,7 +201,7 @@ public class KraabModel extends EntityModel<KraabEntity> {
     }
 
     @Override
-    public void prepareMobModel(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
+    public void prepareMobModel(CrabEntity entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
         float bodyRot = 180 - Mth.rotLerp(partialTick, entityIn.yBodyRotO, entityIn.yBodyRot);
         body2.yRot = (PI / 180f) * bodyRot;
 

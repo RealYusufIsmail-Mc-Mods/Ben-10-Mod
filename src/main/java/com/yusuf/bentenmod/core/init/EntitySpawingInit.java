@@ -35,7 +35,7 @@
 
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.CrabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
@@ -51,12 +51,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
         if (event.getCategory() == Biome.BiomeCategory.NETHER)
             event.getSpawns().getSpawner(MobCategory.CREATURE).add(new MobSpawnSettings.SpawnerData(EntityTypesInit.VILGAX_ENTITY.get(), 3, 1, 2));
         if (event.getCategory() == Biome.BiomeCategory.DESERT || event.getCategory() == Biome.BiomeCategory.SAVANNA)
-            event.getSpawns().getSpawner(MobCategory.MONSTER).add(new MobSpawnSettings.SpawnerData(EntityTypesInit.KRAAB_ENTITY.get(), 3, 1, 1));
+            event.getSpawns().getSpawner(MobCategory.MONSTER).add(new MobSpawnSettings.SpawnerData(EntityTypesInit.CRAB_ENTITY.get(), 3, 1, 1));
 
     }
 
     public static void SpawnPlacements() {
-        SpawnPlacements.register(EntityTypesInit.KRAAB_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KraabEntity::canKrabEntitySpawn);
+        SpawnPlacements.register(EntityTypesInit.CRAB_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrabEntity::canKrabEntitySpawn);
         SpawnPlacements.register(EntityTypesInit.VILGAX_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VilgaxEntity::canVilgaxSpawn);
     }
 }

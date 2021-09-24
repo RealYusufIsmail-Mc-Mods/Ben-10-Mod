@@ -35,20 +35,20 @@
 
 package com.yusuf.bentenmod.entity.ai;
 
-import com.yusuf.bentenmod.entity.KraabEntity;
+import com.yusuf.bentenmod.entity.CrabEntity;
 import com.yusuf.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 
-public class KraabWaterAvoidingRandomWalkingGoal extends RandomStrollGoal {
+public class CrabWaterAvoidingRandomWalkingGoal extends RandomStrollGoal {
     protected final float probability;
     private VilgaxEntity vilgax;
 
 
-    public KraabWaterAvoidingRandomWalkingGoal(KraabEntity kraab, double p_i47301_2_) {
+    public CrabWaterAvoidingRandomWalkingGoal(CrabEntity kraab, double p_i47301_2_) {
         this(kraab, p_i47301_2_, 0.001F);
     }
 
-    public KraabWaterAvoidingRandomWalkingGoal(KraabEntity kraab, double p_i47302_2_, float p_i47302_4_) {
+    public CrabWaterAvoidingRandomWalkingGoal(CrabEntity kraab, double p_i47302_2_, float p_i47302_4_) {
         super(kraab, p_i47302_2_);
         this.probability = p_i47302_4_;
     }
