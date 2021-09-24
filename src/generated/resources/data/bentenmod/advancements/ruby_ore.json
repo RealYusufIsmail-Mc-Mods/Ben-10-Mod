@@ -1,0 +1,37 @@
+{
+  "parent": "bentenmod:root",
+  "display": {
+    "icon": {
+      "item": "bentenmod:ruby_ore"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.ruby_ore.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.ruby_ore.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:ruby_ore"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_ore"
+    ]
+  ]
+}

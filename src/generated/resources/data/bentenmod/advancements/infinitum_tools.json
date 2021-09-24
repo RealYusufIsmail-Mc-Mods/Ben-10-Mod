@@ -1,0 +1,90 @@
+{
+  "parent": "bentenmod:infinitum_ingot",
+  "display": {
+    "icon": {
+      "item": "bentenmod:infinitum_sword",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.infinitum_tools.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.infinitum_tools.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "infinitum_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "infinitum_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "infinitum_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "infinitum_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "infinitum_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_hoe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "infinitum_sword",
+      "infinitum_pickaxe",
+      "infinitum_shovel",
+      "infinitum_axe",
+      "infinitum_hoe"
+    ]
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "parent": "bentenmod:imperium_ingot",
+  "display": {
+    "icon": {
+      "item": "bentenmod:imperium_sword",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.imperium_tools.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.imperium_tools.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "imperium_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:imperium_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "imperium_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:imperium_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "imperium_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:imperium_axe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "imperium_pickaxe",
+      "imperium_sword",
+      "imperium_axe"
+    ]
+  ]
+}

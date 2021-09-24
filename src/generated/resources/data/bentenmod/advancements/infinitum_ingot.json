@@ -1,0 +1,37 @@
+{
+  "parent": "bentenmod:infinitum_scrap",
+  "display": {
+    "icon": {
+      "item": "bentenmod:infinitum"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.infinitum_ingot.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.infinitum_ingot.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "get_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_ingot"
+    ]
+  ]
+}

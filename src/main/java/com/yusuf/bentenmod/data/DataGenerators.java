@@ -70,10 +70,8 @@ public class DataGenerators {
 
         gen.addProvider(new ModRecipeProvider(gen));
         gen.addProvider(new ModSmithingRecipeBuild(gen));
+        gen.addProvider(new ModAdvancementProvider(gen));
         gen.addProvider(new ModLootTables(gen));
         gen.addProvider(new ModEnLangProvider(gen));
-        gen.addProvider(new ModAdvancementProvider(gen));
-
-
     }
 }

@@ -1,0 +1,77 @@
+{
+  "parent": "bentenmod:speed_ingot",
+  "display": {
+    "icon": {
+      "item": "bentenmod:xlr8_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "title": {
+      "translate": "advancements.bentenmod.xlr8_armour.title"
+    },
+    "description": {
+      "translate": "advancements.bentenmod.xlr8_armour.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "xlr8_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:xlr8_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "xlr8_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:xlr8_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "xlr8_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:xlr8_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "xlr8_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:xlr8_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "xlr8_helmet",
+      "xlr8_chestplate",
+      "xlr8_leggings",
+      "xlr8_boots"
+    ]
+  ]
+}

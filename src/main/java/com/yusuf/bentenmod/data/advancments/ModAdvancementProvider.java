@@ -105,7 +105,7 @@ public class ModAdvancementProvider implements DataProvider {
 
     @Override
     public String getName() {
-        return "Ben Ten Moc - Advancements";
+        return "Ben Ten Mod - Advancements";
     }
 
 
