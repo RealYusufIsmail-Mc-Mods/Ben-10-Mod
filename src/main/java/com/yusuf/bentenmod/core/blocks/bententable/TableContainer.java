@@ -96,6 +96,11 @@ public class TableContainer extends AbstractContainerMenu {
         }
         throw new IllegalStateException("Tile Entity Is Not Correct");
     }
+    
+    @Override
+    public boolean stillValid(Player p_18946_) {
+        return true;
+    }
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
@@ -127,11 +132,5 @@ public class TableContainer extends AbstractContainerMenu {
         return maxTick != 0 && process != 0 ? process * 24 / maxTick : 0;
 
     }
-
-    @Override
-    public boolean stillValid(Player p_18946_) {
-        return true;
-    }
-
 }
 

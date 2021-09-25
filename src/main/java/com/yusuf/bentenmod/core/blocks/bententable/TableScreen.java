@@ -68,9 +68,9 @@ public class TableScreen extends AbstractContainerScreen<TableContainer> {
 
     @Override
     public void render(PoseStack matrix, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
-        renderBackground(matrix);
+        this.renderBackground(matrix);
         super.render(matrix, p_230430_2_, p_230430_3_, p_230430_4_);
-        renderTooltip(matrix, p_230430_2_, p_230430_3_);
+        this.renderTooltip(matrix, p_230430_2_, p_230430_3_);
     }
 
     /*
