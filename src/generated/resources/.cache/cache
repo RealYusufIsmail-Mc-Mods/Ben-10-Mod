@@ -288,6 +288,7 @@ a6d58a88daf5098d7d9b53f067e0e5c1cb264a86 data/bentenmod/loot_tables/blocks/legen
 8f6d0943302c51f9fa9a828af30e90515ba17a7e data/bentenmod/loot_tables/blocks/ruby_ore.json
 a44a2250d19e75e74eab44d3cd02365652f25806 data/bentenmod/loot_tables/blocks/speed_block.json
 d3eac6aebff558dafbaa73b61f6be8f88b64aaf8 data/bentenmod/loot_tables/blocks/speed_ore.json
+2e7637b891f8a2fd479a3d7c92f0346da907e39f data/bentenmod/loot_tables/blocks/table_block.json
 e316eb621fab3e1354b4df9b2d93d0cc116cdd7c data/bentenmod/loot_tables/entities/crab.json
 d0eafeac5c728414f93b97a83d5968ede31703f3 data/bentenmod/loot_tables/entities/vilgax.json
 23308bad565d79bc2f3ae3575f7c0a917221c889 data/bentenmod/recipes/axe.json

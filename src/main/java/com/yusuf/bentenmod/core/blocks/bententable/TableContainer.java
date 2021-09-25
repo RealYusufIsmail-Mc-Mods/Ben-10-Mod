@@ -33,7 +33,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.core.machine.bententable;
+package com.yusuf.bentenmod.core.blocks.bententable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
 import net.minecraft.network.FriendlyByteBuf;

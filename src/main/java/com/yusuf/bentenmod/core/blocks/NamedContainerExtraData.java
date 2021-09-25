@@ -33,18 +33,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.core.init;
+package com.yusuf.bentenmod.core.blocks;
 
-import com.yusuf.bentenmod.BenTenMod;
-import com.yusuf.bentenmod.core.blocks.bententable.TableBlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.MenuProvider;
 
-public class BlockEntityInit {
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, BenTenMod.MOD_ID);
-
-    public static final RegistryObject<BlockEntityType<TableBlockEntity>> TABLE_BLOCK_ENTITY = BLOCK_ENTITY.register("table", () -> BlockEntityType.Builder.of(TableBlockEntity::new, BlockInit.TABLE_BLOCK.get()).build(null));
-
+public interface NamedContainerExtraData extends MenuProvider {
+    void encodeExtraData(FriendlyByteBuf buffer);
 }

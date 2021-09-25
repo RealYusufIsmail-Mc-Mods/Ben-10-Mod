@@ -35,7 +35,7 @@
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package com.yusuf.bentenmod.core.machine.bententable;
+package com.yusuf.bentenmod.core.blocks.bententable;
 
 import com.mojang.math.MethodsReturnNonnullByDefault;
 

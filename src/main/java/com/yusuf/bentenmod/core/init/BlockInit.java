@@ -37,7 +37,7 @@ package com.yusuf.bentenmod.core.init;
 
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.itemgroup.MainItemGroup;
-import com.yusuf.bentenmod.core.machine.bententable.TableBlock;
+import com.yusuf.bentenmod.core.blocks.bententable.TableBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

@@ -33,14 +33,15 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.core.machine.bententable;
+package com.yusuf.bentenmod.core.blocks.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
-import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.core.init.BlockEntityInit;
+import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -173,6 +174,11 @@ public class TableBlockEntity extends RandomizableContainerBlockEntity implement
     @Override
     protected NonNullList<ItemStack> getItems() {
         return this.items;
+    }
+
+    public void encodeExtraData(FriendlyByteBuf buffer) {
+        buffer.writeByte(this.items.size());
+        buffer.writeByte(this.data.getCount());
     }
 
     @Override

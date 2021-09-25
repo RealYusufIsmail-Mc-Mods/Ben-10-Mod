@@ -98,7 +98,7 @@ public class ModBlockLootTables extends BlockLoot {
         dropSelf(BlockInit.LEGENDARY_BLOCK.get());
         dropSelf(BlockInit.IMPERIUM_BLOCK.get());
         dropSelf(BlockInit.FIRE_ORE.get());
-        //dropSelf(BlockInit.TABLE_BLOCK.get());
+        dropSelf(BlockInit.TABLE_BLOCK.get());
     }
 
     @Override

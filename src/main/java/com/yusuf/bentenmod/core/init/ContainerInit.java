@@ -35,8 +35,7 @@
 
 package com.yusuf.bentenmod.core.init;
 
-import com.yusuf.bentenmod.core.machine.bententable.TableContainer;
-import net.minecraft.world.inventory.ContainerData;
+import com.yusuf.bentenmod.core.blocks.bententable.TableContainer;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fmllegacy.RegistryObject;

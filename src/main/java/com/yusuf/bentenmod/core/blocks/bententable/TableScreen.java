@@ -33,7 +33,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.core.machine.bententable;
+package com.yusuf.bentenmod.core.blocks.bententable;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -41,12 +41,8 @@ import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.common.LangKeys;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
-
-import java.net.NetworkInterface;
 
 public class TableScreen extends AbstractContainerScreen<TableContainer> {
     public static final ResourceLocation SCREEN_ID = new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/table_screen.png");

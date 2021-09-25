@@ -35,10 +35,9 @@
 
 package com.yusuf.bentenmod.core.util;
 
-import com.mojang.blaze3d.platform.ScreenManager;
 import com.yusuf.bentenmod.BenTenMod;
 import com.yusuf.bentenmod.core.init.ContainerInit;
-import com.yusuf.bentenmod.core.machine.bententable.TableScreen;
+import com.yusuf.bentenmod.core.blocks.bententable.TableScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

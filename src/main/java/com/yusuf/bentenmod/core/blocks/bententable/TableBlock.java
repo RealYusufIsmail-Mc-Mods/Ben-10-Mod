@@ -33,7 +33,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.yusuf.bentenmod.core.machine.bententable;
+package com.yusuf.bentenmod.core.blocks.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
 import net.minecraft.core.BlockPos;
@@ -46,40 +46,34 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class TableBlock<T extends BlockEntity> extends BaseEntityBlock {
+/**
+ * @see AbstractFurnaceBlock
+ */
+public class TableBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
     public TableBlock() {
-        super(Properties.of(Material.STONE)
-                .strength(3)
-                .noDrops()
-                .requiresCorrectToolForDrops()
-                .sound(SoundType.WOOD)
-        );
+        super(Properties.copy(Blocks.FURNACE));
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public InteractionResult use(BlockState p_225533_1_, Level level, BlockPos pos, Player playerEntity, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {
-        super.use(p_225533_1_, level, pos, playerEntity, p_225533_5_, p_225533_6_);
+    public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player playerEntity, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+        super.use(blockState, level, pos, playerEntity, interactionHand, blockHitResult);
         if (!level.isClientSide()) {
             BlockEntity be = level.getBlockEntity(pos);
             if (be instanceof TableBlockEntity) {
@@ -98,6 +92,12 @@ public class TableBlock<T extends BlockEntity> extends BaseEntityBlock {
         return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
 
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)  {
+        return new TableBlockEntity(pos, state);
+    }
+
     /**
      * drop items inside block when break
      */
@@ -112,13 +112,6 @@ public class TableBlock<T extends BlockEntity> extends BaseEntityBlock {
             }
         }
         super.onRemove(state, level, pos, state1, p_196243_5_);
-    }
-
-
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state)  {
-        return new TableBlockEntity(pos, state);
     }
 
     @Override
