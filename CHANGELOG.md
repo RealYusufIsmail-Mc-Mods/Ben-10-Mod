@@ -5,7 +5,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.17.1-1.10] - 20/09/2021
 
-### ported to 1.17.1
+### Ported to 1.17.1. Everything works apart from the custom table. Will be fixed in the next version. Does not require Patchouli for 1.17.1 but will in 1.18. Still requires my core mod RealYusufIsmail Core.
 
 ## [1.16.5-1.17] - 19/06/2021
 
