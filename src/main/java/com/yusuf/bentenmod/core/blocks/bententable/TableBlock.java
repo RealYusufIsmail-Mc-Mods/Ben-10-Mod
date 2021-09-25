@@ -69,8 +69,7 @@ public class TableBlock extends BaseEntityBlock {
 
     public TableBlock() {
         super(Properties.of(Material.WOOD)
-                .strength(1)
-                .requiresCorrectToolForDrops()
+                .strength(2)
                 .sound(SoundType.WOOD)
         );
     }
