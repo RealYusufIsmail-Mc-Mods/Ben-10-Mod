@@ -53,6 +53,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
@@ -67,8 +68,13 @@ public class TableBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
     public TableBlock() {
-        super(Properties.copy(Blocks.FURNACE));
+        super(Properties.of(Material.STONE)
+                .strength(3)
+                .requiresCorrectToolForDrops()
+                .sound(SoundType.WOOD)
+        );
     }
+
 
     @SuppressWarnings("deprecation")
     @Override
