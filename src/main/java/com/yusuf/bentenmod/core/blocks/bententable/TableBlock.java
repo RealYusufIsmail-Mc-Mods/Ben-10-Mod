@@ -68,7 +68,7 @@ public class TableBlock extends BaseEntityBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
     public TableBlock() {
-        super(Properties.of(Material.STONE)
+        super(Properties.of(Material.WOOD)
                 .strength(3)
                 .requiresCorrectToolForDrops()
                 .sound(SoundType.WOOD)
