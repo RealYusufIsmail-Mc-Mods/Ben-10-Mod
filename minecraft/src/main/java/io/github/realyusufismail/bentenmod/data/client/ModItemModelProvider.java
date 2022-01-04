@@ -155,8 +155,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         // ores
         else if (block == BlockInit.BLACK_DIAMOND_ORE.get())
             builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_ore");
-        else if (block == BlockInit.INFINITUM_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/infinitum_ore");
         else if (block == BlockInit.OMNITRIX_ORE.get())
             builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_ore");
         else if (block == BlockInit.FIRE_ORE.get())

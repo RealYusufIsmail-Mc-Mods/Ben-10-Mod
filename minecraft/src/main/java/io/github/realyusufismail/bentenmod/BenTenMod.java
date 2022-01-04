@@ -39,7 +39,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,7 +50,6 @@ import software.bernie.geckolib3.GeckoLib;
 import static io.github.realyusufismail.bentenmod.BenTenMod.MOD_ID;
 
 @Mod(MOD_ID)
-@Mod.EventBusSubscriber(modid = MOD_ID, bus = Bus.MOD)
 public class BenTenMod {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();

@@ -1,30 +1,33 @@
 buildscript {
     repositories {
+        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath group : 'org.spongepowered', name : 'mixingradle', version : '0.7.+'
     }
 }
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
 
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
+apply plugin: 'idea'
 
-version = "${mod_version}"
-group = 'io.github.realyusufismail'
-archivesBaseName = mod_id
+version = '1.18-1.0.0'
+archivesBaseName = project.archivesBaseName
 
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-minecraft {
-    mappings channel: 'official', version: "${mc_version}"
 
+minecraft {
+    mappings channel: 'official', version: project.mc_version.toString()
     runs {
         client {
             workingDirectory project.file('run')
@@ -42,7 +45,6 @@ minecraft {
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             property 'forge.logging.console.level', 'debug'
-
             mods {
                 bentenmod {
                     source sourceSets.main
@@ -53,12 +55,10 @@ minecraft {
         data {
             workingDirectory project.file('run')
             property 'forge.logging.console.level', 'debug'
-            args '--mod',  project.mod_id, '--all',
+            args '--mod', project.mod_id, '--all',
                     '--existing', file('src/main/resources').toString(),
                     '--existing', file('src/generated/resources').toString(),
                     '--output', file('src/generated/resources/')
-
-
             mods {
                 bentenmod {
                     source sourceSets.main
@@ -73,24 +73,12 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     mavenCentral()
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
-    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
     implementation group: 'io.github.yusufsdiscordbot.realyusufismailcore', name: 'minecraft', version: "${ryic_version}"
-    implementation group: 'io.github.yusufsdiscordbot', name: 'annotations', version: '1.0.3'
+    implementation group: 'io.github.yusufsdiscordbot', name: 'annotations', version: '1.0.8'
     implementation fg.deobf("software.bernie.geckolib:geckolib-${geckolib_version}")
-    compileOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}")
 }
 

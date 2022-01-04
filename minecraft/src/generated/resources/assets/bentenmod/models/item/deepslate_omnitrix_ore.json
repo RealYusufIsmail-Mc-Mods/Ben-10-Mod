@@ -1,3 +1,6 @@
 {
-  "parent": "bentenmod:block/deepslate_omnitrix_ore"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bentenmod:block/deepslate_omnitrix_ore"
+  }
 }

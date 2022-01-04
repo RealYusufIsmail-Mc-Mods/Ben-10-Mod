@@ -1,3 +1,6 @@
 {
-  "parent": "bentenmod:block/ruby_ore"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bentenmod:block/ruby_ore"
+  }
 }

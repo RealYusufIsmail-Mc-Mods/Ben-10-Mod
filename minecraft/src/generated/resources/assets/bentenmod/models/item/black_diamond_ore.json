@@ -1,3 +1,6 @@
 {
-  "parent": "bentenmod:block/black_diamond_ore"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bentenmod:block/black_diamond_ore"
+  }
 }

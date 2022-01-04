@@ -1,3 +1,6 @@
 {
-  "parent": "bentenmod:block/speed_block"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bentenmod:block/speed_block"
+  }
 }
