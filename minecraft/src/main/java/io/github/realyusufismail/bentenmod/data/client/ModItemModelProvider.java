@@ -85,7 +85,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(LEGGINGS.get(), itemGenerated);
         builder(JACKET.get(), itemGenerated);
         builder(HEATBLAST_HELMET.get(), itemGenerated);
-        builder(HEATBLAST_BOOTS.get(), itemGenerated);
+        builder(HEATBLAST_CHESTPLATE.get(), itemGenerated);
         builder(HEATBLAST_LEGGINGS.get(), itemGenerated);
         builder(HEATBLAST_BOOTS.get(), itemGenerated);
         // xlr8 armour
