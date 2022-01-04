@@ -56,10 +56,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-//TODO finish this.
+// TODO finish this.
 public class OreGenerationInit {
     private OreGenerationInit() {
-        throw new IllegalStateException("Utility class");
+        throw new IllegalStateException("Ore gen class");
     }
 
     protected static final List<PlacedFeature> OVERWORLD_ORES = new ArrayList<>();
@@ -83,9 +83,11 @@ public class OreGenerationInit {
                         HeightRangePlacement.uniform(VerticalAnchor.bottom(),
                                 VerticalAnchor.aboveBottom(20)),
                         InSquarePlacement.spread(), CountPlacement.of(100)));
+
+
+
+        // add ores
         OVERWORLD_ORES.add(placedBlackDiamondOre);
-
-
     }
 
     @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)

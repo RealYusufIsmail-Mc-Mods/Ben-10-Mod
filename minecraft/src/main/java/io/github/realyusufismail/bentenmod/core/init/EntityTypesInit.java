@@ -41,13 +41,16 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 
 public class EntityTypesInit {
+    private EntityTypesInit() {
+        throw new IllegalStateException("Entity gen class");
+    }
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITIES, BenTenMod.MOD_ID);
@@ -72,12 +75,13 @@ public class EntityTypesInit {
             ENTITY_TYPES.register("crab_bolt", () -> crabBolt);
 
     // register spawn eggs
-    public static final RegistryObject<Item> VILGAX_SPAWN_EGG =
-            ItemInit.ITEMS.register("vilgax_spawn_egg",
-                    () -> new SpawnEggItem(vilgax, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+    public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register(
+            "vilgax_spawn_egg",
+            () -> new ForgeSpawnEggItem(VILGAX_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
-    public static final RegistryObject<Item> CRAB_SPAWN_EGG = ItemInit.ITEMS.register(
-            "crab_spawn_egg", () -> new SpawnEggItem(crab, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+    public static final RegistryObject<Item> CRAB_SPAWN_EGG =
+            ItemInit.ITEMS.register("crab_spawn_egg",
+                    () -> new ForgeSpawnEggItem(CRAB_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
 
     private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,

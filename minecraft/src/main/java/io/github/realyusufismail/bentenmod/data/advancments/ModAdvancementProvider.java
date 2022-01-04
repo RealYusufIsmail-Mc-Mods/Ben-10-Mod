@@ -446,18 +446,18 @@ public class ModAdvancementProvider implements DataProvider {
         }
 
 
-        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer, ItemLike item,
-                                                          Advancement parent) {
+        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
+                ItemLike item, Advancement parent) {
             return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
         }
 
-        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer, ItemLike item,
-                                                          Advancement parent, String key) {
+        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
+                ItemLike item, Advancement parent, String key) {
             return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
         }
 
-        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer, ItemLike item,
-                                                          ItemStack icon, Advancement parent, String key) {
+        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
+                ItemLike item, ItemStack icon, Advancement parent, String key) {
             return Advancement.Builder.advancement()
                 .parent(parent)
                 .display(icon, title(key), description(key), null, FrameType.TASK, true, true,
@@ -483,7 +483,8 @@ public class ModAdvancementProvider implements DataProvider {
         }
 
         @Contract(value = "_, _ -> new", pure = true)
-        private static @NotNull CriterionTriggerInstance genericInt(ResourceLocation id, int value) {
+        private static @NotNull CriterionTriggerInstance genericInt(ResourceLocation id,
+                int value) {
             return GenericIntTrigger.Instance.instance(id, value);
         }
 

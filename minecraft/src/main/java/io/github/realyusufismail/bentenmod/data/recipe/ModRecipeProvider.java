@@ -37,12 +37,14 @@ import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.init.TagsInit;
-import net.minecraft.data.*;
+import io.github.realyusufismail.realyusufismailcore.json.EnchantmentRecipeProvider;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
@@ -235,6 +237,17 @@ public class ModRecipeProvider extends RecipeProvider {
             .pattern(" # ")
             .unlockedBy("has_item", has(TagsInit.Items.INGOTS_IMPERIUM))
             .save(consumer, modId("imperium_sword"));
+
+        EnchantmentRecipeProvider.shaped(ItemInit.HEATBLAST_SWORD.get())
+            .define('#', Items.STICK.asItem())
+            .define('K', ItemInit.FIRE.get())
+            .define('A', ItemInit.OMNITRIX.get())
+            .pattern(" K ")
+            .pattern(" A ")
+            .pattern(" # ")
+            .setEnchantment(Enchantments.FIRE_ASPECT, 1, 1)
+            .unlockedBy("has_item", has(ItemInit.FIRE.get()))
+            .save(consumer, modId("heatblast_sword"));
 
         ShapedRecipeBuilder.shaped(ItemInit.IMPERIUM_PICKAXE.get())
             .define('#', Items.STICK.asItem())

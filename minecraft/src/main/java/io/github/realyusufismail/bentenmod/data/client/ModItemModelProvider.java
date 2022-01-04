@@ -34,13 +34,25 @@ package io.github.realyusufismail.bentenmod.data.client;
 
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.realyusufismailcore.data.support.client.ModItemModelProviderSupport;
+import io.github.realyusufismail.bentenmod.core.init.BlockInit;
+import io.github.realyusufismail.realyusufismailcore.util.NameUtils;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 
-public class ModItemModelProvider extends ModItemModelProviderSupport {
+import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
+import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
+import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
+
+public class ModItemModelProvider extends ItemModelProvider {
+    private static final String GENERATED_ITEM = "item/generated";
+
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
@@ -48,116 +60,143 @@ public class ModItemModelProvider extends ModItemModelProviderSupport {
 
     @Override
     protected void registerModels() {
-        block("black_diamond_block");
-        block("black_diamond_ore");
-        block("infinitum_ore");
-        block("fire_block");
-        block("fire_ore");
-        block("legendary_block");
-        block("omnitrix_block");
-        block("speed_block");
-        block("ruby_block");
-        block("ruby_ore");
-        block("infinitum_block");
-        block("speed_ore");
-        block("omnitrix_ore");
-        block("imperium_ore");
-        block("legendary_ore");
-        block("imperium_block");
-        block("deepslate_legendary_ore");
-        block("deepslate_ruby_ore");
-        block("deepslate_black_diamond_ore");
-        block("deepslate_imperium_ore");
-        block("deepslate_speed_ore");
-        block("deepslate_omnitrix_ore");
-        block("deepslate_omnitrix_ore");
-        // To have a custom file name use withExistingParent
-        // example withExistingParent("deepslate_omnitrix_ore_name",
-        // modLoc("block/deepslate_omnitrix_ore"));
+        BlockInit.BLOCKS.getEntries()
+            .stream()
+            .map(RegistryObject::get)
+            .forEach(this::blockItemModel);
 
+        ModelFile itemGenerated = getExistingFile(new ResourceLocation(GENERATED_ITEM));
+        ModelFile itemHandHeld = getExistingFile(new ResourceLocation("item/handheld"));
 
-        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
-        ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
         // items
-        builder(itemGenerated, "black_diamond");
-        builder(itemGenerated, "black_diamond_scrap");
-        builder(itemGenerated, "infinitum");
-        builder(itemGenerated, "infinitum_scrap");
-        builder(itemGenerated, "boots");
-        builder(itemGenerated, "chestplate");
-        builder(itemGenerated, "legendary");
-        builder(itemGenerated, "omnitrix");
-        builder(itemGenerated, "fire");
-        builder(itemGenerated, "ruby");
-        builder(itemGenerated, "speed");
-        builder(itemGenerated, "helmet");
-        builder(itemGenerated, "leggings");
-        builder(itemGenerated, "jacket");
-        builder(itemGenerated, "heatblast_helmet");
-        builder(itemGenerated, "heatblast_chestplate");
-        builder(itemGenerated, "heatblast_leggings");
-        builder(itemGenerated, "heatblast_boots");
-        builder(itemGenerated, "xlr8_helmet");
-        builder(itemGenerated, "xlr8_chestplate");
-        builder(itemGenerated, "xlr8_leggings");
-        builder(itemGenerated, "xlr8_boots");
-        builder(itemGenerated, "omnitrix_apple");
-        builder(itemGenerated, "enchanted_omnitrix_apple");
-        builder(itemGenerated, "fire_apple");
-        builder(itemGenerated, "ruby_apple");
-        builder(itemGenerated, "vilgax_spawn_egg");
-        builder(itemGenerated, "black_diamond_helmet");
-        builder(itemGenerated, "black_diamond_chestplate");
-        builder(itemGenerated, "black_diamond_leggings");
-        builder(itemGenerated, "black_diamond_boots");
-        builder(itemGenerated, "infinitum_helmet");
-        builder(itemGenerated, "infinitum_chestplate");
-        builder(itemGenerated, "infinitum_leggings");
-        builder(itemGenerated, "infinitum_boots");
-        builder(itemGenerated, "imperium");
-        builder(itemGenerated, "copper");
-        builder(itemGenerated, "kraab_spawn_egg");
-        builder(itemGenerated, "raw_legendary");
-        builder(itemGenerated, "raw_omnitrix");
-        builder(itemGenerated, "raw_imperium");
-        // builder(itemGenerated, "omnitrix_watch");
+        builder(BLACK_DIAMOND.get(), itemGenerated);
+        builder(BLACK_DIAMOND_SCRAP.get(), itemGenerated);
+        builder(INFINITUM.get(), itemGenerated);
+        builder(INFINITUM_SCRAP.get(), itemGenerated);
+        builder(BOOTS.get(), itemGenerated);
+        builder(CHESTPLATE.get(), itemGenerated);
+        builder(LEGENDARY.get(), itemGenerated);
+        builder(OMNITRIX.get(), itemGenerated);
+        builder(FIRE.get(), itemGenerated);
+        builder(RUBY.get(), itemGenerated);
+        builder(SPEED.get(), itemGenerated);
+        builder(HELMET.get(), itemGenerated);
+        builder(LEGGINGS.get(), itemGenerated);
+        builder(JACKET.get(), itemGenerated);
+        builder(HEATBLAST_HELMET.get(), itemGenerated);
+        builder(HEATBLAST_BOOTS.get(), itemGenerated);
+        builder(HEATBLAST_LEGGINGS.get(), itemGenerated);
+        builder(HEATBLAST_BOOTS.get(), itemGenerated);
+        // xlr8 armour
+        builder(XLR8_HELMET.get(), itemGenerated);
+        builder(XLR8_CHESTPLATE.get(), itemGenerated);
+        builder(XLR8_LEGGINGS.get(), itemGenerated);
+        builder(XLR8_BOOTS.get(), itemGenerated);
+        builder(OMNITRIX_APPLE.get(), itemGenerated);
+        builder(ENCHANTED_OMNITRIX_APPLE.get(), itemGenerated);
+        builder(FIRE_APPLE.get(), itemGenerated);
+        builder(RUBY_APPLE.get(), itemGenerated);
+        builder(VILGAX_SPAWN_EGG.get(), itemGenerated);
+        // black diamond armour
+        builder(BLACK_DIAMOND_HELMET.get(), itemGenerated);
+        builder(BLACK_DIAMOND_CHESTPLATE.get(), itemGenerated);
+        builder(BLACK_DIAMOND_LEGGINGS.get(), itemGenerated);
+        builder(BLACK_DIAMOND_BOOTS.get(), itemGenerated);
+        // infinitum armour
+        builder(INFINITUM_HELMET.get(), itemGenerated);
+        builder(INFINITUM_CHESTPLATE.get(), itemGenerated);
+        builder(INFINITUM_LEGGINGS.get(), itemGenerated);
+        builder(INFINITUM_BOOTS.get(), itemGenerated);
+        builder(IMPERIUM.get(), itemGenerated);
+        builder(CRAB_SPAWN_EGG.get(), itemGenerated);
+        builder(RAW_LEGENDARY.get(), itemGenerated);
+        builder(RAW_IMPERIUM.get(), itemGenerated);
+        builder(RAW_OMNITRIX.get(), itemGenerated);
 
 
         // tools
-        tool(itemhandHeld, "axe");
-        tool(itemhandHeld, "sword");
-        tool(itemhandHeld, "heatblast_sword");
-        tool(itemhandHeld, "black_diamond_sword");
-        tool(itemhandHeld, "black_diamond_pickaxe");
-        tool(itemhandHeld, "black_diamond_shovel");
-        tool(itemhandHeld, "black_diamond_axe");
-        tool(itemhandHeld, "black_diamond_hoe");
-        tool(itemhandHeld, "infinitum_sword");
-        tool(itemhandHeld, "infinitum_axe");
-        tool(itemhandHeld, "infinitum_pickaxe");
-        tool(itemhandHeld, "infinitum_shovel");
-        tool(itemhandHeld, "infinitum_hoe");
-        tool(itemhandHeld, "imperium_sword");
-        tool(itemhandHeld, "imperium_pickaxe");
-        tool(itemhandHeld, "imperium_pickaxe_upgraded");
-        tool(itemhandHeld, "imperium_axe");
-
+        builder(BLACK_DIAMOND_AXE.get(), itemHandHeld);
+        builder(BLACK_DIAMOND_HOE.get(), itemHandHeld);
+        builder(BLACK_DIAMOND_PICKAXE.get(), itemHandHeld);
+        builder(BLACK_DIAMOND_SHOVEL.get(), itemHandHeld);
+        builder(BLACK_DIAMOND_SWORD.get(), itemHandHeld);
+        builder(INFINITUM_AXE.get(), itemHandHeld);
+        builder(INFINITUM_HOE.get(), itemHandHeld);
+        builder(INFINITUM_PICKAXE.get(), itemHandHeld);
+        builder(INFINITUM_SHOVEL.get(), itemHandHeld);
+        builder(INFINITUM_SWORD.get(), itemHandHeld);
+        builder(AXE.get(), itemHandHeld);
+        builder(SWORD.get(), itemHandHeld);
+        builder(HEATBLAST_SWORD.get(), itemHandHeld);
+        builder(IMPERIUM_AXE.get(), itemHandHeld);
+        builder(IMPERIUM_PICKAXE.get(), itemHandHeld);
+        builder(IMPERIUM_PICKAXE_UPGRADED.get(), itemHandHeld);
+        builder(IMPERIUM_AXE.get(), itemHandHeld);
     }
 
-    @Override
-    protected ItemModelBuilder builder(ModelFile itemGenerated, String name) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    private void blockItemModel(Block block) {
+        if (block == BlockInit.BLACK_DIAMOND_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_block");
+        else if (block == BlockInit.INFINITUM_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/infinitum_block");
+        else if (block == BlockInit.OMNITRIX_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_block");
+        else if (block == BlockInit.FIRE_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/fire_block");
+        else if (block == BlockInit.RUBY_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/ruby_block");
+        else if (block == BlockInit.SPEED_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/speed_block");
+        else if (block == BlockInit.IMPERIUM_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/imperium_block");
+        else if (block == BlockInit.LEGENDARY_BLOCK.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/legendary_block");
+        // ores
+        else if (block == BlockInit.BLACK_DIAMOND_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_ore");
+        else if (block == BlockInit.INFINITUM_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/infinitum_ore");
+        else if (block == BlockInit.OMNITRIX_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_ore");
+        else if (block == BlockInit.FIRE_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/fire_ore");
+        else if (block == BlockInit.RUBY_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/ruby_ore");
+        else if (block == BlockInit.SPEED_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/speed_ore");
+        else if (block == BlockInit.IMPERIUM_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/imperium_ore");
+        else if (block == BlockInit.LEGENDARY_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/legendary_ore");
+        // DEEPSLATE ore
+        else if (block == BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)),
+                    "block/deepslate_black_diamond_ore");
+        else if (block == BlockInit.DEEPSLATE_OMNITRIX_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_omnitrix_ore");
+        else if (block == BlockInit.DEEPSLATE_RUBY_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_ruby_ore");
+        else if (block == BlockInit.DEEPSLATE_SPEED_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_speed_ore");
+        else if (block == BlockInit.DEEPSLATE_IMPERIUM_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_imperium_ore");
+        else if (block == BlockInit.DEEPSLATE_LEGENDARY_ORE.get())
+            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_legendary_ore");
     }
 
-    @Override
-    protected ItemModelBuilder tool(ModelFile itemhandHeld, String name) {
-        return getBuilder(name).parent(itemhandHeld).texture("layer0", "item/" + name);
+    private ItemModelBuilder builder(ItemLike item) {
+        return getBuilder(NameUtils.fromItem(item).getPath());
     }
 
-    @Override
-    protected void block(String name) {
-        withExistingParent(name, modLoc("block/" + name));
+    private ItemModelBuilder builder(ItemLike item, ModelFile parent) {
+        String name = NameUtils.fromItem(item).getPath();
+        return builder(item, parent, "item/" + name);
+    }
+
+    private ItemModelBuilder builder(ItemLike item, ModelFile parent, String texture) {
+        return getBuilder(NameUtils.fromItem(item).getPath()).parent(parent)
+            .texture("layer0", texture);
     }
 }
 

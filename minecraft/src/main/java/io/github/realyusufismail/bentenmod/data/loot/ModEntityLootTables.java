@@ -35,9 +35,9 @@ package io.github.realyusufismail.bentenmod.data.loot;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
-import io.github.realyusufismail.realyusufismailcore.core.init.ItemInitCore;
 import net.minecraft.data.loot.EntityLoot;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -65,7 +65,7 @@ public class ModEntityLootTables extends EntityLoot {
         add(EntityTypesInit.CRAB_ENTITY.get(), LootTable.lootTable()
             .withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ItemInitCore.COPPER.get())
+                .add(LootItem.lootTableItem(Items.COPPER_INGOT)
                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 6.0F)))
                     .apply(LootingEnchantFunction
                         .lootingMultiplier(UniformGenerator.between(0.0F, 6.0F))))));

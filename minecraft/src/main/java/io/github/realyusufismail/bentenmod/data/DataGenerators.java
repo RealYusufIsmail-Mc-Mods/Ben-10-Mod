@@ -42,8 +42,6 @@ import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
 import io.github.realyusufismail.bentenmod.data.recipe.ModSmithingRecipeBuild;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
-import net.minecraft.data.DataGenerator;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
@@ -54,8 +52,8 @@ public class DataGenerators {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
-        DataGenerator gen = event.getGenerator();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        var gen = event.getGenerator();
+        var existingFileHelper = event.getExistingFileHelper();
 
         gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));

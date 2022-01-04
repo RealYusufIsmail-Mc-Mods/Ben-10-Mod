@@ -41,6 +41,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
+// TODO: fix the screen as it is broken
 public class TableScreen extends AbstractContainerScreen<TableContainer> {
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/table_screen.png");
@@ -49,7 +50,6 @@ public class TableScreen extends AbstractContainerScreen<TableContainer> {
         super(p_i51105_1_, p_i51105_2_, p_i51105_3_);
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     protected void renderBg(PoseStack p_97787_, float p_97788_, int p_97789_, int p_97790_) {
         RenderSystem.setShaderColor(1, 1, 1, 1);

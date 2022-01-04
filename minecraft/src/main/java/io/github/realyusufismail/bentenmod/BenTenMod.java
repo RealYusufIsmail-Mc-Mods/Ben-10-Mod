@@ -37,7 +37,6 @@ import io.github.realyusufismail.bentenmod.core.util.ModResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -49,15 +48,17 @@ import org.jetbrains.annotations.NotNull;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
-@Mod("bentenmod")
-@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Bus.MOD)
+import static io.github.realyusufismail.bentenmod.BenTenMod.MOD_ID;
+
+@Mod(MOD_ID)
+@Mod.EventBusSubscriber(modid = MOD_ID, bus = Bus.MOD)
 public class BenTenMod {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "bentenmod";
 
     public BenTenMod() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        final var bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
@@ -71,6 +72,7 @@ public class BenTenMod {
         bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
         MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
+        LOGGER.info("Armour and Item loaded");
     }
 
     @Contract("_ -> new")
