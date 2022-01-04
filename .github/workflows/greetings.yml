@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Hi/Hello Thank you for raising your first issue. Please make sure it is detailed so we know what it is about.'
+        pr-message: 'Hi/Hello thank you for contributing to this project. Can you please run ./gradlew spotlessApply to make sure the code is tidy and clean. Thank you'

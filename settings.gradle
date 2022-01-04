@@ -1,0 +1,3 @@
+rootProject.name = 'Ben-10-Mod'
+
+include 'minecraft'

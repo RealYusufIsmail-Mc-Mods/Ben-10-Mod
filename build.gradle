@@ -1,137 +1,150 @@
-buildscript {
+plugins {
+    id 'java'
+    id "com.diffplug.spotless" version "6.1.0"
+    id "name.remal.sonarlint" version "1.5.0"
+}
+
+ext {
+    dev_id = 'yusuf'
+    dev_name = 'Yusuf Ismail'
+    dev_email = 'ysufgamer222@gmail.com'
+    dev_organization = 'Real Yusuf Ismail'
+    dev_organizationUrl = 'https://github.com/RealYusufIsmail/Ben-10-Mod'
+
+    gpl_name = 'BSD 3-Clause "New" or "Revised" License'
+    gpl_url = 'https://github.com/RealYusufIsmail/Ben-10-Mod/blob/1.18.1/LICENSE.txt'
+
+    // Make sure we have a default for initial configuration evaluation
+    isReleaseVersion = false
+}
+
+allprojects {
+    //Maven published can be found in application's gradle
+    group = 'io.github.yusufsdiscordbot.ben10'
+
+    // When it comes to publishing we need to ensure we have the subproject version set
+    // rather than the root project version
+    afterEvaluate { project ->
+        ext.isReleaseVersion = !version.endsWith("RELEASE")
+    }
+}
+sourceCompatibility = JavaVersion.VERSION_17
+
+subprojects {
+    //some parts of this gradle copy tj's bot.
+    //so all credits for that goes towards java Together-Java https://github.com/Together-Java/TJ-Bot/blob/a2a963a9e51792018f1beff3b41b6ba9eab0ca50/build.gradle#L25
+    apply plugin: "java"
+    apply plugin: "com.diffplug.spotless"
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+
+
+    // All subprojects inherit root project group and version, to avoid duplication.
+    group = rootProject.group
+    version = rootProject.version
+
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
+
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        testImplementation("junit:junit:4.13.2")
     }
-}
-apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
-version = "${mod_version}"
-group = 'com.yusuf'
-archivesBaseName = mod_id
+    compileJava {
+        // Makes spotlessApply task run on every compile/build.
+        dependsOn 'spotlessApply'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+        // Nails the Java-Version of every Subproject
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-minecraft {
+    spotless {
+        java {
+            // Excludes build folder since it contains generated java classes.
+            targetExclude("build/**")
+            eclipse('4.19.0').configFile("${rootProject.rootDir}/meta/formatting/google-style-eclipse.xml")
+        }
+    }
 
-    mappings channel: 'official', version: "${mc_version}"
+    javadoc {
+        if (JavaVersion.current().isJava8Compatible()) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+            logging.captureStandardError LogLevel.INFO
+            logging.captureStandardOutput LogLevel.INFO
+        }
 
-    runs {
-        client {
-            workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                bentenmod {
-                    source sourceSets.main
+        if (JavaVersion.current().isJava9Compatible()) {
+            options.addBooleanOption('html5', true)
+        }
+    }
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                //artifactId = project.artifactId // or maybe archiveBaseName?
+                from components.java
+                pom {
+                    name = project.archivesBaseName
+                    description = project.description
+                    url = "https://github.com/YusufsDiscordbot/YusufIsmails-Discord-core"
+                    packaging = "jar"
+
+                    licenses {
+                        license {
+                            name = "${gpl_name}"
+                            url = "${gpl_url}"
+                        }
+                    }
+                    developers {
+                        developer {
+                            id = "${dev_id}"
+                            name = "${dev_name}"
+                            email = "${dev_email}"
+                            organization = "${dev_organization}"
+                            organizationUrl = "${dev_organizationUrl}"
+                        }
+                    }
+                    scm {
+                        connection = 'https://github.com/YusufsDiscordbot/YusufIsmails-Discord-core.git'
+                        developerConnection = 'scm:git:ssh://git@github.com/YusufsDiscordbot/YusufIsmails-Discord-core.git'
+                        url = 'github.com/YusufsDiscordbot/YusufIsmails-Discord-core'
+                    }
                 }
             }
         }
-        server {
-            workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            property 'forge.logging.console.level', 'debug'
+        repositories {
+            maven {
+                afterEvaluate { project ->
+                    def releaseRepo = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+                    def snapshotRepo = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+                    url = (isReleaseVersion) ? releaseRepo : snapshotRepo
 
-            mods {
-                bentenmod {
-                    source sourceSets.main
+                    //println "repos: " + version
+                    //println "repos: " + isReleaseVersion
+                    //println url
+
+                    credentials {
+                        username = project.hasProperty('ossrhUsername') ? ossrhUsername : "Unknown user"
+                        password = project.hasProperty('ossrhPassword') ? ossrhPassword : "Unknown password"
+                    }
                 }
             }
         }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', 'bentenmod', '--all',
-                    '--existing', file('src/main/resources').toString(),
-                    '--existing', file('src/generated/resources').toString(),
-                    '--output', file('src/generated/resources/')
-
-
-            mods {
-                bentenmod {
-                    source sourceSets.main
-                }
-
-            }
-        }
     }
-}
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
-}
-def gpr_creds = {
-    username = property('gpr.username')
-    password = property('gpr.token')
-}
-
-repositories {
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
-    }
-    maven {
-        url = uri("https://maven.pkg.github.com/realyusufismail/realyusufismail-core")
-        credentials gpr_creds
-    }
-
-}
-
-dependencies {
-
-    minecraft "net.minecraftforge:forge:${forge_version}"
-    //fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
-    implementation fg.deobf("software.bernie.geckolib:geckolib-${geckolib_version}")
-    compileOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}")
-    implementation fg.deobf("net.yusuf:realyusufismailcore:${ryic_version}") {
-        exclude module: "forge"
-    }
-
-
-}
-
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "bentenmod",
-                "Specification-Vendor"    : "Yusuf.I",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : "${version}",
-                "Implementation-Vendor"   : "Yusuf.I",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-}
-
-jar.finalizedBy('reobfJar')
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+    signing {
+        afterEvaluate { project ->
+            //println "sign: " + version
+            //println "sign: " + isReleaseVersion
+            required { isReleaseVersion && gradle.taskGraph.hasTask("publish") }
+            sign publishing.publications.mavenJava
         }
     }
 }
