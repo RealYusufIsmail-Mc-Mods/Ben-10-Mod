@@ -32,12 +32,10 @@
 
 package io.github.realyusufismail.bentenmod.core.init;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -48,13 +46,9 @@ import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 // TODO finish this.
 public class OreGenerationInit {
@@ -80,32 +74,38 @@ public class OreGenerationInit {
 
         final PlacedFeature placedBlackDiamondOre = PlacementUtils.register("black_diamond_ore",
                 blackDiamondOre.placed(
-                        HeightRangePlacement.uniform(VerticalAnchor.bottom(),
-                                VerticalAnchor.aboveBottom(20)),
-                        InSquarePlacement.spread(), CountPlacement.of(100)));
+                        // Min height for ore to spawn (worldMinHeight + height)
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
+                                VerticalAnchor.belowTop(40)),
+                        // Causes the randomness in the ore veins
+                        InSquarePlacement.spread(),
+                        // Attempts per chunk
+                        CountPlacement.of(10)));
+
+
+        final ConfiguredFeature<?, ?> omnitrixOre = FeatureUtils.register("omnitrix_ore",
+                Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                                BlockInit.OMNITRIX_ORE.get().defaultBlockState()),
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                                BlockInit.DEEPSLATE_OMNITRIX_ORE.get().defaultBlockState())),
+                        8)));
+
+        final PlacedFeature placedOmnitrixOre = PlacementUtils.register("omnitrix_ore",
+                omnitrixOre.placed(
+                        // Min height for ore to spawn (worldMinHeight + height)
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
+                                VerticalAnchor.belowTop(40)),
+                        // Causes the randomness in the ore veins
+                        InSquarePlacement.spread(),
+                        // Attempts per chunk
+                        CountPlacement.of(10)));
 
 
 
         // add ores
         OVERWORLD_ORES.add(placedBlackDiamondOre);
-    }
-
-    @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-    public static class ForgeBusSubscriber {
-        private ForgeBusSubscriber() {}
-
-        @SubscribeEvent
-        public static void biomeLoading(BiomeLoadingEvent event) {
-            final List<Supplier<PlacedFeature>> features =
-                    event.getGeneration().getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
-
-            switch (event.getCategory()) {
-                case NETHER -> OreGenerationInit.NETHER_ORES
-                    .forEach(ore -> features.add(() -> ore));
-                case THEEND -> OreGenerationInit.END_ORES.forEach(ore -> features.add(() -> ore));
-                default -> OreGenerationInit.OVERWORLD_ORES.forEach(ore -> features.add(() -> ore));
-            }
-        }
+        OVERWORLD_ORES.add(placedOmnitrixOre);
     }
 }
 
