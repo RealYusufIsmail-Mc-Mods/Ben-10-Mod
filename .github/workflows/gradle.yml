@@ -5,9 +5,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ 1.18.1 ]
+    branches: [ 1.16.5 ]
   pull_request:
-    branches: [ 1.18.1 ]
+    branches: [ 1.16.5 ]
 
 jobs:
   build:
@@ -21,12 +21,11 @@ jobs:
       with:
         java-version: '17'
         distribution: 'adopt'
-        cache: gradle
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-   - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v2
       with:
        name: bentenmod-1.18.1-1.0.0
        path: build/libs
