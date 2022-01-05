@@ -245,7 +245,8 @@ public class ModRecipeProvider extends RecipeProvider {
             .pattern(" K ")
             .pattern(" A ")
             .pattern(" # ")
-            .setEnchantment(Enchantments.FIRE_ASPECT, 1, 1)
+            .setEnchantment(Enchantments.FIRE_ASPECT, 1)
+            .setHideFlags(1)
             .unlockedBy("has_item", has(ItemInit.FIRE.get()))
             .save(consumer, modId("heatblast_sword"));
 
