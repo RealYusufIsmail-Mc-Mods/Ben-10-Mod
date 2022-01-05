@@ -26,3 +26,7 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+   - uses: actions/upload-artifact@v2
+      with:
+       name: bentenmod-1.18.1-1.0.0
+       path: build/libs
