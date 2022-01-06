@@ -138,7 +138,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void blockItemModel(Block block) {
         if (block == BlockInit.BLACK_DIAMOND_BLOCK.get())
             builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_block");
-        else if (block == BlockInit.INFINITUM_BLOCK.get())
+        if (block == BlockInit.INFINITUM_BLOCK.get())
             builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/infinitum_block");
         else if (block == BlockInit.OMNITRIX_BLOCK.get())
             builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_block");

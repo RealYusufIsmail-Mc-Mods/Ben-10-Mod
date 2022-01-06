@@ -671,7 +671,6 @@ public class ModRecipeProvider extends RecipeProvider {
     private Ingredient ingredient(Item entry) {
         return Ingredient.of(entry);
     }
-
 }
 
 

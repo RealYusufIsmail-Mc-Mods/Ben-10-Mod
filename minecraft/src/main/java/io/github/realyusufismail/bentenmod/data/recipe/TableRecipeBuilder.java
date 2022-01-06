@@ -38,7 +38,6 @@ import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -100,35 +99,18 @@ public class TableRecipeBuilder {
         }
     }
 
-    private final class Output implements FinishedRecipe {
+    private record Output(Ingredient input1, Ingredient input2, Ingredient input3, Item output,
+            Advancement.Builder advancementBuilder, ResourceLocation advancementId,
+            ResourceLocation id) implements FinishedRecipe {
 
-        private final Ingredient input1;
-        private final Ingredient input2;
-        private final Ingredient input3;
-        private final Item output;
-        private final Advancement.Builder advancementBuilder;
-        private final ResourceLocation advancementId;
-        private final ResourceLocation id;
-
-        public Output(Ingredient input1, Ingredient input2, Ingredient input3, Item output,
-                Advancement.Builder advancementBuilder, ResourceLocation advancementId,
-                ResourceLocation id) {
-            this.input1 = input1;
-            this.input2 = input2;
-            this.input3 = input3;
-            this.output = output;
-            this.advancementBuilder = advancementBuilder;
-            this.advancementId = advancementId;
-            this.id = id;
-        }
-
-        @SuppressWarnings("deprecation")
         @Override
         public void serializeRecipeData(JsonObject json) {
             json.add("input1", input1.toJson());
             json.add("input2", input2.toJson());
             json.add("input3", input3.toJson());
-            json.addProperty("output", Registry.ITEM.getKey(output).toString());
+            json.addProperty("output",
+                    Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(output), "Item is null")
+                        .toString());
         }
 
         @Override

@@ -33,7 +33,6 @@
 package io.github.realyusufismail.bentenmod.data.loot;
 
 
-import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
@@ -62,7 +61,7 @@ public class ModLootTables extends LootTableProvider {
 
     @Override
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        return ImmutableList.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK),
+        return List.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK),
                 Pair.of(ModEntityLootTables::new, LootContextParamSets.ENTITY));
     }
 

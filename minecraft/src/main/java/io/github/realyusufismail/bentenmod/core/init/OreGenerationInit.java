@@ -35,7 +35,6 @@ package io.github.realyusufismail.bentenmod.core.init;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -44,24 +43,31 @@ import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO finish this.
+// TODO check the gen hight.
 public class OreGenerationInit {
     private OreGenerationInit() {
         throw new IllegalStateException("Ore gen class");
     }
 
     protected static final List<PlacedFeature> OVERWORLD_ORES = new ArrayList<>();
-    protected static final List<PlacedFeature> END_ORES = new ArrayList<>();
+    // protected static final List<PlacedFeature> END_ORES = new ArrayList<>();
     protected static final List<PlacedFeature> NETHER_ORES = new ArrayList<>();
 
-    public static final RuleTest END_TEST = new BlockMatchTest(Blocks.END_STONE);
+    // public static final RuleTest END_TEST = new BlockMatchTest(Blocks.END_STONE);
 
+
+    /**
+     * VerticalAnchor.aboveBottom(30) means its minimum y position is 30 blocks above the bottom of
+     * the world VerticalAnchor.belowTop(40) means its maximum y position is 40 blocks below the top
+     * of the world
+     *
+     * and then its distributed uniformly across that range (which is what the
+     * HeightRangePlacement.uniform means)
+     */
 
     public static void registerOres() {
         final ConfiguredFeature<?, ?> blackDiamondOre = FeatureUtils.register("black_diamond_ore",
@@ -75,8 +81,8 @@ public class OreGenerationInit {
         final PlacedFeature placedBlackDiamondOre = PlacementUtils.register("black_diamond_ore",
                 blackDiamondOre.placed(
                         // Min height for ore to spawn (worldMinHeight + height)
-                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
-                                VerticalAnchor.belowTop(40)),
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(9),
+                                VerticalAnchor.belowTop(2)),
                         // Causes the randomness in the ore veins
                         InSquarePlacement.spread(),
                         // Attempts per chunk
@@ -94,18 +100,120 @@ public class OreGenerationInit {
         final PlacedFeature placedOmnitrixOre = PlacementUtils.register("omnitrix_ore",
                 omnitrixOre.placed(
                         // Min height for ore to spawn (worldMinHeight + height)
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(9),
+                                VerticalAnchor.belowTop(2)),
+                        // Causes the randomness in the ore veins
+                        InSquarePlacement.spread(),
+                        // Attempts per chunk
+                        CountPlacement.of(5)));
+
+        final ConfiguredFeature<?, ?> legendaryOre = FeatureUtils.register("legendary_ore",
+                Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                                BlockInit.LEGENDARY_ORE.get().defaultBlockState()),
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                                BlockInit.DEEPSLATE_LEGENDARY_ORE.get().defaultBlockState())),
+                        8)));
+
+        final PlacedFeature placedLegendaryOre = PlacementUtils.register("legendary_ore",
+                legendaryOre.placed(
+                        // Min height for ore to spawn (worldMinHeight + height)
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(9),
+                                VerticalAnchor.belowTop(2)),
+                        // Causes the randomness in the ore veins
+                        InSquarePlacement.spread(),
+                        // Attempts per chunk
+                        CountPlacement.of(5)));
+
+        final ConfiguredFeature<?, ?> speedOre = FeatureUtils.register("speed_ore",
+                Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                                BlockInit.SPEED_ORE.get().defaultBlockState()),
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                                BlockInit.DEEPSLATE_SPEED_ORE.get().defaultBlockState())),
+                        8)));
+
+        final PlacedFeature placedSpeedOre = PlacementUtils.register("speed_ore", speedOre.placed(
+                // Min height for ore to spawn (worldMinHeight + height)
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
+                        VerticalAnchor.belowTop(40)),
+                // Causes the randomness in the ore veins
+                InSquarePlacement.spread(),
+                // Attempts per chunk
+                CountPlacement.of(5)));
+
+
+        final ConfiguredFeature<?, ?> rubyOre = FeatureUtils.register("ruby_ore",
+                Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                                BlockInit.RUBY_ORE.get().defaultBlockState()),
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                                BlockInit.RUBY_ORE.get().defaultBlockState())),
+                        8)));
+
+        final PlacedFeature placedRubyOre = PlacementUtils.register("ruby_ore", rubyOre.placed(
+                // Min height for ore to spawn (worldMinHeight + height)
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
+                        VerticalAnchor.belowTop(40)),
+                // Causes the randomness in the ore veins
+                InSquarePlacement.spread(),
+                // Attempts per chunk
+                CountPlacement.of(5)));
+
+        final ConfiguredFeature<?, ?> imperiumOre = FeatureUtils.register("imperium_ore",
+                Feature.ORE.configured(new OreConfiguration(List.of(
+                        OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                                BlockInit.SPEED_ORE.get().defaultBlockState()),
+                        OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                                BlockInit.DEEPSLATE_SPEED_ORE.get().defaultBlockState())),
+                        8)));
+
+        final PlacedFeature placedImperiumOre = PlacementUtils.register("imperium_ore",
+                imperiumOre.placed(
+                        // Min height for ore to spawn (worldMinHeight + height)
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
                                 VerticalAnchor.belowTop(40)),
                         // Causes the randomness in the ore veins
                         InSquarePlacement.spread(),
                         // Attempts per chunk
-                        CountPlacement.of(10)));
+                        CountPlacement.of(5)));
+
+        // nether ores
+        final ConfiguredFeature<?, ?> fireOre = FeatureUtils.register("fire_ore",
+                Feature.ORE.configured(new OreConfiguration(
+                        List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES,
+                                BlockInit.FIRE_ORE.get().defaultBlockState())),
+                        9)));
+
+        final PlacedFeature placedFireOre = PlacementUtils.register("fire_ore", fireOre.placed(
+                // Min height for ore to spawn (worldMinHeight + height)
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
+                        VerticalAnchor.belowTop(40)),
+                InSquarePlacement.spread(), CountPlacement.of(5)));
 
 
+        final ConfiguredFeature<?, ?> infinitumOre = FeatureUtils.register("infinitum_ore",
+                Feature.ORE.configured(new OreConfiguration(
+                        List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES,
+                                BlockInit.INFINITUM_ORE.get().defaultBlockState())),
+                        9)));
+
+        final PlacedFeature placedInfinitumOre = PlacementUtils.register("infinitum_ore",
+                infinitumOre.placed(
+                        // Min height for ore to spawn (worldMinHeight + height)
+                        HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
+                                VerticalAnchor.belowTop(40)),
+                        InSquarePlacement.spread(), CountPlacement.of(5)));
 
         // add ores
         OVERWORLD_ORES.add(placedBlackDiamondOre);
         OVERWORLD_ORES.add(placedOmnitrixOre);
+        OVERWORLD_ORES.add(placedLegendaryOre);
+        OVERWORLD_ORES.add(placedSpeedOre);
+        OVERWORLD_ORES.add(placedRubyOre);
+        OVERWORLD_ORES.add(placedImperiumOre);
+        NETHER_ORES.add(placedFireOre);
+        NETHER_ORES.add(placedInfinitumOre);
     }
 }
 

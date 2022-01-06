@@ -39,6 +39,7 @@ import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 
@@ -101,7 +102,9 @@ public class ModBlockLootTables extends BlockLoot {
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues()
             .stream()
-            .filter(block -> BenTenMod.MOD_ID.equals(block.getRegistryName().getNamespace()))
+            .filter(block -> BenTenMod.MOD_ID.equals(Objects
+                .requireNonNull(block.getRegistryName(), "Registry name is null for loot")
+                .getNamespace()))
             .collect(Collectors.toSet());
     }
 }
