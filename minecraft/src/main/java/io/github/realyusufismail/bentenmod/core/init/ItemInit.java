@@ -33,18 +33,15 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.common.events.HeatblastArmor;
-import io.github.realyusufismail.bentenmod.common.events.JacketArmorItem;
-import io.github.realyusufismail.bentenmod.common.events.LegendaryArmor;
-import io.github.realyusufismail.bentenmod.common.events.Xlr8Armor;
-import io.github.realyusufismail.bentenmod.common.material.CustomArmorMaterial;
-import io.github.realyusufismail.bentenmod.common.material.CustomToolMaterial;
 import io.github.realyusufismail.bentenmod.core.itemgroup.MainItemGroup;
+import io.github.realyusufismail.bentenmod.core.material.CustomArmorMaterial;
+import io.github.realyusufismail.bentenmod.core.material.CustomToolMaterial;
+import io.github.realyusufismail.bentenmod.events.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
-import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ItemInit {
     // ores
@@ -165,21 +162,21 @@ public class ItemInit {
     // Heatblast armour
 
     public static final RegistryObject<Item> HEATBLAST_HELMET = ITEMS.register("heatblast_helmet",
-            () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.HEAD,
+            () -> new HeatBlastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.HEAD,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
     public static final RegistryObject<Item> HEATBLAST_CHESTPLATE = ITEMS.register(
             "heatblast_chestplate",
-            () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.CHEST,
+            () -> new HeatBlastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.CHEST,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
     public static final RegistryObject<Item> HEATBLAST_LEGGINGS = ITEMS.register(
             "heatblast_leggings",
-            () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.LEGS,
+            () -> new HeatBlastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.LEGS,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
     public static final RegistryObject<Item> HEATBLAST_BOOTS = ITEMS.register("heatblast_boots",
-            () -> new HeatblastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.FEET,
+            () -> new HeatBlastArmor(CustomArmorMaterial.HEATBLAST_ARMOUR, EquipmentSlot.FEET,
                     new Item.Properties().fireResistant().durability(600).tab(MainItemGroup.MAIN)));
 
     // xlr8 armour
@@ -199,27 +196,25 @@ public class ItemInit {
             ITEMS.register("xlr8_boots", () -> new Xlr8Armor(CustomArmorMaterial.XLR8_ARMOUR,
                     EquipmentSlot.FEET, new Item.Properties().tab(MainItemGroup.MAIN)));
     // 4 Arms
-    /*
-     * public static final RegistryObject<Item> FOURARMS_HELMET = ITEMS.register("fourarms_helmet",
-     * () -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.HEAD, new
-     * Item.Properties().tab(MainItemGroup.MAIN)));
-     * 
-     * public static final RegistryObject<Item> FOURARMS_CHESTPLATE =
-     * ITEMS.register("fourarms_chestplate", () -> new
-     * FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.CHEST, new
-     * Item.Properties().tab(MainItemGroup.MAIN)));
-     * 
-     * public static final RegistryObject<Item> FOURARMS_LEGGINGS =
-     * ITEMS.register("fourarms_leggings", () -> new
-     * FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.LEGS, new
-     * Item.Properties().tab(MainItemGroup.MAIN)));
-     * 
-     * public static final RegistryObject<Item> FOURARMS_BOOT = ITEMS.register("fourarms_boot", ()
-     * -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.FEET, new
-     * Item.Properties().tab(MainItemGroup.MAIN)));
-     * 
-     * 
-     */
+
+    public static final RegistryObject<Item> FOURARMS_HELMET = ITEMS.register("fourarms_helmet",
+            () -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.HEAD,
+                    new Item.Properties().tab(MainItemGroup.MAIN)));
+
+    public static final RegistryObject<Item> FOURARMS_CHESTPLATE = ITEMS.register(
+            "fourarms_chestplate", () -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR,
+                    EquipmentSlot.CHEST, new Item.Properties().tab(MainItemGroup.MAIN)));
+
+    public static final RegistryObject<Item> FOURARMS_LEGGINGS = ITEMS.register("fourarms_leggings",
+            () -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.LEGS,
+                    new Item.Properties().tab(MainItemGroup.MAIN)));
+
+    public static final RegistryObject<Item> FOURARMS_BOOT = ITEMS.register("fourarms_boot",
+            () -> new FourArmsArmor(CustomArmorMaterial.FOURARMS_ARMOUR, EquipmentSlot.FEET,
+                    new Item.Properties().tab(MainItemGroup.MAIN)));
+
+
+
     // INFINITUM Armour
     public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("infinitum_helmet",
             () -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlot.HEAD,

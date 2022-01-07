@@ -113,8 +113,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(RAW_LEGENDARY.get(), itemGenerated);
         builder(RAW_IMPERIUM.get(), itemGenerated);
         builder(RAW_OMNITRIX.get(), itemGenerated);
-
-
+        // 4 arms
+        builder(FOURARMS_HELMET.get(), itemGenerated);
+        builder(FOURARMS_CHESTPLATE.get(), itemGenerated);
+        builder(FOURARMS_LEGGINGS.get(), itemGenerated);
+        builder(FOURARMS_BOOT.get(), itemGenerated);
         // tools
         builder(BLACK_DIAMOND_AXE.get(), itemHandHeld);
         builder(BLACK_DIAMOND_HOE.get(), itemHandHeld);

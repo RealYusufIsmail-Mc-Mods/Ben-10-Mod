@@ -30,24 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.core.util;
+package io.github.realyusufismail.bentenmod.util;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.init.ContainerInit;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.TableScreen;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-
-@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
-public class ClientEventBusSubscriber {
-    private ClientEventBusSubscriber() {}
-
-    @SubscribeEvent
-    public static void clientSetup(FMLClientSetupEvent event) {
-        MenuScreens.register(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
-    }
+public class RegistryHandler {
 }

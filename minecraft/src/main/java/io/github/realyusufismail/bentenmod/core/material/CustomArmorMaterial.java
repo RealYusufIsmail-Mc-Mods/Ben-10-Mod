@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.common.material;
+package io.github.realyusufismail.bentenmod.core.material;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.sounds.SoundEvent;

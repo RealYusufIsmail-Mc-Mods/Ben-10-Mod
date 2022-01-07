@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.common.events;
+package io.github.realyusufismail.bentenmod.events;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.world.effect.MobEffectInstance;

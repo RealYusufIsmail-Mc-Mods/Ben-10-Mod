@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.modules.bententable.recipes;
+package io.github.realyusufismail.bentenmod.core.blocks.bententable.recipes;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

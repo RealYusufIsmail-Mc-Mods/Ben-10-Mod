@@ -32,7 +32,7 @@
 
 package io.github.realyusufismail.bentenmod.core.init;
 
-import io.github.realyusufismail.bentenmod.modules.bententable.recipes.TableRecipe;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.recipes.TableRecipe;
 import net.minecraft.world.item.crafting.RecipeType;
 
 

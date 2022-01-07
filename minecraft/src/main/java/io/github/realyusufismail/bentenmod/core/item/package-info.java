@@ -32,7 +32,7 @@
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package io.github.realyusufismail.bentenmod.core.util;
+package io.github.realyusufismail.bentenmod.core.item;
 
 import com.mojang.math.MethodsReturnNonnullByDefault;
 

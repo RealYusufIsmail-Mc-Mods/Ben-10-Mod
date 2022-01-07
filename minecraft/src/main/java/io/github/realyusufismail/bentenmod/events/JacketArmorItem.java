@@ -30,20 +30,34 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.core.util;
+package io.github.realyusufismail.bentenmod.events;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
-import net.minecraft.resources.ResourceLocation;
+import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.common.extensions.IForgeItem;
 
-public class ModResourceLocation extends ResourceLocation {
-    public ModResourceLocation(String resourceName) {
-        super(addModNamespace(resourceName));
+public class JacketArmorItem extends ArmorItem implements IForgeItem {
+
+    public JacketArmorItem(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
+        super(materialIn, slot, builder);
+
     }
 
-    private static String addModNamespace(String resourceName) {
-        if (resourceName.contains(":")) {
-            return resourceName;
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        MobEffectInstance effect =
+                new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
+        if (stack.getItem() == ItemInit.JACKET.get()) {
+            player.addEffect(effect);
         }
-        return BenTenMod.MOD_ID + ":" + resourceName;
     }
 }
+

@@ -39,7 +39,7 @@ import io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider;
 import io.github.realyusufismail.bentenmod.data.lang.ModEnLangProvider;
 import io.github.realyusufismail.bentenmod.data.loot.ModLootTables;
 import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
-import io.github.realyusufismail.bentenmod.data.recipe.ModSmithingRecipeBuild;
+import io.github.realyusufismail.bentenmod.data.recipe.ModUpgradingRecipeBuild;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -64,7 +64,7 @@ public class DataGenerators {
 
         // recipe
         gen.addProvider(new ModRecipeProvider(gen));
-        gen.addProvider(new ModSmithingRecipeBuild(gen));
+        gen.addProvider(new ModUpgradingRecipeBuild(gen));
 
         // advancements
         gen.addProvider(new ModAdvancementProvider(gen));

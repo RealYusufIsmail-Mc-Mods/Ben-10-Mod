@@ -30,9 +30,20 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@MethodsReturnNonnullByDefault
-@ParametersAreNonnullByDefault
-package io.github.realyusufismail.bentenmod.common.events;
+package io.github.realyusufismail.bentenmod.util;
 
-import com.mojang.math.MethodsReturnNonnullByDefault;
-import javax.annotation.ParametersAreNonnullByDefault;
+import io.github.realyusufismail.bentenmod.BenTenMod;
+import net.minecraft.resources.ResourceLocation;
+
+public class ModResourceLocation extends ResourceLocation {
+    public ModResourceLocation(String resourceName) {
+        super(addModNamespace(resourceName));
+    }
+
+    private static String addModNamespace(String resourceName) {
+        if (resourceName.contains(":")) {
+            return resourceName;
+        }
+        return BenTenMod.MOD_ID + ":" + resourceName;
+    }
+}

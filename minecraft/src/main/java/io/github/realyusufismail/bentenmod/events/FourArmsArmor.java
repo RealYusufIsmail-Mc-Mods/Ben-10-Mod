@@ -30,12 +30,14 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.common.events;
+package io.github.realyusufismail.bentenmod.events;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import io.github.yusufsdiscordbot.annotations.Author;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Abilities;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -44,20 +46,30 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class JacketArmorItem extends ArmorItem implements IForgeItem {
+@Author
+public class FourArmsArmor extends ArmorItem implements IForgeItem {
+    public final Abilities abilities = new Abilities();
 
-    public JacketArmorItem(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
+    public FourArmsArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
         super(materialIn, slot, builder);
-
     }
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        MobEffectInstance effect =
-                new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
-        if (stack.getItem() == ItemInit.JACKET.get()) {
-            player.addEffect(effect);
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
+        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
+
+        if (boots.getItem() == ItemInit.FOURARMS_HELMET.get()
+                && legs.getItem() == ItemInit.FOURARMS_LEGGINGS.get()
+                && chest.getItem() == ItemInit.FOURARMS_CHESTPLATE.get()
+                && head.getItem() == ItemInit.FOURARMS_HELMET.get()) {
+            player.addEffect(
+                    new MobEffectInstance(MobEffects.REGENERATION, 100, 5, false, false, true));
+            player.addEffect(
+                    new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 8, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.JUMP, 100, 2, false, false, true));
         }
     }
 }
-

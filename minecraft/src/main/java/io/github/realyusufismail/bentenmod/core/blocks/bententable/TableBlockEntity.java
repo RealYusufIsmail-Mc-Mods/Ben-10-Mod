@@ -35,7 +35,7 @@ package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 import io.github.realyusufismail.bentenmod.common.LangKeys;
 import io.github.realyusufismail.bentenmod.core.init.BlockEntityInit;
 import io.github.realyusufismail.bentenmod.core.init.RegisterRecipeInit;
-import io.github.realyusufismail.bentenmod.modules.bententable.recipes.TableRecipe;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.recipes.TableRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;

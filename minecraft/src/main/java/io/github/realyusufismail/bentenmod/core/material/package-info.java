@@ -30,29 +30,10 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.common.events;
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+package io.github.realyusufismail.bentenmod.core.material;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
-import io.github.realyusufismail.bentenmod.entity.CrabEntity;
-import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
-import io.github.realyusufismail.bentenmod.item.ModSpawnEggItem;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import com.mojang.math.MethodsReturnNonnullByDefault;
 
-@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, value = Dist.CLIENT,
-        bus = Mod.EventBusSubscriber.Bus.MOD)
-public class RegisterEvent {
-    @SubscribeEvent
-    public static void onRegisterEntities(
-            EntityAttributeCreationEvent entityAttributeCreationEvent) {
-        ModSpawnEggItem.initSpawnEggs();
-        // This is where to register the actual attributes of the entities
-        entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(),
-                VilgaxEntity.registerAttributes().build());
-        entityAttributeCreationEvent.put(EntityTypesInit.CRAB_ENTITY.get(),
-                CrabEntity.registerAttributes().build());
-    }
-}
+import javax.annotation.ParametersAreNonnullByDefault;

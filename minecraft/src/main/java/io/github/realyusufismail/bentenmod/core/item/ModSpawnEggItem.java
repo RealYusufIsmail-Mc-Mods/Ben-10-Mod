@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.item;
+package io.github.realyusufismail.bentenmod.core.item;
 
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;

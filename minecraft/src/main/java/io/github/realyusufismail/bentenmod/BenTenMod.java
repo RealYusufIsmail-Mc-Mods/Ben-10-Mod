@@ -33,7 +33,7 @@
 package io.github.realyusufismail.bentenmod;
 
 import io.github.realyusufismail.bentenmod.core.init.*;
-import io.github.realyusufismail.bentenmod.core.util.ModResourceLocation;
+import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BiomeLoadingEvent;

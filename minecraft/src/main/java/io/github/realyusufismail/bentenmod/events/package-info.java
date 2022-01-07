@@ -32,8 +32,7 @@
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-package io.github.realyusufismail.bentenmod.modules.bententable.recipes;
+package io.github.realyusufismail.bentenmod.events;
 
 import com.mojang.math.MethodsReturnNonnullByDefault;
-
 import javax.annotation.ParametersAreNonnullByDefault;

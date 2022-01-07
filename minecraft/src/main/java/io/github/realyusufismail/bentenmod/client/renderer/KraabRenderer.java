@@ -34,7 +34,7 @@ package io.github.realyusufismail.bentenmod.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.client.ClientModEventSubscriber;
+import io.github.realyusufismail.bentenmod.ClientModEventSubscriber;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

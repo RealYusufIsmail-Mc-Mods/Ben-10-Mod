@@ -30,12 +30,13 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.common.events;
+package io.github.realyusufismail.bentenmod.events;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Abilities;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -44,11 +45,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class Xlr8Armor extends ArmorItem implements IForgeItem {
+public class HeatBlastArmor extends ArmorItem implements IForgeItem {
+    public final Abilities abilities = new Abilities();
 
-    public Xlr8Armor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
+    public HeatBlastArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
         super(materialIn, slot, builder);
-
     }
 
     @Override
@@ -59,20 +60,25 @@ public class Xlr8Armor extends ArmorItem implements IForgeItem {
         ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
         ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
 
-        if (boots.getItem() == ItemInit.XLR8_BOOTS.get()
-                && legs.getItem() == ItemInit.XLR8_LEGGINGS.get()
-                && chest.getItem() == ItemInit.XLR8_CHESTPLATE.get()
-                && head.getItem() == ItemInit.XLR8_HELMET.get()) {
+        if (boots.getItem() == ItemInit.HEATBLAST_BOOTS.get()
+                && legs.getItem() == ItemInit.HEATBLAST_LEGGINGS.get()
+                && chest.getItem() == ItemInit.HEATBLAST_CHESTPLATE.get()
+                && head.getItem() == ItemInit.HEATBLAST_HELMET.get()) {
             player.addEffect(
-                    new MobEffectInstance(MobEffects.REGENERATION, 100, 7, false, false, true));
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false,
+                    new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 100, 3, false, false, true));
+            player.addEffect(
+                    new MobEffectInstance(MobEffects.REGENERATION, 100, 3, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 3, false,
                     false, true));
             player.addEffect(
-                    new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 45, false, false, true));
-
+                    new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 1, false, false, true));
+            player.getAbilities().mayfly = true;
+            player.fallDistance = 0.0F;
+            player.getAbilities().setFlyingSpeed(0.1F);
         }
 
 
     }
 }
+
 

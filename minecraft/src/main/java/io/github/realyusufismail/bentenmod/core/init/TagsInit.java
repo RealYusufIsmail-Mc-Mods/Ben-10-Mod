@@ -43,6 +43,8 @@ import net.minecraft.world.level.block.Block;
 public class TagsInit {
 
     public static final class Blocks {
+        private Blocks() {}
+
         /// ores
         public static final Tag.Named<Block> ORES_BLACK_DIAMONDS =
                 BlockTags.bind("forge:ores/black_diamonds");
@@ -83,6 +85,8 @@ public class TagsInit {
     }
 
     public static final class Items {
+        private Items() {}
+
         // ores
         public static final Tag.Named<Item> ORES_BLACK_DIAMONDS =
                 ItemTags.bind("forge:ores/black_diamonds");
@@ -97,8 +101,6 @@ public class TagsInit {
 
 
         // blocks
-
-
         public static final Tag.Named<Item> STORAGE_LEGENDARY =
                 ItemTags.bind("forge:storage_blocks/legendary");
         public static final Tag.Named<Item> STORAGE_OMNITRIX =
