@@ -34,25 +34,20 @@ package io.github.realyusufismail.bentenmod.data.client;
 
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.realyusufismailcore.util.NameUtils;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
 
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    private static final String GENERATED_ITEM = "item/generated";
-
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
@@ -60,12 +55,31 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        BlockInit.BLOCKS.getEntries()
-            .stream()
-            .map(RegistryObject::get)
-            .forEach(this::blockItemModel);
+        block("black_diamond_block");
+        block("black_diamond_ore");
+        block("infinitum_ore");
+        block("fire_block");
+        block("fire_ore");
+        block("legendary_block");
+        block("omnitrix_block");
+        block("speed_block");
+        block("ruby_block");
+        block("ruby_ore");
+        block("infinitum_block");
+        block("speed_ore");
+        block("omnitrix_ore");
+        block("imperium_ore");
+        block("legendary_ore");
+        block("imperium_block");
+        block("deepslate_legendary_ore");
+        block("deepslate_ruby_ore");
+        block("deepslate_black_diamond_ore");
+        block("deepslate_imperium_ore");
+        block("deepslate_speed_ore");
+        block("deepslate_omnitrix_ore");
+        block("deepslate_omnitrix_ore");
 
-        ModelFile itemGenerated = getExistingFile(new ResourceLocation(GENERATED_ITEM));
+        ModelFile itemGenerated = getExistingFile(new ResourceLocation("item/generated"));
         ModelFile itemHandHeld = getExistingFile(new ResourceLocation("item/handheld"));
 
 
@@ -136,54 +150,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(IMPERIUM_PICKAXE.get(), itemHandHeld);
         builder(IMPERIUM_PICKAXE_UPGRADED.get(), itemHandHeld);
         builder(IMPERIUM_AXE.get(), itemHandHeld);
-    }
-
-    private void blockItemModel(Block block) {
-        if (block == BlockInit.BLACK_DIAMOND_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_block");
-        if (block == BlockInit.INFINITUM_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/infinitum_block");
-        else if (block == BlockInit.OMNITRIX_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_block");
-        else if (block == BlockInit.FIRE_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/fire_block");
-        else if (block == BlockInit.RUBY_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/ruby_block");
-        else if (block == BlockInit.SPEED_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/speed_block");
-        else if (block == BlockInit.IMPERIUM_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/imperium_block");
-        else if (block == BlockInit.LEGENDARY_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/legendary_block");
-        // ores
-        else if (block == BlockInit.BLACK_DIAMOND_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_ore");
-        else if (block == BlockInit.OMNITRIX_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_ore");
-        else if (block == BlockInit.FIRE_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/fire_ore");
-        else if (block == BlockInit.RUBY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/ruby_ore");
-        else if (block == BlockInit.SPEED_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/speed_ore");
-        else if (block == BlockInit.IMPERIUM_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/imperium_ore");
-        else if (block == BlockInit.LEGENDARY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/legendary_ore");
-        // DEEPSLATE ore
-        else if (block == BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)),
-                    "block/deepslate_black_diamond_ore");
-        else if (block == BlockInit.DEEPSLATE_OMNITRIX_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_omnitrix_ore");
-        else if (block == BlockInit.DEEPSLATE_RUBY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_ruby_ore");
-        else if (block == BlockInit.DEEPSLATE_SPEED_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_speed_ore");
-        else if (block == BlockInit.DEEPSLATE_IMPERIUM_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_imperium_ore");
-        else if (block == BlockInit.DEEPSLATE_LEGENDARY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_legendary_ore");
+        builder(IMPERIUM_SWORD.get(), itemHandHeld);
     }
 
     private ItemModelBuilder builder(ItemLike item) {
@@ -198,6 +165,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder builder(ItemLike item, ModelFile parent, String texture) {
         return getBuilder(NameUtils.fromItem(item).getPath()).parent(parent)
             .texture("layer0", texture);
+    }
+
+    private void block(String name) {
+        withExistingParent(name, modLoc("block/" + name));
     }
 }
 

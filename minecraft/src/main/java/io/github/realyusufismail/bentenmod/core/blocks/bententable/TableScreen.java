@@ -46,37 +46,36 @@ public class TableScreen extends AbstractContainerScreen<TableContainer> {
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/table_screen.png");
 
-    public TableScreen(TableContainer p_i51105_1_, Inventory p_i51105_2_, Component p_i51105_3_) {
-        super(p_i51105_1_, p_i51105_2_, p_i51105_3_);
+    public TableScreen(TableContainer tb, Inventory inventory, Component component) {
+        super(tb, inventory, component);
     }
 
     @Override
-    protected void renderBg(PoseStack p_97787_, float p_97788_, int p_97789_, int p_97790_) {
+    protected void renderBg(PoseStack pos, float p_97788_, int p_97789_, int p_97790_) {
         RenderSystem.setShaderColor(1, 1, 1, 1);
-        minecraft.getTextureManager().getTexture(SCREEN_ID);
+        RenderSystem.setShaderTexture(0, SCREEN_ID);
 
         // BenTenMod Screen
-        blit(p_97787_, leftPos, topPos, 0, 0, 176, 179);
+        blit(pos, leftPos, topPos, 0, 0, 176, 179);
 
-        blit(p_97787_, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1, 17);
+        blit(pos, leftPos + 97, topPos + 38, 179, 25, menu.getProcess() + 1, 17);
     }
 
 
     // CTRL + O > OVERRIDE METHODS
-
     @Override
-    public void render(PoseStack matrix, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
-        this.renderBackground(matrix);
-        super.render(matrix, p_230430_2_, p_230430_3_, p_230430_4_);
-        this.renderTooltip(matrix, p_230430_2_, p_230430_3_);
+    public void render(PoseStack ps, int p_230430_2_, int p_230430_3_, float p_230430_4_) {
+        renderBackground(ps);
+        super.render(ps, p_230430_2_, p_230430_3_, p_230430_4_);
+        renderTooltip(ps, p_230430_2_, p_230430_3_);
     }
 
     /*
      * CTRL + O > OVERRIDE METHODS 4210752 is the default number, can't be changed
      */
     @Override
-    protected void renderLabels(PoseStack matrix, int p_230451_2_, int p_230451_3_) {
-        this.font.draw(matrix, this.playerInventoryTitle, 7, 81, 4210752);
-        font.draw(matrix, LangKeys.TABLE_SCREEN, 5, 10, 4210752);
+    protected void renderLabels(PoseStack ps, int p_230451_2_, int p_230451_3_) {
+        font.draw(ps, this.playerInventoryTitle, 7, 81, 4210752);
+        font.draw(ps, LangKeys.TABLE_SCREEN, 5, 10, 4210752);
     }
 }

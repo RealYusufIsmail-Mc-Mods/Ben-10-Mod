@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "bentenmod:block/legendary_block"
-  }
+  "parent": "bentenmod:block/legendary_block"
 }

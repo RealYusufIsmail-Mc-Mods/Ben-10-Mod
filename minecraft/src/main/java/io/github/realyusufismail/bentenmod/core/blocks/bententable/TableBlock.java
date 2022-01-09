@@ -60,7 +60,7 @@ import java.util.List;
 /**
  * @see AbstractFurnaceBlock
  */
-public class TableBlock extends BaseEntityBlock {
+public class TableBlock extends Block {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty POWERED = BlockStateProperties.LIT;
 
@@ -69,7 +69,6 @@ public class TableBlock extends BaseEntityBlock {
     }
 
 
-    @SuppressWarnings("deprecation")
     @Override
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos,
             Player playerEntity, InteractionHand interactionHand, BlockHitResult blockHitResult) {
@@ -95,7 +94,6 @@ public class TableBlock extends BaseEntityBlock {
     }
 
     @Nullable
-    @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new TableBlockEntity(pos, state);
     }
