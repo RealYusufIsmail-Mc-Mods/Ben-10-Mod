@@ -46,6 +46,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class BlockInit {
@@ -106,6 +108,7 @@ public class BlockInit {
 
     // custom tables
     public static final RegistryObject<TableBlock> TABLE_BLOCK;
+    public static final Map<Block, Item.Properties> BLOCK_ITEM_WHITELIST = new HashMap<>();
 
     static {
         TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
