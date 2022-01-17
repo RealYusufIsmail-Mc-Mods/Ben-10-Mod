@@ -78,7 +78,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
     implementation group: 'io.github.yusufsdiscordbot.realyusufismailcore', name: 'minecraft', version: "${ryic_version}"
-    implementation group: 'io.github.yusufsdiscordbot', name: 'annotations', version: '1.0.8'
+    implementation group: 'io.github.yusufsdiscordbot', name: 'annotations', version: '1.0.9'
     implementation fg.deobf("software.bernie.geckolib:geckolib-${geckolib_version}")
 }
 
