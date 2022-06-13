@@ -1,45 +1,168 @@
 plugins {
     id 'java'
-    id "com.diffplug.spotless" version "6.1.0"
-    id "name.remal.sonarlint" version "1.5.0"
+    id 'eclipse'
+    id "com.diffplug.spotless" version "6.6.1"
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
+version = '1.19-1.0.0'
+group = 'io.github.realyusufismail'
+archivesBaseName = 'bentenmod'
 
-subprojects {
-    //some parts of this gradle copy tj's bot.
-    //so all credits for that goes towards java Together-Java https://github.com/Together-Java/TJ-Bot/blob/a2a963a9e51792018f1beff3b41b6ba9eab0ca50/build.gradle#L25
-    apply plugin: "java"
-    apply plugin: "com.diffplug.spotless"
-    apply plugin: 'java-library'
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
-    // All subprojects inherit root project group and version, to avoid duplication.
-    group = rootProject.group
-    version = rootProject.version
+minecraft {
+    mappings channel: 'official', version: '1.19'
 
-    repositories {
-        mavenCentral()
-    }
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
-    dependencies {
-        testImplementation("junit:junit:4.12")
-    }
+    runs {
+        client {
+            workingDirectory project.file('run')
 
-    compileJava {
-        // Makes spotlessApply task run on every compile/build.
-        dependsOn 'spotlessApply'
+            property 'forge.enabledGameTestNamespaces', archivesBaseName
 
-        // Nails the Java-Version of every Subproject
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
+            mods {
+                bentenmod {
+                    source sourceSets.main
+                }
+            }
+        }
 
-    spotless {
-        java {
-            // Excludes build folder since it contains generated java classes.
-            targetExclude("build/**")
-            eclipse('4.19.0').configFile("${rootProject.rootDir}/meta/formatting/google-style-eclipse.xml")
+        server {
+            workingDirectory project.file('run')
+
+            property 'forge.enabledGameTestNamespaces', archivesBaseName
+
+            mods {
+                bentenmod {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            property 'forge.enabledGameTestNamespaces', archivesBaseName
+
+            mods {
+                bentenmod {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+
+            args '--mod', archivesBaseName, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                bentenmod {
+                    source sourceSets.main
+                }
+            }
         }
     }
 }
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    mavenCentral()
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.19-41.0.19'
+    implementation 'software.bernie.geckolib:geckolib-forge-1.19:3.1.3'
+    //Logger
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
+    implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.2.11'
+    //config
+    implementation group: 'io.github.yusufsdiscordbot', name: 'config', version: '1.0.4'
+    //test
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+configurations.all {
+    //noinspection GrUnresolvedAccess
+    // ez vulnerability fix
+    exclude group: "org.slf4j", module: "slf4j-log4j12"
+}
+
+/**
+ * This task downloads all dependencies (with transitive dependencies) and puts them into the libraries folder.
+ * Used instead of shadowJar to hopefully optimize build times.
+ * Run the application jar with the downloaded library files in the classpath.
+ */
+task downloadDependencies {
+    doLast {
+        logger.info("===== Downloading dependencies =====")
+        logger.info("  ---       Cleaning up...     ---")
+        // delete superseded library jars
+        Set<String> newFiles = sourceSets.main.runtimeClasspath.getFiles().stream().map(File::getName).toList()
+        fileTree("libraries").files.stream().filter(file -> !newFiles.contains(file.getName())).forEach(file -> {
+            logger.info("  -> Deleting leftover file: ${file.getName()}...")
+            file.delete()
+        })
+        logger.info("  ---     Cleanup complete.    ---")
+
+        logger.info("\n  ---  Copying dependencies... ---")
+        copy {
+            from(sourceSets.main.runtimeClasspath) {
+                include "*.jar"
+            }
+            into 'libraries/'
+            eachFile {
+                logger.info("  -> Copying ${it.name}...")
+            }
+        }
+        logger.info("  ---    Dependencies copied.  ---")
+        logger.info("===== Dependencies downloaded ======")
+    }
+}
+
+compileJava {
+    // Makes spotlessApply task run on every compile/build.
+    dependsOn 'spotlessApply'
+
+    // Nails the Java-Version of every Subproject
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+spotless {
+    java {
+        // Excludes build folder since it contains generated java classes.
+        targetExclude("build/**")
+        eclipse('4.19.0').configFile("${rootProject.rootDir}/meta/formatting/google-style-eclipse.xml")
+    }
+}
+
+javadoc {
+    if (JavaVersion.current().isJava8Compatible()) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        logging.captureStandardError LogLevel.INFO
+        logging.captureStandardOutput LogLevel.INFO
+    }
+
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+

@@ -4,6 +4,7 @@ on: [pull_request]
 
 env:
   JAVA_VERSION: 17
+  DISTRIBUTION: adopt
 
 jobs:
   spotless:
@@ -11,10 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
+          distribution: ${{ env.DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       - name: Check
         run: ./gradlew spotlessCheck
 
@@ -23,23 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
+          distribution: ${{ env.DISTRIBUTION }}
           java-version: ${{ env.JAVA_VERSION }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
       - name: Check
         run: ./gradlew test
-
-  sonarlint:
-    name: "Sonarlint"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: ${{ env.JAVA_VERSION }}
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-      - name: Check
-        run: ./gradlew sonarlintMain

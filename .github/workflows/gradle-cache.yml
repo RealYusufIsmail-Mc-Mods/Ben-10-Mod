@@ -1,2 +1,0 @@
-- name: Gradle Cache
-  uses: burrunan/gradle-cache-action@v1

@@ -3,7 +3,7 @@ name: Release JAR
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*'
 
 defaults:
   run:
@@ -13,24 +13,21 @@ env:
   JAVA_VERSION: 17
 
 jobs:
-
   release:
     name: Build and release
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: ${{ env.JAVA_VERSION }}
-
-      - uses: actions/checkout@v2
-
+          distribution: 'adopt'
+      - uses: actions/checkout@v3
       - name: Build shadow jar
         run: ./gradlew shadowJar
-
       - name: Create release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          files: application/build/libs/Yusufs-Moderation-Bot.jar
+          files: build/libs/ben_10_mod.jar

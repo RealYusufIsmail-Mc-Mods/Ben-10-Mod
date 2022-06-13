@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <conversionRule conversionWord="highlight" converterClass="io.github.realyusufismail.bentenmod.logger.LoggerColorScheme"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>files/logs/all.log</file>
+        <encoder>
+            <pattern>%d{yyyy/mm/dd HH:mm:ss} {%thread} [%level] %logger: %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>files/logs/archive/%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <!-- Keep logs for 30 days -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="io.github.realyusufismail.bentenmod" level="${LOG_LEVEL:-INFO}" additivity="false">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOGFILE"/>
+        <appender-ref ref="METRICS"/>
+    </logger>
+
+    <root level="${ROOT_LOG_LEVEL:-WARN}">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="LOGFILE"/>
+        <appender-ref ref="METRICS"/>
+    </root>
+
+</configuration>
