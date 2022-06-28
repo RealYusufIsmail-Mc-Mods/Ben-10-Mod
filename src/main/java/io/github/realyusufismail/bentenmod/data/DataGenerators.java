@@ -55,23 +55,23 @@ public class DataGenerators {
         var gen = event.getGenerator();
         var existingFileHelper = event.getExistingFileHelper();
 
-        gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
-        gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(new ModLootTables(gen));
+        gen.addProvider(false, new ModBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(false, new ModItemModelProvider(gen, existingFileHelper));
+        gen.addProvider(false, new ModLootTables(gen));
 
         // lang
-        gen.addProvider(new ModEnLangProvider(gen));
+        gen.addProvider(false, new ModEnLangProvider(gen));
 
         // recipe
-        gen.addProvider(new ModRecipeProvider(gen));
-        gen.addProvider(new ModUpgradingRecipeBuild(gen));
+        gen.addProvider(false, new ModRecipeProvider(gen));
+        gen.addProvider(false, new ModUpgradingRecipeBuild(gen));
 
         // advancements
-        gen.addProvider(new ModAdvancementProvider(gen));
+        gen.addProvider(false, new ModAdvancementProvider(gen));
 
         // tags
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
-        gen.addProvider(blockTags);
-        gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
+        gen.addProvider(false, blockTags);
+        gen.addProvider(false, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
     }
 }

@@ -42,6 +42,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -148,13 +149,6 @@ public class VilgaxEntity extends Monster implements IAnimatable {
                 new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
     }
 
-    protected int getExperienceReward(Player p_70693_1_) {
-        if (this.isBaby()) {
-            this.xpReward = (int) ((float) this.xpReward * 2.5F);
-        }
-
-        return super.getExperienceReward(p_70693_1_);
-    }
 
     public boolean hurt(DamageSource p_70097_1_, float p_70097_2_) {
         if (!super.hurt(p_70097_1_, p_70097_2_)) {
@@ -222,8 +216,8 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         return MobType.UNDEAD;
     }
 
-    protected void populateDefaultEquipmentSlots(DifficultyInstance p_180481_1_) {
-        super.populateDefaultEquipmentSlots(p_180481_1_);
+    protected void populateDefaultEquipmentSlots(RandomSource source, DifficultyInstance p_180481_1_) {
+        super.populateDefaultEquipmentSlots(source, p_180481_1_);
         if (this.random
             .nextFloat() < (this.level.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
             int i = this.random.nextInt(3);
@@ -237,7 +231,7 @@ public class VilgaxEntity extends Monster implements IAnimatable {
     }
 
     public void killed(ServerLevel p_241847_1_, LivingEntity p_241847_2_) {
-        super.killed(p_241847_1_, p_241847_2_);
+        super.wasKilled(p_241847_1_, p_241847_2_);
         {
             if (p_241847_1_.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
                 return;

@@ -87,6 +87,9 @@ dependencies {
     implementation group: 'io.github.yusufsdiscordbot', name: 'config', version: '1.0.4'
     //test
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    //core
+    implementation group: 'io.github.realyusufismail', name: 'RealYusufIsmail-Core', version: '1.19-1.0.0'
+
 }
 
 test {

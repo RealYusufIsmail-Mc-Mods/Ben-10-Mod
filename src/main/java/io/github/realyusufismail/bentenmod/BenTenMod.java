@@ -35,8 +35,8 @@ package io.github.realyusufismail.bentenmod;
 import io.github.realyusufismail.bentenmod.core.init.*;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -68,7 +68,6 @@ public class BenTenMod {
         GeckoLib.initialize();
 
         bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
-        MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Armour and Item loaded");
     }
@@ -79,10 +78,5 @@ public class BenTenMod {
             throw new IllegalArgumentException("path contains namespace");
         }
         return new ModResourceLocation(path);
-    }
-
-    @SubscribeEvent
-    public void onBiomeLoad(BiomeLoadingEvent event) {
-        EntitySpawingInit.onBiomesLoad(event);
     }
 }
