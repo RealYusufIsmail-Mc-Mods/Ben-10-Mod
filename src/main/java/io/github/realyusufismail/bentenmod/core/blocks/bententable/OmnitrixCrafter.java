@@ -32,34 +32,14 @@
 
 package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 
-import io.github.realyusufismail.bentenmod.common.LangKeys;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.*;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.network.NetworkHooks;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 /**
- * @see AbstractFurnaceBlock
+ * @see CraftingTableBlock
  */
-public class TableBlock  {
+public class OmnitrixCrafter extends Block {
 
+    public OmnitrixCrafter(Properties p_49795_) {
+        super(p_49795_);
+    }
 }

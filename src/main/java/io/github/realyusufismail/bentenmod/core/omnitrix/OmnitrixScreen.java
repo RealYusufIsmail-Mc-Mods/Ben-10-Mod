@@ -34,14 +34,18 @@ package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
+import java.awt.*;
+
 public class OmnitrixScreen extends Screen {
-    protected OmnitrixScreen(TextComponent p_i51108_1_) {
-        super(p_i51108_1_);
-    }
+
 
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");
+
+    protected OmnitrixScreen(Component p_96550_) {
+        super(p_96550_);
+    }
 }

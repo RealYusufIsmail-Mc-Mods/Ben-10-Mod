@@ -39,7 +39,6 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.Map;
@@ -47,12 +46,12 @@ import java.util.Map;
 public class RegisterRecipeInit {
     public static final RecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
 
-    private static void registerRecipe(RegistryEvent.Register<RecipeSerializer<?>> event,
+    private static void registerRecipe(Registry<RecipeSerializer<?>> event,
             RecipeSerializer<?> serializer) {
         Registry.register(Registry.RECIPE_TYPE,
                 new ResourceLocation(RegisterRecipeInit.TABLE_RECIPE.toString()),
                 (RecipeType<?>) RegisterRecipeInit.TABLE_RECIPE);
-        event.getRegistry().register(serializer);
+        event.get().register(serializer);
     }
 
     public static void registerRecipes(RegistryEvent.Register<RecipeSerializer<?>> event) {

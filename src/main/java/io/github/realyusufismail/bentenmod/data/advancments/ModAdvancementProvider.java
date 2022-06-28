@@ -44,13 +44,12 @@ import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.*;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -81,7 +80,7 @@ public class ModAdvancementProvider implements DataProvider {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void run(HashCache p_123925_) {
+    public void run(CachedOutput p_236071_) throws IOException {
         Path path = this.generator.getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
         // noinspection OverlyLongLambda
@@ -92,7 +91,7 @@ public class ModAdvancementProvider implements DataProvider {
                 Path path1 = getPath(path, p_204017_3_);
 
                 try {
-                    DataProvider.save(GSON, p_123925_, p_204017_3_.deconstruct().serializeToJson(),
+                    DataProvider.saveStable(p_236071_, p_204017_3_.deconstruct().serializeToJson(),
                             path1);
                 } catch (IOException ioexception) {
                     LOGGER.error("Couldn't save advancement {}", path1, ioexception);

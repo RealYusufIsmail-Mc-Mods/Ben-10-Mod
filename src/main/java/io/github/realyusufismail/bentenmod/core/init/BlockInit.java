@@ -33,7 +33,7 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.TableBlock;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafter;
 import io.github.realyusufismail.bentenmod.core.itemgroup.MainItemGroup;
 import io.github.realyusufismail.realyusufismailcore.core.init.GeneralBlock;
 import net.minecraft.world.item.BlockItem;
@@ -105,10 +105,10 @@ public class BlockInit {
 
 
     // custom tables
-    public static final RegistryObject<TableBlock> TABLE_BLOCK;
+    public static final RegistryObject<OmnitrixCrafter> TABLE_BLOCK;
 
     static {
-        TABLE_BLOCK = registerSpecial("table_block", TableBlock::new);
+        TABLE_BLOCK = registerSpecial("omnitrix_crafter", OmnitrixCrafter::new);
     }
 
 

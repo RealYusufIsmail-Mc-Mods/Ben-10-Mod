@@ -36,7 +36,7 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -46,41 +46,41 @@ public class TagsInit {
         private Blocks() {}
 
         /// ores
-        public static final Tag.Named<Block> ORES_BLACK_DIAMONDS =
-                BlockTags.bind("forge:ores/black_diamonds");
-        public static final Tag.Named<Block> ORES_RUBYS = BlockTags.bind("forge:ores/rubsy");
-        public static final Tag.Named<Block> ORES_INFINITUM =
-                BlockTags.bind("forge:ores/infinitum");
-        public static final Tag.Named<Block> ORES_FIRE = BlockTags.bind("forge:ores/fire");
-        public static final Tag.Named<Block> ORES_SPEEDS = BlockTags.bind("forge:ores/speeds");
-        public static final Tag.Named<Block> ORES_OMNITRIXS =
-                BlockTags.bind("forge:ores/omnitrixs");
-        public static final Tag.Named<Block> ORES_IMPERIUMS =
-                BlockTags.bind("forge:ores/imperiums");
-        public static final Tag.Named<Block> ORES_LEGENDARY_ORES =
-                BlockTags.bind("forge:ores/legendary_ores");
+        public static final TagKey<Block> ORES_BLACK_DIAMONDS =
+                BlockTags.create(ResourceLocation.tryParse("forge:ores/black_diamonds"));
+        public static final TagKey<Block> ORES_RUBYS = BlockTags.create(ResourceLocation.tryParse("forge:ores/rubsy"));
+        public static final TagKey<Block> ORES_INFINITUM =
+                BlockTags.create(ResourceLocation.tryParse("forge:ores/infinitum"));
+        public static final TagKey<Block> ORES_FIRE = BlockTags.create(ResourceLocation.tryParse("forge:ores/fire"));
+        public static final TagKey<Block> ORES_SPEEDS = BlockTags.create(ResourceLocation.tryParse("forge:ores/speeds"));
+        public static final TagKey<Block> ORES_OMNITRIXS =
+                BlockTags.create(ResourceLocation.tryParse("forge:ores/omnitrixs"));
+        public static final TagKey<Block> ORES_IMPERIUMS =
+                BlockTags.create(ResourceLocation.tryParse("forge:ores/imperiums"));
+        public static final TagKey<Block> ORES_LEGENDARY_ORES =
+                BlockTags.create(ResourceLocation.tryParse("forge:ores/legendary_ores"));
 
         // blocks
-        public static final Tag.Named<Block> STORAGE_LEGENDARY =
-                BlockTags.bind("forge:storage_blocks/legendary");
-        public static final Tag.Named<Block> STORAGE_OMNITRIX =
-                BlockTags.bind("forge:storage_blocks/omnitrix");
-        public static final Tag.Named<Block> STORAGE_INFINITUM =
-                BlockTags.bind("forge:storage_blocks/infinitum");
-        public static final Tag.Named<Block> STORAGE_FIRE =
-                BlockTags.bind("forge:storage_blocks/fire");
-        public static final Tag.Named<Block> STORAGE_SPEED =
-                BlockTags.bind("forge:storage_blocks/speed");
-        public static final Tag.Named<Block> STORAGE_BLACK_DIAMOND =
-                BlockTags.bind("forge:storage_blocks/black_diamond");
+        public static final TagKey<Block> STORAGE_LEGENDARY =
+                BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/legendary"));
+        public static final TagKey<Block> STORAGE_OMNITRIX =
+                BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/omnitrix"));
+        public static final TagKey<Block> STORAGE_INFINITUM =
+                BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/infinitum"));
+        public static final TagKey<Block> STORAGE_FIRE =
+                BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/fire"));
+        public static final TagKey<Block> STORAGE_SPEED =
+                BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/speed"));
+        public static final TagKey<Block> STORAGE_BLACK_DIAMOND =
+                BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/black_diamond"));
 
 
-        private static Tag.Named<Block> forge(String path) {
-            return BlockTags.bind(new ResourceLocation("forge", path).toString());
+        private static TagKey<Block> forge(String path) {
+            return BlockTags.create(ResourceLocation.tryParse(new ResourceLocation("forge", path).toString()));
         }
 
-        private static Tag.Named<Block> mod(String path) {
-            return BlockTags.bind(new ResourceLocation(BenTenMod.MOD_ID, path).toString());
+        private static TagKey<Block> mod(String path) {
+            return BlockTags.create(ResourceLocation.tryParse(new ResourceLocation(BenTenMod.MOD_ID, path).toString()));
         }
     }
 
@@ -88,64 +88,64 @@ public class TagsInit {
         private Items() {}
 
         // ores
-        public static final Tag.Named<Item> ORES_BLACK_DIAMONDS =
-                ItemTags.bind("forge:ores/black_diamonds");
-        public static final Tag.Named<Item> ORES_RUBYS = ItemTags.bind("forge:ores/rubys");
-        public static final Tag.Named<Item> ORES_INFINITUM = ItemTags.bind("forge:ores/infinitum");
-        public static final Tag.Named<Item> ORES_FIRE = ItemTags.bind("forge:ores/fire");
-        public static final Tag.Named<Item> ORES_SPEEDS = ItemTags.bind("forge:ores/speeds");
-        public static final Tag.Named<Item> ORES_OMNITRIXS = ItemTags.bind("forge:ores/omnitrixs");
-        public static final Tag.Named<Item> ORES_IMPERIUMS = ItemTags.bind("forge:ores/imperiums");
-        public static final Tag.Named<Item> ORES_LEGENDARY_ORES =
-                ItemTags.bind("forge:ores/legendary_ores");
+        public static final TagKey<Item> ORES_BLACK_DIAMONDS =
+                ItemTags.create(ResourceLocation.tryParse("forge:ores/black_diamonds"));
+        public static final TagKey<Item> ORES_RUBYS = ItemTags.create(ResourceLocation.tryParse("forge:ores/rubys"));
+        public static final TagKey<Item> ORES_INFINITUM = ItemTags.create(ResourceLocation.tryParse("forge:ores/infinitum"));
+        public static final TagKey<Item> ORES_FIRE = ItemTags.create(ResourceLocation.tryParse("forge:ores/fire"));
+        public static final TagKey<Item> ORES_SPEEDS = ItemTags.create(ResourceLocation.tryParse("forge:ores/speeds"));
+        public static final TagKey<Item> ORES_OMNITRIXS = ItemTags.create(ResourceLocation.tryParse("forge:ores/omnitrixs"));
+        public static final TagKey<Item> ORES_IMPERIUMS = ItemTags.create(ResourceLocation.tryParse("forge:ores/imperiums"));
+        public static final TagKey<Item> ORES_LEGENDARY_ORES =
+                ItemTags.create(ResourceLocation.tryParse("forge:ores/legendary_ores"));
 
 
         // blocks
-        public static final Tag.Named<Item> STORAGE_LEGENDARY =
-                ItemTags.bind("forge:storage_blocks/legendary");
-        public static final Tag.Named<Item> STORAGE_OMNITRIX =
-                ItemTags.bind("forge:storage_blocks/omnitrix");
-        public static final Tag.Named<Item> STORAGE_INFINITUM =
-                ItemTags.bind("forge:storage_blocks/infinitum");
-        public static final Tag.Named<Item> STORAGE_FIRE =
-                ItemTags.bind("forge:storage_blocks/fire");
-        public static final Tag.Named<Item> STORAGE_SPEED =
-                ItemTags.bind("forge:storage_blocks/speed");
-        public static final Tag.Named<Item> STORAGE_BLACK_DIAMOND =
-                ItemTags.bind("forge:storage_blocks/black_diamond");
+        public static final TagKey<Item> STORAGE_LEGENDARY =
+                ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/legendary"));
+        public static final TagKey<Item> STORAGE_OMNITRIX =
+                ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/omnitrix"));
+        public static final TagKey<Item> STORAGE_INFINITUM =
+                ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/infinitum"));
+        public static final TagKey<Item> STORAGE_FIRE =
+                ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/fire"));
+        public static final TagKey<Item> STORAGE_SPEED =
+                ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/speed"));
+        public static final TagKey<Item> STORAGE_BLACK_DIAMOND =
+                ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/black_diamond"));
         // items
-        public static final Tag.Named<Item> INGOTS_LEGENDARY =
-                ItemTags.bind("forge:ingots/legendary");
-        public static final Tag.Named<Item> INGOTS_OMNITRIX =
-                ItemTags.bind("forge:ingots/omnitrix");
-        public static final Tag.Named<Item> INGOTS_FIRE = ItemTags.bind("forge:ingots/fire");
-        public static final Tag.Named<Item> INGOTS_RUBY = ItemTags.bind("forge:ingots/ruby");
-        public static final Tag.Named<Item> INGOTS_SPEED = ItemTags.bind("forge:ingots/speed");
-        public static final Tag.Named<Item> INGOTS_BLACK_DIAMOND =
-                ItemTags.bind("forge:ingots/black_diamond");
-        public static final Tag.Named<Item> SCRAP_BLACK_DIAMOND_SCRAP =
-                ItemTags.bind("forge:scraps/black_diamond_scrap");
-        public static final Tag.Named<Item> INGOTS_INFINITUM =
-                ItemTags.bind("forge:ingots/infinitum");
-        public static final Tag.Named<Item> SCRAP_INFINITUM_SCRAP =
-                ItemTags.bind("forge:scraps/infinitum_scrap");
-        public static final Tag.Named<Item> INGOTS_IMPERIUM =
-                ItemTags.bind("forge:ingots/imperium");
-        public static final Tag.Named<Item> SPAW_EGGS = ItemTags.bind("forge:ingots/spawn_eggs");
+        public static final TagKey<Item> INGOTS_LEGENDARY =
+                ItemTags.create(ResourceLocation.tryParse("forge:ingots/legendary"));
+        public static final TagKey<Item> INGOTS_OMNITRIX =
+                ItemTags.create(ResourceLocation.tryParse("forge:ingots/omnitrix"));
+        public static final TagKey<Item> INGOTS_FIRE = ItemTags.create(ResourceLocation.tryParse("forge:ingots/fire"));
+        public static final TagKey<Item> INGOTS_RUBY = ItemTags.create(ResourceLocation.tryParse("forge:ingots/ruby"));
+        public static final TagKey<Item> INGOTS_SPEED = ItemTags.create(ResourceLocation.tryParse("forge:ingots/speed"));
+        public static final TagKey<Item> INGOTS_BLACK_DIAMOND =
+                ItemTags.create(ResourceLocation.tryParse("forge:ingots/black_diamond"));
+        public static final TagKey<Item> SCRAP_BLACK_DIAMOND_SCRAP =
+                ItemTags.create(ResourceLocation.tryParse("forge:scraps/black_diamond_scrap"));
+        public static final TagKey<Item> INGOTS_INFINITUM =
+                ItemTags.create(ResourceLocation.tryParse("forge:ingots/infinitum"));
+        public static final TagKey<Item> SCRAP_INFINITUM_SCRAP =
+                ItemTags.create(ResourceLocation.tryParse("forge:scraps/infinitum_scrap"));
+        public static final TagKey<Item> INGOTS_IMPERIUM =
+                ItemTags.create(ResourceLocation.tryParse("forge:ingots/imperium"));
+        public static final TagKey<Item> SPAW_EGGS = ItemTags.create(ResourceLocation.tryParse("forge:ingots/spawn_eggs"));
 
         // tools
-        public static final Tag.Named<Item> TOOLS_IMPERIUM_PICKAXE =
-                ItemTags.bind("forge:tools/imperium_pickaxe");
+        public static final TagKey<Item> TOOLS_IMPERIUM_PICKAXE =
+                ItemTags.create(ResourceLocation.tryParse("forge:tools/imperium_pickaxe"));
 
         // raw ores
-        public static final Tag.Named<Item> RAW_ORE = ItemTags.bind("forge:scraps/raw_ore");
+        public static final TagKey<Item> RAW_ORE = ItemTags.create(ResourceLocation.tryParse("forge:scraps/raw_ore"));
 
-        private static Tag.Named<Item> forge(String path) {
-            return ItemTags.bind(new ResourceLocation("forge", path).toString());
+        private static TagKey<Item> forge(String path) {
+            return ItemTags.create(ResourceLocation.tryParse(new ResourceLocation("forge", path).toString()));
         }
 
-        private static Tag.Named<Item> mod(String path) {
-            return ItemTags.bind(new ResourceLocation(BenTenMod.MOD_ID, path).toString());
+        private static TagKey<Item> mod(String path) {
+            return ItemTags.create(ResourceLocation.tryParse(new ResourceLocation(BenTenMod.MOD_ID, path).toString()));
         }
     }
 }
