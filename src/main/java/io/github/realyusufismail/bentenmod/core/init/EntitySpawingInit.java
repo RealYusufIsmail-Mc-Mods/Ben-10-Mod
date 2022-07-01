@@ -41,6 +41,7 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
+/*
 public class EntitySpawingInit {
     @SubscribeEvent
     public static void onBiomesLoad(BiomeLoadingEvent event) {
@@ -65,3 +66,5 @@ public class EntitySpawingInit {
                 VilgaxEntity::canVilgaxSpawn);
     }
 }
+
+ */

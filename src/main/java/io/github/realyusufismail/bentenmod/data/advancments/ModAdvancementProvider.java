@@ -47,16 +47,16 @@ import net.minecraft.advancements.critereon.*;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -469,32 +469,28 @@ public class ModAdvancementProvider implements DataProvider {
             return BenTenMod.getId(path).toString();
         }
 
-        @Contract("_ -> new")
         private static @NotNull CriterionTriggerInstance getItem(ItemLike... items) {
             return InventoryChangeTrigger.TriggerInstance.hasItems(items);
         }
 
-        @Contract("_ -> new")
-        private static @NotNull CriterionTriggerInstance getItem(Tag<Item> tag) {
+        private static @NotNull CriterionTriggerInstance getItem(TagKey<Item> tag) {
             return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, null,
                     MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE,
                     EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
         }
 
-        @Contract(value = "_, _ -> new", pure = true)
         private static @NotNull CriterionTriggerInstance genericInt(ResourceLocation id,
                 int value) {
             return GenericIntTrigger.Instance.instance(id, value);
         }
 
-        @Contract(value = "_ -> new", pure = true)
         private static @NotNull Component title(String key) {
-            return new TranslatableComponent("advancements.bentenmod." + key + ".title");
+            return (Component) new TranslatableContents("advancements.bentenmod." + key + ".title");
         }
 
-        @Contract(value = "_ -> new", pure = true)
         private static @NotNull Component description(String key) {
-            return new TranslatableComponent("advancements.bentenmod." + key + ".description");
+            return (Component) new TranslatableContents(
+                    "advancements.bentenmod." + key + ".description");
         }
 
     }

@@ -216,7 +216,8 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         return MobType.UNDEAD;
     }
 
-    protected void populateDefaultEquipmentSlots(RandomSource source, DifficultyInstance p_180481_1_) {
+    protected void populateDefaultEquipmentSlots(RandomSource source,
+            DifficultyInstance p_180481_1_) {
         super.populateDefaultEquipmentSlots(source, p_180481_1_);
         if (this.random
             .nextFloat() < (this.level.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {

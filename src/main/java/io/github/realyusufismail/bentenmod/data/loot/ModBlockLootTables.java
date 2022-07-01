@@ -102,9 +102,9 @@ public class ModBlockLootTables extends BlockLoot {
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues()
             .stream()
-            .filter(block -> BenTenMod.MOD_ID.equals(Objects
-                .requireNonNull(block.getRegistryName(), "Registry name is null for loot")
-                .getNamespace()))
+            .filter(block -> BenTenMod.MOD_ID
+                .equals(Objects.requireNonNull(block.getName(), "Registry name is null for loot")
+                    .toString()))
             .collect(Collectors.toSet());
     }
 }

@@ -47,18 +47,23 @@ import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.IAnimatableModel;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.util.Color;
 import software.bernie.geckolib3.geo.render.built.GeoModel;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 import software.bernie.geckolib3.model.provider.GeoModelProvider;
 import software.bernie.geckolib3.model.provider.data.EntityModelData;
+import software.bernie.geckolib3.renderers.geo.GeoProjectilesRenderer;
 import software.bernie.geckolib3.renderers.geo.IGeoRenderer;
 import software.bernie.geckolib3.util.AnimationUtils;
 
 import java.awt.*;
 import java.util.Collections;
 
+/**
+ * @see GeoProjectilesRenderer
+ */
 @SuppressWarnings("unchecked")
-public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends EntityRenderer<T>
+public class BenTenGeoProjectilesRenderer<T extends Entity & IAnimatable> extends EntityRenderer<T>
         implements IGeoRenderer<T> {
 
     static {
@@ -73,7 +78,7 @@ public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends Enti
 
     private final AnimatedGeoModel<T> modelProvider;
 
-    protected GeoProjectilesRenderer(EntityRendererProvider.Context renderManager,
+    public BenTenGeoProjectilesRenderer(EntityRendererProvider.Context renderManager,
             AnimatedGeoModel<T> modelProvider) {
         super(renderManager);
         this.modelProvider = modelProvider;
@@ -82,7 +87,7 @@ public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends Enti
     @Override
     public void render(T entityIn, float entityYaw, float partialTicks, PoseStack matrixStackIn,
             MultiBufferSource bufferIn, int packedLightIn) {
-        GeoModel model = modelProvider.getModel(modelProvider.getModelLocation(entityIn));
+        GeoModel model = modelProvider.getModel(modelProvider.getModelResource(entityIn));
         matrixStackIn.pushPose();
         matrixStackIn.mulPose(Vector3f.YP
             .rotationDegrees(Mth.lerp(partialTicks, entityIn.yRotO, entityIn.getYRot()) - 90.0F));
@@ -123,7 +128,6 @@ public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends Enti
 
     @Override
     public ResourceLocation getTextureLocation(T instance) {
-        return this.modelProvider.getTextureLocation(instance);
+        return this.modelProvider.getTextureResource(instance);
     }
-
 }

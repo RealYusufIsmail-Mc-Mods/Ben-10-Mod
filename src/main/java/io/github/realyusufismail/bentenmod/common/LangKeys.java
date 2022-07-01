@@ -34,8 +34,6 @@ package io.github.realyusufismail.bentenmod.common;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public class LangKeys {
@@ -46,8 +44,7 @@ public class LangKeys {
     public static final Component TABLE_JEI = text("jei", "table_block");
 
     // Method extracted
-    @Contract(value = "_, _ -> new", pure = true)
-    private static @NotNull TranslatableComponent text(String s, String s2) {
-        return new TranslatableComponent(s + "." + BenTenMod.MOD_ID + "." + s2);
+    private static @NotNull Component text(String s, String s2) {
+        return Component.translatable(s + "." + BenTenMod.MOD_ID + "." + s2);
     }
 }

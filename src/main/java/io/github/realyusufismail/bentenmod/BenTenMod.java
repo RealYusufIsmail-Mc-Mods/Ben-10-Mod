@@ -61,13 +61,11 @@ public class BenTenMod {
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
         EntityTypesInit.ENTITY_TYPES.register(bus);
-        BlockEntityInit.BLOCK_ENTITY.register(bus);
-        ContainerInit.CONTAINERS.register(bus);
 
         GeckoLibMod.DISABLE_IN_DEV = true;
         GeckoLib.initialize();
 
-        bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
+        // bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Armour and Item loaded");
     }

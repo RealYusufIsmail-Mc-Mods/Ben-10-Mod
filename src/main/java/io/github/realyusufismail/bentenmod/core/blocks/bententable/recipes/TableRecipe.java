@@ -47,135 +47,39 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
 public class TableRecipe implements Recipe<Container> {
-    /**
-     * Set the input ingredients
-     */
-    public final Ingredient input1;
-    public final Ingredient input2;
-    public final Ingredient input3;
-    /**
-     * Set the output ItemStack
-     */
-    public final ItemStack output;
-    /**
-     * Set recipe id. THIS IS IMPORTANT
-     */
-    private final ResourceLocation recipeId;
 
-    /**
-     * put all of final variables to constructor
-     */
-    public TableRecipe(Ingredient input1, Ingredient input2, Ingredient input3, ItemStack output,
-            ResourceLocation recipeId) {
-        this.input1 = input1;
-        this.input2 = input2;
-        this.input3 = input3;
-        this.output = output;
-        this.recipeId = recipeId;
-    }
-
-    // int value is the index of Container Slot in your Container class
     @Override
     public boolean matches(Container p_44002_, Level p_44003_) {
-        return input1.test(p_44002_.getItem(0)) && input2.test(p_44002_.getItem(1))
-                && input3.test(p_44002_.getItem(2));
+        return false;
     }
 
     @Override
     public ItemStack assemble(Container p_44001_) {
-        return output.copy();
+        return null;
     }
 
     @Override
-    public boolean canCraftInDimensions(int p_194133_1_, int p_194133_2_) {
-        return true;
+    public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
+        return false;
     }
 
+    @Override
     public ItemStack getResultItem() {
-        return output;
+        return null;
     }
 
     @Override
     public ResourceLocation getId() {
-        return recipeId;
+        return null;
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return new Serializer();
-    }
-
-    @Override
-    public NonNullList<Ingredient> getIngredients() {
-        NonNullList<Ingredient> ingredients = NonNullList.create();
-        ingredients.add(input1);
-        ingredients.add(input2);
-        ingredients.add(input3);
-        return ingredients;
+        return null;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return RegisterRecipeInit.TABLE_RECIPE;
-    }
-
-    public static final class Type implements RecipeType<TableRecipe> {
-        @Override
-        public String toString() {
-            return BenTenMod.MOD_ID + ":table_recipe";
-        }
-    }
-
-    public static final class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>>
-            implements RecipeSerializer<TableRecipe> {
-        public Serializer() {
-            setRegistryName(BenTenMod.MOD_ID, "table_recipe");
-        }
-
-        @SuppressWarnings("deprecation")
-        @Override
-        public TableRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            final Ingredient input1 = Ingredient.fromJson(json.get("input1"));
-            final Ingredient input2 = Ingredient.fromJson(json.get("input2"));
-            final Ingredient input3 = Ingredient.fromJson(json.get("input3"));
-
-            final ItemStack output;
-            if (json.get("output").isJsonObject())
-                output = new ItemStack(
-                        ShapedRecipe.itemFromJson(json.get("output").getAsJsonObject()));
-            else
-                output = new ItemStack((Registry.ITEM
-                    .getOptional(new ResourceLocation(json.get("output").getAsString()))
-                    .orElseThrow(() -> new IllegalStateException("Oops"))));
-            return new TableRecipe(input1, input2, input3, output, recipeId);
-        }
-
-        @Override
-        public void toNetwork(FriendlyByteBuf buffer, TableRecipe recipe) {
-            recipe.input1.toNetwork(buffer);
-            recipe.input2.toNetwork(buffer);
-            recipe.input3.toNetwork(buffer);
-
-            buffer.writeItemStack(recipe.output, false);
-        }
-
-        @Override
-        public TableRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-            final Ingredient input1 = Ingredient.fromNetwork(buffer);
-            final Ingredient input2 = Ingredient.fromNetwork(buffer);
-            final Ingredient input3 = Ingredient.fromNetwork(buffer);
-
-            final ItemStack output = buffer.readItem();
-
-            return new TableRecipe(input1, input2, input3, output, recipeId);
-        }
-
-        private JsonElement getElement(JsonObject json, String memberName) {
-            return GsonHelper.isArrayNode(json, memberName)
-                    ? GsonHelper.getAsJsonArray(json, memberName)
-                    : GsonHelper.getAsJsonObject(json, memberName);
-
-            // JSONUtils is GsonHelper in 1.17
-        }
+        return null;
     }
 }

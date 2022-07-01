@@ -35,7 +35,6 @@ package io.github.realyusufismail.bentenmod;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
-import io.github.realyusufismail.bentenmod.core.init.ContainerInit;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -56,7 +55,7 @@ public class ClientModEventSubscriber {
 
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
-        MenuScreens.register(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
+        // enuScreens.register(ContainerInit.TABLE_CONTAINER.get(), TableScreen::new);
         EntityRenderers.register(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
         EntityRenderers.register(EntityTypesInit.CRAB_ENTITY.get(), KraabRenderer::new);
         EntityRenderers.register(EntityTypesInit.CRAB_BOLT_ENTITY.get(),

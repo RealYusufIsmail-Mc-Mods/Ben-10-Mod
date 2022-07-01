@@ -51,10 +51,10 @@ public class RegisterRecipeInit {
         Registry.register(Registry.RECIPE_TYPE,
                 new ResourceLocation(RegisterRecipeInit.TABLE_RECIPE.toString()),
                 (RecipeType<?>) RegisterRecipeInit.TABLE_RECIPE);
-        event.get().register(serializer);
+        // event.register(serializer);
     }
 
-    public static void registerRecipes(RegistryEvent.Register<RecipeSerializer<?>> event) {
+    public static void registerRecipes(Registry<RecipeSerializer<?>> event) {
         registerRecipe(event, new TableRecipe.Serializer());
     }
 

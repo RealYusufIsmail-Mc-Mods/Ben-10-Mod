@@ -47,6 +47,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -75,10 +76,10 @@ public class ModEntityLootTables extends EntityLoot {
     @Override
     protected Iterable<EntityType<?>> getKnownEntities() {
         return StreamSupport.stream(ForgeRegistries.ENTITIES.spliterator(), false)
-            .filter(entry -> entry.getRegistryName() != null
-                    && entry.getRegistryName().getNamespace().equals(BenTenMod.MOD_ID))
-            .collect(Collectors.toSet());
+            .map(ForgeRegistries.ENTITIES::getKey)
+            .filter(Objects::nonNull)
+            .filter(key -> key.getNamespace().equals(BenTenMod.MOD_ID))
+            .map(ForgeRegistries.ENTITIES::getValue)
+            .collect(Collectors.toList());
     }
-
-
 }

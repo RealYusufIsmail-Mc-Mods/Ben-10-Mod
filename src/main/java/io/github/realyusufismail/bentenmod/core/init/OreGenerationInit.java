@@ -71,15 +71,15 @@ public class OreGenerationInit {
 
     public static void registerOres() {
         final ConfiguredFeature<?, ?> blackDiamondOre = FeatureUtils.register("black_diamond_ore",
-                Feature.ORE.configured(new OreConfiguration(List.of(
+                Feature.ORE.place(new OreConfiguration(List.of(
                         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
                                 BlockInit.BLACK_DIAMOND_BLOCK.get().defaultBlockState()),
                         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
                                 BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().defaultBlockState())),
-                        8)));
+                        8), null, null, null, null));
 
         final PlacedFeature placedBlackDiamondOre = PlacementUtils.register("black_diamond_ore",
-                blackDiamondOre.placed(
+                blackDiamondOre.place(
                         // Min height for ore to spawn (worldMinHeight + height)
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(9),
                                 VerticalAnchor.belowTop(2)),
@@ -90,7 +90,7 @@ public class OreGenerationInit {
 
 
         final ConfiguredFeature<?, ?> omnitrixOre = FeatureUtils.register("omnitrix_ore",
-                Feature.ORE.configured(new OreConfiguration(List.of(
+                Feature.ORE.place(new OreConfiguration(List.of(
                         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
                                 BlockInit.OMNITRIX_ORE.get().defaultBlockState()),
                         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
@@ -98,7 +98,7 @@ public class OreGenerationInit {
                         8)));
 
         final PlacedFeature placedOmnitrixOre = PlacementUtils.register("omnitrix_ore",
-                omnitrixOre.placed(
+                omnitrixOre.place(
                         // Min height for ore to spawn (worldMinHeight + height)
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(9),
                                 VerticalAnchor.belowTop(2)),
@@ -108,7 +108,7 @@ public class OreGenerationInit {
                         CountPlacement.of(5)));
 
         final ConfiguredFeature<?, ?> legendaryOre = FeatureUtils.register("legendary_ore",
-                Feature.ORE.configured(new OreConfiguration(List.of(
+                Feature.ORE.place(new OreConfiguration(List.of(
                         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
                                 BlockInit.LEGENDARY_ORE.get().defaultBlockState()),
                         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
@@ -116,7 +116,7 @@ public class OreGenerationInit {
                         8)));
 
         final PlacedFeature placedLegendaryOre = PlacementUtils.register("legendary_ore",
-                legendaryOre.placed(
+                legendaryOre.place(
                         // Min height for ore to spawn (worldMinHeight + height)
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(9),
                                 VerticalAnchor.belowTop(2)),
@@ -126,14 +126,14 @@ public class OreGenerationInit {
                         CountPlacement.of(5)));
 
         final ConfiguredFeature<?, ?> speedOre = FeatureUtils.register("speed_ore",
-                Feature.ORE.configured(new OreConfiguration(List.of(
+                Feature.ORE.place(new OreConfiguration(List.of(
                         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
                                 BlockInit.SPEED_ORE.get().defaultBlockState()),
                         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
                                 BlockInit.DEEPSLATE_SPEED_ORE.get().defaultBlockState())),
                         8)));
 
-        final PlacedFeature placedSpeedOre = PlacementUtils.register("speed_ore", speedOre.placed(
+        final PlacedFeature placedSpeedOre = PlacementUtils.register("speed_ore", speedOre.place(
                 // Min height for ore to spawn (worldMinHeight + height)
                 HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
                         VerticalAnchor.belowTop(40)),
@@ -144,14 +144,14 @@ public class OreGenerationInit {
 
 
         final ConfiguredFeature<?, ?> rubyOre = FeatureUtils.register("ruby_ore",
-                Feature.ORE.configured(new OreConfiguration(List.of(
+                Feature.ORE.place(new OreConfiguration(List.of(
                         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
                                 BlockInit.RUBY_ORE.get().defaultBlockState()),
                         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
                                 BlockInit.RUBY_ORE.get().defaultBlockState())),
                         8)));
 
-        final PlacedFeature placedRubyOre = PlacementUtils.register("ruby_ore", rubyOre.placed(
+        final PlacedFeature placedRubyOre = PlacementUtils.register("ruby_ore", rubyOre.place(
                 // Min height for ore to spawn (worldMinHeight + height)
                 HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
                         VerticalAnchor.belowTop(40)),
@@ -161,7 +161,7 @@ public class OreGenerationInit {
                 CountPlacement.of(5)));
 
         final ConfiguredFeature<?, ?> imperiumOre = FeatureUtils.register("imperium_ore",
-                Feature.ORE.configured(new OreConfiguration(List.of(
+                Feature.ORE.place(new OreConfiguration(List.of(
                         OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
                                 BlockInit.SPEED_ORE.get().defaultBlockState()),
                         OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
@@ -169,7 +169,7 @@ public class OreGenerationInit {
                         8)));
 
         final PlacedFeature placedImperiumOre = PlacementUtils.register("imperium_ore",
-                imperiumOre.placed(
+                imperiumOre.place(
                         // Min height for ore to spawn (worldMinHeight + height)
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
                                 VerticalAnchor.belowTop(40)),
@@ -180,12 +180,12 @@ public class OreGenerationInit {
 
         // nether ores
         final ConfiguredFeature<?, ?> fireOre = FeatureUtils.register("fire_ore",
-                Feature.ORE.configured(new OreConfiguration(
+                Feature.ORE.place(new OreConfiguration(
                         List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES,
                                 BlockInit.FIRE_ORE.get().defaultBlockState())),
                         9)));
 
-        final PlacedFeature placedFireOre = PlacementUtils.register("fire_ore", fireOre.placed(
+        final PlacedFeature placedFireOre = PlacementUtils.register("fire_ore", fireOre.place(
                 // Min height for ore to spawn (worldMinHeight + height)
                 HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
                         VerticalAnchor.belowTop(40)),
@@ -193,13 +193,13 @@ public class OreGenerationInit {
 
 
         final ConfiguredFeature<?, ?> infinitumOre = FeatureUtils.register("infinitum_ore",
-                Feature.ORE.configured(new OreConfiguration(
+                Feature.ORE.place(new OreConfiguration(
                         List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES,
                                 BlockInit.INFINITUM_ORE.get().defaultBlockState())),
                         9)));
 
         final PlacedFeature placedInfinitumOre = PlacementUtils.register("infinitum_ore",
-                infinitumOre.placed(
+                infinitumOre.place(
                         // Min height for ore to spawn (worldMinHeight + height)
                         HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30),
                                 VerticalAnchor.belowTop(40)),

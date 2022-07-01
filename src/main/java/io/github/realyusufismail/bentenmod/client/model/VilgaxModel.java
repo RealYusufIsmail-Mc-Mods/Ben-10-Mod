@@ -45,18 +45,17 @@ public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity> {
     public VilgaxModel() {}
 
     @Override
-    public ResourceLocation getModelLocation(VilgaxEntity object) {
-        return new ResourceLocation(BenTenMod.MOD_ID, "geo/vilgax.geo.json");
+    public ResourceLocation getModelResource(VilgaxEntity object) {
+        return new ResourceLocation(BenTenMod.MOD_ID, "entity/vilgax");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(VilgaxEntity object) {
-        return new ResourceLocation(BenTenMod.MOD_ID,
-                "textures/model/entities/vilgax/vilgax_entity.png");
+    public ResourceLocation getTextureResource(VilgaxEntity object) {
+        return new ResourceLocation(BenTenMod.MOD_ID, "textures/entity/vilgax.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(VilgaxEntity object) {
+    public ResourceLocation getAnimationResource(VilgaxEntity animatable) {
         return new ResourceLocation(BenTenMod.MOD_ID, "animations/vilgax.animation.json");
     }
 }

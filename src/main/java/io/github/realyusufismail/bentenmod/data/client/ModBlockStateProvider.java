@@ -93,8 +93,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void tableBlock() {
-        ResourceLocation name = BlockInit.TABLE_BLOCK.get().getRegistryName();
-        assert name != null;
+        ResourceLocation name =
+                ResourceLocation.tryParse(BlockInit.TABLE_BLOCK.get().getName().toString());
+
         BlockModelBuilder builder =
                 this.models().withExistingParent(name.getPath(), "block/orientable");
         builder.texture("top", modLoc("block/table_block_top"));
