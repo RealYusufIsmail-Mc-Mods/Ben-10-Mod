@@ -4,8 +4,6 @@
 [![Discord](https://img.shields.io/discord/842490150537527306?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)]( https://discord.gg/kbVDCfvVKe)
 [![Support](https://img.shields.io/badge/Gofundme-donate-blue?logo=gofundme)](https://www.gofundme.com/f/bvbqp-help-me-get-a-better-computer)
 
-Crafting recipes can be found here: https://realyusufismail.github.io/custom-mod/recipes.html
-
 This mod can be used in a modpack
 
 to contribute to this mod all you need to is write some code and create a pr and I will check it.
