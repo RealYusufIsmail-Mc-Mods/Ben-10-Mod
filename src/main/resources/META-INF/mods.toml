@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[39,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion = "[42,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license = "BSD 3-Clause License"
 issueTrackerURL = "https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #optional
 [[mods]]
@@ -26,28 +26,28 @@ Gentworm: https://www.curseforge.com/members/gentworm/followers
 [[dependencies.bentenmod]]
 modId = "forge"
 mandatory = true
-versionRange="[39,)"
+versionRange="[42,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "minecraft"
 mandatory = true
-versionRange="[1.18.1,1.19)"
+versionRange= "[1.19.1,1.20)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "geckolib3"
 mandatory = true
-versionRange = "[1.18-forge:3.0.3,)"
+versionRange = "1.19:3.1.11,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "realyusufismailcore"
 mandatory = true
-versionRange = "[1.18.1-1.0.0,)"
+versionRange = "[1.19-1.0.2,)"
 ordering = "NONE"
 side = "BOTH"
 

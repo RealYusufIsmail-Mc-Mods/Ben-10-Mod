@@ -49,7 +49,7 @@ import software.bernie.geckolib3.GeckoLib;
 
 import static io.github.realyusufismail.bentenmod.BenTenMod.MOD_ID;
 
-@Mod(MOD_ID)
+@Mod(BenTenMod.MOD_ID)
 public class BenTenMod {
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
@@ -60,12 +60,12 @@ public class BenTenMod {
 
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
-        EntityTypesInit.ENTITY_TYPES.register(bus);
+        // EntityTypesInit.ENTITY_TYPES.register(bus);
 
-        GeckoLibMod.DISABLE_IN_DEV = true;
+        GeckoLibMod.DISABLE_IN_DEV = false;
         GeckoLib.initialize();
 
-        // bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes);
+        // bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes)
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Armour and Item loaded");
     }

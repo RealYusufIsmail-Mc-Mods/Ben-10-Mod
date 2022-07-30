@@ -43,28 +43,23 @@ import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import java.util.Map;
 
-public class RegisterRecipeInit {
-    public static final RecipeType<TableRecipe> TABLE_RECIPE = new TableRecipe.Type();
-
-    private static void registerRecipe(Registry<RecipeSerializer<?>> event,
-            RecipeSerializer<?> serializer) {
-        Registry.register(Registry.RECIPE_TYPE,
-                new ResourceLocation(RegisterRecipeInit.TABLE_RECIPE.toString()),
-                (RecipeType<?>) RegisterRecipeInit.TABLE_RECIPE);
-        // event.register(serializer);
-    }
-
-    public static void registerRecipes(Registry<RecipeSerializer<?>> event) {
-        registerRecipe(event, new TableRecipe.Serializer());
-    }
-
-    public static Map<ResourceLocation, Recipe<?>> getRecipes(RecipeType<?> type,
-            RecipeManager manager) {
-        final Map<RecipeType<?>, Map<ResourceLocation, Recipe<?>>> recipes =
-                ObfuscationReflectionHelper.getPrivateValue(RecipeManager.class, manager,
-                        "field_199522_d");
-        return recipes.get(type);
-    }
-
-}
+/**
+ * public class RegisterRecipeInit { // public static final RecipeType<TableRecipe> TABLE_RECIPE =
+ * new TableRecipe.Type();
+ * 
+ * private static void registerRecipe(Registry<RecipeSerializer<?>> event, RecipeSerializer<?>
+ * serializer) { Registry.register(Registry.RECIPE_TYPE, new
+ * ResourceLocation(RegisterRecipeInit.TABLE_RECIPE.toString()), (RecipeType<?>)
+ * RegisterRecipeInit.TABLE_RECIPE); // event.register(serializer); }
+ * 
+ * public static void registerRecipes(Registry<RecipeSerializer<?>> event) { registerRecipe(event,
+ * new TableRecipe.Serializer()); }
+ * 
+ * public static Map<ResourceLocation, Recipe<?>> getRecipes(RecipeType<?> type, RecipeManager
+ * manager) { final Map<RecipeType<?>, Map<ResourceLocation, Recipe<?>>> recipes =
+ * ObfuscationReflectionHelper.getPrivateValue(RecipeManager.class, manager, "field_199522_d");
+ * return recipes.get(type); }
+ * 
+ * }
+ */
 

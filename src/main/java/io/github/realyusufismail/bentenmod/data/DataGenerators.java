@@ -42,9 +42,9 @@ import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
 import io.github.realyusufismail.bentenmod.data.recipe.ModUpgradingRecipeBuild;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
@@ -55,23 +55,23 @@ public class DataGenerators {
         var gen = event.getGenerator();
         var existingFileHelper = event.getExistingFileHelper();
 
-        gen.addProvider(false, new ModBlockStateProvider(gen, existingFileHelper));
-        gen.addProvider(false, new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(false, new ModLootTables(gen));
+        gen.addProvider(true, new ModBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(true, new ModItemModelProvider(gen, existingFileHelper));
+        gen.addProvider(true, new ModLootTables(gen));
 
         // lang
-        gen.addProvider(false, new ModEnLangProvider(gen));
+        gen.addProvider(true, new ModEnLangProvider(gen));
 
         // recipe
-        gen.addProvider(false, new ModRecipeProvider(gen));
-        gen.addProvider(false, new ModUpgradingRecipeBuild(gen));
+        gen.addProvider(true, new ModRecipeProvider(gen));
+        gen.addProvider(true, new ModUpgradingRecipeBuild(gen));
 
         // advancements
-        gen.addProvider(false, new ModAdvancementProvider(gen));
+        gen.addProvider(true, new ModAdvancementProvider(gen));
 
         // tags
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
-        gen.addProvider(false, blockTags);
-        gen.addProvider(false, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
+        gen.addProvider(true, blockTags);
+        gen.addProvider(true, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
     }
 }

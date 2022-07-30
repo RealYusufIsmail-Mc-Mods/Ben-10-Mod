@@ -53,7 +53,8 @@ public class EntityTypesInit {
     }
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
-            DeferredRegister.create(ForgeRegistries.ENTITIES, BenTenMod.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BenTenMod.MOD_ID);
+
     private static final Item.Properties spawn_egg_props =
             new Item.Properties().tab(MainItemGroup.MAIN);
 

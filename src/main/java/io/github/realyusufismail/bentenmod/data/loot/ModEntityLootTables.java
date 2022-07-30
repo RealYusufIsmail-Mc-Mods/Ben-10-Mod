@@ -75,11 +75,11 @@ public class ModEntityLootTables extends EntityLoot {
 
     @Override
     protected Iterable<EntityType<?>> getKnownEntities() {
-        return StreamSupport.stream(ForgeRegistries.ENTITIES.spliterator(), false)
-            .map(ForgeRegistries.ENTITIES::getKey)
+        return StreamSupport.stream(ForgeRegistries.ENTITY_TYPES.spliterator(), false)
+            .map(ForgeRegistries.ENTITY_TYPES::getKey)
             .filter(Objects::nonNull)
             .filter(key -> key.getNamespace().equals(BenTenMod.MOD_ID))
-            .map(ForgeRegistries.ENTITIES::getValue)
+            .map(ForgeRegistries.ENTITY_TYPES::getValue)
             .collect(Collectors.toList());
     }
 }

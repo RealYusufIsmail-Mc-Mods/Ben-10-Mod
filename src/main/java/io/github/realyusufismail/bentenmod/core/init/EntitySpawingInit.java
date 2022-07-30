@@ -42,29 +42,22 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 /*
-public class EntitySpawingInit {
-    @SubscribeEvent
-    public static void onBiomesLoad(BiomeLoadingEvent event) {
-        if (event.getCategory() == Biome.BiomeCategory.NETHER)
-            event.getSpawns()
-                .getSpawner(MobCategory.CREATURE)
-                .add(new MobSpawnSettings.SpawnerData(EntityTypesInit.VILGAX_ENTITY.get(), 3, 1,
-                        2));
-        if (event.getCategory() == Biome.BiomeCategory.DESERT
-                || event.getCategory() == Biome.BiomeCategory.SAVANNA)
-            event.getSpawns()
-                .getSpawner(MobCategory.MONSTER)
-                .add(new MobSpawnSettings.SpawnerData(EntityTypesInit.CRAB_ENTITY.get(), 3, 1, 1));
-
-    }
-
-    public static void SpawnPlacements() {
-        SpawnPlacements.register(EntityTypesInit.CRAB_ENTITY.get(), SpawnPlacements.Type.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrabEntity::canKrabEntitySpawn);
-        SpawnPlacements.register(EntityTypesInit.VILGAX_ENTITY.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                VilgaxEntity::canVilgaxSpawn);
-    }
-}
-
+ * public class EntitySpawingInit {
+ * 
+ * @SubscribeEvent public static void onBiomesLoad(BiomeLoadingEvent event) { if
+ * (event.getCategory() == Biome.BiomeCategory.NETHER) event.getSpawns()
+ * .getSpawner(MobCategory.CREATURE) .add(new
+ * MobSpawnSettings.SpawnerData(EntityTypesInit.VILGAX_ENTITY.get(), 3, 1, 2)); if
+ * (event.getCategory() == Biome.BiomeCategory.DESERT || event.getCategory() ==
+ * Biome.BiomeCategory.SAVANNA) event.getSpawns() .getSpawner(MobCategory.MONSTER) .add(new
+ * MobSpawnSettings.SpawnerData(EntityTypesInit.CRAB_ENTITY.get(), 3, 1, 1));
+ * 
+ * }
+ * 
+ * public static void SpawnPlacements() {
+ * SpawnPlacements.register(EntityTypesInit.CRAB_ENTITY.get(), SpawnPlacements.Type.ON_GROUND,
+ * Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrabEntity::canKrabEntitySpawn);
+ * SpawnPlacements.register(EntityTypesInit.VILGAX_ENTITY.get(), SpawnPlacements.Type.ON_GROUND,
+ * Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VilgaxEntity::canVilgaxSpawn); } }
+ * 
  */

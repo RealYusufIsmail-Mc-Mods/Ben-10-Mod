@@ -35,6 +35,7 @@ package io.github.realyusufismail.bentenmod.data.client;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -93,11 +94,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void tableBlock() {
-        ResourceLocation name =
-                ResourceLocation.tryParse(BlockInit.TABLE_BLOCK.get().getName().toString());
+        MutableComponent name = BlockInit.TABLE_BLOCK.get().getName();
 
         BlockModelBuilder builder =
-                this.models().withExistingParent(name.getPath(), "block/orientable");
+                this.models().withExistingParent(name.getString(), "block/orientable");
         builder.texture("top", modLoc("block/table_block_top"));
         builder.texture("front", modLoc("block/table_block_front"));
         builder.texture("side", modLoc("block/table_block_side"));

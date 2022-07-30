@@ -37,5 +37,5 @@ import net.minecraft.world.item.crafting.RecipeType;
 
 
 public class RecipeTypeInit {
-    public static final RecipeType<TableRecipe> TABLE_BLOCK = new TableRecipe.Type();
+    // public static final RecipeType<TableRecipe> TABLE_BLOCK = new TableRecipe.Type();
 }

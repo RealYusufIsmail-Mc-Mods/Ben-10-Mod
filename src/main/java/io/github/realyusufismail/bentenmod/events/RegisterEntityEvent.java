@@ -52,9 +52,9 @@ public class RegisterEntityEvent {
             EntityAttributeCreationEvent entityAttributeCreationEvent) {
         ModSpawnEggItem.initSpawnEggs();
         // This is where to register the actual attributes of the entities
-        entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(),
-                VilgaxEntity.registerAttributes().build());
-        entityAttributeCreationEvent.put(EntityTypesInit.CRAB_ENTITY.get(),
-                CrabEntity.registerAttributes().build());
+        // entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(),
+        // VilgaxEntity.registerAttributes().build());
+        // entityAttributeCreationEvent.put(EntityTypesInit.CRAB_ENTITY.get(),
+        // CrabEntity.registerAttributes().build());
     }
 }

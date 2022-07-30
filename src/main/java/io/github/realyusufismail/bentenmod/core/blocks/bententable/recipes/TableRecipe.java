@@ -35,7 +35,6 @@ package io.github.realyusufismail.bentenmod.core.blocks.bententable.recipes;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.init.RegisterRecipeInit;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;

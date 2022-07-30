@@ -47,6 +47,7 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -59,12 +60,17 @@ public class ClientModEventSubscriber {
         EntityRenderers.register(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
         EntityRenderers.register(EntityTypesInit.CRAB_ENTITY.get(), KraabRenderer::new);
         EntityRenderers.register(EntityTypesInit.CRAB_BOLT_ENTITY.get(),
-                m -> new EntityRenderer<CrabBoltEntity>(m) {
+                m -> new EntityRenderer<>(m) {
                     @Override
-                    public ResourceLocation getTextureLocation(CrabBoltEntity entity) {
+                    public ResourceLocation getTextureLocation(@NotNull CrabBoltEntity entity) {
                         return null;
                     }
                 });
+    }
+
+    @SubscribeEvent
+    public static void commonSetup(FMLCommonSetupEvent event) {
+        // OreGenerationInit.registerOres();
     }
 
     public static ModelLayerLocation KRAAB =

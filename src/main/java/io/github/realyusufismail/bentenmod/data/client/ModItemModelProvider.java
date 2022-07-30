@@ -35,24 +35,16 @@ package io.github.realyusufismail.bentenmod.data.client;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
-import io.github.realyusufismail.realyusufismailcore.util.NameUtils;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
-import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    private static final String GENERATED_ITEM = "item/generated";
-
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
@@ -65,138 +57,220 @@ public class ModItemModelProvider extends ItemModelProvider {
             .map(RegistryObject::get)
             .forEach(this::blockItemModel);
 
-        ModelFile itemGenerated = getExistingFile(new ResourceLocation(GENERATED_ITEM));
-        ModelFile itemHandHeld = getExistingFile(new ResourceLocation("item/handheld"));
 
 
         // items
-        builder(BLACK_DIAMOND.get(), itemGenerated);
-        builder(BLACK_DIAMOND_SCRAP.get(), itemGenerated);
-        builder(INFINITUM.get(), itemGenerated);
-        builder(INFINITUM_SCRAP.get(), itemGenerated);
-        builder(BOOTS.get(), itemGenerated);
-        builder(CHESTPLATE.get(), itemGenerated);
-        builder(LEGENDARY.get(), itemGenerated);
-        builder(OMNITRIX.get(), itemGenerated);
-        builder(FIRE.get(), itemGenerated);
-        builder(RUBY.get(), itemGenerated);
-        builder(SPEED.get(), itemGenerated);
-        builder(HELMET.get(), itemGenerated);
-        builder(LEGGINGS.get(), itemGenerated);
-        builder(JACKET.get(), itemGenerated);
-        builder(HEATBLAST_HELMET.get(), itemGenerated);
-        builder(HEATBLAST_CHESTPLATE.get(), itemGenerated);
-        builder(HEATBLAST_LEGGINGS.get(), itemGenerated);
-        builder(HEATBLAST_BOOTS.get(), itemGenerated);
-        // xlr8 armour
-        builder(XLR8_HELMET.get(), itemGenerated);
-        builder(XLR8_CHESTPLATE.get(), itemGenerated);
-        builder(XLR8_LEGGINGS.get(), itemGenerated);
-        builder(XLR8_BOOTS.get(), itemGenerated);
-        builder(OMNITRIX_APPLE.get(), itemGenerated);
-        builder(ENCHANTED_OMNITRIX_APPLE.get(), itemGenerated);
-        builder(FIRE_APPLE.get(), itemGenerated);
-        builder(RUBY_APPLE.get(), itemGenerated);
-        builder(VILGAX_SPAWN_EGG.get(), itemGenerated);
-        // black diamond armour
-        builder(BLACK_DIAMOND_HELMET.get(), itemGenerated);
-        builder(BLACK_DIAMOND_CHESTPLATE.get(), itemGenerated);
-        builder(BLACK_DIAMOND_LEGGINGS.get(), itemGenerated);
-        builder(BLACK_DIAMOND_BOOTS.get(), itemGenerated);
-        // infinitum armour
-        builder(INFINITUM_HELMET.get(), itemGenerated);
-        builder(INFINITUM_CHESTPLATE.get(), itemGenerated);
-        builder(INFINITUM_LEGGINGS.get(), itemGenerated);
-        builder(INFINITUM_BOOTS.get(), itemGenerated);
-        builder(IMPERIUM.get(), itemGenerated);
-        builder(CRAB_SPAWN_EGG.get(), itemGenerated);
-        builder(RAW_LEGENDARY.get(), itemGenerated);
-        builder(RAW_IMPERIUM.get(), itemGenerated);
-        builder(RAW_OMNITRIX.get(), itemGenerated);
-        // 4 arms
-        builder(FOURARMS_HELMET.get(), itemGenerated);
-        builder(FOURARMS_CHESTPLATE.get(), itemGenerated);
-        builder(FOURARMS_LEGGINGS.get(), itemGenerated);
-        builder(FOURARMS_BOOT.get(), itemGenerated);
+        ITEMS.getEntries().stream().map(RegistryObject::get).forEach(this::registerItems);
+    }
+
+    public void registerItems(Item item) {
+        String itemAsAsString = item.toString();
+
+        // items
+        if (itemAsAsString.equals(BLACK_DIAMOND.get().toString()))
+            item(BLACK_DIAMOND.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_SCRAP.get().toString()))
+            item(BLACK_DIAMOND_SCRAP.get().toString());
+        else if (itemAsAsString.equals(INFINITUM.get().toString()))
+            item(INFINITUM.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_SCRAP.get().toString()))
+            item(INFINITUM_SCRAP.get().toString());
+        else if (itemAsAsString.equals(LEGENDARY.get().toString()))
+            item(LEGENDARY.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX.get().toString()))
+            item(OMNITRIX.get().toString());
+        else if (itemAsAsString.equals(FIRE.get().toString()))
+            item(FIRE.get().toString());
+        else if (itemAsAsString.equals(RUBY.get().toString()))
+            item(RUBY.get().toString());
+        else if (itemAsAsString.equals(SPEED.get().toString()))
+            item(SPEED.get().toString());
+        else if (itemAsAsString.equals(IMPERIUM.get().toString()))
+            item(IMPERIUM.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_APPLE.get().toString()))
+            item(OMNITRIX_APPLE.get().toString());
+        else if (itemAsAsString.equals(ENCHANTED_OMNITRIX_APPLE.get().toString()))
+            item(ENCHANTED_OMNITRIX_APPLE.get().toString());
+        else if (itemAsAsString.equals(FIRE_APPLE.get().toString()))
+            item(FIRE_APPLE.get().toString());
+        else if (itemAsAsString.equals(RUBY_APPLE.get().toString()))
+            item(RUBY_APPLE.get().toString());
+        // else if (itemAsAsString.equals(VILGAX_SPAWN_EGG.get().toString()))
+        // item(VILGAX_SPAWN_EGG.get().toString());
+        // else if (itemAsAsString.equals(CRAB_SPAWN_EGG.get().toString()))
+        // item(CRAB_SPAWN_EGG.get().toString());
+        else if (itemAsAsString.equals(RAW_LEGENDARY.get().toString()))
+            item(RAW_LEGENDARY.get().toString());
+        else if (itemAsAsString.equals(RAW_IMPERIUM.get().toString()))
+            item(RAW_IMPERIUM.get().toString());
+        else if (itemAsAsString.equals(RAW_OMNITRIX.get().toString()))
+            item(RAW_OMNITRIX.get().toString());
+
         // tools
-        builder(BLACK_DIAMOND_AXE.get(), itemHandHeld);
-        builder(BLACK_DIAMOND_HOE.get(), itemHandHeld);
-        builder(BLACK_DIAMOND_PICKAXE.get(), itemHandHeld);
-        builder(BLACK_DIAMOND_SHOVEL.get(), itemHandHeld);
-        builder(BLACK_DIAMOND_SWORD.get(), itemHandHeld);
-        builder(INFINITUM_AXE.get(), itemHandHeld);
-        builder(INFINITUM_HOE.get(), itemHandHeld);
-        builder(INFINITUM_PICKAXE.get(), itemHandHeld);
-        builder(INFINITUM_SHOVEL.get(), itemHandHeld);
-        builder(INFINITUM_SWORD.get(), itemHandHeld);
-        builder(AXE.get(), itemHandHeld);
-        builder(SWORD.get(), itemHandHeld);
-        builder(HEATBLAST_SWORD.get(), itemHandHeld);
-        builder(IMPERIUM_AXE.get(), itemHandHeld);
-        builder(IMPERIUM_PICKAXE.get(), itemHandHeld);
-        builder(IMPERIUM_PICKAXE_UPGRADED.get(), itemHandHeld);
-        builder(IMPERIUM_AXE.get(), itemHandHeld);
+        else if (itemAsAsString.equals(BLACK_DIAMOND_AXE.get().toString()))
+            tool(BLACK_DIAMOND_AXE.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_HOE.get().toString()))
+            tool(BLACK_DIAMOND_HOE.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_PICKAXE.get().toString()))
+            tool(BLACK_DIAMOND_PICKAXE.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_SHOVEL.get().toString()))
+            tool(BLACK_DIAMOND_SHOVEL.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_SWORD.get().toString()))
+            tool(BLACK_DIAMOND_SWORD.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_AXE.get().toString()))
+            tool(INFINITUM_AXE.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_HOE.get().toString()))
+            tool(INFINITUM_HOE.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_PICKAXE.get().toString()))
+            tool(INFINITUM_PICKAXE.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_SHOVEL.get().toString()))
+            tool(INFINITUM_SHOVEL.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_SWORD.get().toString()))
+            tool(INFINITUM_SWORD.get().toString());
+        else if (itemAsAsString.equals(AXE.get().toString()))
+            tool(AXE.get().toString());
+        else if (itemAsAsString.equals(SWORD.get().toString()))
+            tool(SWORD.get().toString());
+        else if (itemAsAsString.equals(HEATBLAST_SWORD.get().toString()))
+            tool(HEATBLAST_SWORD.get().toString());
+        else if (itemAsAsString.equals(IMPERIUM_AXE.get().toString()))
+            tool(IMPERIUM_AXE.get().toString());
+        else if (itemAsAsString.equals(IMPERIUM_PICKAXE.get().toString()))
+            tool(IMPERIUM_PICKAXE.get().toString());
+        else if (itemAsAsString.equals(IMPERIUM_PICKAXE_UPGRADED.get().toString()))
+            tool(IMPERIUM_PICKAXE_UPGRADED.get().toString());
+        else if (itemAsAsString.equals(IMPERIUM_AXE.get().toString()))
+            tool(IMPERIUM_AXE.get().toString());
+
+        // xlr8 armour
+        else if (itemAsAsString.equals(XLR8_HELMET.get().toString()))
+            item(XLR8_HELMET.get().toString());
+        else if (itemAsAsString.equals(XLR8_CHESTPLATE.get().toString()))
+            item(XLR8_CHESTPLATE.get().toString());
+        else if (itemAsAsString.equals(XLR8_LEGGINGS.get().toString()))
+            item(XLR8_LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(XLR8_BOOTS.get().toString()))
+            item(XLR8_BOOTS.get().toString());
+
+        // black diamond armour
+        else if (itemAsAsString.equals(BLACK_DIAMOND_HELMET.get().toString()))
+            item(BLACK_DIAMOND_HELMET.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_CHESTPLATE.get().toString()))
+            item(BLACK_DIAMOND_CHESTPLATE.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_LEGGINGS.get().toString()))
+            item(BLACK_DIAMOND_LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_BOOTS.get().toString()))
+            item(BLACK_DIAMOND_BOOTS.get().toString());
+
+        // infinitum armour
+        else if (itemAsAsString.equals(INFINITUM_HELMET.get().toString()))
+            item(INFINITUM_HELMET.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_CHESTPLATE.get().toString()))
+            item(INFINITUM_CHESTPLATE.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_LEGGINGS.get().toString()))
+            item(INFINITUM_LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(INFINITUM_BOOTS.get().toString()))
+            item(INFINITUM_BOOTS.get().toString());
+
+        // 4 arms
+        else if (itemAsAsString.equals(FOURARMS_HELMET.get().toString()))
+            item(FOURARMS_HELMET.get().toString());
+        else if (itemAsAsString.equals(FOURARMS_HELMET.get().toString()))
+            item(FOURARMS_HELMET.get().toString());
+        else if (itemAsAsString.equals(FOURARMS_LEGGINGS.get().toString()))
+            item(FOURARMS_LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(FOURARMS_BOOT.get().toString()))
+            item(FOURARMS_BOOT.get().toString());
+
+        // legendary armour
+        else if (itemAsAsString.equals(HELMET.get().toString()))
+            item(HELMET.get().toString());
+        else if (itemAsAsString.equals(CHESTPLATE.get().toString()))
+            item(CHESTPLATE.get().toString());
+        else if (itemAsAsString.equals(LEGGINGS.get().toString()))
+            item(LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(BOOTS.get().toString()))
+            item(BOOTS.get().toString());
     }
 
     private void blockItemModel(Block block) {
-        if (block == BlockInit.BLACK_DIAMOND_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_block");
-        if (block == BlockInit.INFINITUM_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/infinitum_block");
-        else if (block == BlockInit.OMNITRIX_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_block");
-        else if (block == BlockInit.FIRE_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/fire_block");
-        else if (block == BlockInit.RUBY_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/ruby_block");
-        else if (block == BlockInit.SPEED_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/speed_block");
-        else if (block == BlockInit.IMPERIUM_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/imperium_block");
-        else if (block == BlockInit.LEGENDARY_BLOCK.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/legendary_block");
+        String blockAsString = formatString(block.toString());
+
+        if (blockAsString.equals(formatString(BlockInit.BLACK_DIAMOND_BLOCK.get().toString())))
+            builder(BlockInit.BLACK_DIAMOND_BLOCK.get().toString(), "block/black_diamond_block");
+        else if (blockAsString.equals(formatString(BlockInit.INFINITUM_BLOCK.get().toString())))
+            builder(BlockInit.INFINITUM_BLOCK.get().toString(), "block/infinitum_block");
+        else if (blockAsString.equals(formatString(BlockInit.OMNITRIX_BLOCK.get().toString())))
+            builder(BlockInit.OMNITRIX_BLOCK.get().toString(), "block/omnitrix_block");
+        else if (blockAsString.equals(formatString(BlockInit.FIRE_BLOCK.get().toString())))
+            builder(BlockInit.FIRE_BLOCK.get().toString(), "block/fire_block");
+        else if (blockAsString.equals(formatString(BlockInit.RUBY_BLOCK.get().toString())))
+            builder(BlockInit.RUBY_BLOCK.get().toString(), "block/ruby_block");
+        else if (blockAsString.equals(formatString(BlockInit.SPEED_BLOCK.get().toString())))
+            builder(BlockInit.SPEED_BLOCK.get().toString(), "block/speed_block");
+        else if (blockAsString.equals(formatString(BlockInit.IMPERIUM_BLOCK.get().toString())))
+            builder(BlockInit.IMPERIUM_BLOCK.get().toString(), "block/imperium_block");
+        else if (blockAsString.equals(formatString(BlockInit.LEGENDARY_BLOCK.get().toString())))
+            builder(BlockInit.LEGENDARY_BLOCK.get().toString(), "block/legendary_block");
         // ores
-        else if (block == BlockInit.BLACK_DIAMOND_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/black_diamond_ore");
-        else if (block == BlockInit.OMNITRIX_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/omnitrix_ore");
-        else if (block == BlockInit.FIRE_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/fire_ore");
-        else if (block == BlockInit.RUBY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/ruby_ore");
-        else if (block == BlockInit.SPEED_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/speed_ore");
-        else if (block == BlockInit.IMPERIUM_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/imperium_ore");
-        else if (block == BlockInit.LEGENDARY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/legendary_ore");
+        else if (blockAsString.equals(formatString(BlockInit.BLACK_DIAMOND_ORE.get().toString())))
+            builder(BlockInit.BLACK_DIAMOND_ORE.get().toString(), "block/black_diamond_ore");
+        else if (blockAsString.equals(formatString(BlockInit.OMNITRIX_ORE.get().toString())))
+            builder(BlockInit.OMNITRIX_ORE.get().toString(), "block/omnitrix_ore");
+        else if (blockAsString.equals(formatString(BlockInit.FIRE_ORE.get().toString())))
+            builder(BlockInit.FIRE_ORE.get().toString(), "block/fire_ore");
+        else if (blockAsString.equals(formatString(BlockInit.RUBY_ORE.get().toString())))
+            builder(BlockInit.RUBY_ORE.get().toString(), "block/ruby_ore");
+        else if (blockAsString.equals(formatString(BlockInit.SPEED_ORE.get().toString())))
+            builder(BlockInit.SPEED_ORE.get().toString(), "block/speed_ore");
+        else if (blockAsString.equals(formatString(BlockInit.IMPERIUM_ORE.get().toString())))
+            builder(BlockInit.IMPERIUM_ORE.get().toString(), "block/imperium_ore");
+        else if (blockAsString.equals(formatString(BlockInit.LEGENDARY_ORE.get().toString())))
+            builder(BlockInit.LEGENDARY_ORE.get().toString(), "block/legendary_ore");
         // DEEPSLATE ore
-        else if (block == BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)),
+        else if (blockAsString
+            .equals(formatString(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().toString())))
+            builder(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().toString(),
                     "block/deepslate_black_diamond_ore");
-        else if (block == BlockInit.DEEPSLATE_OMNITRIX_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_omnitrix_ore");
-        else if (block == BlockInit.DEEPSLATE_RUBY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_ruby_ore");
-        else if (block == BlockInit.DEEPSLATE_SPEED_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_speed_ore");
-        else if (block == BlockInit.DEEPSLATE_IMPERIUM_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_imperium_ore");
-        else if (block == BlockInit.DEEPSLATE_LEGENDARY_ORE.get())
-            builder(block, getExistingFile(mcLoc(GENERATED_ITEM)), "block/deepslate_legendary_ore");
+        else if (blockAsString
+            .equals(formatString(BlockInit.DEEPSLATE_OMNITRIX_ORE.get().toString())))
+            builder(BlockInit.DEEPSLATE_OMNITRIX_ORE.get().toString(),
+                    "block/deepslate_omnitrix_ore");
+        else if (blockAsString.equals(formatString(BlockInit.DEEPSLATE_RUBY_ORE.get().toString())))
+            builder(BlockInit.DEEPSLATE_RUBY_ORE.get().toString(), "block/deepslate_ruby_ore");
+        else if (blockAsString.equals(formatString(BlockInit.DEEPSLATE_SPEED_ORE.get().toString())))
+            builder(BlockInit.DEEPSLATE_SPEED_ORE.get().toString(), "block/deepslate_speed_ore");
+        else if (blockAsString
+            .equals(formatString(BlockInit.DEEPSLATE_IMPERIUM_ORE.get().toString())))
+            builder(BlockInit.DEEPSLATE_IMPERIUM_ORE.get().toString(),
+                    "block/deepslate_imperium_ore");
+        else if (blockAsString
+            .equals(formatString(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString())))
+            builder(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString(),
+                    "block/deepslate_legendary_ore");
+
     }
 
-    private ItemModelBuilder builder(ItemLike item) {
-        return getBuilder(NameUtils.fromItem(item).getPath());
+    public String formatString(String original) {
+        return original.replace("Block{", "").replace("}", "");
     }
 
-    private ItemModelBuilder builder(ItemLike item, ModelFile parent) {
-        String name = NameUtils.fromItem(item).getPath();
-        return builder(item, parent, "item/" + name);
+    private void tool(String name) {
+        getBuilder(name).parent(getExistingFile(mcLoc("item/handheld")))
+            .texture("layer0", "item/" + name);
     }
 
-    private ItemModelBuilder builder(ItemLike item, ModelFile parent, String texture) {
-        return getBuilder(NameUtils.fromItem(item).getPath()).parent(parent)
+    private void item(String name) {
+        getBuilder(name).parent(getExistingFile(mcLoc("item/generated")))
+            .texture("layer0", "item/" + name);
+    }
+
+    private void blockBuilder(String name, String parent) {
+        withExistingParent(name, modLoc(parent));
+    }
+
+    private void builder(String name, String texture) {
+        getBuilder(formatString(name)).parent(getExistingFile(mcLoc("item/generated")))
             .texture("layer0", texture);
     }
 }
