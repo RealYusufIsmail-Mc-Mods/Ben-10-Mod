@@ -179,8 +179,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         // 4 arms
         else if (itemAsAsString.equals(FOURARMS_HELMET.get().toString()))
             item(FOURARMS_HELMET.get().toString());
-        else if (itemAsAsString.equals(FOURARMS_CHESTPLATE.get().toString()))
-            item(FOURARMS_HELMET.get().toString());
+        else if (itemAsAsString.equals("fourarms_chestplate"))
+            item("fourarms_chestplate");
         else if (itemAsAsString.equals(FOURARMS_LEGGINGS.get().toString()))
             item(FOURARMS_LEGGINGS.get().toString());
         else if (itemAsAsString.equals(FOURARMS_BOOT.get().toString()))
@@ -205,6 +205,9 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(HEATBLAST_LEGGINGS.get().toString());
         else if (itemAsAsString.equals(HEATBLAST_BOOTS.get().toString()))
             item(HEATBLAST_BOOTS.get().toString());
+
+        else if (itemAsAsString.equals(JACKET.get().toString()))
+            item(JACKET.get().toString());
     }
 
     private void blockItemModel(Block block) {

@@ -1,4 +1,4 @@
-// 1.19.1	2022-07-31T13:11:36.357084	Item Models: bentenmod
+// 1.19.1	2022-07-31T17:59:42.995832	Item Models: bentenmod
 28a0aa00149acfbb2e0427267cd325dc8f8b34ce assets/bentenmod/models/item/axe.json
 e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diamond.json
 4edc58fc2d6525b016e3fa31fd7f5adfbc78edfe assets/bentenmod/models/item/black_diamond_axe.json
@@ -28,6 +28,7 @@ dd6d59593230913b761609da6fe6a929c33c33a0 assets/bentenmod/models/item/deepslate_
 080dcef00c3322f1ffdb1a7288cb09198de45f3e assets/bentenmod/models/item/fire_block.json
 1df59ffa33ca54cd3aa3fe0a7f49a15b57643747 assets/bentenmod/models/item/fire_ore.json
 5e66ce17d91de247a96de1cc5a10e909cbf939d6 assets/bentenmod/models/item/fourarms_boot.json
+3ff0c9d96973caccf81bddf3d498aaf34bd82cf6 assets/bentenmod/models/item/fourarms_chestplate.json
 92940c67de3cce5a1663f4374ba3ea2cb70b3dcb assets/bentenmod/models/item/fourarms_helmet.json
 d0630d87ab1ec3a6b053fcf36541748406c7caae assets/bentenmod/models/item/fourarms_leggings.json
 c1cddd794487ead429d296bcaaf3034ed9258fae assets/bentenmod/models/item/heatblast_boots.json
@@ -56,6 +57,7 @@ c9f1ed82cba2a4bd49741415c9486cd1acf4297d assets/bentenmod/models/item/infinitum_
 98f7b4c8b1c1a0c288cdbf1cd9ec7844fa3546ca assets/bentenmod/models/item/infinitum_scrap.json
 c945c99a7295a9eedfeeaa0397be5857ee56a334 assets/bentenmod/models/item/infinitum_shovel.json
 61599360bf37c45cbf514fe5278abd55a5131707 assets/bentenmod/models/item/infinitum_sword.json
+2c4658a035ed683e280eb7e4468ea6145c026817 assets/bentenmod/models/item/jacket.json
 98d382b0a12b366c3762c1e613c4eeca4cf22835 assets/bentenmod/models/item/legendary.json
 c984cfda2745598cd3b655b39a60eaf090e379c5 assets/bentenmod/models/item/legendary_block.json
 67004717e52e3c27c85805979e323283e9b7b3e8 assets/bentenmod/models/item/legendary_ore.json
