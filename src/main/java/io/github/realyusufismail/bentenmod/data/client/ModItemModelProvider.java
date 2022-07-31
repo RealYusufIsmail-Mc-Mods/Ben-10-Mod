@@ -251,7 +251,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     }
 
-    public String formatString(String original) {
+    public static String formatString(String original) {
         return original.replace("Block{", "").replace("}", "");
     }
 

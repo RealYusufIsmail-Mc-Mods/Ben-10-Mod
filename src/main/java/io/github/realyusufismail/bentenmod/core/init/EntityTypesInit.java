@@ -58,22 +58,21 @@ public class EntityTypesInit {
     private static final Item.Properties spawn_egg_props =
             new Item.Properties().tab(MainItemGroup.MAIN);
 
-    private static final EntityType<VilgaxEntity> vilgax =
-            createStandardEntityType("vilgax", VilgaxEntity::new, MobCategory.MONSTER, 1f, 1f);
     // registering the entities
     public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY =
-            ENTITY_TYPES.register("vilgax", () -> vilgax);
+            ENTITY_TYPES.register("vilgax", () -> createStandardEntityType("vilgax",
+                    VilgaxEntity::new, MobCategory.MONSTER, 1f, 1f));
 
-    private static final EntityType<CrabEntity> crab =
-            createStandardEntityType("crab", CrabEntity::new, MobCategory.MONSTER, 1.3f, 1.8f);
+
+
     public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY =
-            ENTITY_TYPES.register("crab", () -> crab);
-
-    private static final EntityType<CrabBoltEntity> crabBolt =
-            createStandardEntityType("crab", CrabBoltEntity::new, MobCategory.MISC, 0.5F, 0.5F);
+            ENTITY_TYPES.register("crab", () -> createStandardEntityType("crab", CrabEntity::new,
+                    MobCategory.MONSTER, 1.3f, 1.8f));
 
     public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY =
-            ENTITY_TYPES.register("crab_bolt", () -> crabBolt);
+            ENTITY_TYPES.register("crab_bolt", () -> createStandardEntityType("crab_bolt",
+                    CrabBoltEntity::new, MobCategory.MISC, 0.5F, 0.5F));
+
 
     // register spawn eggs
     public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register(

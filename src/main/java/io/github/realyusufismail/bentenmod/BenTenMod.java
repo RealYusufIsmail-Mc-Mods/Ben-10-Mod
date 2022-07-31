@@ -60,7 +60,7 @@ public class BenTenMod {
 
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
-        // EntityTypesInit.ENTITY_TYPES.register(bus);
+        EntityTypesInit.ENTITY_TYPES.register(bus);
 
         GeckoLibMod.DISABLE_IN_DEV = false;
         GeckoLib.initialize();

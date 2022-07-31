@@ -42,6 +42,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider.formatString;
+
 
 public class ModBlockLootTables extends BlockLoot {
     @Override
@@ -102,9 +104,9 @@ public class ModBlockLootTables extends BlockLoot {
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues()
             .stream()
-            .filter(block -> BenTenMod.MOD_ID
-                .equals(Objects.requireNonNull(block.getName(), "Registry name is null for loot")
-                    .toString()))
+            .filter(block -> BenTenMod.MOD_ID.equals(Objects
+                .requireNonNull(formatString(block.toString()), "Registry name is null for loot")
+                .toString()))
             .collect(Collectors.toSet());
     }
 }
