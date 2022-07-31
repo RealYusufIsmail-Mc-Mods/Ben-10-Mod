@@ -1,60 +1,7 @@
 {
   "parent": "bentenmod:infinitum_ingot",
-  "display": {
-    "icon": {
-      "item": "bentenmod:infinitum_chestplate",
-      "nbt": "{Damage:0}"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.infinitum_armour.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.infinitum_armour.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
-    "infinitum_helmet": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:infinitum_helmet"
-            ]
-          }
-        ]
-      }
-    },
-    "infinitum_chestplate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:infinitum_chestplate"
-            ]
-          }
-        ]
-      }
-    },
-    "infinitum_leggings": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:infinitum_leggings"
-            ]
-          }
-        ]
-      }
-    },
     "infinitum_boots": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -63,7 +10,60 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "infinitum_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "infinitum_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "infinitum_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:infinitum_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.infinitum_armour.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:infinitum_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.infinitum_armour.title"
     }
   },
   "requirements": [

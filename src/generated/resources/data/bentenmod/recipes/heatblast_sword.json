@@ -1,21 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "item": "bentenmod:omnitrix"
+    },
+    "K": {
+      "item": "bentenmod:fire"
+    }
+  },
   "pattern": [
     " K ",
     " A ",
     " # "
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "K": {
-      "item": "bentenmod:fire"
-    },
-    "A": {
-      "item": "bentenmod:omnitrix"
-    }
-  },
   "result": {
     "item": "bentenmod:heatblast_sword",
     "nbt": {

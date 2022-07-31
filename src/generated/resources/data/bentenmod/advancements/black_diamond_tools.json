@@ -1,60 +1,7 @@
 {
   "parent": "bentenmod:black_diamond_ingot",
-  "display": {
-    "icon": {
-      "item": "bentenmod:black_diamond_sword",
-      "nbt": "{Damage:0}"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.black_diamond_tools.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.black_diamond_tools.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
-    "black_diamond_sword": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:black_diamond_sword"
-            ]
-          }
-        ]
-      }
-    },
-    "black_diamond_pickaxe": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:black_diamond_pickaxe"
-            ]
-          }
-        ]
-      }
-    },
-    "black_diamond_shovel": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:black_diamond_shovel"
-            ]
-          }
-        ]
-      }
-    },
     "black_diamond_axe": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -63,10 +10,10 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "black_diamond_hoe": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -75,7 +22,60 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "black_diamond_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:black_diamond_pickaxe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "black_diamond_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:black_diamond_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "black_diamond_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:black_diamond_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.black_diamond_tools.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:black_diamond_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.black_diamond_tools.title"
     }
   },
   "requirements": [

@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "A A",
-    "A A"
-  ],
   "key": {
     "A": {
       "tag": "forge:ingots/legendary"
     }
   },
+  "pattern": [
+    "A A",
+    "A A"
+  ],
   "result": {
     "item": "bentenmod:boots"
   }

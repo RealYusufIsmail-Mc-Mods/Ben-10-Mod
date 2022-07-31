@@ -1,5 +1,8 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/ben-ten-mod",
+  "1.19.1" : {
+    "1.19.1-1.0.0" : "https://github.com/RealYusufIsmail/Ben-10-Mod/blob/1.19.1/CHANGELOG.md"
+  },
   "1.18.1": {
     "1.18.1-1.0": "https://github.com/RealYusufIsmail/Ben-10-Mod/blob/1.18.1/CHANGELOG.md"
   },
@@ -15,6 +18,8 @@
     "1.17.1-latest": "1.17.1-1.0",
     "1.17.1-recommended": "1.17.1-1.0",
     "1.18.1-latest": "1.18.1-1.0",
-    "1.18.1-recommended": "1.18.1-1.0"
+    "1.18.1-recommended": "1.18.1-1.0",
+    "1.19.1-latest" : "1.19.1-1.0.0",
+    "1.19.1-recommended" : "1.19.1-1.0.0"
   }
 }

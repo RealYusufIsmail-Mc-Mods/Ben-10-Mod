@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "AAA",
-    "A A"
-  ],
   "key": {
     "A": {
       "tag": "forge:ingots/fire"
     }
   },
+  "pattern": [
+    "AAA",
+    "A A"
+  ],
   "result": {
     "item": "bentenmod:heatblast_helmet"
   }

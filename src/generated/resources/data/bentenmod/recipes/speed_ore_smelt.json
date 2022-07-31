@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 300,
+  "experience": 0.6,
   "ingredient": {
     "item": "bentenmod:speed_ore"
   },
-  "result": "bentenmod:speed",
-  "experience": 0.6,
-  "cookingtime": 300
+  "result": "bentenmod:speed"
 }

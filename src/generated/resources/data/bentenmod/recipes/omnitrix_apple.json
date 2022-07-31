@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "AAA",
-    "ALA",
-    "AAA"
-  ],
   "key": {
     "A": {
       "tag": "forge:ingots/omnitrix"
@@ -13,6 +8,11 @@
       "item": "minecraft:apple"
     }
   },
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
   "result": {
     "item": "bentenmod:omnitrix_apple"
   }

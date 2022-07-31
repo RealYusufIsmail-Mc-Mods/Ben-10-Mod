@@ -1,23 +1,7 @@
 {
   "parent": "bentenmod:root",
-  "display": {
-    "icon": {
-      "item": "bentenmod:speed"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.speed_ingot.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.speed_ingot.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "get_ingot": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.speed_ingot.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:speed"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.speed_ingot.title"
     }
   },
   "requirements": [

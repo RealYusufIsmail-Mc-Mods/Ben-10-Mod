@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "AAA",
-    "A A"
-  ],
   "key": {
     "A": {
       "tag": "forge:ingots/speed"
     }
   },
+  "pattern": [
+    "AAA",
+    "A A"
+  ],
   "result": {
     "item": "bentenmod:xlr8_helmet"
   }

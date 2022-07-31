@@ -1,23 +1,7 @@
 {
   "parent": "bentenmod:infinitum_ingot",
-  "display": {
-    "icon": {
-      "item": "bentenmod:infinitum_block"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.infinitum_block.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.infinitum_block.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "get_block": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.infinitum_block.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:infinitum_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.infinitum_block.title"
     }
   },
   "requirements": [

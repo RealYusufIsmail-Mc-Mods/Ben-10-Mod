@@ -1,23 +1,7 @@
 {
   "parent": "bentenmod:root",
-  "display": {
-    "icon": {
-      "item": "bentenmod:infinitum_scrap"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.infinitum_scrap.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.infinitum_scrap.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "get_scrap": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.infinitum_scrap.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:infinitum_scrap"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.infinitum_scrap.title"
     }
   },
   "requirements": [

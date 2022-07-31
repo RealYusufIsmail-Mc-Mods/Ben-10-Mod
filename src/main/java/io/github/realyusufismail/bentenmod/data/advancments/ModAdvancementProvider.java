@@ -48,6 +48,7 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentContents;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -447,7 +448,7 @@ public class ModAdvancementProvider implements DataProvider {
 
         private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
                 ItemLike item, Advancement parent) {
-            return simpleGetItem(consumer, item, parent, NameUtils.fromItem(item).getPath());
+            return simpleGetItem(consumer, item, parent, item.asItem().toString());
         }
 
         private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
@@ -484,13 +485,13 @@ public class ModAdvancementProvider implements DataProvider {
             return GenericIntTrigger.Instance.instance(id, value);
         }
 
+
         private static @NotNull Component title(String key) {
-            return (Component) new TranslatableContents("advancements.bentenmod." + key + ".title");
+            return Component.translatable("advancements.bentenmod." + key + ".title");
         }
 
         private static @NotNull Component description(String key) {
-            return (Component) new TranslatableContents(
-                    "advancements.bentenmod." + key + ".description");
+            return Component.translatable("advancements.bentenmod." + key + ".description");
         }
 
     }

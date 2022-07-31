@@ -1,21 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "tag": "forge:ingots/legendary"
+    },
+    "K": {
+      "tag": "forge:ingots/ruby"
+    }
+  },
   "pattern": [
     "KK ",
     "A# ",
     " # "
   ],
-  "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "K": {
-      "tag": "forge:ingots/ruby"
-    },
-    "A": {
-      "tag": "forge:ingots/legendary"
-    }
-  },
   "result": {
     "item": "bentenmod:axe"
   }

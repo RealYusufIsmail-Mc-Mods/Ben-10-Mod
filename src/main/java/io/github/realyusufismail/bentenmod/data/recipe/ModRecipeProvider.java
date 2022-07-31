@@ -661,11 +661,14 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(consumer, modId("jacket_blasting_smelt"));
 
 
-        TableRecipeBuilder
-            .build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()), ingredient(ItemInit.IMPERIUM.get()),
-                    ingredient(ItemInit.IMPERIUM.get()), ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE))
-            .save(consumer, modId("imperium_pickaxe_upgraded"));
+        /*
+         * TableRecipeBuilder .build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()),
+         * ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()),
+         * ItemInit.IMPERIUM_PICKAXE_UPGRADED.get()) .unlockedBy(HAS_ITEM,
+         * has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE)) .save(consumer,
+         * modId("imperium_pickaxe_upgraded"));
+         * 
+         */
 
 
     }

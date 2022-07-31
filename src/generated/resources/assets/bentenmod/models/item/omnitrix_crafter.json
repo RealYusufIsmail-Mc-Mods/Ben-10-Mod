@@ -1,3 +1,6 @@
 {
-  "parent": "bentenmod:block/block.bentenmod.omnitrix_crafter"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bentenmod:block/table_block"
+  }
 }

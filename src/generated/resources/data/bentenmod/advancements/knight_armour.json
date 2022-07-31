@@ -1,60 +1,7 @@
 {
   "parent": "bentenmod:legendary_ingot",
-  "display": {
-    "icon": {
-      "item": "bentenmod:heatblast_chestplate",
-      "nbt": "{Damage:0}"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.knight_armour.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.knight_armour.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
-    "knightt_helmet": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:helmet"
-            ]
-          }
-        ]
-      }
-    },
-    "knight_chestplate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:chestplate"
-            ]
-          }
-        ]
-      }
-    },
-    "knight_leggings": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bentenmod:leggings"
-            ]
-          }
-        ]
-      }
-    },
     "knight_boots": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -63,7 +10,60 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "knight_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "knight_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "knightt_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.knight_armour.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:heatblast_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.knight_armour.title"
     }
   },
   "requirements": [

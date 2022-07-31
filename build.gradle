@@ -6,7 +6,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19-1.0.0'
+version = '1.19.1-1.0.0'
 group = 'io.github.realyusufismail'
 archivesBaseName = 'bentenmod'
 

@@ -1,24 +1,7 @@
 {
   "parent": "bentenmod:imperium_tools",
-  "display": {
-    "icon": {
-      "item": "bentenmod:imperium_pickaxe_upgraded",
-      "nbt": "{Damage:0}"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.upgraded_imperium_pickaxe.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.upgraded_imperium_pickaxe.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "upgraded_imperium_pickaxe": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -27,7 +10,24 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.upgraded_imperium_pickaxe.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:imperium_pickaxe_upgraded",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.upgraded_imperium_pickaxe.title"
     }
   },
   "requirements": [

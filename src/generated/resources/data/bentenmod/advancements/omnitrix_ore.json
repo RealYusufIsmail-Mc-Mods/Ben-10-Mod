@@ -1,23 +1,7 @@
 {
   "parent": "bentenmod:root",
-  "display": {
-    "icon": {
-      "item": "bentenmod:raw_omnitrix"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.omnitrix_ore.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.omnitrix_ore.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "get_ore": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.omnitrix_ore.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:raw_omnitrix"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.omnitrix_ore.title"
     }
   },
   "requirements": [

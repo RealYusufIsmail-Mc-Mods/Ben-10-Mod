@@ -64,6 +64,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
         axisBlock(BlockInit.INFINITUM_ORE.get(), modLoc("block/infinitum_ore_side"),
                 modLoc("block/infinitum_ore_top"));
+
         simpleBlock(BlockInit.INFINITUM_BLOCK.get());
         simpleBlock(BlockInit.FIRE_BLOCK.get());
         simpleBlock(BlockInit.FIRE_ORE.get());
@@ -98,6 +99,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         BlockModelBuilder builder =
                 this.models().withExistingParent(name.getString(), "block/orientable");
+
         builder.texture("top", modLoc("block/table_block_top"));
         builder.texture("front", modLoc("block/table_block_front"));
         builder.texture("side", modLoc("block/table_block_side"));

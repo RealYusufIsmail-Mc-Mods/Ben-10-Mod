@@ -79,6 +79,8 @@ public class CrabBoltEntity extends AbstractArrow {
         }
     }
 
+
+    // TODO: causes the game to crash
     @Override
     protected void onHitBlock(BlockHitResult result) {
         super.onHit(result);

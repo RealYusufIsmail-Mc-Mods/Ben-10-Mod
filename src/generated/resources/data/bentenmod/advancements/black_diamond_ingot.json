@@ -1,23 +1,7 @@
 {
   "parent": "bentenmod:black_diamond_scrap",
-  "display": {
-    "icon": {
-      "item": "bentenmod:black_diamond"
-    },
-    "title": {
-      "translate": "advancements.bentenmod.black_diamond_ingot.title"
-    },
-    "description": {
-      "translate": "advancements.bentenmod.black_diamond_ingot.description"
-    },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
   "criteria": {
     "get_scrap": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -26,7 +10,23 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.black_diamond_ingot.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:black_diamond"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.black_diamond_ingot.title"
     }
   },
   "requirements": [

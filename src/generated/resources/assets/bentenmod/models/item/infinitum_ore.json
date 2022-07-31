@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bentenmod:item/jacket"
+    "layer0": "bentenmod:block/infinitum_ore_top"
   }
 }

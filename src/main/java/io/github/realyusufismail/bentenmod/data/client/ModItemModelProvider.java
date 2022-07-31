@@ -42,6 +42,8 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
+import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
+import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -95,10 +97,10 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(FIRE_APPLE.get().toString());
         else if (itemAsAsString.equals(RUBY_APPLE.get().toString()))
             item(RUBY_APPLE.get().toString());
-        // else if (itemAsAsString.equals(VILGAX_SPAWN_EGG.get().toString()))
-        // item(VILGAX_SPAWN_EGG.get().toString());
-        // else if (itemAsAsString.equals(CRAB_SPAWN_EGG.get().toString()))
-        // item(CRAB_SPAWN_EGG.get().toString());
+        else if (itemAsAsString.equals(VILGAX_SPAWN_EGG.get().toString()))
+            item(VILGAX_SPAWN_EGG.get().toString());
+        else if (itemAsAsString.equals(CRAB_SPAWN_EGG.get().toString()))
+            item(CRAB_SPAWN_EGG.get().toString());
         else if (itemAsAsString.equals(RAW_LEGENDARY.get().toString()))
             item(RAW_LEGENDARY.get().toString());
         else if (itemAsAsString.equals(RAW_IMPERIUM.get().toString()))
@@ -141,6 +143,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             tool(IMPERIUM_PICKAXE_UPGRADED.get().toString());
         else if (itemAsAsString.equals(IMPERIUM_AXE.get().toString()))
             tool(IMPERIUM_AXE.get().toString());
+        else if (itemAsAsString.equals(IMPERIUM_SWORD.get().toString()))
+            tool(IMPERIUM_SWORD.get().toString());
 
         // xlr8 armour
         else if (itemAsAsString.equals(XLR8_HELMET.get().toString()))
@@ -175,7 +179,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         // 4 arms
         else if (itemAsAsString.equals(FOURARMS_HELMET.get().toString()))
             item(FOURARMS_HELMET.get().toString());
-        else if (itemAsAsString.equals(FOURARMS_HELMET.get().toString()))
+        else if (itemAsAsString.equals(FOURARMS_CHESTPLATE.get().toString()))
             item(FOURARMS_HELMET.get().toString());
         else if (itemAsAsString.equals(FOURARMS_LEGGINGS.get().toString()))
             item(FOURARMS_LEGGINGS.get().toString());
@@ -191,6 +195,16 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(LEGGINGS.get().toString());
         else if (itemAsAsString.equals(BOOTS.get().toString()))
             item(BOOTS.get().toString());
+
+        // heat blast
+        else if (itemAsAsString.equals(HEATBLAST_HELMET.get().toString()))
+            item(HEATBLAST_HELMET.get().toString());
+        else if (itemAsAsString.equals(HEATBLAST_CHESTPLATE.get().toString()))
+            item(HEATBLAST_CHESTPLATE.get().toString());
+        else if (itemAsAsString.equals(HEATBLAST_LEGGINGS.get().toString()))
+            item(HEATBLAST_LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(HEATBLAST_BOOTS.get().toString()))
+            item(HEATBLAST_BOOTS.get().toString());
     }
 
     private void blockItemModel(Block block) {
@@ -227,6 +241,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             builder(BlockInit.IMPERIUM_ORE.get().toString(), "block/imperium_ore");
         else if (blockAsString.equals(formatString(BlockInit.LEGENDARY_ORE.get().toString())))
             builder(BlockInit.LEGENDARY_ORE.get().toString(), "block/legendary_ore");
+        else if (blockAsString.equals(formatString(BlockInit.INFINITUM_ORE.get().toString())))
+            builder(BlockInit.INFINITUM_ORE.get().toString(), "block/infinitum_ore_top");
         // DEEPSLATE ore
         else if (blockAsString
             .equals(formatString(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().toString())))
@@ -248,7 +264,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             .equals(formatString(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString())))
             builder(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString(),
                     "block/deepslate_legendary_ore");
-
+        else if (blockAsString.equals(formatString(BlockInit.TABLE_BLOCK.get().toString())))
+            builder(BlockInit.TABLE_BLOCK.get().toString(), "block/table_block");
     }
 
     public static String formatString(String original) {
