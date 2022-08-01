@@ -76,7 +76,6 @@ import java.util.Random;
 
 public class VilgaxEntity extends Monster implements IAnimatable {
 
-
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(VilgaxEntity.class, EntityDataSerializers.BOOLEAN);
 
@@ -235,7 +234,6 @@ public class VilgaxEntity extends Monster implements IAnimatable {
         super.wasKilled(p_241847_1_, p_241847_2_);
         {
             if (p_241847_1_.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
-                return;
             }
 
         }

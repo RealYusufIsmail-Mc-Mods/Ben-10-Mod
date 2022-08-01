@@ -38,7 +38,6 @@ import com.google.gson.GsonBuilder;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.realyusufismailcore.data.support.advancements.GenericIntTrigger;
-import io.github.realyusufismail.realyusufismailcore.util.NameUtils;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.FrameType;
@@ -48,8 +47,6 @@ import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.ComponentContents;
-import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -77,6 +74,11 @@ public class ModAdvancementProvider implements DataProvider {
 
     public ModAdvancementProvider(DataGenerator generator) {
         this.generator = generator;
+    }
+
+    private static Path getPath(Path pathIn, Advancement advancementIn) {
+        return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/"
+                + advancementIn.getId().getPath() + ".json");
     }
 
     @Override
@@ -108,13 +110,54 @@ public class ModAdvancementProvider implements DataProvider {
         return "Ben Ten Mod - Advancements";
     }
 
-
-    private static Path getPath(Path pathIn, Advancement advancementIn) {
-        return pathIn.resolve("data/" + advancementIn.getId().getNamespace() + "/advancements/"
-                + advancementIn.getId().getPath() + ".json");
-    }
-
     private static class Advancements implements Consumer<Consumer<Advancement>> {
+
+        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
+                ItemLike item, Advancement parent) {
+            return simpleGetItem(consumer, item, parent, item.asItem().toString());
+        }
+
+        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
+                ItemLike item, Advancement parent, String key) {
+            return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
+        }
+
+        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
+                ItemLike item, ItemStack icon, Advancement parent, String key) {
+            return Advancement.Builder.advancement()
+                .parent(parent)
+                .display(icon, title(key), description(key), null, FrameType.TASK, true, true,
+                        false)
+                .addCriterion("get_item", getItem(item))
+                .save(consumer, id(key));
+        }
+
+        private static @NotNull String id(String path) {
+            return BenTenMod.getId(path).toString();
+        }
+
+        private static @NotNull CriterionTriggerInstance getItem(ItemLike... items) {
+            return InventoryChangeTrigger.TriggerInstance.hasItems(items);
+        }
+
+        private static @NotNull CriterionTriggerInstance getItem(TagKey<Item> tag) {
+            return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, null,
+                    MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE,
+                    EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
+        }
+
+        private static @NotNull CriterionTriggerInstance genericInt(ResourceLocation id,
+                int value) {
+            return GenericIntTrigger.Instance.instance(id, value);
+        }
+
+        private static @NotNull Component title(String key) {
+            return Component.translatable("advancements.bentenmod." + key + ".title");
+        }
+
+        private static @NotNull Component description(String key) {
+            return Component.translatable("advancements.bentenmod." + key + ".description");
+        }
 
         @SuppressWarnings({"unused", "OverlyLongMethod"})
         @Override
@@ -443,55 +486,6 @@ public class ModAdvancementProvider implements DataProvider {
                 .addCriterion("infinitum_hoe", getItem(INFINITUM_HOE.get()))
                 .requirements(RequirementsStrategy.OR)
                 .save(consumer, id("infinitum_tools"));
-        }
-
-
-        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
-                ItemLike item, Advancement parent) {
-            return simpleGetItem(consumer, item, parent, item.asItem().toString());
-        }
-
-        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
-                ItemLike item, Advancement parent, String key) {
-            return simpleGetItem(consumer, item, new ItemStack(item), parent, key);
-        }
-
-        private static @NotNull Advancement simpleGetItem(Consumer<Advancement> consumer,
-                ItemLike item, ItemStack icon, Advancement parent, String key) {
-            return Advancement.Builder.advancement()
-                .parent(parent)
-                .display(icon, title(key), description(key), null, FrameType.TASK, true, true,
-                        false)
-                .addCriterion("get_item", getItem(item))
-                .save(consumer, id(key));
-        }
-
-        private static @NotNull String id(String path) {
-            return BenTenMod.getId(path).toString();
-        }
-
-        private static @NotNull CriterionTriggerInstance getItem(ItemLike... items) {
-            return InventoryChangeTrigger.TriggerInstance.hasItems(items);
-        }
-
-        private static @NotNull CriterionTriggerInstance getItem(TagKey<Item> tag) {
-            return InventoryChangeTrigger.TriggerInstance.hasItems(new ItemPredicate(tag, null,
-                    MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, EnchantmentPredicate.NONE,
-                    EnchantmentPredicate.NONE, null, NbtPredicate.ANY));
-        }
-
-        private static @NotNull CriterionTriggerInstance genericInt(ResourceLocation id,
-                int value) {
-            return GenericIntTrigger.Instance.instance(id, value);
-        }
-
-
-        private static @NotNull Component title(String key) {
-            return Component.translatable("advancements.bentenmod." + key + ".title");
-        }
-
-        private static @NotNull Component description(String key) {
-            return Component.translatable("advancements.bentenmod." + key + ".description");
         }
 
     }

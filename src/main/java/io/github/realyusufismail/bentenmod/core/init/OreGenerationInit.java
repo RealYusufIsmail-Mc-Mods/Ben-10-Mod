@@ -39,13 +39,13 @@ import java.util.List;
 
 // TODO check the gen hight.
 public class OreGenerationInit {
-    private OreGenerationInit() {
-        throw new IllegalStateException("Ore gen class");
-    }
-
     protected static final List<PlacedFeature> OVERWORLD_ORES = new ArrayList<>();
     // protected static final List<PlacedFeature> END_ORES = new ArrayList<>();
     protected static final List<PlacedFeature> NETHER_ORES = new ArrayList<>();
+
+    private OreGenerationInit() {
+        throw new IllegalStateException("Ore gen class");
+    }
 
     // public static final RuleTest END_TEST = new BlockMatchTest(Blocks.END_STONE);
 

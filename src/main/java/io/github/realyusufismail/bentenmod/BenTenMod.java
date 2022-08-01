@@ -34,10 +34,7 @@ package io.github.realyusufismail.bentenmod;
 
 import io.github.realyusufismail.bentenmod.core.init.*;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -46,8 +43,6 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
-
-import static io.github.realyusufismail.bentenmod.BenTenMod.MOD_ID;
 
 @Mod(BenTenMod.MOD_ID)
 public class BenTenMod {
@@ -61,13 +56,15 @@ public class BenTenMod {
         ItemInit.ITEMS.register(bus);
         BlockInit.BLOCKS.register(bus);
         EntityTypesInit.ENTITY_TYPES.register(bus);
+        MenuTypeInit.MENUS.register(bus);
+        RegisterRecipeInit.SERIALIZER.register(bus);
 
         GeckoLibMod.DISABLE_IN_DEV = false;
         GeckoLib.initialize();
 
         // bus.addGenericListener(RecipeSerializer.class, RegisterRecipeInit::registerRecipes)
         MinecraftForge.EVENT_BUS.register(this);
-        LOGGER.info("Armour and Item loaded");
+        LOGGER.info("Armour, item, and entities loaded");
     }
 
     @Contract("_ -> new")

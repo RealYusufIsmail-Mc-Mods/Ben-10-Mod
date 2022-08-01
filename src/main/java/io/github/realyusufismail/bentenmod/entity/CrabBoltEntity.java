@@ -89,7 +89,6 @@ public class CrabBoltEntity extends AbstractArrow {
     }
 
 
-
     @Override
     protected void onHitEntity(EntityHitResult result) {
         if (!level.isClientSide) {

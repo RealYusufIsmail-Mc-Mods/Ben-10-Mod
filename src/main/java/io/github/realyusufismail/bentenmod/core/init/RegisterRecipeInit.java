@@ -32,34 +32,25 @@
 
 package io.github.realyusufismail.bentenmod.core.init;
 
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.recipes.TableRecipe;
-import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeManager;
+
+import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
-import java.util.Map;
+public class RegisterRecipeInit {
+    public static final RecipeType<OmntrixCrafterRecipe> OMNITRIX_CRAFTER_TYPE =
+            new OmntrixCrafterRecipe.Type();
 
-/**
- * public class RegisterRecipeInit { // public static final RecipeType<TableRecipe> TABLE_RECIPE =
- * new TableRecipe.Type();
- * 
- * private static void registerRecipe(Registry<RecipeSerializer<?>> event, RecipeSerializer<?>
- * serializer) { Registry.register(Registry.RECIPE_TYPE, new
- * ResourceLocation(RegisterRecipeInit.TABLE_RECIPE.toString()), (RecipeType<?>)
- * RegisterRecipeInit.TABLE_RECIPE); // event.register(serializer); }
- * 
- * public static void registerRecipes(Registry<RecipeSerializer<?>> event) { registerRecipe(event,
- * new TableRecipe.Serializer()); }
- * 
- * public static Map<ResourceLocation, Recipe<?>> getRecipes(RecipeType<?> type, RecipeManager
- * manager) { final Map<RecipeType<?>, Map<ResourceLocation, Recipe<?>>> recipes =
- * ObfuscationReflectionHelper.getPrivateValue(RecipeManager.class, manager, "field_199522_d");
- * return recipes.get(type); }
- * 
- * }
- */
+    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZER =
+            DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, BenTenMod.MOD_ID);
+
+    public static final RegistryObject<RecipeSerializer<?>> OMNITRIX_CRAFTER = SERIALIZER.register(
+            "omntrix_crafter", () -> new OmntrixCrafterRecipe.Serializer(OMNITRIX_CRAFTER_TYPE,
+                    BlockInit.TABLE_BLOCK.get()));
+}
+
 

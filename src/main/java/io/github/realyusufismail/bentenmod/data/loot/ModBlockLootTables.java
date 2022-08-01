@@ -39,10 +39,7 @@ import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Objects;
 import java.util.stream.Collectors;
-
-import static io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider.formatString;
 
 
 public class ModBlockLootTables extends BlockLoot {

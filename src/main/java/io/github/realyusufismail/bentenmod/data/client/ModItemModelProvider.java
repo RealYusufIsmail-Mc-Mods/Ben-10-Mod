@@ -52,13 +52,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
     }
 
+    public static String formatString(String original) {
+        return original.replace("Block{", "").replace("}", "");
+    }
+
     @Override
     protected void registerModels() {
         BlockInit.BLOCKS.getEntries()
             .stream()
             .map(RegistryObject::get)
             .forEach(this::blockItemModel);
-
 
 
         // items
@@ -269,10 +272,6 @@ public class ModItemModelProvider extends ItemModelProvider {
                     "block/deepslate_legendary_ore");
         else if (blockAsString.equals(formatString(BlockInit.TABLE_BLOCK.get().toString())))
             builder(BlockInit.TABLE_BLOCK.get().toString(), "block/table_block");
-    }
-
-    public static String formatString(String original) {
-        return original.replace("Block{", "").replace("}", "");
     }
 
     private void tool(String name) {

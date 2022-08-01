@@ -53,8 +53,12 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 
+import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
+
 
 public class ModRecipeProvider extends RecipeProvider {
+    private static final String HAS_ITEM = "has_item";
+
     public ModRecipeProvider(DataGenerator generatorIn) {
         super(generatorIn);
     }
@@ -62,8 +66,6 @@ public class ModRecipeProvider extends RecipeProvider {
     private static ResourceLocation modId(String path) {
         return new ResourceLocation(BenTenMod.MOD_ID, path);
     }
-
-    private static final String HAS_ITEM = "has_item";
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -137,7 +139,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder.shapeless(ItemInit.RUBY.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RUBY.get(), 9)
 
             .requires(BlockInit.RUBY_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
@@ -404,7 +406,7 @@ public class ModRecipeProvider extends RecipeProvider {
          * TagsInit.Items.INGOTS_RUBY) .define('L', Items.APPLE.asItem()) .pattern("AAA")
          * .pattern("ALA") .pattern("AAA") .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
          * .save(consumer, modId("ruby_apple"));
-         * 
+         *
          */
         YusufShapedRecipeBuilder.shaped(Items.ENCHANTED_GOLDEN_APPLE.asItem())
             .define('A', Items.GOLD_BLOCK.asItem())
@@ -446,16 +448,25 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
             .save(consumer, modId("kraab_spawn_egg"));
 
+        OmnitrixRecipeBuilder.shaped(IMPERIUM_PICKAXE.get())
+            .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+            .define('L', TagsInit.Items.INGOTS_OMNITRIX)
+            .pattern("AAA")
+            .pattern(" L ")
+            .pattern(" L ")
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
+            .save(consumer, modId("imperium_pickaxe"));
+
 
         // smelting and blasting recipes
         // ores
         YusufSimpleCookingRecipeBuilder
-            .smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.6f, 300)
+            .smelting(Ingredient.of(BlockInit.RUBY_ORE.get()), RUBY.get(), 0.6f, 300)
             .unlockedBy(HAS_ITEM, has(BlockInit.RUBY_ORE.get()))
             .save(consumer, modId("ruby_ore_smelt"));
 
         YusufSimpleCookingRecipeBuilder
-            .blasting(Ingredient.of(BlockInit.RUBY_ORE.get()), ItemInit.RUBY.get(), 0.3f, 300)
+            .blasting(Ingredient.of(BlockInit.RUBY_ORE.get()), RUBY.get(), 0.3f, 300)
             .unlockedBy(HAS_ITEM, has(BlockInit.RUBY_ORE.get()))
             .save(consumer, modId("ruby_ore_blasting_smelt"));
 
@@ -576,22 +587,27 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
             .save(consumer, modId("xlr8_boots_blasting_smelt"));
 
-        /*
-         * YusufSimpleCookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_HELMET.get()),
-         * RUBY.get(), 0.3f, 300) .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-         * .save(consumer, modId("fourarms_helmet_blasting_smelt"));
-         * YusufSimpleCookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_CHESTPLATE.get()),
-         * RUBY.get(), 0.3f, 300) .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-         * .save(consumer, modId("fourarms_chestplate_blasting_smelt"));
-         * YusufSimpleCookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_LEGGINGS.get()),
-         * RUBY.get(), 0.3f, 300) .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-         * .save(consumer, modId("fourarms_leggings_blasting_smelt"));
-         * YusufSimpleCookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_BOOT.get()), RUBY.get(),
-         * 0.3f, 300) .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY)) .save(consumer,
-         * modId("fourarms_boots_blasting_smelt"));
-         * 
-         * 
-         */
+
+        YusufSimpleCookingRecipeBuilder
+            .blasting(Ingredient.of(FOURARMS_HELMET.get()), RUBY.get(), 0.3f, 300)
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+            .save(consumer, modId("fourarms_helmet_blasting_smelt"));
+
+        YusufSimpleCookingRecipeBuilder
+            .blasting(Ingredient.of(FOURARMS_CHESTPLATE.get()), RUBY.get(), 0.3f, 300)
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+            .save(consumer, modId("fourarms_chestplate_blasting_smelt"));
+
+        YusufSimpleCookingRecipeBuilder
+            .blasting(Ingredient.of(FOURARMS_LEGGINGS.get()), RUBY.get(), 0.3f, 300)
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+            .save(consumer, modId("fourarms_leggings_blasting_smelt"));
+
+        YusufSimpleCookingRecipeBuilder
+            .blasting(Ingredient.of(FOURARMS_BOOT.get()), RUBY.get(), 0.3f, 300)
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+            .save(consumer, modId("fourarms_boots_blasting_smelt"));
+
         YusufSimpleCookingRecipeBuilder
             .blasting(Ingredient.of(ItemInit.BLACK_DIAMOND_HELMET.get()),
                     ItemInit.BLACK_DIAMOND.get(), 0.3f, 300)
@@ -659,17 +675,6 @@ public class ModRecipeProvider extends RecipeProvider {
             .blasting(Ingredient.of(ItemInit.JACKET.get()), ItemInit.OMNITRIX.get(), 0.4f, 300)
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
             .save(consumer, modId("jacket_blasting_smelt"));
-
-
-        /*
-         * TableRecipeBuilder .build(ingredient(ItemInit.IMPERIUM_PICKAXE.get()),
-         * ingredient(ItemInit.IMPERIUM.get()), ingredient(ItemInit.IMPERIUM.get()),
-         * ItemInit.IMPERIUM_PICKAXE_UPGRADED.get()) .unlockedBy(HAS_ITEM,
-         * has(TagsInit.Items.TOOLS_IMPERIUM_PICKAXE)) .save(consumer,
-         * modId("imperium_pickaxe_upgraded"));
-         * 
-         */
-
 
     }
 

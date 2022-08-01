@@ -37,7 +37,6 @@ import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -52,6 +51,9 @@ import org.jetbrains.annotations.NotNull;
 
 @EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModEventSubscriber {
+    public static ModelLayerLocation KRAAB =
+            new ModelLayerLocation(new ResourceLocation(BenTenMod.MOD_ID, "kraab"), "main");
+
     private ClientModEventSubscriber() {}
 
     @SubscribeEvent
@@ -72,9 +74,6 @@ public class ClientModEventSubscriber {
     public static void commonSetup(FMLCommonSetupEvent event) {
         // OreGenerationInit.registerOres();
     }
-
-    public static ModelLayerLocation KRAAB =
-            new ModelLayerLocation(new ResourceLocation(BenTenMod.MOD_ID, "kraab"), "main");
 
     @SubscribeEvent
     public static void onRegisterEntityRendererLayerDefinitions(

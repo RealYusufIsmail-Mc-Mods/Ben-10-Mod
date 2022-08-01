@@ -56,12 +56,11 @@ import software.bernie.geckolib3.renderers.geo.GeoProjectilesRenderer;
 import software.bernie.geckolib3.renderers.geo.IGeoRenderer;
 import software.bernie.geckolib3.util.AnimationUtils;
 
-import java.awt.*;
 import java.util.Collections;
 
 /**
  * Used for vilgax config
- * 
+ *
  * @see GeoProjectilesRenderer
  */
 @SuppressWarnings("unchecked")
@@ -84,6 +83,10 @@ public class BenTenGeoProjectilesRenderer<T extends Entity & IAnimatable> extend
             AnimatedGeoModel<T> modelProvider) {
         super(renderManager);
         this.modelProvider = modelProvider;
+    }
+
+    public static int getPackedOverlay(Entity livingEntityIn, float uIn) {
+        return OverlayTexture.pack(OverlayTexture.u(uIn), OverlayTexture.v(false));
     }
 
     @Override
@@ -117,10 +120,6 @@ public class BenTenGeoProjectilesRenderer<T extends Entity & IAnimatable> extend
         }
         matrixStackIn.popPose();
         super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
-    }
-
-    public static int getPackedOverlay(Entity livingEntityIn, float uIn) {
-        return OverlayTexture.pack(OverlayTexture.u(uIn), OverlayTexture.v(false));
     }
 
     @Override

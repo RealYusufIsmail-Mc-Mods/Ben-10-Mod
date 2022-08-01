@@ -48,41 +48,31 @@ import net.minecraftforge.registries.RegistryObject;
 
 
 public class EntityTypesInit {
-    private EntityTypesInit() {
-        throw new IllegalStateException("Entity gen class");
-    }
-
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BenTenMod.MOD_ID);
-
-    private static final Item.Properties spawn_egg_props =
-            new Item.Properties().tab(MainItemGroup.MAIN);
-
     // registering the entities
     public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY =
             ENTITY_TYPES.register("vilgax", () -> createStandardEntityType("vilgax",
                     VilgaxEntity::new, MobCategory.MONSTER, 1f, 1f));
-
-
-
     public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY =
             ENTITY_TYPES.register("crab", () -> createStandardEntityType("crab", CrabEntity::new,
                     MobCategory.MONSTER, 1.3f, 1.8f));
-
     public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY =
             ENTITY_TYPES.register("crab_bolt", () -> createStandardEntityType("crab_bolt",
                     CrabBoltEntity::new, MobCategory.MISC, 0.5F, 0.5F));
-
-
+    private static final Item.Properties spawn_egg_props =
+            new Item.Properties().tab(MainItemGroup.MAIN);
     // register spawn eggs
     public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register(
             "vilgax_spawn_egg",
             () -> new ForgeSpawnEggItem(VILGAX_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));
-
     public static final RegistryObject<Item> CRAB_SPAWN_EGG =
             ItemInit.ITEMS.register("crab_spawn_egg",
                     () -> new ForgeSpawnEggItem(CRAB_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));
 
+    private EntityTypesInit() {
+        throw new IllegalStateException("Entity gen class");
+    }
 
     private static <T extends Entity> EntityType<T> createStandardEntityType(String entity_name,
             EntityType.EntityFactory<T> factory, MobCategory classification, float width,

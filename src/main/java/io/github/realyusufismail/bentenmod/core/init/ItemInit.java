@@ -214,7 +214,6 @@ public class ItemInit {
                     new Item.Properties().tab(MainItemGroup.MAIN)));
 
 
-
     // INFINITUM Armour
     public static final RegistryObject<Item> INFINITUM_HELMET = ITEMS.register("infinitum_helmet",
             () -> new ArmorItem(CustomArmorMaterial.INFINITUM_ARMOUR, EquipmentSlot.HEAD,

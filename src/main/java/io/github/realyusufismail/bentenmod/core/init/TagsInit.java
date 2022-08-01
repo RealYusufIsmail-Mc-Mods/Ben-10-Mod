@@ -43,8 +43,6 @@ import net.minecraft.world.level.block.Block;
 public class TagsInit {
 
     public static final class Blocks {
-        private Blocks() {}
-
         /// ores
         public static final TagKey<Block> ORES_BLACK_DIAMONDS =
                 BlockTags.create(ResourceLocation.tryParse("forge:ores/black_diamonds"));
@@ -62,7 +60,6 @@ public class TagsInit {
                 BlockTags.create(ResourceLocation.tryParse("forge:ores/imperiums"));
         public static final TagKey<Block> ORES_LEGENDARY_ORES =
                 BlockTags.create(ResourceLocation.tryParse("forge:ores/legendary_ores"));
-
         // blocks
         public static final TagKey<Block> STORAGE_LEGENDARY =
                 BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/legendary"));
@@ -77,6 +74,7 @@ public class TagsInit {
         public static final TagKey<Block> STORAGE_BLACK_DIAMOND =
                 BlockTags.create(ResourceLocation.tryParse("forge:storage_blocks/black_diamond"));
 
+        private Blocks() {}
 
         private static TagKey<Block> forge(String path) {
             return BlockTags
@@ -90,8 +88,6 @@ public class TagsInit {
     }
 
     public static final class Items {
-        private Items() {}
-
         // ores
         public static final TagKey<Item> ORES_BLACK_DIAMONDS =
                 ItemTags.create(ResourceLocation.tryParse("forge:ores/black_diamonds"));
@@ -109,8 +105,6 @@ public class TagsInit {
                 ItemTags.create(ResourceLocation.tryParse("forge:ores/imperiums"));
         public static final TagKey<Item> ORES_LEGENDARY_ORES =
                 ItemTags.create(ResourceLocation.tryParse("forge:ores/legendary_ores"));
-
-
         // blocks
         public static final TagKey<Item> STORAGE_LEGENDARY =
                 ItemTags.create(ResourceLocation.tryParse("forge:storage_blocks/legendary"));
@@ -147,14 +141,14 @@ public class TagsInit {
                 ItemTags.create(ResourceLocation.tryParse("forge:ingots/imperium"));
         public static final TagKey<Item> SPAW_EGGS =
                 ItemTags.create(ResourceLocation.tryParse("forge:ingots/spawn_eggs"));
-
         // tools
         public static final TagKey<Item> TOOLS_IMPERIUM_PICKAXE =
                 ItemTags.create(ResourceLocation.tryParse("forge:tools/imperium_pickaxe"));
-
         // raw ores
         public static final TagKey<Item> RAW_ORE =
                 ItemTags.create(ResourceLocation.tryParse("forge:scraps/raw_ore"));
+
+        private Items() {}
 
         private static TagKey<Item> forge(String path) {
             return ItemTags
