@@ -448,14 +448,14 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
             .save(consumer, modId("kraab_spawn_egg"));
 
-        OmnitrixRecipeBuilder.shaped(IMPERIUM_PICKAXE.get())
-            .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+        OmnitrixRecipeBuilder.shaped(IMPERIUM_PICKAXE_UPGRADED.get())
+            .define('A', IMPERIUM_PICKAXE.get())
             .define('L', TagsInit.Items.INGOTS_OMNITRIX)
-            .pattern("AAA")
+            .pattern(" A ")
             .pattern(" L ")
             .pattern(" L ")
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
-            .save(consumer, modId("imperium_pickaxe"));
+            .save(consumer, modId("imperium_upgraded_pickaxe"));
 
 
         // smelting and blasting recipes

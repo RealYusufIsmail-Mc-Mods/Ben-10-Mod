@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 300,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "bentenmod:fourarms_helmet"
+  },
+  "result": "bentenmod:ruby"
+}

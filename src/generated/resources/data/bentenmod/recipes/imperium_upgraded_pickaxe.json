@@ -1,0 +1,19 @@
+{
+  "type": "bentenmod:omntrix_crafter",
+  "key": {
+    "A": {
+      "item": "bentenmod:imperium_pickaxe"
+    },
+    "L": {
+      "tag": "forge:ingots/omnitrix"
+    }
+  },
+  "pattern": [
+    " A ",
+    " L ",
+    " L "
+  ],
+  "result": {
+    "item": "bentenmod:imperium_pickaxe_upgraded"
+  }
+}
