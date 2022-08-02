@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "bentenmod:block/speed_ore"
-  }
+  "parent": "bentenmod:block/speed_ore"
 }

@@ -62,31 +62,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
-        simpleBlock(BlockInit.BLACK_DIAMOND_ORE.get());
-        axisBlock(BlockInit.INFINITUM_ORE.get(), modLoc("block/infinitum_ore_side"),
-                modLoc("block/infinitum_ore_top"));
-
-        simpleBlock(BlockInit.INFINITUM_BLOCK.get());
-        simpleBlock(BlockInit.FIRE_BLOCK.get());
-        simpleBlock(BlockInit.FIRE_ORE.get());
-        simpleBlock(BlockInit.LEGENDARY_BLOCK.get());
-        simpleBlock(BlockInit.LEGENDARY_ORE.get());
-        simpleBlock(BlockInit.OMNITRIX_BLOCK.get());
-        simpleBlock(BlockInit.OMNITRIX_ORE.get());
-        simpleBlock(BlockInit.RUBY_BLOCK.get());
-        simpleBlock(BlockInit.RUBY_ORE.get());
-        simpleBlock(BlockInit.SPEED_BLOCK.get());
-        simpleBlock(BlockInit.SPEED_ORE.get());
-        simpleBlock(BlockInit.IMPERIUM_BLOCK.get());
-        simpleBlock(BlockInit.IMPERIUM_ORE.get());
-        simpleBlock(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
-        simpleBlock(BlockInit.DEEPSLATE_SPEED_ORE.get());
-        simpleBlock(BlockInit.DEEPSLATE_RUBY_ORE.get());
-        simpleBlock(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
-        simpleBlock(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
-        simpleBlock(BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
+        normalBlock(BlockInit.BLACK_DIAMOND_BLOCK.get());
+        normalBlock(BlockInit.BLACK_DIAMOND_ORE.get());
+        normalBlock(BlockInit.INFINITUM_BLOCK.get());
+        normalBlock(BlockInit.FIRE_BLOCK.get());
+        normalBlock(BlockInit.FIRE_ORE.get());
+        normalBlock(BlockInit.LEGENDARY_BLOCK.get());
+        normalBlock(BlockInit.LEGENDARY_ORE.get());
+        normalBlock(BlockInit.OMNITRIX_BLOCK.get());
+        normalBlock(BlockInit.OMNITRIX_ORE.get());
+        normalBlock(BlockInit.RUBY_BLOCK.get());
+        normalBlock(BlockInit.RUBY_ORE.get());
+        normalBlock(BlockInit.SPEED_BLOCK.get());
+        normalBlock(BlockInit.SPEED_ORE.get());
+        normalBlock(BlockInit.IMPERIUM_BLOCK.get());
+        normalBlock(BlockInit.IMPERIUM_ORE.get());
+        normalBlock(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
+        normalBlock(BlockInit.DEEPSLATE_SPEED_ORE.get());
+        normalBlock(BlockInit.DEEPSLATE_RUBY_ORE.get());
+        normalBlock(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
+        normalBlock(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
+        normalBlock(BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
         omnitrixBlock();
+        infinitumOre();
     }
 
     @Override
@@ -115,6 +113,40 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("west", modLoc("block/" + name.getPath() + "_front"));
 
         this.simpleBlockItem(BlockInit.OmnitrixCrafter.get(), builder);
+        this.simpleBlock(BlockInit.OmnitrixCrafter.get());
+    }
+
+    public void infinitumOre() {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(BlockInit.INFINITUM_ORE.get());
+
+        if (name == null) {
+            BenTenMod.LOGGER.error("Could not find block key for Infinitum Ore");
+            return;
+        }
+
+        BlockModelBuilder builder =
+                this.models().withExistingParent(name.getPath(), "block/cube_column");
+
+        builder.texture("end", modLoc("block/" + name.getPath() + "_top"));
+        builder.texture("side", modLoc("block/" + name.getPath() + "_side"));
+
+        this.simpleBlockItem(BlockInit.INFINITUM_ORE.get(), builder);
+        this.simpleBlock(BlockInit.INFINITUM_ORE.get());
+    }
+
+    public void normalBlock(Block block) {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(block);
+
+        if (name == null) {
+            BenTenMod.LOGGER.error("Could not find block key for " + block.getName());
+            return;
+        }
+
+        BlockModelBuilder builder =
+                this.models().withExistingParent(name.getPath(), "block/cube_all");
+        builder.texture("all", modLoc("block/" + name.getPath()));
+        this.simpleBlockItem(block, builder);
+        this.simpleBlock(block);
     }
 }
 

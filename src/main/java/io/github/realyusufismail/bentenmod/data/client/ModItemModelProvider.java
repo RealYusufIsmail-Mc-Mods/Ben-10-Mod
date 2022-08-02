@@ -58,12 +58,6 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        BlockInit.BLOCKS.getEntries()
-            .stream()
-            .map(RegistryObject::get)
-            .forEach(this::blockItemModel);
-
-
         // items
         ITEMS.getEntries().stream().map(RegistryObject::get).forEach(this::registerItems);
     }
@@ -213,65 +207,6 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(JACKET.get().toString());
     }
 
-    private void blockItemModel(Block block) {
-        String blockAsString = formatString(block.toString());
-
-        if (blockAsString.equals(formatString(BlockInit.BLACK_DIAMOND_BLOCK.get().toString())))
-            builder(BlockInit.BLACK_DIAMOND_BLOCK.get().toString(), "block/black_diamond_block");
-        else if (blockAsString.equals(formatString(BlockInit.INFINITUM_BLOCK.get().toString())))
-            builder(BlockInit.INFINITUM_BLOCK.get().toString(), "block/infinitum_block");
-        else if (blockAsString.equals(formatString(BlockInit.OMNITRIX_BLOCK.get().toString())))
-            builder(BlockInit.OMNITRIX_BLOCK.get().toString(), "block/omnitrix_block");
-        else if (blockAsString.equals(formatString(BlockInit.FIRE_BLOCK.get().toString())))
-            builder(BlockInit.FIRE_BLOCK.get().toString(), "block/fire_block");
-        else if (blockAsString.equals(formatString(BlockInit.RUBY_BLOCK.get().toString())))
-            builder(BlockInit.RUBY_BLOCK.get().toString(), "block/ruby_block");
-        else if (blockAsString.equals(formatString(BlockInit.SPEED_BLOCK.get().toString())))
-            builder(BlockInit.SPEED_BLOCK.get().toString(), "block/speed_block");
-        else if (blockAsString.equals(formatString(BlockInit.IMPERIUM_BLOCK.get().toString())))
-            builder(BlockInit.IMPERIUM_BLOCK.get().toString(), "block/imperium_block");
-        else if (blockAsString.equals(formatString(BlockInit.LEGENDARY_BLOCK.get().toString())))
-            builder(BlockInit.LEGENDARY_BLOCK.get().toString(), "block/legendary_block");
-        // ores
-        else if (blockAsString.equals(formatString(BlockInit.BLACK_DIAMOND_ORE.get().toString())))
-            builder(BlockInit.BLACK_DIAMOND_ORE.get().toString(), "block/black_diamond_ore");
-        else if (blockAsString.equals(formatString(BlockInit.OMNITRIX_ORE.get().toString())))
-            builder(BlockInit.OMNITRIX_ORE.get().toString(), "block/omnitrix_ore");
-        else if (blockAsString.equals(formatString(BlockInit.FIRE_ORE.get().toString())))
-            builder(BlockInit.FIRE_ORE.get().toString(), "block/fire_ore");
-        else if (blockAsString.equals(formatString(BlockInit.RUBY_ORE.get().toString())))
-            builder(BlockInit.RUBY_ORE.get().toString(), "block/ruby_ore");
-        else if (blockAsString.equals(formatString(BlockInit.SPEED_ORE.get().toString())))
-            builder(BlockInit.SPEED_ORE.get().toString(), "block/speed_ore");
-        else if (blockAsString.equals(formatString(BlockInit.IMPERIUM_ORE.get().toString())))
-            builder(BlockInit.IMPERIUM_ORE.get().toString(), "block/imperium_ore");
-        else if (blockAsString.equals(formatString(BlockInit.LEGENDARY_ORE.get().toString())))
-            builder(BlockInit.LEGENDARY_ORE.get().toString(), "block/legendary_ore");
-        else if (blockAsString.equals(formatString(BlockInit.INFINITUM_ORE.get().toString())))
-            builder(BlockInit.INFINITUM_ORE.get().toString(), "block/infinitum_ore_top");
-        // DEEPSLATE ore
-        else if (blockAsString
-            .equals(formatString(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().toString())))
-            builder(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get().toString(),
-                    "block/deepslate_black_diamond_ore");
-        else if (blockAsString
-            .equals(formatString(BlockInit.DEEPSLATE_OMNITRIX_ORE.get().toString())))
-            builder(BlockInit.DEEPSLATE_OMNITRIX_ORE.get().toString(),
-                    "block/deepslate_omnitrix_ore");
-        else if (blockAsString.equals(formatString(BlockInit.DEEPSLATE_RUBY_ORE.get().toString())))
-            builder(BlockInit.DEEPSLATE_RUBY_ORE.get().toString(), "block/deepslate_ruby_ore");
-        else if (blockAsString.equals(formatString(BlockInit.DEEPSLATE_SPEED_ORE.get().toString())))
-            builder(BlockInit.DEEPSLATE_SPEED_ORE.get().toString(), "block/deepslate_speed_ore");
-        else if (blockAsString
-            .equals(formatString(BlockInit.DEEPSLATE_IMPERIUM_ORE.get().toString())))
-            builder(BlockInit.DEEPSLATE_IMPERIUM_ORE.get().toString(),
-                    "block/deepslate_imperium_ore");
-        else if (blockAsString
-            .equals(formatString(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString())))
-            builder(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString(),
-                    "block/deepslate_legendary_ore");
-    }
-
     private void tool(String name) {
         getBuilder(name).parent(getExistingFile(mcLoc("item/handheld")))
             .texture("layer0", "item/" + name);
@@ -280,15 +215,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void item(String name) {
         getBuilder(name).parent(getExistingFile(mcLoc("item/generated")))
             .texture("layer0", "item/" + name);
-    }
-
-    private void blockBuilder(String name, String parent) {
-        withExistingParent(name, modLoc(parent));
-    }
-
-    private void builder(String name, String texture) {
-        getBuilder(formatString(name)).parent(getExistingFile(mcLoc("item/generated")))
-            .texture("layer0", texture);
     }
 }
 
