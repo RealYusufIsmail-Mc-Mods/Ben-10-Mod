@@ -401,13 +401,17 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
             .save(consumer, modId("fire_apple"));
 
-        /*
-         * YusufShapedRecipeBuilder.shaped(RUBY_APPLE.get()) .define('A',
-         * TagsInit.Items.INGOTS_RUBY) .define('L', Items.APPLE.asItem()) .pattern("AAA")
-         * .pattern("ALA") .pattern("AAA") .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-         * .save(consumer, modId("ruby_apple"));
-         *
-         */
+
+        YusufShapedRecipeBuilder.shaped(RUBY_APPLE.get())
+            .define('A', TagsInit.Items.INGOTS_RUBY)
+            .define('L', Items.APPLE.asItem())
+            .pattern("AAA")
+            .pattern("ALA")
+            .pattern("AAA")
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+            .save(consumer, modId("ruby_apple"));
+
+
         YusufShapedRecipeBuilder.shaped(Items.ENCHANTED_GOLDEN_APPLE.asItem())
             .define('A', Items.GOLD_BLOCK.asItem())
             .define('L', Items.APPLE.asItem())
@@ -417,14 +421,14 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy(HAS_ITEM, has(Items.GOLD_INGOT.asItem()))
             .save(consumer, modId("enchanted_golden_apple"));
 
-        YusufShapedRecipeBuilder.shaped(BlockInit.TABLE_BLOCK.get().asItem())
+        YusufShapedRecipeBuilder.shaped(BlockInit.OmnitrixCrafter.get().asItem())
             .define('A', TagsInit.Items.INGOTS_OMNITRIX)
             .define('L', Blocks.COBBLESTONE.asItem())
-            .pattern("AA ")
-            .pattern("LL ")
-            .pattern("LL ")
+            .pattern("AAA")
+            .pattern("LLL")
+            .pattern("LLL")
             .unlockedBy(HAS_ITEM, has(Blocks.COBBLESTONE.asItem()))
-            .save(consumer, modId("table_block"));
+            .save(consumer, modId("omntrix_block"));
 
         // other items
         /**

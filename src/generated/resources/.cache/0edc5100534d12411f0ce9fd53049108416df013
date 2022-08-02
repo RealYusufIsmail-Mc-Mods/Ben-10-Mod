@@ -1,4 +1,4 @@
-// 1.19.1	2022-07-31T13:09:34.879696	Ben 10 Mod - Block States/Models
+// 1.19.1	2022-08-02T21:38:27.660153	Ben 10 Mod - Block States/Models
 72298f0d1cd9dade3a62dfe80b9a8d20e3eced93 assets/bentenmod/blockstates/black_diamond_block.json
 de50442b0274bb53d6417e6220fb679d50ad2e69 assets/bentenmod/blockstates/black_diamond_ore.json
 7b3012455c76a2e66e768d0e6bb4c26fcd6418f2 assets/bentenmod/blockstates/deepslate_black_diamond_ore.json
@@ -23,7 +23,6 @@ ffc410007134b190d996e4c00b7ff0d7127f7984 assets/bentenmod/blockstates/ruby_ore.j
 7ec281e70b94084aac08d11ecda085a02e285439 assets/bentenmod/blockstates/speed_ore.json
 92698a45a0e19e306d5857197d0531f177c5d631 assets/bentenmod/models/block/black_diamond_block.json
 a573d37a902daae966ef8a4b33a78d546d99d21b assets/bentenmod/models/block/black_diamond_ore.json
-2772a649141e675a25daef9947f1e523ac67b55a assets/bentenmod/models/block/block.bentenmod.omnitrix_crafter.json
 342a3dc19aed28c5b6e3ef16d1874f1ac49372f9 assets/bentenmod/models/block/deepslate_black_diamond_ore.json
 bcd852109e4c9be84d7bbe617ae72989b3abc909 assets/bentenmod/models/block/deepslate_imperium_ore.json
 2503689f23558a9ec2b925b1d981fd95c09a447a assets/bentenmod/models/block/deepslate_legendary_ore.json
@@ -40,10 +39,10 @@ fe0ffd1e2682cbe8429f6a9d548f0e7c0e7c92b0 assets/bentenmod/models/block/infinitum
 b1e82b23c264169c010321b40c47c96b2a8cb32d assets/bentenmod/models/block/legendary_block.json
 62655c271d92b916f057a95ac96b5f3f1c239fe5 assets/bentenmod/models/block/legendary_ore.json
 66d721df5afbe8a889bdc3f84630b0fc3ab7733f assets/bentenmod/models/block/omnitrix_block.json
+29d05fa632aca0571b69b213df91eed4a3f1ece9 assets/bentenmod/models/block/omnitrix_crafter.json
 563add6b4b9c1143050602be05a4b5c2a5ec8db8 assets/bentenmod/models/block/omnitrix_ore.json
 7f8d7aecc3fd39b298f7842f720235e219ee6685 assets/bentenmod/models/block/ruby_block.json
 aab79e0d874f159d8176c976f47816999c3a013f assets/bentenmod/models/block/ruby_ore.json
 1c4da6832eea929b1b0205c448c4ff81311fe4a8 assets/bentenmod/models/block/speed_block.json
 850fc7fee4b6977f30a22b0a5ad4e8ca475f3629 assets/bentenmod/models/block/speed_ore.json
-2772a649141e675a25daef9947f1e523ac67b55a assets/bentenmod/models/block/table_block_on.json
-fa719a84a11b5cd946d9dff0b84beb823997b9c8 assets/bentenmod/models/item/omnitrix_crafter.json
+c35c6cbda595671d6e94caaa9a898a7b61c62d6d assets/bentenmod/models/item/omnitrix_crafter.json

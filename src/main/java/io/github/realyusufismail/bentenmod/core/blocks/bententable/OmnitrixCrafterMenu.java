@@ -30,6 +30,6 @@ public class OmnitrixCrafterMenu extends CraftingMenu {
     // block is destroyed)
     @Override
     public boolean stillValid(Player p_39368_) {
-        return stillValid(this.access, p_39368_, BlockInit.TABLE_BLOCK.get());
+        return stillValid(this.access, p_39368_, BlockInit.OmnitrixCrafter.get());
     }
 }

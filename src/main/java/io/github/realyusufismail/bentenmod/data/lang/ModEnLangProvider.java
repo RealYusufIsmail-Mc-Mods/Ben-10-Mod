@@ -64,7 +64,7 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         block(BlockInit.SPEED_BLOCK, "Speed Block");
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
-        block(BlockInit.TABLE_BLOCK, "Upgrade and Crafting Table");
+        block(BlockInit.OmnitrixCrafter, "Omntrix Crafter");
 
         // ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");
@@ -155,7 +155,7 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
-        add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
+        add(LangKeys.TABLE_SCREEN, "Omntrix Craftier");
         add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
         add(LangKeys.ALIEN_TABLE_DISC,
                 "A crafting table use to create aliens from the ben 10 series");

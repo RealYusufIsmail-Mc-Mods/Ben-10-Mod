@@ -270,8 +270,6 @@ public class ModItemModelProvider extends ItemModelProvider {
             .equals(formatString(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString())))
             builder(BlockInit.DEEPSLATE_LEGENDARY_ORE.get().toString(),
                     "block/deepslate_legendary_ore");
-        else if (blockAsString.equals(formatString(BlockInit.TABLE_BLOCK.get().toString())))
-            builder(BlockInit.TABLE_BLOCK.get().toString(), "block/table_block");
     }
 
     private void tool(String name) {

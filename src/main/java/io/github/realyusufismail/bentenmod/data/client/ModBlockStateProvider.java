@@ -36,11 +36,14 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 
@@ -83,8 +86,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
         simpleBlock(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
         simpleBlock(BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
-        tableBlock();
-        tableBlockOn();
+        omnitrixBlock();
     }
 
     @Override
@@ -93,24 +95,26 @@ public class ModBlockStateProvider extends BlockStateProvider {
         this.simpleBlockItem(block, model);
     }
 
-    public void tableBlock() {
-        MutableComponent name = BlockInit.TABLE_BLOCK.get().getName();
+    public void omnitrixBlock() {
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(BlockInit.OmnitrixCrafter.get());
 
-        BlockModelBuilder builder =
-                this.models().withExistingParent(name.getString(), "block/orientable");
+        if (name == null) {
+            BenTenMod.LOGGER.error("Could not find block key for Omnitrix Crafter");
+            return;
+        }
 
-        builder.texture("top", modLoc("block/table_block_top"));
-        builder.texture("front", modLoc("block/table_block_front"));
-        builder.texture("side", modLoc("block/table_block_side"));
-        this.simpleBlockItem(BlockInit.TABLE_BLOCK.get(), builder);
-    }
+        BlockModelBuilder builder = this.models().withExistingParent(name.getPath(), "block/cube");
 
-    public void tableBlockOn() {
-        String name = "table_block_on";
-        BlockModelBuilder builder = this.models().withExistingParent(name, "block/orientable");
-        builder.texture("top", modLoc("block/table_block_top"));
-        builder.texture("front", modLoc("block/table_block_front"));
-        builder.texture("side", modLoc("block/table_block_side"));
+        builder.texture("down", modLoc("block/"
+                + ForgeRegistries.BLOCKS.getKey(BlockInit.OMNITRIX_BLOCK.get()).getPath()));
+        builder.texture("east", modLoc("block/" + name.getPath() + "_side"));
+        builder.texture("north", modLoc("block/" + name.getPath() + "_front"));
+        builder.texture("particle", modLoc("block/" + name.getPath() + "_front"));
+        builder.texture("south", modLoc("block/" + name.getPath() + "_side"));
+        builder.texture("up", modLoc("block/" + name.getPath() + "_top"));
+        builder.texture("west", modLoc("block/" + name.getPath() + "_front"));
+
+        this.simpleBlockItem(BlockInit.OmnitrixCrafter.get(), builder);
     }
 }
 

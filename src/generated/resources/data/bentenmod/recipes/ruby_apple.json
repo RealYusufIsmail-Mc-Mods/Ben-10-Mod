@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/ruby"
+    },
+    "L": {
+      "item": "minecraft:apple"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ALA",
+    "AAA"
+  ],
+  "result": {
+    "item": "bentenmod:ruby_apple"
+  }
+}

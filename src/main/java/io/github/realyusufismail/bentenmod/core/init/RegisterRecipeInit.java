@@ -50,7 +50,7 @@ public class RegisterRecipeInit {
 
     public static final RegistryObject<RecipeSerializer<?>> OMNITRIX_CRAFTER = SERIALIZER.register(
             "omntrix_crafter", () -> new OmntrixCrafterRecipe.Serializer(OMNITRIX_CRAFTER_TYPE,
-                    BlockInit.TABLE_BLOCK.get()));
+                    BlockInit.OmnitrixCrafter.get()));
 }
 
 

@@ -1,4 +1,4 @@
-// 1.19.1	2022-07-31T17:59:42.995832	Item Models: bentenmod
+// 1.19.1	2022-08-02T18:34:03.709108	Item Models: bentenmod
 28a0aa00149acfbb2e0427267cd325dc8f8b34ce assets/bentenmod/models/item/axe.json
 e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diamond.json
 4edc58fc2d6525b016e3fa31fd7f5adfbc78edfe assets/bentenmod/models/item/black_diamond_axe.json
@@ -65,7 +65,6 @@ e08271c734184af7186504ea11eef4e5190ea1ea assets/bentenmod/models/item/leggings.j
 03b5f05edfa8e48246ba874f3e83e51ac4d5e2c0 assets/bentenmod/models/item/omnitrix.json
 23337affc9718db607d05bfe2112947e594df621 assets/bentenmod/models/item/omnitrix_apple.json
 a3e85d0532726087c6486ba85b739861ab804602 assets/bentenmod/models/item/omnitrix_block.json
-678802f4531d75a115022821419ad1e6d8c17b64 assets/bentenmod/models/item/omnitrix_crafter.json
 13f5409ad59fab565ecc80848e1de532e5d4366b assets/bentenmod/models/item/omnitrix_ore.json
 efedca6e584ab9c86db9199db9c64d4b5e793ef5 assets/bentenmod/models/item/raw_imperium.json
 0f9bd03c220a901c01ae72c45a68670f1e219847 assets/bentenmod/models/item/raw_legendary.json

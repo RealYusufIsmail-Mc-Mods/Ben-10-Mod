@@ -105,10 +105,10 @@ public class BlockInit {
 
 
     // custom tables
-    public static final RegistryObject<OmnitrixCrafter> TABLE_BLOCK;
+    public static final RegistryObject<OmnitrixCrafter> OmnitrixCrafter;
 
     static {
-        TABLE_BLOCK = registerSpecial("omnitrix_crafter", OmnitrixCrafter::new);
+        OmnitrixCrafter = registerSpecial("omnitrix_crafter", OmnitrixCrafter::new);
     }
 
 

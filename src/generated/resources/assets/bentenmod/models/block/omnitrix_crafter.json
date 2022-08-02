@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "bentenmod:block/omnitrix_block",
+    "east": "bentenmod:block/omnitrix_crafter_side",
+    "north": "bentenmod:block/omnitrix_crafter_front",
+    "particle": "bentenmod:block/omnitrix_crafter_front",
+    "south": "bentenmod:block/omnitrix_crafter_side",
+    "up": "bentenmod:block/omnitrix_crafter_top",
+    "west": "bentenmod:block/omnitrix_crafter_front"
+  }
+}

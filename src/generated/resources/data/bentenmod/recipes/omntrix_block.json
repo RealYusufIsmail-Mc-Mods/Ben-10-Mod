@@ -9,9 +9,9 @@
     }
   },
   "pattern": [
-    "AA ",
-    "LL ",
-    "LL "
+    "AAA",
+    "LLL",
+    "LLL"
   ],
   "result": {
     "item": "bentenmod:omnitrix_crafter"
