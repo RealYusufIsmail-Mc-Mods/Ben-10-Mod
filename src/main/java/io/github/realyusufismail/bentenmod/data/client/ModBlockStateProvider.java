@@ -113,7 +113,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("west", modLoc("block/" + name.getPath() + "_front"));
 
         this.simpleBlockItem(BlockInit.OmnitrixCrafter.get(), builder);
-        this.simpleBlock(BlockInit.OmnitrixCrafter.get());
+        this.simpleBlock(BlockInit.OmnitrixCrafter.get(), builder);
     }
 
     public void infinitumOre() {
@@ -131,7 +131,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         builder.texture("side", modLoc("block/" + name.getPath() + "_side"));
 
         this.simpleBlockItem(BlockInit.INFINITUM_ORE.get(), builder);
-        this.simpleBlock(BlockInit.INFINITUM_ORE.get());
+        this.simpleBlock(BlockInit.INFINITUM_ORE.get(), builder);
     }
 
     public void normalBlock(Block block) {
@@ -146,7 +146,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 this.models().withExistingParent(name.getPath(), "block/cube_all");
         builder.texture("all", modLoc("block/" + name.getPath()));
         this.simpleBlockItem(block, builder);
-        this.simpleBlock(block);
+        this.simpleBlock(block, builder);
     }
 }
 

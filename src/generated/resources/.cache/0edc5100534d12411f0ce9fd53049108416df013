@@ -1,4 +1,4 @@
-// 1.19.1	2022-08-02T22:23:02.76274	Ben 10 Mod - Block States/Models
+// 1.19.1	2022-08-03T06:03:47.347373	Ben 10 Mod - Block States/Models
 72298f0d1cd9dade3a62dfe80b9a8d20e3eced93 assets/bentenmod/blockstates/black_diamond_block.json
 de50442b0274bb53d6417e6220fb679d50ad2e69 assets/bentenmod/blockstates/black_diamond_ore.json
 7b3012455c76a2e66e768d0e6bb4c26fcd6418f2 assets/bentenmod/blockstates/deepslate_black_diamond_ore.json
@@ -12,9 +12,11 @@ afbcb0ae303729897ae02b4f22bf8dc36562f515 assets/bentenmod/blockstates/deepslate_
 34158e3df49c1231b61c76f7abf06ef9b4a8bb42 assets/bentenmod/blockstates/imperium_block.json
 def73f65a05a2f989eb12060a6b849c2d5ed9669 assets/bentenmod/blockstates/imperium_ore.json
 b88abd73110b3f79f7cd20dad0ca6402554a94cf assets/bentenmod/blockstates/infinitum_block.json
+d41b022c916ca28b8f318e26e19c620bf03b9f7e assets/bentenmod/blockstates/infinitum_ore.json
 8b55a6bbdc504cb1e96847b03f522e4ce634df35 assets/bentenmod/blockstates/legendary_block.json
 50c5715b04c36d45f67bf728119f77beb983e744 assets/bentenmod/blockstates/legendary_ore.json
 a13cd56d2688f01e467404fa787a61896470a400 assets/bentenmod/blockstates/omnitrix_block.json
+c10e3e1d82fee1217e4a8aac4a020381fc6f07fb assets/bentenmod/blockstates/omnitrix_crafter.json
 f8a188f3c57fb2897ceddb12550b79e192f9ee75 assets/bentenmod/blockstates/omnitrix_ore.json
 3f7673ac59edf7b343b2c292e6b35aa9ea754e24 assets/bentenmod/blockstates/ruby_block.json
 ffc410007134b190d996e4c00b7ff0d7127f7984 assets/bentenmod/blockstates/ruby_ore.json
