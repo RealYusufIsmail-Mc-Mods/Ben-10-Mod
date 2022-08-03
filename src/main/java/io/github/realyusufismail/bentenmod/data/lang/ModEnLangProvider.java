@@ -154,11 +154,9 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
-        add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
-        add(LangKeys.TABLE_SCREEN, "Omntrix Craftier");
-        add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
-        add(LangKeys.ALIEN_TABLE_DISC,
-                "A crafting table use to create aliens from the ben 10 series");
+        add(LangKeys.OMNITRIX_DESCRIPTION,
+                "A custom crafting table used to create special items such as the Omnitrix.");
+        add(LangKeys.OMNITRIX_SCREEN, "Omnitrix Craftier");
         entity(EntityTypesInit.VILGAX_ENTITY.get(), "Vilgax");
         entity(EntityTypesInit.CRAB_ENTITY.get(), "crab");
 

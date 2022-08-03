@@ -38,7 +38,7 @@ import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.init.RegisterRecipeInit;
+import io.github.realyusufismail.bentenmod.core.init.RecipeSerializerInit;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -219,8 +219,7 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
 
         @Override
         public @NotNull RecipeSerializer<?> getType() {
-            return ForgeRegistries.RECIPE_SERIALIZERS
-                .getValue(new ResourceLocation(BenTenMod.MOD_ID, "omntrix_crafter"));
+            return RecipeSerializerInit.OMNITRIX_CRAFTER.get();
         }
 
         @Override

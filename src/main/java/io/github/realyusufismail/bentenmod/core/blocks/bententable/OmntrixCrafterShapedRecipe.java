@@ -40,12 +40,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.init.RegisterRecipeInit;
+import io.github.realyusufismail.bentenmod.core.init.BlockInit;
+import io.github.realyusufismail.bentenmod.core.init.RecipeSerializerInit;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -63,7 +63,8 @@ import java.util.Set;
 /**
  * @see CraftingRecipe
  */
-public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingContainer> {
+public class OmntrixCrafterShapedRecipe
+        implements IOmnitrixCraftingRecipe, Recipe<OmnitrixCrafterContainer> {
 
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
@@ -73,17 +74,17 @@ public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingCont
     final ItemStack result;
     final String group;
     private final ResourceLocation id;
-    private final Block icon;
+    // private final Block icon;
 
-    public OmntrixCrafterRecipe(ResourceLocation pId, String pGroup, int pWidth, int pHeight,
-            NonNullList<Ingredient> pRecipeItems, ItemStack pResult, Block icon) {
+    public OmntrixCrafterShapedRecipe(ResourceLocation pId, String pGroup, int pWidth, int pHeight,
+            NonNullList<Ingredient> pRecipeItems, ItemStack pResult) {
         this.id = pId;
         this.group = pGroup;
         this.width = pWidth;
         this.height = pHeight;
         this.recipeItems = pRecipeItems;
         this.result = pResult;
-        this.icon = icon;
+        // this.icon = icon;
     }
 
     /**
@@ -250,15 +251,11 @@ public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingCont
         }
     }
 
-    public ItemStack getToastSymbol() {
-        return new ItemStack(icon);
-    }
-
     /**
      * Used to check if a recipe matches current crafting inventory
      */
     @Override
-    public boolean matches(CraftingContainer pInv, Level pLevel) {
+    public boolean matches(OmnitrixCrafterContainer pInv, Level pLevel) {
         for (int i = 0; i <= pInv.getWidth() - this.width; ++i) {
             for (int j = 0; j <= pInv.getHeight() - this.height; ++j) {
                 if (this.matches(pInv, i, j, true)) {
@@ -277,7 +274,7 @@ public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingCont
     /**
      * Checks if the region of a crafting inventory is match for the recipe.
      */
-    private boolean matches(CraftingContainer pCraftingInventory, int pWidth, int pHeight,
+    private boolean matches(OmnitrixCrafterContainer pCraftingInventory, int pWidth, int pHeight,
             boolean pMirrored) {
         for (int i = 0; i < pCraftingInventory.getWidth(); ++i) {
             for (int j = 0; j < pCraftingInventory.getHeight(); ++j) {
@@ -303,7 +300,7 @@ public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingCont
     }
 
     @Override
-    public ItemStack assemble(CraftingContainer pContainer) {
+    public ItemStack assemble(OmnitrixCrafterContainer pContainer) {
         return this.getResultItem().copy();
     }
 
@@ -341,73 +338,60 @@ public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingCont
     }
 
     @Override
-    public RecipeType<?> getType() {
-        return RegisterRecipeInit.OMNITRIX_CRAFTER_TYPE;
-    }
-
-    @Override
     public RecipeSerializer<?> getSerializer() {
-        return RegisterRecipeInit.OMNITRIX_CRAFTER.get();
+        return RecipeSerializerInit.OMNITRIX_CRAFTER.get();
     }
 
     public boolean isIncomplete() {
         NonNullList<Ingredient> nonnulllist = this.getIngredients();
-        return nonnulllist.isEmpty() || nonnulllist.stream().filter((p_151277_) -> {
-            return !p_151277_.isEmpty();
-        }).anyMatch(ForgeHooks::hasNoElements);
+        return nonnulllist.isEmpty() || nonnulllist.stream()
+            .filter((p_151277_) -> !p_151277_.isEmpty())
+            .anyMatch(ForgeHooks::hasNoElements);
     }
 
-    public static final class Type implements RecipeType<OmntrixCrafterRecipe> {
+    public static final class Type implements RecipeType<OmntrixCrafterShapedRecipe> {
         @Override
         public String toString() {
             return BenTenMod.MOD_ID + ":table_recipe";
         }
     }
 
-    public static final class Serializer implements RecipeSerializer<OmntrixCrafterRecipe> {
+    public static final class Serializer implements RecipeSerializer<OmntrixCrafterShapedRecipe> {
 
-        private final RecipeType<?> type;
-        private final Block block;
-
-        public Serializer(RecipeType<?> type, Block block) {
-            this.type = type;
-            this.block = block;
-        }
+        public Serializer() {}
 
         @Override
-        public OmntrixCrafterRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
+        public OmntrixCrafterShapedRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             String s = GsonHelper.getAsString(pJson, "group", "");
-            Map<String, Ingredient> map =
-                    OmntrixCrafterRecipe.keyFromJson(GsonHelper.getAsJsonObject(pJson, "key"));
-            String[] astring = OmntrixCrafterRecipe.shrink(OmntrixCrafterRecipe
+            Map<String, Ingredient> map = OmntrixCrafterShapedRecipe
+                .keyFromJson(GsonHelper.getAsJsonObject(pJson, "key"));
+            String[] astring = OmntrixCrafterShapedRecipe.shrink(OmntrixCrafterShapedRecipe
                 .patternFromJson(GsonHelper.getAsJsonArray(pJson, "pattern")));
             int i = astring[0].length();
             int j = astring.length;
             NonNullList<Ingredient> nonnulllist =
-                    OmntrixCrafterRecipe.dissolvePattern(astring, map, i, j);
-            ItemStack itemstack = OmntrixCrafterRecipe
+                    OmntrixCrafterShapedRecipe.dissolvePattern(astring, map, i, j);
+            ItemStack itemstack = OmntrixCrafterShapedRecipe
                 .itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
-            return new OmntrixCrafterRecipe(pRecipeId, s, i, j, nonnulllist, itemstack, block);
+            return new OmntrixCrafterShapedRecipe(pRecipeId, s, i, j, nonnulllist, itemstack);
         }
 
         @Override
-        public @NotNull OmntrixCrafterRecipe fromNetwork(ResourceLocation pRecipeId,
+        public @NotNull OmntrixCrafterShapedRecipe fromNetwork(ResourceLocation pRecipeId,
                 FriendlyByteBuf pBuffer) {
             int i = pBuffer.readVarInt();
             int j = pBuffer.readVarInt();
             String s = pBuffer.readUtf();
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i * j, Ingredient.EMPTY);
 
-            for (int k = 0; k < nonnulllist.size(); ++k) {
-                nonnulllist.set(k, Ingredient.fromNetwork(pBuffer));
-            }
+            nonnulllist.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
 
             ItemStack itemstack = pBuffer.readItem();
-            return new OmntrixCrafterRecipe(pRecipeId, s, i, j, nonnulllist, itemstack, block);
+            return new OmntrixCrafterShapedRecipe(pRecipeId, s, i, j, nonnulllist, itemstack);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, OmntrixCrafterRecipe pRecipe) {
+        public void toNetwork(FriendlyByteBuf pBuffer, OmntrixCrafterShapedRecipe pRecipe) {
             pBuffer.writeVarInt(pRecipe.width);
             pBuffer.writeVarInt(pRecipe.height);
             pBuffer.writeUtf(pRecipe.group);
@@ -417,10 +401,6 @@ public class OmntrixCrafterRecipe implements CraftingRecipe, Recipe<CraftingCont
             }
 
             pBuffer.writeItem(pRecipe.result);
-        }
-
-        public RecipeType<?> getType() {
-            return type;
         }
     }
 }

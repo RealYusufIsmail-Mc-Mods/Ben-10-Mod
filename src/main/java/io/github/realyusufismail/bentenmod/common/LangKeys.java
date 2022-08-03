@@ -37,11 +37,9 @@ import net.minecraft.network.chat.Component;
 import org.jetbrains.annotations.NotNull;
 
 public class LangKeys {
-    public static final Component TABLE_SCREEN = text("container", "table_block");
-    public static final Component TABLE_DISC = text("desc", "upgrade_table");
-    public static final Component ALIEN_TABLE_SCREEN = text("container", "alien_table");
-    public static final Component ALIEN_TABLE_DISC = text("desc", "alien_create_table");
-    public static final Component TABLE_JEI = text("jei", "table_block");
+    public static final Component OMNITRIX_SCREEN = text("container", "omnitrix_crafter");
+    public static final Component OMNITRIX_DESCRIPTION =
+            text("desc", "omnitrix_crafter.description");
 
     // Method extracted
     private static @NotNull Component text(String s, String s2) {

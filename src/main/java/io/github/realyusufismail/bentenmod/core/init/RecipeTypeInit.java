@@ -34,23 +34,32 @@ package io.github.realyusufismail.bentenmod.core.init;
 
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterRecipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.IOmnitrixCraftingRecipe;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class RegisterRecipeInit {
-    public static final RecipeType<OmntrixCrafterRecipe> OMNITRIX_CRAFTER_TYPE =
-            new OmntrixCrafterRecipe.Type();
+/**
+ * @see RecipeType
+ */
+public class RecipeTypeInit {
+    public static final DeferredRegister<RecipeType<?>> TYPES =
+            DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, BenTenMod.MOD_ID);
 
-    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZER =
-            DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, BenTenMod.MOD_ID);
+    public static final RegistryObject<RecipeType<IOmnitrixCraftingRecipe>> OMNITRIX_CRAFTER_TYPE =
+            register("omnitrix_crafter");
 
-    public static final RegistryObject<RecipeSerializer<?>> OMNITRIX_CRAFTER = SERIALIZER.register(
-            "omntrix_crafter", () -> new OmntrixCrafterRecipe.Serializer(OMNITRIX_CRAFTER_TYPE,
-                    BlockInit.OmnitrixCrafter.get()));
+    private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(
+            final String pIdentifier) {
+        return TYPES.register(pIdentifier, () -> new RecipeType<T>() {
+            public String toString() {
+                return pIdentifier;
+            }
+        });
+    }
+
 }
 
 
