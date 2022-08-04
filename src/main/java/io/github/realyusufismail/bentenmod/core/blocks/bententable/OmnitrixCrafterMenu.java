@@ -3,8 +3,8 @@ package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.slot.OmnitrixResultSlot;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
+import io.github.realyusufismail.bentenmod.core.init.RecipeBookTypeInit;
 import io.github.realyusufismail.bentenmod.core.init.RecipeTypeInit;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
@@ -15,7 +15,6 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 
 import java.util.Optional;
 
@@ -202,8 +201,9 @@ public class OmnitrixCrafterMenu extends RecipeBookMenu<OmnitrixCrafterContainer
         return 10;
     }
 
+    @Override
     public RecipeBookType getRecipeBookType() {
-        return RecipeBookType.CRAFTING;
+        return RecipeBookTypeInit.OMNITRIX_CRAFTING.get();
     }
 
     public boolean shouldMoveToInventory(int pSlotIndex) {

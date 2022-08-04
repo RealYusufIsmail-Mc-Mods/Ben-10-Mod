@@ -33,7 +33,6 @@
 package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 
 import io.github.realyusufismail.bentenmod.common.LangKeys;
-import io.github.realyusufismail.bentenmod.core.init.StatsInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -49,10 +48,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CraftingTableBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -76,7 +73,7 @@ public class OmnitrixCrafter extends Block {
             return InteractionResult.SUCCESS;
         } else {
             player.openMenu(blockState.getMenuProvider(level, blockPos));
-            player.awardStat(StatsInit.INTERACT_WITH_OMNITRIX_CRAFTER);
+            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
             return InteractionResult.CONSUME;
         }
     }
