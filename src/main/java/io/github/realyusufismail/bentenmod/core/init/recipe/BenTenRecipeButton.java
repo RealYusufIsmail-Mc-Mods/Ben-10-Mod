@@ -30,11 +30,13 @@ import java.util.List;
  */
 @OnlyIn(Dist.CLIENT)
 public class BenTenRecipeButton extends AbstractWidget {
-    private static final ResourceLocation RECIPE_BOOK_LOCATION = new ResourceLocation("textures/gui/recipe_book.png");
+    private static final ResourceLocation RECIPE_BOOK_LOCATION =
+            new ResourceLocation("textures/gui/recipe_book.png");
     private static final float ANIMATION_TIME = 15.0F;
     private static final int BACKGROUND_SIZE = 25;
     public static final int TICKS_TO_SWAP = 30;
-    private static final Component MORE_RECIPES_TOOLTIP = Component.translatable("gui.recipebook.moreRecipes");
+    private static final Component MORE_RECIPES_TOOLTIP =
+            Component.translatable("gui.recipebook.moreRecipes");
     private RecipeBookMenu<?> menu;
     private RecipeBook book;
     private RecipeCollection collection;
@@ -48,11 +50,11 @@ public class BenTenRecipeButton extends AbstractWidget {
 
     public void init(RecipeCollection pCollection, BenTenRecipeBookPage pRecipeBookPage) {
         this.collection = pCollection;
-        this.menu = (RecipeBookMenu)pRecipeBookPage.getMinecraft().player.containerMenu;
+        this.menu = (RecipeBookMenu) pRecipeBookPage.getMinecraft().player.containerMenu;
         this.book = pRecipeBookPage.getRecipeBook();
         List<Recipe<?>> list = pCollection.getRecipes(this.book.isFiltering(this.menu));
 
-        for(Recipe<?> recipe : list) {
+        for (Recipe<?> recipe : list) {
             if (this.book.willHighlight(recipe)) {
                 pRecipeBookPage.recipesShown(list);
                 this.animationTime = 15.0F;
@@ -92,11 +94,12 @@ public class BenTenRecipeButton extends AbstractWidget {
         boolean flag = this.animationTime > 0.0F;
         PoseStack posestack = RenderSystem.getModelViewStack();
         if (flag) {
-            float f = 1.0F + 0.1F * (float)Math.sin((double)(this.animationTime / 15.0F * (float)Math.PI));
+            float f = 1.0F + 0.1F
+                    * (float) Math.sin((double) (this.animationTime / 15.0F * (float) Math.PI));
             posestack.pushPose();
-            posestack.translate((double)(this.x + 8), (double)(this.y + 12), 0.0D);
+            posestack.translate((double) (this.x + 8), (double) (this.y + 12), 0.0D);
             posestack.scale(f, f, 1.0F);
-            posestack.translate((double)(-(this.x + 8)), (double)(-(this.y + 12)), 0.0D);
+            posestack.translate((double) (-(this.x + 8)), (double) (-(this.y + 12)), 0.0D);
             RenderSystem.applyModelViewMatrix();
             this.animationTime -= pPartialTick;
         }
@@ -107,7 +110,8 @@ public class BenTenRecipeButton extends AbstractWidget {
         ItemStack itemstack = list.get(this.currentIndex).getResultItem();
         int k = 4;
         if (this.collection.hasSingleResultItem() && this.getOrderedRecipes().size() > 1) {
-            minecraft.getItemRenderer().renderAndDecorateItem(itemstack, this.x + k + 1, this.y + k + 1, 0, 10);
+            minecraft.getItemRenderer()
+                .renderAndDecorateItem(itemstack, this.x + k + 1, this.y + k + 1, 0, 10);
             --k;
         }
 
@@ -149,11 +153,15 @@ public class BenTenRecipeButton extends AbstractWidget {
 
     public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
         ItemStack itemstack = this.getOrderedRecipes().get(this.currentIndex).getResultItem();
-        pNarrationElementOutput.add(NarratedElementType.TITLE, Component.translatable("narration.recipe", itemstack.getHoverName()));
+        pNarrationElementOutput.add(NarratedElementType.TITLE,
+                Component.translatable("narration.recipe", itemstack.getHoverName()));
         if (this.collection.getRecipes(this.book.isFiltering(this.menu)).size() > 1) {
-            pNarrationElementOutput.add(NarratedElementType.USAGE, Component.translatable("narration.button.usage.hovered"), Component.translatable("narration.recipe.usage.more"));
+            pNarrationElementOutput.add(NarratedElementType.USAGE,
+                    Component.translatable("narration.button.usage.hovered"),
+                    Component.translatable("narration.recipe.usage.more"));
         } else {
-            pNarrationElementOutput.add(NarratedElementType.USAGE, Component.translatable("narration.button.usage.hovered"));
+            pNarrationElementOutput.add(NarratedElementType.USAGE,
+                    Component.translatable("narration.button.usage.hovered"));
         }
 
     }

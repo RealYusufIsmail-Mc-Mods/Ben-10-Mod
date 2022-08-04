@@ -45,14 +45,21 @@ import java.util.Locale;
  * @see RecipeBookComponent
  */
 @OnlyIn(Dist.CLIENT)
-public class BenTenRecipeBookComponent extends GuiComponent implements PlaceRecipe<Ingredient>, Widget, GuiEventListener, NarratableEntry, RecipeShownListener {
-    protected static final ResourceLocation RECIPE_BOOK_LOCATION = new ResourceLocation("textures/gui/recipe_book.png");
-    private static final Component SEARCH_HINT = Component.translatable("gui.recipebook.search_hint").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY);
+public class BenTenRecipeBookComponent extends GuiComponent implements PlaceRecipe<Ingredient>,
+        Widget, GuiEventListener, NarratableEntry, RecipeShownListener {
+    protected static final ResourceLocation RECIPE_BOOK_LOCATION =
+            new ResourceLocation("textures/gui/recipe_book.png");
+    private static final Component SEARCH_HINT =
+            Component.translatable("gui.recipebook.search_hint")
+                .withStyle(ChatFormatting.ITALIC)
+                .withStyle(ChatFormatting.GRAY);
     public static final int IMAGE_WIDTH = 147;
     public static final int IMAGE_HEIGHT = 166;
     private static final int OFFSET_X_POSITION = 86;
-    private static final Component ONLY_CRAFTABLES_TOOLTIP = Component.translatable("gui.recipebook.toggleRecipes.craftable");
-    private static final Component ALL_RECIPES_TOOLTIP = Component.translatable("gui.recipebook.toggleRecipes.all");
+    private static final Component ONLY_CRAFTABLES_TOOLTIP =
+            Component.translatable("gui.recipebook.toggleRecipes.craftable");
+    private static final Component ALL_RECIPES_TOOLTIP =
+            Component.translatable("gui.recipebook.toggleRecipes.all");
     private int xOffset;
     private int width;
     private int height;
@@ -74,7 +81,8 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
     private boolean visible;
     private boolean widthTooNarrow;
 
-    public void init(int pWidth, int pHeight, Minecraft pMinecraft, boolean pWidthTooNarrow, RecipeBookMenu<?> pMenu) {
+    public void init(int pWidth, int pHeight, Minecraft pMinecraft, boolean pWidthTooNarrow,
+            RecipeBookMenu<?> pMenu) {
         this.minecraft = pMinecraft;
         this.width = pWidth;
         this.height = pHeight;
@@ -99,7 +107,8 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         this.minecraft.player.getInventory().fillStackedContents(this.stackedContents);
         this.menu.fillCraftSlotsStackedContents(this.stackedContents);
         String s = this.searchBox != null ? this.searchBox.getValue() : "";
-        this.searchBox = new EditBox(this.minecraft.font, i + 25, j + 14, 80, 9 + 5, Component.translatable("itemGroup.search"));
+        this.searchBox = new EditBox(this.minecraft.font, i + 25, j + 14, 80, 9 + 5,
+                Component.translatable("itemGroup.search"));
         this.searchBox.setMaxLength(50);
         this.searchBox.setBordered(false);
         this.searchBox.setVisible(true);
@@ -107,18 +116,19 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         this.searchBox.setValue(s);
         this.recipeBookPage.init(this.minecraft, i, j);
         this.recipeBookPage.addListener(this);
-        this.filterButton = new StateSwitchingButton(i + 110, j + 12, 26, 16, this.book.isFiltering(this.menu));
+        this.filterButton =
+                new StateSwitchingButton(i + 110, j + 12, 26, 16, this.book.isFiltering(this.menu));
         this.initFilterButtonTextures();
         this.tabButtons.clear();
 
-        for(RecipeBookCategories recipebookcategories : this.menu.getRecipeBookCategories()) {
+        for (RecipeBookCategories recipebookcategories : this.menu.getRecipeBookCategories()) {
             this.tabButtons.add(new RecipeBookTabButton(recipebookcategories));
         }
 
         if (this.selectedTab != null) {
             this.selectedTab = this.tabButtons.stream().filter((p_100329_) -> {
                 return p_100329_.getCategory().equals(this.selectedTab.getCategory());
-            }).findFirst().orElse((RecipeBookTabButton)null);
+            }).findFirst().orElse((RecipeBookTabButton) null);
         }
 
         if (this.selectedTab == null) {
@@ -192,7 +202,8 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
     private void updateCollections(boolean p_100383_) {
         List<RecipeCollection> list = this.book.getCollection(this.selectedTab.getCategory());
         list.forEach((p_100381_) -> {
-            p_100381_.canCraft(this.stackedContents, this.menu.getGridWidth(), this.menu.getGridHeight(), this.book);
+            p_100381_.canCraft(this.stackedContents, this.menu.getGridWidth(),
+                    this.menu.getGridHeight(), this.book);
         });
         List<RecipeCollection> list1 = Lists.newArrayList(list);
         list1.removeIf((p_100368_) -> {
@@ -203,7 +214,9 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         });
         String s = this.searchBox.getValue();
         if (!s.isEmpty()) {
-            ObjectSet<RecipeCollection> objectset = new ObjectLinkedOpenHashSet<>(this.minecraft.getSearchTree(SearchRegistry.RECIPE_COLLECTIONS).search(s.toLowerCase(Locale.ROOT)));
+            ObjectSet<RecipeCollection> objectset = new ObjectLinkedOpenHashSet<>(
+                    this.minecraft.getSearchTree(SearchRegistry.RECIPE_COLLECTIONS)
+                        .search(s.toLowerCase(Locale.ROOT)));
             list1.removeIf((p_100334_) -> {
                 return !objectset.contains(p_100334_);
             });
@@ -224,9 +237,10 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         int k = 27;
         int l = 0;
 
-        for(RecipeBookTabButton recipebooktabbutton : this.tabButtons) {
+        for (RecipeBookTabButton recipebooktabbutton : this.tabButtons) {
             RecipeBookCategories recipebookcategories = recipebooktabbutton.getCategory();
-            if (recipebookcategories != RecipeBookCategories.CRAFTING_SEARCH && recipebookcategories != RecipeBookCategories.FURNACE_SEARCH) {
+            if (recipebookcategories != RecipeBookCategories.CRAFTING_SEARCH
+                    && recipebookcategories != RecipeBookCategories.FURNACE_SEARCH) {
                 if (recipebooktabbutton.updateVisibility(this.book)) {
                     recipebooktabbutton.setPosition(i, j + 27 * l++);
                     recipebooktabbutton.startAnimation(this.minecraft);
@@ -246,7 +260,8 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         }
 
         if (this.isVisible()) {
-            if (this.timesInventoryChanged != this.minecraft.player.getInventory().getTimesChanged()) {
+            if (this.timesInventoryChanged != this.minecraft.player.getInventory()
+                .getTimesChanged()) {
                 this.updateStackedContents();
                 this.timesInventoryChanged = this.minecraft.player.getInventory().getTimesChanged();
             }
@@ -278,7 +293,7 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
                 this.searchBox.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
             }
 
-            for(RecipeBookTabButton recipebooktabbutton : this.tabButtons) {
+            for (RecipeBookTabButton recipebooktabbutton : this.tabButtons) {
                 recipebooktabbutton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
             }
 
@@ -288,7 +303,8 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         }
     }
 
-    public void renderTooltip(PoseStack pPoseStack, int pRenderX, int pRenderY, int pMouseX, int pMouseY) {
+    public void renderTooltip(PoseStack pPoseStack, int pRenderX, int pRenderY, int pMouseX,
+            int pMouseY) {
         if (this.isVisible()) {
             this.recipeBookPage.renderTooltip(pPoseStack, pMouseX, pMouseY);
             if (this.filterButton.isHoveredOrFocused()) {
@@ -303,17 +319,19 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
     }
 
     private Component getFilterButtonTooltip() {
-        return this.filterButton.isStateTriggered() ? this.getRecipeFilterName() : ALL_RECIPES_TOOLTIP;
+        return this.filterButton.isStateTriggered() ? this.getRecipeFilterName()
+                : ALL_RECIPES_TOOLTIP;
     }
 
     protected Component getRecipeFilterName() {
         return ONLY_CRAFTABLES_TOOLTIP;
     }
 
-    private void renderGhostRecipeTooltip(PoseStack pPoseStack, int p_100376_, int p_100377_, int pMouseX, int pMouseY) {
+    private void renderGhostRecipeTooltip(PoseStack pPoseStack, int p_100376_, int p_100377_,
+            int pMouseX, int pMouseY) {
         ItemStack itemstack = null;
 
-        for(int i = 0; i < this.ghostRecipe.size(); ++i) {
+        for (int i = 0; i < this.ghostRecipe.size(); ++i) {
             GhostRecipe.GhostIngredient ghostrecipe$ghostingredient = this.ghostRecipe.get(i);
             int j = ghostrecipe$ghostingredient.getX() + p_100376_;
             int k = ghostrecipe$ghostingredient.getY() + p_100377_;
@@ -323,27 +341,36 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         }
 
         if (itemstack != null && this.minecraft.screen != null) {
-            this.minecraft.screen.renderComponentTooltip(pPoseStack, this.minecraft.screen.getTooltipFromItem(itemstack), pMouseX, pMouseY, itemstack);
+            this.minecraft.screen.renderComponentTooltip(pPoseStack,
+                    this.minecraft.screen.getTooltipFromItem(itemstack), pMouseX, pMouseY,
+                    itemstack);
         }
 
     }
 
-    public void renderGhostRecipe(PoseStack pPoseStack, int pLeftPos, int pTopPos, boolean p_100326_, float pPartialTick) {
-        this.ghostRecipe.render(pPoseStack, this.minecraft, pLeftPos, pTopPos, p_100326_, pPartialTick);
+    public void renderGhostRecipe(PoseStack pPoseStack, int pLeftPos, int pTopPos,
+            boolean p_100326_, float pPartialTick) {
+        this.ghostRecipe.render(pPoseStack, this.minecraft, pLeftPos, pTopPos, p_100326_,
+                pPartialTick);
     }
 
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
         if (this.isVisible() && !this.minecraft.player.isSpectator()) {
-            if (this.recipeBookPage.mouseClicked(pMouseX, pMouseY, pButton, (this.width - 147) / 2 - this.xOffset, (this.height - 166) / 2, 147, 166)) {
+            if (this.recipeBookPage.mouseClicked(pMouseX, pMouseY, pButton,
+                    (this.width - 147) / 2 - this.xOffset, (this.height - 166) / 2, 147, 166)) {
                 Recipe<?> recipe = this.recipeBookPage.getLastClickedRecipe();
-                RecipeCollection recipecollection = this.recipeBookPage.getLastClickedRecipeCollection();
+                RecipeCollection recipecollection =
+                        this.recipeBookPage.getLastClickedRecipeCollection();
                 if (recipe != null && recipecollection != null) {
-                    if (!recipecollection.isCraftable(recipe) && this.ghostRecipe.getRecipe() == recipe) {
+                    if (!recipecollection.isCraftable(recipe)
+                            && this.ghostRecipe.getRecipe() == recipe) {
                         return false;
                     }
 
                     this.ghostRecipe.clear();
-                    this.minecraft.gameMode.handlePlaceRecipe(this.minecraft.player.containerMenu.containerId, recipe, Screen.hasShiftDown());
+                    this.minecraft.gameMode.handlePlaceRecipe(
+                            this.minecraft.player.containerMenu.containerId, recipe,
+                            Screen.hasShiftDown());
                     if (!this.isOffsetNextToMainGUI()) {
                         this.setVisible(false);
                     }
@@ -359,7 +386,7 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
                 this.updateCollections(false);
                 return true;
             } else {
-                for(RecipeBookTabButton recipebooktabbutton : this.tabButtons) {
+                for (RecipeBookTabButton recipebooktabbutton : this.tabButtons) {
                     if (recipebooktabbutton.mouseClicked(pMouseX, pMouseY, pButton)) {
                         if (this.selectedTab != recipebooktabbutton) {
                             if (this.selectedTab != null) {
@@ -389,12 +416,15 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         return flag;
     }
 
-    public boolean hasClickedOutside(double pMouseX, double pMouseY, int pX, int pY, int pWidth, int pHeight, int p_100304_) {
+    public boolean hasClickedOutside(double pMouseX, double pMouseY, int pX, int pY, int pWidth,
+            int pHeight, int p_100304_) {
         if (!this.isVisible()) {
             return true;
         } else {
-            boolean flag = pMouseX < (double)pX || pMouseY < (double)pY || pMouseX >= (double)(pX + pWidth) || pMouseY >= (double)(pY + pHeight);
-            boolean flag1 = (double)(pX - 147) < pMouseX && pMouseX < (double)pX && (double)pY < pMouseY && pMouseY < (double)(pY + pHeight);
+            boolean flag = pMouseX < (double) pX || pMouseY < (double) pY
+                    || pMouseX >= (double) (pX + pWidth) || pMouseY >= (double) (pY + pHeight);
+            boolean flag1 = (double) (pX - 147) < pMouseX && pMouseX < (double) pX
+                    && (double) pY < pMouseY && pMouseY < (double) (pY + pHeight);
             return flag && !flag1 && !this.selectedTab.isHoveredOrFocused();
         }
     }
@@ -408,9 +438,11 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
             } else if (this.searchBox.keyPressed(pKeyCode, pScanCode, pModifiers)) {
                 this.checkSearchStringUpdate();
                 return true;
-            } else if (this.searchBox.isFocused() && this.searchBox.isVisible() && pKeyCode != 256) {
+            } else if (this.searchBox.isFocused() && this.searchBox.isVisible()
+                    && pKeyCode != 256) {
                 return true;
-            } else if (this.minecraft.options.keyChat.matches(pKeyCode, pScanCode) && !this.searchBox.isFocused()) {
+            } else if (this.minecraft.options.keyChat.matches(pKeyCode, pScanCode)
+                    && !this.searchBox.isFocused()) {
                 this.ignoreTextInput = true;
                 this.searchBox.setFocus(true);
                 return true;
@@ -488,7 +520,7 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
     }
 
     public void recipesShown(List<Recipe<?>> pRecipes) {
-        for(Recipe<?> recipe : pRecipes) {
+        for (Recipe<?> recipe : pRecipes) {
             this.minecraft.player.removeRecipeHighlight(recipe);
         }
 
@@ -497,11 +529,14 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
     public void setupGhostRecipe(Recipe<?> pRecipe, List<Slot> pSlots) {
         ItemStack itemstack = pRecipe.getResultItem();
         this.ghostRecipe.setRecipe(pRecipe);
-        this.ghostRecipe.addIngredient(Ingredient.of(itemstack), (pSlots.get(0)).x, (pSlots.get(0)).y);
-        this.placeRecipe(this.menu.getGridWidth(), this.menu.getGridHeight(), this.menu.getResultSlotIndex(), pRecipe, pRecipe.getIngredients().iterator(), 0);
+        this.ghostRecipe.addIngredient(Ingredient.of(itemstack), (pSlots.get(0)).x,
+                (pSlots.get(0)).y);
+        this.placeRecipe(this.menu.getGridWidth(), this.menu.getGridHeight(),
+                this.menu.getResultSlotIndex(), pRecipe, pRecipe.getIngredients().iterator(), 0);
     }
 
-    public void addItemToSlot(Iterator<Ingredient> pIngredients, int pSlot, int pMaxAmount, int pY, int pX) {
+    public void addItemToSlot(Iterator<Ingredient> pIngredients, int pSlot, int pMaxAmount, int pY,
+            int pX) {
         Ingredient ingredient = pIngredients.next();
         if (!ingredient.isEmpty()) {
             Slot slot = this.menu.slots.get(pSlot);
@@ -515,13 +550,15 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
             RecipeBookType recipebooktype = this.menu.getRecipeBookType();
             boolean flag = this.book.getBookSettings().isOpen(recipebooktype);
             boolean flag1 = this.book.getBookSettings().isFiltering(recipebooktype);
-            this.minecraft.getConnection().send(new ServerboundRecipeBookChangeSettingsPacket(recipebooktype, flag, flag1));
+            this.minecraft.getConnection()
+                .send(new ServerboundRecipeBookChangeSettingsPacket(recipebooktype, flag, flag1));
         }
 
     }
 
     public NarratableEntry.NarrationPriority narrationPriority() {
-        return this.visible ? NarratableEntry.NarrationPriority.HOVERED : NarratableEntry.NarrationPriority.NONE;
+        return this.visible ? NarratableEntry.NarrationPriority.HOVERED
+                : NarratableEntry.NarrationPriority.NONE;
     }
 
     public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
@@ -535,7 +572,8 @@ public class BenTenRecipeBookComponent extends GuiComponent implements PlaceReci
         list.add(this.searchBox);
         list.add(this.filterButton);
         list.addAll(this.tabButtons);
-        Screen.NarratableSearchResult screen$narratablesearchresult = Screen.findNarratableWidget(list, (NarratableEntry)null);
+        Screen.NarratableSearchResult screen$narratablesearchresult =
+                Screen.findNarratableWidget(list, (NarratableEntry) null);
         if (screen$narratablesearchresult != null) {
             screen$narratablesearchresult.entry.updateNarration(pNarrationElementOutput.nest());
         }

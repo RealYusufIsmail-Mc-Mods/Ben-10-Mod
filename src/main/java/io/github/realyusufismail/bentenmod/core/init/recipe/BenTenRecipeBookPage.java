@@ -40,7 +40,7 @@ public class BenTenRecipeBookPage {
     private RecipeCollection lastClickedRecipeCollection;
 
     public BenTenRecipeBookPage() {
-        for(int i = 0; i < 20; ++i) {
+        for (int i = 0; i < 20; ++i) {
             this.buttons.add(new BenTenRecipeButton());
         }
 
@@ -50,14 +50,16 @@ public class BenTenRecipeBookPage {
         this.minecraft = pMinecraft;
         this.recipeBook = pMinecraft.player.getRecipeBook();
 
-        for(int i = 0; i < this.buttons.size(); ++i) {
+        for (int i = 0; i < this.buttons.size(); ++i) {
             this.buttons.get(i).setPosition(pX + 11 + 25 * (i % 5), pY + 31 + 25 * (i / 5));
         }
 
         this.forwardButton = new StateSwitchingButton(pX + 93, pY + 137, 12, 17, false);
-        this.forwardButton.initTextureValues(1, 208, 13, 18, BenTenRecipeBookComponent.RECIPE_BOOK_LOCATION);
+        this.forwardButton.initTextureValues(1, 208, 13, 18,
+                BenTenRecipeBookComponent.RECIPE_BOOK_LOCATION);
         this.backButton = new StateSwitchingButton(pX + 38, pY + 137, 12, 17, true);
-        this.backButton.initTextureValues(1, 208, 13, 18, BenTenRecipeBookComponent.RECIPE_BOOK_LOCATION);
+        this.backButton.initTextureValues(1, 208, 13, 18,
+                BenTenRecipeBookComponent.RECIPE_BOOK_LOCATION);
     }
 
     public void addListener(BenTenRecipeBookComponent pListener) {
@@ -67,7 +69,7 @@ public class BenTenRecipeBookPage {
 
     public void updateCollections(List<RecipeCollection> pRecipeCollections, boolean p_100438_) {
         this.recipeCollections = pRecipeCollections;
-        this.totalPages = (int)Math.ceil((double)pRecipeCollections.size() / 20.0D);
+        this.totalPages = (int) Math.ceil((double) pRecipeCollections.size() / 20.0D);
         if (this.totalPages <= this.currentPage || p_100438_) {
             this.currentPage = 0;
         }
@@ -78,7 +80,7 @@ public class BenTenRecipeBookPage {
     private void updateButtonsForPage() {
         int i = 20 * this.currentPage;
 
-        for(int j = 0; j < this.buttons.size(); ++j) {
+        for (int j = 0; j < this.buttons.size(); ++j) {
             BenTenRecipeButton recipebutton = this.buttons.get(j);
             if (i + j < this.recipeCollections.size()) {
                 RecipeCollection recipecollection = this.recipeCollections.get(i + j);
@@ -97,16 +99,18 @@ public class BenTenRecipeBookPage {
         this.backButton.visible = this.totalPages > 1 && this.currentPage > 0;
     }
 
-    public void render(PoseStack pPoseStack, int p_100423_, int p_100424_, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(PoseStack pPoseStack, int p_100423_, int p_100424_, int pMouseX, int pMouseY,
+            float pPartialTick) {
         if (this.totalPages > 1) {
             String s = this.currentPage + 1 + "/" + this.totalPages;
             int i = this.minecraft.font.width(s);
-            this.minecraft.font.draw(pPoseStack, s, (float)(p_100423_ - i / 2 + 73), (float)(p_100424_ + 141), -1);
+            this.minecraft.font.draw(pPoseStack, s, (float) (p_100423_ - i / 2 + 73),
+                    (float) (p_100424_ + 141), -1);
         }
 
         this.hoveredButton = null;
 
-        for(BenTenRecipeButton recipebutton : this.buttons) {
+        for (BenTenRecipeButton recipebutton : this.buttons) {
             recipebutton.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
             if (recipebutton.visible && recipebutton.isHoveredOrFocused()) {
                 this.hoveredButton = recipebutton;
@@ -119,8 +123,11 @@ public class BenTenRecipeBookPage {
     }
 
     public void renderTooltip(PoseStack pPoseStack, int pX, int pY) {
-        if (this.minecraft.screen != null && this.hoveredButton != null && !this.overlay.isVisible()) {
-            this.minecraft.screen.renderComponentTooltip(pPoseStack, this.hoveredButton.getTooltipText(this.minecraft.screen), pX, pY, this.hoveredButton.getRecipe().getResultItem());
+        if (this.minecraft.screen != null && this.hoveredButton != null
+                && !this.overlay.isVisible()) {
+            this.minecraft.screen.renderComponentTooltip(pPoseStack,
+                    this.hoveredButton.getTooltipText(this.minecraft.screen), pX, pY,
+                    this.hoveredButton.getRecipe().getResultItem());
         }
 
     }
@@ -139,7 +146,8 @@ public class BenTenRecipeBookPage {
         this.overlay.setVisible(false);
     }
 
-    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton, int p_100413_, int p_100414_, int p_100415_, int p_100416_) {
+    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton, int p_100413_,
+            int p_100414_, int p_100415_, int p_100416_) {
         this.lastClickedRecipe = null;
         this.lastClickedRecipeCollection = null;
         if (this.overlay.isVisible()) {
@@ -160,13 +168,16 @@ public class BenTenRecipeBookPage {
             this.updateButtonsForPage();
             return true;
         } else {
-            for(BenTenRecipeButton recipebutton : this.buttons) {
+            for (BenTenRecipeButton recipebutton : this.buttons) {
                 if (recipebutton.mouseClicked(pMouseX, pMouseY, pButton)) {
                     if (pButton == 0) {
                         this.lastClickedRecipe = recipebutton.getRecipe();
                         this.lastClickedRecipeCollection = recipebutton.getCollection();
-                    } else if (pButton == 1 && !this.overlay.isVisible() && !recipebutton.isOnlyOption()) {
-                        this.overlay.init(this.minecraft, recipebutton.getCollection(), recipebutton.x, recipebutton.y, p_100413_ + p_100415_ / 2, p_100414_ + 13 + p_100416_ / 2, (float)recipebutton.getWidth());
+                    } else if (pButton == 1 && !this.overlay.isVisible()
+                            && !recipebutton.isOnlyOption()) {
+                        this.overlay.init(this.minecraft, recipebutton.getCollection(),
+                                recipebutton.x, recipebutton.y, p_100413_ + p_100415_ / 2,
+                                p_100414_ + 13 + p_100416_ / 2, (float) recipebutton.getWidth());
                     }
 
                     return true;
@@ -178,7 +189,7 @@ public class BenTenRecipeBookPage {
     }
 
     public void recipesShown(List<Recipe<?>> pRecipes) {
-        for(RecipeShownListener recipeshownlistener : this.showListeners) {
+        for (RecipeShownListener recipeshownlistener : this.showListeners) {
             recipeshownlistener.recipesShown(pRecipes);
         }
 
