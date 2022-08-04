@@ -37,7 +37,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.RecipeSerializerInit;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;

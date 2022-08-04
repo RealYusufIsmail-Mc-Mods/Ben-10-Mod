@@ -35,7 +35,6 @@ package io.github.realyusufismail.bentenmod;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterMenu;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
