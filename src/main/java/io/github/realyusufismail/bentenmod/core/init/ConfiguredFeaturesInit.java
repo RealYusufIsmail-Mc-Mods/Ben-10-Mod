@@ -15,27 +15,28 @@ public class ConfiguredFeaturesInit {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, BenTenMod.MOD_ID);
 
-    public static final RegistryObject<PlacedFeature> LEGENDARY_ORE_PLACED = register("legendary_ore_placed", PlacedFeaturesInit.LEGENDARY_ORE,
-            4, -80, 50, false);
+    public static final RegistryObject<PlacedFeature> LEGENDARY_ORE_PLACED =
+            register("legendary_ore_placed", PlacedFeaturesInit.LEGENDARY_ORE, 4, -80, 50, false);
 
-    public static final RegistryObject<PlacedFeature> RUBY_ORE_PLACED = register("ruby_ore_placed", PlacedFeaturesInit.RUBY_ORE,
-            4, -80, 50, true);
+    public static final RegistryObject<PlacedFeature> RUBY_ORE_PLACED =
+            register("ruby_ore_placed", PlacedFeaturesInit.RUBY_ORE, 4, -80, 50, true);
 
-    public static final RegistryObject<PlacedFeature> BLACK_DIAMOND_ORE_PLACED = register("black_diamond_ore_placed", PlacedFeaturesInit.BLACK_DIAMOND_ORE,
-            4, -80, 30, true);
+    public static final RegistryObject<PlacedFeature> BLACK_DIAMOND_ORE_PLACED = register(
+            "black_diamond_ore_placed", PlacedFeaturesInit.BLACK_DIAMOND_ORE, 4, -80, 30, true);
 
-    public static final RegistryObject<PlacedFeature> IMPERIUM_ORE_PLACED = register("imperium_ore_placed", PlacedFeaturesInit.IMPERIUM_ORE,
-            4, -80, 40, true);
+    public static final RegistryObject<PlacedFeature> IMPERIUM_ORE_PLACED =
+            register("imperium_ore_placed", PlacedFeaturesInit.IMPERIUM_ORE, 4, -80, 40, true);
 
-    public static final RegistryObject<PlacedFeature> SPEED_ORE_PLACED = register("speed_ore_placed", PlacedFeaturesInit.SPEED_ORE,
-            4, -80, 40, true);
+    public static final RegistryObject<PlacedFeature> SPEED_ORE_PLACED =
+            register("speed_ore_placed", PlacedFeaturesInit.SPEED_ORE, 4, -80, 40, true);
 
-    public static final RegistryObject<PlacedFeature> OMNITRIX_ORE_PLACED = register("omnitrix_ore_placed", PlacedFeaturesInit.OMNITRIX_ORE,
-            4, -80, 50, true);
+    public static final RegistryObject<PlacedFeature> OMNITRIX_ORE_PLACED =
+            register("omnitrix_ore_placed", PlacedFeaturesInit.OMNITRIX_ORE, 4, -80, 50, true);
 
 
-    public static RegistryObject<PlacedFeature> register(String name, RegistryObject<ConfiguredFeature<?, ?>> holder,
-                                             int orePlacement, int aboveBottomInMinus, int aboveBottomInPositive, boolean rare) {
+    public static RegistryObject<PlacedFeature> register(String name,
+            RegistryObject<ConfiguredFeature<?, ?>> holder, int orePlacement,
+            int aboveBottomInMinus, int aboveBottomInPositive, boolean rare) {
         if (!rare) {
             return PLACED_FEATURES
                 .register(name,
