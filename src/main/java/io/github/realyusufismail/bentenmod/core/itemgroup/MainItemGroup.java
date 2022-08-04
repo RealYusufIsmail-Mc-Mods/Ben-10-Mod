@@ -49,4 +49,7 @@ public class MainItemGroup extends CreativeModeTab {
         return new ItemStack(ItemInit.OMNITRIX.get());
     }
 
+    public static CreativeModeTab getTab() {
+        return MAIN;
+    }
 }
