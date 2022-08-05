@@ -50,10 +50,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         super(generator, BenTenMod.MOD_ID, existingFileHelper);
     }
 
-    public static String formatString(String original) {
-        return original.replace("Block{", "").replace("}", "");
-    }
-
     @Override
     protected void registerModels() {
         // items
