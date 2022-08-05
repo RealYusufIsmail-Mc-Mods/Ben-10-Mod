@@ -1,71 +1,76 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
+import com.google.common.base.Suppliers;
 import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.realyusufismailcore.core.init.GeneralBlock;
 import net.minecraft.core.Registry;
-import net.minecraft.world.level.levelgen.VerticalAnchor;
+import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ConfiguredFeaturesInit {
-    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
-            DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, BenTenMod.MOD_ID);
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
+            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, BenTenMod.MOD_ID);
 
-    public static final RegistryObject<PlacedFeature> LEGENDARY_ORE_PLACED =
-            register("legendary_ore_placed", PlacedFeaturesInit.LEGENDARY_ORE, 4, -80, 50, false);
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_LEGENDARY_ORE =
+            regOverWoldOres(BlockInit.LEGENDARY_ORE, BlockInit.DEEPSLATE_LEGENDARY_ORE);
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_RUBY_ORE =
+            regOverWoldOres(BlockInit.RUBY_ORE, BlockInit.DEEPSLATE_RUBY_ORE);
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_BLACK_DIAMOND_ORE =
+            regOverWoldOres(BlockInit.BLACK_DIAMOND_ORE, BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE);
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_IMPERIUM_ORE =
+            regOverWoldOres(BlockInit.IMPERIUM_ORE, BlockInit.DEEPSLATE_IMPERIUM_ORE);
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_SPEED_ORE =
+            regOverWoldOres(BlockInit.SPEED_ORE, BlockInit.DEEPSLATE_SPEED_ORE);
+    public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_OMNITRIX_ORE =
+            regOverWoldOres(BlockInit.OMNITRIX_ORE, BlockInit.DEEPSLATE_OMNITRIX_ORE);
 
-    public static final RegistryObject<PlacedFeature> RUBY_ORE_PLACED =
-            register("ruby_ore_placed", PlacedFeaturesInit.RUBY_ORE, 4, -80, 50, true);
-
-    public static final RegistryObject<PlacedFeature> BLACK_DIAMOND_ORE_PLACED = register(
-            "black_diamond_ore_placed", PlacedFeaturesInit.BLACK_DIAMOND_ORE, 4, -80, 30, true);
-
-    public static final RegistryObject<PlacedFeature> IMPERIUM_ORE_PLACED =
-            register("imperium_ore_placed", PlacedFeaturesInit.IMPERIUM_ORE, 4, -80, 40, true);
-
-    public static final RegistryObject<PlacedFeature> SPEED_ORE_PLACED =
-            register("speed_ore_placed", PlacedFeaturesInit.SPEED_ORE, 4, -80, 40, true);
-
-    public static final RegistryObject<PlacedFeature> OMNITRIX_ORE_PLACED =
-            register("omnitrix_ore_placed", PlacedFeaturesInit.OMNITRIX_ORE, 4, -80, 50, true);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> LEGENDARY_ORE =
+            registerOre("legendary_ore", OVERWORLD_LEGENDARY_ORE, 5);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> RUBY_ORE =
+            registerOre("ruby_ore", OVERWORLD_RUBY_ORE, 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> BLACK_DIAMOND_ORE =
+            registerOre("black_diamond_ore", OVERWORLD_BLACK_DIAMOND_ORE, 3);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> IMPERIUM_ORE =
+            registerOre("imperium_ore", OVERWORLD_IMPERIUM_ORE, 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> SPEED_ORE =
+            registerOre("speed_ore", OVERWORLD_SPEED_ORE, 3);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> OMNITRIX_ORE =
+            registerOre("omnitrix_ore", OVERWORLD_OMNITRIX_ORE, 3);
 
 
-    public static RegistryObject<PlacedFeature> register(String name,
-            RegistryObject<ConfiguredFeature<?, ?>> holder, int orePlacement,
-            int aboveBottomInMinus, int aboveBottomInPositive, boolean rare) {
-        if (!rare) {
-            return PLACED_FEATURES
-                .register(name,
-                        () -> new PlacedFeature(holder.getHolder().get(),
-                                commonOrePlacement(orePlacement, HeightRangePlacement.triangle(
-                                        VerticalAnchor.aboveBottom(aboveBottomInMinus),
-                                        VerticalAnchor.aboveBottom(aboveBottomInPositive)))));
-        } else {
-            return PLACED_FEATURES
-                .register(name,
-                        () -> new PlacedFeature(holder.getHolder().get(),
-                                rareOrePlacement(orePlacement, HeightRangePlacement.triangle(
-                                        VerticalAnchor.aboveBottom(aboveBottomInMinus),
-                                        VerticalAnchor.aboveBottom(aboveBottomInPositive)))));
-        }
+    public static Supplier<List<OreConfiguration.TargetBlockState>> regOverWoldOres(
+            RegistryObject<GeneralBlock> normalOre, RegistryObject<GeneralBlock> deepslateOre) {
+        return Suppliers.memoize(() -> List.of(
+                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                        normalOre.get().defaultBlockState()),
+                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                        deepslateOre.get().defaultBlockState())));
     }
 
-    public static @Unmodifiable List<PlacementModifier> orePlacement(PlacementModifier p_195347_,
-            PlacementModifier p_195348_) {
-        return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());
+    public static Supplier<List<OreConfiguration.TargetBlockState>> regNetherOre(Block netherOre) {
+        return Suppliers.memoize(() -> List.of(OreConfiguration
+            .target(OreFeatures.NETHER_ORE_REPLACEABLES, netherOre.defaultBlockState())));
     }
 
-    public static @Unmodifiable List<PlacementModifier> commonOrePlacement(int p_195344_,
-            PlacementModifier p_195345_) {
-        return orePlacement(CountPlacement.of(p_195344_), p_195345_);
+    public static Supplier<List<OreConfiguration.TargetBlockState>> regEndOre(Block endOre) {
+        return Suppliers.memoize(() -> List.of(OreConfiguration
+            .target(new BlockMatchTest(Blocks.END_STONE), endOre.defaultBlockState())));
     }
 
-    public static @Unmodifiable List<PlacementModifier> rareOrePlacement(int p_195350_,
-            PlacementModifier p_195351_) {
-        return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
+    public static RegistryObject<ConfiguredFeature<?, ?>> registerOre(String name,
+            Supplier<List<OreConfiguration.TargetBlockState>> ore, int size) {
+        return CONFIGURED_FEATURES.register(name,
+                () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ore.get(), size)));
     }
 }

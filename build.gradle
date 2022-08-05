@@ -6,7 +6,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.1-1.0.1.beta'
+version = '1.19.1-1.0.2'
 group = 'io.github.realyusufismail'
 archivesBaseName = 'bentenmod'
 
@@ -79,7 +79,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.1-42.0.2'
+    minecraft 'net.minecraftforge:forge:1.19.1-42.0.4'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.11')
     //Logger
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'

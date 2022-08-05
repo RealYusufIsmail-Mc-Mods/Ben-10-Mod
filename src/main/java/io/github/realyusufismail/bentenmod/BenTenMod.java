@@ -59,8 +59,8 @@ public class BenTenMod {
         MenuTypeInit.MENUS.register(bus);
         RecipeTypeInit.TYPES.register(bus);
         RecipeSerializerInit.SERIALIZERS.register(bus);
-        PlacedFeaturesInit.CONFIGURED_FEATURES.register(bus);
-        ConfiguredFeaturesInit.PLACED_FEATURES.register(bus);
+        ConfiguredFeaturesInit.CONFIGURED_FEATURES.register(bus);
+        PlacedFeaturesInit.PLACED_FEATURES.register(bus);
 
         GeckoLibMod.DISABLE_IN_DEV = false;
         GeckoLib.initialize();
