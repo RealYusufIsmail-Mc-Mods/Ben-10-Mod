@@ -38,12 +38,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public class OmnitrixScreen extends Screen {
-
-
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");
 
     protected OmnitrixScreen(Component p_96550_) {
         super(p_96550_);
     }
+
+
 }
