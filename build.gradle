@@ -89,7 +89,7 @@ dependencies {
     //test
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     //core
-    implementation group: 'io.github.realyusufismail', name: 'RealYusufIsmail-Core', version: '1.19-1.0.2'
+    implementation group: 'io.github.realyusufismail', name: 'RealYusufIsmail-Core', version: '1.19-1.0.3'
 }
 
 test {
