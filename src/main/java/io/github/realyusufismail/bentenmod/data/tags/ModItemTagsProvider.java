@@ -35,10 +35,13 @@ package io.github.realyusufismail.bentenmod.data.tags;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.init.TagsInit;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.concurrent.CompletableFuture;
 
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
@@ -46,12 +49,14 @@ import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILG
 public class ModItemTagsProvider extends ItemTagsProvider {
 
     public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider,
+            CompletableFuture<HolderLookup.Provider> provider,
             ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagProvider, BenTenMod.MOD_ID, existingFileHelper);
+        super(dataGenerator.getPackOutput(), provider, blockTagProvider, BenTenMod.MOD_ID,
+                existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
         // ores
         copy(TagsInit.Blocks.ORES_BLACK_DIAMONDS, TagsInit.Items.ORES_BLACK_DIAMONDS);
         copy(TagsInit.Blocks.ORES_INFINITUM, TagsInit.Items.ORES_INFINITUM);

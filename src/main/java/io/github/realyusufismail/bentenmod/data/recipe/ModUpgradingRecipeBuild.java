@@ -38,6 +38,7 @@ import io.github.realyusufismail.bentenmod.core.init.TagsInit;
 import io.github.realyusufismail.realyusufismailcore.recipe.YusufUpgradeRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -48,7 +49,7 @@ import java.util.function.Consumer;
 
 public class ModUpgradingRecipeBuild extends RecipeProvider implements IConditionBuilder {
     public ModUpgradingRecipeBuild(DataGenerator generatorIn) {
-        super(generatorIn);
+        super(generatorIn.getPackOutput());
     }
 
     private static ResourceLocation modId(String path) {
@@ -56,113 +57,121 @@ public class ModUpgradingRecipeBuild extends RecipeProvider implements IConditio
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // This is where you call `smithing` or other recipe builders..
         // i.e.
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(Items.DIAMOND_SWORD),
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(Items.DIAMOND_SWORD),
                     Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SWORD.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_sword"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(Items.DIAMOND_AXE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
-                    ItemInit.BLACK_DIAMOND_AXE.get())
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(Items.DIAMOND_AXE),
+                    Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_AXE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_axe"));
 
-        YusufUpgradeRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_PICKAXE),
-                Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_PICKAXE.get())
+        YusufUpgradeRecipeBuilder
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(Items.DIAMOND_PICKAXE),
+                    Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
+                    ItemInit.BLACK_DIAMOND_PICKAXE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_pickaxe"));
 
-        YusufUpgradeRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_SHOVEL),
-                Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_SHOVEL.get())
+        YusufUpgradeRecipeBuilder
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(Items.DIAMOND_SHOVEL),
+                    Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
+                    ItemInit.BLACK_DIAMOND_SHOVEL.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_shovel"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(Items.DIAMOND_HOE), Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
-                    ItemInit.BLACK_DIAMOND_HOE.get())
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(Items.DIAMOND_HOE),
+                    Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_HOE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_hoe"));
 
 
-        YusufUpgradeRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_HELMET),
-                Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_HELMET.get())
+        YusufUpgradeRecipeBuilder
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(Items.DIAMOND_HELMET),
+                    Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
+                    ItemInit.BLACK_DIAMOND_HELMET.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_helmet"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(Items.DIAMOND_CHESTPLATE),
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(Items.DIAMOND_CHESTPLATE),
                     Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
                     ItemInit.BLACK_DIAMOND_CHESTPLATE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_chestplate"));
 
-        YusufUpgradeRecipeBuilder.smithing(Ingredient.of(Items.DIAMOND_LEGGINGS),
-                Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_LEGGINGS.get())
+        YusufUpgradeRecipeBuilder
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(Items.DIAMOND_LEGGINGS),
+                    Ingredient.of(ItemInit.BLACK_DIAMOND.get()),
+                    ItemInit.BLACK_DIAMOND_LEGGINGS.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_leggings"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(Items.DIAMOND_BOOTS),
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(Items.DIAMOND_BOOTS),
                     Ingredient.of(ItemInit.BLACK_DIAMOND.get()), ItemInit.BLACK_DIAMOND_BOOTS.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer, modId("black_diamond_boots"));
 
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SWORD.get()),
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(ItemInit.BLACK_DIAMOND_SWORD.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SWORD.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_sword"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_AXE.get()),
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(ItemInit.BLACK_DIAMOND_AXE.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_AXE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_axe"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_PICKAXE.get()),
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(ItemInit.BLACK_DIAMOND_PICKAXE.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_PICKAXE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_pickaxe"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_SHOVEL.get()),
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(ItemInit.BLACK_DIAMOND_SHOVEL.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_SHOVEL.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_shovel"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_HOE.get()),
+            .smithing(RecipeCategory.TOOLS, Ingredient.of(ItemInit.BLACK_DIAMOND_HOE.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_HOE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_hoe"));
 
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_HELMET.get()),
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(ItemInit.BLACK_DIAMOND_HELMET.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_HELMET.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_helmet"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_CHESTPLATE.get()),
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(ItemInit.BLACK_DIAMOND_CHESTPLATE.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_CHESTPLATE.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_chestplate"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_LEGGINGS.get()),
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(ItemInit.BLACK_DIAMOND_LEGGINGS.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_LEGGINGS.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_leggings"));
 
         YusufUpgradeRecipeBuilder
-            .smithing(Ingredient.of(ItemInit.BLACK_DIAMOND_BOOTS.get()),
+            .smithing(RecipeCategory.COMBAT, Ingredient.of(ItemInit.BLACK_DIAMOND_BOOTS.get()),
                     Ingredient.of(ItemInit.INFINITUM.get()), ItemInit.INFINITUM_BOOTS.get())
             .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer, modId("infinitum_boots"));

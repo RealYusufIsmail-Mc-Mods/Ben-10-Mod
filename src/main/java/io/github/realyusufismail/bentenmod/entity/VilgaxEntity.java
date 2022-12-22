@@ -64,22 +64,20 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.Random;
 
-public class VilgaxEntity extends Monster implements IAnimatable {
+public class VilgaxEntity extends Monster implements GeoAnimatable {
 
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(VilgaxEntity.class, EntityDataSerializers.BOOLEAN);
-
-    private final AnimationFactory factory = new AnimationFactory(this);
 
     public VilgaxEntity(EntityType<? extends VilgaxEntity> p_i48549_1_, Level p_i48549_2_) {
         super(p_i48549_1_, p_i48549_2_);
@@ -101,34 +99,6 @@ public class VilgaxEntity extends Monster implements IAnimatable {
             .add(Attributes.MAX_HEALTH, 300.0D);
     }
 
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-
-        if (event.isMoving()) {
-            event.getController()
-                .setAnimation(new AnimationBuilder().addAnimation("walking", true));
-            return PlayState.CONTINUE;
-        }
-        if (!this.onGround) {
-            event.getController()
-                .setAnimation(new AnimationBuilder().addAnimation("attacking", true));
-            return PlayState.CONTINUE;
-        } else
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
-        return PlayState.CONTINUE;
-    }
-
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(
-                new AnimationController<VilgaxEntity>(this, "controller", 0, this::predicate));
-    }
-
-    @Override
-    public AnimationFactory getFactory() {
-        return this.factory;
-
-    }
 
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -265,4 +235,37 @@ public class VilgaxEntity extends Monster implements IAnimatable {
 
     }
 
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "controller", 0, this::predicate));
+    }
+
+    private <E extends GeoAnimatable> PlayState predicate(
+            software.bernie.geckolib.core.animation.AnimationState<E> event) {
+
+        if (event.isMoving()) {
+            event.getController()
+                .setAnimation(RawAnimation.begin().then("walking", Animation.LoopType.DEFAULT));
+            return PlayState.CONTINUE;
+        }
+        if (!this.onGround) {
+            event.getController()
+                .setAnimation(RawAnimation.begin().then("attacking", Animation.LoopType.DEFAULT));
+            return PlayState.CONTINUE;
+        } else
+            event.getController()
+                .setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.DEFAULT));
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        // TODO: Port to new system
+        return null;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return 0;
+    }
 }

@@ -47,7 +47,7 @@ import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
 public class ModItemModelProvider extends ItemModelProvider {
 
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, BenTenMod.MOD_ID, existingFileHelper);
+        super(generator.getPackOutput(), BenTenMod.MOD_ID, existingFileHelper);
     }
 
     @Override

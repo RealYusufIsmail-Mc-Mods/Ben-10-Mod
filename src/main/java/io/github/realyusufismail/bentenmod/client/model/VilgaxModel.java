@@ -37,10 +37,10 @@ import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
 @OnlyIn(Dist.CLIENT)
-public class VilgaxModel extends AnimatedGeoModel<VilgaxEntity> {
+public class VilgaxModel extends GeoModel<VilgaxEntity> {
 
     public VilgaxModel() {}
 

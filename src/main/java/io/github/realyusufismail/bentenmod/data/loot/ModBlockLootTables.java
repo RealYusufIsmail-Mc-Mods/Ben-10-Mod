@@ -35,16 +35,22 @@ package io.github.realyusufismail.bentenmod.data.loot;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
-public class ModBlockLootTables extends BlockLoot {
+public class ModBlockLootTables extends BlockLootSubProvider {
+    protected ModBlockLootTables() {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    }
+
     @Override
-    protected void addTables() {
+    protected void generate() {
         // ores
         add(BlockInit.BLACK_DIAMOND_ORE.get(), createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(),
                 ItemInit.BLACK_DIAMOND_SCRAP.get()));

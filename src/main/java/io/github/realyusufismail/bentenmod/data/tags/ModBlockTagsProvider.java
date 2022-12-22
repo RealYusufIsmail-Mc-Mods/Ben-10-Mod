@@ -35,20 +35,24 @@ package io.github.realyusufismail.bentenmod.data.tags;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.TagsInit;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+
+import java.util.concurrent.CompletableFuture;
 
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
 
-    public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, BenTenMod.MOD_ID, existingFileHelper);
+    public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper,
+            CompletableFuture<HolderLookup.Provider> provider) {
+        super(generatorIn.getPackOutput(), provider, BenTenMod.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.Provider provider) {
         // ores
         tag(TagsInit.Blocks.ORES_FIRE).add(BlockInit.FIRE_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_FIRE);

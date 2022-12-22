@@ -32,11 +32,10 @@
 
 package io.github.realyusufismail.bentenmod.data.loot;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
-import net.minecraft.data.loot.EntityLoot;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.data.loot.EntityLootSubProvider;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -45,17 +44,16 @@ import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 
-public class ModEntityLootTables extends EntityLoot {
+public class ModEntityLootTables extends EntityLootSubProvider {
+
+    protected ModEntityLootTables() {
+        super(FeatureFlags.REGISTRY.allFlags());
+    }
 
     @Override
-    protected void addTables() {
+    public void generate() {
         add(EntityTypesInit.VILGAX_ENTITY.get(), LootTable.lootTable()
             .withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
@@ -71,15 +69,5 @@ public class ModEntityLootTables extends EntityLoot {
                     .apply(LootingEnchantFunction
                         .lootingMultiplier(UniformGenerator.between(0.0F, 6.0F))))));
 
-    }
-
-    @Override
-    protected Iterable<EntityType<?>> getKnownEntities() {
-        return StreamSupport.stream(ForgeRegistries.ENTITY_TYPES.spliterator(), false)
-            .map(ForgeRegistries.ENTITY_TYPES::getKey)
-            .filter(Objects::nonNull)
-            .filter(key -> key.getNamespace().equals(BenTenMod.MOD_ID))
-            .map(ForgeRegistries.ENTITY_TYPES::getValue)
-            .collect(Collectors.toList());
     }
 }

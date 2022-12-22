@@ -60,7 +60,7 @@ public class ModRecipeProvider extends RecipeProvider {
     private static final String HAS_ITEM = "has_item";
 
     public ModRecipeProvider(DataGenerator generatorIn) {
-        super(generatorIn);
+        super(generatorIn.getPackOutput());
     }
 
     private static ResourceLocation modId(String path) {
@@ -68,7 +68,7 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // blocks
         YusufShapelessRecipeBuilder.shapeless(ItemInit.INFINITUM.get(), 9)
 

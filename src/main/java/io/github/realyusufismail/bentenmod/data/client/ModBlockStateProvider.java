@@ -48,7 +48,7 @@ import javax.annotation.Nonnull;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, BenTenMod.MOD_ID, exFileHelper);
+        super(gen.getPackOutput(), BenTenMod.MOD_ID, exFileHelper);
 
     }
 

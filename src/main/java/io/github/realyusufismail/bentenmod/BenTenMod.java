@@ -42,7 +42,7 @@ import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.example.GeckoLibMod;
-import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib.GeckoLib;
 
 @Mod(BenTenMod.MOD_ID)
 public class BenTenMod {
@@ -62,7 +62,6 @@ public class BenTenMod {
         ConfiguredFeaturesInit.CONFIGURED_FEATURES.register(bus);
         PlacedFeaturesInit.PLACED_FEATURES.register(bus);
 
-        GeckoLibMod.DISABLE_IN_DEV = false;
         GeckoLib.initialize();
 
         // bus.addGenericListener(RecipeSerializer.class, RecipeTypeInit::registerRecipes)
