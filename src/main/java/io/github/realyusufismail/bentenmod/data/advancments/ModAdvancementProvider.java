@@ -61,6 +61,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
@@ -83,8 +84,8 @@ public class ModAdvancementProvider implements DataProvider {
 
     @Override
     @ParametersAreNonnullByDefault
-    public void run(CachedOutput p_236071_) throws IOException {
-        Path path = this.generator.getOutputFolder();
+    public CompletableFuture<?> run(CachedOutput p_236071_) {
+        Path path = this.generator.getPackOutput().getOutputFolder();
         Set<ResourceLocation> set = Sets.newHashSet();
         // noinspection OverlyLongLambda
         Consumer<Advancement> consumer = (p_204017_3_) -> {
@@ -93,20 +94,17 @@ public class ModAdvancementProvider implements DataProvider {
             } else {
                 Path path1 = getPath(path, p_204017_3_);
 
-                try {
-                    DataProvider.saveStable(p_236071_, p_204017_3_.deconstruct().serializeToJson(),
-                            path1);
-                } catch (IOException ioexception) {
-                    LOGGER.error("Couldn't save advancement {}", path1, ioexception);
-                }
+                DataProvider.saveStable(p_236071_, p_204017_3_.deconstruct().serializeToJson(),
+                        path1);
             }
         };
 
         new Advancements().accept(consumer);
+        return CompletableFuture.completedFuture(null);
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "Ben Ten Mod - Advancements";
     }
 

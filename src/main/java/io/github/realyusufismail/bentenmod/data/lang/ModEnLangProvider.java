@@ -37,7 +37,7 @@ import io.github.realyusufismail.bentenmod.common.LangKeys;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
-import io.github.realyusufismail.bentenmod.core.itemgroup.MainItemGroup;
+import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.realyusufismailcore.data.support.lang.ModEnLangProviderSupport;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.network.chat.Component;
@@ -153,7 +153,7 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
-        add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
+        add("creativetab.bentenmod", "Ben Ten Item Group");
         add(LangKeys.OMNITRIX_DESCRIPTION,
                 "A custom crafting table used to create special items such as the Omnitrix.");
         add(LangKeys.OMNITRIX_SCREEN, "Omnitrix Craftier");

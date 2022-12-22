@@ -4,7 +4,10 @@ import com.google.common.base.Suppliers;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.realyusufismailcore.core.init.GeneralBlock;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -12,15 +15,23 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * @see OreFeatures
+ * @see OreConfiguration
+ * @see BlockTags
+ * @see FeatureUtils
+ */
 public class ConfiguredFeaturesInit {
     public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES =
-            DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, BenTenMod.MOD_ID);
+            DeferredRegister.create(Registries.CONFIGURED_FEATURE, BenTenMod.MOD_ID);
 
     public static final Supplier<List<OreConfiguration.TargetBlockState>> OVERWORLD_LEGENDARY_ORE =
             regOverWoldOres(BlockInit.LEGENDARY_ORE, BlockInit.DEEPSLATE_LEGENDARY_ORE);
@@ -52,15 +63,16 @@ public class ConfiguredFeaturesInit {
     public static Supplier<List<OreConfiguration.TargetBlockState>> regOverWoldOres(
             RegistryObject<GeneralBlock> normalOre, RegistryObject<GeneralBlock> deepslateOre) {
         return Suppliers.memoize(() -> List.of(
-                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES,
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES),
                         normalOre.get().defaultBlockState()),
-                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES),
                         deepslateOre.get().defaultBlockState())));
     }
 
     public static Supplier<List<OreConfiguration.TargetBlockState>> regNetherOre(Block netherOre) {
-        return Suppliers.memoize(() -> List.of(OreConfiguration
-            .target(OreFeatures.NETHER_ORE_REPLACEABLES, netherOre.defaultBlockState())));
+        return Suppliers.memoize(() -> List
+            .of(OreConfiguration.target(new TagMatchTest(BlockTags.NETHER_CARVER_REPLACEABLES),
+                    netherOre.defaultBlockState())));
     }
 
     public static Supplier<List<OreConfiguration.TargetBlockState>> regEndOre(Block endOre) {

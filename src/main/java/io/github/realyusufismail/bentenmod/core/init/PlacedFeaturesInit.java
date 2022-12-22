@@ -2,6 +2,7 @@ package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class PlacedFeaturesInit {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
-            DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, BenTenMod.MOD_ID);
+            DeferredRegister.create(Registries.PLACED_FEATURE, BenTenMod.MOD_ID);
 
 
     public static final RegistryObject<PlacedFeature> LEGENDARY_ORE_PLACED = register(

@@ -121,7 +121,6 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
     }
 
     public void removed() {
-        this.recipeBookComponent.removed();
         super.removed();
     }
 

@@ -34,7 +34,7 @@ package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafter;
-import io.github.realyusufismail.bentenmod.core.itemgroup.MainItemGroup;
+import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.realyusufismailcore.core.init.GeneralBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -117,16 +117,14 @@ public class BlockInit {
     private static <T extends Block> RegistryObject<T> registerSpecial(String name,
             Supplier<T> supplier) {
         RegistryObject<T> blockReg = BLOCKS.register(name, supplier);
-        ItemInit.ITEMS.register(name,
-                () -> new BlockItem(blockReg.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
+        ItemInit.ITEMS.register(name, () -> new BlockItem(blockReg.get(), new Item.Properties()));
         return blockReg;
     }
 
     private static RegistryObject<GeneralBlock> register(String name,
             Supplier<GeneralBlock> supplier) {
         RegistryObject<GeneralBlock> blockReg = BLOCKS.register(name, supplier);
-        ItemInit.ITEMS.register(name,
-                () -> new BlockItem(blockReg.get(), new Item.Properties().tab(MainItemGroup.MAIN)));
+        ItemInit.ITEMS.register(name, () -> new BlockItem(blockReg.get(), new Item.Properties()));
         return blockReg;
     }
 

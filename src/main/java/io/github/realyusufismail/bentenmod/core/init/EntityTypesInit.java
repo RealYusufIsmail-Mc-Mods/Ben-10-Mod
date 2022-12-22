@@ -33,7 +33,7 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.itemgroup.MainItemGroup;
+import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
@@ -60,8 +60,8 @@ public class EntityTypesInit {
     public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY =
             ENTITY_TYPES.register("crab_bolt", () -> createStandardEntityType("crab_bolt",
                     CrabBoltEntity::new, MobCategory.MISC, 0.5F, 0.5F));
-    private static final Item.Properties spawn_egg_props =
-            new Item.Properties().tab(MainItemGroup.MAIN);
+    private static final Item.Properties spawn_egg_props = new Item.Properties();
+
     // register spawn eggs
     public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register(
             "vilgax_spawn_egg",

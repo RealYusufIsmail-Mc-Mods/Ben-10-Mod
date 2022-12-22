@@ -45,9 +45,12 @@ import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
@@ -61,8 +64,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 
-
 public class OmnitrixRecipeBuilder implements RecipeBuilder {
+    private final RecipeCategory recipeCategory;
     private final Item result;
     private final int count;
     private final List<String> rows = Lists.newArrayList();
@@ -70,18 +73,19 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
     private String group;
 
-    public OmnitrixRecipeBuilder(ItemLike itemLike, int count) {
+    public OmnitrixRecipeBuilder(RecipeCategory recipeCategory, ItemLike itemLike, int count) {
+        this.recipeCategory = recipeCategory;
         this.result = itemLike.asItem();
         this.count = count;
     }
 
-
-    public static OmnitrixRecipeBuilder shaped(ItemLike itemLike) {
-        return shaped(itemLike, 1);
+    public static OmnitrixRecipeBuilder shaped(RecipeCategory recipeCategory, ItemLike itemLike) {
+        return shaped(recipeCategory, itemLike, 1);
     }
 
-    public static OmnitrixRecipeBuilder shaped(ItemLike itemLike, int count) {
-        return new OmnitrixRecipeBuilder(itemLike, count);
+    public static OmnitrixRecipeBuilder shaped(RecipeCategory recipeCategory, ItemLike itemLike,
+            int count) {
+        return new OmnitrixRecipeBuilder(recipeCategory, itemLike, count);
     }
 
     public OmnitrixRecipeBuilder define(Character character, TagKey<Item> itemTag) {
@@ -136,19 +140,27 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
     public void save(@NotNull Consumer<FinishedRecipe> finishedRecipeConsumer,
             @NotNull ResourceLocation resourceLocation) {
         this.ensureValid(resourceLocation);
-        this.advancement.parent(new ResourceLocation("recipes/root"))
+        this.advancement.parent(ROOT_RECIPE_ADVANCEMENT)
             .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
             .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
             .requirements(RequirementsStrategy.OR);
-        finishedRecipeConsumer
-            .accept(new OmnitrixRecipeBuilder.Result(resourceLocation, this.result, this.count,
-                    this.group == null ? "" : this.group, this.rows, this.key, this.advancement,
-                    new ResourceLocation(resourceLocation.getNamespace(),
-                            "recipes/"
-                                    + Objects.requireNonNull(this.result.getItemCategory())
-                                        .getRecipeFolderName()
-                                    + "/" + resourceLocation.getPath())));
+        finishedRecipeConsumer.accept(new ShapedRecipeBuilder.Result(resourceLocation, this.result,
+                this.count, this.group == null ? "" : this.group,
+                determineBookCategory(this.recipeCategory), this.rows, this.key, this.advancement,
+                resourceLocation
+                    .withPrefix("recipes/" + this.recipeCategory.getFolderName() + "/")));
     }
+
+    private static CraftingBookCategory determineBookCategory(RecipeCategory p_250736_) {
+
+        return switch (p_250736_) {
+            case BUILDING_BLOCKS -> CraftingBookCategory.BUILDING;
+            case TOOLS, COMBAT -> CraftingBookCategory.EQUIPMENT;
+            case REDSTONE -> CraftingBookCategory.REDSTONE;
+            default -> CraftingBookCategory.MISC;
+        };
+    }
+
 
     private void ensureValid(ResourceLocation resourceLocation) {
         if (this.rows.isEmpty()) {
@@ -183,14 +195,17 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
         }
     }
 
-    public record Result(ResourceLocation id, Item result, int count, String group,
-            List<String> pattern, Map<Character, Ingredient> key, Advancement.Builder advancement,
+    public record Result(CraftingBookCategory category, ResourceLocation id, Item result, int count,
+            String group, List<String> pattern, Map<Character, Ingredient> key,
+            Advancement.Builder advancement,
             ResourceLocation advancementId) implements FinishedRecipe {
 
         public void serializeRecipeData(@NotNull JsonObject jsonObject) {
             if (!this.group.isEmpty()) {
                 jsonObject.addProperty("group", this.group);
             }
+
+            jsonObject.addProperty("category", this.category.getSerializedName());
 
             JsonArray jsonarray = new JsonArray();
 

@@ -32,10 +32,10 @@
 
 package io.github.realyusufismail.bentenmod.entity;
 
-import com.mojang.math.Vector3f;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -45,6 +45,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
+import org.joml.Vector3f;
 
 public class CrabBoltEntity extends AbstractArrow {
 
@@ -105,7 +106,7 @@ public class CrabBoltEntity extends AbstractArrow {
     }
 
     @Override
-    public Packet<?> getAddEntityPacket() {
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 

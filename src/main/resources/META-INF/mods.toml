@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[42,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion = "[44,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license = "BSD 3-Clause License"
 issueTrackerURL = "https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #optional
 [[mods]]
@@ -17,7 +17,6 @@ soon.
 Dont not copy my mod.
 made by Yusuf Arfan Ismail.
 Github is https://github.com/realyusufismail
-join discord for support and teasers https://discord.gg/g858J6q
 Credits for callout_662 for making the models for the aliens.
 callout_662: https://www.curseforge.com/members/callout662/projects
 Gentworm: https://www.curseforge.com/members/gentworm/followers
@@ -26,21 +25,21 @@ Gentworm: https://www.curseforge.com/members/gentworm/followers
 [[dependencies.bentenmod]]
 modId = "forge"
 mandatory = true
-versionRange="[42,)"
+versionRange="[44,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "minecraft"
 mandatory = true
-versionRange= "[1.19.1,1.20)"
+versionRange= "[1.19.3,1.20)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
-modId = "geckolib3"
+modId = "geckolib"
 mandatory = true
-versionRange = "1.19:3.1.11,)"
+versionRange = "[1.19.3:4.0.2,)"
 ordering = "NONE"
 side = "BOTH"
 

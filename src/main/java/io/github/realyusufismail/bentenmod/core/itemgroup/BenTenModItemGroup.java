@@ -32,24 +32,38 @@
 
 package io.github.realyusufismail.bentenmod.core.itemgroup;
 
+import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.fml.common.Mod;
 
-public class MainItemGroup extends CreativeModeTab {
+@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class BenTenModItemGroup {
 
-    public static final MainItemGroup MAIN = new MainItemGroup(CreativeModeTab.TABS.length, "main");
-
-    public MainItemGroup(int index, String label) {
-        super(index, label);
+    public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
+        event.registerCreativeModeTab(new ResourceLocation(BenTenMod.MOD_ID, "creativetab"),
+                BenTenModItemGroup::createCreativeTabBuilder);
     }
 
-    @Override
-    public ItemStack makeIcon() {
-        return new ItemStack(ItemInit.OMNITRIX.get());
-    }
+    private static void createCreativeTabBuilder(CreativeModeTab.Builder builder) {
+        builder.displayItems((set, out, unknownMagicBoolean) -> {
+            ItemInit.ITEMS.getEntries()
+                .stream()
+                .map(item -> item.get().asItem())
+                .forEach(out::accept);
 
-    public static CreativeModeTab getTab() {
-        return MAIN;
+            BlockInit.BLOCKS.getEntries()
+                .stream()
+                .map(item -> item.get().asItem())
+                .forEach(out::accept);
+        });
+        builder.icon(() -> new ItemStack(ItemInit.OMNITRIX.get()));
+        builder.title(Component.translatable("creativetab.bentenmod"));
+        builder.withSearchBar();
     }
 }
