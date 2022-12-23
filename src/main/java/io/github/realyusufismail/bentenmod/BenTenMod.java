@@ -34,14 +34,16 @@ package io.github.realyusufismail.bentenmod;
 
 import io.github.realyusufismail.bentenmod.core.init.*;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib.GeckoLib;
 
 @Mod(BenTenMod.MOD_ID)
@@ -59,8 +61,6 @@ public class BenTenMod {
         MenuTypeInit.MENUS.register(bus);
         RecipeTypeInit.TYPES.register(bus);
         RecipeSerializerInit.SERIALIZERS.register(bus);
-        // ConfiguredFeaturesInit.CONFIGURED_FEATURES.register(bus);
-        // PlacedFeaturesInit.PLACED_FEATURES.register(bus);
 
         GeckoLib.shadowInit();
         MinecraftForge.EVENT_BUS.register(this);

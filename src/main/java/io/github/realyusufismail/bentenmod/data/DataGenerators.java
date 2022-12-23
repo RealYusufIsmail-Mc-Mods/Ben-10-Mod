@@ -42,12 +42,10 @@ import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.loot.LootTableProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

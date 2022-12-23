@@ -37,7 +37,6 @@ import io.github.realyusufismail.bentenmod.common.LangKeys;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
-import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.realyusufismailcore.data.support.lang.ModEnLangProviderSupport;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.network.chat.Component;

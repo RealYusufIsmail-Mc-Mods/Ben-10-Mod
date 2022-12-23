@@ -33,7 +33,6 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;

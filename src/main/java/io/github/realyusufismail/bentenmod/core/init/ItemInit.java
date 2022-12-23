@@ -33,7 +33,6 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.core.material.CustomArmorMaterial;
 import io.github.realyusufismail.bentenmod.core.material.CustomToolMaterial;
 import io.github.realyusufismail.bentenmod.events.*;
