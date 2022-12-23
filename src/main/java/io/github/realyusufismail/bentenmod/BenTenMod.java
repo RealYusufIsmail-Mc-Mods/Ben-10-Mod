@@ -59,12 +59,10 @@ public class BenTenMod {
         MenuTypeInit.MENUS.register(bus);
         RecipeTypeInit.TYPES.register(bus);
         RecipeSerializerInit.SERIALIZERS.register(bus);
-        ConfiguredFeaturesInit.CONFIGURED_FEATURES.register(bus);
-        PlacedFeaturesInit.PLACED_FEATURES.register(bus);
+        // ConfiguredFeaturesInit.CONFIGURED_FEATURES.register(bus);
+        // PlacedFeaturesInit.PLACED_FEATURES.register(bus);
 
-        GeckoLib.initialize();
-
-        // bus.addGenericListener(RecipeSerializer.class, RecipeTypeInit::registerRecipes)
+        GeckoLib.shadowInit();
         MinecraftForge.EVENT_BUS.register(this);
         LOGGER.info("Armour, item, and entities loaded");
     }

@@ -16,7 +16,6 @@ public class PlacedFeaturesInit {
     public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
             DeferredRegister.create(Registries.PLACED_FEATURE, BenTenMod.MOD_ID);
 
-
     public static final RegistryObject<PlacedFeature> LEGENDARY_ORE_PLACED = register(
             "legendary_ore_placed", ConfiguredFeaturesInit.LEGENDARY_ORE, 4, -80, 50, false);
 

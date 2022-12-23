@@ -40,6 +40,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -107,8 +108,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getValues()
             .stream()
-            .filter(block -> BenTenMod.MOD_ID
-                .equals(ForgeRegistries.BLOCKS.getKey(block).getNamespace()))
+            .filter(entry -> Optional.ofNullable(ForgeRegistries.BLOCKS.getKey(entry))
+                .filter(key -> key.getNamespace().equals(BenTenMod.MOD_ID))
+                .isPresent())
             .collect(Collectors.toSet());
     }
 }

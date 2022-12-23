@@ -1,5 +1,6 @@
 {
-  "type": "bentenmod:omnitrix_crafter_shaped",
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "A": {
       "item": "bentenmod:imperium_pickaxe"

@@ -39,14 +39,15 @@ import io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider;
 import io.github.realyusufismail.bentenmod.data.lang.ModEnLangProvider;
 import io.github.realyusufismail.bentenmod.data.loot.ModLootTables;
 import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
-import io.github.realyusufismail.bentenmod.data.recipe.ModUpgradingRecipeBuild;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.loot.LootTableProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -61,14 +62,13 @@ public class DataGenerators {
 
         gen.addProvider(true, new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(true, new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(true, new ModLootTables(gen));
+         gen.addProvider(true, new ModLootTables(gen));
 
         // lang
         gen.addProvider(true, new ModEnLangProvider(gen));
 
         // recipe
         gen.addProvider(true, new ModRecipeProvider(gen));
-        gen.addProvider(true, new ModUpgradingRecipeBuild(gen));
 
         // advancements
         gen.addProvider(true, new ModAdvancementProvider(gen));

@@ -105,6 +105,7 @@
   "block.bentenmod.speed_block": "Speed Block",
   "block.bentenmod.speed_ore": "Speed Ore",
   "container.bentenmod.omnitrix_crafter": "Omnitrix Craftier",
+  "creativetab.bentenmod": "Ben Ten Item Group",
   "desc.bentenmod.omnitrix_crafter.description": "A custom crafting table used to create special items such as the Omnitrix.",
   "entity.bentenmod.crab": "crab",
   "entity.bentenmod.vilgax": "Vilgax",
@@ -168,6 +169,5 @@
   "item.bentenmod.xlr8_boots": "xlr8 boots",
   "item.bentenmod.xlr8_chestplate": "xlr8 chestplate",
   "item.bentenmod.xlr8_helmet": "xlr8 helmet",
-  "item.bentenmod.xlr8_leggings": "xlr8 legging",
-  "itemGroup.main": "Ben Ten Item Group"
+  "item.bentenmod.xlr8_leggings": "xlr8 legging"
 }

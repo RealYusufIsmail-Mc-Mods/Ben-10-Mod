@@ -34,7 +34,8 @@ package io.github.realyusufismail.bentenmod.data.loot;
 
 
 import com.google.common.collect.ImmutableList;
-import com.mojang.datafixers.util.Pair;
+import com.google.common.collect.Sets;
+import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -42,10 +43,12 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ModLootTables extends LootTableProvider {
     public ModLootTables(DataGenerator dataGeneratorIn) {
@@ -55,15 +58,17 @@ public class ModLootTables extends LootTableProvider {
     }
 
     @Override
-    public List<SubProviderEntry> getTables() {
-        return ImmutableList.of(
-                new SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK),
-                new SubProviderEntry(ModEntityLootTables::new, LootContextParamSets.ENTITY));
-    }
+    protected void validate(final Map<ResourceLocation, LootTable> map,
+            final ValidationContext validationContext) {
+        final Set<ResourceLocation> modLootTableIds = BuiltInLootTables.all()
+            .stream()
+            .filter(lootTable -> lootTable.getNamespace().equals(BenTenMod.MOD_ID))
+            .collect(Collectors.toSet());
 
-    @Override
-    protected void validate(Map<ResourceLocation, LootTable> map,
-            ValidationContext validationtracker) {
-        map.forEach((id, table) -> LootTables.validate(validationtracker, id, table));
+        for (final ResourceLocation id : Sets.difference(modLootTableIds, map.keySet())) {
+            validationContext.reportProblem("Missing mod loot table: " + id);
+        }
+
+        map.forEach((id, lootTable) -> LootTables.validate(validationContext, id, lootTable));
     }
 }
