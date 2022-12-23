@@ -41,7 +41,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
-import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -88,8 +87,6 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(FIRE_APPLE.get().toString());
         else if (itemAsAsString.equals(RUBY_APPLE.get().toString()))
             item(RUBY_APPLE.get().toString());
-        else if (itemAsAsString.equals(VILGAX_SPAWN_EGG.get().toString()))
-            item(VILGAX_SPAWN_EGG.get().toString());
         else if (itemAsAsString.equals(CRAB_SPAWN_EGG.get().toString()))
             item(CRAB_SPAWN_EGG.get().toString());
         else if (itemAsAsString.equals(RAW_LEGENDARY.get().toString()))

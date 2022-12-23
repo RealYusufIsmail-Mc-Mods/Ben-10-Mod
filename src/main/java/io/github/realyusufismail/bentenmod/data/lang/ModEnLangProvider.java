@@ -149,14 +149,12 @@ public class ModEnLangProvider extends ModEnLangProviderSupport {
         item(ItemInit.RUBY_APPLE, "Ruby Apple");
 
         // other items
-        item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
         add("creativetab.bentenmod", "Ben Ten Item Group");
         add(LangKeys.OMNITRIX_DESCRIPTION,
                 "A custom crafting table used to create special items such as the Omnitrix.");
         add(LangKeys.OMNITRIX_SCREEN, "Omnitrix Craftier");
-        entity(EntityTypesInit.VILGAX_ENTITY.get(), "Vilgax");
         entity(EntityTypesInit.CRAB_ENTITY.get(), "crab");
 
         // advancements

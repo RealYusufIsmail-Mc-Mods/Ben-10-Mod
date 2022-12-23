@@ -33,13 +33,10 @@
 package io.github.realyusufismail.bentenmod.entity.ai;
 
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
-import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 
 public class CrabWaterAvoidingRandomWalkingGoal extends RandomStrollGoal {
     protected final float probability;
-    private VilgaxEntity vilgax;
-
 
     public CrabWaterAvoidingRandomWalkingGoal(CrabEntity kraab, double p_i47301_2_) {
         this(kraab, p_i47301_2_, 0.001F);

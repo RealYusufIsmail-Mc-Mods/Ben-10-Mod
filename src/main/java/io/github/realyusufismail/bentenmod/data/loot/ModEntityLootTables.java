@@ -60,13 +60,6 @@ public class ModEntityLootTables extends EntityLootSubProvider {
 
     @Override
     public void generate() {
-        add(EntityTypesInit.VILGAX_ENTITY.get(), LootTable.lootTable()
-            .withPool(LootPool.lootPool()
-                .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(ItemInit.ENCHANTED_OMNITRIX_APPLE.get())
-                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))
-                    .apply(LootingEnchantFunction
-                        .lootingMultiplier(UniformGenerator.between(0.0F, 2.0F))))));
         add(EntityTypesInit.CRAB_ENTITY.get(), LootTable.lootTable()
             .withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))

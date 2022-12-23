@@ -44,7 +44,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import java.util.concurrent.CompletableFuture;
 
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
-import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
@@ -97,6 +96,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ItemInit.RAW_IMPERIUM.get());
 
         // others
-        tag(TagsInit.Items.SPAW_EGGS).add(VILGAX_SPAWN_EGG.get(), CRAB_SPAWN_EGG.get());
+        tag(TagsInit.Items.SPAW_EGGS).add(CRAB_SPAWN_EGG.get());
     }
 }

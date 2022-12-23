@@ -35,7 +35,6 @@ package io.github.realyusufismail.bentenmod.core.init;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
-import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -50,9 +49,6 @@ public class EntityTypesInit {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BenTenMod.MOD_ID);
     // registering the entities
-    public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY =
-            ENTITY_TYPES.register("vilgax", () -> createStandardEntityType("vilgax",
-                    VilgaxEntity::new, MobCategory.MONSTER, 1f, 1f));
     public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY =
             ENTITY_TYPES.register("crab", () -> createStandardEntityType("crab", CrabEntity::new,
                     MobCategory.MONSTER, 1.3f, 1.8f));
@@ -62,9 +58,6 @@ public class EntityTypesInit {
     private static final Item.Properties spawn_egg_props = new Item.Properties();
 
     // register spawn eggs
-    public static final RegistryObject<Item> VILGAX_SPAWN_EGG = ItemInit.ITEMS.register(
-            "vilgax_spawn_egg",
-            () -> new ForgeSpawnEggItem(VILGAX_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));
     public static final RegistryObject<Item> CRAB_SPAWN_EGG =
             ItemInit.ITEMS.register("crab_spawn_egg",
                     () -> new ForgeSpawnEggItem(CRAB_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));

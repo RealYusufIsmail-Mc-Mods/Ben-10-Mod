@@ -36,7 +36,6 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
-import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -52,8 +51,8 @@ public class RegisterEntityEvent {
             EntityAttributeCreationEvent entityAttributeCreationEvent) {
         ModSpawnEggItem.initSpawnEggs();
         // This is where to register the actual attributes of the entities
-        entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(),
-                VilgaxEntity.registerAttributes().build());
+        // entityAttributeCreationEvent.put(EntityTypesInit.VILGAX_ENTITY.get(),
+        // VilgaxEntity.registerAttributes().build());
         entityAttributeCreationEvent.put(EntityTypesInit.CRAB_ENTITY.get(),
                 CrabEntity.registerAttributes().build());
     }

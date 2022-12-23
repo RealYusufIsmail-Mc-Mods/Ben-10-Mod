@@ -446,18 +446,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .save(consumer, modId("omntrix_block"));
 
         // other items
-        /**
-         * @see YusufShapedRecipeBuilder
-         */
-        YusufShapedRecipeBuilder.shaped(RecipeCategory.MISC, EntityTypesInit.VILGAX_SPAWN_EGG.get())
-            .define('L', Items.EGG.asItem())
-            .define('A', TagsInit.Items.INGOTS_RUBY)
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-            .save(consumer, modId("vilgax_spawn_egg"));
-
         YusufShapedRecipeBuilder.shaped(RecipeCategory.MISC, EntityTypesInit.CRAB_SPAWN_EGG.get())
             .define('L', Items.EGG.asItem())
             .define('A', TagsInit.Items.INGOTS_IMPERIUM)
