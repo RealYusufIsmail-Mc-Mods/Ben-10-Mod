@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:fire_ore",
+  "feature": "bentenmod:fire_ore",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

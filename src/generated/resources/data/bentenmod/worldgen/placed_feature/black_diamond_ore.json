@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:black_diamond_ore",
+  "feature": "bentenmod:black_diamond_ore",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

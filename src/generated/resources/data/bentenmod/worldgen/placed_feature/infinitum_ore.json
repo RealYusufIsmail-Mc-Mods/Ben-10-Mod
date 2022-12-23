@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:infinitum_ore",
+  "feature": "bentenmod:infinitum_ore",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

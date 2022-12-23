@@ -1,8 +1,9 @@
 package io.github.realyusufismail.bentenmod.data.worldgen;
 
+import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
@@ -20,24 +21,25 @@ import java.util.List;
 /**
  * @see OreFeatures
  */
-public class ModOreFeatures extends OreFeatures {
+public class ModOreFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LEGENDARY_ORE =
-            FeatureUtils.createKey("legendary_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> RUBY_ORE =
-            FeatureUtils.createKey("ruby_ore");
+            createKey("legendary_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RUBY_ORE = createKey("ruby_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACK_DIAMOND_ORE =
-            FeatureUtils.createKey("black_diamond_ore");
+            createKey("black_diamond_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> IMPERIUM_ORE =
-            FeatureUtils.createKey("imperium_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPEED_ORE =
-            FeatureUtils.createKey("speed_ore");
+            createKey("imperium_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SPEED_ORE = createKey("speed_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OMNITRIX_ORE =
-            FeatureUtils.createKey("omnitrix_ore");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_ORE =
-            FeatureUtils.createKey("fire_ore");
+            createKey("omnitrix_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_ORE = createKey("fire_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> INFINITUM_ORE =
-            FeatureUtils.createKey("infinitum_ore");
+            createKey("infinitum_ore");
+
+    private static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, BenTenMod.getModIdAndName(name));
+    }
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest ruleTest1 = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);

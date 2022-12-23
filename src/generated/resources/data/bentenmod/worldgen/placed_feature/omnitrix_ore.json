@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:omnitrix_ore",
+  "feature": "bentenmod:omnitrix_ore",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

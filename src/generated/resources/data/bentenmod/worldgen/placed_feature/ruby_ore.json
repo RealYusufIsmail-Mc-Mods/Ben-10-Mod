@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:ruby_ore",
+  "feature": "bentenmod:ruby_ore",
   "placement": [
     {
       "type": "minecraft:count",
