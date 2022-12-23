@@ -1,5 +1,6 @@
 package io.github.realyusufismail.bentenmod.data.worldgen;
 
+import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -18,19 +19,23 @@ import java.util.List;
  */
 public class ModOrePlacements {
     public static final ResourceKey<PlacedFeature> LEGENDARY_ORE =
-            PlacementUtils.createKey("legendary_ore");
-    public static final ResourceKey<PlacedFeature> RUBY_ORE = PlacementUtils.createKey("ruby_ore");
+            createKey("legendary_ore");
+    public static final ResourceKey<PlacedFeature> RUBY_ORE = createKey("ruby_ore");
     public static final ResourceKey<PlacedFeature> BLACK_DIAMOND_ORE =
-            PlacementUtils.createKey("black_diamond_ore");
+            createKey("black_diamond_ore");
     public static final ResourceKey<PlacedFeature> IMPERIUM_ORE =
-            PlacementUtils.createKey("imperium_ore");
+            createKey("imperium_ore");
     public static final ResourceKey<PlacedFeature> SPEED_ORE =
-            PlacementUtils.createKey("speed_ore");
+            createKey("speed_ore");
     public static final ResourceKey<PlacedFeature> OMNITRIX_ORE =
-            PlacementUtils.createKey("omnitrix_ore");
+            createKey("omnitrix_ore");
     public static final ResourceKey<PlacedFeature> FIRE_ORE = PlacementUtils.createKey("fire_ore");
     public static final ResourceKey<PlacedFeature> INFINITUM_ORE =
-            PlacementUtils.createKey("infinitum_ore");
+            createKey("infinitum_ore");
+
+    private static ResourceKey<PlacedFeature> createKey(String name) {
+        return ResourceKey.create(Registries.PLACED_FEATURE, BenTenMod.getModIdAndName(name));
+    }
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holdergetter =
@@ -49,29 +54,34 @@ public class ModOrePlacements {
         Holder<ConfiguredFeature<?, ?>> holder7 =
                 holdergetter.getOrThrow(ModOreFeatures.INFINITUM_ORE);
 
-        PlacementUtils.register(context, LEGENDARY_ORE, holder,
+        register(context, LEGENDARY_ORE, holder,
                 commonOrePlacement(10, HeightRangePlacement.triangle(VerticalAnchor.absolute(-50),
                         VerticalAnchor.absolute(50))));
-        PlacementUtils.register(context, RUBY_ORE, holder1,
+        register(context, RUBY_ORE, holder1,
                 commonOrePlacement(10, HeightRangePlacement.triangle(VerticalAnchor.absolute(-50),
                         VerticalAnchor.absolute(50))));
-        PlacementUtils.register(context, BLACK_DIAMOND_ORE, holder2,
+        register(context, BLACK_DIAMOND_ORE, holder2,
                 rareOrePlacement(9, HeightRangePlacement.triangle(VerticalAnchor.absolute(-70),
                         VerticalAnchor.absolute(70))));
-        PlacementUtils.register(context, IMPERIUM_ORE, holder3,
+        register(context, IMPERIUM_ORE, holder3,
                 commonOrePlacement(11, HeightRangePlacement.triangle(VerticalAnchor.absolute(-50),
                         VerticalAnchor.absolute(50))));
-        PlacementUtils.register(context, SPEED_ORE, holder4,
+        register(context, SPEED_ORE, holder4,
                 rareOrePlacement(11, HeightRangePlacement.triangle(VerticalAnchor.absolute(-40),
                         VerticalAnchor.absolute(40))));
-        PlacementUtils.register(context, OMNITRIX_ORE, holder5,
+        register(context, OMNITRIX_ORE, holder5,
                 rareOrePlacement(8, HeightRangePlacement.triangle(VerticalAnchor.absolute(-80),
                         VerticalAnchor.absolute(80))));
-        PlacementUtils.register(context, FIRE_ORE, holder6, rareOrePlacement(3, HeightRangePlacement
+        register(context, FIRE_ORE, holder6, rareOrePlacement(3, HeightRangePlacement
             .triangle(VerticalAnchor.absolute(-60), VerticalAnchor.absolute(60))));
-        PlacementUtils.register(context, INFINITUM_ORE, holder7,
+        register(context, INFINITUM_ORE, holder7,
                 rareOrePlacement(4, HeightRangePlacement.triangle(VerticalAnchor.absolute(-60),
                         VerticalAnchor.absolute(60))));
+    }
+
+    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key,
+                                 Holder<ConfiguredFeature<?, ?>> holder, List<PlacementModifier> placement) {
+        context.register(key, new PlacedFeature(holder, placement));
     }
 
     private static List<PlacementModifier> orePlacement(PlacementModifier modifier,

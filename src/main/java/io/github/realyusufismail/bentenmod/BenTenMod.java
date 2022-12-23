@@ -38,6 +38,7 @@ import io.github.realyusufismail.bentenmod.data.worldgen.ModOrePlacements;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -76,6 +77,10 @@ public class BenTenMod {
             throw new IllegalArgumentException("path contains namespace");
         }
         return new ModResourceLocation(path);
+    }
+
+    public static ResourceLocation getModIdAndName(@NotNull String name) {
+        return new ResourceLocation(MOD_ID, name.toLowerCase());
     }
 
     private void triggerOreGen(IEventBus bus) {
