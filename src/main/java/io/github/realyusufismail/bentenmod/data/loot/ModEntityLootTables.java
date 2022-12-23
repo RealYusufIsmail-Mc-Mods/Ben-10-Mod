@@ -32,9 +32,11 @@
 
 package io.github.realyusufismail.bentenmod.data.loot;
 
+import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.data.loot.EntityLootSubProvider;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -44,6 +46,10 @@ import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.Optional;
+import java.util.stream.Stream;
 
 
 public class ModEntityLootTables extends EntityLootSubProvider {
@@ -69,5 +75,14 @@ public class ModEntityLootTables extends EntityLootSubProvider {
                     .apply(LootingEnchantFunction
                         .lootingMultiplier(UniformGenerator.between(0.0F, 6.0F))))));
 
+    }
+
+    @Override
+    protected Stream<EntityType<?>> getKnownEntityTypes() {
+        return ForgeRegistries.ENTITY_TYPES.getValues()
+            .stream()
+            .filter(entry -> Optional.ofNullable(ForgeRegistries.ENTITY_TYPES.getKey(entry))
+                .filter(key -> key.getNamespace().equals(BenTenMod.MOD_ID))
+                .isPresent());
     }
 }

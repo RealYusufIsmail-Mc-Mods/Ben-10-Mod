@@ -62,7 +62,7 @@ public class DataGenerators {
 
         gen.addProvider(true, new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(true, new ModItemModelProvider(gen, existingFileHelper));
-         gen.addProvider(true, new ModLootTables(gen));
+        gen.addProvider(true, new ModLootTables(gen));
 
         // lang
         gen.addProvider(true, new ModEnLangProvider(gen));
