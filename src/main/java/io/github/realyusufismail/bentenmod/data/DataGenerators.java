@@ -41,6 +41,7 @@ import io.github.realyusufismail.bentenmod.data.loot.ModLootTables;
 import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
+import io.github.realyusufismail.bentenmod.data.worldgen.ModWorldGenerationProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -56,7 +57,7 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event) {
         var gen = event.getGenerator();
         var existingFileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
+        var lookup = event.getLookupProvider();
 
         gen.addProvider(true, new ModBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(true, new ModItemModelProvider(gen, existingFileHelper));
@@ -69,11 +70,15 @@ public class DataGenerators {
         gen.addProvider(true, new ModRecipeProvider(gen));
 
         // advancements
-        gen.addProvider(true, new ModAdvancementProvider(gen));
+        gen.addProvider(true,
+                new ModAdvancementProvider(gen.getPackOutput(), lookup, existingFileHelper));
 
         // tags
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper, lookup);
         gen.addProvider(true, blockTags);
         gen.addProvider(true, new ModItemTagsProvider(gen, blockTags, lookup, existingFileHelper));
+
+        // ore gen
+        gen.addProvider(true, new ModWorldGenerationProvider(gen.getPackOutput(), lookup));
     }
 }

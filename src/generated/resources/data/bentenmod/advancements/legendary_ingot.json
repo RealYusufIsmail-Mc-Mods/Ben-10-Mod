@@ -1,0 +1,37 @@
+{
+  "parent": "bentenmod:legendary_ore",
+  "criteria": {
+    "get_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:legendary"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.legendary_ingot.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:legendary"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.legendary_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ingot"
+    ]
+  ]
+}

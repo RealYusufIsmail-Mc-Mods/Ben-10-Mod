@@ -33,6 +33,8 @@
 package io.github.realyusufismail.bentenmod;
 
 import io.github.realyusufismail.bentenmod.core.init.*;
+import io.github.realyusufismail.bentenmod.data.worldgen.ModOreFeatures;
+import io.github.realyusufismail.bentenmod.data.worldgen.ModOrePlacements;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -61,6 +63,7 @@ public class BenTenMod {
         MenuTypeInit.MENUS.register(bus);
         RecipeTypeInit.TYPES.register(bus);
         RecipeSerializerInit.SERIALIZERS.register(bus);
+        triggerOreGen(bus);
 
         GeckoLib.shadowInit();
         MinecraftForge.EVENT_BUS.register(this);
@@ -73,5 +76,13 @@ public class BenTenMod {
             throw new IllegalArgumentException("path contains namespace");
         }
         return new ModResourceLocation(path);
+    }
+
+    private void triggerOreGen(IEventBus bus) {
+        RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+            .add(Registries.CONFIGURED_FEATURE, ModOreFeatures::bootstrap)
+            .add(Registries.PLACED_FEATURE, ModOrePlacements::bootstrap);
+
+
     }
 }

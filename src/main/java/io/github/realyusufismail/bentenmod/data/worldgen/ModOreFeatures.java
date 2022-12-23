@@ -1,5 +1,6 @@
-package io.github.realyusufismail.bentenmod.core.init;
+package io.github.realyusufismail.bentenmod.data.worldgen;
 
+import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
@@ -19,7 +20,7 @@ import java.util.List;
 /**
  * @see OreFeatures
  */
-public class OreFeaturesInit {
+public class ModOreFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LEGENDARY_ORE =
             FeatureUtils.createKey("legendary_ore");

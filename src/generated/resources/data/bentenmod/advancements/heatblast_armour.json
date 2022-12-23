@@ -1,0 +1,77 @@
+{
+  "parent": "bentenmod:fire_ingot",
+  "criteria": {
+    "heatblast_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:heatblast_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "heatblast_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:heatblast_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "heatblast_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:heatblast_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "heatblast_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:heatblast_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.heatblast_armour.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:heatblast_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.heatblast_armour.title"
+    }
+  },
+  "requirements": [
+    [
+      "heatblast_helmet",
+      "heatblast_chestplate",
+      "heatblast_leggings",
+      "heatblast_boots"
+    ]
+  ]
+}
