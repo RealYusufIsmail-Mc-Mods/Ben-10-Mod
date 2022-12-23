@@ -6,7 +6,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.placement.OrePlacements;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -25,7 +24,7 @@ public class ModOrePlacements {
     public static final ResourceKey<PlacedFeature> IMPERIUM_ORE = createKey("imperium_ore");
     public static final ResourceKey<PlacedFeature> SPEED_ORE = createKey("speed_ore");
     public static final ResourceKey<PlacedFeature> OMNITRIX_ORE = createKey("omnitrix_ore");
-    public static final ResourceKey<PlacedFeature> FIRE_ORE = PlacementUtils.createKey("fire_ore");
+    public static final ResourceKey<PlacedFeature> FIRE_ORE = createKey("fire_ore");
     public static final ResourceKey<PlacedFeature> INFINITUM_ORE = createKey("infinitum_ore");
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
