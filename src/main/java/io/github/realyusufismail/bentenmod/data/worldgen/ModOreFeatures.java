@@ -86,14 +86,14 @@ public class ModOreFeatures extends OreFeatures {
     private static void registerOre(BootstapContext<ConfiguredFeature<?, ?>> context,
             ResourceKey<ConfiguredFeature<?, ?>> ore,
             List<OreConfiguration.TargetBlockState> targetBlockStates, int size) {
-        context.register(ore, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(
-                targetBlockStates, size)));
+        context.register(ore, new ConfiguredFeature<>(Feature.ORE,
+                new OreConfiguration(targetBlockStates, size)));
     }
 
     private static void registerOre(BootstapContext<ConfiguredFeature<?, ?>> context,
             ResourceKey<ConfiguredFeature<?, ?>> ore, RuleTest ruleTest, BlockState blockState,
             int size) {
-        context.register(ore, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(
-                ruleTest, blockState, size)));
+        context.register(ore, new ConfiguredFeature<>(Feature.ORE,
+                new OreConfiguration(ruleTest, blockState, size)));
     }
 }

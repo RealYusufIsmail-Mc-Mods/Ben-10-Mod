@@ -23,7 +23,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.function.Consumer;
 
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
-import static io.github.realyusufismail.bentenmod.core.init.ItemInit.INFINITUM_HOE;
 import static io.github.realyusufismail.realyusufismailcore.core.init.BlockInitCore.COPPER_BLOCK;
 import static io.github.realyusufismail.realyusufismailcore.core.init.ItemInitCore.COPPER;
 
