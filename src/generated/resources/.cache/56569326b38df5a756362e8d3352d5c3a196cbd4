@@ -1,4 +1,4 @@
-// 1.19.3	2022-12-23T08:18:27.255606	Tags for minecraft:item mod id bentenmod
+// 1.19.3	2022-12-25T12:27:19.576814	Tags for minecraft:item mod id bentenmod
 9ee6e9079e711cddbdaba599cc6539ceede75a3e data/forge/tags/items/ingots/black_diamond.json
 0559742cc6855d467ea42c935dc8d24097e02fc9 data/forge/tags/items/ingots/fire.json
 07a54f35234d52248296bc886ede841de40506c4 data/forge/tags/items/ingots/imperium.json
@@ -6,7 +6,7 @@ e7c3f286acb411c3a8a7f10901185bd6dfc3eb1f data/forge/tags/items/ingots/infinitum.
 7f3cb46670fad14bbd4c57506666ce95ad82a526 data/forge/tags/items/ingots/legendary.json
 2588c9eb54a2e02f2f741c63b9db7655539ae352 data/forge/tags/items/ingots/omnitrix.json
 c079df1da41acc1325c90f90ecbfe02831f21b83 data/forge/tags/items/ingots/ruby.json
-a45e617acbb2bed8537716700da754034db246b4 data/forge/tags/items/ingots/spawn_eggs.json
+8d35671411f957d9a9d62f1aaf540fc449096fa1 data/forge/tags/items/ingots/spawn_eggs.json
 cb129182538363684eaf9145fe825f348c82eb66 data/forge/tags/items/ingots/speed.json
 48a131ac33ee139b1a834ff80a60e020fb0485d8 data/forge/tags/items/ores/black_diamonds.json
 d08851005d3eddbd7250441c11e13a6ad5d8d1dc data/forge/tags/items/ores/fire.json

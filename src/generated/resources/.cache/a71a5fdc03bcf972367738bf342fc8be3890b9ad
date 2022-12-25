@@ -1,4 +1,4 @@
-// 1.19.3	2022-12-23T08:18:27.25449	Item Models: bentenmod
+// 1.19.3	2022-12-25T12:27:19.576049	Item Models: bentenmod
 28a0aa00149acfbb2e0427267cd325dc8f8b34ce assets/bentenmod/models/item/axe.json
 e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diamond.json
 4edc58fc2d6525b016e3fa31fd7f5adfbc78edfe assets/bentenmod/models/item/black_diamond_axe.json
@@ -55,7 +55,6 @@ efedca6e584ab9c86db9199db9c64d4b5e793ef5 assets/bentenmod/models/item/raw_imperi
 2c08774a9077cec3ce45a5f698659039bbbe35c0 assets/bentenmod/models/item/ruby_apple.json
 c89274d6eb7cb783e8fdcfcf73436b0d18db80e3 assets/bentenmod/models/item/speed.json
 a9012e5e8bf9169647dd9cf9d31fa0e48be26d52 assets/bentenmod/models/item/sword.json
-162a37441ec229cfc63fa9e2b8dcfcd44a9b7386 assets/bentenmod/models/item/vilgax_spawn_egg.json
 c59c9b070cc8172e1b0783013add2fa1b964b4f6 assets/bentenmod/models/item/xlr8_boots.json
 7258b2e04c49cea7acd61eab8f840afe28b7d140 assets/bentenmod/models/item/xlr8_chestplate.json
 d11361cfeec1270047fe7170dee788ee1d707cfd assets/bentenmod/models/item/xlr8_helmet.json

@@ -69,8 +69,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         // blocks
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.INFINITUM.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.INFINITUM.get(), 9)
 
             .requires(BlockInit.INFINITUM_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_INFINITUM))
@@ -85,8 +84,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.BLACK_DIAMOND.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.BLACK_DIAMOND.get(), 9)
 
             .requires(BlockInit.BLACK_DIAMOND_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
@@ -100,8 +98,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .pattern("###")
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
             .save(consumer);
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.FIRE.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.FIRE.get(), 9)
 
             .requires(BlockInit.FIRE_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
@@ -115,9 +112,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.OMNITRIX.get(), 9)
-
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.OMNITRIX.get(), 9)
             .requires(BlockInit.OMNITRIX_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
             .save(consumer);
@@ -131,8 +126,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.SPEED.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.SPEED.get(), 9)
 
             .requires(BlockInit.SPEED_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
@@ -146,7 +140,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, RUBY.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, RUBY.get(), 9)
 
             .requires(BlockInit.RUBY_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
@@ -160,8 +154,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, BlockInit.LEGENDARY_ORE.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockInit.LEGENDARY_ORE.get(), 9)
 
             .requires(BlockInit.LEGENDARY_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
@@ -176,8 +169,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
             .save(consumer);
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.IMPERIUM.get(), 9)
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.IMPERIUM.get(), 9)
 
             .requires(BlockInit.IMPERIUM_BLOCK.get())
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
@@ -195,9 +187,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         // ingots
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.BLACK_DIAMOND.get(), 1)
-
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.BLACK_DIAMOND.get(), 1)
             .requires(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP)
             .requires(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP)
             .requires(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP)
@@ -209,9 +199,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.SCRAP_BLACK_DIAMOND_SCRAP))
             .save(consumer, modId("black_diamond_scrap"));
 
-        YusufShapelessRecipeBuilder
-            .shapeless(RecipeCategory.BUILDING_BLOCKS, ItemInit.INFINITUM.get(), 1)
-
+        YusufShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.INFINITUM.get(), 1)
             .requires(TagsInit.Items.SCRAP_INFINITUM_SCRAP)
             .requires(TagsInit.Items.SCRAP_INFINITUM_SCRAP)
             .requires(TagsInit.Items.SCRAP_INFINITUM_SCRAP)

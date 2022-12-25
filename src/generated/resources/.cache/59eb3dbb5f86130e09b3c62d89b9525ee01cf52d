@@ -1,4 +1,4 @@
-// 1.19.3	2022-12-23T08:24:23.490331	Loot Tables
+// 1.19.3	2022-12-25T12:27:19.57115	Loot Tables
 892dfc30d034aa063244a27af394b32b85b77d4b data/bentenmod/loot_tables/blocks/black_diamond_block.json
 4b30588c79a6f98075cc562ba1e15160efaebb0a data/bentenmod/loot_tables/blocks/black_diamond_ore.json
 4b30588c79a6f98075cc562ba1e15160efaebb0a data/bentenmod/loot_tables/blocks/deepslate_black_diamond_ore.json
@@ -23,4 +23,3 @@ b22850cb4f2a903629eb6dfabda87f5b3ca712d4 data/bentenmod/loot_tables/blocks/ruby_
 d5a41df91755d1a6b6017a2b54a72acb0a6288e3 data/bentenmod/loot_tables/blocks/speed_block.json
 a8970ff1e83ea538ffd49d0320a96b5ea7254b1c data/bentenmod/loot_tables/blocks/speed_ore.json
 00d6dc380a0703ed5a12c8bc4cbbb02f5a44b0f5 data/bentenmod/loot_tables/entities/crab.json
-8f9afe0acb74d102ec92d4aab95c564368e387a8 data/bentenmod/loot_tables/entities/vilgax.json
