@@ -6,7 +6,7 @@ issueTrackerURL = "https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #option
 modId = "bentenmod"
 version = "${file.jarVersion}"
 displayName = "Ben10 Mod"
-updateJSONURL = "https://raw.githubusercontent.com/RealYusufIsmail/Ben-10-Mod/1.18.1/update.json"
+updateJSONURL = "https://raw.githubusercontent.com/RealYusufIsmail/Ben-10-Mod/1.19.3/update.json"
 logoFile = "../headerimg.png"
 credits = "Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code and vemerion for adding features to this mod."
 
