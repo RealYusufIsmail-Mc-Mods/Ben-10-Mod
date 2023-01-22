@@ -46,11 +46,9 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     private DataGenerators() {}
 
-    @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         var gen = event.getGenerator();
         var existingFileHelper = event.getExistingFileHelper();

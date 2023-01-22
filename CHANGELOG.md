@@ -3,6 +3,11 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.19.3-1.0.2] - 22/01/2922
+
+## Fixed some bugs.
+## Added custom recipe book
+
 ## [1.19.3-1.0.1] - 25/12/2022
 
 ### Tweaked some things with recipes

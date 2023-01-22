@@ -34,7 +34,6 @@ package io.github.realyusufismail.bentenmod.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.ClientModEventSubscriber;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -47,8 +46,7 @@ public class KraabRenderer extends MobRenderer<CrabEntity, KraabModel> {
             new ResourceLocation(BenTenMod.MOD_ID, "textures/model/entities/kraab.png");
 
     public KraabRenderer(EntityRendererProvider.Context renderManagerIn) {
-        super(renderManagerIn,
-                new KraabModel(renderManagerIn.bakeLayer(ClientModEventSubscriber.KRAAB)), 0.7f);
+        super(renderManagerIn, new KraabModel(renderManagerIn.bakeLayer(BenTenMod.KRAAB)), 0.7f);
     }
 
     @Override

@@ -43,10 +43,8 @@ import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = BenTenMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BenTenModItemGroup {
 
-    @SubscribeEvent
     public static void registerCreativeTab(CreativeModeTabEvent.Register event) {
         event.registerCreativeModeTab(new ResourceLocation(BenTenMod.MOD_ID, "creativetab"),
                 BenTenModItemGroup::createCreativeTabBuilder);
@@ -66,6 +64,5 @@ public class BenTenModItemGroup {
         });
         builder.icon(() -> new ItemStack(ItemInit.OMNITRIX.get()));
         builder.title(Component.translatable("creativetab.bentenmod"));
-        builder.withSearchBar();
     }
 }

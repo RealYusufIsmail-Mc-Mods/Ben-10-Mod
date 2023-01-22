@@ -347,7 +347,7 @@ public class OmntrixCrafterShapedRecipe
             .anyMatch(ForgeHooks::hasNoElements);
     }
 
-    public static final class Type implements RecipeType<OmntrixCrafterShapedRecipe> {
+    public static final class Type implements RecipeType<IOmnitrixCraftingRecipe> {
         @Override
         public String toString() {
             return BenTenMod.MOD_ID + ":table_recipe";
