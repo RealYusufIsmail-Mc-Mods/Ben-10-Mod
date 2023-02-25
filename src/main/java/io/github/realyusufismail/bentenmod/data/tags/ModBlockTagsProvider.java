@@ -37,6 +37,7 @@ import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.TagsInit;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -103,6 +104,29 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND);
 
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.FIRE_ORE.get(),
+                BlockInit.OMNITRIX_ORE.get(), BlockInit.DEEPSLATE_OMNITRIX_ORE.get(),
+                BlockInit.INFINITUM_ORE.get(), BlockInit.RUBY_ORE.get(),
+                BlockInit.DEEPSLATE_RUBY_ORE.get(), BlockInit.SPEED_ORE.get(),
+                BlockInit.DEEPSLATE_SPEED_ORE.get(), BlockInit.IMPERIUM_ORE.get(),
+                BlockInit.DEEPSLATE_IMPERIUM_ORE.get(), BlockInit.BLACK_DIAMOND_ORE.get(),
+                BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get(), BlockInit.LEGENDARY_ORE.get(),
+                BlockInit.DEEPSLATE_LEGENDARY_ORE.get(), BlockInit.FIRE_BLOCK.get(),
+                BlockInit.OMNITRIX_BLOCK.get(), BlockInit.INFINITUM_BLOCK.get(),
+                BlockInit.LEGENDARY_BLOCK.get(), BlockInit.SPEED_BLOCK.get(),
+                BlockInit.BLACK_DIAMOND_BLOCK.get());
+
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(BlockInit.FIRE_ORE.get(),
+                BlockInit.OMNITRIX_ORE.get(), BlockInit.DEEPSLATE_OMNITRIX_ORE.get(),
+                BlockInit.INFINITUM_ORE.get(), BlockInit.RUBY_ORE.get(),
+                BlockInit.DEEPSLATE_RUBY_ORE.get(), BlockInit.SPEED_ORE.get(),
+                BlockInit.DEEPSLATE_SPEED_ORE.get(), BlockInit.IMPERIUM_ORE.get(),
+                BlockInit.DEEPSLATE_IMPERIUM_ORE.get(), BlockInit.BLACK_DIAMOND_ORE.get(),
+                BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get(), BlockInit.LEGENDARY_ORE.get(),
+                BlockInit.DEEPSLATE_LEGENDARY_ORE.get(), BlockInit.FIRE_BLOCK.get(),
+                BlockInit.OMNITRIX_BLOCK.get(), BlockInit.INFINITUM_BLOCK.get(),
+                BlockInit.LEGENDARY_BLOCK.get(), BlockInit.SPEED_BLOCK.get(),
+                BlockInit.BLACK_DIAMOND_BLOCK.get());
     }
 }
 

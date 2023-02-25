@@ -6,10 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "bentenmod:black_diamond_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:black_diamond_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -18,10 +15,7 @@
       },
       {
         "state": {
-          "Name": "bentenmod:black_diamond_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:black_diamond_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

@@ -6,10 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "bentenmod:fire_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:fire_ore"
         },
         "target": {
           "block": "minecraft:netherrack",

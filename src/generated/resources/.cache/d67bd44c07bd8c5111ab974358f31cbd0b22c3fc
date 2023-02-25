@@ -1,4 +1,4 @@
-// 1.19.3	2022-12-23T08:18:27.255176	Tags for minecraft:block mod id bentenmod
+// 1.19.3	2023-02-25T19:18:57.106016	Tags for minecraft:block mod id bentenmod
 4368cd2804b35fbf3a55f6b11f75a8b2badc1334 data/forge/tags/blocks/ores.json
 48a131ac33ee139b1a834ff80a60e020fb0485d8 data/forge/tags/blocks/ores/black_diamonds.json
 d08851005d3eddbd7250441c11e13a6ad5d8d1dc data/forge/tags/blocks/ores/fire.json
@@ -14,3 +14,5 @@ bec5927ac0dc74b18fe530efa3cb48efcc4b36be data/forge/tags/blocks/storage_blocks/i
 1924a72792787b416215effb7243cd29d7451066 data/forge/tags/blocks/storage_blocks/legendary.json
 b50495b1c1cd08e4c5dbac072be63ae3b9adad0e data/forge/tags/blocks/storage_blocks/omnitrix.json
 fb48d7af9ee021759264832c387703ce73080b6a data/forge/tags/blocks/storage_blocks/speed.json
+0a2489b1d4950067db45862468d7542b2cf7ebb9 data/minecraft/tags/blocks/mineable/pickaxe.json
+0a2489b1d4950067db45862468d7542b2cf7ebb9 data/minecraft/tags/blocks/needs_diamond_tool.json

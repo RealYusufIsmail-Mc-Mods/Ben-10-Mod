@@ -6,10 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "bentenmod:ruby_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:ruby_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -18,10 +15,7 @@
       },
       {
         "state": {
-          "Name": "bentenmod:ruby_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:ruby_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

@@ -39,14 +39,14 @@ side = "BOTH"
 [[dependencies.bentenmod]]
 modId = "geckolib"
 mandatory = true
-versionRange = "[1.19.3:4.0.2,)"
+versionRange = "[1.19.3:4.0.4,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "realyusufismailcore"
 mandatory = true
-versionRange = "[1.19-1.0.5,)"
+versionRange = "[1.19-1.0.8,)"
 ordering = "NONE"
 side = "BOTH"
 

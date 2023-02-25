@@ -6,7 +6,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.19.3-1.0.3'
+version = '1.19.3-1.0.4'
 group = 'io.github.realyusufismail'
 archivesBaseName = 'bentenmod'
 
@@ -80,7 +80,7 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.3-44.1.0'
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.3:4.0.2')
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.3:4.0.4')
     //Logger
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.0'
     implementation group: 'ch.qos.logback', name: 'logback-core', version: '1.4.0'
@@ -89,7 +89,7 @@ dependencies {
     //test
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
     //core
-    implementation group: 'io.github.realyusufismail', name: 'realyusufismailcore', version: '1.19-1.0.7'
+    implementation group: 'io.github.realyusufismail', name: 'realyusufismailcore', version: '1.19-1.0.8'
 }
 
 test {

@@ -15,7 +15,7 @@ public class RecipeCategoriesInit {
     private static final RecipeType<IOmnitrixCraftingRecipe> OMNITRIX_CRAFTING_RECIPE_TYPE =
             new OmntrixCrafterShapedRecipe.Type();
 
-    private static final Supplier<RecipeBookCategories> OMNTRIX_CRAFTER = () -> RecipeBookCategories
+    public static final Supplier<RecipeBookCategories> OMNTRIX_CRAFTER = () -> RecipeBookCategories
         .create("omnitrix_crafter", new ItemStack(ItemInit.OMNITRIX.get()));
 
     public static void registerRecipeCategories(RegisterRecipeBookCategoriesEvent event) {

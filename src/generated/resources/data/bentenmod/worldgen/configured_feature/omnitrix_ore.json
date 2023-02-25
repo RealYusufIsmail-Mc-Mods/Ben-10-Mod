@@ -6,10 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "bentenmod:omnitrix_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:omnitrix_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -18,10 +15,7 @@
       },
       {
         "state": {
-          "Name": "bentenmod:omnitrix_ore",
-          "Properties": {
-            "facing": "north"
-          }
+          "Name": "bentenmod:omnitrix_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

@@ -3,11 +3,15 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.19.3-1.0.3] - 22/01/2922
+## [1.19.3-1.0.4] - 25/02/2023
+
+### Fixed an issue where blocks where unminable
+
+## [1.19.3-1.0.3] - 22/01/2023
 
 ## updated updateJSONURL
 
-## [1.19.3-1.0.2] - 22/01/2922
+## [1.19.3-1.0.2] - 22/01/2023
 
 ## Fixed some bugs.
 ## Added custom recipe book

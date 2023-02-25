@@ -1,0 +1,24 @@
+{
+  "values": [
+    "bentenmod:fire_ore",
+    "bentenmod:omnitrix_ore",
+    "bentenmod:deepslate_omnitrix_ore",
+    "bentenmod:infinitum_ore",
+    "bentenmod:ruby_ore",
+    "bentenmod:deepslate_ruby_ore",
+    "bentenmod:speed_ore",
+    "bentenmod:deepslate_speed_ore",
+    "bentenmod:imperium_ore",
+    "bentenmod:deepslate_imperium_ore",
+    "bentenmod:black_diamond_ore",
+    "bentenmod:deepslate_black_diamond_ore",
+    "bentenmod:legendary_ore",
+    "bentenmod:deepslate_legendary_ore",
+    "bentenmod:fire_block",
+    "bentenmod:omnitrix_block",
+    "bentenmod:infinitum_block",
+    "bentenmod:legendary_block",
+    "bentenmod:speed_block",
+    "bentenmod:black_diamond_block"
+  ]
+}
