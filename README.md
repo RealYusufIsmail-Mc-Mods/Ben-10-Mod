@@ -5,6 +5,6 @@
 
 This mod can be used in a modpack
 
-to contribute to this mod all you need to is write some code and create a pr and I will check it.
+to contribute to this mod, all you need to is to write some code and create a pr and I will check it.
 
-Copyright 2022, Yusuf Ismail , All rights reserved.
+Copyright 2023, Yusuf Ismail, All rights reserved.

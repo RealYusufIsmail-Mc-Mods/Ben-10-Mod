@@ -9,4 +9,5 @@ public interface IOmnitrixCraftingRecipe extends Recipe<OmnitrixCrafterContainer
         return RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get();
     }
 
+    OmnitrixCrafterCraftingBookCategory getCategory();
 }

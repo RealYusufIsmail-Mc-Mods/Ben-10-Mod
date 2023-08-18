@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "bentenmod:speed_block"
-  }
+  },
+  "show_notification": true
 }

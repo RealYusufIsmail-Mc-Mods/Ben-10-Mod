@@ -32,7 +32,6 @@
 
 package io.github.realyusufismail.bentenmod.data;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.data.advancments.ModAdvancementProvider;
 import io.github.realyusufismail.bentenmod.data.client.ModBlockStateProvider;
 import io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider;
@@ -42,9 +41,16 @@ import io.github.realyusufismail.bentenmod.data.recipe.ModRecipeProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModBlockTagsProvider;
 import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
 import io.github.realyusufismail.bentenmod.data.worldgen.ModWorldGenerationProvider;
+import net.minecraft.DetectedVersion;
+import net.minecraft.data.metadata.PackMetadataGenerator;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class DataGenerators {
     private DataGenerators() {}
@@ -75,5 +81,15 @@ public class DataGenerators {
 
         // ore gen
         gen.addProvider(true, new ModWorldGenerationProvider(gen.getPackOutput(), lookup));
+
+        // pack.mcmeta
+        gen.addProvider(true,
+                new PackMetadataGenerator(gen.getPackOutput()).add(PackMetadataSection.TYPE,
+                        new PackMetadataSection(Component.literal("BentenMod Mod Resources"),
+                                DetectedVersion.BUILT_IN.getPackVersion(PackType.CLIENT_RESOURCES),
+                                Arrays.stream(PackType.values())
+                                    .collect(Collectors.toMap(Function.identity(),
+                                            DetectedVersion.BUILT_IN::getPackVersion)))));
+
     }
 }

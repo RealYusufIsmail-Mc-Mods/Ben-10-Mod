@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:fire_apple"
-  }
+  },
+  "show_notification": true
 }

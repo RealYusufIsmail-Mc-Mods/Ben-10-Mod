@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:omnitrix_crafter"
-  }
+  },
+  "show_notification": true
 }

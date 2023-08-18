@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "bentenmod:xlr8_helmet"
-  }
+  },
+  "show_notification": true
 }

@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "bentenmod:axe"
-  }
+  },
+  "show_notification": true
 }

@@ -37,7 +37,9 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterCraftingBookCategory;
 import io.github.realyusufismail.bentenmod.core.init.RecipeSerializerInit;
+import lombok.val;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -46,11 +48,9 @@ import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
@@ -58,34 +58,35 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class OmnitrixRecipeBuilder implements RecipeBuilder {
-    private final RecipeCategory recipeCategory;
-    private final Item result;
-    private final int count;
     private final List<String> rows = Lists.newArrayList();
     private final Map<Character, Ingredient> key = Maps.newLinkedHashMap();
-    private final Advancement.Builder advancement = Advancement.Builder.advancement();
-    private String group;
+    private Advancement.Builder advancement = null;
+    private String group = null;
+    private OmnitrixCrafterCraftingBookCategory bookCategory = null;
 
-    public OmnitrixRecipeBuilder(RecipeCategory recipeCategory, ItemLike itemLike, int count) {
+    private RecipeCategory recipeCategory = null;
+    private Item result = null;
+    private Integer count = null;
+
+    public static final OmnitrixRecipeBuilder INSTANCE = new OmnitrixRecipeBuilder();
+
+    public OmnitrixRecipeBuilder shaped(OmnitrixCrafterCraftingBookCategory bookCategory,
+            RecipeCategory recipeCategory, ItemLike itemLike) {
+        return shaped(bookCategory, recipeCategory, itemLike, 1);
+    }
+
+    public OmnitrixRecipeBuilder shaped(OmnitrixCrafterCraftingBookCategory bookCategory,
+            RecipeCategory recipeCategory, ItemLike itemLike, int count) {
         this.recipeCategory = recipeCategory;
         this.result = itemLike.asItem();
         this.count = count;
-    }
-
-    public static OmnitrixRecipeBuilder shaped(RecipeCategory recipeCategory, ItemLike itemLike) {
-        return shaped(recipeCategory, itemLike, 1);
-    }
-
-    public static OmnitrixRecipeBuilder shaped(RecipeCategory recipeCategory, ItemLike itemLike,
-            int count) {
-        return new OmnitrixRecipeBuilder(recipeCategory, itemLike, count);
+        this.bookCategory = bookCategory;
+        this.advancement = Advancement.Builder.advancement();
+        return this;
     }
 
     public OmnitrixRecipeBuilder define(Character character, TagKey<Item> itemTag) {
@@ -144,23 +145,13 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
             .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation))
             .rewards(AdvancementRewards.Builder.recipe(resourceLocation))
             .requirements(RequirementsStrategy.OR);
-        finishedRecipeConsumer.accept(new ShapedRecipeBuilder.Result(resourceLocation, this.result,
-                this.count, this.group == null ? "" : this.group,
-                determineBookCategory(this.recipeCategory), this.rows, this.key, this.advancement,
-                resourceLocation
-                    .withPrefix("recipes/" + this.recipeCategory.getFolderName() + "/")));
+        finishedRecipeConsumer.accept(new Result(Optional.ofNullable(bookCategory).orElseThrow(),
+                resourceLocation, Optional.ofNullable(this.result).orElseThrow(),
+                Optional.ofNullable(this.count).orElseThrow(),
+                Optional.ofNullable(this.group).orElse(""), this.rows, this.key,
+                Optional.ofNullable(this.advancement).orElseThrow(),
+                resourceLocation.withPrefix("recipes/" + recipeCategory.getFolderName() + "/")));
     }
-
-    private static CraftingBookCategory determineBookCategory(RecipeCategory p_250736_) {
-
-        return switch (p_250736_) {
-            case BUILDING_BLOCKS -> CraftingBookCategory.BUILDING;
-            case TOOLS, COMBAT -> CraftingBookCategory.EQUIPMENT;
-            case REDSTONE -> CraftingBookCategory.REDSTONE;
-            default -> CraftingBookCategory.MISC;
-        };
-    }
-
 
     private void ensureValid(ResourceLocation resourceLocation) {
         if (this.rows.isEmpty()) {
@@ -195,9 +186,9 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
         }
     }
 
-    public record Result(CraftingBookCategory category, ResourceLocation id, Item result, int count,
-            String group, List<String> pattern, Map<Character, Ingredient> key,
-            Advancement.Builder advancement,
+    public record Result(OmnitrixCrafterCraftingBookCategory category, ResourceLocation id,
+            Item result, int count, String group, List<String> pattern,
+            Map<Character, Ingredient> key, Advancement.Builder advancement,
             ResourceLocation advancementId) implements FinishedRecipe {
 
         public void serializeRecipeData(@NotNull JsonObject jsonObject) {
@@ -207,7 +198,7 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
 
             jsonObject.addProperty("category", this.category.getSerializedName());
 
-            JsonArray jsonarray = new JsonArray();
+            val jsonarray = new JsonArray();
 
             for (String s : this.pattern) {
                 jsonarray.add(s);

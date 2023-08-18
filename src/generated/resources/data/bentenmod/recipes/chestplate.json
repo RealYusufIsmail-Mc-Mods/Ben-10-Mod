@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:chestplate"
-  }
+  },
+  "show_notification": true
 }

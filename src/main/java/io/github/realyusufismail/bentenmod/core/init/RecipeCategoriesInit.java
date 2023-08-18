@@ -1,36 +1,50 @@
 package io.github.realyusufismail.bentenmod.core.init;
 
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.IOmnitrixCraftingRecipe;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterShapedRecipe;
 import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.client.event.RegisterRecipeBookCategoriesEvent;
 
 import java.util.List;
 import java.util.function.Supplier;
 
 public class RecipeCategoriesInit {
-    private static final RecipeType<IOmnitrixCraftingRecipe> OMNITRIX_CRAFTING_RECIPE_TYPE =
-            new OmntrixCrafterShapedRecipe.Type();
+    private static final Supplier<RecipeBookCategories> OMNITRIX_CRAFTING_SEARCH =
+            () -> RecipeBookCategories.create("omnitrix_crafting_search",
+                    new ItemStack(Items.COMPASS));
 
-    public static final Supplier<RecipeBookCategories> OMNTRIX_CRAFTER = () -> RecipeBookCategories
-        .create("omnitrix_crafter", new ItemStack(ItemInit.OMNITRIX.get()));
+    private static final Supplier<RecipeBookCategories> OMNTRIX_CRAFTER_TOOLS =
+            () -> RecipeBookCategories.create("omnitrix_crafter_tools",
+                    new ItemStack(ItemInit.IMPERIUM_PICKAXE_UPGRADED.get()));
+
+    private static final Supplier<RecipeBookCategories> OMNTRIX_CRAFTER_MISC =
+            () -> RecipeBookCategories.create("omnitrix_crafter_misc",
+                    new ItemStack(Items.WHITE_WOOL));
 
     public static void registerRecipeCategories(RegisterRecipeBookCategoriesEvent event) {
         event.registerBookCategories(RecipeBookTypeInit.OMNITRIX_CRAFTER,
-                List.of(OMNTRIX_CRAFTER.get()));
-        event.registerRecipeCategoryFinder(OMNITRIX_CRAFTING_RECIPE_TYPE,
-                RecipeCategoriesInit::getForgingCategory);
-    }
+                List.of(OMNITRIX_CRAFTING_SEARCH.get(), OMNTRIX_CRAFTER_TOOLS.get(),
+                        OMNTRIX_CRAFTER_MISC.get()));
 
-    private static RecipeBookCategories getForgingCategory(Recipe<?> recipe) {
-        final var recipeType = recipe.getType();
-        if (recipeType == OMNITRIX_CRAFTING_RECIPE_TYPE) {
-            return OMNTRIX_CRAFTER.get();
-        } else {
-            return RecipeBookCategories.UNKNOWN;
-        }
+        event.registerAggregateCategory(OMNITRIX_CRAFTING_SEARCH.get(),
+                List.of(OMNTRIX_CRAFTER_TOOLS.get(), OMNTRIX_CRAFTER_MISC.get()));
+
+        event.registerAggregateCategory(OMNTRIX_CRAFTER_TOOLS.get(),
+                List.of(OMNTRIX_CRAFTER_TOOLS.get()));
+
+        event.registerAggregateCategory(OMNTRIX_CRAFTER_MISC.get(),
+                List.of(OMNTRIX_CRAFTER_MISC.get()));
+
+        event.registerRecipeCategoryFinder(RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get(), (it) -> {
+            if (it instanceof OmntrixCrafterShapedRecipe) {
+                return switch (((OmntrixCrafterShapedRecipe) it).getCategory()) {
+                    case TOOLS -> OMNTRIX_CRAFTER_TOOLS.get();
+                    case MISC -> OMNTRIX_CRAFTER_MISC.get();
+                };
+            } else {
+                return OMNTRIX_CRAFTER_MISC.get();
+            }
+        });
     }
 }

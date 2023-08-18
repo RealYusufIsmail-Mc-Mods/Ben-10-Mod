@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "bentenmod:fire_block"
-  }
+  },
+  "show_notification": true
 }

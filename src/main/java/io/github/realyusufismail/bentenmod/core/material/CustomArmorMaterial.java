@@ -35,7 +35,7 @@ package io.github.realyusufismail.bentenmod.core.material;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
@@ -44,6 +44,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements ArmorMaterial {
+    // TODO: Fix these values
     ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F,
             0.3f, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
     JACKET("jacket", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
@@ -62,7 +63,6 @@ public enum CustomArmorMaterial implements ArmorMaterial {
             4.0F, 0.3f, () -> Ingredient.of(ItemInit.FIRE.get()));
 
 
-    private static final int[] baseDurability = {128, 144, 160, 112};
     private final String name;
     private final int durabilityMultiplier;
     private final int[] armorVal;
@@ -86,14 +86,15 @@ public enum CustomArmorMaterial implements ArmorMaterial {
         this.repairIngredient = repairIngredient.get();
     }
 
-
     @Override
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return this.armorVal[slot.getIndex()];
+    public int getDurabilityForType(ArmorItem.Type type) {
+        return durabilityMultiplier * armorVal[type.ordinal()];
     }
 
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.armorVal[slot.getIndex()];
+
+    @Override
+    public int getDefenseForType(ArmorItem.Type pType) {
+        return armorVal[pType.ordinal()];
     }
 
     @Override

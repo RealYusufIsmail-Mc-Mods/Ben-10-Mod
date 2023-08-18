@@ -39,39 +39,35 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum CustomToolMaterial implements Tier {
-
-    SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
-    HEATBLAST_SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.FIRE.get())),
-    BLACK_DIAMOND_SWORD(20, 2000, 60f, 12f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_AXE(20, 2500, 60f, 11f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_PICKAXE(20, 2500, 60f, 8f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_SHOVEL(20, 2500, 60f, 9f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_HOE(20, 2500, 60f, 6f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    INFINITUM_SWORD(20, 3000, 70f, 14f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_AXE(20, 3000, 70f, 13f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_PICKAXE(20, 3000, 70f, 12f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_SHOVEL(20, 3000, 70f, 10f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_HOE(20, 3000, 70f, 7f, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    AXE(50, 2500, 80f, 8, 50, () -> Ingredient.of(ItemInit.RUBY.get())),
-    IMPERIUM_SWORD(3, 3000, 70f, 7.5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
-    IMPERIUM_PICKAXE(2, 2500, 40f, 6f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
-    IMPERIUM_PICKAXE_UPGRADED(3, 3000, 50f, 5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
-    IMPERIUM_AXE(3, 3000, 50f, 5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
+    // TODO: Fix these values
+    SWORD(3, 2500, 40, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
+    HEATBLAST_SWORD(3, 2500, 40, () -> Ingredient.of(ItemInit.FIRE.get())),
+    BLACK_DIAMOND_SWORD(3, 2000, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_AXE(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_PICKAXE(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_SHOVEL(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_HOE(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    INFINITUM_SWORD(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_AXE(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_PICKAXE(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_SHOVEL(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_HOE(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    AXE(3, 2500, 50, () -> Ingredient.of(ItemInit.RUBY.get())),
+    IMPERIUM_SWORD(3, 3000, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+    IMPERIUM_PICKAXE(2, 2500, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+    IMPERIUM_PICKAXE_UPGRADED(3, 3000, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+    IMPERIUM_AXE(3, 3000, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
 
 
     private final int harvestLevel;
     private final int maxUses;
-    private final float efficiency;
-    private final float attackDamage;
     private final int enchantability;
     private final Ingredient repairMaterial;
 
-    CustomToolMaterial(int harvestLevel, int maxUses, float efficiency, float attackDamage,
-            int enchantability, Supplier<Ingredient> repairMaterial) {
+    CustomToolMaterial(int harvestLevel, int maxUses, int enchantability,
+            Supplier<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
-        this.efficiency = efficiency;
-        this.attackDamage = attackDamage;
         this.enchantability = enchantability;
         this.repairMaterial = repairMaterial.get();
     }
@@ -81,14 +77,20 @@ public enum CustomToolMaterial implements Tier {
         return this.maxUses;
     }
 
+    /**
+     * The speed which is 4 + this value. 4 is the speed of the fist.
+     *
+     * @return value is set to 0 as the main speed is set in the item class
+     */
     @Override
     public float getSpeed() {
-        return this.efficiency;
+        return 0f;
     }
 
+    /** @return This is set to 0 as the main attack damage is set in the item class */
     @Override
     public float getAttackDamageBonus() {
-        return this.attackDamage;
+        return 0f;
     }
 
     @Override

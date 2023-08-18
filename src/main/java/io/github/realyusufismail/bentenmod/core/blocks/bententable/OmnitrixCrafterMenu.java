@@ -5,6 +5,7 @@ import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
 import io.github.realyusufismail.bentenmod.core.init.RecipeBookTypeInit;
 import io.github.realyusufismail.bentenmod.core.init.RecipeTypeInit;
+import lombok.val;
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
@@ -16,19 +17,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
 
-import java.util.Optional;
-
 /**
  * @see CraftingMenu
  */
 public class OmnitrixCrafterMenu extends RecipeBookMenu<OmnitrixCrafterContainer> {
-    public static final int RESULT_SLOT = 0;
-    private static final int CRAFT_SLOT_START = 1;
-    private static final int CRAFT_SLOT_END = 10;
-    private static final int INV_SLOT_START = 10;
-    private static final int INV_SLOT_END = 37;
-    private static final int USE_ROW_SLOT_START = 37;
-    private static final int USE_ROW_SLOT_END = 46;
     private final OmnitrixCrafterContainer craftSlots = new OmnitrixCrafterContainer(this, 3, 3);
     private final ResultContainer resultSlots = new ResultContainer();
     private final ContainerLevelAccess access;
@@ -38,53 +30,59 @@ public class OmnitrixCrafterMenu extends RecipeBookMenu<OmnitrixCrafterContainer
         this(pContainerId, pPlayerInventory, ContainerLevelAccess.NULL);
     }
 
-    public OmnitrixCrafterMenu(int pContainerId, Inventory pPlayerInventory,
+    public OmnitrixCrafterMenu(int pContainerId, Inventory inventory,
             ContainerLevelAccess pAccess) {
         super(MenuTypeInit.OmnitrixCrafterMenuType.get(), pContainerId);
         this.access = pAccess;
-        this.player = pPlayerInventory.player;
-        this.addSlot(new OmnitrixResultSlot(pPlayerInventory.player, this.craftSlots,
-                this.resultSlots, 0, 124, 35));
+        this.player = inventory.player;
+        this.addSlot(new OmnitrixResultSlot(inventory.player, this.craftSlots, this.resultSlots, 0,
+                124, 35));
 
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                this.addSlot(new Slot(this.craftSlots, j + i * 3, 30 + j * 18, 17 + i * 18));
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                addSlot(new Slot(craftSlots, j + i * 3, 30 + j * 18, 17 + i * 18));
             }
         }
 
-        for (int k = 0; k < 3; ++k) {
-            for (int i1 = 0; i1 < 9; ++i1) {
-                this.addSlot(new Slot(pPlayerInventory, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
+        for (int k = 0; k <= 2; k++) {
+            for (int i1 = 0; i1 <= 8; i1++) {
+                addSlot(new Slot(inventory, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
             }
         }
 
-        for (int l = 0; l < 9; ++l) {
-            this.addSlot(new Slot(pPlayerInventory, l, 8 + l * 18, 142));
+        for (int l = 0; l <= 8; l++) {
+            addSlot(new Slot(inventory, l, 8 + l * 18, 142));
         }
 
     }
 
-    protected static void slotChangedCraftingGrid(AbstractContainerMenu p_150547_, Level p_150548_,
-            Player p_150549_, OmnitrixCrafterContainer p_150550_, ResultContainer p_150551_) {
-        if (!p_150548_.isClientSide) {
-            ServerPlayer serverplayer = (ServerPlayer) p_150549_;
-            ItemStack itemstack = ItemStack.EMPTY;
-            Optional<IOmnitrixCraftingRecipe> optional = p_150548_.getServer()
+    private void slotChangedCraftingGrid(AbstractContainerMenu pMenu, Level pLevel, Player pPlayer,
+            OmnitrixCrafterContainer pContainer, ResultContainer pResult) {
+        if (!pLevel.isClientSide()) {
+            val serverplayer = (ServerPlayer) pPlayer;
+            var itemstack = ItemStack.EMPTY;
+            val optional = pLevel.getServer()
                 .getRecipeManager()
-                .getRecipeFor(RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get(), p_150550_, p_150548_);
+                .getRecipeFor(RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get(), pContainer, pLevel);
+
             if (optional.isPresent()) {
-                IOmnitrixCraftingRecipe craftingrecipe = optional.get();
-                if (p_150551_.setRecipeUsed(p_150548_, serverplayer, craftingrecipe)) {
-                    itemstack = craftingrecipe.assemble(p_150550_);
+                val craftingrecipe = optional.get();
+                if (pResult.setRecipeUsed(pLevel, serverplayer, craftingrecipe)) {
+                    ItemStack itemstack1 =
+                            craftingrecipe.assemble(pContainer, pLevel.registryAccess());
+                    if (itemstack1.isItemEnabled(pLevel.enabledFeatures())) {
+                        itemstack = itemstack1;
+                    }
                 }
             }
 
-            p_150551_.setItem(0, itemstack);
-            p_150547_.setRemoteSlot(0, itemstack);
-            serverplayer.connection.send(new ClientboundContainerSetSlotPacket(
-                    p_150547_.containerId, p_150547_.incrementStateId(), 0, itemstack));
+            pResult.setItem(0, itemstack);
+            pMenu.setRemoteSlot(0, itemstack);
+            serverplayer.connection.send(new ClientboundContainerSetSlotPacket(pMenu.containerId,
+                    pMenu.incrementStateId(), 0, itemstack));
         }
     }
+
 
     /**
      * Callback for when the crafting matrix is changed.
@@ -129,22 +127,26 @@ public class OmnitrixCrafterMenu extends RecipeBookMenu<OmnitrixCrafterContainer
      * Handle when the stack in slot {@code index} is shift-clicked. Normally this moves the stack
      * between the player inventory and the other inventory(s).
      */
+    @Override
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(pIndex);
-        if (slot != null && slot.hasItem()) {
+
+        if (slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
+
             if (pIndex == 0) {
-                this.access.execute((p_39378_, p_39379_) -> {
-                    itemstack1.getItem().onCraftedBy(itemstack1, p_39378_, pPlayer);
+                this.access.execute((level, pos) -> {
+                    itemstack1.getItem().onCraftedBy(itemstack1, level, pPlayer);
                 });
+
                 if (!this.moveItemStackTo(itemstack1, 10, 46, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onQuickCraft(itemstack1, itemstack);
-            } else if (pIndex >= 10 && pIndex < 46) {
+            } else if (pIndex >= 10 && pIndex <= 45) {
                 if (!this.moveItemStackTo(itemstack1, 1, 10, false)) {
                     if (pIndex < 37) {
                         if (!this.moveItemStackTo(itemstack1, 37, 46, false)) {
@@ -169,6 +171,7 @@ public class OmnitrixCrafterMenu extends RecipeBookMenu<OmnitrixCrafterContainer
             }
 
             slot.onTake(pPlayer, itemstack1);
+
             if (pIndex == 0) {
                 pPlayer.drop(itemstack1, false);
             }

@@ -12,5 +12,6 @@
   ],
   "result": {
     "item": "bentenmod:helmet"
-  }
+  },
+  "show_notification": true
 }

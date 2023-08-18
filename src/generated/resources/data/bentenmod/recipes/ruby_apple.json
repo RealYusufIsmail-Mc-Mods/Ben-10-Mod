@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:ruby_apple"
-  }
+  },
+  "show_notification": true
 }

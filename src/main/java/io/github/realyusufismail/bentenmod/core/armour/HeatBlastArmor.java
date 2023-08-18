@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.events;
+package io.github.realyusufismail.bentenmod.core.armour;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -46,10 +46,8 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class HeatBlastArmor extends ArmorItem implements IForgeItem {
-    public final Abilities abilities = new Abilities();
-
-    public HeatBlastArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
-        super(materialIn, slot, builder);
+    public HeatBlastArmor(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builder) {
+        super(materialIn, type, builder);
     }
 
     @Override
@@ -76,8 +74,6 @@ public class HeatBlastArmor extends ArmorItem implements IForgeItem {
             player.fallDistance = 0.0F;
             player.getAbilities().setFlyingSpeed(0.1F);
         }
-
-
     }
 }
 

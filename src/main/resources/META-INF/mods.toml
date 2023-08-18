@@ -1,52 +1,45 @@
 modLoader = "javafml"
-loaderVersion = "[44,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion = "[45,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license = "BSD 3-Clause License"
-issueTrackerURL = "https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #optional
+issueTrackerURL = "https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/issues" #optional
 [[mods]]
 modId = "bentenmod"
 version = "${file.jarVersion}"
 displayName = "Ben10 Mod"
-updateJSONURL = "https://raw.githubusercontent.com/RealYusufIsmail/Ben-10-Mod/1.19.3/update.json"
+updateJSONURL = "https://forge.curseupdate.com/459985/ben-ten-mod"
 logoFile = "../headerimg.png"
 credits = "Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code and vemerion for adding features to this mod."
 
 authors = "Yusuf Arfan Ismail, Gentworm and callout_662" #optional
 description = '''
-A mod which adds Villains, heroes and armour and items from the Ben 10 series. Some Vilans will be added and a lot of items and armour will be added. The omnitrix will be added
-soon.
-Dont not copy my mod.
-made by Yusuf Arfan Ismail.
-Github is https://github.com/realyusufismail
-Credits for callout_662 for making the models for the aliens.
-callout_662: https://www.curseforge.com/members/callout662/projects
-Gentworm: https://www.curseforge.com/members/gentworm/followers
+A Ben ten mod
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.bentenmod]]
 modId = "forge"
 mandatory = true
-versionRange="[44,)"
+versionRange="[45,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "minecraft"
 mandatory = true
-versionRange= "[1.19.3,1.20)"
+versionRange= "[1.19.4,1.20)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "geckolib"
 mandatory = true
-versionRange = "[1.19.3:4.0.4,)"
+versionRange = "[1.19.4:4.2,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bentenmod]]
 modId = "realyusufismailcore"
 mandatory = true
-versionRange = "[1.19-1.0.8,)"
+versionRange = "[1.19-1.1.0,)"
 ordering = "NONE"
 side = "BOTH"
 
