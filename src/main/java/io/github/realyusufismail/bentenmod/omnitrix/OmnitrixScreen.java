@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.core.omnitrix;
+package io.github.realyusufismail.bentenmod.omnitrix;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.client.gui.screens.Screen;
@@ -38,8 +38,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public class OmnitrixScreen extends Screen {
-
-
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");
 

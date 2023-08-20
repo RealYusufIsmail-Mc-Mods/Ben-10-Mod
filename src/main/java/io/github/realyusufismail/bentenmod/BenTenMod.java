@@ -41,6 +41,7 @@ import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.data.DataGenerators;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
+import io.github.realyusufismail.bentenmod.events.PlayerActionHandler;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -84,7 +85,7 @@ public class BenTenMod {
         bus.addListener(DataGenerators::gatherData);
         bus.addListener(BenTenModItemGroup::registerCreativeTab);
         bus.addListener(RecipeCategoriesInit::registerRecipeCategories);
-
+        bus.addListener(PlayerActionHandler::register);
 
         GeckoLib.shadowInit();
         MinecraftForge.EVENT_BUS.register(this);
