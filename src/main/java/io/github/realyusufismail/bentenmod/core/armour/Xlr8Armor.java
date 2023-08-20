@@ -30,7 +30,7 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.events;
+package io.github.realyusufismail.bentenmod.core.armour;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -44,30 +44,32 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeItem;
 
-public class LegendaryArmor extends ArmorItem implements IForgeItem {
+public class Xlr8Armor extends ArmorItem implements IForgeItem {
 
-    public LegendaryArmor(ArmorMaterial materialIn, EquipmentSlot slot, Item.Properties builder) {
-
-        super(materialIn, slot, builder);
+    public Xlr8Armor(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builder) {
+        super(materialIn, type, builder);
 
     }
 
     @Override
     public void onArmorTick(ItemStack stack, Level world, Player player) {
-        ItemStack boot = player.getItemBySlot(EquipmentSlot.FEET);
-        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
-        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
-        ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
 
-        if (boot.getItem() == ItemInit.BOOTS.get() && legs.getItem() == ItemInit.LEGGINGS.get()
-                && chest.getItem() == ItemInit.CHESTPLATE.get()
-                && helmet.getItem() == ItemInit.HELMET.get())
-            ;
-        {
+        ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
+        ItemStack legs = player.getItemBySlot(EquipmentSlot.LEGS);
+        ItemStack chest = player.getItemBySlot(EquipmentSlot.CHEST);
+        ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
+
+        if (boots.getItem() == ItemInit.XLR8_BOOTS.get()
+                && legs.getItem() == ItemInit.XLR8_LEGGINGS.get()
+                && chest.getItem() == ItemInit.XLR8_CHESTPLATE.get()
+                && head.getItem() == ItemInit.XLR8_HELMET.get()) {
             player.addEffect(
-                    new MobEffectInstance(MobEffects.DAMAGE_BOOST, 100, 1, false, false, true));
+                    new MobEffectInstance(MobEffects.REGENERATION, 100, 5, false, false, true));
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false,
                     false, true));
+            player.addEffect(
+                    new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 100, 45, false, false, true));
+
         }
     }
 }

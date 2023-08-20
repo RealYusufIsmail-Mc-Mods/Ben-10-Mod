@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "bentenmod:ruby_block"
-  }
+  },
+  "show_notification": true
 }

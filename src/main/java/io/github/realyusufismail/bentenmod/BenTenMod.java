@@ -39,8 +39,6 @@ import io.github.realyusufismail.bentenmod.core.init.*;
 import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
 import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.data.DataGenerators;
-import io.github.realyusufismail.bentenmod.data.worldgen.ModOreFeatures;
-import io.github.realyusufismail.bentenmod.data.worldgen.ModOrePlacements;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
@@ -48,21 +46,15 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.GeckoLib;
 
@@ -91,6 +83,7 @@ public class BenTenMod {
         bus.addListener(this::onRegisterEntities);
         bus.addListener(DataGenerators::gatherData);
         bus.addListener(BenTenModItemGroup::registerCreativeTab);
+        bus.addListener(RecipeCategoriesInit::registerRecipeCategories);
 
 
         GeckoLib.shadowInit();
@@ -98,7 +91,6 @@ public class BenTenMod {
         LOGGER.info("Armour, item, and entities loaded");
     }
 
-    @Contract("_ -> new")
     public static ModResourceLocation getId(@NotNull String path) {
         if (path.contains(":")) {
             throw new IllegalArgumentException("path contains namespace");

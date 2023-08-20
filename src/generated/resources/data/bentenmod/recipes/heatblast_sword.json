@@ -19,5 +19,6 @@
   ],
   "result": {
     "item": "bentenmod:heatblast_sword"
-  }
+  },
+  "show_notification": true
 }

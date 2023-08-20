@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "bentenmod:leggings"
-  }
+  },
+  "show_notification": true
 }

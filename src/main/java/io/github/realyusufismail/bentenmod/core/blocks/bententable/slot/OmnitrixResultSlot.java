@@ -8,11 +8,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.ForgeEventFactory;
+import org.jetbrains.annotations.NotNull;
 
 public class OmnitrixResultSlot extends Slot {
     private final OmnitrixCrafterContainer craftSlots;
     private final Player player;
-    private int removeCount;
+    private int removeCount = 0;
 
     public OmnitrixResultSlot(Player pPlayer, OmnitrixCrafterContainer pCraftSlots,
             Container pContainer, int pSlot, int pXPosition, int pYPosition) {
@@ -33,8 +36,8 @@ public class OmnitrixResultSlot extends Slot {
      * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg.
      * Returns the new stack.
      */
-    public ItemStack remove(int pAmount) {
-        if (this.hasItem()) {
+    public @NotNull ItemStack remove(int pAmount) {
+        if (hasItem()) {
             this.removeCount += Math.min(pAmount, this.getItem().getCount());
         }
 
@@ -60,8 +63,7 @@ public class OmnitrixResultSlot extends Slot {
     protected void checkTakeAchievements(ItemStack pStack) {
         if (this.removeCount > 0) {
             pStack.onCraftedBy(this.player.level, this.player, this.removeCount);
-            net.minecraftforge.event.ForgeEventFactory.firePlayerCraftingEvent(this.player, pStack,
-                    this.craftSlots);
+            ForgeEventFactory.firePlayerCraftingEvent(this.player, pStack, this.craftSlots);
         }
 
         if (this.container instanceof RecipeHolder) {
@@ -73,7 +75,7 @@ public class OmnitrixResultSlot extends Slot {
 
     public void onTake(Player pPlayer, ItemStack pStack) {
         this.checkTakeAchievements(pStack);
-        net.minecraftforge.common.ForgeHooks.setCraftingPlayer(pPlayer);
+        ForgeHooks.setCraftingPlayer(pPlayer);
         NonNullList<ItemStack> nonnulllist = pPlayer.level.getRecipeManager()
             .getRemainingItemsFor(RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get(), this.craftSlots,
                     pPlayer.level);

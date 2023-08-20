@@ -36,7 +36,7 @@ import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -95,14 +95,9 @@ public class CrabBoltEntity extends AbstractArrow {
         if (!level.isClientSide) {
             Entity target = result.getEntity();
             Entity shooter = getOwner();
-            target.hurt(DamageSource.arrow(this, shooter == null ? this : shooter),
-                    (float) getBaseDamage());
+            target.hurt(new DamageSources(target.level.registryAccess()).arrow(this,
+                    shooter == null ? this : shooter), (float) getBaseDamage());
         }
-    }
-
-    @Override
-    public boolean canBeCollidedWith() {
-        return false;
     }
 
     @Override

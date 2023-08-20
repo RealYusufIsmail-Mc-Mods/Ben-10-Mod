@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "bentenmod:heatblast_leggings"
-  }
+  },
+  "show_notification": true
 }

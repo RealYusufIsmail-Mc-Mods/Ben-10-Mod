@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "bentenmod:infinitum_block"
-  }
+  },
+  "show_notification": true
 }

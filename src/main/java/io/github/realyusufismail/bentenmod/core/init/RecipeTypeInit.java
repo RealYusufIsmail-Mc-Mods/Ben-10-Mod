@@ -53,11 +53,8 @@ public class RecipeTypeInit {
 
     private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(
             final String pIdentifier) {
-        return TYPES.register(pIdentifier, () -> new RecipeType<T>() {
-            public String toString() {
-                return pIdentifier;
-            }
-        });
+        return TYPES.register(pIdentifier,
+                () -> RecipeType.simple(BenTenMod.getModIdAndName(pIdentifier)));
     }
 
 }

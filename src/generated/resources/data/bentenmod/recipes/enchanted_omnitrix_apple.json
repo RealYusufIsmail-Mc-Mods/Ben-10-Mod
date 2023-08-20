@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:enchanted_omnitrix_apple"
-  }
+  },
+  "show_notification": true
 }

@@ -40,19 +40,23 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.RecipeSerializerInit;
+import lombok.val;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.CraftingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.common.crafting.IShapedRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
@@ -62,7 +66,7 @@ import java.util.Set;
  * @see CraftingRecipe
  */
 public class OmntrixCrafterShapedRecipe
-        implements IOmnitrixCraftingRecipe, Recipe<OmnitrixCrafterContainer> {
+        implements IOmnitrixCraftingRecipe, IShapedRecipe<OmnitrixCrafterContainer> {
 
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
@@ -72,219 +76,49 @@ public class OmntrixCrafterShapedRecipe
     final ItemStack result;
     final String group;
     private final ResourceLocation id;
-    // private final Block icon;
+    private final OmnitrixCrafterCraftingBookCategory craftingBookCategory;
+    private final boolean showNotification;
 
     public OmntrixCrafterShapedRecipe(ResourceLocation pId, String pGroup, int pWidth, int pHeight,
-            NonNullList<Ingredient> pRecipeItems, ItemStack pResult) {
+            NonNullList<Ingredient> pRecipeItems, ItemStack pResult, boolean showNotification,
+            OmnitrixCrafterCraftingBookCategory craftingBookCategory) {
         this.id = pId;
         this.group = pGroup;
         this.width = pWidth;
         this.height = pHeight;
         this.recipeItems = pRecipeItems;
         this.result = pResult;
-        // this.icon = icon;
+        this.showNotification = showNotification;
+        this.craftingBookCategory = craftingBookCategory;
     }
 
-    /**
-     * Expand the max width and height allowed in the deserializer. This should be called by modders
-     * who add custom crafting tables that are larger than the vanilla 3x3.
-     *
-     * @param width your max recipe width
-     * @param height your max recipe height
-     */
-    public static void setCraftingSize(int width, int height) {
-        if (MAX_WIDTH < width)
-            MAX_WIDTH = width;
-        if (MAX_HEIGHT < height)
-            MAX_HEIGHT = height;
-    }
-
-    static NonNullList<Ingredient> dissolvePattern(String[] pPattern, Map<String, Ingredient> pKeys,
-            int pPatternWidth, int pPatternHeight) {
-        NonNullList<Ingredient> nonnulllist =
-                NonNullList.withSize(pPatternWidth * pPatternHeight, Ingredient.EMPTY);
-        Set<String> set = Sets.newHashSet(pKeys.keySet());
-        set.remove(" ");
-
-        for (int i = 0; i < pPattern.length; ++i) {
-            for (int j = 0; j < pPattern[i].length(); ++j) {
-                String s = pPattern[i].substring(j, j + 1);
-                Ingredient ingredient = pKeys.get(s);
-                if (ingredient == null) {
-                    throw new JsonSyntaxException("Pattern references symbol '" + s
-                            + "' but it's not defined in the key");
-                }
-
-                set.remove(s);
-                nonnulllist.set(j + pPatternWidth * i, ingredient);
-            }
-        }
-
-        if (!set.isEmpty()) {
-            throw new JsonSyntaxException(
-                    "Key defines symbols that aren't used in pattern: " + set);
-        } else {
-            return nonnulllist;
-        }
-    }
-
-    @VisibleForTesting
-    static String[] shrink(String... pToShrink) {
-        int i = Integer.MAX_VALUE;
-        int j = 0;
-        int k = 0;
-        int l = 0;
-
-        for (int i1 = 0; i1 < pToShrink.length; ++i1) {
-            String s = pToShrink[i1];
-            i = Math.min(i, firstNonSpace(s));
-            int j1 = lastNonSpace(s);
-            j = Math.max(j, j1);
-            if (j1 < 0) {
-                if (k == i1) {
-                    ++k;
-                }
-
-                ++l;
-            } else {
-                l = 0;
-            }
-        }
-
-        if (pToShrink.length == l) {
-            return new String[0];
-        } else {
-            String[] astring = new String[pToShrink.length - l - k];
-
-            for (int k1 = 0; k1 < astring.length; ++k1) {
-                astring[k1] = pToShrink[k1 + k].substring(i, j + 1);
-            }
-
-            return astring;
-        }
-    }
-
-    private static int firstNonSpace(String pEntry) {
-        int i;
-        for (i = 0; i < pEntry.length() && pEntry.charAt(i) == ' '; ++i) {
-        }
-
-        return i;
-    }
-
-    private static int lastNonSpace(String pEntry) {
-        int i;
-        for (i = pEntry.length() - 1; i >= 0 && pEntry.charAt(i) == ' '; --i) {
-        }
-
-        return i;
-    }
-
-    static String[] patternFromJson(JsonArray pPatternArray) {
-        String[] astring = new String[pPatternArray.size()];
-        if (astring.length > MAX_HEIGHT) {
-            throw new JsonSyntaxException(
-                    "Invalid pattern: too many rows, " + MAX_HEIGHT + " is maximum");
-        } else if (astring.length == 0) {
-            throw new JsonSyntaxException("Invalid pattern: empty pattern not allowed");
-        } else {
-            for (int i = 0; i < astring.length; ++i) {
-                String s = GsonHelper.convertToString(pPatternArray.get(i), "pattern[" + i + "]");
-                if (s.length() > MAX_WIDTH) {
-                    throw new JsonSyntaxException(
-                            "Invalid pattern: too many columns, " + MAX_WIDTH + " is maximum");
-                }
-
-                if (i > 0 && astring[0].length() != s.length()) {
-                    throw new JsonSyntaxException(
-                            "Invalid pattern: each row must be the same width");
-                }
-
-                astring[i] = s;
-            }
-
-            return astring;
-        }
-    }
-
-    /**
-     * Returns a key json object as a Java HashMap.
-     */
-    static Map<String, Ingredient> keyFromJson(JsonObject pKeyEntry) {
-        Map<String, Ingredient> map = Maps.newHashMap();
-
-        for (Map.Entry<String, JsonElement> entry : pKeyEntry.entrySet()) {
-            if (entry.getKey().length() != 1) {
-                throw new JsonSyntaxException("Invalid key entry: '" + entry.getKey()
-                        + "' is an invalid symbol (must be 1 character only).");
-            }
-
-            if (" ".equals(entry.getKey())) {
-                throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
-            }
-
-            map.put(entry.getKey(), Ingredient.fromJson(entry.getValue()));
-        }
-
-        map.put(" ", Ingredient.EMPTY);
-        return map;
-    }
-
-    public static ItemStack itemStackFromJson(JsonObject pStackObject) {
-        return CraftingHelper.getItemStack(pStackObject, true, true);
-    }
-
-    public static Item itemFromJson(JsonObject pItemObject) {
-        String s = GsonHelper.getAsString(pItemObject, "item");
-        Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(s));
-
-        if (item == null) {
-            throw new JsonSyntaxException("Unknown item '" + s + "'");
-        }
-
-        if (item == Items.AIR) {
-            throw new JsonSyntaxException("Invalid item: " + s);
-        } else {
-            return item;
-        }
-    }
-
-    /**
-     * Used to check if a recipe matches current crafting inventory
-     */
     @Override
     public boolean matches(OmnitrixCrafterContainer pInv, Level pLevel) {
-        for (int i = 0; i <= pInv.getWidth() - this.width; ++i) {
-            for (int j = 0; j <= pInv.getHeight() - this.height; ++j) {
+        for (int i = 0; i <= pInv.getWidth() - this.width; i++) {
+            for (int j = 0; j <= pInv.getHeight() - this.height; j++) {
                 if (this.matches(pInv, i, j, true)) {
                     return true;
                 }
-
                 if (this.matches(pInv, i, j, false)) {
                     return true;
                 }
             }
         }
-
         return false;
     }
 
-    /**
-     * Checks if the region of a crafting inventory is match for the recipe.
-     */
     private boolean matches(OmnitrixCrafterContainer pCraftingInventory, int pWidth, int pHeight,
             boolean pMirrored) {
-        for (int i = 0; i < pCraftingInventory.getWidth(); ++i) {
-            for (int j = 0; j < pCraftingInventory.getHeight(); ++j) {
+        for (int i = 0; i < pCraftingInventory.getWidth(); i++) {
+            for (int j = 0; j < pCraftingInventory.getHeight(); j++) {
                 int k = i - pWidth;
                 int l = j - pHeight;
                 Ingredient ingredient = Ingredient.EMPTY;
+
                 if (k >= 0 && l >= 0 && k < this.width && l < this.height) {
-                    if (pMirrored) {
-                        ingredient = this.recipeItems.get(this.width - k - 1 + l * this.width);
-                    } else {
-                        ingredient = this.recipeItems.get(k + l * this.width);
-                    }
+                    ingredient =
+                            pMirrored ? this.recipeItems.get(this.width - k - 1 + l * this.width)
+                                    : this.recipeItems.get(k + l * this.width);
                 }
 
                 if (!ingredient
@@ -293,36 +127,27 @@ public class OmntrixCrafterShapedRecipe
                 }
             }
         }
-
         return true;
     }
 
     @Override
-    public ItemStack assemble(OmnitrixCrafterContainer pContainer) {
-        return this.getResultItem().copy();
+    public ItemStack assemble(OmnitrixCrafterContainer p_44001_, RegistryAccess p_267165_) {
+        return this.result.copy();
     }
 
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return false;
+        return true;
     }
 
-    /**
-     * Recipes with equal group are combined into one button in the recipe book
-     */
+    @Override
+    public ItemStack getResultItem(RegistryAccess p_267052_) {
+        return this.result;
+    }
+
     @Override
     public String getGroup() {
         return this.group;
-    }
-
-    /**
-     * Get the result of this recipe, usually for display purposes (e.g. recipe book). If your
-     * recipe has more than one possible result (e.g. it's dynamic and depends on its inputs), then
-     * return an empty stack.
-     */
-    @Override
-    public ItemStack getResultItem() {
-        return this.result;
     }
 
     @Override
@@ -336,15 +161,159 @@ public class OmntrixCrafterShapedRecipe
     }
 
     @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(BlockInit.OmnitrixCrafter.get());
+    }
+
+    @Override
     public RecipeSerializer<?> getSerializer() {
         return RecipeSerializerInit.OMNITRIX_CRAFTER.get();
     }
 
+    @Override
+    public boolean showNotification() {
+        return showNotification;
+    }
+
+    @Override
+    public int getRecipeWidth() {
+        return this.width;
+    }
+
+    @Override
+    public int getRecipeHeight() {
+        return this.height;
+    }
+
+    @Override
     public boolean isIncomplete() {
         NonNullList<Ingredient> nonnulllist = this.getIngredients();
         return nonnulllist.isEmpty() || nonnulllist.stream()
-            .filter((p_151277_) -> !p_151277_.isEmpty())
+            .filter(ingredient -> !ingredient.isEmpty())
             .anyMatch(ForgeHooks::hasNoElements);
+    }
+
+    @VisibleForTesting
+    public static String[] shrink(String... pToShrink) {
+        int i = Integer.MAX_VALUE;
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        for (int i1 = 0; i1 < pToShrink.length; i1++) {
+            String s = pToShrink[i1];
+            i = Math.min(i, firstNonSpace(s));
+            int j1 = lastNonSpace(s);
+            j = Math.max(j, j1);
+            if (j1 < 0) {
+                if (k == i1) {
+                    ++k;
+                }
+                ++l;
+            } else {
+                l = 0;
+            }
+        }
+        if (pToShrink.length == l) {
+            return new String[0];
+        } else {
+            String[] astring = new String[pToShrink.length - l - k];
+            for (int k1 = 0; k1 < astring.length; k1++) {
+                astring[k1] = pToShrink[k1 + k].substring(i, j + 1);
+            }
+            return astring;
+        }
+    }
+
+    private static int firstNonSpace(String pEntry) {
+        int i = 0;
+        while (i < pEntry.length() && pEntry.charAt(i) == ' ') {
+            ++i;
+        }
+        return i;
+    }
+
+    private static int lastNonSpace(String pEntry) {
+        int i = pEntry.length() - 1;
+        while (i >= 0 && pEntry.charAt(i) == ' ') {
+            --i;
+        }
+        return i;
+    }
+
+    public static String[] patternFromJson(JsonArray pPatternArray) {
+        String[] astring = new String[pPatternArray.size()];
+        if (astring.length > MAX_HEIGHT) {
+            throw new JsonSyntaxException(
+                    "Invalid pattern: too many rows, " + MAX_HEIGHT + " is maximum");
+        } else if (astring.length == 0) {
+            throw new JsonSyntaxException("Invalid pattern: empty pattern not allowed");
+        } else {
+            for (int i = 0; i < astring.length; i++) {
+                String s = GsonHelper.convertToString(pPatternArray.get(i), "pattern[" + i + "]");
+                if (s.length() > MAX_WIDTH) {
+                    throw new JsonSyntaxException(
+                            "Invalid pattern: too many columns, " + MAX_WIDTH + " is maximum");
+                }
+                if (i > 0 && astring[0].length() != s.length()) {
+                    throw new JsonSyntaxException(
+                            "Invalid pattern: each row must be the same width");
+                }
+                astring[i] = s;
+            }
+            return astring;
+        }
+    }
+
+    public static Map<String, Ingredient> keyFromJson(JsonObject pKeyEntry) {
+        Map<String, Ingredient> map = Maps.newHashMap();
+        for (Map.Entry<String, JsonElement> entry : pKeyEntry.entrySet()) {
+            String key = entry.getKey();
+            if (key.length() != 1) {
+                throw new JsonSyntaxException("Invalid key entry: '" + key
+                        + "' is an invalid symbol (must be 1 character only).");
+            }
+            if (" ".equals(key)) {
+                throw new JsonSyntaxException("Invalid key entry: ' ' is a reserved symbol.");
+            }
+            map.put(key, Ingredient.fromJson(entry.getValue()));
+        }
+        map.put(" ", Ingredient.EMPTY);
+        return map;
+    }
+
+    public static ItemStack itemStackFromJson(JsonObject pStackObject) {
+        return CraftingHelper.getItemStack(pStackObject, true, true);
+    }
+
+    public static NonNullList<Ingredient> dissolvePattern(String[] pPattern,
+            Map<String, Ingredient> pKeys, int pPatternWidth, int pPatternHeight) {
+        NonNullList<Ingredient> nonnulllist =
+                NonNullList.withSize(pPatternWidth * pPatternHeight, Ingredient.EMPTY);
+        Set<String> set = Sets.newHashSet(pKeys.keySet());
+        set.remove(" ");
+        for (int i = 0; i < pPattern.length; i++) {
+            for (int j = 0; j < (pPattern[i] != null ? pPattern[i].length() : 0); j++) {
+                String s = pPattern[i] != null ? pPattern[i].substring(j, j + 1) : "";
+                Ingredient ingredient = pKeys.get(s);
+                if (ingredient == null) {
+                    throw new JsonSyntaxException("Pattern references symbol '" + s
+                            + "' but it's not defined in the key");
+                }
+                set.remove(s);
+                nonnulllist.set(j + pPatternWidth * i, ingredient);
+            }
+        }
+        if (!set.isEmpty()) {
+            throw new JsonSyntaxException(
+                    "Key defines symbols that aren't used in pattern: " + set);
+        } else {
+            return nonnulllist;
+        }
+    }
+
+    @Override
+    public OmnitrixCrafterCraftingBookCategory getCategory() {
+        return craftingBookCategory;
     }
 
     public static final class Type implements RecipeType<IOmnitrixCraftingRecipe> {
@@ -360,18 +329,22 @@ public class OmntrixCrafterShapedRecipe
 
         @Override
         public OmntrixCrafterShapedRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
-            String s = GsonHelper.getAsString(pJson, "group", "");
-            Map<String, Ingredient> map = OmntrixCrafterShapedRecipe
+            val s = GsonHelper.getAsString(pJson, "group", "");
+            val craftingBookCategory = OmnitrixCrafterCraftingBookCategory.codec()
+                .byName(GsonHelper.getAsString(pJson, "category", null),
+                        OmnitrixCrafterCraftingBookCategory.MISC);
+            val map = OmntrixCrafterShapedRecipe
                 .keyFromJson(GsonHelper.getAsJsonObject(pJson, "key"));
-            String[] astring = OmntrixCrafterShapedRecipe.shrink(OmntrixCrafterShapedRecipe
+            val astring = OmntrixCrafterShapedRecipe.shrink(OmntrixCrafterShapedRecipe
                 .patternFromJson(GsonHelper.getAsJsonArray(pJson, "pattern")));
             int i = astring[0].length();
             int j = astring.length;
-            NonNullList<Ingredient> nonnulllist =
-                    OmntrixCrafterShapedRecipe.dissolvePattern(astring, map, i, j);
-            ItemStack itemstack = OmntrixCrafterShapedRecipe
+            val nonnulllist = OmntrixCrafterShapedRecipe.dissolvePattern(astring, map, i, j);
+            val itemstack = OmntrixCrafterShapedRecipe
                 .itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
-            return new OmntrixCrafterShapedRecipe(pRecipeId, s, i, j, nonnulllist, itemstack);
+            val flag = GsonHelper.getAsBoolean(pJson, "show_notification", true);
+            return new OmntrixCrafterShapedRecipe(pRecipeId, s, i, j, nonnulllist, itemstack, flag,
+                    craftingBookCategory);
         }
 
         @Override
@@ -385,7 +358,10 @@ public class OmntrixCrafterShapedRecipe
             nonnulllist.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
 
             ItemStack itemstack = pBuffer.readItem();
-            return new OmntrixCrafterShapedRecipe(pRecipeId, s, i, j, nonnulllist, itemstack);
+            val flag = pBuffer.readBoolean();
+            val craftingBookCategory = pBuffer.readEnum(OmnitrixCrafterCraftingBookCategory.class);
+            return new OmntrixCrafterShapedRecipe(pRecipeId, s, i, j, nonnulllist, itemstack, flag,
+                    craftingBookCategory);
         }
 
         @Override
@@ -399,6 +375,7 @@ public class OmntrixCrafterShapedRecipe
             }
 
             pBuffer.writeItem(pRecipe.result);
+            pBuffer.writeBoolean(pRecipe.showNotification);
         }
     }
 }

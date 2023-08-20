@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:omnitrix_apple"
-  }
+  },
+  "show_notification": true
 }

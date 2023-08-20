@@ -51,7 +51,7 @@ public class BenTenModItemGroup {
     }
 
     private static void createCreativeTabBuilder(CreativeModeTab.Builder builder) {
-        builder.displayItems((set, out, unknownMagicBoolean) -> {
+        builder.displayItems((itemDisplayParameters, out) -> {
             ItemInit.ITEMS.getEntries()
                 .stream()
                 .map(item -> item.get().asItem())

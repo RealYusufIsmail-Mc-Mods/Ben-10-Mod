@@ -2,6 +2,7 @@ package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import lombok.Getter;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
@@ -16,9 +17,12 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.Objects;
+
 /**
  * @see CraftingScreen
  */
+@Getter
 @OnlyIn(Dist.CLIENT)
 public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCrafterMenu>
         implements RecipeUpdateListener {
@@ -37,15 +41,16 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
     protected void init() {
         super.init();
         this.widthTooNarrow = this.width < 379;
-        this.recipeBookComponent.init(this.width, this.height, this.minecraft, this.widthTooNarrow,
-                this.menu);
+        this.recipeBookComponent.init(this.width, this.height,
+                Objects.requireNonNull(this.minecraft, "Minecraft is null in table screen"),
+                this.widthTooNarrow, this.menu);
         this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
         this.addRenderableWidget(new ImageButton(this.leftPos + 5, this.height / 2 - 49, 20, 18, 0,
                 0, 19, RECIPE_BUTTON_LOCATION, (p_98484_) -> {
                     this.recipeBookComponent.toggleVisibility();
                     this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width,
                             this.imageWidth);
-                    ((ImageButton) p_98484_).setPosition(this.leftPos + 5, this.height / 2 - 49);
+                    p_98484_.setPosition(this.leftPos + 5, this.height / 2 - 49);
                 }));
         this.addWidget(this.recipeBookComponent);
         this.setInitialFocus(this.recipeBookComponent);
@@ -76,11 +81,12 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
 
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pX, int pY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, CRAFTING_TABLE_LOCATION);
         int i = this.leftPos;
         int j = (this.height - this.imageHeight) / 2;
-        this.blit(pPoseStack, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        blit(pPoseStack, i, j, 0, 0, this.imageWidth, this.imageHeight);
     }
 
     protected boolean isHovering(int pX, int pY, int pWidth, int pHeight, double pMouseX,
@@ -94,8 +100,8 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
             this.setFocused(this.recipeBookComponent);
             return true;
         } else {
-            return this.widthTooNarrow && this.recipeBookComponent.isVisible() ? true
-                    : super.mouseClicked(pMouseX, pMouseY, pButton);
+            return this.widthTooNarrow && this.recipeBookComponent.isVisible()
+                    || super.mouseClicked(pMouseX, pMouseY, pButton);
         }
     }
 
@@ -122,9 +128,5 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
 
     public void removed() {
         super.removed();
-    }
-
-    public RecipeBookComponent getRecipeBookComponent() {
-        return this.recipeBookComponent;
     }
 }

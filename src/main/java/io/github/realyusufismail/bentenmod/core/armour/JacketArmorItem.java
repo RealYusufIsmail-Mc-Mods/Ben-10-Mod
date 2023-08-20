@@ -30,7 +30,34 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@MethodsReturnNonnullByDefault
-package io.github.realyusufismail.bentenmod;
+package io.github.realyusufismail.bentenmod.core.armour;
 
-import com.mojang.math.MethodsReturnNonnullByDefault;
+import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.common.extensions.IForgeItem;
+
+public class JacketArmorItem extends ArmorItem implements IForgeItem {
+
+    public JacketArmorItem(ArmorMaterial materialIn, ArmorItem.Type type, Item.Properties builder) {
+        super(materialIn, type, builder);
+
+    }
+
+    @Override
+    public void onArmorTick(ItemStack stack, Level world, Player player) {
+        MobEffectInstance effect =
+                new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 100, 2, false, false, true);
+        if (stack.getItem() == ItemInit.JACKET.get()) {
+            player.addEffect(effect);
+        }
+    }
+}
+

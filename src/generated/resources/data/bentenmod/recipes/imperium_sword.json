@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:imperium_sword"
-  }
+  },
+  "show_notification": true
 }

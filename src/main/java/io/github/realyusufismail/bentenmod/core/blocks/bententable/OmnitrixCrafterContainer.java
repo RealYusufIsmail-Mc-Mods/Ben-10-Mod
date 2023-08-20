@@ -1,5 +1,6 @@
 package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 
+import lombok.Getter;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -11,7 +12,9 @@ import net.minecraft.world.item.ItemStack;
 
 public class OmnitrixCrafterContainer implements Container, StackedContentsCompatible {
     private final NonNullList<ItemStack> items;
+    @Getter
     private final int width;
+    @Getter
     private final int height;
     private final AbstractContainerMenu menu;
 
@@ -90,14 +93,6 @@ public class OmnitrixCrafterContainer implements Container, StackedContentsCompa
 
     public void clearContent() {
         this.items.clear();
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public int getWidth() {
-        return this.width;
     }
 
     public void fillStackedContents(StackedContents pHelper) {

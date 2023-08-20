@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "bentenmod:crab_spawn_egg"
-  }
+  },
+  "show_notification": true
 }
