@@ -1,5 +1,8 @@
 package io.github.realyusufismail.bentenmod.util;
 
+import lombok.Getter;
+
+@Getter
 public enum Keybinds {
     CANCEL(3),
     BACKSPACE(8),
@@ -180,10 +183,6 @@ public enum Keybinds {
 
     Keybinds(int keyCode) {
         this.keyCode = keyCode;
-    }
-
-    public int getKeyCode() {
-        return keyCode;
     }
 
     public static Keybinds getKeybind(int keyCode) {

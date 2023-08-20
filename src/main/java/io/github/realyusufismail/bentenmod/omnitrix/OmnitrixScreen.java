@@ -38,14 +38,17 @@ import lombok.val;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 
 public class OmnitrixScreen extends Screen {
+    private final Player player;
 
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");
 
-    protected OmnitrixScreen(Component p_96550_) {
+    protected OmnitrixScreen(Component p_96550_, Player player) {
         super(p_96550_);
+        this.player = player;
     }
 
     @Override
@@ -56,30 +59,54 @@ public class OmnitrixScreen extends Screen {
         val keybinds = Keybinds.getKeybind(pKeyCode);
         switch (keybinds) {
             case NUM_0 -> {
-
+                transform(Ben10Aliens.HEATBLAST);
+                return true;
             }
             case NUM_1 -> {
+                transform(Ben10Aliens.FOURARMS);
+                return true;
             }
             case NUM_2 -> {
+                transform(Ben10Aliens.XLR8);
+                return true;
             }
             case NUM_3 -> {
+                transform(Ben10Aliens.DIAMONDHEAD);
+                return true;
             }
             case NUM_4 -> {
+                transform(Ben10Aliens.WILDMUTT);
+                return true;
             }
             case NUM_5 -> {
+                transform(Ben10Aliens.STINKFLY);
+                return true;
             }
             case NUM_6 -> {
+                transform(Ben10Aliens.UPGRADE);
+                return true;
             }
             case NUM_7 -> {
+                transform(Ben10Aliens.GREYMATTER);
+                return true;
             }
             case NUM_8 -> {
+                transform(Ben10Aliens.RIPJAWS);
+                return true;
             }
             case NUM_9 -> {
+                transform(Ben10Aliens.CANNONBOLT);
+                return true;
             }
             default -> {
+                return false;
             }
         }
 
-        return false;
+    }
+
+    private void transform(Ben10Aliens alien) {
+        val omnitrix = OmnitrixWatch.getOmnitrix(player);
+        omnitrix.transform(alien);
     }
 }
