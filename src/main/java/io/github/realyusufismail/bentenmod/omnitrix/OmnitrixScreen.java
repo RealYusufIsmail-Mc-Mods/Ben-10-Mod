@@ -33,15 +33,53 @@
 package io.github.realyusufismail.bentenmod.omnitrix;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.bentenmod.util.Keybinds;
+import lombok.val;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public class OmnitrixScreen extends Screen {
+
     public static final ResourceLocation SCREEN_ID =
             new ResourceLocation(BenTenMod.MOD_ID, "textures/gui/omnitrix.png");
 
     protected OmnitrixScreen(Component p_96550_) {
         super(p_96550_);
+    }
+
+    @Override
+    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        super.keyPressed(pKeyCode, pScanCode, pModifiers);
+        // what are the key codes. can you give me a repo link?
+
+        val keybinds = Keybinds.getKeybind(pKeyCode);
+        switch (keybinds) {
+            case NUM_0 -> {
+
+            }
+            case NUM_1 -> {
+            }
+            case NUM_2 -> {
+            }
+            case NUM_3 -> {
+            }
+            case NUM_4 -> {
+            }
+            case NUM_5 -> {
+            }
+            case NUM_6 -> {
+            }
+            case NUM_7 -> {
+            }
+            case NUM_8 -> {
+            }
+            case NUM_9 -> {
+            }
+            default -> {
+            }
+        }
+
+        return false;
     }
 }

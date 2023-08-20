@@ -24,17 +24,18 @@ public class PlayerActionHandler extends Event {
             val player = playerInteractEvent.getEntity();
             val hand = playerInteractEvent.getHand();
             if (playerInteractEvent instanceof PlayerInteractEvent.RightClickItem) {
-                playerInteractEvent.setCanceled(onItemRightClick(player, hand) == InteractionResult.SUCCESS);
+                playerInteractEvent
+                    .setCanceled(onItemRightClick(player, hand) == InteractionResult.SUCCESS);
             }
         }
     }
 
     public static InteractionResult onItemRightClick(Player player, InteractionHand hand) {
-        //on right click open omnitrix gui
-        //get item
+        // on right click open omnitrix gui
+        // get item
         val item = player.getItemInHand(hand);
         if (item.getItem() instanceof OmnitrixWatch omnitrix) {
-            //open screen
+            // open screen
             omnitrix.openScreen(player);
             return InteractionResult.SUCCESS;
         } else {
