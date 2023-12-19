@@ -19,8 +19,6 @@
 package io.github.realyusufismail.bentenmod.data.advancments;
 
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
-import static io.github.realyusufismail.realyusufismailcore.core.init.BlockInitCore.COPPER_BLOCK;
-import static io.github.realyusufismail.realyusufismailcore.core.init.ItemInitCore.COPPER;
 
 import com.google.common.collect.Sets;
 import com.google.gson.Gson;
@@ -222,35 +220,6 @@ public class ModAdvancementProvider implements IDataProvider {
                     .addCriterion("black_diamond_hoe", getItem(BLACK_DIAMOND_HOE.get()))
                     .requirements(IRequirementsStrategy.OR)
                     .save(consumer, id("black_diamond_tools"));
-
-            // copper
-            Advancement copper_ingot = Advancement.Builder.advancement()
-                    .parent(root)
-                    .display(
-                            COPPER.get(),
-                            title("copper_ingot"),
-                            description("copper_ingot"),
-                            null,
-                            FrameType.GOAL,
-                            true,
-                            true,
-                            false)
-                    .addCriterion("get_ingot", getItem(COPPER.get()))
-                    .save(consumer, id("copper_ingot"));
-
-            Advancement copper_block = Advancement.Builder.advancement()
-                    .parent(copper_ingot)
-                    .display(
-                            COPPER_BLOCK.get(),
-                            title("copper_block"),
-                            description("copper_block"),
-                            null,
-                            FrameType.GOAL,
-                            true,
-                            true,
-                            false)
-                    .addCriterion("get_block", getItem(COPPER_BLOCK.get()))
-                    .save(consumer, id("copper_block"));
 
             // fire
             Advancement fire_ore = Advancement.Builder.advancement()

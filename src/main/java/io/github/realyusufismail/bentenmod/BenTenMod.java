@@ -52,8 +52,8 @@ public class BenTenMod {
 
         bus.addGenericListener(IRecipeSerializer.class, RegisterRecipeInit::registerRecipes);
         bus.addListener(DataGenerators::gatherData);
-        MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, OreGenerationInit::addOres);
+        MinecraftForge.EVENT_BUS.addListener(this::onBiomeLoad);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -64,7 +64,6 @@ public class BenTenMod {
         return new ModResourceLocation(path);
     }
 
-    @SubscribeEvent
     public void onBiomeLoad(BiomeLoadingEvent event) {
         EntitySpawingInit.onBiomesLoad(event);
     }
