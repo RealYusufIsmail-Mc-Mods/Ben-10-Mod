@@ -16,22 +16,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */ 
-package com.yusuf.bentenmod.core.itemgroup;
+package com.yusuf.bentenmod.core.keybind;
 
-import com.yusuf.bentenmod.core.init.ItemInit;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.util.NonNullList;
 
-public class MainItemGroup extends ItemGroup {
+public class Keybindings {
+    public static NonNullList<KeyBinding> keyBinds = NonNullList.create();
 
-    public static final MainItemGroup MAIN = new MainItemGroup(ItemGroup.TABS.length, "main");
-
-    public MainItemGroup(int index, String label) {
-        super(index, label);
-    }
-
-    @Override
-    public ItemStack makeIcon() {
-        return new ItemStack(ItemInit.OMNITRIX.get());
-    }
+    public static KeyBinding RELOAD;
 }

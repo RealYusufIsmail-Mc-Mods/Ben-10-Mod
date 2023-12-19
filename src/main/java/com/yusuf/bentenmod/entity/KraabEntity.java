@@ -1,5 +1,25 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.entity;
 
+import java.util.EnumSet;
+import java.util.Random;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -17,13 +37,10 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 
-import java.util.EnumSet;
-import java.util.Random;
-
 public class KraabEntity extends CreatureEntity {
 
-    private static final DataParameter<Boolean> SHOOTING = EntityDataManager.defineId(KraabEntity.class,
-            DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SHOOTING =
+            EntityDataManager.defineId(KraabEntity.class, DataSerializers.BOOLEAN);
 
     private float shootTimer;
 
@@ -32,11 +49,15 @@ public class KraabEntity extends CreatureEntity {
     }
 
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35)
-                .add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.ATTACK_DAMAGE, 4).add(Attributes.MAX_HEALTH, 25);
+        return MonsterEntity.createMonsterAttributes()
+                .add(Attributes.FOLLOW_RANGE, 35)
+                .add(Attributes.MOVEMENT_SPEED, 0.25)
+                .add(Attributes.ATTACK_DAMAGE, 4)
+                .add(Attributes.MAX_HEALTH, 25);
     }
 
-    public static boolean canKrabEntitySpawn(EntityType<KraabEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+    public static boolean canKrabEntitySpawn(
+            EntityType<KraabEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
@@ -75,10 +96,8 @@ public class KraabEntity extends CreatureEntity {
         updateSwingTime();
 
         if (level.isClientSide)
-            if (isShooting())
-                shootTimer++;
-            else
-                shootTimer = 0;
+            if (isShooting()) shootTimer++;
+            else shootTimer = 0;
     }
 
     public float getShootAnim(float partialTicks) {
@@ -139,5 +158,4 @@ public class KraabEntity extends CreatureEntity {
             }
         }
     }
-
 }

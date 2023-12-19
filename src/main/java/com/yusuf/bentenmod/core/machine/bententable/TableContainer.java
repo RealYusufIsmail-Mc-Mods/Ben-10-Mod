@@ -1,6 +1,26 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.core.init.ContainerInit;
+import com.yusuf.bentenmod.core.machine.bententable.slot.OutputSlot;
+import java.util.Objects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
@@ -11,9 +31,6 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.IntArray;
-import net.yusuf.realyusufismailcore.util.OutputSlot;
-
-import java.util.Objects;
 
 public class TableContainer extends Container {
     private final IIntArray data;
@@ -33,7 +50,7 @@ public class TableContainer extends Container {
 
         addSlot(new OutputSlot((IInventory) te, 3, 138, 40));
 
-        //player inventory
+        // player inventory
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
                 this.addSlot(new Slot(inv, col + row * 9 + 9, 8 + col * 18, (166 - (4 - row) * 18 - 10) + 13));
@@ -60,7 +77,6 @@ public class TableContainer extends Container {
         }
         throw new IllegalStateException("Tile Entity Is Not Correct");
     }
-
 
     @Override
     public boolean stillValid(PlayerEntity p_75145_1_) {
@@ -95,7 +111,5 @@ public class TableContainer extends Container {
         int process = data.get(0);
         int maxTick = data.get(1);
         return maxTick != 0 && process != 0 ? process * 24 / maxTick : 0;
-
     }
 }
-

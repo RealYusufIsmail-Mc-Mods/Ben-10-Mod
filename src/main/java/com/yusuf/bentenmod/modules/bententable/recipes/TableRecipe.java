@@ -1,3 +1,21 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.modules.bententable.recipes;
 
 import com.google.gson.JsonElement;
@@ -20,6 +38,7 @@ public class TableRecipe implements IRecipe<IInventory> {
      * Set the input ingredients
      */
     public final Ingredient input1;
+
     public final Ingredient input2;
     public final Ingredient input3;
     /**
@@ -34,7 +53,8 @@ public class TableRecipe implements IRecipe<IInventory> {
     /**
      * put all of final variables to constructor
      */
-    public TableRecipe(Ingredient input1, Ingredient input2, Ingredient input3, ItemStack output, ResourceLocation recipeId) {
+    public TableRecipe(
+            Ingredient input1, Ingredient input2, Ingredient input3, ItemStack output, ResourceLocation recipeId) {
         this.input1 = input1;
         this.input2 = input2;
         this.input3 = input3;
@@ -42,7 +62,7 @@ public class TableRecipe implements IRecipe<IInventory> {
         this.recipeId = recipeId;
     }
 
-    //int value is the index of Container Slot in your Container class
+    // int value is the index of Container Slot in your Container class
 
     @Override
     public boolean matches(IInventory inventory, World p_77569_2_) {
@@ -97,7 +117,8 @@ public class TableRecipe implements IRecipe<IInventory> {
         }
     }
 
-    public static final class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<TableRecipe> {
+    public static final class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>>
+            implements IRecipeSerializer<TableRecipe> {
         public Serializer() {
             setRegistryName(BenTenMod.MOD_ID, "table_recipe");
         }
@@ -113,7 +134,9 @@ public class TableRecipe implements IRecipe<IInventory> {
             if (json.get("output").isJsonObject())
                 output = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(json, "output"));
             else {
-                output = new ItemStack(Registry.ITEM.getOptional(new ResourceLocation(JSONUtils.getAsString(json, "output"))).orElseThrow(() -> new IllegalStateException("Oops")));
+                output = new ItemStack(Registry.ITEM
+                        .getOptional(new ResourceLocation(JSONUtils.getAsString(json, "output")))
+                        .orElseThrow(() -> new IllegalStateException("Oops")));
             }
             return new TableRecipe(input1, input2, input3, output, recipeId);
         }

@@ -1,7 +1,26 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.entity;
 
 import com.yusuf.bentenmod.entity.ai.VilgaxAttackGoal;
 import com.yusuf.bentenmod.entity.ai.VilgaxWaterAvoidingRandomWalkingGoal;
+import java.util.Random;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -37,13 +56,10 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-import java.util.Random;
-
 public class VilgaxEntity extends MonsterEntity implements IAnimatable {
 
-
-    private static final DataParameter<Boolean> ATTACKING = EntityDataManager.defineId(VilgaxEntity.class,
-            DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> ATTACKING =
+            EntityDataManager.defineId(VilgaxEntity.class, DataSerializers.BOOLEAN);
 
     private final AnimationFactory factory = new AnimationFactory(this);
 
@@ -52,13 +68,17 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
     }
 
     public static AttributeModifierMap.MutableAttribute registerAttributes() {
-        return MonsterEntity.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 35.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.23F).add(Attributes.ATTACK_DAMAGE, 10.0D)
-                .add(Attributes.ARMOR, 2.0D).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
+        return MonsterEntity.createMonsterAttributes()
+                .add(Attributes.FOLLOW_RANGE, 35.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.23F)
+                .add(Attributes.ATTACK_DAMAGE, 10.0D)
+                .add(Attributes.ARMOR, 2.0D)
+                .add(Attributes.SPAWN_REINFORCEMENTS_CHANCE)
                 .add(Attributes.MAX_HEALTH, 300.0D);
     }
 
-    public static boolean canVilgaxSpawn(EntityType<VilgaxEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
+    public static boolean canVilgaxSpawn(
+            EntityType<VilgaxEntity> entity, IWorld worldIn, SpawnReason reason, BlockPos pos, Random randomIn) {
         return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
@@ -71,8 +91,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
         if (!this.onGround) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("attacking", true));
             return PlayState.CONTINUE;
-        } else
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
+        } else event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.CONTINUE;
     }
 
@@ -84,7 +103,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
     @Override
     public AnimationFactory getFactory() {
         return this.factory;
-
     }
 
     protected void registerGoals() {
@@ -131,12 +149,10 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
                 int j1 = j + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
                 int k1 = k + MathHelper.nextInt(this.random, 7, 40) * MathHelper.nextInt(this.random, -1, 1);
                 new BlockPos(i1, j1, k1);
-
             }
         }
 
         return true;
-
     }
 
     public boolean doHurtTarget(Entity p_70652_1_) {
@@ -185,7 +201,6 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
                 this.setItemSlot(EquipmentSlotType.MAINHAND, new ItemStack(Items.IRON_SHOVEL));
             }
         }
-
     }
 
     public void killed(ServerWorld p_241847_1_, LivingEntity p_241847_2_) {
@@ -194,9 +209,7 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
             if (p_241847_1_.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
                 return;
             }
-
         }
-
     }
 
     protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
@@ -204,7 +217,8 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
     }
 
     public boolean canHoldItem(ItemStack p_175448_1_) {
-        return (p_175448_1_.getItem() != Items.EGG || !this.isBaby() || !this.isPassenger()) && super.canHoldItem(p_175448_1_);
+        return (p_175448_1_.getItem() != Items.EGG || !this.isBaby() || !this.isPassenger())
+                && super.canHoldItem(p_175448_1_);
     }
 
     protected void dropCustomDeathLoot(DamageSource p_213333_1_, int p_213333_2_, boolean p_213333_3_) {
@@ -220,8 +234,5 @@ public class VilgaxEntity extends MonsterEntity implements IAnimatable {
                 }
             }
         }
-
     }
-
-
 }

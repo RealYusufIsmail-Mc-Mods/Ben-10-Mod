@@ -1,3 +1,21 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.data.tags;
 
 import com.yusuf.bentenmod.BenTenMod;
@@ -7,7 +25,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-
 public class ModBlockTagsProvider extends BlockTagsProvider {
 
     public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
@@ -16,7 +33,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags() {
-        //ores
+        // ores
         tag(TagsInit.Blocks.ORES_FIRE).add(BlockInit.FIRE_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_FIRE);
 
@@ -35,13 +52,15 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(TagsInit.Blocks.ORES_IMPERIUMS).add(BlockInit.IMPERIUM_ORE.get(), BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_IMPERIUMS);
 
-        tag(TagsInit.Blocks.ORES_LEGENDARY_ORES).add(BlockInit.LEGENDARY_ORE.get(), BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
+        tag(TagsInit.Blocks.ORES_LEGENDARY_ORES)
+                .add(BlockInit.LEGENDARY_ORE.get(), BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_LEGENDARY_ORES);
 
-        tag(TagsInit.Blocks.ORES_BLACK_DIAMONDS).add(BlockInit.BLACK_DIAMOND_ORE.get(), BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
+        tag(TagsInit.Blocks.ORES_BLACK_DIAMONDS)
+                .add(BlockInit.BLACK_DIAMOND_ORE.get(), BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMONDS);
 
-        //blocks
+        // blocks
         tag(TagsInit.Blocks.STORAGE_LEGENDARY).add(BlockInit.LEGENDARY_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_LEGENDARY);
 
@@ -59,7 +78,5 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND);
-
     }
 }
-

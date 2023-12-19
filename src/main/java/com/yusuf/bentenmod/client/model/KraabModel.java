@@ -1,3 +1,21 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.client.model;
 
 import com.google.common.collect.ImmutableList;
@@ -193,8 +211,15 @@ public class KraabModel extends EntityModel<KraabEntity> {
     }
 
     @Override
-    public void renderToBuffer(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn,
-                               int packedOverlayIn, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(
+            MatrixStack matrixStackIn,
+            IVertexBuilder bufferIn,
+            int packedLightIn,
+            int packedOverlayIn,
+            float red,
+            float green,
+            float blue,
+            float alpha) {
         ImmutableList.of(this.body1).forEach((modelRenderer) -> {
             modelRenderer.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
         });
@@ -210,8 +235,13 @@ public class KraabModel extends EntityModel<KraabEntity> {
     }
 
     @Override
-    public void setupAnim(KraabEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-                          float netHeadYaw, float headPitch) {
+    public void setupAnim(
+            KraabEntity entityIn,
+            float limbSwing,
+            float limbSwingAmount,
+            float ageInTicks,
+            float netHeadYaw,
+            float headPitch) {
 
         // Head
         head1.yRot = netHeadYaw * (PI / 180f);

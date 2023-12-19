@@ -3,9 +3,9 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.16.5-2.0.0.beta.1] - 19/12/2023
 
-### Added a ben ten Table and this mod now requires RealYusufIsmail core which stores some important code for all my mods. It also means the mods size has been reduced. Reduced the size of the mod, and some big fixes. Added some 1.17 deesplate ores for my ores in my mod. I am preparing for 1.17. Unusable right now. That's it for this update.
+### Restarting work on 1.16.5 version of this mod. A lot to change in the coming versions.
 
 ## [1.16.5-1.17] - 19/06/2021
 

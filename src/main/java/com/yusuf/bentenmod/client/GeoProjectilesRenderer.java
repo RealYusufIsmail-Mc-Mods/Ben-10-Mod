@@ -1,10 +1,26 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.client;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import java.awt.Color;
 import java.util.Collections;
-
-import com.mojang.blaze3d.matrix.MatrixStack;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
@@ -47,28 +63,48 @@ public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends Enti
     }
 
     @Override
-    public void render(T entityIn, float entityYaw, float partialTicks, MatrixStack matrixStackIn,
-                       IRenderTypeBuffer bufferIn, int packedLightIn) {
+    public void render(
+            T entityIn,
+            float entityYaw,
+            float partialTicks,
+            MatrixStack matrixStackIn,
+            IRenderTypeBuffer bufferIn,
+            int packedLightIn) {
         GeoModel model = modelProvider.getModel(modelProvider.getModelLocation(entityIn));
         matrixStackIn.pushPose();
-        matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(
-                MathHelper.lerp(partialTicks, entityIn.yRotO, entityIn.yRot) - 90.0F));
-        matrixStackIn.mulPose(Vector3f.ZP
-                .rotationDegrees(MathHelper.lerp(partialTicks, entityIn.xRotO, entityIn.xRot)));
+        matrixStackIn.mulPose(
+                Vector3f.YP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.yRotO, entityIn.yRot) - 90.0F));
+        matrixStackIn.mulPose(
+                Vector3f.ZP.rotationDegrees(MathHelper.lerp(partialTicks, entityIn.xRotO, entityIn.xRot)));
         Minecraft.getInstance().textureManager.bind(getTextureLocation(entityIn));
         Color renderColor = getRenderColor(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn);
-        RenderType renderType = getRenderType(entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn,
-                getTextureLocation(entityIn));
-        render(model, entityIn, partialTicks, renderType, matrixStackIn, bufferIn, null, packedLightIn,
-                getPackedOverlay(entityIn, 0), (float) renderColor.getRed() / 255f,
-                (float) renderColor.getGreen() / 255f, (float) renderColor.getBlue() / 255f,
+        RenderType renderType = getRenderType(
+                entityIn, partialTicks, matrixStackIn, bufferIn, null, packedLightIn, getTextureLocation(entityIn));
+        render(
+                model,
+                entityIn,
+                partialTicks,
+                renderType,
+                matrixStackIn,
+                bufferIn,
+                null,
+                packedLightIn,
+                getPackedOverlay(entityIn, 0),
+                (float) renderColor.getRed() / 255f,
+                (float) renderColor.getGreen() / 255f,
+                (float) renderColor.getBlue() / 255f,
                 (float) renderColor.getAlpha() / 255);
 
         float lastLimbDistance = 0.0F;
         float limbSwing = 0.0F;
         EntityModelData entityModelData = new EntityModelData();
-        AnimationEvent<T> predicate = new AnimationEvent<T>(entityIn, limbSwing, lastLimbDistance, partialTicks,
-                !(lastLimbDistance > -0.15F && lastLimbDistance < 0.15F), Collections.singletonList(entityModelData));
+        AnimationEvent<T> predicate = new AnimationEvent<T>(
+                entityIn,
+                limbSwing,
+                lastLimbDistance,
+                partialTicks,
+                !(lastLimbDistance > -0.15F && lastLimbDistance < 0.15F),
+                Collections.singletonList(entityModelData));
         if (modelProvider instanceof IAnimatableModel) {
             ((IAnimatableModel<T>) modelProvider).setLivingAnimations(entityIn, this.getUniqueID(entityIn), predicate);
         }
@@ -89,5 +125,4 @@ public class GeoProjectilesRenderer<T extends Entity & IAnimatable> extends Enti
     public ResourceLocation getTextureLocation(T instance) {
         return this.modelProvider.getTextureLocation(instance);
     }
-
 }

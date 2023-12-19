@@ -1,13 +1,29 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.common.material;
 
 import com.yusuf.bentenmod.core.init.ItemInit;
+import java.util.function.Supplier;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
-import java.util.function.Supplier;
-
 public enum CustomToolMaterial implements IItemTier {
-
     SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
     HEATBLAST_SWORD(20, 2500, 60f, 10f, 40, () -> Ingredient.of(ItemInit.FIRE.get())),
     BLACK_DIAMOND_SWORD(20, 2000, 60f, 12f, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
@@ -26,7 +42,6 @@ public enum CustomToolMaterial implements IItemTier {
     IMPERIUM_PICKAXE_UPGRADED(3, 3000, 50f, 5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
     IMPERIUM_AXE(3, 3000, 50f, 5f, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
 
-
     private final int harvestLevel;
     private final int maxUses;
     private final float efficiency;
@@ -34,8 +49,13 @@ public enum CustomToolMaterial implements IItemTier {
     private final int enchantability;
     private final Ingredient repairMaterial;
 
-    CustomToolMaterial(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability,
-                       Supplier<Ingredient> repairMaterial) {
+    CustomToolMaterial(
+            int harvestLevel,
+            int maxUses,
+            float efficiency,
+            float attackDamage,
+            int enchantability,
+            Supplier<Ingredient> repairMaterial) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
         this.efficiency = efficiency;
@@ -73,5 +93,4 @@ public enum CustomToolMaterial implements IItemTier {
     public Ingredient getRepairIngredient() {
         return this.repairMaterial;
     }
-
 }

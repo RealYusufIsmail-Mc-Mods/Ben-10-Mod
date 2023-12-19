@@ -1,25 +1,42 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.data.loot;
 
-import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.core.init.*;
 import com.yusuf.bentenmod.core.init.ItemInit;
+import java.util.stream.Collectors;
 import net.minecraft.block.Block;
 import net.minecraft.data.loot.BlockLootTables;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.stream.Collectors;
-
-
 public class ModBlockLootTables extends BlockLootTables {
     @Override
     protected void addTables() {
-        //ores
-        add(BlockInit.BLACK_DIAMOND_ORE.get(),
+        // ores
+        add(
+                BlockInit.BLACK_DIAMOND_ORE.get(),
                 createOreDrop(BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
-        add(BlockInit.INFINITUM_ORE.get(),
+        add(
+                BlockInit.INFINITUM_ORE.get(),
                 createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
-        add(BlockInit.SPEED_ORE.get(),
-                createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
+        add(BlockInit.SPEED_ORE.get(), createOreDrop(BlockInit.SPEED_ORE.get(), ItemInit.SPEED.get()));
 
         dropSelf(BlockInit.LEGENDARY_ORE.get());
         dropSelf(BlockInit.IMPERIUM_ORE.get());
@@ -33,8 +50,7 @@ public class ModBlockLootTables extends BlockLootTables {
         dropSelf(BlockInit.DEEPSLATE_RUBY_ORE.get());
         dropSelf(BlockInit.DEEPSLATE_SPEED_ORE.get());
 
-
-        //blocks
+        // blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
         dropSelf(BlockInit.FIRE_BLOCK.get());
         dropSelf(BlockInit.RUBY_BLOCK.get());
@@ -53,4 +69,3 @@ public class ModBlockLootTables extends BlockLootTables {
                 .collect(Collectors.toSet());
     }
 }
-

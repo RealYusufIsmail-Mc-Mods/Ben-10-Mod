@@ -1,28 +1,43 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://maven.parchmentmc.org' }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath("org.parchmentmc:librarian:1.+")
     }
 }
+
+plugins {
+    id 'java'
+    id "com.diffplug.spotless" version "6.10.0"
+    id 'net.darkhax.curseforgegradle' version '1.1.17'
+}
+
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 
 version = "${mod_version}"
-group = 'com.yusuf'
-archivesBaseName = mod_id
+group = 'io.github.realyusufismail'
+base.archivesName.set("${mod_id}")
+
+
+final var modId = mod_id
+final var mcVersion = mcVersion
+final var projectId = projectId
+project.version = mod_version
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
 
-    mappings channel: 'official', version: "${mc_version}"
+    mappings channel: 'parchment', version: "2022.03.06-1.16.5"
 
     runs {
         client {
@@ -71,10 +86,6 @@ minecraft {
 sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
-def gpr_creds = {
-    username = property('gpr.username')
-    password = property('gpr.token')
-}
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
@@ -87,27 +98,17 @@ repositories {
     maven {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
+        url = "https://modmaven.dev"
     }
-    maven {
-        url = uri("https://maven.pkg.github.com/realyusufismail/realyusufismail-core")
-        credentials gpr_creds
-    }
-
 }
 
 dependencies {
-
     minecraft "net.minecraftforge:forge:${forge_version}"
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     compileOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}")
-    implementation fg.deobf("net.yusuf:realyusufismailcore:${ryic_version}") {
-        exclude module: "forge"
-    }
-
-
+    implementation "io.github.realyusufismail:realyusufismailcore:${ryc_version}"
 }
 
 jar {
@@ -124,16 +125,51 @@ jar {
     }
 }
 
-jar.finalizedBy('reobfJar')
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
+spotless {
+    java {
+        // Excludes build folder since it contains generated java classes.
+        targetExclude("build/**")
+        palantirJavaFormat()
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+        licenseHeader(
+                """/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ """)
     }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
+}
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+    group = "CurseForge"
+    dependsOn("build")
+    disableVersionDetection()
+
+    var token = project.hasProperty('curseforge.token') ? project.property('curseforge.token') as String : ""
+    apiToken = token
+
+    final var jar = file("build/libs/${base.archivesName.get()}-${project.version}.jar")
+
+    final var mainFile = upload(projectId, jar)
+    mainFile.changelog = file("CHANGELOG.md").getText()
+    mainFile.changelogType = "markdown"
+    mainFile.releaseType = "release"
+    mainFile.addJavaVersion("Java 8")
+    mainFile.addModLoader("Forge")
+    mainFile.addGameVersion(mcVersion)
 }

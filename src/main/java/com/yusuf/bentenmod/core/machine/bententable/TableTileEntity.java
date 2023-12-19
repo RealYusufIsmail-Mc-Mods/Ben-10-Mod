@@ -1,9 +1,28 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
 import com.yusuf.bentenmod.core.init.RegisterRecipeInit;
 import com.yusuf.bentenmod.core.init.TileEntityInit;
 import com.yusuf.bentenmod.modules.bententable.recipes.TableRecipe;
+import javax.annotation.Nullable;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
@@ -13,8 +32,6 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
-
-import javax.annotation.Nullable;
 
 public class TableTileEntity extends LockableLootTileEntity implements ITickableTileEntity {
     public static final int slots = 4;
@@ -53,9 +70,8 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
         this(TileEntityInit.TABLE_TILE.get());
     }
 
-
-    //This is the MOST IMPORTANT
-    //This method will be called  <strong> EVERY SINGLE TICK <strong/>
+    // This is the MOST IMPORTANT
+    // This method will be called  <strong> EVERY SINGLE TICK <strong/>
 
     @Override
     public void tick() {
@@ -69,19 +85,28 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
                 TableRecipe recipe = getRecipe();
                 if (canProcessFromRecipe(recipe)) {
                     currentTick++;
-                    level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.TRUE), 3);
+                    level.setBlock(
+                            worldPosition,
+                            level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.TRUE),
+                            3);
                     if (currentTick >= maxTick) {
                         processing(recipe);
                         currentTick = 0;
                     }
                 } else {
-                    level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.FALSE), 3);
+                    level.setBlock(
+                            worldPosition,
+                            level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.FALSE),
+                            3);
                     currentTick = 0;
                     setChanged();
                     return;
                 }
             } else {
-                level.setBlock(worldPosition, level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.FALSE), 3);
+                level.setBlock(
+                        worldPosition,
+                        level.getBlockState(worldPosition).setValue(TableBlock.POWERED, Boolean.FALSE),
+                        3);
                 currentTick = 0;
                 setChanged();
                 return;
@@ -121,7 +146,8 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
                     return true;
                 } else if (!resultSlot.sameItem(stack)) {
                     return false;
-                } else if (resultSlot.getCount() + stack.getCount() <= 64 && resultSlot.getCount() + stack.getCount() <= resultSlot.getMaxStackSize()) {
+                } else if (resultSlot.getCount() + stack.getCount() <= 64
+                        && resultSlot.getCount() + stack.getCount() <= resultSlot.getMaxStackSize()) {
                     return true;
                 } else {
                     return resultSlot.getCount() + stack.getCount() <= stack.getMaxStackSize();
@@ -129,7 +155,6 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
             }
         } else return false;
     }
-
 
     private boolean empty(ItemStack stack) {
         return stack.isEmpty();
@@ -166,7 +191,9 @@ public class TableTileEntity extends LockableLootTileEntity implements ITickable
             return null;
         } else {
             assert level != null;
-            return level.getRecipeManager().getRecipeFor(RegisterRecipeInit.TABLE_RECIPE, this, level).orElse(null);
+            return level.getRecipeManager()
+                    .getRecipeFor(RegisterRecipeInit.TABLE_RECIPE, this, level)
+                    .orElse(null);
         }
     }
 }

@@ -3,12 +3,12 @@ loaderVersion = "[36,)" #mandatory This is typically bumped every Minecraft vers
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
 license = "BSD 3-Clause License"
-issueTrackerURL = "https://github.com/RealYusufIsmail/Ben-10-Mod/issues" #optional
+issueTrackerURL = "https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/issues" #optional
 [[mods]]
 modId = "bentenmod"
 version = "${file.jarVersion}"
 displayName = "Ben10 Mod"
-updateJSONURL = "https://raw.githubusercontent.com/RealYusufIsmail/Ben-10-Mod/1.16.5/update.json"
+updateJSONURL = "https://forge.curseupdate.com/459985/bentenmod"
 logoFile = "headerimg.png"
 credits = "Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items in the mod and gentworm for helping me with my code and vemerion for adding features to this mod."
 
@@ -19,16 +19,12 @@ soon.
 Dont not copy my mod.
 made by Yusuf Arfan Ismail.
 Github is https://github.com/realyusufismail
-join discord for support and teasers https://discord.gg/g858J6q
-Credits for callout_662 for making the models for the aliens.
-callout_662: https://www.curseforge.com/members/callout662/projects
-Gentworm: https://www.curseforge.com/members/gentworm/followers
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.bentenmod]] #optional
 modId = "forge"
 mandatory = true
-versionRange = "[36.2.0,)"
+versionRange = "[36.2.34,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -38,25 +34,3 @@ mandatory = true
 versionRange = "[1.16.5,)"
 ordering = "NONE"
 side = "BOTH"
-
-[[dependencies.bentenmod]]
-modId = "geckolib3"
-mandatory = true
-versionRange = "[1.16.5:3.0.41,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.bentenmod]]
-modId = "patchouli"
-mandatory = true
-versionRange = "[1.16.4-53.1,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.bentenmod]]
-modId = "realyusufismailcore"
-mandatory = true
-versionRange = "[1.16.5-4.5,)"
-ordering = "NONE"
-side = "BOTH"
-

@@ -1,6 +1,26 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.data.client;
 
 import com.yusuf.bentenmod.BenTenMod;
+import com.yusuf.bentenmod.core.init.*;
+import javax.annotation.Nonnull;
 import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.util.ResourceLocation;
@@ -8,10 +28,6 @@ import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import com.yusuf.bentenmod.core.init.*;
-
-import javax.annotation.Nonnull;
-
 
 /**
  * @see BlockStateProvider#simpleBlock(Block)
@@ -19,7 +35,6 @@ import javax.annotation.Nonnull;
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, BenTenMod.MOD_ID, exFileHelper);
-
     }
 
     @Nonnull
@@ -97,7 +112,3 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
      */
 }
-
-
-
-

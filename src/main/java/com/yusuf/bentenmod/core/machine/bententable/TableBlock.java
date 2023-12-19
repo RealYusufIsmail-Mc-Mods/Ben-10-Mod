@@ -1,6 +1,26 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.core.machine.bententable;
 
 import com.yusuf.bentenmod.common.LangKeys;
+import java.util.List;
+import javax.annotation.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -29,9 +49,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-import javax.annotation.Nullable;
-import java.util.List;
-
 /**
  * @see net.minecraft.block.AbstractFurnaceBlock
  */
@@ -45,8 +62,7 @@ public class TableBlock extends Block {
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(1)
                 .requiresCorrectToolForDrops()
-                .sound(SoundType.WOOD)
-        );
+                .sound(SoundType.WOOD));
     }
 
     /**
@@ -54,7 +70,13 @@ public class TableBlock extends Block {
      */
     @SuppressWarnings("deprecation")
     @Override
-    public ActionResultType use(BlockState p_225533_1_, World level, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
+    public ActionResultType use(
+            BlockState p_225533_1_,
+            World level,
+            BlockPos pos,
+            PlayerEntity playerEntity,
+            Hand p_225533_5_,
+            BlockRayTraceResult p_225533_6_) {
         super.use(p_225533_1_, level, pos, playerEntity, p_225533_5_, p_225533_6_);
         if (!level.isClientSide()) {
             TileEntity te = level.getBlockEntity(pos);
@@ -71,7 +93,8 @@ public class TableBlock extends Block {
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
-        return this.defaultBlockState().setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState()
+                .setValue(FACING, p_196258_1_.getHorizontalDirection().getOpposite());
     }
 
     /**
@@ -102,7 +125,11 @@ public class TableBlock extends Block {
     }
 
     @Override
-    public void appendHoverText(ItemStack p_190948_1_, @Nullable IBlockReader p_190948_2_, List<ITextComponent> p_190948_3_, ITooltipFlag p_190948_4_) {
+    public void appendHoverText(
+            ItemStack p_190948_1_,
+            @Nullable IBlockReader p_190948_2_,
+            List<ITextComponent> p_190948_3_,
+            ITooltipFlag p_190948_4_) {
         p_190948_3_.add(LangKeys.TABLE_DISC);
     }
 }

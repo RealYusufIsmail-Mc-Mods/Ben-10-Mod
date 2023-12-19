@@ -1,5 +1,22 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.data.client;
-
 
 import com.yusuf.bentenmod.BenTenMod;
 import net.minecraft.data.DataGenerator;
@@ -39,14 +56,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         block("deepslate_speed_ore");
         block("deepslate_omnitrix_ore");
         block("deepslate_omnitrix_ore");
-        //To have a custom file name use withExistingParent
-        //example withExistingParent("deepslate_omnitrix_ore_name", modLoc("block/deepslate_omnitrix_ore"));
-
+        // To have a custom file name use withExistingParent
+        // example withExistingParent("deepslate_omnitrix_ore_name", modLoc("block/deepslate_omnitrix_ore"));
 
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
         ModelFile itemhandHeld = getExistingFile(mcLoc("item/handheld"));
 
-        //items
+        // items
         builder(itemGenerated, "black_diamond");
         builder(itemGenerated, "black_diamond_scrap");
         builder(itemGenerated, "infinitum");
@@ -88,10 +104,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         builder(itemGenerated, "raw_legendary");
         builder(itemGenerated, "raw_omnitrix");
         builder(itemGenerated, "raw_imperium");
-        //builder(itemGenerated, "omnitrix_watch");
+        // builder(itemGenerated, "omnitrix_watch");
 
-
-        //tools
+        // tools
         tool(itemhandHeld, "axe");
         tool(itemhandHeld, "sword");
         tool(itemhandHeld, "heatblast_sword");
@@ -109,7 +124,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "imperium_pickaxe");
         tool(itemhandHeld, "imperium_pickaxe_upgraded");
         tool(itemhandHeld, "imperium_axe");
-
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
@@ -124,5 +138,3 @@ public class ModItemModelProvider extends ItemModelProvider {
         withExistingParent(name, modLoc("block/" + name));
     }
 }
-
-

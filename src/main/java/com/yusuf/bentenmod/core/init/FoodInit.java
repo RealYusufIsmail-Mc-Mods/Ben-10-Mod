@@ -1,3 +1,21 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.core.init;
 
 import net.minecraft.item.Food;
@@ -15,7 +33,10 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.DAMAGE_RESISTANCE, 1200, 0), 1)
             .effect(new EffectInstance(Effects.WATER_BREATHING, 600, 0), 1)
             .effect(new EffectInstance(Effects.DIG_SPEED, 2400, 0), 1)
-            .nutrition(4).saturationMod(1.2f).alwaysEat().build();
+            .nutrition(4)
+            .saturationMod(1.2f)
+            .alwaysEat()
+            .build();
     // Enchanted Omnitrix Apple
     public static final Food ENCHANTED_OMNITRIX_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.REGENERATION, 6000, 0), 1)
@@ -26,7 +47,10 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.DIG_SPEED, 6000, 0), 1)
             .effect(new EffectInstance(Effects.NIGHT_VISION, 2400, 0), 1)
             .effect(new EffectInstance(Effects.SLOW_FALLING, 6000, 0), 1)
-            .nutrition(4).saturationMod(1.2f).alwaysEat().build();
+            .nutrition(4)
+            .saturationMod(1.2f)
+            .alwaysEat()
+            .build();
 
     // Ruby Apple
     public static final Food RUBY_APPLE = new Food.Builder()
@@ -36,12 +60,17 @@ public class FoodInit {
             .effect(new EffectInstance(Effects.MOVEMENT_SPEED, 4800, 0), 1)
             .effect(new EffectInstance(Effects.WATER_BREATHING, 3600, 0), 1)
             .effect(new EffectInstance(Effects.DIG_SPEED, 6000, 0), 1)
-            .nutrition(4).saturationMod(1.2f).alwaysEat().build();
+            .nutrition(4)
+            .saturationMod(1.2f)
+            .alwaysEat()
+            .build();
 
-    //Fire APPLE
+    // Fire APPLE
     public static final Food FIRE_APPLE = new Food.Builder()
             .effect(new EffectInstance(Effects.ABSORPTION, 4800, 2), 1)
             .effect(new EffectInstance(Effects.FIRE_RESISTANCE, 6000, 0), 1)
-            .nutrition(4).saturationMod(1.2f).alwaysEat().build();
-
+            .nutrition(4)
+            .saturationMod(1.2f)
+            .alwaysEat()
+            .build();
 }

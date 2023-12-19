@@ -1,6 +1,29 @@
+/*
+ * Copyright 2023 RealYusufIsmail.
+ *
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */ 
 package com.yusuf.bentenmod.data.recipe;
 
+import static com.yusuf.bentenmod.BenTenMod.MOD_ID;
+
 import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.function.Consumer;
+import javax.annotation.Nullable;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.ICriterionInstance;
@@ -15,21 +38,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.Nullable;
-import java.util.Objects;
-import java.util.function.Consumer;
-
-import static com.yusuf.bentenmod.BenTenMod.MOD_ID;
-
 public class TableRecipeBuilder {
     private final Ingredient input1;
     private final Ingredient input2;
     private final Ingredient input3;
     private final Item output;
 
-    private final Advancement.Builder advancementBuilder =
-            Advancement.Builder.advancement();
-
+    private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
 
     public TableRecipeBuilder(Ingredient input1, Ingredient input2, Ingredient input3, Item output) {
         this.input1 = input1;
@@ -38,7 +53,8 @@ public class TableRecipeBuilder {
         this.output = output;
     }
 
-    public static TableRecipeBuilder build(Ingredient input1, Ingredient input2, Ingredient input3, IItemProvider output) {
+    public static TableRecipeBuilder build(
+            Ingredient input1, Ingredient input2, Ingredient input3, IItemProvider output) {
         return new TableRecipeBuilder(input1, input2, input3, output.asItem());
     }
 
@@ -50,13 +66,22 @@ public class TableRecipeBuilder {
     public void save(Consumer<IFinishedRecipe> consumer, ResourceLocation rl) {
         ensureValid(rl);
         if (!advancementBuilder.getCriteria().isEmpty())
-            advancementBuilder.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl)).rewards(AdvancementRewards.Builder.recipe(rl)).requirements(IRequirementsStrategy.OR);
+            advancementBuilder
+                    .parent(new ResourceLocation("recipes/root"))
+                    .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(rl))
+                    .rewards(AdvancementRewards.Builder.recipe(rl))
+                    .requirements(IRequirementsStrategy.OR);
         assert output.getItemCategory() != null;
-        consumer.accept(
-                new Output(input1, input2, input3, output, advancementBuilder,
-                        new ResourceLocation(rl.getNamespace(), "recipes/" + output.getItemCategory().getRecipeFolderName() + "/" + rl.getPath())
-                        , rl
-                ));
+        consumer.accept(new Output(
+                input1,
+                input2,
+                input3,
+                output,
+                advancementBuilder,
+                new ResourceLocation(
+                        rl.getNamespace(),
+                        "recipes/" + output.getItemCategory().getRecipeFolderName() + "/" + rl.getPath()),
+                rl));
     }
 
     private void ensureValid(ResourceLocation rl) {
@@ -75,7 +100,14 @@ public class TableRecipeBuilder {
         private final ResourceLocation advancementId;
         private final ResourceLocation id;
 
-        public Output(Ingredient input1, Ingredient input2, Ingredient input3, Item output, Advancement.Builder advancementBuilder, ResourceLocation advancementId, ResourceLocation id) {
+        public Output(
+                Ingredient input1,
+                Ingredient input2,
+                Ingredient input3,
+                Item output,
+                Advancement.Builder advancementBuilder,
+                ResourceLocation advancementId,
+                ResourceLocation id) {
             this.input1 = input1;
             this.input2 = input2;
             this.input3 = input3;
@@ -101,7 +133,8 @@ public class TableRecipeBuilder {
 
         @Override
         public IRecipeSerializer<?> getType() {
-            return Objects.requireNonNull(ForgeRegistries.RECIPE_SERIALIZERS.getValue(new ResourceLocation(MOD_ID, "table_recipe")));
+            return Objects.requireNonNull(
+                    ForgeRegistries.RECIPE_SERIALIZERS.getValue(new ResourceLocation(MOD_ID, "table_recipe")));
         }
 
         @Nullable
