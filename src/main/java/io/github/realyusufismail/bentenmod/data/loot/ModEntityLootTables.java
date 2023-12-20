@@ -21,7 +21,6 @@ package io.github.realyusufismail.bentenmod.data.loot;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
-import io.github.realyusufismail.realyusufismailcore.core.init.ItemInitCore;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import net.minecraft.data.loot.EntityLootTables;
@@ -49,7 +48,7 @@ public class ModEntityLootTables extends EntityLootTables {
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .setRolls(ConstantRange.exactly(1))
-                                .add(ItemLootEntry.lootTableItem(ItemInitCore.COPPER.get())
+                                .add(ItemLootEntry.lootTableItem(ItemInit.FIRE.get())
                                         .apply(SetCount.setCount(RandomValueRange.between(0.0F, 6.0F)))
                                         .apply(LootingEnchantBonus.lootingMultiplier(
                                                 RandomValueRange.between(0.0F, 6.0F))))));
