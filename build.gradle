@@ -14,6 +14,7 @@ buildscript {
 
 plugins {
     id 'java'
+    id 'eclipse'
     id "com.diffplug.spotless" version "6.10.0"
     id 'net.darkhax.curseforgegradle' version '1.1.17'
 }
@@ -24,91 +25,97 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 version = "${mod_version}"
 group = 'io.github.realyusufismail'
-base.archivesName.set("${mod_id}")
 
 
 final var modId = mod_id
 final var mcVersion = mcVersion
 final var projectId = projectId
 project.version = mod_version
+base.archivesName.set(modId)
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-minecraft {
 
+minecraft {
     mappings channel: 'parchment', version: '2022.03.06-1.16.5'
 
     runs {
         client {
             workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                bentenmod {
-                    source sourceSets.main
-                }
-            }
-        }
-        server {
-            workingDirectory project.file('run')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            mods {
-                bentenmod {
-                    source sourceSets.main
-                }
-            }
+            mods { create(base.archivesName.get()) { source(sourceSets["main"]) } }
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            mods { create(base.archivesName.get()) { source(sourceSets["main"]) } }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+
+            mods { create(base.archivesName.get()) { source(sourceSets["main"]) } }
         }
 
         data {
             workingDirectory project.file('run')
 
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'bentenmod', '--all',
-                    '--existing', file('src/main/resources').toString(),
-                    '--existing', file('src/generated/resources').toString(),
-                    '--output', file('src/generated/resources/')
 
+            args '--mod', archivesBaseName, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
-            mods {
-                bentenmod {
-                    source sourceSets.main
-                }
+            mods { create(base.archivesName.get()) { source(sourceSets["main"]) } }
 
-            }
+            // 'runData' is renamed to 'runDataGenerator' to make it more clear what it does.
+            taskName("runDataGenerator")
         }
     }
 }
+
 sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
 
 repositories {
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven { url 'https://maven.blamejared.com' }
-    maven {
-        // location of the maven that hosts JEI files
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    }
+    maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven { url = 'https://maven.blamejared.com' }
+    maven { url = 'https://dvs1.progwml6.com/files/maven/' }
+    maven { url = 'https://modmaven.dev' }
+    mavenCentral()
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-    compileOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${jei_mc_version}:${jei_version}")
-    implementation "io.github.realyusufismail:realyusufismailcore:${ryc_version}"
+    implementation  fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    implementation group: 'io.github.realyusufismail', name: 'realyusufismailcore', version: ryc_version
+    runtimeOnly  fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+    //compileOnly "mezz.jei:jei-${jei_mc_version}:${jei_version}:api"
+    //runtimeOnly "mezz.jei:jei-${jei_mc_version}:${jei_version}"
 }
 
 jar {
