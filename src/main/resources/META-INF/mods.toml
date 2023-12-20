@@ -6,7 +6,7 @@ license = "BSD 3-Clause License"
 issueTrackerURL = "https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/issues" #optional
 [[mods]]
 modId = "bentenmod"
-version = "${file.jarVersion}"
+version = "1.16.5-2.0.0.beta.1"
 displayName = "Ben10 Mod"
 updateJSONURL = "https://forge.curseupdate.com/459985/bentenmod"
 logoFile = "headerimg.png"
