@@ -19,9 +19,8 @@
 package io.github.realyusufismail.bentenmod.core.machine.bententable;
 
 import io.github.realyusufismail.bentenmod.core.init.ContainerInit;
-import java.util.Objects;
-
 import io.github.realyusufismail.realyusufismailcore.util.OutputSlot;
+import java.util.Objects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;

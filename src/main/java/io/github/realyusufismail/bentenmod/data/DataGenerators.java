@@ -18,7 +18,6 @@
  */ 
 package io.github.realyusufismail.bentenmod.data;
 
-import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.data.advancments.ModAdvancementProvider;
 import io.github.realyusufismail.bentenmod.data.client.ModBlockStateProvider;
 import io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider;
@@ -31,7 +30,6 @@ import io.github.realyusufismail.bentenmod.data.tags.ModItemTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 public class DataGenerators {
