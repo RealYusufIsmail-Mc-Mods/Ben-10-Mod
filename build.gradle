@@ -1,32 +1,16 @@
 import net.darkhax.curseforgegradle.TaskPublishCurseForge
 
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven { url = 'https://maven.parchmentmc.org' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath("org.parchmentmc:librarian:1.+")
-    }
-}
-
 plugins {
     id 'java'
     id 'eclipse'
-    id "com.diffplug.spotless" version "6.10.0"
+    id "com.diffplug.spotless" version "6.25.0"
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
     id 'net.darkhax.curseforgegradle' version '1.1.17'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
-
 
 version = "${mod_version}"
 group = 'io.github.realyusufismail'
-
-
 final var modId = mod_id
 final var mcVersion = mcVersion
 final var projectId = projectId
@@ -111,11 +95,19 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_version}"
-    implementation  fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
-    implementation group: 'io.github.realyusufismail', name: 'realyusufismailcore', version: ryc_version
-    runtimeOnly  fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-    //compileOnly "mezz.jei:jei-${jei_mc_version}:${jei_version}:api"
-    //runtimeOnly "mezz.jei:jei-${jei_mc_version}:${jei_version}"
+
+    // Geckolib
+    implementation(fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}"))
+
+    // RealYusufIsmailCore
+    implementation("io.github.realyusufismail:realyusufismailcore:${ryc_version}")
+
+    // Patchouli
+    runtimeOnly(fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}"))
+
+    // JEI
+    compileOnly(fg.deobf("mezz.jei:jei-${mcVersion}:${jei_version}:api"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-${mcVersion}:${jei_version}"))
 }
 
 jar {

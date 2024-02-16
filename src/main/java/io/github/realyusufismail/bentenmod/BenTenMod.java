@@ -77,9 +77,6 @@ public class BenTenMod {
     }
 
     public void onClientSetup(final FMLClientSetupEvent event) {
-        Keybindings.RELOAD = new KeyBinding(
-                "key." + BenTenMod.MOD_ID + ".reload", GLFW.GLFW_KEY_R, "key.categories." + BenTenMod.MOD_ID);
-        ClientRegistry.registerKeyBinding(Keybindings.RELOAD);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.KRAAB_ENTITY.get(), KraabRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(
