@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -31,10 +31,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldVertexBufferUploader;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -61,8 +59,10 @@ public class OmnitrixScreen extends Screen {
 
     @Nullable
     private AlienType hoveredAlien = null;
+
     @Nullable
     private AlienType confirmingAlien = null;
+
     private int confirmTicksRemaining = 0;
 
     private IOmnitrixData omnitrixData;
@@ -76,7 +76,8 @@ public class OmnitrixScreen extends Screen {
         super.init();
         Minecraft mc = Minecraft.getInstance();
         if (mc.player != null) {
-            omnitrixData = mc.player.getCapability(CapabilityHandler.OMNITRIX_CAP).orElse(null);
+            omnitrixData =
+                    mc.player.getCapability(CapabilityHandler.OMNITRIX_CAP).orElse(null);
         }
     }
 
@@ -121,8 +122,8 @@ public class OmnitrixScreen extends Screen {
             int iconX = centerX + (int) (RADIUS * Math.cos(angle)) - ICON_SIZE / 2;
             int iconY = centerY + (int) (RADIUS * Math.sin(angle)) - ICON_SIZE / 2;
 
-            boolean isHovered = mouseX >= iconX && mouseX <= iconX + ICON_SIZE
-                    && mouseY >= iconY && mouseY <= iconY + ICON_SIZE;
+            boolean isHovered =
+                    mouseX >= iconX && mouseX <= iconX + ICON_SIZE && mouseY >= iconY && mouseY <= iconY + ICON_SIZE;
             boolean isUnlocked = omnitrixData != null && omnitrixData.isAlienUnlocked(alien);
             boolean isConfirming = alien == confirmingAlien;
 
@@ -133,8 +134,14 @@ public class OmnitrixScreen extends Screen {
 
             // Green glow highlight for hovered unlocked alien
             if (isHovered && isUnlocked) {
-                fillGradient(matrixStack, iconX - 3, iconY - 3, iconX + ICON_SIZE + 3, iconY + ICON_SIZE + 3,
-                        0x9900FF00, 0x9900CC00);
+                fillGradient(
+                        matrixStack,
+                        iconX - 3,
+                        iconY - 3,
+                        iconX + ICON_SIZE + 3,
+                        iconY + ICON_SIZE + 3,
+                        0x9900FF00,
+                        0x9900CC00);
             }
 
             // Draw alien icon
@@ -156,7 +163,12 @@ public class OmnitrixScreen extends Screen {
             // Confirmation flash
             if (isConfirming && confirmTicksRemaining > 0) {
                 float flashAlpha = (float) Math.abs(Math.sin(confirmTicksRemaining * 0.42)) * 0.7f;
-                fillGradient(matrixStack, iconX - 5, iconY - 5, iconX + ICON_SIZE + 5, iconY + ICON_SIZE + 5,
+                fillGradient(
+                        matrixStack,
+                        iconX - 5,
+                        iconY - 5,
+                        iconX + ICON_SIZE + 5,
+                        iconY + ICON_SIZE + 5,
                         (int) (flashAlpha * 255) << 24 | 0x00FF00,
                         (int) (flashAlpha * 255) << 24 | 0x00FF00);
             }
@@ -168,7 +180,16 @@ public class OmnitrixScreen extends Screen {
         // Draw central Omnitrix dial on top
         RenderSystem.color4f(1f, 1f, 1f, 1f);
         Minecraft.getInstance().getTextureManager().bind(DIAL_TEXTURE);
-        blit(matrixStack, centerX - DIAL_SIZE / 2, centerY - DIAL_SIZE / 2, 0, 0, DIAL_SIZE, DIAL_SIZE, DIAL_SIZE, DIAL_SIZE);
+        blit(
+                matrixStack,
+                centerX - DIAL_SIZE / 2,
+                centerY - DIAL_SIZE / 2,
+                0,
+                0,
+                DIAL_SIZE,
+                DIAL_SIZE,
+                DIAL_SIZE,
+                DIAL_SIZE);
 
         // Alien name label
         if (hoveredAlien != null) {
@@ -189,7 +210,8 @@ public class OmnitrixScreen extends Screen {
         if (omnitrixData != null && omnitrixData.getCooldownTicksRemaining() > 0) {
             int cdTicks = omnitrixData.getCooldownTicksRemaining();
             int cdSecs = (cdTicks / 20) + 1;
-            ITextComponent cooldown = new StringTextComponent("Recharging... " + cdSecs + "s").withStyle(TextFormatting.RED);
+            ITextComponent cooldown =
+                    new StringTextComponent("Recharging... " + cdSecs + "s").withStyle(TextFormatting.RED);
             int cw = this.font.width(cooldown);
             this.font.drawShadow(matrixStack, cooldown, centerX - cw / 2f, centerY - RADIUS - 20, 0xFF6666FF);
         }
@@ -238,10 +260,9 @@ public class OmnitrixScreen extends Screen {
         int segments = 60;
         for (int i = 0; i < segments; i++) {
             double a = 2 * Math.PI * i / segments;
-            buf.vertex(pose,
-                    centerX + (float) (RADIUS * Math.cos(a)),
-                    centerY + (float) (RADIUS * Math.sin(a)),
-                    0).color(0, 180, 0, 60).endVertex();
+            buf.vertex(pose, centerX + (float) (RADIUS * Math.cos(a)), centerY + (float) (RADIUS * Math.sin(a)), 0)
+                    .color(0, 180, 0, 60)
+                    .endVertex();
         }
         tessellator.end();
 
@@ -282,8 +303,12 @@ public class OmnitrixScreen extends Screen {
         // Filled triangle arrow
         buf.begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_COLOR);
         buf.vertex(pose, tipX, tipY, 0).color(0, green, 0, 220).endVertex();
-        buf.vertex(pose, baseX + perpX, baseY + perpY, 0).color(0, green / 2, 0, 180).endVertex();
-        buf.vertex(pose, baseX - perpX, baseY - perpY, 0).color(0, green / 2, 0, 180).endVertex();
+        buf.vertex(pose, baseX + perpX, baseY + perpY, 0)
+                .color(0, green / 2, 0, 180)
+                .endVertex();
+        buf.vertex(pose, baseX - perpX, baseY - perpY, 0)
+                .color(0, green / 2, 0, 180)
+                .endVertex();
         tessellator.end();
 
         // Center dot
@@ -292,10 +317,9 @@ public class OmnitrixScreen extends Screen {
         buf.vertex(pose, centerX, centerY, 0).color(0, 255, 0, 255).endVertex();
         for (int i = 0; i <= 12; i++) {
             double a = 2 * Math.PI * i / 12;
-            buf.vertex(pose,
-                    centerX + (float) (dotR * Math.cos(a)),
-                    centerY + (float) (dotR * Math.sin(a)),
-                    0).color(0, 200, 0, 200).endVertex();
+            buf.vertex(pose, centerX + (float) (dotR * Math.cos(a)), centerY + (float) (dotR * Math.sin(a)), 0)
+                    .color(0, 200, 0, 200)
+                    .endVertex();
         }
         tessellator.end();
 
@@ -322,8 +346,7 @@ public class OmnitrixScreen extends Screen {
             int iconX = centerX + (int) (RADIUS * Math.cos(angle)) - ICON_SIZE / 2;
             int iconY = centerY + (int) (RADIUS * Math.sin(angle)) - ICON_SIZE / 2;
 
-            if (mouseX >= iconX && mouseX <= iconX + ICON_SIZE
-                    && mouseY >= iconY && mouseY <= iconY + ICON_SIZE) {
+            if (mouseX >= iconX && mouseX <= iconX + ICON_SIZE && mouseY >= iconY && mouseY <= iconY + ICON_SIZE) {
                 if (omnitrixData == null) return true;
 
                 boolean unlocked = omnitrixData.isAlienUnlocked(alien);

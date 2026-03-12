@@ -124,6 +124,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         tool(itemhandHeld, "imperium_pickaxe");
         tool(itemhandHeld, "imperium_pickaxe_upgraded");
         tool(itemhandHeld, "imperium_axe");
+
+        // alien DNA items
+        builder(itemGenerated, "alien_dna_heatblast");
+        builder(itemGenerated, "alien_dna_xlr8");
+        builder(itemGenerated, "alien_dna_four_arms");
+        builder(itemGenerated, "alien_dna_diamondhead");
+        builder(itemGenerated, "alien_dna_grey_matter");
+        builder(itemGenerated, "alien_dna_stinkfly");
+        builder(itemGenerated, "alien_dna_ripjaws");
+        builder(itemGenerated, "alien_dna_ghostfreak");
+        builder(itemGenerated, "alien_dna_wildmutt");
+        builder(itemGenerated, "alien_dna_upgrade");
     }
 
     private ItemModelBuilder builder(ModelFile itemGenerated, String name) {

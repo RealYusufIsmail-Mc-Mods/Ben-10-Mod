@@ -49,6 +49,4 @@ public class KeybindsInit {
         ClientRegistry.registerKeyBinding(OMNITRIX_KEY);
         ClientRegistry.registerKeyBinding(REVERT_KEY);
     }
-
-
 }

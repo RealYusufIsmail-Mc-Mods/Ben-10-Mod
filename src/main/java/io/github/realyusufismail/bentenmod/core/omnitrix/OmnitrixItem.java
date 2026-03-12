@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
@@ -103,7 +103,7 @@ public class OmnitrixItem extends Item implements ICurioItem {
         PlayerEntity player = net.minecraft.client.Minecraft.getInstance().player;
         if (player != null) {
             player.getCapability(CapabilityHandler.OMNITRIX_CAP).ifPresent(data -> {
-                    if (data.getUnlockedAliens().isEmpty()) {
+                if (data.getUnlockedAliens().isEmpty()) {
                     tooltip.add(new StringTextComponent("No aliens unlocked").withStyle(TextFormatting.GRAY));
                 } else {
                     tooltip.add(new StringTextComponent("Unlocked aliens:").withStyle(TextFormatting.AQUA));
@@ -127,7 +127,6 @@ public class OmnitrixItem extends Item implements ICurioItem {
                 .findEquippedCurio(ItemInit.OMNITRIX.get(), player)
                 .isPresent();
         if (inCurio) return true;
-        return player.inventory.items.stream()
-                .anyMatch(s -> s.getItem() instanceof OmnitrixItem);
+        return player.inventory.items.stream().anyMatch(s -> s.getItem() instanceof OmnitrixItem);
     }
 }

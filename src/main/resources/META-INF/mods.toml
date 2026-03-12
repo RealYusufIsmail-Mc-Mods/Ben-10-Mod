@@ -6,7 +6,7 @@ license = "BSD 3-Clause License"
 issueTrackerURL = "https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/issues" #optional
 [[mods]]
 modId = "bentenmod"
-version = "1.16.5-2.0.0.beta.1"
+version = "1.16.5-2.0.0.beta.2"
 displayName = "Ben10 Mod"
 updateJSONURL = "https://forge.curseupdate.com/459985/bentenmod"
 logoFile = "headerimg.png"
@@ -14,11 +14,9 @@ credits = "Ben10 mob mod by Yusuf Ismail. PierogiP for drawing some of the items
 
 authors = "Yusuf Arfan Ismail, Gentworm and callout_662" #optional
 description = '''
-A mod which adds Villains, heroes and armour and items from the Ben 10 series. Some Vilans will be added and a lot of items and armour will be added. The omnitrix will be added
-soon.
-Dont not copy my mod.
-made by Yusuf Arfan Ismail.
-Github is https://github.com/realyusufismail
+A mod which adds content from the Ben 10 series. Includes the Omnitrix with 10 playable aliens (Heatblast, XLR8, Four Arms, Diamondhead, Grey Matter, Stinkfly, Ripjaws, Ghostfreak, Wildmutt, Upgrade), alien DNA unlock system, villains, armour sets, weapons, ores, and more.
+Made by Yusuf Arfan Ismail.
+Github: https://github.com/realyusufismail
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.bentenmod]] #optional

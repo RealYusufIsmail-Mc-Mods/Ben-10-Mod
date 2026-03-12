@@ -91,8 +91,9 @@ public class BenTenMod {
         });
 
         // Register the Omnitrix wrist slot with Curios API
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
-                () -> new SlotTypeMessage.Builder("wrist").size(1).build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("wrist")
+                .size(1)
+                .build());
     }
 
     public void onBiomeLoad(BiomeLoadingEvent event) {

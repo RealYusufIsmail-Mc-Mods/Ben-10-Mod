@@ -498,22 +498,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_SPEED))
                 .save(consumer, modId("xlr8_boots_blasting_smelt"));
 
-        /*
-        CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_HELMET.get()), RUBY.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer, modId("fourarms_helmet_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_CHESTPLATE.get()), RUBY.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer, modId("fourarms_chestplate_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_LEGGINGS.get()), RUBY.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer, modId("fourarms_leggings_blasting_smelt"));
-        CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_BOOT.get()), RUBY.get(), 0.3f, 300)
-                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
-                .save(consumer, modId("fourarms_boots_blasting_smelt"));
-
-
-         */
+        // FourArms armor not yet registered in ItemInit
+        // CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_HELMET.get()), RUBY.get(), 0.3f, 300)
+        //         .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
+        //         .save(consumer, modId("fourarms_helmet_blasting_smelt"));
+        // CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_CHESTPLATE.get()), RUBY.get(), 0.3f, 300)
+        //         .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
+        //         .save(consumer, modId("fourarms_chestplate_blasting_smelt"));
+        // CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_LEGGINGS.get()), RUBY.get(), 0.3f, 300)
+        //         .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
+        //         .save(consumer, modId("fourarms_leggings_blasting_smelt"));
+        // CookingRecipeBuilder.blasting(Ingredient.of(FOURARMS_BOOT.get()), RUBY.get(), 0.3f, 300)
+        //         .unlockedBy("has_item", has(TagsInit.Items.INGOTS_RUBY))
+        //         .save(consumer, modId("fourarms_boots_blasting_smelt"));
         CookingRecipeBuilder.blasting(Ingredient.of(BLACK_DIAMOND_HELMET.get()), BLACK_DIAMOND.get(), 0.3f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
                 .save(consumer, modId("black_diamond_helmet_blasting_smelt"));
@@ -556,6 +553,17 @@ public class ModRecipeProvider extends RecipeProvider {
         CookingRecipeBuilder.blasting(Ingredient.of(JACKET.get()), OMNITRIX.get(), 0.4f, 300)
                 .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
                 .save(consumer, modId("jacket_blasting_smelt"));
+
+        // Omnitrix crafting recipe
+        ShapedRecipeBuilder.shaped(OMNITRIX.get())
+                .define('O', TagsInit.Items.INGOTS_OMNITRIX)
+                .define('L', TagsInit.Items.INGOTS_LEGENDARY)
+                .define('I', TagsInit.Items.INGOTS_IMPERIUM)
+                .pattern("LOL")
+                .pattern("IOI")
+                .pattern("LOL")
+                .unlockedBy("has_item", has(TagsInit.Items.INGOTS_OMNITRIX))
+                .save(consumer, modId("omnitrix"));
 
         // food
 

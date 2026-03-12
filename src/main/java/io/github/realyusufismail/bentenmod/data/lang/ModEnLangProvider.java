@@ -44,11 +44,11 @@ public class ModEnLangProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         // block
-        block(BlockInit.LEGENDARY_BLOCK, "Legerndary Block");
+        block(BlockInit.LEGENDARY_BLOCK, "Legendary Block");
         block(BlockInit.OMNITRIX_BLOCK, "Omnitrix Block");
         block(BlockInit.BLACK_DIAMOND_BLOCK, "Black Diamond Block");
-        block(BlockInit.INFINITUM_BLOCK, "Infinitun Block");
-        block(BlockInit.FIRE_BLOCK, "FIre Block");
+        block(BlockInit.INFINITUM_BLOCK, "Infinitum Block");
+        block(BlockInit.FIRE_BLOCK, "Fire Block");
         block(BlockInit.SPEED_BLOCK, "Speed Block");
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
@@ -62,7 +62,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.FIRE_ORE, "Fire Ore");
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
-        block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
+        block(BlockInit.INFINITUM_ORE, "Infinitum Ore");
 
         // deepslate ores
         block(BlockInit.DEEPSLATE_IMPERIUM_ORE, "Deepslate Imperium Ore");
@@ -83,7 +83,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.IMPERIUM, "Imperium");
         item(ItemInit.INFINITUM_SCRAP, "Infinitum scrap");
         item(ItemInit.RAW_IMPERIUM, "Raw Imperium");
-        item(ItemInit.RAW_LEGENDARY, "Raw Legendaryy");
+        item(ItemInit.RAW_LEGENDARY, "Raw Legendary");
         item(ItemInit.RAW_OMNITRIX, "Raw Omnitrix");
 
         // tools
@@ -102,7 +102,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.INFINITUM_HOE, "Infinitum Hoe");
         item(ItemInit.IMPERIUM_SWORD, "Imperium Sword");
         item(ItemInit.IMPERIUM_PICKAXE, "Imperium Pickaxe");
-        item(ItemInit.IMPERIUM_PICKAXE_UPGRADED, "Ultamte Imperium Pickaxe");
+        item(ItemInit.IMPERIUM_PICKAXE_UPGRADED, "Ultimate Imperium Pickaxe");
         item(ItemInit.IMPERIUM_AXE, "Imperium Axe");
 
         // armour
@@ -118,10 +118,11 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.XLR8_CHESTPLATE, "xlr8 chestplate");
         item(ItemInit.XLR8_LEGGINGS, "xlr8 legging");
         item(ItemInit.XLR8_BOOTS, "xlr8 boots");
-        // item(ItemInit.FOURARMS_HELMET, "4Arms helmet");
-        // item(ItemInit.FOURARMS_CHESTPLATE, "4Arms chestplate");
-        // item(ItemInit.FOURARMS_LEGGINGS, "4Arms legging");
-        // item(ItemInit.FOURARMS_BOOT, "4Arms boots");
+        // FourArms armor not yet registered in ItemInit
+        // item(ItemInit.FOURARMS_HELMET, "Four Arms Helmet");
+        // item(ItemInit.FOURARMS_CHESTPLATE, "Four Arms Chestplate");
+        // item(ItemInit.FOURARMS_LEGGINGS, "Four Arms Leggings");
+        // item(ItemInit.FOURARMS_BOOT, "Four Arms Boots");
         item(ItemInit.INFINITUM_HELMET, "Infinitum helmet");
         item(ItemInit.INFINITUM_CHESTPLATE, "Infinitum chestplate");
         item(ItemInit.INFINITUM_LEGGINGS, "Infinitum legging");
@@ -145,8 +146,25 @@ public class ModEnLangProvider extends LanguageProvider {
         add(LangKeys.TABLE_SCREEN, "Upgrade and Crafting Table");
         add(LangKeys.ALIEN_TABLE_SCREEN, "Alien Crafting Table");
         add(LangKeys.ALIEN_TABLE_DISC, "A crafting table use to create aliens from the ben 10 series");
+        // alien DNA items
+        item(ItemInit.ALIEN_DNA_HEATBLAST, "Heatblast DNA Sample");
+        item(ItemInit.ALIEN_DNA_XLR8, "XLR8 DNA Sample");
+        item(ItemInit.ALIEN_DNA_FOUR_ARMS, "Four Arms DNA Sample");
+        item(ItemInit.ALIEN_DNA_DIAMONDHEAD, "Diamondhead DNA Sample");
+        item(ItemInit.ALIEN_DNA_GREY_MATTER, "Grey Matter DNA Sample");
+        item(ItemInit.ALIEN_DNA_STINKFLY, "Stinkfly DNA Sample");
+        item(ItemInit.ALIEN_DNA_RIPJAWS, "Ripjaws DNA Sample");
+        item(ItemInit.ALIEN_DNA_GHOSTFREAK, "Ghostfreak DNA Sample");
+        item(ItemInit.ALIEN_DNA_WILDMUTT, "Wildmutt DNA Sample");
+        item(ItemInit.ALIEN_DNA_UPGRADE, "Upgrade DNA Sample");
+
+        // keybinds
+        add("key.categories.bentenmod", "Ben 10 Mod");
+        add("key.bentenmod.omnitrix", "Open Omnitrix");
+        add("key.bentenmod.revert", "Revert Transformation");
+
         entity(EntityTypesInit.VILGAX_ENTITY, "Vilgax");
-        entity1(EntityTypesInit.KRAAB_ENTITY, "krab");
+        entity1(EntityTypesInit.KRAAB_ENTITY, "Kraab");
 
         // advancements
         add(new TranslationTextComponent("advancements.bentenmod.root.title"), "Download Ben ten mod");
