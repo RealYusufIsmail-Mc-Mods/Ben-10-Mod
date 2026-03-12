@@ -33,8 +33,8 @@ import net.minecraft.util.math.vector.Vector3d;
 
 public class DiamondheadAbility implements AlienAbility {
 
-    private static final UUID ARMOR_MOD_UUID = UUID.fromString("d2f5a891-ch9d-7e12-c8f4-0g9e4h3d6f5d");
-    private static final UUID TOUGHNESS_MOD_UUID = UUID.fromString("e1g6b902-di0e-8f23-d9g5-1h0f5i4e7g6e");
+    private static final UUID ARMOR_MOD_UUID = UUID.fromString("d2f5a891-ca9d-4e12-c8f4-0b9e4a3d6f5d");
+    private static final UUID TOUGHNESS_MOD_UUID = UUID.fromString("e1a6b902-da0e-4f23-d9a5-1a0f5b4e7a6e");
 
     @Override
     public void onTransform(PlayerEntity player) {

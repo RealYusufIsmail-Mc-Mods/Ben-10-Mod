@@ -36,8 +36,8 @@ import net.minecraft.world.server.ServerWorld;
 
 public class UpgradeAbility implements AlienAbility {
 
-    private static final UUID ARMOR_MOD_UUID = UUID.fromString("g1i8d124-fk2g-0h45-f1i7-3j2h7k6g9i1g");
-    private static final UUID DAMAGE_MOD_UUID = UUID.fromString("h2j9e235-gl3h-1i56-g2j8-4k3i8l7h0j2h");
+    private static final UUID ARMOR_MOD_UUID = UUID.fromString("a1b8d124-fa2a-4a45-f1b7-3a2a7b6a9b1a");
+    private static final UUID DAMAGE_MOD_UUID = UUID.fromString("a2b9e235-aa3a-4b56-a2b8-4a3b8a7a0b2a");
 
     private static final net.minecraft.item.Item[] TECH_DROPS = {
         Items.REDSTONE, Items.REPEATER, Items.COMPARATOR, Items.REDSTONE_TORCH

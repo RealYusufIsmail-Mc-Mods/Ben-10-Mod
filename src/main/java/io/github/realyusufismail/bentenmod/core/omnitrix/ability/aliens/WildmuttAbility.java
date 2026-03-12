@@ -34,7 +34,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 
 public class WildmuttAbility implements AlienAbility {
 
-    private static final UUID DAMAGE_MOD_UUID = UUID.fromString("f0h7c013-ej1f-9g34-e0h6-2i1g6j5f8h0f");
+    private static final UUID DAMAGE_MOD_UUID = UUID.fromString("f0a7c013-ea1f-4a34-e0a6-2b1a6a5f8a0f");
 
     @Override
     public void onTransform(PlayerEntity player) {
