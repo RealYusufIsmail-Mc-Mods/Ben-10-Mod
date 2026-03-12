@@ -102,12 +102,21 @@ dependencies {
     // RealYusufIsmailCore
     implementation("io.github.realyusufismail:realyusufismailcore:${ryc_version}")
 
-    // Patchouli
-    runtimeOnly(fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}"))
-
     // JEI
     compileOnly(fg.deobf("mezz.jei:jei-${mcVersion}:${jei_version}:api"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${mcVersion}:${jei_version}"))
+
+    // LWJGL ARM64 macOS natives — MC 1.16.5 ships x86_64-only LWJGL 3.2.1
+    if (System.getProperty("os.arch") == "aarch64" || System.getProperty("os.arch") == "arm64") {
+        def lwjglVersion = "3.3.1"
+        runtimeOnly "org.lwjgl:lwjgl:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-opengl:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-openal:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-glfw:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-stb:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-tinyfd:${lwjglVersion}:natives-macos-arm64"
+        runtimeOnly "org.lwjgl:lwjgl-jemalloc:${lwjglVersion}:natives-macos-arm64"
+    }
 }
 
 jar {

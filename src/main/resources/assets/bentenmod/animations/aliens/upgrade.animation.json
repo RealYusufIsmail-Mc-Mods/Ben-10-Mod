@@ -1,0 +1,80 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.upgrade.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0.0": [0, 0, 0],
+            "1.0": [0, 0.5, 0],
+            "2.0": [0, 0, 0]
+          }
+        },
+        "rightArm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.0": [-5, 0, -3],
+            "2.0": [0, 0, 0]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.0": [-5, 0, 3],
+            "2.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.upgrade.walk": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.5": [-30, 0, 0],
+            "1.0": [30, 0, 0]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [30, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "rightLeg": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [30, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "leftLeg": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.5": [-30, 0, 0],
+            "1.0": [30, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.upgrade.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2": [-90, 0, 0],
+            "0.5": [0, 0, 0]
+          }
+        }
+      }
+    }
+  }
+}
+
