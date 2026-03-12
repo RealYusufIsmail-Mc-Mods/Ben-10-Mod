@@ -18,6 +18,7 @@
  */ 
 package io.github.realyusufismail.bentenmod.core.network;
 
+import io.github.realyusufismail.bentenmod.client.renderer.AlienRenderHandler;
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
 import java.util.function.Supplier;
 import net.minecraft.client.Minecraft;
@@ -60,10 +61,19 @@ public class SSyncOmnitrixPacket {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null) return;
         Entity entity = mc.level.getEntity(packet.playerEntityId);
-        if (entity instanceof PlayerEntity) {
-            ((PlayerEntity) entity)
-                    .getCapability(CapabilityHandler.OMNITRIX_CAP)
-                    .ifPresent(data -> data.deserializeNBT(packet.data));
-        }
+        if (!(entity instanceof PlayerEntity)) return;
+        PlayerEntity player = (PlayerEntity) entity;
+        player.getCapability(CapabilityHandler.OMNITRIX_CAP).ifPresent(data -> {
+            data.deserializeNBT(packet.data);
+            // Keep the render handler's map in sync so other transformed players
+            // are rendered correctly on this client.
+            if (player != mc.player) {
+                if (data.isTransformed() && data.getCurrentAlien() != null) {
+                    AlienRenderHandler.PLAYER_ALIEN_MAP.put(player.getUUID(), data.getCurrentAlien());
+                } else {
+                    AlienRenderHandler.PLAYER_ALIEN_MAP.remove(player.getUUID());
+                }
+            }
+        });
     }
 }

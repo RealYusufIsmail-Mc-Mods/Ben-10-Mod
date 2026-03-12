@@ -22,12 +22,12 @@
 **Phase 2: Transformation — partially complete**
 - [x] 2.1 `AlienAbility` interface + `AlienAbilityRegistry`
 - [x] 2.2 Ability system wired into tick handler (`onTick`, `onRevert`, `onAttack`) and `CTransformPacket` (`onTransform`)
-- [ ] 2.3 `AlienRenderHandler` — player visual override (GeckoLib model rendering while transformed) — **NOT STARTED**
-- [ ] 2.4 `TransformationEventHandler` — hitbox size changes via `EntityEvent.Size` — **NOT STARTED**
+- [x] 2.3 `AlienRenderHandler` — player visual override (GeckoLib model rendering while transformed) — **DONE (Session 2)**
+- [x] 2.4 `TransformationEventHandler` — hitbox size changes via `EntityEvent.Size` — **DONE (Session 2)**
 - [ ] 2.5 `SoundInit` — sound event registry + `sounds.json` — **NOT STARTED**
 - [x] 2.6 `KeybindsInit` updated (OMNITRIX_KEY=O, REVERT_KEY=R); `InputEvents` rewritten
-- [ ] 2.7 `OmnitrixHudOverlay` — alien icon + timer bar in corner — **NOT STARTED**
-- [ ] 2.8 Multiplayer sync for visual rendering — **NOT STARTED**
+- [x] 2.7 `OmnitrixHudOverlay` — alien icon + timer bar in corner — **DONE (Session 2)**
+- [x] 2.8 Multiplayer sync for visual rendering — **DONE (Session 2)** (`SSyncOmnitrixPacket` now updates `PLAYER_ALIEN_MAP`)
 
 **Alien abilities — ALL 10 complete**
 - [x] `HeatblastAbility` (fire, flight, fireball)
@@ -59,16 +59,12 @@
 ### ⏳ REMAINING
 
 **Next session should start here (in order):**
-1. **2.3** `AlienRenderHandler` — render GeckoLib alien model on transformed player
-2. **2.4** `TransformationEventHandler` — hitbox changes
-3. **2.5** `SoundInit` + `sounds.json` + wire sounds into transform/revert
-4. **2.7** `OmnitrixHudOverlay` — timer bar + alien icon HUD
-5. **Phase 4A** — All 10 alien GeckoLib model classes (needs geo.json assets first)
-6. **Phase 4B** — All 10 alien geo.json + animation.json + textures
-7. **5.1** Omnitrix crafting recipe (Ben Ten Table)
-8. **5.3** DNA loot modifiers
-9. **5.5** PrimusCoreItem
-10. **Phase 6** — Sounds, advancements, lang keys
+1. **2.5** `SoundInit` + `sounds.json` + wire sounds into transform/revert
+2. **5.1** Omnitrix crafting recipe (Ben Ten Table)
+3. **5.3** DNA loot modifiers
+4. **5.5** `PrimusCoreItem` (Vilgax boss drop)
+5. **3.3** Keybind lang keys
+6. **Phase 6** — Advancements, lang keys
 
 ---
 

@@ -397,11 +397,6 @@ public class ItemInit {
             "ruby_apple",
             () -> new EnchantedGoldenAppleItem(
                     new Item.Properties().tab(MainItemGroup.MAIN).food(FoodInit.RUBY_APPLE)));
-    // other items
-
-    public static final RegistryObject<Item> OMNITRIX_WATCH =
-            ITEMS.register("omnitrix_watch", () -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
-
     // Alien DNA Items
     public static final RegistryObject<Item> ALIEN_DNA_HEATBLAST = ITEMS.register(
             "alien_dna_heatblast",

@@ -20,10 +20,13 @@ package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import io.github.realyusufismail.bentenmod.core.network.PacketHandler;
+import io.github.realyusufismail.bentenmod.core.network.SSyncOmnitrixPacket;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -34,6 +37,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.network.PacketDistributor;
 
 public class AlienDNAItem extends Item {
 
@@ -81,6 +85,13 @@ public class AlienDNAItem extends Item {
                         new StringTextComponent(alienType.getDisplayName() + " DNA unlocked!")
                                 .withStyle(TextFormatting.GREEN),
                         true);
+                // Immediately sync to client so the OmnitrixScreen shows the newly unlocked alien
+                if (player instanceof ServerPlayerEntity) {
+                    ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
+                    PacketHandler.CHANNEL.send(
+                            PacketDistributor.PLAYER.with(() -> serverPlayer),
+                            new SSyncOmnitrixPacket(data.serializeNBT(), player.getId()));
+                }
             }
         });
 

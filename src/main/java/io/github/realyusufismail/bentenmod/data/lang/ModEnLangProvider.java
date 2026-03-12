@@ -73,7 +73,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.DEEPSLATE_RUBY_ORE, "Deepslate Ruby Ore");
         // ingots
         item(ItemInit.LEGENDARY, "Legendary");
-        item(ItemInit.OMNITRIX, "Omnitrix Ingot");
+        item(ItemInit.OMNITRIX, "Omnitrix");
         item(ItemInit.FIRE, "Fire(ingot)");
         item(ItemInit.RUBY, "Ruby");
         item(ItemInit.SPEED, "Speed");
@@ -139,7 +139,6 @@ public class ModEnLangProvider extends LanguageProvider {
 
         // other items
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
-        item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
         item(EntityTypesInit.KRAAB_SPAWN_EGG, "Krab Spawn Egg");
         add(MainItemGroup.MAIN.getDisplayName().getString(), "Ben Ten Item Group");
         add(LangKeys.TABLE_DISC, "A table used to upgrade items and tools in the game");
