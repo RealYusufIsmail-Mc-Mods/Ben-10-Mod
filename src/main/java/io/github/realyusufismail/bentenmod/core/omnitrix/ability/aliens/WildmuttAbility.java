@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -39,7 +39,13 @@ public class WildmuttAbility implements AlienAbility {
     @Override
     public void onTransform(PlayerEntity player) {
         applyEffect(player, Effects.NIGHT_VISION, 400, 0);
-        addModifier(player, Attributes.ATTACK_DAMAGE, DAMAGE_MOD_UUID, "wildmutt_damage", 5.0, AttributeModifier.Operation.ADDITION);
+        addModifier(
+                player,
+                Attributes.ATTACK_DAMAGE,
+                DAMAGE_MOD_UUID,
+                "wildmutt_damage",
+                5.0,
+                AttributeModifier.Operation.ADDITION);
     }
 
     @Override
@@ -51,7 +57,8 @@ public class WildmuttAbility implements AlienAbility {
         // Tracking: GLOWING on nearby living entities (server side)
         if (!player.level.isClientSide) {
             AxisAlignedBB aabb = player.getBoundingBox().inflate(32.0);
-            player.level.getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
+            player.level
+                    .getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
                     .forEach(entity -> entity.addEffect(new EffectInstance(Effects.GLOWING, 40, 0, false, false)));
         }
     }
@@ -77,11 +84,10 @@ public class WildmuttAbility implements AlienAbility {
         if (player.level.isClientSide) return;
         // Howl — intimidate nearby hostile mobs
         AxisAlignedBB aabb = player.getBoundingBox().inflate(16.0);
-        player.level.getEntitiesOfClass(MobEntity.class, aabb)
-                .forEach(mob -> {
-                    mob.addEffect(new EffectInstance(Effects.WEAKNESS, 200, 0));
-                    mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 200, 0));
-                });
+        player.level.getEntitiesOfClass(MobEntity.class, aabb).forEach(mob -> {
+            mob.addEffect(new EffectInstance(Effects.WEAKNESS, 200, 0));
+            mob.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 200, 0));
+        });
     }
 
     @Override
@@ -102,15 +108,21 @@ public class WildmuttAbility implements AlienAbility {
         player.removeEffect(effect);
     }
 
-    private static void addModifier(PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute,
-            UUID uuid, String name, double value, AttributeModifier.Operation operation) {
+    private static void addModifier(
+            PlayerEntity player,
+            net.minecraft.entity.ai.attributes.Attribute attribute,
+            UUID uuid,
+            String name,
+            double value,
+            AttributeModifier.Operation operation) {
         ModifiableAttributeInstance inst = player.getAttribute(attribute);
         if (inst != null && inst.getModifier(uuid) == null) {
             inst.addPermanentModifier(new AttributeModifier(uuid, name, value, operation));
         }
     }
 
-    private static void removeModifier(PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute, UUID uuid) {
+    private static void removeModifier(
+            PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute, UUID uuid) {
         ModifiableAttributeInstance inst = player.getAttribute(attribute);
         if (inst != null) {
             inst.removeModifier(uuid);

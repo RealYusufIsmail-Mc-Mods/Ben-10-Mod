@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -51,13 +51,7 @@ public class HeatblastAbility implements AlienAbility {
         if (!player.level.isClientSide && player.level instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) player.level;
             serverWorld.sendParticles(
-                    ParticleTypes.FLAME,
-                    player.getX(),
-                    player.getY() + 1.0,
-                    player.getZ(),
-                    3,
-                    0.3, 0.3, 0.3,
-                    0.02);
+                    ParticleTypes.FLAME, player.getX(), player.getY() + 1.0, player.getZ(), 3, 0.3, 0.3, 0.3, 0.02);
         }
     }
 
@@ -82,9 +76,8 @@ public class HeatblastAbility implements AlienAbility {
     public void onRightClick(PlayerEntity player) {
         if (player.level.isClientSide) return;
         Vector3d look = player.getLookAngle();
-        SmallFireballEntity fireball = new SmallFireballEntity(
-                player.level, player,
-                look.x * 1.5, look.y * 1.5, look.z * 1.5);
+        SmallFireballEntity fireball =
+                new SmallFireballEntity(player.level, player, look.x * 1.5, look.y * 1.5, look.z * 1.5);
         fireball.setPos(player.getX() + look.x * 1.5, player.getEyeY(), player.getZ() + look.z * 1.5);
         player.level.addFreshEntity(fireball);
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -25,7 +25,6 @@ import io.github.realyusufismail.bentenmod.core.capability.IOmnitrixData;
 import io.github.realyusufismail.bentenmod.core.init.KeybindsInit;
 import io.github.realyusufismail.bentenmod.core.network.CTransformPacket;
 import io.github.realyusufismail.bentenmod.core.network.PacketHandler;
-import java.util.Optional;
 import javax.annotation.Nullable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
@@ -49,8 +48,10 @@ public class OmnitrixScreen extends Screen {
 
     @Nullable
     private AlienType hoveredAlien = null;
+
     @Nullable
     private AlienType confirmingAlien = null;
+
     private int confirmTicksRemaining = 0;
 
     private IOmnitrixData omnitrixData;
@@ -64,7 +65,8 @@ public class OmnitrixScreen extends Screen {
         super.init();
         Minecraft mc = Minecraft.getInstance();
         if (mc.player != null) {
-            omnitrixData = mc.player.getCapability(CapabilityHandler.OMNITRIX_CAP).orElse(null);
+            omnitrixData =
+                    mc.player.getCapability(CapabilityHandler.OMNITRIX_CAP).orElse(null);
         }
     }
 
@@ -78,7 +80,16 @@ public class OmnitrixScreen extends Screen {
 
         // Draw central Omnitrix dial
         Minecraft.getInstance().getTextureManager().bind(DIAL_TEXTURE);
-        blit(matrixStack, centerX - DIAL_SIZE / 2, centerY - DIAL_SIZE / 2, 0, 0, DIAL_SIZE, DIAL_SIZE, DIAL_SIZE, DIAL_SIZE);
+        blit(
+                matrixStack,
+                centerX - DIAL_SIZE / 2,
+                centerY - DIAL_SIZE / 2,
+                0,
+                0,
+                DIAL_SIZE,
+                DIAL_SIZE,
+                DIAL_SIZE,
+                DIAL_SIZE);
 
         hoveredAlien = null;
         AlienType[] aliens = AlienType.values();
@@ -89,8 +100,8 @@ public class OmnitrixScreen extends Screen {
             int iconX = centerX + (int) (RADIUS * Math.cos(angle)) - ICON_SIZE / 2;
             int iconY = centerY + (int) (RADIUS * Math.sin(angle)) - ICON_SIZE / 2;
 
-            boolean isHovered = mouseX >= iconX && mouseX <= iconX + ICON_SIZE
-                    && mouseY >= iconY && mouseY <= iconY + ICON_SIZE;
+            boolean isHovered =
+                    mouseX >= iconX && mouseX <= iconX + ICON_SIZE && mouseY >= iconY && mouseY <= iconY + ICON_SIZE;
             boolean isUnlocked = omnitrixData != null && omnitrixData.isAlienUnlocked(alien);
             boolean isConfirming = alien == confirmingAlien;
 
@@ -100,8 +111,14 @@ public class OmnitrixScreen extends Screen {
 
             // Highlight hovered alien with green glow
             if (isHovered && isUnlocked) {
-                fillGradient(matrixStack, iconX - 2, iconY - 2, iconX + ICON_SIZE + 2, iconY + ICON_SIZE + 2,
-                        0x8000FF00, 0x8000FF00);
+                fillGradient(
+                        matrixStack,
+                        iconX - 2,
+                        iconY - 2,
+                        iconX + ICON_SIZE + 2,
+                        iconY + ICON_SIZE + 2,
+                        0x8000FF00,
+                        0x8000FF00);
             }
 
             // Draw alien icon (or locked overlay)
@@ -111,8 +128,7 @@ public class OmnitrixScreen extends Screen {
             } else {
                 // Draw greyed-out overlay
                 matrixStack.pushPose();
-                fillGradient(matrixStack, iconX, iconY, iconX + ICON_SIZE, iconY + ICON_SIZE,
-                        0x80888888, 0x80888888);
+                fillGradient(matrixStack, iconX, iconY, iconX + ICON_SIZE, iconY + ICON_SIZE, 0x80888888, 0x80888888);
                 Minecraft.getInstance().getTextureManager().bind(LOCKED_TEXTURE);
                 blit(matrixStack, iconX, iconY, 0, 0, ICON_SIZE, ICON_SIZE, ICON_SIZE, ICON_SIZE);
                 matrixStack.popPose();
@@ -122,8 +138,14 @@ public class OmnitrixScreen extends Screen {
             if (isConfirming && confirmTicksRemaining > 0) {
                 int alpha = (int) (128 * Math.abs(Math.sin(confirmTicksRemaining * 0.4)));
                 int color = (alpha << 24) | 0x00FF00;
-                fillGradient(matrixStack, iconX - 4, iconY - 4, iconX + ICON_SIZE + 4, iconY + ICON_SIZE + 4,
-                        color | 0xFF000000, color | 0xFF000000);
+                fillGradient(
+                        matrixStack,
+                        iconX - 4,
+                        iconY - 4,
+                        iconX + ICON_SIZE + 4,
+                        iconY + ICON_SIZE + 4,
+                        color | 0xFF000000,
+                        color | 0xFF000000);
             }
         }
 
@@ -131,8 +153,8 @@ public class OmnitrixScreen extends Screen {
         if (hoveredAlien != null) {
             String name = hoveredAlien.getDisplayName();
             boolean unlocked = omnitrixData != null && omnitrixData.isAlienUnlocked(hoveredAlien);
-            ITextComponent label = new StringTextComponent(name)
-                    .withStyle(unlocked ? TextFormatting.GREEN : TextFormatting.RED);
+            ITextComponent label =
+                    new StringTextComponent(name).withStyle(unlocked ? TextFormatting.GREEN : TextFormatting.RED);
             int textWidth = this.font.width(label);
             this.font.drawShadow(matrixStack, label, centerX - textWidth / 2f, centerY + DIAL_SIZE / 2f + 8, 0xFFFFFF);
 
@@ -180,8 +202,7 @@ public class OmnitrixScreen extends Screen {
             int iconX = centerX + (int) (RADIUS * Math.cos(angle)) - ICON_SIZE / 2;
             int iconY = centerY + (int) (RADIUS * Math.sin(angle)) - ICON_SIZE / 2;
 
-            if (mouseX >= iconX && mouseX <= iconX + ICON_SIZE
-                    && mouseY >= iconY && mouseY <= iconY + ICON_SIZE) {
+            if (mouseX >= iconX && mouseX <= iconX + ICON_SIZE && mouseY >= iconY && mouseY <= iconY + ICON_SIZE) {
 
                 if (omnitrixData == null) return true;
 

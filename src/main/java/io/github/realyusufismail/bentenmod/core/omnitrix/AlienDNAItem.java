@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
@@ -57,20 +57,19 @@ public class AlienDNAItem extends Item {
         }
 
         // Check if player has Omnitrix in inventory
-        boolean hasOmnitrix = player.inventory.items.stream()
-                .anyMatch(s -> s.getItem() == ItemInit.OMNITRIX.get());
+        boolean hasOmnitrix = player.inventory.items.stream().anyMatch(s -> s.getItem() == ItemInit.OMNITRIX.get());
 
         if (!hasOmnitrix) {
             player.displayClientMessage(
-                    new StringTextComponent("You need an Omnitrix to use this!").withStyle(TextFormatting.RED),
-                    true);
+                    new StringTextComponent("You need an Omnitrix to use this!").withStyle(TextFormatting.RED), true);
             return ActionResult.fail(stack);
         }
 
         player.getCapability(CapabilityHandler.OMNITRIX_CAP).ifPresent(data -> {
             if (data.isAlienUnlocked(alienType)) {
                 player.displayClientMessage(
-                        new StringTextComponent(alienType.getDisplayName() + " is already unlocked!").withStyle(TextFormatting.YELLOW),
+                        new StringTextComponent(alienType.getDisplayName() + " is already unlocked!")
+                                .withStyle(TextFormatting.YELLOW),
                         true);
             } else {
                 data.unlockAlien(alienType);
@@ -79,7 +78,8 @@ public class AlienDNAItem extends Item {
                     stack.shrink(1);
                 }
                 player.displayClientMessage(
-                        new StringTextComponent(alienType.getDisplayName() + " DNA unlocked!").withStyle(TextFormatting.GREEN),
+                        new StringTextComponent(alienType.getDisplayName() + " DNA unlocked!")
+                                .withStyle(TextFormatting.GREEN),
                         true);
             }
         });
@@ -89,8 +89,10 @@ public class AlienDNAItem extends Item {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(
+            ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(new StringTextComponent(alienType.getDisplayName() + " DNA Sample").withStyle(TextFormatting.AQUA));
-        tooltip.add(new StringTextComponent("Right-click with Omnitrix in inventory to unlock").withStyle(TextFormatting.GRAY));
+        tooltip.add(new StringTextComponent("Right-click with Omnitrix in inventory to unlock")
+                .withStyle(TextFormatting.GRAY));
     }
 }

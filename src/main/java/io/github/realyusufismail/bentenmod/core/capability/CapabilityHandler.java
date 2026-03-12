@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.capability;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
@@ -40,8 +40,7 @@ public class CapabilityHandler {
     @CapabilityInject(IOmnitrixData.class)
     public static Capability<IOmnitrixData> OMNITRIX_CAP = null;
 
-    private static final ResourceLocation OMNITRIX_CAP_KEY =
-            new ResourceLocation(BenTenMod.MOD_ID, "omnitrix_data");
+    private static final ResourceLocation OMNITRIX_CAP_KEY = new ResourceLocation(BenTenMod.MOD_ID, "omnitrix_data");
 
     @SubscribeEvent
     public static void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
@@ -54,29 +53,29 @@ public class CapabilityHandler {
 
     @SubscribeEvent
     public static void onPlayerClone(PlayerEvent.Clone event) {
-        event.getOriginal()
+        event.getOriginal().getCapability(OMNITRIX_CAP).ifPresent(oldData -> event.getPlayer()
                 .getCapability(OMNITRIX_CAP)
-                .ifPresent(oldData -> event.getPlayer()
-                        .getCapability(OMNITRIX_CAP)
-                        .ifPresent(newData -> {
-                            if (event.isWasDeath()) {
-                                // On death: preserve unlocked aliens but clear transformation state
-                                newData.deserializeNBT(oldData.serializeNBT());
-                                newData.revert();
-                            } else {
-                                // On dimension change: copy everything
-                                newData.copyFrom(oldData);
-                            }
-                        }));
+                .ifPresent(newData -> {
+                    if (event.isWasDeath()) {
+                        // On death: preserve unlocked aliens but clear transformation state
+                        newData.deserializeNBT(oldData.serializeNBT());
+                        newData.revert();
+                    } else {
+                        // On dimension change: copy everything
+                        newData.copyFrom(oldData);
+                    }
+                }));
     }
 
     @SubscribeEvent
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getPlayer() instanceof ServerPlayerEntity) {
             ServerPlayerEntity serverPlayer = (ServerPlayerEntity) event.getPlayer();
-            serverPlayer.getCapability(OMNITRIX_CAP).ifPresent(data -> PacketHandler.CHANNEL.send(
-                    PacketDistributor.PLAYER.with(() -> serverPlayer),
-                    new SSyncOmnitrixPacket(data.serializeNBT(), serverPlayer.getId())));
+            serverPlayer
+                    .getCapability(OMNITRIX_CAP)
+                    .ifPresent(data -> PacketHandler.CHANNEL.send(
+                            PacketDistributor.PLAYER.with(() -> serverPlayer),
+                            new SSyncOmnitrixPacket(data.serializeNBT(), serverPlayer.getId())));
         }
     }
 }

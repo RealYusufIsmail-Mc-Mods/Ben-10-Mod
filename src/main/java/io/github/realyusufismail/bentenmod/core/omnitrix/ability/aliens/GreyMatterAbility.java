@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -54,7 +54,8 @@ public class GreyMatterAbility implements AlienAbility {
         if (player.level.isClientSide) return;
         // Analyze — give GLOWING to all entities within 16 blocks
         AxisAlignedBB aabb = player.getBoundingBox().inflate(16.0);
-        player.level.getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
+        player.level
+                .getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
                 .forEach(entity -> entity.addEffect(new EffectInstance(Effects.GLOWING, 200, 0, false, true)));
     }
 

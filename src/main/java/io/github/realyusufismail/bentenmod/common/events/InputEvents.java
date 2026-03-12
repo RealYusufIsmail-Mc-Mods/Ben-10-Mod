@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,8 +47,8 @@ public class InputEvents {
         if (mc.player == null) return;
 
         if (KeybindsInit.OMNITRIX_KEY.consumeClick()) {
-            boolean hasOmnitrix = mc.player.inventory.items.stream()
-                    .anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
+            boolean hasOmnitrix =
+                    mc.player.inventory.items.stream().anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
             if (hasOmnitrix) {
                 mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
             }
@@ -64,8 +64,8 @@ public class InputEvents {
 
         // Legacy key support
         if (KeybindsInit.openwatchkey.consumeClick()) {
-            boolean hasOmnitrix = mc.player.inventory.items.stream()
-                    .anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
+            boolean hasOmnitrix =
+                    mc.player.inventory.items.stream().anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
             if (hasOmnitrix) {
                 mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -46,9 +46,7 @@ public class StinkflyAbility implements AlienAbility {
         if (!player.level.isClientSide && player.level instanceof ServerWorld) {
             ServerWorld serverWorld = (ServerWorld) player.level;
             serverWorld.sendParticles(
-                    ParticleTypes.DRIPPING_WATER,
-                    player.getX(), player.getY(),
-                    player.getZ(), 1, 0.2, 0.0, 0.2, 0.0);
+                    ParticleTypes.DRIPPING_WATER, player.getX(), player.getY(), player.getZ(), 1, 0.2, 0.0, 0.2, 0.0);
         }
     }
 

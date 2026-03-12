@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -39,9 +39,27 @@ public class FourArmsAbility implements AlienAbility {
 
     @Override
     public void onTransform(PlayerEntity player) {
-        addModifier(player, Attributes.ATTACK_DAMAGE, DAMAGE_MOD_UUID, "fourarms_damage", 15.0, AttributeModifier.Operation.ADDITION);
-        addModifier(player, Attributes.KNOCKBACK_RESISTANCE, KNOCKBACK_MOD_UUID, "fourarms_knockback", 1.0, AttributeModifier.Operation.ADDITION);
-        addModifier(player, Attributes.MOVEMENT_SPEED, SPEED_MOD_UUID, "fourarms_speed", -0.02, AttributeModifier.Operation.ADDITION);
+        addModifier(
+                player,
+                Attributes.ATTACK_DAMAGE,
+                DAMAGE_MOD_UUID,
+                "fourarms_damage",
+                15.0,
+                AttributeModifier.Operation.ADDITION);
+        addModifier(
+                player,
+                Attributes.KNOCKBACK_RESISTANCE,
+                KNOCKBACK_MOD_UUID,
+                "fourarms_knockback",
+                1.0,
+                AttributeModifier.Operation.ADDITION);
+        addModifier(
+                player,
+                Attributes.MOVEMENT_SPEED,
+                SPEED_MOD_UUID,
+                "fourarms_speed",
+                -0.02,
+                AttributeModifier.Operation.ADDITION);
     }
 
     @Override
@@ -75,7 +93,8 @@ public class FourArmsAbility implements AlienAbility {
         if (player.level.isClientSide) return;
         // Ground slam — damage all entities in 5-block radius
         AxisAlignedBB aabb = player.getBoundingBox().inflate(5.0);
-        player.level.getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
+        player.level
+                .getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
                 .forEach(entity -> {
                     entity.hurt(DamageSource.playerAttack(player), 10.0f);
                     double dx = entity.getX() - player.getX();
@@ -106,15 +125,21 @@ public class FourArmsAbility implements AlienAbility {
         player.removeEffect(effect);
     }
 
-    private static void addModifier(PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute,
-            UUID uuid, String name, double value, AttributeModifier.Operation operation) {
+    private static void addModifier(
+            PlayerEntity player,
+            net.minecraft.entity.ai.attributes.Attribute attribute,
+            UUID uuid,
+            String name,
+            double value,
+            AttributeModifier.Operation operation) {
         ModifiableAttributeInstance inst = player.getAttribute(attribute);
         if (inst != null && inst.getModifier(uuid) == null) {
             inst.addPermanentModifier(new AttributeModifier(uuid, name, value, operation));
         }
     }
 
-    private static void removeModifier(PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute, UUID uuid) {
+    private static void removeModifier(
+            PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute, UUID uuid) {
         ModifiableAttributeInstance inst = player.getAttribute(attribute);
         if (inst != null) {
             inst.removeModifier(uuid);

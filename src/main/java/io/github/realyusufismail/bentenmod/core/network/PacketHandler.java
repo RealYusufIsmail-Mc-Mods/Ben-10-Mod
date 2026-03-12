@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.network;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
@@ -36,8 +36,19 @@ public class PacketHandler {
     private static int nextId = 0;
 
     public static void init() {
-        CHANNEL.registerMessage(nextId++, CTransformPacket.class, CTransformPacket::encode, CTransformPacket::decode, CTransformPacket::handle);
-        CHANNEL.registerMessage(nextId++, CRevertPacket.class, CRevertPacket::encode, CRevertPacket::decode, CRevertPacket::handle);
-        CHANNEL.registerMessage(nextId++, SSyncOmnitrixPacket.class, SSyncOmnitrixPacket::encode, SSyncOmnitrixPacket::decode, SSyncOmnitrixPacket::handle);
+        CHANNEL.registerMessage(
+                nextId++,
+                CTransformPacket.class,
+                CTransformPacket::encode,
+                CTransformPacket::decode,
+                CTransformPacket::handle);
+        CHANNEL.registerMessage(
+                nextId++, CRevertPacket.class, CRevertPacket::encode, CRevertPacket::decode, CRevertPacket::handle);
+        CHANNEL.registerMessage(
+                nextId++,
+                SSyncOmnitrixPacket.class,
+                SSyncOmnitrixPacket::encode,
+                SSyncOmnitrixPacket::decode,
+                SSyncOmnitrixPacket::handle);
     }
 }

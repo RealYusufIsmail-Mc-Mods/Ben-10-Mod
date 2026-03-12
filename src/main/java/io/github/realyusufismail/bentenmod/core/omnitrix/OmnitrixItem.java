@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
@@ -43,14 +43,16 @@ public class OmnitrixItem extends Item {
     @Override
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (world.isClientSide) {
-            net.minecraft.client.Minecraft.getInstance().setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
+            net.minecraft.client.Minecraft.getInstance()
+                    .setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
         }
         return ActionResult.sidedSuccess(player.getItemInHand(hand), world.isClientSide);
     }
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+    public void appendHoverText(
+            ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(new StringTextComponent("Right-click to open Omnitrix").withStyle(TextFormatting.GREEN));
         PlayerEntity player = net.minecraft.client.Minecraft.getInstance().player;
         if (player != null) {
@@ -60,7 +62,8 @@ public class OmnitrixItem extends Item {
                 } else {
                     tooltip.add(new StringTextComponent("Unlocked aliens:").withStyle(TextFormatting.AQUA));
                     for (AlienType alien : data.getUnlockedAliens()) {
-                        tooltip.add(new StringTextComponent("  - " + alien.getDisplayName()).withStyle(TextFormatting.WHITE));
+                        tooltip.add(new StringTextComponent("  - " + alien.getDisplayName())
+                                .withStyle(TextFormatting.WHITE));
                     }
                 }
             });

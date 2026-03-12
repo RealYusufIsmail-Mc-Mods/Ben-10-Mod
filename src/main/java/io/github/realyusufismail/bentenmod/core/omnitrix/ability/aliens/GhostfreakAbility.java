@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -41,7 +41,8 @@ public class GhostfreakAbility implements AlienAbility {
 
         // Scare nearby mobs
         AxisAlignedBB aabb = player.getBoundingBox().inflate(8.0);
-        player.level.getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
+        player.level
+                .getEntitiesOfClass(LivingEntity.class, aabb, e -> e != player)
                 .forEach(entity -> {
                     entity.addEffect(new EffectInstance(Effects.WEAKNESS, 40, 0, false, false));
                     entity.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 40, 0, false, false));

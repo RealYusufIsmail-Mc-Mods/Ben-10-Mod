@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.capability;
 
 import javax.annotation.Nullable;
@@ -27,12 +27,14 @@ public class OmnitrixDataStorage implements Capability.IStorage<IOmnitrixData> {
 
     @Nullable
     @Override
-    public INBT writeNBT(Capability<IOmnitrixData> capability, IOmnitrixData instance, net.minecraft.util.Direction side) {
+    public INBT writeNBT(
+            Capability<IOmnitrixData> capability, IOmnitrixData instance, net.minecraft.util.Direction side) {
         return instance.serializeNBT();
     }
 
     @Override
-    public void readNBT(Capability<IOmnitrixData> capability, IOmnitrixData instance, net.minecraft.util.Direction side, INBT nbt) {
+    public void readNBT(
+            Capability<IOmnitrixData> capability, IOmnitrixData instance, net.minecraft.util.Direction side, INBT nbt) {
         if (nbt instanceof CompoundNBT) {
             instance.deserializeNBT((CompoundNBT) nbt);
         }

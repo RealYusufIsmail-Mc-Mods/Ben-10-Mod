@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,28 +15,30 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.client.model.aliens;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib3.model.provider.GeoModelProvider;
 
-public class UpgradeAlienModel extends AnimatedGeoModel<PlayerEntity> {
+public class UpgradeAlienModel extends GeoModelProvider<Void> {
 
     @Override
-    public ResourceLocation getModelLocation(PlayerEntity object) {
+    public ResourceLocation getModelLocation(Void object) {
         return new ResourceLocation(BenTenMod.MOD_ID, "geo/aliens/upgrade.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(PlayerEntity object) {
+    public ResourceLocation getTextureLocation(Void object) {
         return new ResourceLocation(BenTenMod.MOD_ID, "textures/model/aliens/upgrade.png");
     }
 
-    @Override
-    public ResourceLocation getAnimationFileLocation(PlayerEntity object) {
-        return new ResourceLocation(BenTenMod.MOD_ID, "animations/aliens/upgrade.animation.json");
+    public ResourceLocation getModelLocation() {
+        return getModelLocation(null);
+    }
+
+    public ResourceLocation getTextureLocation() {
+        return getTextureLocation(null);
     }
 }

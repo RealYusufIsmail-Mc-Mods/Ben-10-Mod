@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,21 +15,13 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.client.renderer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import io.github.realyusufismail.bentenmod.BenTenMod;
-import io.github.realyusufismail.bentenmod.client.model.aliens.DiamondheadAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.FourArmsAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.GhostfreakAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.GreyMatterAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.HeatblastAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.RipjawsAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.StinkflyAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.UpgradeAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.WildmuttAlienModel;
-import io.github.realyusufismail.bentenmod.client.model.aliens.XLR8AlienModel;
+import io.github.realyusufismail.bentenmod.client.model.aliens.*;
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
 import io.github.realyusufismail.bentenmod.core.omnitrix.AlienType;
 import java.util.EnumMap;
@@ -39,16 +31,25 @@ import java.util.UUID;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.vector.Matrix3f;
+import net.minecraft.util.math.vector.Matrix4f;
 import net.minecraft.util.math.vector.Vector3f;
+import net.minecraft.util.math.vector.Vector4f;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import software.bernie.geckolib3.geo.render.built.GeoBone;
+import software.bernie.geckolib3.geo.render.built.GeoCube;
 import software.bernie.geckolib3.geo.render.built.GeoModel;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib3.geo.render.built.GeoQuad;
+import software.bernie.geckolib3.geo.render.built.GeoVertex;
+import software.bernie.geckolib3.model.provider.GeoModelProvider;
 import software.bernie.geckolib3.util.RenderUtils;
 
 @OnlyIn(Dist.CLIENT)
@@ -56,8 +57,7 @@ import software.bernie.geckolib3.util.RenderUtils;
 public class AlienRenderHandler {
 
     /** Models per alien type (instantiated once, reused). */
-    private static final Map<AlienType, AnimatedGeoModel<PlayerEntity>> MODELS =
-            new EnumMap<>(AlienType.class);
+    private static final Map<AlienType, GeoModelProvider<Void>> MODELS = new EnumMap<>(AlienType.class);
 
     /** UUID -> alien type for other players seen in multiplayer. */
     public static final Map<UUID, AlienType> PLAYER_ALIEN_MAP = new HashMap<>();
@@ -83,48 +83,158 @@ public class AlienRenderHandler {
         // Cancel vanilla player render
         event.setCanceled(true);
 
-        AnimatedGeoModel<PlayerEntity> model = MODELS.get(alien);
+        GeoModelProvider<Void> model = MODELS.get(alien);
         if (model == null) return;
 
-        renderAlien(event.getPlayer(), alien, model,
-                event.getMatrixStack(), event.getBuffers(), event.getPartialRenderTick());
+        renderAlien(
+                event.getPlayer(),
+                alien,
+                model,
+                event.getMatrixStack(),
+                event.getBuffers(),
+                event.getPartialRenderTick());
     }
 
     private static void renderAlien(
             PlayerEntity player,
             AlienType alien,
-            AnimatedGeoModel<PlayerEntity> animModel,
+            GeoModelProvider<Void> modelProvider,
             MatrixStack matrixStack,
             IRenderTypeBuffer buffers,
             float partialTicks) {
+
+        ResourceLocation modelLoc = modelProvider.getModelLocation(null);
+        ResourceLocation textureLoc = modelProvider.getTextureLocation(null);
+
+        GeoModel bakedModel = modelProvider.getModel(modelLoc);
+        if (bakedModel == null) return;
 
         matrixStack.pushPose();
 
         // Rotate to face player yaw
         matrixStack.mulPose(Vector3f.YP.rotationDegrees(180f - player.yBodyRot));
 
-        // Scale down for tiny aliens
+        // Scale for tiny / large aliens
         if (alien == AlienType.GREY_MATTER) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
+        } else if (alien == AlienType.FOUR_ARMS) {
+            matrixStack.scale(1.3f, 1.3f, 1.3f);
         }
 
-        // Tick animations
-        long uniqueId = player.getUUID().getMostSignificantBits() ^ player.getUUID().getLeastSignificantBits();
-        animModel.setCustomAnimations(player, uniqueId, null);
-
-        GeoModel bakedModel = animModel.getBakedModel(animModel.getModelLocation(player));
-
         int light = WorldRenderer.getLightColor(player.level, player.blockPosition());
-        int overlay = net.minecraft.client.renderer.texture.OverlayTexture.NO_OVERLAY;
+        int overlay = OverlayTexture.NO_OVERLAY;
 
-        com.mojang.blaze3d.vertex.IVertexBuilder vertexBuilder =
-                buffers.getBuffer(RenderType.entityCutoutNoCull(animModel.getTextureLocation(player)));
+        IVertexBuilder vertexBuilder = buffers.getBuffer(RenderType.entityCutoutNoCull(textureLoc));
 
-        for (software.bernie.geckolib3.geo.render.built.GeoBone bone : bakedModel.topLevelBones) {
-            RenderUtils.renderMeshBone(matrixStack, bakedModel, bone, vertexBuilder, light, overlay, 1f, 1f, 1f, 1f);
+        // Render all top-level bones recursively
+        for (GeoBone bone : bakedModel.topLevelBones) {
+            renderBoneRecursive(bone, matrixStack, vertexBuilder, light, overlay, 1f, 1f, 1f, 1f);
         }
 
         matrixStack.popPose();
+    }
+
+    /**
+     * Recursively renders a bone and all of its children. This mirrors the logic in
+     * {@link software.bernie.geckolib3.renderers.geo.IGeoRenderer#renderRecursively} but
+     * does not require an {@code IAnimatable} type parameter.
+     */
+    private static void renderBoneRecursive(
+            GeoBone bone,
+            MatrixStack stack,
+            IVertexBuilder bufferIn,
+            int packedLight,
+            int packedOverlay,
+            float red,
+            float green,
+            float blue,
+            float alpha) {
+
+        stack.pushPose();
+
+        // Position, pivot, rotation, scale — same order as IGeoRenderer
+        RenderUtils.translate(bone, stack);
+        RenderUtils.moveToPivot(bone, stack);
+        RenderUtils.rotate(bone, stack);
+        RenderUtils.scale(bone, stack);
+        RenderUtils.moveBackFromPivot(bone, stack);
+
+        // Render cubes of this bone
+        if (!bone.isHidden()) {
+            for (GeoCube cube : bone.childCubes) {
+                stack.pushPose();
+                if (!bone.cubesAreHidden()) {
+                    renderCube(cube, stack, bufferIn, packedLight, packedOverlay, red, green, blue, alpha);
+                }
+                stack.popPose();
+            }
+        }
+
+        // Render child bones
+        if (!bone.childBonesAreHiddenToo()) {
+            for (GeoBone childBone : bone.childBones) {
+                renderBoneRecursive(childBone, stack, bufferIn, packedLight, packedOverlay, red, green, blue, alpha);
+            }
+        }
+
+        stack.popPose();
+    }
+
+    private static void renderCube(
+            GeoCube cube,
+            MatrixStack stack,
+            IVertexBuilder bufferIn,
+            int packedLight,
+            int packedOverlay,
+            float red,
+            float green,
+            float blue,
+            float alpha) {
+
+        RenderUtils.moveToPivot(cube, stack);
+        RenderUtils.rotate(cube, stack);
+        RenderUtils.moveBackFromPivot(cube, stack);
+
+        Matrix3f matrix3f = stack.last().normal();
+        Matrix4f matrix4f = stack.last().pose();
+
+        for (GeoQuad quad : cube.quads) {
+            if (quad == null) continue;
+
+            Vector3f normal = quad.normal.copy();
+            normal.transform(matrix3f);
+
+            // Fix flat-cube shading (same as IGeoRenderer)
+            if ((cube.size.y() == 0 || cube.size.z() == 0) && normal.x() < 0) {
+                normal.mul(-1, 1, 1);
+            }
+            if ((cube.size.x() == 0 || cube.size.z() == 0) && normal.y() < 0) {
+                normal.mul(1, -1, 1);
+            }
+            if ((cube.size.x() == 0 || cube.size.y() == 0) && normal.z() < 0) {
+                normal.mul(1, 1, -1);
+            }
+
+            for (GeoVertex vertex : quad.vertices) {
+                Vector4f vector4f = new Vector4f(vertex.position.x(), vertex.position.y(), vertex.position.z(), 1.0F);
+                vector4f.transform(matrix4f);
+                bufferIn.vertex(
+                        vector4f.x(),
+                        vector4f.y(),
+                        vector4f.z(),
+                        red,
+                        green,
+                        blue,
+                        alpha,
+                        vertex.textureU,
+                        vertex.textureV,
+                        packedOverlay,
+                        packedLight,
+                        normal.x(),
+                        normal.y(),
+                        normal.z());
+            }
+        }
     }
 
     private static AlienType getTransformedAlien(PlayerEntity player) {

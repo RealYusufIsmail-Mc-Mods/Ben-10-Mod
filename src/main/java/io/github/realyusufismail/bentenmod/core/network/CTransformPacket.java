@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.network;
 
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
@@ -52,8 +52,8 @@ public class CTransformPacket {
             if (player == null) return;
 
             // Validate player has Omnitrix in inventory
-            boolean hasOmnitrix = player.inventory.items.stream()
-                    .anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
+            boolean hasOmnitrix =
+                    player.inventory.items.stream().anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
             if (!hasOmnitrix) return;
 
             player.getCapability(CapabilityHandler.OMNITRIX_CAP).ifPresent(data -> {

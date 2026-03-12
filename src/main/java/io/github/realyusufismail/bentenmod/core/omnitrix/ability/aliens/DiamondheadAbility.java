@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -38,8 +38,20 @@ public class DiamondheadAbility implements AlienAbility {
 
     @Override
     public void onTransform(PlayerEntity player) {
-        addModifier(player, Attributes.ARMOR, ARMOR_MOD_UUID, "diamondhead_armor", 20.0, AttributeModifier.Operation.ADDITION);
-        addModifier(player, Attributes.ARMOR_TOUGHNESS, TOUGHNESS_MOD_UUID, "diamondhead_toughness", 8.0, AttributeModifier.Operation.ADDITION);
+        addModifier(
+                player,
+                Attributes.ARMOR,
+                ARMOR_MOD_UUID,
+                "diamondhead_armor",
+                20.0,
+                AttributeModifier.Operation.ADDITION);
+        addModifier(
+                player,
+                Attributes.ARMOR_TOUGHNESS,
+                TOUGHNESS_MOD_UUID,
+                "diamondhead_toughness",
+                8.0,
+                AttributeModifier.Operation.ADDITION);
     }
 
     @Override
@@ -89,15 +101,21 @@ public class DiamondheadAbility implements AlienAbility {
         player.removeEffect(effect);
     }
 
-    private static void addModifier(PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute,
-            UUID uuid, String name, double value, AttributeModifier.Operation operation) {
+    private static void addModifier(
+            PlayerEntity player,
+            net.minecraft.entity.ai.attributes.Attribute attribute,
+            UUID uuid,
+            String name,
+            double value,
+            AttributeModifier.Operation operation) {
         ModifiableAttributeInstance inst = player.getAttribute(attribute);
         if (inst != null && inst.getModifier(uuid) == null) {
             inst.addPermanentModifier(new AttributeModifier(uuid, name, value, operation));
         }
     }
 
-    private static void removeModifier(PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute, UUID uuid) {
+    private static void removeModifier(
+            PlayerEntity player, net.minecraft.entity.ai.attributes.Attribute attribute, UUID uuid) {
         ModifiableAttributeInstance inst = player.getAttribute(attribute);
         if (inst != null) {
             inst.removeModifier(uuid);

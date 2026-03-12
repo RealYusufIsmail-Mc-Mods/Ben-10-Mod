@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,23 +18,19 @@
  */ 
 package io.github.realyusufismail.bentenmod;
 
-import io.github.realyusufismail.bentenmod.client.renderer.AlienRenderHandler;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
-import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
+import io.github.realyusufismail.bentenmod.common.events.OmnitrixTickHandler;
 import io.github.realyusufismail.bentenmod.core.capability.IOmnitrixData;
 import io.github.realyusufismail.bentenmod.core.capability.OmnitrixDataImpl;
 import io.github.realyusufismail.bentenmod.core.capability.OmnitrixDataStorage;
 import io.github.realyusufismail.bentenmod.core.config.OmnitrixConfig;
 import io.github.realyusufismail.bentenmod.core.init.*;
-import io.github.realyusufismail.bentenmod.core.keybind.Keybindings;
 import io.github.realyusufismail.bentenmod.core.network.PacketHandler;
 import io.github.realyusufismail.bentenmod.core.util.ModResourceLocation;
-import io.github.realyusufismail.bentenmod.common.events.OmnitrixTickHandler;
 import io.github.realyusufismail.bentenmod.data.DataGenerators;
 import io.github.realyusufismail.bentenmod.entity.KraabBoltEntity;
 import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -43,14 +39,12 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.lwjgl.glfw.GLFW;
 import software.bernie.geckolib3.GeckoLib;
 
 @Mod("bentenmod")
@@ -100,7 +94,6 @@ public class BenTenMod {
     }
 
     public void onClientSetup(final FMLClientSetupEvent event) {
-        MinecraftForge.EVENT_BUS.register(new AlienRenderHandler());
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.KRAAB_ENTITY.get(), KraabRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(

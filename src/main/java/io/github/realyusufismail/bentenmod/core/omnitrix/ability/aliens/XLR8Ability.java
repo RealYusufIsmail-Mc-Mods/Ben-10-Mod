@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 RealYusufIsmail.
+ * Copyright 2026 RealYusufIsmail.
  *
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+ */ 
 package io.github.realyusufismail.bentenmod.core.omnitrix.ability.aliens;
 
 import io.github.realyusufismail.bentenmod.core.omnitrix.ability.AlienAbility;
@@ -50,7 +50,11 @@ public class XLR8Ability implements AlienAbility {
                         player.getX() - motion.x * 2,
                         player.getY() + 0.5,
                         player.getZ() - motion.z * 2,
-                        2, 0.1, 0.1, 0.1, 0.01);
+                        2,
+                        0.1,
+                        0.1,
+                        0.1,
+                        0.01);
             }
         }
     }
@@ -89,9 +93,7 @@ public class XLR8Ability implements AlienAbility {
             ServerWorld serverWorld = (ServerWorld) player.level;
             for (int i = 0; i <= 10; i++) {
                 Vector3d pos = origin.add(look.scale(i));
-                serverWorld.sendParticles(ParticleTypes.CLOUD,
-                        pos.x, pos.y + 1.0, pos.z,
-                        1, 0, 0, 0, 0);
+                serverWorld.sendParticles(ParticleTypes.CLOUD, pos.x, pos.y + 1.0, pos.z, 1, 0, 0, 0, 0);
             }
         }
     }
