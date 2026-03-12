@@ -60,11 +60,5 @@ public class InputEvents {
             });
         }
 
-        // Legacy key support
-        if (KeybindsInit.openwatchkey.consumeClick()) {
-            if (OmnitrixItem.hasOmnitrix(mc.player)) {
-                mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
-            }
-        }
     }
 }
