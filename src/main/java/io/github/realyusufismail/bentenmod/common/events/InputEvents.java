@@ -19,8 +19,14 @@
 package io.github.realyusufismail.bentenmod.common.events;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
+import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.init.KeybindsInit;
+import io.github.realyusufismail.bentenmod.core.network.CRevertPacket;
+import io.github.realyusufismail.bentenmod.core.network.PacketHandler;
+import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,20 +40,35 @@ public class InputEvents {
     public static void onKeyPress(InputEvent.KeyInputEvent event) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.level == null) return;
-        onInput(mc, event.getKey(), event.getAction());
+        handleInput(mc);
     }
 
-    @SubscribeEvent
-    public static void onMouseClick(InputEvent.MouseInputEvent event) {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.level == null) return;
-        onInput(mc, event.getButton(), event.getAction());
-    }
+    private static void handleInput(Minecraft mc) {
+        if (mc.player == null) return;
 
-    private static void onInput(Minecraft mc, int key, int action) {
+        if (KeybindsInit.OMNITRIX_KEY.consumeClick()) {
+            boolean hasOmnitrix = mc.player.inventory.items.stream()
+                    .anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
+            if (hasOmnitrix) {
+                mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
+            }
+        }
 
-        if (mc.screen != null && KeybindsInit.openwatchkey.consumeClick()) {
-            System.out.println("FIREBLAST KEY PRESSED");
+        if (KeybindsInit.REVERT_KEY.consumeClick()) {
+            mc.player.getCapability(CapabilityHandler.OMNITRIX_CAP).ifPresent(data -> {
+                if (data.isTransformed()) {
+                    PacketHandler.CHANNEL.sendToServer(new CRevertPacket());
+                }
+            });
+        }
+
+        // Legacy key support
+        if (KeybindsInit.openwatchkey.consumeClick()) {
+            boolean hasOmnitrix = mc.player.inventory.items.stream()
+                    .anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
+            if (hasOmnitrix) {
+                mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
+            }
         }
     }
 }

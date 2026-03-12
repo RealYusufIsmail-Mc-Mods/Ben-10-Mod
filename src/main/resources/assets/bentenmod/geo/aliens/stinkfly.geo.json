@@ -1,0 +1,192 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.stinkfly",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 4,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [0, 1.5, 0]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [0, 0, 0]
+        },
+        {
+          "name": "waist",
+          "parent": "root",
+          "pivot": [0, 12, 0]
+        },
+        {
+          "name": "body",
+          "parent": "waist",
+          "pivot": [0, 24, 0],
+          "cubes": [
+            {
+              "origin": [-5, 12, -3],
+              "size": [10, 12, 6],
+              "uv": [16, 16]
+            }
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "body",
+          "pivot": [0, 24, 0],
+          "cubes": [
+            {
+              "origin": [-5, 24, -5],
+              "size": [10, 10, 10],
+              "uv": [0, 0]
+            }
+          ]
+        },
+        {
+          "name": "stalkEyeR",
+          "parent": "head",
+          "pivot": [-3, 34, 0],
+          "cubes": [
+            {
+              "origin": [-3.5, 34, -0.5],
+              "size": [1, 4, 1],
+              "uv": [0, 32]
+            },
+            {
+              "origin": [-4, 38, -1],
+              "size": [2, 2, 2],
+              "uv": [4, 32]
+            }
+          ]
+        },
+        {
+          "name": "stalkEyeL",
+          "parent": "head",
+          "pivot": [3, 34, 0],
+          "cubes": [
+            {
+              "origin": [2.5, 34, -0.5],
+              "size": [1, 4, 1],
+              "uv": [10, 32]
+            },
+            {
+              "origin": [2, 38, -1],
+              "size": [2, 2, 2],
+              "uv": [14, 32]
+            }
+          ]
+        },
+        {
+          "name": "wingTopR",
+          "parent": "body",
+          "pivot": [-1, 22, 0],
+          "cubes": [
+            {
+              "origin": [-17, 20, 0],
+              "size": [16, 1, 8],
+              "uv": [0, 44]
+            }
+          ]
+        },
+        {
+          "name": "wingTopL",
+          "parent": "body",
+          "pivot": [1, 22, 0],
+          "cubes": [
+            {
+              "origin": [1, 20, 0],
+              "size": [16, 1, 8],
+              "uv": [0, 53]
+            }
+          ]
+        },
+        {
+          "name": "wingBottomR",
+          "parent": "body",
+          "pivot": [-1, 18, 0],
+          "cubes": [
+            {
+              "origin": [-15, 16, 0],
+              "size": [14, 1, 8],
+              "uv": [34, 44]
+            }
+          ]
+        },
+        {
+          "name": "wingBottomL",
+          "parent": "body",
+          "pivot": [1, 18, 0],
+          "cubes": [
+            {
+              "origin": [1, 16, 0],
+              "size": [14, 1, 8],
+              "uv": [34, 53]
+            }
+          ]
+        },
+        {
+          "name": "tail",
+          "parent": "body",
+          "pivot": [0, 14, 3],
+          "cubes": [
+            {
+              "origin": [-1, 6, 3],
+              "size": [2, 8, 2],
+              "uv": [20, 40]
+            }
+          ]
+        },
+        {
+          "name": "rightArm",
+          "parent": "body",
+          "pivot": [-6, 22, 0],
+          "cubes": [
+            {
+              "origin": [-10, 10, -2],
+              "size": [4, 12, 4],
+              "uv": [40, 16]
+            }
+          ]
+        },
+        {
+          "name": "leftArm",
+          "parent": "body",
+          "pivot": [6, 22, 0],
+          "cubes": [
+            {
+              "origin": [6, 10, -2],
+              "size": [4, 12, 4],
+              "uv": [32, 48]
+            }
+          ]
+        },
+        {
+          "name": "rightLeg",
+          "parent": "waist",
+          "pivot": [-2, 12, 0],
+          "cubes": [
+            {
+              "origin": [-4, 0, -2],
+              "size": [4, 12, 4],
+              "uv": [0, 16]
+            }
+          ]
+        },
+        {
+          "name": "leftLeg",
+          "parent": "waist",
+          "pivot": [2, 12, 0],
+          "cubes": [
+            {
+              "origin": [0, 0, -2],
+              "size": [4, 12, 4],
+              "uv": [16, 48]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

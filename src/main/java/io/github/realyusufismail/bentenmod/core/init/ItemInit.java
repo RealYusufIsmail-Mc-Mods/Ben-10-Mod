@@ -26,6 +26,9 @@ import io.github.realyusufismail.bentenmod.common.events.Xlr8Armor;
 import io.github.realyusufismail.bentenmod.common.material.CustomArmorMaterial;
 import io.github.realyusufismail.bentenmod.common.material.CustomToolMaterial;
 import io.github.realyusufismail.bentenmod.core.itemgroup.MainItemGroup;
+import io.github.realyusufismail.bentenmod.core.omnitrix.AlienDNAItem;
+import io.github.realyusufismail.bentenmod.core.omnitrix.AlienType;
+import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -39,8 +42,12 @@ public class ItemInit {
     public static final RegistryObject<Item> LEGENDARY =
             ITEMS.register("legendary", () -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
 
-    public static final RegistryObject<Item> OMNITRIX =
-            ITEMS.register("omnitrix", () -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+    public static final RegistryObject<Item> OMNITRIX = ITEMS.register(
+            "omnitrix",
+            () -> new OmnitrixItem(new Item.Properties()
+                    .stacksTo(1)
+                    .tab(MainItemGroup.MAIN)
+                    .rarity(net.minecraft.item.Rarity.EPIC)));
 
     public static final RegistryObject<Item> FIRE =
             ITEMS.register("fire", () -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
@@ -396,4 +403,45 @@ public class ItemInit {
 
     public static final RegistryObject<Item> OMNITRIX_WATCH =
             ITEMS.register("omnitrix_watch", () -> new Item(new Item.Properties().tab(MainItemGroup.MAIN)));
+
+    // Alien DNA Items
+    public static final RegistryObject<Item> ALIEN_DNA_HEATBLAST = ITEMS.register(
+            "alien_dna_heatblast",
+            () -> new AlienDNAItem(AlienType.HEATBLAST, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_XLR8 = ITEMS.register(
+            "alien_dna_xlr8",
+            () -> new AlienDNAItem(AlienType.XLR8, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_FOUR_ARMS = ITEMS.register(
+            "alien_dna_four_arms",
+            () -> new AlienDNAItem(AlienType.FOUR_ARMS, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_DIAMONDHEAD = ITEMS.register(
+            "alien_dna_diamondhead",
+            () -> new AlienDNAItem(AlienType.DIAMONDHEAD, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_GREY_MATTER = ITEMS.register(
+            "alien_dna_grey_matter",
+            () -> new AlienDNAItem(AlienType.GREY_MATTER, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_STINKFLY = ITEMS.register(
+            "alien_dna_stinkfly",
+            () -> new AlienDNAItem(AlienType.STINKFLY, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_RIPJAWS = ITEMS.register(
+            "alien_dna_ripjaws",
+            () -> new AlienDNAItem(AlienType.RIPJAWS, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_GHOSTFREAK = ITEMS.register(
+            "alien_dna_ghostfreak",
+            () -> new AlienDNAItem(AlienType.GHOSTFREAK, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_WILDMUTT = ITEMS.register(
+            "alien_dna_wildmutt",
+            () -> new AlienDNAItem(AlienType.WILDMUTT, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
+
+    public static final RegistryObject<Item> ALIEN_DNA_UPGRADE = ITEMS.register(
+            "alien_dna_upgrade",
+            () -> new AlienDNAItem(AlienType.UPGRADE, new Item.Properties().tab(MainItemGroup.MAIN).stacksTo(1)));
 }

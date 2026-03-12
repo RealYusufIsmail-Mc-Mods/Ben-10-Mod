@@ -1,0 +1,93 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.diamondhead.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0.0": [0, 0, 0],
+            "1.0": [0, 0.4, 0],
+            "2.0": [0, 0, 0]
+          }
+        },
+        "crystalHead": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.0": [0, 5, 0],
+            "2.0": [0, 0, 0]
+          }
+        },
+        "shoulderCrystalR": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.0": [0, 0, -3],
+            "2.0": [0, 0, 0]
+          }
+        },
+        "shoulderCrystalL": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.0": [0, 0, 3],
+            "2.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.diamondhead.walk": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.5": [-30, 0, 0],
+            "1.0": [30, 0, 0]
+          }
+        },
+        "leftArm": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [30, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "rightLeg": {
+          "rotation": {
+            "0.0": [-30, 0, 0],
+            "0.5": [30, 0, 0],
+            "1.0": [-30, 0, 0]
+          }
+        },
+        "leftLeg": {
+          "rotation": {
+            "0.0": [30, 0, 0],
+            "0.5": [-30, 0, 0],
+            "1.0": [30, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.diamondhead.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2": [-90, 0, -15],
+            "0.5": [0, 0, 0]
+          }
+        },
+        "shoulderCrystalR": {
+          "scale": {
+            "0.0": [1, 1, 1],
+            "0.25": [1.3, 1.5, 1.3],
+            "0.5": [1, 1, 1]
+          }
+        }
+      }
+    }
+  }
+}
