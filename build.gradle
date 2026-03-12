@@ -90,6 +90,7 @@ repositories {
     maven { url = 'https://maven.blamejared.com' }
     maven { url = 'https://dvs1.progwml6.com/files/maven/' }
     maven { url = 'https://modmaven.dev' }
+    maven { url = 'https://maven.theillusivec4.top/' }
     mavenCentral()
 }
 
@@ -105,6 +106,10 @@ dependencies {
     // JEI
     compileOnly(fg.deobf("mezz.jei:jei-${mcVersion}:${jei_version}:api"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${mcVersion}:${jei_version}"))
+
+    // Curios API — wrist slot for Omnitrix
+    compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
+    runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}"))
 
     // LWJGL ARM64 macOS natives — MC 1.16.5 ships x86_64-only LWJGL 3.2.1
     if (System.getProperty("os.arch") == "aarch64" || System.getProperty("os.arch") == "arm64") {

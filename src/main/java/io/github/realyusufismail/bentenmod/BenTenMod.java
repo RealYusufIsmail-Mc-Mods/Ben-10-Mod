@@ -38,6 +38,7 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +47,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import software.bernie.geckolib3.GeckoLib;
+import top.theillusivec4.curios.api.SlotTypeMessage;
 
 @Mod("bentenmod")
 public class BenTenMod {
@@ -87,6 +89,10 @@ public class BenTenMod {
             CapabilityManager.INSTANCE.register(IOmnitrixData.class, new OmnitrixDataStorage(), OmnitrixDataImpl::new);
             PacketHandler.init();
         });
+
+        // Register the Omnitrix wrist slot with Curios API
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+                () -> new SlotTypeMessage.Builder("wrist").size(1).build());
     }
 
     public void onBiomeLoad(BiomeLoadingEvent event) {

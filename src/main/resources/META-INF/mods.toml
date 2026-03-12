@@ -34,3 +34,10 @@ mandatory = true
 versionRange = "[1.16.5,)"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.bentenmod]]
+modId = "curios"
+mandatory = true
+versionRange = "[1.16.5-4.0.8.1,)"
+ordering = "BEFORE"
+side = "BOTH"

@@ -35,7 +35,7 @@ public class FourArmsAbility implements AlienAbility {
 
     private static final UUID DAMAGE_MOD_UUID = UUID.fromString("a5c2a789-be6e-4a79-b5c1-9e8d7f1c3e2a");
     private static final UUID KNOCKBACK_MOD_UUID = UUID.fromString("b4d3c8e1-fa7b-5c90-a6d2-8e7c2f1b4d3b");
-    private static final UUID SPEED_MOD_UUID = UUID.fromString("c3e4d9f2-gb8c-6d01-b7e3-9f8d3g2c5e4c");
+    private static final UUID SPEED_MOD_UUID = UUID.fromString("c3e4d9f2-ab8c-4d01-b7e3-9f8d3a2c5e4c");
 
     @Override
     public void onTransform(PlayerEntity player) {

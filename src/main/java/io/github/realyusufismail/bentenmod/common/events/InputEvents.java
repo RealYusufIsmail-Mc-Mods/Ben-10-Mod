@@ -20,10 +20,10 @@ package io.github.realyusufismail.bentenmod.common.events;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
-import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.init.KeybindsInit;
 import io.github.realyusufismail.bentenmod.core.network.CRevertPacket;
 import io.github.realyusufismail.bentenmod.core.network.PacketHandler;
+import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixItem;
 import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.StringTextComponent;
@@ -47,9 +47,7 @@ public class InputEvents {
         if (mc.player == null) return;
 
         if (KeybindsInit.OMNITRIX_KEY.consumeClick()) {
-            boolean hasOmnitrix =
-                    mc.player.inventory.items.stream().anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
-            if (hasOmnitrix) {
+            if (OmnitrixItem.hasOmnitrix(mc.player)) {
                 mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
             }
         }
@@ -64,9 +62,7 @@ public class InputEvents {
 
         // Legacy key support
         if (KeybindsInit.openwatchkey.consumeClick()) {
-            boolean hasOmnitrix =
-                    mc.player.inventory.items.stream().anyMatch(stack -> stack.getItem() == ItemInit.OMNITRIX.get());
-            if (hasOmnitrix) {
+            if (OmnitrixItem.hasOmnitrix(mc.player)) {
                 mc.setScreen(new OmnitrixScreen(new StringTextComponent("Omnitrix")));
             }
         }

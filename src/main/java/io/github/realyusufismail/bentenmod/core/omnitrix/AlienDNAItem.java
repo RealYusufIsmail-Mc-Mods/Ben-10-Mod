@@ -19,7 +19,6 @@
 package io.github.realyusufismail.bentenmod.core.omnitrix;
 
 import io.github.realyusufismail.bentenmod.core.capability.CapabilityHandler;
-import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.network.PacketHandler;
 import io.github.realyusufismail.bentenmod.core.network.SSyncOmnitrixPacket;
 import java.util.List;
@@ -60,8 +59,8 @@ public class AlienDNAItem extends Item {
             return ActionResult.success(stack);
         }
 
-        // Check if player has Omnitrix in inventory
-        boolean hasOmnitrix = player.inventory.items.stream().anyMatch(s -> s.getItem() == ItemInit.OMNITRIX.get());
+        // Check if player has Omnitrix equipped (wrist slot) or in inventory
+        boolean hasOmnitrix = OmnitrixItem.hasOmnitrix(player);
 
         if (!hasOmnitrix) {
             player.displayClientMessage(
