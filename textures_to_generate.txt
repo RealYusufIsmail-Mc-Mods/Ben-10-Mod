@@ -1,0 +1,90 @@
+BEN 10 MOD — TEXTURES TO GENERATE
+====================================
+
+PRIORITY 1: DNA ITEM ICONS (missing = pink/black boxes in-game)
+----------------------------------------------------------------
+Location: src/main/resources/assets/bentenmod/textures/item/
+Size: 16x16 PNG
+
+Files needed:
+  alien_dna_heatblast.png      — green DNA helix with orange/red glow
+  alien_dna_xlr8.png           — green DNA helix with blue glow
+  alien_dna_four_arms.png      — green DNA helix with red glow
+  alien_dna_diamondhead.png    — green DNA helix with cyan glow
+  alien_dna_grey_matter.png    — green DNA helix with grey glow
+  alien_dna_stinkfly.png       — green DNA helix with yellow-green glow
+  alien_dna_ripjaws.png        — green DNA helix with teal glow
+  alien_dna_ghostfreak.png     — green DNA helix with white/ghostly glow
+  alien_dna_wildmutt.png       — green DNA helix with orange-brown glow
+  alien_dna_upgrade.png        — green DNA helix with purple/tech glow
+
+Prompt template:
+  "Pixel art item icon, 16x16, green DNA helix with [COLOR] glow,
+   Minecraft item style, transparent background"
+
+
+PRIORITY 2: ALIEN GUI ICONS (shown in Omnitrix radial dial)
+-------------------------------------------------------------
+Location: src/main/resources/assets/bentenmod/textures/gui/aliens/
+Size: 64x64 PNG (or 32x32)
+
+Files needed:
+  heatblast_icon.png      — Heatblast face, orange/red lava alien
+  xlr8_icon.png           — XLR8 face, blue raptor with black helmet
+  fourarms_icon.png       — Four Arms face, large red four-armed alien
+  diamondhead_icon.png    — Diamondhead face, cyan crystal alien
+  greymatter_icon.png     — Grey Matter face, small grey alien, large eyes
+  stinkfly_icon.png       — Stinkfly face, yellow-green bug alien
+  ripjaws_icon.png        — Ripjaws face, teal fish/shark alien
+  ghostfreak_icon.png     — Ghostfreak face, white/black ghostly alien
+  wildmutt_icon.png       — Wildmutt face, orange dog-like alien, no eyes
+  upgrade_icon.png        — Upgrade face, black alien with purple tech pattern
+
+Prompt template:
+  "Ben 10 classic series [ALIEN NAME] face icon, pixel art,
+   circular badge design, green Omnitrix border, black background,
+   Minecraft GUI style, 64x64"
+
+
+PRIORITY 3: ALIEN MODEL TEXTURES (needed once Blockbench models are done)
+--------------------------------------------------------------------------
+Location: src/main/resources/assets/bentenmod/textures/model/aliens/
+Size: depends on model UV layout (typically 64x64 or 128x128)
+
+NOTE: Generate AFTER models are built in Blockbench — the UV layout
+      of each model determines what the texture must look like.
+
+Files needed:
+  heatblast.png     — orange/red with black accents, glowing lava cracks
+  xlr8.png          — blue alien face, black full-body suit
+  fourarms.png      — solid red skin, black shorts/belt
+  diamondhead.png   — cyan/teal crystal facets across entire body
+  greymatter.png    — grey/green skin, large black eyes, blue outfit
+  stinkfly.png      — yellow-green body, insect wings, four eyes
+  ripjaws.png       — teal/dark green scales, fins, sharp teeth
+  ghostfreak.png    — white/pale with black chains and single eye
+  wildmutt.png      — orange fur, no eyes, blue quills on back
+  upgrade.png       — black with purple/teal circuit pattern, white eye
+
+Prompt template:
+  "Ben 10 classic [ALIEN NAME] skin texture sheet, flat UV unwrap,
+   pixel art style, [COLOR DESCRIPTION], transparent background,
+   game texture, [SIZE]x[SIZE]"
+
+
+PRIORITY 4: HUD TEXTURE
+------------------------
+Location: src/main/resources/assets/bentenmod/textures/gui/
+File: omnitrix_hud.png
+
+Description:
+  The Omnitrix watch face displayed on-screen (bottom-left) when
+  transformed. Green circular dial with hourglass symbol, black face.
+  Should include space for alien icon and timer bar overlay.
+  Recommended size: 256x256 (the actual rendered size is small,
+  but higher res looks sharper)
+
+Prompt:
+  "Ben 10 Omnitrix watch face, green circular dial, black face,
+   white hourglass symbol in center, pixel art, game HUD element,
+   transparent background, top-down view"

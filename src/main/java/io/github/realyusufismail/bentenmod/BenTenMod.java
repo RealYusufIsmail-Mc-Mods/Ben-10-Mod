@@ -100,7 +100,6 @@ public class BenTenMod {
     }
 
     public void onClientSetup(final FMLClientSetupEvent event) {
-        KeybindsInit.register(event);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityTypesInit.KRAAB_ENTITY.get(), KraabRenderer::new);
         RenderingRegistry.registerEntityRenderingHandler(
