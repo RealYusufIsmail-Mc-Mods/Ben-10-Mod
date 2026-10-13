@@ -5,14 +5,18 @@ Read this first when you start, resume, or come back from a context compaction. 
 ## Current state (2026-10-13)
 
 - **Branch:** `1.20.1` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`).
-- **Open PR:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) `1.20.1` → `main`. CI was pending when last checked; `spotlessCheck test build` pass locally.
+- **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) merged into `main`. [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) is open from `1.20.1` to `main` for this handoff log, skill, session hook, and `CLAUDE.md` link.
 - **Version branches:** `1.19.4` holds the original `main` (fast-forwarded to `2a50371a`). Older versions have their own branches (`1.18.2`, `1.19.3`, ...). Naming convention: the branch is the Minecraft version.
 - **Builds:** Forge and Fabric jars from one codebase (`./gradlew build`).
 - **Tests:** 8/8 GameTests pass on both loaders (`:forge:runGameTestServer`, `:fabric:runGameTestServer`).
 - **Not verified:** `runClient` on either loader; Forge jar on NeoForge 1.20.1.
-- **Next step:** step 3, the Omnitrix and transformation (see "Next").
+- **Next step:** redesign the Omnitrix Crafter visuals requested by the user, then step 3, the Omnitrix and transformation (see "Next").
 
 ## Done (newest first)
+
+### 2026-10-13: Handoff follow-up PR
+- PR #88 merged. Opened PR #89 for the four-file handoff commit `f46b1be5`; no game code or assets are in that PR.
+- The user requested a more distinct, space-themed Ben 10 Omnitrix Crafter appearance. Visual work has not started.
 
 ### 2026-10-13: PR, version branch
 - Opened PR #88 with three commits: port + multi-loader + data-driven aliens; 3D assets + generator; docs + skills.
@@ -61,6 +65,8 @@ From `docs/design/progression.md`:
 5. Null Void as the first dimension?
 
 ## Next
+
+**Omnitrix Crafter visuals:** redesign the block and screen so they read as alien technology rather than a crafting table. Inspect the existing model, textures, and GUI before changing them; verify both loader clients after visual changes.
 
 **Step 3, Omnitrix + transformation** (doesn't depend on the open questions):
 - Omnitrix item (the existing `omnitrix_watch` id, or a new one) with the 3D model (`geo/item/omnitrix.geo.json`, `textures/item/omnitrix_device*.png`) via GeckoLib `GeoItem`.
