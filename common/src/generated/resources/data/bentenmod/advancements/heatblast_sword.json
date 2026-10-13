@@ -1,0 +1,39 @@
+{
+  "parent": "bentenmod:fire_ingot",
+  "criteria": {
+    "heatblast_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:heatblast_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.heatblast_sword.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:heatblast_sword",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.heatblast_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "heatblast_sword"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

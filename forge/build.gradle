@@ -1,0 +1,66 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev.legacyforge'
+    id 'net.darkhax.curseforgegradle'
+}
+
+legacyForge {
+    version = "${minecraft_version}-${forge_version}"
+    parchment {
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
+    }
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+        // Headless server that loads the mod, runs GameTests and exits: the dedicated-server smoke test.
+        gameTestServer {
+            type = 'gameTestServer'
+            systemProperty 'forge.enabledGameTestNamespaces', mod_id
+        }
+        // Data generation writes into common/ so the Fabric jar ships the same files.
+        data {
+            data()
+            programArguments.addAll '--mod', mod_id, '--all',
+                    '--output', rootProject.file('common/src/generated/resources').absolutePath,
+                    '--existing', rootProject.file('common/src/main/resources').absolutePath
+        }
+        configureEach {
+            gameDirectory = project.file('run')
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    modImplementation "software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}"
+}
+
+jar {
+    finalizedBy('reobfJar')
+}
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+    group = 'publishing'
+    dependsOn('reobfJar')
+    disableVersionDetection()
+    apiToken = project.findProperty('curseforge.token') ?: ''
+    def mainFile = upload(curseforge_project_id, tasks.jar.archiveFile)
+    mainFile.changelog = rootProject.file('CHANGELOG.md').text
+    mainFile.changelogType = 'markdown'
+    mainFile.releaseType = 'release'
+    mainFile.addJavaVersion('Java 17')
+    mainFile.addModLoader('Forge', 'NeoForge')
+    mainFile.addGameVersion(minecraft_version)
+    mainFile.addRequirement('geckolib')
+}

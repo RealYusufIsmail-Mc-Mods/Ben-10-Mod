@@ -1,0 +1,24 @@
+{
+  "width": 0.8,
+  "height": 2.0,
+  "unlocked_by_default": false,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:water_breathing",
+      "amplifier": 0
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:dolphins_grace",
+      "amplifier": 0
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "addition",
+      "amount": 4
+    }
+  ]
+}

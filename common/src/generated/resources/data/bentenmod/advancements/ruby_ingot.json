@@ -1,0 +1,38 @@
+{
+  "parent": "bentenmod:ruby_ore",
+  "criteria": {
+    "get_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:ruby"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.ruby_ingot.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:ruby"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.ruby_ingot.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ingot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

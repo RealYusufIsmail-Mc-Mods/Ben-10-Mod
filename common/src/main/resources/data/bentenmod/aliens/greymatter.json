@@ -1,0 +1,19 @@
+{
+  "width": 0.4,
+  "height": 0.9,
+  "unlocked_by_default": false,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:haste",
+      "amplifier": 1
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "amount": -10
+    }
+  ]
+}

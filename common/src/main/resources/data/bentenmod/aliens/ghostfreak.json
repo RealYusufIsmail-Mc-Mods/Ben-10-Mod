@@ -1,0 +1,20 @@
+{
+  "width": 0.7,
+  "height": 2.1,
+  "unlocked_by_default": false,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:invisibility",
+      "amplifier": 0
+    },
+    {
+      "type": "bentenmod:flight",
+      "speed": 0.03
+    },
+    {
+      "type": "bentenmod:no_fall_damage"
+    }
+  ]
+}

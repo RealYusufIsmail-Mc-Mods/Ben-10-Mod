@@ -1,0 +1,12 @@
+{
+  "pieces": {
+    "chest": "bentenmod:jacket"
+  },
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:resistance",
+      "amplifier": 2
+    }
+  ]
+}

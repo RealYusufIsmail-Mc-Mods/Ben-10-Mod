@@ -1,0 +1,38 @@
+{
+  "parent": "bentenmod:fire_ingot",
+  "criteria": {
+    "get_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:fire_apple"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.fire_apple.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:fire_apple"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.fire_apple.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

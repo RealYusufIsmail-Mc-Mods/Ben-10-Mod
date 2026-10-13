@@ -1,0 +1,38 @@
+{
+  "parent": "bentenmod:root",
+  "criteria": {
+    "get_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:fire_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.fire_ore.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:fire_ore"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.fire_ore.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_ore"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

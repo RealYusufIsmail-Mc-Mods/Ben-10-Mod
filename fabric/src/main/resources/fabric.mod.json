@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "bentenmod",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/ben-ten-mod",
+    "sources": "https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod",
+    "issues": "https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/issues"
+  },
+  "license": "${license}",
+  "icon": "headerimg.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.realyusufismail.bentenmod.BenTenModFabric"
+    ],
+    "client": [
+      "io.github.realyusufismail.bentenmod.client.BenTenModFabricClient"
+    ],
+    "fabric-gametest": [
+      "io.github.realyusufismail.bentenmod.gametest.FabricGameTests"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15",
+    "fabric-api": "*",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}",
+    "geckolib": ">=${geckolib_version}"
+  }
+}

@@ -1,0 +1,60 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
+plugins {
+    id 'multiloader-loader'
+    id 'fabric-loom'
+    id 'net.darkhax.curseforgegradle'
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.layered {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${parchment_minecraft}:${parchment_version}@zip")
+    }
+    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_version}"
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.1'
+    implementation project(':common')
+}
+
+loom {
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('run')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('run')
+        }
+        // Headless server that loads the mod, runs Fabric GameTests and exits.
+        gameTestServer {
+            server()
+            setConfigName('Fabric GameTest Server')
+            vmArg('-Dfabric-api.gametest')
+            vmArg("-Dfabric-api.gametest.report-file=${project.layout.buildDirectory.get().asFile}/gametest/report.xml")
+            runDir('build/gametest')
+        }
+    }
+}
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+    group = 'publishing'
+    dependsOn('remapJar')
+    disableVersionDetection()
+    apiToken = project.findProperty('curseforge.token') ?: ''
+    def mainFile = upload(curseforge_project_id, tasks.remapJar.archiveFile)
+    mainFile.changelog = rootProject.file('CHANGELOG.md').text
+    mainFile.changelogType = 'markdown'
+    mainFile.releaseType = 'release'
+    mainFile.addJavaVersion('Java 17')
+    mainFile.addModLoader('Fabric')
+    mainFile.addGameVersion(minecraft_version)
+    mainFile.addRequirement('fabric-api', 'geckolib')
+}

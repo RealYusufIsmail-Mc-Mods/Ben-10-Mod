@@ -1,0 +1,38 @@
+{
+  "parent": "bentenmod:ruby_ingot",
+  "criteria": {
+    "get_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bentenmod:ruby_apple"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.bentenmod.ruby_apple.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bentenmod:ruby_apple"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.bentenmod.ruby_apple.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

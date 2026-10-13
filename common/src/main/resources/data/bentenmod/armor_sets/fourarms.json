@@ -1,0 +1,25 @@
+{
+  "pieces": {
+    "head": "bentenmod:fourarms_helmet",
+    "chest": "bentenmod:fourarms_chestplate",
+    "legs": "bentenmod:fourarms_leggings",
+    "feet": "bentenmod:fourarms_boot"
+  },
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:regeneration",
+      "amplifier": 5
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:strength",
+      "amplifier": 8
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:jump_boost",
+      "amplifier": 2
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "width": 0.7,
+  "height": 1.9,
+  "unlocked_by_default": true,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.movement_speed",
+      "operation": "multiply_base",
+      "amount": 1.5
+    },
+    {
+      "type": "bentenmod:no_fall_damage"
+    }
+  ]
+}
