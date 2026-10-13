@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|compact|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$CLAUDE_PROJECT_DIR/docs/HANDOFF.md\"; if [ -f \"$f\" ]; then echo 'Ben 10 mod handoff log (docs/HANDOFF.md). Use the handoff skill to resume and keep it updated:'; echo; cat \"$f\"; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

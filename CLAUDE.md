@@ -2,6 +2,10 @@
 
 Minecraft 1.20.1 mod (`modid = bentenmod`) for Forge (also meant to load on NeoForge 1.20.1) and Fabric, from one codebase. Published on CurseForge as project 459985. Ores, tools, armour, the Omnitrix Crafter, the Kraab entity, and (in progress) GeckoLib 3D aliens with an Omnitrix transformation.
 
+## Handoff
+
+`docs/HANDOFF.md` is the running work log (current state, done, decisions, open questions, next step). It's loaded automatically at session start, on resume and after compaction (`.claude/settings.json` hook). Read it before working, and update it after every milestone using the `handoff` skill.
+
 ## Versions
 
 All in `gradle.properties`.
@@ -82,3 +86,4 @@ Assets are generated, not hand-drawn. See [docs/assets.md](docs/assets.md) and t
 - `.claude/skills/alien-assets`: add or change an alien (model, texture, animations and its JSON definition) or the Omnitrix visuals.
 - `.claude/skills/multiloader-content`: add an item, block, entity, menu or other registered content so it works on Forge and Fabric.
 - `.claude/skills/mc-version-port`: port to another Minecraft version or loader.
+- `.claude/skills/handoff`: resume from `docs/HANDOFF.md`, and keep it updated.
