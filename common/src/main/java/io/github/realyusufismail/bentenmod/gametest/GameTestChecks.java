@@ -38,12 +38,16 @@ import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
+import io.github.realyusufismail.bentenmod.omnitrix.PlayerAnimationStateCache;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistryObject;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -51,6 +55,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Stream;
 
 /**
@@ -102,6 +107,95 @@ public final class GameTestChecks {
                     "alien missing: " + id));
         long starters = aliens.values().stream().filter(a -> a.unlockedByDefault()).count();
         helper.assertTrue(starters == 3, "expected 3 starter aliens, found " + starters);
+        helper.succeed();
+    }
+
+    /** Rendering different players must not restart or suppress each other's transform clips. */
+    public static void alienTransformAnimationIsPerPlayer(GameTestHelper helper) {
+        PlayerAnimationStateCache states = new PlayerAnimationStateCache();
+        UUID firstPlayer = UUID.fromString("00000000-0000-0000-0000-000000000001");
+        UUID secondPlayer = UUID.fromString("00000000-0000-0000-0000-000000000002");
+        ResourceLocation heatblast = BenTenMod.getModIdAndName("heatblast");
+
+        var first = states.bind(firstPlayer, heatblast, 1_000, 100);
+        var second = states.bind(secondPlayer, heatblast, 2_000, 500);
+        var firstAfterInterleavedRender = states.bind(firstPlayer, heatblast, 1_000, 101);
+
+        helper.assertTrue(first.transformUntilTick() == 120,
+                "first player's transform window was not initialized from their tick");
+        helper.assertTrue(second.transformUntilTick() == 520,
+                "second player inherited the first player's transform window");
+        helper.assertTrue(firstAfterInterleavedRender.transformUntilTick() == 120,
+                "rendering another player restarted the first player's transform animation");
+        helper.assertTrue(firstAfterInterleavedRender.isTransforming(119),
+                "first player's transform animation ended too early");
+        helper.assertFalse(firstAfterInterleavedRender.isTransforming(120),
+                "first player's transform animation did not end on time");
+
+        var nextForm = states.bind(secondPlayer, BenTenMod.getModIdAndName("wildmutt"), 3_000, 501);
+        helper.assertTrue(nextForm.transformUntilTick() == 521,
+                "a player's new form did not start a new transform animation");
+        helper.assertTrue(firstAfterInterleavedRender.transformUntilTick() == 120,
+                "changing the second player's form altered the first player's animation");
+        helper.succeed();
+    }
+
+    /**
+     * Server validates the watch and unlock list, then applies definition-driven size and powers.
+     */
+    public static void omnitrixTransformIsServerValidated(GameTestHelper helper,
+            ServerPlayer player) {
+        ResourceLocation heatblast = BenTenMod.getModIdAndName("heatblast");
+        ResourceLocation diamondhead = BenTenMod.getModIdAndName("diamondhead");
+        OmnitrixSnapshot initial = OmnitrixService.snapshot(player);
+        helper.assertTrue(initial.unlockedAlienIds().size() == 3,
+                "new Omnitrix must start with exactly three unlocked aliens");
+        helper.assertFalse(OmnitrixService.transform(player, heatblast),
+                "transformation succeeded without a watch");
+        player.getInventory().setItem(0, new ItemStack(ItemInit.OMNITRIX_WATCH.get()));
+        helper.assertFalse(OmnitrixService.transform(player, diamondhead),
+                "server accepted a locked alien");
+        helper.assertTrue(OmnitrixService.transform(player, heatblast),
+                "server rejected an unlocked alien with a watch");
+
+        OmnitrixSnapshot transformed = OmnitrixService.snapshot(player);
+        helper.assertTrue(heatblast.equals(transformed.currentAlien()),
+                "current alien was not persisted");
+        helper.assertTrue(transformed.expiresAt() > 0, "transformation has no timeout");
+        helper.assertTrue(Math.abs(player.getBoundingBox().getXsize() - 0.7) < 0.01,
+                "Heatblast width from JSON was not applied");
+        helper.assertTrue(Math.abs(player.getBoundingBox().getYsize() - 2.1) < 0.01,
+                "Heatblast height from JSON was not applied");
+
+        AbilityTicker.tick(player);
+        helper.assertTrue(player.hasEffect(MobEffects.FIRE_RESISTANCE),
+                "Heatblast ability was not activated");
+        helper.assertTrue(player.getAbilities().mayfly,
+                "Heatblast flight ability was not activated");
+        AbilityTicker.forget(player);
+        OmnitrixService.revert(player);
+        helper.succeed();
+    }
+
+    /** Expiry reverts dimensions and removes transformation abilities on the next ability tick. */
+    public static void omnitrixTimeoutReverts(GameTestHelper helper, ServerPlayer player) {
+        player.getInventory().setItem(0, new ItemStack(ItemInit.OMNITRIX_WATCH.get()));
+        ResourceLocation heatblast = BenTenMod.getModIdAndName("heatblast");
+        helper.assertTrue(OmnitrixService.transform(player, heatblast),
+                "could not start Heatblast for timeout check");
+        AbilityTicker.tick(player);
+        OmnitrixSnapshot state = OmnitrixService.snapshot(player);
+        helper.assertTrue(OmnitrixService.tick(player, state.expiresAt()),
+                "expired transformation did not revert");
+        AbilityTicker.tick(player);
+        helper.assertTrue(OmnitrixService.snapshot(player).currentAlien() == null,
+                "expired form is still active");
+        helper.assertFalse(player.hasEffect(MobEffects.FIRE_RESISTANCE),
+                "expired Heatblast still grants fire resistance");
+        helper.assertFalse(player.getAbilities().mayfly, "expired Heatblast still grants flight");
+        helper.assertTrue(Math.abs(player.getBoundingBox().getXsize() - 0.6) < 0.01,
+                "player width did not return after timeout");
+        AbilityTicker.forget(player);
         helper.succeed();
     }
 

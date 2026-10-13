@@ -15,6 +15,9 @@
   "license": "${license}",
   "icon": "headerimg.png",
   "environment": "*",
+  "mixins": [
+    "bentenmod.mixins.json"
+  ],
   "entrypoints": {
     "main": [
       "io.github.realyusufismail.bentenmod.BenTenModFabric"

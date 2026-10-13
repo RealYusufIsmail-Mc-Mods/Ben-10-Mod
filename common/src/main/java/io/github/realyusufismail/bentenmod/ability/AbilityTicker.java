@@ -33,10 +33,12 @@
 package io.github.realyusufismail.bentenmod.ability;
 
 import io.github.realyusufismail.bentenmod.armorset.ArmorSets;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -50,9 +52,17 @@ public final class AbilityTicker {
 
     private AbilityTicker() {}
 
-    /** Every source active for the player right now. Alien forms join this in step 3. */
+    /** Every armour-set and transformation source active for this player right now. */
     private static Map<ResourceLocation, List<Ability>> currentSources(ServerPlayer player) {
-        return ArmorSets.activeSets(player);
+        Map<ResourceLocation, List<Ability>> current =
+                new LinkedHashMap<>(ArmorSets.activeSets(player));
+        OmnitrixService.activeDefinition(player)
+            .ifPresent(definition -> current.put(
+                    new ResourceLocation("bentenmod",
+                            "transformation/"
+                                    + OmnitrixService.snapshot(player).currentAlien().getPath()),
+                    definition.abilities()));
+        return current;
     }
 
     public static void tick(ServerPlayer player) {

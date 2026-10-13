@@ -150,6 +150,20 @@ public class ModEnLangProvider extends LanguageProvider {
 
         // other items
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
+        add("screen.bentenmod.omnitrix", "Omnitrix Dial");
+        add("screen.bentenmod.revert", "Revert");
+        add("key.bentenmod.omnitrix", "Open Omnitrix Dial");
+        add("key.categories.bentenmod", "Ben 10 Mod");
+        add("alien.bentenmod.heatblast", "Heatblast");
+        add("alien.bentenmod.wildmutt", "Wildmutt");
+        add("alien.bentenmod.diamondhead", "Diamondhead");
+        add("alien.bentenmod.xlr8", "XLR8");
+        add("alien.bentenmod.greymatter", "Grey Matter");
+        add("alien.bentenmod.fourarms", "Four Arms");
+        add("alien.bentenmod.stinkfly", "Stinkfly");
+        add("alien.bentenmod.ripjaws", "Ripjaws");
+        add("alien.bentenmod.upgrade", "Upgrade");
+        add("alien.bentenmod.ghostfreak", "Ghostfreak");
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
         add("creativetab.bentenmod", "Ben Ten Item Group");
         add(LangKeys.OMNITRIX_DESCRIPTION,

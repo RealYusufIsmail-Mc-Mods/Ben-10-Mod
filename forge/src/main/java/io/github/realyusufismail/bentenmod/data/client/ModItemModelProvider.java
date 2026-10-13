@@ -37,6 +37,7 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistryObject;
 
@@ -71,6 +72,9 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(LEGENDARY.get().toString());
         else if (itemAsAsString.equals(OMNITRIX.get().toString()))
             item(OMNITRIX.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_WATCH.get().toString()))
+            getBuilder(OMNITRIX_WATCH.get().toString())
+                .parent(new ModelFile.UncheckedModelFile(mcLoc("builtin/entity")));
         else if (itemAsAsString.equals(FIRE.get().toString()))
             item(FIRE.get().toString());
         else if (itemAsAsString.equals(RUBY.get().toString()))

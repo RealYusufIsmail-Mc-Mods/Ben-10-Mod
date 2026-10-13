@@ -36,6 +36,7 @@ import com.google.gson.JsonObject;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterCraftingBookCategory;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterShapedRecipe;
 import io.github.realyusufismail.bentenmod.platform.services.IPlatformHelper;
+import io.github.realyusufismail.bentenmod.core.item.ForgeOmnitrixWatchItem;
 import io.github.realyusufismail.bentenmod.recipebook.ForgeOmnitrixShapedRecipe;
 import io.github.realyusufismail.bentenmod.recipebook.RecipeBookTypeInit;
 import net.minecraft.core.NonNullList;
@@ -73,6 +74,11 @@ public class ForgePlatformHelper implements IPlatformHelper {
     @Override
     public boolean isDevelopmentEnvironment() {
         return !FMLLoader.isProduction();
+    }
+
+    @Override
+    public net.minecraft.world.item.Item createOmnitrixWatchItem() {
+        return new ForgeOmnitrixWatchItem(new net.minecraft.world.item.Item.Properties());
     }
 
     @Override

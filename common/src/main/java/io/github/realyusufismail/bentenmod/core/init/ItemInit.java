@@ -35,6 +35,7 @@ package io.github.realyusufismail.bentenmod.core.init;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.material.CustomArmorMaterial;
 import io.github.realyusufismail.bentenmod.core.material.CustomToolMaterial;
+import io.github.realyusufismail.bentenmod.platform.Services;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
 import io.github.realyusufismail.bentenmod.core.item.ModTools;
@@ -257,7 +258,8 @@ public class ItemInit {
             () -> new EnchantedGoldenAppleItem(new Item.Properties().food(FoodInit.RUBY_APPLE)));
     // other items
 
-    public static final RegistryObject<Item> OMNITRIX_WATCH = register("omnitrix_watch");
+    public static final RegistryObject<Item> OMNITRIX_WATCH =
+            ITEMS.register("omnitrix_watch", Services.PLATFORM::createOmnitrixWatchItem);
 
     private static RegistryObject<Item> register(String name) {
         return ITEMS.register(name, () -> new Item(new Item.Properties()));
