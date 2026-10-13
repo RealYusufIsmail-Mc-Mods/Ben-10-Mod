@@ -1,0 +1,67 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.omnitrix.idle": {
+			"loop": true,
+			"animation_length": 2.0,
+			"bones": {}
+		},
+		"animation.omnitrix.activate": {
+			"animation_length": 0.6,
+			"bones": {
+				"dial": {
+					"position": {
+						"0.00": [
+							0,
+							0,
+							0
+						],
+						"0.20": [
+							0,
+							1.2,
+							0
+						],
+						"0.60": [
+							0,
+							1.2,
+							0
+						]
+					}
+				},
+				"core": {
+					"rotation": {
+						"0.20": [
+							0,
+							0,
+							0
+						],
+						"0.60": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			}
+		},
+		"animation.omnitrix.deactivate": {
+			"animation_length": 0.4,
+			"bones": {
+				"dial": {
+					"position": {
+						"0.00": [
+							0,
+							1.2,
+							0
+						],
+						"0.40": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		}
+	}
+}
