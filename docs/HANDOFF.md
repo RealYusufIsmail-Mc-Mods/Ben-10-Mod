@@ -5,7 +5,7 @@ Read this first when you start, resume, or come back from a context compaction. 
 ## Current state (2026-10-13)
 
 - **Branch:** `t3/omnitrix-transformation` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`; local, based on the pushed Crafter branch).
-- **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) and [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) merged into `main`; [#90](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/90) merged into `1.20.1`. The Step 3 branch targets `1.20.1`.
+- **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) and [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) merged into `main`; [#90](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/90) merged into `1.20.1`; [#91](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/91) is open from `t3/omnitrix-transformation` to `1.20.1`.
 - **Version branches:** `1.19.4` holds the original `main` (fast-forwarded to `2a50371a`). Older versions have their own branches (`1.18.2`, `1.19.3`, ...). Naming convention: the branch is the Minecraft version.
 - **Builds:** Forge and Fabric jars from one codebase (`./gradlew build`).
 - **Tests:** 11/11 GameTests pass on both loaders (`:forge:runGameTestServer`, `:fabric:runGameTestServer`); `./gradlew build` passes after the final animation-state fix.
@@ -18,7 +18,7 @@ Read this first when you start, resume, or come back from a context compaction. 
 - Added a GeckoLib `omnitrix_watch` item, dial screen and keybind, local green flash, and third-person alien player replacement renderer in `common/src/main/java/.../core`, `.../client/alien`, and `.../omnitrix`.
 - Added server-authoritative saved unlocks, transformation, revert and timeout, plus JSON-defined alien dimensions and abilities. Forge and Fabric now sync owners/trackers and refresh hitboxes across login, tracking, dimension changes, and respawn. Tracker packets omit the owner's unlock list; the client cache clears on disconnect.
 - Generated the watch item model and translations. Added shared GameTests for watch/unlock validation, dimensions/abilities, timeout/revert, and independent animation state for two transformed players, with wrappers on both loaders.
-- Verified `:forge:runData`, `./gradlew build`, and 11/11 GameTests on each loader. Both client startup checks reached resource reload without a crash or mixin error before the final animation-state fix. First-person hands still use vanilla rendering, and transformed-player visuals were not checked in a live world.
+- Pushed implementation commit `891fc1c9` and opened PR #91 against `1.20.1`. Verified `:forge:runData`, `./gradlew build`, and 11/11 GameTests on each loader. Both client startup checks reached resource reload without a crash or mixin error before the final animation-state fix. First-person hands still use vanilla rendering, and transformed-player visuals were not checked in a live world.
 
 ### 2026-10-13: Omnitrix Crafter visual redesign
 - Replaced the cube model with an eight-element console with an armored base, corner pylons, and raised dial (`models/block/omnitrix_crafter_device.json`). The Forge data provider now points the generated block and item model at it.
@@ -79,7 +79,7 @@ From `docs/design/progression.md`:
 
 **Omnitrix Crafter visuals:** inspect the new block and screen in-game on both loaders. Adjust the pixel art and model in a follow-up if needed.
 
-**Step 3 follow-up:** inspect the dial and transformed player in a live world on both loaders; replace the first-person vanilla hands if needed. Confirm NeoForge 1.20.1 compatibility. Commit/push only when asked.
+**Step 3 follow-up:** inspect the dial and transformed player in a live world on both loaders; replace the first-person vanilla hands if needed. Confirm NeoForge 1.20.1 compatibility. Review PR #91.
 
 After that, the progression plan steps 4 to 7 in `docs/design/progression.md`.
 
