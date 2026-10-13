@@ -1,0 +1,25 @@
+{
+  "pieces": {
+    "head": "bentenmod:xlr8_helmet",
+    "chest": "bentenmod:xlr8_chestplate",
+    "legs": "bentenmod:xlr8_leggings",
+    "feet": "bentenmod:xlr8_boots"
+  },
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:regeneration",
+      "amplifier": 5
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:resistance",
+      "amplifier": 2
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:speed",
+      "amplifier": 45
+    }
+  ]
+}

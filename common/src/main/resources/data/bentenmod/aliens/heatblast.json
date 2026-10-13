@@ -1,0 +1,26 @@
+{
+  "width": 0.7,
+  "height": 2.1,
+  "unlocked_by_default": true,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:fire_resistance",
+      "amplifier": 0
+    },
+    {
+      "type": "bentenmod:flight",
+      "speed": 0.06
+    },
+    {
+      "type": "bentenmod:no_fall_damage"
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "addition",
+      "amount": 2
+    }
+  ]
+}

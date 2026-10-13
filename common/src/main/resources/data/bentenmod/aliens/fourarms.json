@@ -1,0 +1,31 @@
+{
+  "width": 1.1,
+  "height": 2.6,
+  "unlocked_by_default": true,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.attack_damage",
+      "operation": "addition",
+      "amount": 6
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "amount": 10
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.knockback_resistance",
+      "operation": "addition",
+      "amount": 0.6
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:jump_boost",
+      "amplifier": 1
+    }
+  ]
+}

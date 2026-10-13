@@ -1,0 +1,21 @@
+{
+  "width": 1.0,
+  "height": 1.2,
+  "unlocked_by_default": false,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:flight",
+      "speed": 0.05
+    },
+    {
+      "type": "bentenmod:no_fall_damage"
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "amount": -6
+    }
+  ]
+}

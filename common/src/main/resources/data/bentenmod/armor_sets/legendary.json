@@ -1,0 +1,20 @@
+{
+  "pieces": {
+    "head": "bentenmod:helmet",
+    "chest": "bentenmod:chestplate",
+    "legs": "bentenmod:leggings",
+    "feet": "bentenmod:boots"
+  },
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:strength",
+      "amplifier": 1
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:resistance",
+      "amplifier": 2
+    }
+  ]
+}

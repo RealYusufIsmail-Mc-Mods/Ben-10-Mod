@@ -1,0 +1,18 @@
+{
+  "width": 0.6,
+  "height": 2.0,
+  "unlocked_by_default": false,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:night_vision",
+      "amplifier": 0
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:haste",
+      "amplifier": 2
+    }
+  ]
+}

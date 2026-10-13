@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "bentenmod:legendary_ore",
+    "bentenmod:ruby_ore",
+    "bentenmod:black_diamond_ore",
+    "bentenmod:imperium_ore",
+    "bentenmod:speed_ore",
+    "bentenmod:omnitrix_ore"
+  ],
+  "step": "underground_ores"
+}

@@ -24,3 +24,7 @@ run
 # Files from Forge MDK
 forge*changelog.txt
 .DS_Store
+
+# alien-gen previews
+tools/alien-gen/out/
+__pycache__/

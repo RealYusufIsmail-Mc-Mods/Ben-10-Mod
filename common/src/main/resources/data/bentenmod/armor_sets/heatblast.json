@@ -1,0 +1,37 @@
+{
+  "pieces": {
+    "head": "bentenmod:heatblast_helmet",
+    "chest": "bentenmod:heatblast_chestplate",
+    "legs": "bentenmod:heatblast_leggings",
+    "feet": "bentenmod:heatblast_boots"
+  },
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:fire_resistance",
+      "amplifier": 3
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:regeneration",
+      "amplifier": 3
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:resistance",
+      "amplifier": 3
+    },
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:strength",
+      "amplifier": 1
+    },
+    {
+      "type": "bentenmod:flight",
+      "speed": 0.1
+    },
+    {
+      "type": "bentenmod:no_fall_damage"
+    }
+  ]
+}

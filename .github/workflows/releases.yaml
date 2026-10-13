@@ -24,10 +24,12 @@ jobs:
           distribution: 'adopt'
       - uses: actions/checkout@v3
       - name: Build shadow jar
-        run: ./gradlew shadowJar
+        run: ./gradlew build
       - name: Create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          files: build/libs/ben_10_mod.jar
+          files: |
+            forge/build/libs/bentenmod-forge-*[0-9].jar
+            fabric/build/libs/bentenmod-fabric-*[0-9].jar

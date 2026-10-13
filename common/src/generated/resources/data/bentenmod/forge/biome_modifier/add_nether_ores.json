@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": [
+    "bentenmod:fire_ore",
+    "bentenmod:infinitum_ore"
+  ],
+  "step": "underground_ores"
+}

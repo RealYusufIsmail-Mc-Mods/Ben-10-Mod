@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.6,
+  "ingredient": {
+    "item": "bentenmod:raw_imperium"
+  },
+  "result": "bentenmod:imperium"
+}

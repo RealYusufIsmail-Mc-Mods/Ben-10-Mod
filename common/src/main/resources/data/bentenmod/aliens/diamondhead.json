@@ -1,0 +1,26 @@
+{
+  "width": 0.8,
+  "height": 2.3,
+  "unlocked_by_default": false,
+  "duration_ticks": 6000,
+  "abilities": [
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.armor",
+      "operation": "addition",
+      "amount": 10
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.armor_toughness",
+      "operation": "addition",
+      "amount": 4
+    },
+    {
+      "type": "bentenmod:attribute",
+      "attribute": "minecraft:generic.knockback_resistance",
+      "operation": "addition",
+      "amount": 0.5
+    }
+  ]
+}
