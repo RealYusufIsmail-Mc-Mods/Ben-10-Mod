@@ -4,15 +4,20 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-13)
 
-- **Branch:** `1.20.1` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`).
+- **Branch:** `t3/omnitrix-crafter-visuals` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`; Crafter changes are local and uncommitted).
 - **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) merged into `main`. [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) is open from `1.20.1` to `main` for this handoff log, skill, session hook, and `CLAUDE.md` link.
 - **Version branches:** `1.19.4` holds the original `main` (fast-forwarded to `2a50371a`). Older versions have their own branches (`1.18.2`, `1.19.3`, ...). Naming convention: the branch is the Minecraft version.
 - **Builds:** Forge and Fabric jars from one codebase (`./gradlew build`).
 - **Tests:** 8/8 GameTests pass on both loaders (`:forge:runGameTestServer`, `:fabric:runGameTestServer`).
-- **Not verified:** `runClient` on either loader; Forge jar on NeoForge 1.20.1.
-- **Next step:** redesign the Omnitrix Crafter visuals requested by the user, then step 3, the Omnitrix and transformation (see "Next").
+- **Client check:** both `runClient` tasks reached resource loading without a Crafter model/texture error. The in-game block and screen were not visually inspected; the UI tool did not expose the Minecraft windows. Forge jar on NeoForge 1.20.1 remains unverified.
+- **Next step:** review the Crafter design in-game, then step 3, the Omnitrix and transformation (see "Next").
 
 ## Done (newest first)
+
+### 2026-10-13: Omnitrix Crafter visual redesign (local)
+- Replaced the cube model with an eight-element console with an armored base, corner pylons, and raised dial (`models/block/omnitrix_crafter_device.json`). The Forge data provider now points the generated block and item model at it.
+- Added `tools/crafter-assets/generate.py` for the block, GUI, recipe-button pixel art, and `docs/omnitrix-crafter-preview.png`, with the command documented in `docs/assets.md`. The screen now uses those assets instead of Minecraft's crafting-table textures and draws readable labels on the dark panel.
+- Verified: `:forge:runData`, `build`, and both GameTest servers (8/8 each). Forge and Fabric clients reached resource loading. Visual inspection inside the game is still pending; no commit or push was made for these changes.
 
 ### 2026-10-13: Handoff follow-up PR
 - PR #88 merged. Opened PR #89 for the four-file handoff commit `f46b1be5`; no game code or assets are in that PR.
@@ -66,7 +71,7 @@ From `docs/design/progression.md`:
 
 ## Next
 
-**Omnitrix Crafter visuals:** redesign the block and screen so they read as alien technology rather than a crafting table. Inspect the existing model, textures, and GUI before changing them; verify both loader clients after visual changes.
+**Omnitrix Crafter visuals:** inspect the new block and screen in-game on both loaders. Adjust the pixel art and model if needed before committing or opening a PR.
 
 **Step 3, Omnitrix + transformation** (doesn't depend on the open questions):
 - Omnitrix item (the existing `omnitrix_watch` id, or a new one) with the 3D model (`geo/item/omnitrix.geo.json`, `textures/item/omnitrix_device*.png`) via GeckoLib `GeoItem`.
