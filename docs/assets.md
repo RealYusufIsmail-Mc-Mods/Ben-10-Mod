@@ -2,6 +2,8 @@
 
 Every alien model, texture, glow mask and animation, the Omnitrix watch model, and the Omnitrix dial and flash textures come from the Python generator in `tools/alien-gen/`. Edit the generator, not the PNGs: a re-export overwrites them.
 
+The Omnitrix Crafter has a separate pixel-art generator: `python3 tools/crafter-assets/generate.py`. It writes the block face textures, screen, recipe button, and `docs/omnitrix-crafter-preview.png`. The preview shows flat pixels, not an in-game render. Its authored block geometry is `models/block/omnitrix_crafter_device.json`; the Forge data provider generates the blockstate and item model for both loaders. Change the generator when changing its palette or pixel layout.
+
 ## Setup
 
 ```bash

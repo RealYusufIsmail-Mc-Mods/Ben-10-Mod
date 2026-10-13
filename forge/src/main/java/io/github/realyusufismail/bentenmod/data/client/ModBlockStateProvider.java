@@ -99,16 +99,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
             return;
         }
 
-        BlockModelBuilder builder = this.models().withExistingParent(name.getPath(), "block/cube");
-
-        builder.texture("down", modLoc("block/"
-                + ForgeRegistries.BLOCKS.getKey(BlockInit.OMNITRIX_BLOCK.get()).getPath()));
-        builder.texture("east", modLoc("block/" + name.getPath() + "_side"));
-        builder.texture("north", modLoc("block/" + name.getPath() + "_front"));
-        builder.texture("particle", modLoc("block/" + name.getPath() + "_front"));
-        builder.texture("south", modLoc("block/" + name.getPath() + "_side"));
-        builder.texture("up", modLoc("block/" + name.getPath() + "_top"));
-        builder.texture("west", modLoc("block/" + name.getPath() + "_front"));
+        BlockModelBuilder builder = this.models()
+            .withExistingParent(name.getPath(), modLoc("block/omnitrix_crafter_device"));
 
         this.simpleBlockItem(BlockInit.OmnitrixCrafter.get(), builder);
         this.simpleBlock(BlockInit.OmnitrixCrafter.get(), builder);
