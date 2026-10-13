@@ -81,6 +81,16 @@
   "advancements.bentenmod.upgraded_imperium_pickaxe.title": "Made the Upgraded Imperium Pickaxe",
   "advancements.bentenmod.xlr8_armour.description": "You are now the fastest player/entity in the game WOW!",
   "advancements.bentenmod.xlr8_armour.title": "you are now XLR8",
+  "alien.bentenmod.diamondhead": "Diamondhead",
+  "alien.bentenmod.fourarms": "Four Arms",
+  "alien.bentenmod.ghostfreak": "Ghostfreak",
+  "alien.bentenmod.greymatter": "Grey Matter",
+  "alien.bentenmod.heatblast": "Heatblast",
+  "alien.bentenmod.ripjaws": "Ripjaws",
+  "alien.bentenmod.stinkfly": "Stinkfly",
+  "alien.bentenmod.upgrade": "Upgrade",
+  "alien.bentenmod.wildmutt": "Wildmutt",
+  "alien.bentenmod.xlr8": "XLR8",
   "block.bentenmod.black_diamond_block": "Black Diamond Block",
   "block.bentenmod.black_diamond_ore": "Black Diamond Ore",
   "block.bentenmod.deepslate_black_diamond_ore": "Deepslate Black Diamond Ore",
@@ -167,5 +177,9 @@
   "item.bentenmod.xlr8_boots": "xlr8 boots",
   "item.bentenmod.xlr8_chestplate": "xlr8 chestplate",
   "item.bentenmod.xlr8_helmet": "xlr8 helmet",
-  "item.bentenmod.xlr8_leggings": "xlr8 legging"
+  "item.bentenmod.xlr8_leggings": "xlr8 legging",
+  "key.bentenmod.omnitrix": "Open Omnitrix Dial",
+  "key.categories.bentenmod": "Ben 10 Mod",
+  "screen.bentenmod.omnitrix": "Omnitrix Dial",
+  "screen.bentenmod.revert": "Revert"
 }

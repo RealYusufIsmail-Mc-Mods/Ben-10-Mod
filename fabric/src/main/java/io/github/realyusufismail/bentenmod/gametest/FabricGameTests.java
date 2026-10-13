@@ -71,6 +71,22 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void alienTransformAnimationIsPerPlayer(GameTestHelper helper) {
+        GameTestChecks.alienTransformAnimationIsPerPlayer(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixTransformIsServerValidated(GameTestHelper helper) {
+        GameTestChecks.omnitrixTransformIsServerValidated(helper,
+                player(helper, "omnitrixTransformIsServerValidated"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixTimeoutReverts(GameTestHelper helper) {
+        GameTestChecks.omnitrixTimeoutReverts(helper, player(helper, "omnitrixTimeoutReverts"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void heatblastSetGrantsAndRevokesFlight(GameTestHelper helper) {
         GameTestChecks.heatblastSetGrantsAndRevokesFlight(helper,
                 player(helper, "heatblastSetGrantsAndRevokesFlight"));

@@ -41,6 +41,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.BiFunction;
@@ -61,6 +62,9 @@ public interface IPlatformHelper {
     boolean isModLoaded(String modId);
 
     boolean isDevelopmentEnvironment();
+
+    /** Creates the watch with the loader's client-only GeckoLib item renderer bridge. */
+    Item createOmnitrixWatchItem();
 
     /** Forge and Fabric each need their own builder so the tab gets a position in the menu. */
     CreativeModeTab.Builder creativeTabBuilder();

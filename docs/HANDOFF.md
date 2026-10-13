@@ -4,15 +4,21 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-13)
 
-- **Branch:** `t3/omnitrix-crafter-visuals` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`; pushed).
-- **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) merged into `main`. [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) is open from `1.20.1` to `main` for the handoff files. [#90](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/90) is open from `t3/omnitrix-crafter-visuals` to `1.20.1` for the Crafter redesign; retarget it to `main` after #89 merges.
+- **Branch:** `t3/omnitrix-transformation` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`; local, based on the pushed Crafter branch).
+- **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) and [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) merged into `main`; [#90](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/90) merged into `1.20.1`; [#91](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/91) is open from `t3/omnitrix-transformation` to `1.20.1`.
 - **Version branches:** `1.19.4` holds the original `main` (fast-forwarded to `2a50371a`). Older versions have their own branches (`1.18.2`, `1.19.3`, ...). Naming convention: the branch is the Minecraft version.
 - **Builds:** Forge and Fabric jars from one codebase (`./gradlew build`).
-- **Tests:** 8/8 GameTests pass on both loaders (`:forge:runGameTestServer`, `:fabric:runGameTestServer`).
-- **Client check:** both `runClient` tasks reached resource loading without a Crafter model/texture error. The in-game block and screen were not visually inspected; the UI tool did not expose the Minecraft windows. Forge jar on NeoForge 1.20.1 remains unverified.
-- **Next step:** review the Crafter design in-game, then step 3, the Omnitrix and transformation (see "Next").
+- **Tests:** 11/11 GameTests pass on both loaders (`:forge:runGameTestServer`, `:fabric:runGameTestServer`); `./gradlew build` passes after the final animation-state fix.
+- **Client check:** both `runClient` tasks registered the mod, initialized graphics/audio, and reloaded resources without a crash or mixin error, then were stopped after 75 seconds. A transformed player, dial, and Crafter have not been visually inspected in a live world. Forge jar on NeoForge 1.20.1 remains unverified.
+- **Current work:** Step 3 is implemented on `t3/omnitrix-transformation`. The progression decisions below remain open and were not changed.
 
 ## Done (newest first)
+
+### 2026-10-13: Step 3, Omnitrix transformation
+- Added a GeckoLib `omnitrix_watch` item, dial screen and keybind, local green flash, and third-person alien player replacement renderer in `common/src/main/java/.../core`, `.../client/alien`, and `.../omnitrix`.
+- Added server-authoritative saved unlocks, transformation, revert and timeout, plus JSON-defined alien dimensions and abilities. Forge and Fabric now sync owners/trackers and refresh hitboxes across login, tracking, dimension changes, and respawn. Tracker packets omit the owner's unlock list; the client cache clears on disconnect.
+- Generated the watch item model and translations. Added shared GameTests for watch/unlock validation, dimensions/abilities, timeout/revert, and independent animation state for two transformed players, with wrappers on both loaders.
+- Pushed implementation commit `891fc1c9` and opened PR #91 against `1.20.1`. Verified `:forge:runData`, `./gradlew build`, and 11/11 GameTests on each loader. Both client startup checks reached resource reload without a crash or mixin error before the final animation-state fix. First-person hands still use vanilla rendering, and transformed-player visuals were not checked in a live world.
 
 ### 2026-10-13: Omnitrix Crafter visual redesign
 - Replaced the cube model with an eight-element console with an armored base, corner pylons, and raised dial (`models/block/omnitrix_crafter_device.json`). The Forge data provider now points the generated block and item model at it.
@@ -71,15 +77,9 @@ From `docs/design/progression.md`:
 
 ## Next
 
-**Omnitrix Crafter visuals:** inspect the new block and screen in-game on both loaders. Adjust the pixel art and model in PR #90 if needed; retarget #90 to `main` after #89 merges.
+**Omnitrix Crafter visuals:** inspect the new block and screen in-game on both loaders. Adjust the pixel art and model in a follow-up if needed.
 
-**Step 3, Omnitrix + transformation** (doesn't depend on the open questions):
-- Omnitrix item (the existing `omnitrix_watch` id, or a new one) with the 3D model (`geo/item/omnitrix.geo.json`, `textures/item/omnitrix_device*.png`) via GeckoLib `GeoItem`.
-- Per-player transformation state: current alien, unlocked aliens, timeout. Needs saving and syncing to clients, so a small networking/persistence piece in `IPlatformHelper` (Forge capabilities or attachments vs Fabric components or player NBT).
-- Dial screen (`textures/gui/omnitrix.png`: dial at 0,0 128×128; frame at 128,0 40×40; icons at 0,128, 32×32 each) and a keybind.
-- Rendering the player as the alien (GeckoLib replaced-entity renderer + `AlienGeoModel`), hitbox from `AlienDefinition`, the `transform` animation and the `misc/omnitrix_flash.png` overlay.
-- Abilities: make the active alien a source in `AbilityTicker.currentSources`.
-- New GameTests for transform/untransform/timeout; then a `runClient` check on both loaders (ask the user).
+**Step 3 follow-up:** inspect the dial and transformed player in a live world on both loaders; replace the first-person vanilla hands if needed. Confirm NeoForge 1.20.1 compatibility. Review PR #91.
 
 After that, the progression plan steps 4 to 7 in `docs/design/progression.md`.
 

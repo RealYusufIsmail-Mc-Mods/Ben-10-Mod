@@ -34,10 +34,15 @@ package io.github.realyusufismail.bentenmod;
 
 import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.data.CodecJsonReloadListener;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
+import net.fabricmc.fabric.api.networking.v1.EntityTrackingEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resources.ResourceLocation;
@@ -62,12 +67,30 @@ public class BenTenModFabric implements ModInitializer {
         BenTenMod.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
         BenTenMod.commonSetup();
         addOres();
+        OmnitrixNetwork.register();
 
         BenTenMod.reloadListeners().forEach(BenTenModFabric::registerReloadListener);
         ServerTickEvents.END_SERVER_TICK
-            .register(server -> server.getPlayerList().getPlayers().forEach(AbilityTicker::tick));
+            .register(server -> server.getPlayerList().getPlayers().forEach(player -> {
+                boolean changed = OmnitrixService.tick(player, server.overworld().getGameTime());
+                AbilityTicker.tick(player);
+                if (changed) {
+                    OmnitrixNetwork.syncTrackers(player);
+                }
+            }));
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> OmnitrixNetwork
+            .sendToPlayer(handler.player, OmnitrixService.onJoin(handler.player)));
         ServerPlayConnectionEvents.DISCONNECT
             .register((handler, server) -> AbilityTicker.forget(handler.player));
+        EntityTrackingEvents.START_TRACKING.register((entity, player) -> {
+            if (entity instanceof net.minecraft.server.level.ServerPlayer target) {
+                OmnitrixNetwork.sendToPlayer(player, OmnitrixService.trackingSnapshot(target));
+            }
+        });
+        ServerPlayerEvents.AFTER_RESPAWN
+            .register((oldPlayer, newPlayer, alive) -> OmnitrixNetwork.syncTrackers(newPlayer));
+        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD
+            .register((player, origin, destination) -> OmnitrixNetwork.syncTrackers(player));
     }
 
     /** Fabric needs an id on every reload listener; it wraps the shared one. */

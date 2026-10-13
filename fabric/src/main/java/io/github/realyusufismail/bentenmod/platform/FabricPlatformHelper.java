@@ -36,6 +36,7 @@ import com.google.gson.JsonObject;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterCraftingBookCategory;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterShapedRecipe;
 import io.github.realyusufismail.bentenmod.platform.services.IPlatformHelper;
+import io.github.realyusufismail.bentenmod.core.item.FabricOmnitrixWatchItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.NonNullList;
@@ -67,6 +68,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public boolean isDevelopmentEnvironment() {
         return FabricLoader.getInstance().isDevelopmentEnvironment();
+    }
+
+    @Override
+    public net.minecraft.world.item.Item createOmnitrixWatchItem() {
+        return new FabricOmnitrixWatchItem(new net.minecraft.world.item.Item.Properties());
     }
 
     @Override

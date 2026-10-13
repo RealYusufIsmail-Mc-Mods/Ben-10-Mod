@@ -77,6 +77,22 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void alienTransformAnimationIsPerPlayer(GameTestHelper helper) {
+        GameTestChecks.alienTransformAnimationIsPerPlayer(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixTransformIsServerValidated(GameTestHelper helper) {
+        GameTestChecks.omnitrixTransformIsServerValidated(helper,
+                player(helper, "omnitrixTransformIsServerValidated"));
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixTimeoutReverts(GameTestHelper helper) {
+        GameTestChecks.omnitrixTimeoutReverts(helper, player(helper, "omnitrixTimeoutReverts"));
+    }
+
+    @GameTest(template = "empty")
     public static void heatblastSetGrantsAndRevokesFlight(GameTestHelper helper) {
         GameTestChecks.heatblastSetGrantsAndRevokesFlight(helper,
                 player(helper, "heatblastSetGrantsAndRevokesFlight"));

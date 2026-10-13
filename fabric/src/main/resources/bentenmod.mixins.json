@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "io.github.realyusufismail.bentenmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "EntityDimensionsMixin"
+  ],
+  "client": [
+    "LivingEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
