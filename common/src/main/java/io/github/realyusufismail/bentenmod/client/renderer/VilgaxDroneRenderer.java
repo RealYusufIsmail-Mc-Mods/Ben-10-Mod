@@ -10,6 +10,6 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 public class VilgaxDroneRenderer extends GeoEntityRenderer<VilgaxDroneEntity> {
     public VilgaxDroneRenderer(EntityRendererProvider.Context context) {
         super(context, new DefaultedEntityGeoModel<>(
-                new ResourceLocation(BenTenMod.MOD_ID, "entity/vilgax_drone")));
+                new ResourceLocation(BenTenMod.MOD_ID, "vilgax_drone")));
     }
 }

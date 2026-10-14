@@ -72,6 +72,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.OMNITRIX_GUIDE.get())
+            .requires(Items.BOOK)
+            .requires(Items.LIME_DYE)
+            .unlockedBy(HAS_ITEM, has(Items.BOOK))
+            .save(consumer, modId("omnitrix_guide"));
+
         // blocks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.INFINITUM.get(), 9)
 

@@ -11,7 +11,7 @@ import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 public class NullVoidPrisonerRenderer extends GeoEntityRenderer<NullVoidPrisonerEntity> {
     public NullVoidPrisonerRenderer(EntityRendererProvider.Context context) {
         super(context, new DefaultedEntityGeoModel<>(
-                new ResourceLocation(BenTenMod.MOD_ID, "entity/null_void_prisoner")));
+                new ResourceLocation(BenTenMod.MOD_ID, "null_void_prisoner")));
         addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 }

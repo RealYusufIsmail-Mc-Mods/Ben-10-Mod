@@ -218,6 +218,52 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void heatblastPowerSpawnsFireball(GameTestHelper helper) {
+        GameTestChecks.heatblastPowerSpawnsFireball(helper,
+                player(helper, "heatblastPowerSpawnsFireball"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void alienPowerCooldownBlocksImmediateUse(GameTestHelper helper) {
+        GameTestChecks.alienPowerCooldownBlocksImmediateUse(helper,
+                player(helper, "alienPowerCooldownBlocksImmediateUse"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void creativeCanTransformWithoutUnlocking(GameTestHelper helper) {
+        GameTestChecks.creativeCanTransformWithoutUnlocking(helper,
+                player(helper, "creativeCanTransformWithoutUnlocking"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void timeoutStartsRechargeAndBlocksTransform(GameTestHelper helper) {
+        GameTestChecks.timeoutStartsRechargeAndBlocksTransform(helper,
+                player(helper, "timeoutStartsRechargeAndBlocksTransform"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void manualRevertSkipsRecharge(GameTestHelper helper) {
+        GameTestChecks.manualRevertSkipsRecharge(helper,
+                player(helper, "manualRevertSkipsRecharge"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void deathRevertsToHuman(GameTestHelper helper) {
+        GameTestChecks.deathRevertsToHuman(helper, player(helper, "deathRevertsToHuman"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void masterControlHasNoRecharge(GameTestHelper helper) {
+        GameTestChecks.masterControlHasNoRecharge(helper,
+                player(helper, "masterControlHasNoRecharge"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void guideIsGivenOnceOnJoin(GameTestHelper helper) {
+        GameTestChecks.guideIsGivenOnceOnJoin(helper, player(helper, "guideIsGivenOnceOnJoin"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void heatblastSetGrantsAndRevokesFlight(GameTestHelper helper) {
         GameTestChecks.heatblastSetGrantsAndRevokesFlight(helper,
                 player(helper, "heatblastSetGrantsAndRevokesFlight"));

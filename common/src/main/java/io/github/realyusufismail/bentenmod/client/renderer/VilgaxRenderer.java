@@ -10,8 +10,8 @@ import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public class VilgaxRenderer extends GeoEntityRenderer<VilgaxEntity> {
     public VilgaxRenderer(EntityRendererProvider.Context context) {
-        super(context, new DefaultedEntityGeoModel<>(
-                new ResourceLocation(BenTenMod.MOD_ID, "entity/vilgax")));
+        super(context,
+                new DefaultedEntityGeoModel<>(new ResourceLocation(BenTenMod.MOD_ID, "vilgax")));
         addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 }

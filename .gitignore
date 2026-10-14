@@ -29,3 +29,6 @@ forge*changelog.txt
 tools/alien-gen/out/
 __pycache__/
 tools/boss-assets/out/
+
+# ui-assets previews
+tools/ui-assets/out/

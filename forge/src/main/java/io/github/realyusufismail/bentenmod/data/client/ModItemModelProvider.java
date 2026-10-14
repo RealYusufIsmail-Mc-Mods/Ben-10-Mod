@@ -92,6 +92,8 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(NULL_VOID_PROJECTOR.get().toString());
         else if (itemAsAsString.equals(MASTER_CONTROL.get().toString()))
             item(MASTER_CONTROL.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_GUIDE.get().toString()))
+            item(OMNITRIX_GUIDE.get().toString());
         else if (itemAsAsString.equals(OMNITRIX_WATCH.get().toString()))
             getBuilder(OMNITRIX_WATCH.get().toString())
                 .parent(new ModelFile.UncheckedModelFile(mcLoc("builtin/entity")));

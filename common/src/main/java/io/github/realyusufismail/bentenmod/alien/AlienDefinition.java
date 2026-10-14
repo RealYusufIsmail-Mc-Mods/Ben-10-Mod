@@ -36,9 +36,12 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.realyusufismail.bentenmod.ability.Ability;
 import io.github.realyusufismail.bentenmod.ability.AbilityTypes;
+import io.github.realyusufismail.bentenmod.alien.power.AlienPower;
+import io.github.realyusufismail.bentenmod.alien.power.PowerTypes;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * One Omnitrix alien, loaded from {@code data/<namespace>/aliens/<id>.json}. Its model, texture and
@@ -51,9 +54,12 @@ import java.util.List;
  * @param unlockedByDefault whether a new Omnitrix starts with this alien
  * @param durationTicks how long a transformation lasts before the Omnitrix times out
  * @param dnaSources entity types and blocks that can be scanned to unlock this alien
+ * @param rechargeTicks cooldown after a timed-out transformation
+ * @param power optional data-driven active power
  */
 public record AlienDefinition(float width, float height, List<Ability> abilities,
-        boolean unlockedByDefault, int durationTicks, DnaSources dnaSources) {
+        boolean unlockedByDefault, int durationTicks, DnaSources dnaSources, int rechargeTicks,
+        Optional<AlienPower> power) {
 
     public record DnaSources(List<ResourceLocation> entities, List<ResourceLocation> blocks) {
         public static final DnaSources EMPTY = new DnaSources(List.of(), List.of());
@@ -80,6 +86,10 @@ public record AlienDefinition(float width, float height, List<Ability> abilities
                     .optionalFieldOf("duration_ticks", 6000)
                     .forGetter(AlienDefinition::durationTicks),
                 DnaSources.CODEC.optionalFieldOf("dna_sources", DnaSources.EMPTY)
-                    .forGetter(AlienDefinition::dnaSources))
+                    .forGetter(AlienDefinition::dnaSources),
+                Codec.intRange(0, 72000)
+                    .optionalFieldOf("recharge_ticks", 1200)
+                    .forGetter(AlienDefinition::rechargeTicks),
+                PowerTypes.POWER_CODEC.optionalFieldOf("power").forGetter(AlienDefinition::power))
         .apply(i, AlienDefinition::new));
 }

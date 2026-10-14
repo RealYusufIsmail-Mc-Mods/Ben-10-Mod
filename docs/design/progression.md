@@ -1,6 +1,6 @@
 # Progression design (updated 2026-10-14)
 
-Status: steps 1 to 7 are implemented in this worktree. Forge data generation, build and both GameTest runs still need verification.
+Status: steps 1 to 7 and QA round 1 are implemented in this worktree. Steps 6-7 previously passed data generation, builds and both GameTest suites; QA round 1 still needs those checks.
 
 ## What exists today
 
@@ -11,7 +11,7 @@ Status: steps 1 to 7 are implemented in this worktree. Forge data generation, bu
 | Omnitrix Crafter | Now crafts the Omnitrix chain and Ben 10 gear (alien armour, Imperium, Black diamond and Infinitum tools). | Done in step 4. |
 | Alien armour | Heatblast, Four Arms, XLR8 and Legendary sets give potion effects. They used to be extreme (Speed 46, Strength 9). | Moved into data in step 2; nerfed 2026-10-14 (section 6). Legendary needs the full set. |
 | Bosses | Kraab is a bounty-hunter mini-boss; Vilgax and his drones are boss entities. | The Chimera ship structure is deferred; Vilgax is summoned with a beacon. |
-| Dimensions | Null Void: floating islands, Null Void-only crystal ore, fortress and Zs'Skayr. | Step 7 implementation is awaiting Forge data generation and cross-loader verification. |
+| Dimensions | Null Void: floating islands, Null Void-only crystal ore, fortress and Zs'Skayr. | Implemented and previously verified; the new QA round still needs cross-loader checks. |
 
 ## Proposed loop
 
@@ -64,7 +64,9 @@ Both routes give the same `omnitrix_watch` item. The crash site is the rare earl
 - **Crash site** (about 1 in 300 chunks): a surface meteor crater with an Omnitrix pod in forest, plains, taiga and savanna biomes. Breaking the pod gives an `omnitrix_watch`.
 - **Crafting**: Omnitrix ingots + Legendary casing + Black diamond lens → *Omnitrix core* in the Omnitrix Crafter → Omnitrix. Mid-game (needs tier 3 to 4 ores).
 - The Omnitrix starts with **3 aliens**: Heatblast, Four Arms, XLR8, matching the existing armour sets.
-- Right-click the watch once to equip it permanently; it stays equipped through death. With an empty main hand, right-click air or a block (or press **G**) to open the dial.
+- Right-click the watch once to equip it permanently; it stays equipped through death. With an empty main hand, right-click air or press **G** to open the dial. **H** reverts to human; **V** activates the selected alien's JSON-defined power.
+- A normal transformation lasts five minutes. The HUD shows the countdown and beeps during the last ten seconds. Timeout forces a revert and starts a one-minute recharge; reverting before timeout skips recharge. `recharge_ticks` can override the default per alien. Master Control removes timeout and recharge.
+- Every player receives one Omnitrix Field Guide on their first join; a book and lime dye also craft it.
 - **DNA unlocks**: sneak and right-click a source with an empty main hand to sample its DNA once. Scanning requires the equipped Omnitrix and is unavailable while transformed:
 
 | Alien | DNA source |
@@ -77,14 +79,14 @@ Both routes give the same `omnitrix_watch` item. The crash site is the rare earl
 | Upgrade | iron golem |
 | Ghostfreak | phantom |
 
-- **Recalibration** (later): the Master Control (Null Void reward) removes the transformation timeout.
+- **Recalibration**: Master Control (a Null Void reward) unlocks every alien and removes transformation timeout and recharge.
 
 ### 3. Omnitrix Crafter rework
 
 Make it *the* Ben 10 workstation instead of a crafting-table copy:
 - Ben 10 gear is crafted here: Omnitrix parts, alien armour and Imperium/Black diamond/Infinitum tools. Vanilla crafting keeps storage blocks, nugget and ingot conversions, smelting and simple conversions. The Null Void Projector belongs to a later step.
 - Recipe book categories: *Omnitrix*, *Armour*, *Tools*, *Misc* (Forge; Fabric has no recipe book for custom stations, so JEI/REI/EMI integration is the better cross-loader answer later).
-- Optional later: an Omnitrix "charging" slot that recharges a timed-out Omnitrix.
+- The timeout recharge is automatic; the Omnitrix Crafter has no separate charging slot.
 
 ### 4. Bosses
 

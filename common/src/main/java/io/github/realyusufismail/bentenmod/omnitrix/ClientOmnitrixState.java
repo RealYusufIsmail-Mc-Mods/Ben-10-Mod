@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /** Read-only client cache populated exclusively by the server's state packets. */
@@ -13,7 +14,7 @@ public final class ClientOmnitrixState {
     private static final Map<UUID, OmnitrixSnapshot> PLAYERS = new ConcurrentHashMap<>();
     private static Consumer<UUID> dimensionRefresh = ignored -> {
     };
-    private static Consumer<UUID> localFormTransition = ignored -> {
+    private static BiConsumer<UUID, Boolean> localFormTransition = (ignored, timeout) -> {
     };
 
     private ClientOmnitrixState() {}
@@ -26,7 +27,9 @@ public final class ClientOmnitrixState {
         OmnitrixSnapshot previous = PLAYERS.put(snapshot.playerId(), snapshot);
         ResourceLocation previousAlien = previous == null ? null : previous.currentAlien();
         if (!Objects.equals(previousAlien, snapshot.currentAlien())) {
-            localFormTransition.accept(snapshot.playerId());
+            boolean timeout = previousAlien != null && snapshot.currentAlien() == null
+                    && snapshot.rechargeUntil() > (previous == null ? 0 : previous.rechargeUntil());
+            localFormTransition.accept(snapshot.playerId(), timeout);
             dimensionRefresh.accept(snapshot.playerId());
         }
     }
@@ -39,7 +42,7 @@ public final class ClientOmnitrixState {
     }
 
     /** Installs a loader-side callback that flashes only for a local-player form change. */
-    public static void installLocalFormTransition(Consumer<UUID> transition) {
+    public static void installLocalFormTransition(BiConsumer<UUID, Boolean> transition) {
         localFormTransition = transition;
     }
 

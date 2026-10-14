@@ -3,6 +3,7 @@
   "height": 1.2,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
+  "power": { "type": "bentenmod:slime_spit", "cooldown_ticks": 30 },
   "dna_sources": {
     "entities": ["minecraft:bee"]
   },

@@ -11,7 +11,10 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+
+import java.util.List;
 
 public class MasterControlItem extends Item {
     public MasterControlItem(Properties properties) {
@@ -21,6 +24,13 @@ public class MasterControlItem extends Item {
     @Override
     public boolean isFoil(ItemStack stack) {
         return true;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip,
+            TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        tooltip.add(Component.translatable("tooltip.bentenmod.master_control"));
     }
 
     @Override

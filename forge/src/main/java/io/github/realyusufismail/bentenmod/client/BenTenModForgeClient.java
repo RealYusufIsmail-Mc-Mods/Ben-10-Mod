@@ -36,6 +36,7 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.OmnitrixNetwork;
 import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixFlash;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixHud;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxDroneRenderer;
@@ -44,6 +45,7 @@ import io.github.realyusufismail.bentenmod.client.renderer.NullVoidPrisonerRende
 import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixDialScreen;
+import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixGuideScreen;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
 import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
@@ -84,6 +86,10 @@ import org.lwjgl.glfw.GLFW;
 public final class BenTenModForgeClient {
     private static final KeyMapping OPEN_OMNITRIX =
             new KeyMapping("key.bentenmod.omnitrix", GLFW.GLFW_KEY_G, "key.categories.bentenmod");
+    private static final KeyMapping USE_ALIEN_POWER = new KeyMapping(
+            "key.bentenmod.use_alien_power", GLFW.GLFW_KEY_V, "key.categories.bentenmod");
+    private static final KeyMapping REVERT_TO_HUMAN = new KeyMapping(
+            "key.bentenmod.revert_to_human", GLFW.GLFW_KEY_H, "key.categories.bentenmod");
     private static boolean useWasDown;
 
     private BenTenModForgeClient() {}
@@ -91,11 +97,11 @@ public final class BenTenModForgeClient {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            ClientOmnitrixState.installLocalFormTransition(playerId -> {
+            ClientOmnitrixState.installLocalFormTransition((playerId, timedOut) -> {
                 AlienPlayerReplacementRenderer.forgetPlayer(playerId);
                 Minecraft client = Minecraft.getInstance();
                 if (client.player != null && client.player.getUUID().equals(playerId)) {
-                    OmnitrixFlash.trigger();
+                    OmnitrixFlash.trigger(timedOut);
                 }
             });
             ClientOmnitrixState.installDimensionRefresh(playerId -> {
@@ -113,6 +119,8 @@ public final class BenTenModForgeClient {
                     () -> Minecraft.getInstance().setScreen(new OmnitrixDialScreen()),
                     OmnitrixNetwork::requestTransform,
                     () -> OmnitrixNetwork.requestTransform(null));
+            OmnitrixClientHooks
+                .installGuide(() -> Minecraft.getInstance().setScreen(new OmnitrixGuideScreen()));
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onClientTick);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onClientLogout);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onFlashOverlay);
@@ -124,6 +132,8 @@ public final class BenTenModForgeClient {
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(OPEN_OMNITRIX);
+        event.register(USE_ALIEN_POWER);
+        event.register(REVERT_TO_HUMAN);
     }
 
     private static void onClientTick(TickEvent.ClientTickEvent event) {
@@ -132,6 +142,15 @@ public final class BenTenModForgeClient {
                 OmnitrixClientHooks.openDial();
             }
             var client = Minecraft.getInstance();
+            if (USE_ALIEN_POWER.consumeClick() && isTransformed(client)) {
+                OmnitrixNetwork.requestPower();
+            }
+            if (REVERT_TO_HUMAN.consumeClick() && isTransformed(client)) {
+                OmnitrixNetwork.requestTransform(null);
+                if (client.screen instanceof OmnitrixDialScreen) {
+                    client.setScreen(null);
+                }
+            }
             boolean useDown = client.options.keyUse.isDown();
             if (useDown && !useWasDown && client.player != null && client.screen == null
                     && !client.player.isShiftKeyDown() && client.player.getMainHandItem().isEmpty()
@@ -140,6 +159,7 @@ public final class BenTenModForgeClient {
                 OmnitrixClientHooks.openDial();
             }
             useWasDown = useDown;
+            OmnitrixHud.tick(client);
             OmnitrixFlash.tick();
         }
     }
@@ -154,10 +174,19 @@ public final class BenTenModForgeClient {
         return snapshot != null && snapshot.equipped();
     }
 
+    private static boolean isTransformed(Minecraft client) {
+        if (client.player == null) {
+            return false;
+        }
+        var snapshot = ClientOmnitrixState.get(client.player.getUUID());
+        return snapshot != null && snapshot.currentAlien() != null;
+    }
+
     private static void onClientLogout(ClientPlayerNetworkEvent.LoggingOut event) {
         useWasDown = false;
         AlienPlayerReplacementRenderer.clearPlayerStates();
         ClientOmnitrixState.clear();
+        OmnitrixHud.reset();
     }
 
     private static void onFlashOverlay(RenderGuiOverlayEvent.Post event) {
@@ -165,18 +194,24 @@ public final class BenTenModForgeClient {
             return;
         }
         float alpha = OmnitrixFlash.alpha(event.getPartialTick());
-        if (alpha <= 0) {
-            return;
+        if (alpha > 0) {
+            int width = event.getWindow().getGuiScaledWidth();
+            int height = event.getWindow().getGuiScaledHeight();
+            if (OmnitrixFlash.isTimeoutFlash()) {
+                event.getGuiGraphics()
+                    .fill(0, 0, width, height, (int) (alpha * 92) << 24 | 0xC10C12);
+            } else {
+                RenderSystem.enableBlend();
+                RenderSystem.setShaderColor(1, 1, 1, alpha);
+                event.getGuiGraphics()
+                    .blit(new net.minecraft.resources.ResourceLocation(BenTenMod.MOD_ID,
+                            "textures/misc/omnitrix_flash.png"), 0, 0, 0, 0, width, height, 256,
+                            256);
+                RenderSystem.setShaderColor(1, 1, 1, 1);
+                RenderSystem.disableBlend();
+            }
         }
-        int width = event.getWindow().getGuiScaledWidth();
-        int height = event.getWindow().getGuiScaledHeight();
-        RenderSystem.enableBlend();
-        RenderSystem.setShaderColor(1, 1, 1, alpha);
-        event.getGuiGraphics()
-            .blit(new net.minecraft.resources.ResourceLocation(BenTenMod.MOD_ID,
-                    "textures/misc/omnitrix_flash.png"), 0, 0, 0, 0, width, height, 256, 256);
-        RenderSystem.setShaderColor(1, 1, 1, 1);
-        RenderSystem.disableBlend();
+        OmnitrixHud.render(event.getGuiGraphics(), Minecraft.getInstance());
     }
 
     private static void onRenderPlayer(RenderPlayerEvent.Pre event) {

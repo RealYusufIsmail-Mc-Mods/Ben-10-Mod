@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T18:41:38.37336	Recipes
+// 1.20.1	2026-10-14T22:12:15.2764	Recipes
 6967b407270a3a15512b6ab7c026a5d97d1996b0 data/bentenmod/advancements/recipes/building_blocks/black_diamond_block.json
 7fc4cf132030a0da06d788cd846b19b19d072dc1 data/bentenmod/advancements/recipes/building_blocks/fire_block.json
 e1074eacb8a9dbad0e7ca4dc2778def74f4841c8 data/bentenmod/advancements/recipes/building_blocks/imperium_block.json
@@ -79,6 +79,7 @@ a0c0f0d626c933c3d733a0e9283bf7567ac7bbb7 data/bentenmod/advancements/recipes/mis
 1fbaf9ee6fecee6f4333146b7ca0fc64e19c8b37 data/bentenmod/advancements/recipes/misc/null_void_projector.json
 96b521f89fdd2c701e891ad4647e850e24bf0747 data/bentenmod/advancements/recipes/misc/omnitrix.json
 2ace936b08c9061ef4609299cecc002ddf440edf data/bentenmod/advancements/recipes/misc/omnitrix_core.json
+f5daf1883cdaeb0ad94ffe410c28df3490dfe601 data/bentenmod/advancements/recipes/misc/omnitrix_guide.json
 030f1e13597f2dd5bd8ff5f423745d722ddb1525 data/bentenmod/advancements/recipes/misc/omnitrix_ore_blasting_smelt.json
 4400245d0a495b28d7f55f72edbb7074acc9080b data/bentenmod/advancements/recipes/misc/omnitrix_ore_smelt.json
 539acbb5701d560debdb848f782ad2c54fc79a52 data/bentenmod/advancements/recipes/misc/omnitrix_watch.json
@@ -190,6 +191,7 @@ d063ac699af6b8646f09c6678423f7ae291a943e data/bentenmod/recipes/null_void_projec
 058f2526a02666f0af557d2c38e0ef76e5e8e2cb data/bentenmod/recipes/omnitrix_apple.json
 2240a0dea0fb56cce6a84bcdf9737acf0f37ad7a data/bentenmod/recipes/omnitrix_block.json
 7d5c194fcaeb85448b24ca291865f15b755c8c32 data/bentenmod/recipes/omnitrix_core.json
+057122accf743a17e23e53f229229827b2d5cc8e data/bentenmod/recipes/omnitrix_guide.json
 85e22c60e42d71cd79919f3dc69f8e5ee70d2046 data/bentenmod/recipes/omnitrix_ore_blasting_smelt.json
 26668fe87e0fa5d9caf4e6abdb211ae456d8b708 data/bentenmod/recipes/omnitrix_ore_smelt.json
 88d7edd76955f96196a209641666de1988351bc4 data/bentenmod/recipes/omnitrix_watch.json

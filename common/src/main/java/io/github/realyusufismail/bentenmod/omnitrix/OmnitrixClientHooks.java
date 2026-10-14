@@ -8,6 +8,8 @@ import java.util.function.Consumer;
 public final class OmnitrixClientHooks {
     private static Runnable openDial = () -> {
     };
+    private static Runnable openGuide = () -> {
+    };
     private static Consumer<ResourceLocation> selectAlien = ignored -> {
     };
     private static Runnable revert = () -> {
@@ -24,6 +26,14 @@ public final class OmnitrixClientHooks {
 
     public static void openDial() {
         openDial.run();
+    }
+
+    public static void installGuide(Runnable open) {
+        openGuide = open;
+    }
+
+    public static void openGuide() {
+        openGuide.run();
     }
 
     public static void select(ResourceLocation alien) {

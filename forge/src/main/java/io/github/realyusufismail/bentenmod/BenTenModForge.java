@@ -106,6 +106,7 @@ public class BenTenModForge {
     private void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             AbilityTicker.forget(player);
+            OmnitrixService.forgetTransient(player);
         }
     }
 
@@ -117,6 +118,8 @@ public class BenTenModForge {
 
     private void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
+            OmnitrixNetwork.sendToPlayer(player,
+                    OmnitrixService.onRespawn(player, event.isEndConquered()));
             OmnitrixNetwork.syncTrackers(player);
         }
     }

@@ -100,15 +100,19 @@ public class BenTenModFabric implements ModInitializer {
             }));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> OmnitrixNetwork
             .sendToPlayer(handler.player, OmnitrixService.onJoin(handler.player)));
-        ServerPlayConnectionEvents.DISCONNECT
-            .register((handler, server) -> AbilityTicker.forget(handler.player));
+        ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+            AbilityTicker.forget(handler.player);
+            OmnitrixService.forgetTransient(handler.player);
+        });
         EntityTrackingEvents.START_TRACKING.register((entity, player) -> {
             if (entity instanceof net.minecraft.server.level.ServerPlayer target) {
                 OmnitrixNetwork.sendToPlayer(player, OmnitrixService.trackingSnapshot(target));
             }
         });
-        ServerPlayerEvents.AFTER_RESPAWN
-            .register((oldPlayer, newPlayer, alive) -> OmnitrixNetwork.syncTrackers(newPlayer));
+        ServerPlayerEvents.AFTER_RESPAWN.register((oldPlayer, newPlayer, alive) -> {
+            OmnitrixNetwork.sendToPlayer(newPlayer, OmnitrixService.onRespawn(newPlayer, alive));
+            OmnitrixNetwork.syncTrackers(newPlayer);
+        });
         ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD
             .register((player, origin, destination) -> OmnitrixNetwork.syncTrackers(player));
     }

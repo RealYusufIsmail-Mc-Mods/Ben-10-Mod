@@ -3,16 +3,20 @@ package io.github.realyusufismail.bentenmod.omnitrix;
 import io.github.realyusufismail.bentenmod.alien.AlienDefinition;
 import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
+import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
 
+import java.util.List;
 import java.util.Optional;
 
 /** Server-authoritative transformation and unlock operations. */
@@ -24,17 +28,21 @@ public final class OmnitrixService {
         AlienDefinition definition = state.currentAlien() == null ? null
                 : Aliens.DATA.get(state.currentAlien()).orElse(null);
         OmnitrixSnapshot saved = state.snapshot(player.getUUID());
+        List<ResourceLocation> unlocked = player.getAbilities().instabuild
+                ? Aliens.DATA.all().keySet().stream().sorted().toList()
+                : saved.unlockedAlienIds();
         return new OmnitrixSnapshot(saved.playerId(), saved.currentAlien(), saved.expiresAt(),
-                saved.equipped(), saved.unlockedAlienIds(),
-                definition == null ? 0 : definition.width(),
-                definition == null ? 0 : definition.height(), saved.timeoutDisabled());
+                saved.equipped(), unlocked, definition == null ? 0 : definition.width(),
+                definition == null ? 0 : definition.height(), saved.timeoutDisabled(),
+                saved.rechargeUntil());
     }
 
     /** Tracking clients need appearance and dimensions, while unlocks belong to the owner. */
     public static OmnitrixSnapshot trackingSnapshot(ServerPlayer player) {
         OmnitrixSnapshot state = snapshot(player);
         return new OmnitrixSnapshot(state.playerId(), state.currentAlien(), state.expiresAt(),
-                state.equipped(), java.util.List.of(), state.width(), state.height());
+                state.equipped(), List.of(), state.width(), state.height(), state.timeoutDisabled(),
+                state.rechargeUntil());
     }
 
     public static Optional<AlienDefinition> activeDefinition(ServerPlayer player) {
@@ -51,6 +59,14 @@ public final class OmnitrixService {
         OmnitrixSavedData.PlayerState state = data.getOrCreate(player);
         long now = player.serverLevel().getServer().overworld().getGameTime();
         tick(player, now);
+        if (!state.guideGiven()) {
+            ItemStack guide = new ItemStack(ItemInit.OMNITRIX_GUIDE.get());
+            if (!player.getInventory().add(guide)) {
+                player.drop(guide, false);
+            }
+            state.markGuideGiven();
+            data.setDirty();
+        }
         if (state.equipped() && !data.hasSpawnedHunter(player.getUUID())
                 && data.hunterSpawnAt(player.getUUID()) < 0) {
             long delay = 2_400L + player.getRandom().nextInt(3_601);
@@ -73,10 +89,17 @@ public final class OmnitrixService {
         }
         OmnitrixSavedData data = OmnitrixSavedData.get(player.serverLevel());
         OmnitrixSavedData.PlayerState state = data.getOrCreate(player);
-        if (!state.isUnlocked(alien)) {
+        long now = player.serverLevel().getServer().overworld().getGameTime();
+        if (state.rechargeUntil() > now) {
+            player.displayClientMessage(
+                    Component.translatable("message.bentenmod.omnitrix_recharging",
+                            formatTicks(state.rechargeUntil() - now)),
+                    true);
             return false;
         }
-        long now = player.serverLevel().getServer().overworld().getGameTime();
+        if (!player.getAbilities().instabuild && !state.isUnlocked(alien)) {
+            return false;
+        }
         state.transform(alien,
                 state.timeoutDisabled() ? Long.MAX_VALUE : now + definition.durationTicks());
         data.setDirty();
@@ -101,23 +124,48 @@ public final class OmnitrixService {
         return true;
     }
 
+    /** Death changes the player back; returning from the End keeps the current form. */
+    public static OmnitrixSnapshot onRespawn(ServerPlayer player, boolean alive) {
+        if (!alive) {
+            revert(player);
+        }
+        return snapshot(player);
+    }
+
     /** Expires forms and reapplies their JSON hitbox after vanilla pose/dimension refreshes. */
     public static boolean tick(ServerPlayer player, long overworldTime) {
         OmnitrixSavedData data = OmnitrixSavedData.get(player.serverLevel());
         OmnitrixSavedData.PlayerState state = data.getOrCreate(player);
+        OmnitrixPowerService.tick(player, overworldTime);
         ResourceLocation alien = state.currentAlien();
         if (alien == null) {
             return false;
         }
-        if ((!state.timeoutDisabled() && state.expiresAt() <= overworldTime)
-                || Aliens.DATA.get(alien).isEmpty()) {
+        if (Aliens.DATA.get(alien).isEmpty()) {
             state.revert();
             data.setDirty();
             player.refreshDimensions();
             return true;
         }
-        applyDimensions(player, Aliens.DATA.get(alien).orElseThrow());
+        AlienDefinition definition = Aliens.DATA.get(alien).orElseThrow();
+        if (!state.timeoutDisabled() && state.expiresAt() <= overworldTime) {
+            state.timeout(overworldTime + definition.rechargeTicks());
+            data.setDirty();
+            player.refreshDimensions();
+            player.displayClientMessage(
+                    Component.translatable("message.bentenmod.omnitrix_timeout"), true);
+            return true;
+        }
+        applyDimensions(player, definition);
         return false;
+    }
+
+    public static boolean usePower(ServerPlayer player) {
+        return OmnitrixPowerService.use(player);
+    }
+
+    public static void forgetTransient(ServerPlayer player) {
+        OmnitrixPowerService.forget(player);
     }
 
     /** Adds a discovered alien to an existing Omnitrix and persists the unlock. */
@@ -254,5 +302,10 @@ public final class OmnitrixService {
         }
         player.setBoundingBox(
                 AABB.ofSize(player.position().add(0, height / 2, 0), width, height, width));
+    }
+
+    private static String formatTicks(long ticks) {
+        long seconds = Math.max(0, (ticks + 19) / 20);
+        return String.format("%d:%02d", seconds / 60, seconds % 60);
     }
 }

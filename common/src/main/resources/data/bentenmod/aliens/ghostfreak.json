@@ -3,6 +3,7 @@
   "height": 2.1,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
+  "power": { "type": "bentenmod:phase", "cooldown_ticks": 200 },
   "dna_sources": {
     "entities": ["minecraft:phantom"]
   },

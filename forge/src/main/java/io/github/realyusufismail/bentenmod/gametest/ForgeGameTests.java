@@ -232,6 +232,52 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void heatblastPowerSpawnsFireball(GameTestHelper helper) {
+        GameTestChecks.heatblastPowerSpawnsFireball(helper,
+                player(helper, "heatblastPowerSpawnsFireball"));
+    }
+
+    @GameTest(template = "empty")
+    public static void alienPowerCooldownBlocksImmediateUse(GameTestHelper helper) {
+        GameTestChecks.alienPowerCooldownBlocksImmediateUse(helper,
+                player(helper, "alienPowerCooldownBlocksImmediateUse"));
+    }
+
+    @GameTest(template = "empty")
+    public static void creativeCanTransformWithoutUnlocking(GameTestHelper helper) {
+        GameTestChecks.creativeCanTransformWithoutUnlocking(helper,
+                player(helper, "creativeCanTransformWithoutUnlocking"));
+    }
+
+    @GameTest(template = "empty")
+    public static void timeoutStartsRechargeAndBlocksTransform(GameTestHelper helper) {
+        GameTestChecks.timeoutStartsRechargeAndBlocksTransform(helper,
+                player(helper, "timeoutStartsRechargeAndBlocksTransform"));
+    }
+
+    @GameTest(template = "empty")
+    public static void manualRevertSkipsRecharge(GameTestHelper helper) {
+        GameTestChecks.manualRevertSkipsRecharge(helper,
+                player(helper, "manualRevertSkipsRecharge"));
+    }
+
+    @GameTest(template = "empty")
+    public static void deathRevertsToHuman(GameTestHelper helper) {
+        GameTestChecks.deathRevertsToHuman(helper, player(helper, "deathRevertsToHuman"));
+    }
+
+    @GameTest(template = "empty")
+    public static void masterControlHasNoRecharge(GameTestHelper helper) {
+        GameTestChecks.masterControlHasNoRecharge(helper,
+                player(helper, "masterControlHasNoRecharge"));
+    }
+
+    @GameTest(template = "empty")
+    public static void guideIsGivenOnceOnJoin(GameTestHelper helper) {
+        GameTestChecks.guideIsGivenOnceOnJoin(helper, player(helper, "guideIsGivenOnceOnJoin"));
+    }
+
+    @GameTest(template = "empty")
     public static void heatblastSetGrantsAndRevokesFlight(GameTestHelper helper) {
         GameTestChecks.heatblastSetGrantsAndRevokesFlight(helper,
                 player(helper, "heatblastSetGrantsAndRevokesFlight"));

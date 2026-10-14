@@ -2,7 +2,7 @@
 
 Every alien model, texture, glow mask and animation, the Omnitrix watch model, and the Omnitrix dial and flash textures come from the Python generator in `tools/alien-gen/`. Edit the generator, not the PNGs: a re-export overwrites them.
 
-The Omnitrix Crafter has a separate pixel-art generator: `python3 tools/crafter-assets/generate.py`. It writes the block face textures, screen, recipe button, and `docs/omnitrix-crafter-preview.png`. The preview shows flat pixels, not an in-game render. Its authored block geometry is `models/block/omnitrix_crafter_device.json`; the Forge data provider generates the blockstate and item model for both loaders. Change the generator when changing its palette or pixel layout.
+The Omnitrix Crafter has a separate pixel-art generator: `python3 tools/crafter-assets/generate.py`. It writes the block face textures, screen, recipe button, and `docs/images/crafter.png`. The preview shows flat pixels, not an in-game render. Its authored block geometry is `models/block/omnitrix_crafter_device.json`; the Forge data provider generates the blockstate and item model for both loaders. Change the generator when changing its palette or pixel layout.
 
 ## Setup
 
@@ -57,3 +57,16 @@ The previews come from the generator's own renderer. Check in a real client that
 - glow masks and translucency render with the chosen render types.
 
 If one of these is wrong, fix it once in `engine.py`/`export.py` and re-export everything.
+
+## Omnitrix UI art and wrist model
+
+`python3 tools/ui-assets/generate.py` (numpy + Pillow) draws these procedurally; edit the script, not the PNGs.
+
+| File | What |
+|---|---|
+| `textures/item/omnitrix.png` | 16x16 creative tab icon: 3/4 view Omnitrix, grey casing, black dial, green hourglass |
+| `textures/item/omnitrix_guide.png` | 16x16 guide book, dark green cover, lime hourglass |
+| `textures/gui/omnitrix_guide.png` | 256x256: 192x192 page at (0,0), text area x 36..172, y 30..170; arrows 23x13: next (0,192), prev (0,205), hovered next (23,192), hovered prev (23,205) |
+| `textures/entity/omnitrix_wrist.png`, `omnitrix_wrist_glow.png` | 32x32 UV atlas for `OmnitrixWristLayer` (band wide at (0,0), band slim at (0,8), dial at (0,16)); the glow copy has only the hourglass lit and is drawn with `RenderType.eyes` |
+
+`OmnitrixWristLayer` builds its `ModelPart` in code (`LayerDefinition.bakeRoot()`), so no model-layer registration is needed. If you move a cube, change the UV numbers in both the script and the layer. Previews (16x icons, GUI sheet, wrist cube layout) are written to `tools/ui-assets/out/` (gitignored). The wrist model and glow still need a `runClient` look on each loader, including slim-arm skins.

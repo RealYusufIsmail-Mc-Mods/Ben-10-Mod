@@ -170,6 +170,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.NULL_CRYSTAL, "Null Crystal");
         item(ItemInit.NULL_VOID_PROJECTOR, "Null Void Projector");
         item(ItemInit.MASTER_CONTROL, "Master Control");
+        item(ItemInit.OMNITRIX_GUIDE, "Omnitrix Field Guide");
         add("biome.bentenmod.null_void", "Null Void");
         add("message.bentenmod.null_void_projector_failed",
                 "The Null Void projector could not find a safe destination.");
@@ -177,15 +178,25 @@ public class ModEnLangProvider extends LanguageProvider {
                 "Equip the Omnitrix before activating Master Control.");
         add("message.bentenmod.master_control_applied",
                 "Master Control unlocked every alien and removed the transformation timeout.");
+        add("tooltip.bentenmod.master_control",
+                "Unlocks all aliens and removes timeout and recharge; requires an equipped Omnitrix.");
+        add("message.bentenmod.power_recharging", "Power recharging");
+        add("message.bentenmod.omnitrix_recharging", "Recharging %s");
+        add("message.bentenmod.omnitrix_timeout", "Omnitrix timed out. Recharging.");
         add("screen.bentenmod.omnitrix", "Omnitrix Dial");
+        add("screen.bentenmod.guide", "Omnitrix Field Guide");
+        add("screen.bentenmod.recharging", "Recharging %s");
+        add("guide.bentenmod.page", "%s / %s");
         add("screen.bentenmod.revert", "Revert");
         add("screen.bentenmod.no_dna", "No alien DNA");
         add("message.bentenmod.omnitrix_not_equipped", "Equip an Omnitrix first: right-click it.");
         add("screen.bentenmod.dial_hint",
                 "Scroll to turn the dial. Click or press Enter to transform.");
         add("screen.bentenmod.dial_hint_transformed",
-                "Scroll to turn the dial. Enter to transform, R or right-click to revert.");
+                "Scroll to turn the dial. Enter to transform. H to revert, V to use power.");
         add("key.bentenmod.omnitrix", "Open Omnitrix Dial");
+        add("key.bentenmod.use_alien_power", "Use Alien Power");
+        add("key.bentenmod.revert_to_human", "Revert to Human");
         add("key.categories.bentenmod", "Ben 10 Mod");
         add("alien.bentenmod.heatblast", "Heatblast");
         add("alien.bentenmod.wildmutt", "Wildmutt");
@@ -197,6 +208,33 @@ public class ModEnLangProvider extends LanguageProvider {
         add("alien.bentenmod.ripjaws", "Ripjaws");
         add("alien.bentenmod.upgrade", "Upgrade");
         add("alien.bentenmod.ghostfreak", "Ghostfreak");
+        add("guide.bentenmod.chapter.getting_started.title", "Getting started");
+        add("guide.bentenmod.chapter.getting_started.body",
+                "The Omnitrix transforms you into an alien. Find or craft the watch, then right-click it once to equip it. Your first forms are Heatblast, Four Arms and XLR8.");
+        add("guide.bentenmod.chapter.finding_the_omnitrix.title", "Finding the Omnitrix");
+        add("guide.bentenmod.chapter.finding_the_omnitrix.body",
+                "Search for a crash site and break its pod to get the watch. Or use the Omnitrix Crafter: make Legendary Casing from Legendary ingots and iron, and a Black Diamond Lens from glass and Black Diamond. Combine both with Omnitrix ingots for an Omnitrix Core, then craft the watch from the core, leather and iron nuggets.");
+        add("guide.bentenmod.chapter.equipping_the_dial.title", "Equipping and the dial");
+        add("guide.bentenmod.chapter.equipping_the_dial.body",
+                "Right-click the watch once to bind it permanently. Press G or right-click air with an empty hand to open the dial. Turn the wheel and select a form. Press H to revert to human, or V to use your alien's active power.");
+        add("guide.bentenmod.chapter.aliens_and_dna.title", "Aliens and DNA");
+        add("guide.bentenmod.chapter.aliens_and_dna.body",
+                "Heatblast: Fireball, starter. Four Arms: Ground Slam, starter. XLR8: Dash, starter. Diamondhead: Crystal Shard Volley, budding amethyst. Stinkfly: Slime Spit, bee. Wildmutt: Pounce, wolf. Ripjaws: Lunge Bite, guardian. Upgrade: EMP Pulse, iron golem. Ghostfreak: Phase, phantom. Grey Matter: Analyse, frog.");
+        add("guide.bentenmod.chapter.timeout_and_recharge.title", "Timeout and recharge");
+        add("guide.bentenmod.chapter.timeout_and_recharge.body",
+                "A normal transformation lasts five minutes. The countdown appears near your hotbar and warns you during the final ten seconds. When time runs out, the watch reverts and recharges for one minute. Reverting early avoids recharge. Master Control removes both limits.");
+        add("guide.bentenmod.chapter.ores_and_armour.title", "Ores and armour");
+        add("guide.bentenmod.chapter.ores_and_armour.body",
+                "Mine Speed, Ruby, Black Diamond, Imperium, Omnitrix and Legendary ores in the Overworld. Fire and Infinitum ores are in the Nether. Smelt ores into ingots, then use the Crafter for Ben 10 tools, the Omnitrix parts and alien armour sets.");
+        add("guide.bentenmod.chapter.bosses.title", "Bosses");
+        add("guide.bentenmod.chapter.bosses.body",
+                "Kraab is a bounty hunter that can track an equipped Omnitrix. Defeat him for a claw. Craft the Vilgax Beacon from the claw and rare materials to summon Vilgax; his second phase calls in drones.");
+        add("guide.bentenmod.chapter.null_void.title", "The Null Void");
+        add("guide.bentenmod.chapter.null_void.body",
+                "Defeat Vilgax for a Vilgax Core. The Omnitrix Crafter combines it with Infinitum into a Null Void Projector. Use the projector to travel to the Null Void and return. Search its rare fortress for Zs'Skayr.");
+        add("guide.bentenmod.chapter.master_control.title", "Master Control");
+        add("guide.bentenmod.chapter.master_control.body",
+                "Zs'Skayr drops Master Control. Equip the Omnitrix, then right-click the item. Master Control unlocks every alien and permanently removes transformation timeout and recharge.");
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
         item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
         item(EntityTypesInit.VILGAX_DRONE_SPAWN_EGG, "Vilgax Drone Spawn Egg");

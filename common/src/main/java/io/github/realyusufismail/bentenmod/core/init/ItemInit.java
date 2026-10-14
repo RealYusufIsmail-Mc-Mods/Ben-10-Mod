@@ -38,6 +38,7 @@ import io.github.realyusufismail.bentenmod.core.material.CustomToolMaterial;
 import io.github.realyusufismail.bentenmod.core.item.VilgaxBeaconItem;
 import io.github.realyusufismail.bentenmod.core.item.MasterControlItem;
 import io.github.realyusufismail.bentenmod.core.item.NullVoidProjectorItem;
+import io.github.realyusufismail.bentenmod.core.item.OmnitrixGuideItem;
 import io.github.realyusufismail.bentenmod.platform.Services;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
@@ -80,6 +81,8 @@ public class ItemInit {
                     () -> new NullVoidProjectorItem(new Item.Properties().durability(16)));
     public static final RegistryObject<Item> MASTER_CONTROL = ITEMS.register("master_control",
             () -> new MasterControlItem(new Item.Properties().rarity(Rarity.EPIC)));
+    public static final RegistryObject<Item> OMNITRIX_GUIDE =
+            ITEMS.register("omnitrix_guide", () -> new OmnitrixGuideItem(new Item.Properties()));
 
     // tools
     public static final RegistryObject<SwordItem> SWORD =
