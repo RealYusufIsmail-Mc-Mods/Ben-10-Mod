@@ -7,10 +7,20 @@ import java.util.UUID;
 
 /** Immutable player state sent to clients and used by the dial screen. */
 public record OmnitrixSnapshot(UUID playerId, ResourceLocation currentAlien, long expiresAt,
-        List<ResourceLocation> unlockedAlienIds, float width, float height) {
+        boolean equipped, List<ResourceLocation> unlockedAlienIds, float width, float height) {
     public OmnitrixSnapshot(UUID playerId, ResourceLocation currentAlien, long expiresAt,
             List<ResourceLocation> unlockedAlienIds) {
-        this(playerId, currentAlien, expiresAt, unlockedAlienIds, 0, 0);
+        this(playerId, currentAlien, expiresAt, false, unlockedAlienIds, 0, 0);
+    }
+
+    public OmnitrixSnapshot(UUID playerId, ResourceLocation currentAlien, long expiresAt,
+            boolean equipped, List<ResourceLocation> unlockedAlienIds) {
+        this(playerId, currentAlien, expiresAt, equipped, unlockedAlienIds, 0, 0);
+    }
+
+    public OmnitrixSnapshot(UUID playerId, ResourceLocation currentAlien, long expiresAt,
+            List<ResourceLocation> unlockedAlienIds, float width, float height) {
+        this(playerId, currentAlien, expiresAt, false, unlockedAlienIds, width, height);
     }
 
     public OmnitrixSnapshot {

@@ -41,7 +41,6 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 
-import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 /**
@@ -59,6 +58,44 @@ public class ForgeGameTests {
     @GameTest(template = "empty")
     public static void oreFeaturesLoaded(GameTestHelper helper) {
         GameTestChecks.oreFeaturesLoaded(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixCrashSiteFeatureRegistered(GameTestHelper helper) {
+        GameTestChecks.omnitrixCrashSiteFeatureRegistered(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixPodDropsWatch(GameTestHelper helper) {
+        GameTestChecks.omnitrixPodDropsWatch(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixCrafterWatchRecipeLoaded(GameTestHelper helper) {
+        GameTestChecks.omnitrixCrafterWatchRecipeLoaded(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixScanUnlocksWildmutt(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanUnlocksWildmutt(helper,
+                player(helper, "omnitrixScanUnlocksWildmutt"));
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixRepeatScanIsSafe(GameTestHelper helper) {
+        GameTestChecks.omnitrixRepeatScanIsSafe(helper, player(helper, "omnitrixRepeatScanIsSafe"));
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixScanRequiresEquippedAndUntransformedPlayer(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanRequiresEquippedAndUntransformedPlayer(helper,
+                player(helper, "omnitrixScanRequiresEquippedAndUntransformedPlayer"));
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixScanBuddingAmethystUnlocksDiamondhead(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanBuddingAmethystUnlocksDiamondhead(helper,
+                player(helper, "omnitrixScanBuddingAmethystUnlocksDiamondhead"));
     }
 
     @GameTest(template = "empty")
@@ -88,6 +125,24 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void omnitrixWatchEquipsAndConsumes(GameTestHelper helper) {
+        GameTestChecks.omnitrixWatchEquipsAndConsumes(helper,
+                player(helper, "omnitrixWatchEquipsAndConsumes"));
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixSecondUseDoesNotConsume(GameTestHelper helper) {
+        GameTestChecks.omnitrixSecondUseDoesNotConsume(helper,
+                player(helper, "omnitrixSecondUseDoesNotConsume"));
+    }
+
+    @GameTest(template = "empty")
+    public static void omnitrixEquippedStateRoundTrips(GameTestHelper helper) {
+        GameTestChecks.omnitrixEquippedStateRoundTrips(helper,
+                player(helper, "omnitrixEquippedStateRoundTrips"));
+    }
+
+    @GameTest(template = "empty")
     public static void omnitrixTimeoutReverts(GameTestHelper helper) {
         GameTestChecks.omnitrixTimeoutReverts(helper, player(helper, "omnitrixTimeoutReverts"));
     }
@@ -109,7 +164,6 @@ public class ForgeGameTests {
     }
 
     private static ServerPlayer player(GameTestHelper helper, String name) {
-        return FakePlayerFactory.get(helper.getLevel(), new GameProfile(
-                UUID.nameUUIDFromBytes(name.getBytes(StandardCharsets.UTF_8)), name));
+        return FakePlayerFactory.get(helper.getLevel(), new GameProfile(UUID.randomUUID(), name));
     }
 }

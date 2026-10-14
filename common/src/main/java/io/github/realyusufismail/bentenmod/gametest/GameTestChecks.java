@@ -37,22 +37,35 @@ import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
+import io.github.realyusufismail.bentenmod.core.init.FeatureInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import io.github.realyusufismail.bentenmod.core.init.RecipeTypeInit;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixInteractions;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSavedData;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
 import io.github.realyusufismail.bentenmod.omnitrix.PlayerAnimationStateCache;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistryObject;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
+import io.github.realyusufismail.bentenmod.worldgen.OmnitrixCrashSiteWorldgen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.gametest.framework.GameTestHelper;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 import java.util.UUID;
@@ -80,6 +93,111 @@ public final class GameTestChecks {
             .concat(ModOrePlacements.OVERWORLD_ORES.stream(), ModOrePlacements.NETHER_ORES.stream())
             .forEach(key -> helper.assertTrue(placed.containsKey(key),
                     "missing placed feature " + key.location()));
+        helper.succeed();
+    }
+
+    public static void omnitrixCrashSiteFeatureRegistered(GameTestHelper helper) {
+        var placed = helper.getLevel().registryAccess().registryOrThrow(Registries.PLACED_FEATURE);
+        ResourceLocation featureId = BenTenMod.getModIdAndName("omnitrix_crash_site");
+        helper.assertTrue(BuiltInRegistries.FEATURE.containsKey(featureId),
+                "Omnitrix crash-site feature is not registered");
+        helper.assertTrue(placed.containsKey(OmnitrixCrashSiteWorldgen.PLACED_FEATURE),
+                "Omnitrix crash-site placed feature is missing");
+        helper.succeed();
+    }
+
+    public static void omnitrixPodDropsWatch(GameTestHelper helper) {
+        BlockPos pos = new BlockPos(1, 2, 1);
+        helper.setBlock(pos, BlockInit.OMNITRIX_POD.get());
+        var drops = Block.getDrops(BlockInit.OMNITRIX_POD.get().defaultBlockState(),
+                helper.getLevel(), pos, null, null, ItemStack.EMPTY);
+        helper.assertTrue(drops.size() == 1 && drops.get(0).is(ItemInit.OMNITRIX_WATCH.get()),
+                "Omnitrix pod must drop exactly one watch");
+        helper.succeed();
+    }
+
+    public static void omnitrixCrafterWatchRecipeLoaded(GameTestHelper helper) {
+        var recipes = helper.getLevel()
+            .getRecipeManager()
+            .getAllRecipesFor(RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get());
+        boolean watchRecipeLoaded = recipes.stream()
+            .anyMatch(recipe -> recipe.getResultItem(helper.getLevel().registryAccess())
+                .is(ItemInit.OMNITRIX_WATCH.get()));
+        helper.assertTrue(watchRecipeLoaded,
+                "Omnitrix watch recipe is missing from the Omnitrix Crafter");
+        helper.succeed();
+    }
+
+    public static void omnitrixScanUnlocksWildmutt(GameTestHelper helper, ServerPlayer player) {
+        Wolf wolf = helper.spawn(EntityType.WOLF, new BlockPos(1, 2, 1));
+        equipWithWatch(player);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        player.setShiftKeyDown(true);
+        ResourceLocation wildmutt = BenTenMod.getModIdAndName("wildmutt");
+
+        InteractionResult result = OmnitrixInteractions.scanEntity(player, wolf);
+        helper.assertTrue(result.consumesAction(), "wolf scan was not accepted");
+        helper.assertTrue(OmnitrixService.snapshot(player).unlockedAlienIds().contains(wildmutt),
+                "scanning a wolf did not unlock Wildmutt");
+        helper.succeed();
+    }
+
+    public static void omnitrixRepeatScanIsSafe(GameTestHelper helper, ServerPlayer player) {
+        Wolf wolf = helper.spawn(EntityType.WOLF, new BlockPos(1, 2, 1));
+        equipWithWatch(player);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        player.setShiftKeyDown(true);
+        ResourceLocation wildmutt = BenTenMod.getModIdAndName("wildmutt");
+        OmnitrixInteractions.scanEntity(player, wolf);
+        OmnitrixInteractions.scanEntity(player, wolf);
+
+        long unlockCount = OmnitrixService.snapshot(player)
+            .unlockedAlienIds()
+            .stream()
+            .filter(wildmutt::equals)
+            .count();
+        helper.assertTrue(unlockCount == 1, "repeat scan duplicated the Wildmutt unlock");
+        helper.succeed();
+    }
+
+    public static void omnitrixScanRequiresEquippedAndUntransformedPlayer(GameTestHelper helper,
+            ServerPlayer player) {
+        Wolf wolf = helper.spawn(EntityType.WOLF, new BlockPos(1, 2, 1));
+        ResourceLocation wildmutt = BenTenMod.getModIdAndName("wildmutt");
+        ResourceLocation heatblast = BenTenMod.getModIdAndName("heatblast");
+        OmnitrixService.snapshot(player);
+        player.setShiftKeyDown(true);
+
+        InteractionResult unequipped = OmnitrixInteractions.scanEntity(player, wolf);
+        helper.assertFalse(unequipped.consumesAction(), "scan succeeded without an equipped watch");
+        helper.assertFalse(OmnitrixService.snapshot(player).unlockedAlienIds().contains(wildmutt),
+                "Wildmutt unlocked without an equipped watch");
+
+        equipWithWatch(player);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        helper.assertTrue(OmnitrixService.transform(player, heatblast),
+                "could not transform player for scan guard check");
+        InteractionResult transformed = OmnitrixInteractions.scanEntity(player, wolf);
+        helper.assertFalse(transformed.consumesAction(), "transformed player scanned DNA");
+        helper.assertFalse(OmnitrixService.snapshot(player).unlockedAlienIds().contains(wildmutt),
+                "Wildmutt unlocked while transformed");
+        helper.succeed();
+    }
+
+    public static void omnitrixScanBuddingAmethystUnlocksDiamondhead(GameTestHelper helper,
+            ServerPlayer player) {
+        BlockPos pos = new BlockPos(1, 2, 1);
+        helper.setBlock(pos, Blocks.BUDDING_AMETHYST);
+        equipWithWatch(player);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        player.setShiftKeyDown(true);
+        BlockPos absolute = helper.absolutePos(pos);
+        InteractionResult result =
+                OmnitrixInteractions.scanBlock(player, helper.getLevel().getBlockState(absolute));
+        ResourceLocation diamondhead = BenTenMod.getModIdAndName("diamondhead");
+        helper.assertTrue(result.consumesAction(), "budding amethyst scan was not accepted");
+        helper.assertTrue(OmnitrixService.snapshot(player).unlockedAlienIds().contains(diamondhead),
+                "scanning budding amethyst did not unlock Diamondhead");
         helper.succeed();
     }
 
@@ -141,7 +259,8 @@ public final class GameTestChecks {
     }
 
     /**
-     * Server validates the watch and unlock list, then applies definition-driven size and powers.
+     * Server validates the equipped state and unlock list, then applies definition-driven size and
+     * powers.
      */
     public static void omnitrixTransformIsServerValidated(GameTestHelper helper,
             ServerPlayer player) {
@@ -151,12 +270,14 @@ public final class GameTestChecks {
         helper.assertTrue(initial.unlockedAlienIds().size() == 3,
                 "new Omnitrix must start with exactly three unlocked aliens");
         helper.assertFalse(OmnitrixService.transform(player, heatblast),
-                "transformation succeeded without a watch");
-        player.getInventory().setItem(0, new ItemStack(ItemInit.OMNITRIX_WATCH.get()));
+                "transformation succeeded without an equipped watch");
+        helper.assertFalse(OmnitrixService.revert(player),
+                "revert succeeded without an equipped watch");
+        equipWithWatch(player);
         helper.assertFalse(OmnitrixService.transform(player, diamondhead),
                 "server accepted a locked alien");
         helper.assertTrue(OmnitrixService.transform(player, heatblast),
-                "server rejected an unlocked alien with a watch");
+                "server rejected an unlocked alien with an equipped watch");
 
         OmnitrixSnapshot transformed = OmnitrixService.snapshot(player);
         helper.assertTrue(heatblast.equals(transformed.currentAlien()),
@@ -179,7 +300,7 @@ public final class GameTestChecks {
 
     /** Expiry reverts dimensions and removes transformation abilities on the next ability tick. */
     public static void omnitrixTimeoutReverts(GameTestHelper helper, ServerPlayer player) {
-        player.getInventory().setItem(0, new ItemStack(ItemInit.OMNITRIX_WATCH.get()));
+        equipWithWatch(player);
         ResourceLocation heatblast = BenTenMod.getModIdAndName("heatblast");
         helper.assertTrue(OmnitrixService.transform(player, heatblast),
                 "could not start Heatblast for timeout check");
@@ -196,6 +317,47 @@ public final class GameTestChecks {
         helper.assertTrue(Math.abs(player.getBoundingBox().getXsize() - 0.6) < 0.01,
                 "player width did not return after timeout");
         AbilityTicker.forget(player);
+        helper.succeed();
+    }
+
+    public static void omnitrixWatchEquipsAndConsumes(GameTestHelper helper, ServerPlayer player) {
+        ItemStack watch = new ItemStack(ItemInit.OMNITRIX_WATCH.get());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, watch);
+        ItemInit.OMNITRIX_WATCH.get()
+            .use(player.level(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        helper.assertTrue(OmnitrixService.isEquipped(player),
+                "watch use did not equip the Omnitrix");
+        helper.assertTrue(watch.isEmpty(), "equipping did not consume the watch");
+        helper.succeed();
+    }
+
+    public static void omnitrixSecondUseDoesNotConsume(GameTestHelper helper, ServerPlayer player) {
+        equipWithWatch(player);
+        ItemStack secondWatch = new ItemStack(ItemInit.OMNITRIX_WATCH.get());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, secondWatch);
+        ItemInit.OMNITRIX_WATCH.get()
+            .use(player.level(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        helper.assertTrue(secondWatch.getCount() == 1,
+                "second Omnitrix use consumed another watch");
+        helper.succeed();
+    }
+
+    public static void omnitrixEquippedStateRoundTrips(GameTestHelper helper, ServerPlayer player) {
+        equipWithWatch(player);
+        OmnitrixSavedData data = OmnitrixSavedData.get(player.serverLevel());
+        CompoundTag encoded = data.save(new CompoundTag());
+        OmnitrixSavedData decoded = OmnitrixSavedData.load(encoded);
+        helper.assertTrue(decoded.isEquipped(player.getUUID()),
+                "equipped state was lost during SavedData encode/decode");
+
+        CompoundTag legacyPlayer = new CompoundTag();
+        legacyPlayer.putUUID("player", player.getUUID());
+        ListTag legacyPlayers = new ListTag();
+        legacyPlayers.add(legacyPlayer);
+        CompoundTag legacySave = new CompoundTag();
+        legacySave.put("players", legacyPlayers);
+        helper.assertFalse(OmnitrixSavedData.load(legacySave).isEquipped(player.getUUID()),
+                "a legacy save without equipped defaulted to true");
         helper.succeed();
     }
 
@@ -249,6 +411,14 @@ public final class GameTestChecks {
         }
         player.removeAllEffects();
         AbilityTicker.forget(player);
+    }
+
+    private static ItemStack equipWithWatch(ServerPlayer player) {
+        ItemStack watch = new ItemStack(ItemInit.OMNITRIX_WATCH.get());
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, watch);
+        ItemInit.OMNITRIX_WATCH.get()
+            .use(player.level(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        return watch;
     }
 
     @SafeVarargs

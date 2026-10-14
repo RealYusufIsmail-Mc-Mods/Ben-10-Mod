@@ -1,0 +1,20 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
+  "key": {
+    "D": {
+      "tag": "forge:ingots/black_diamond"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    " G ",
+    "GDG",
+    " G "
+  ],
+  "result": {
+    "item": "bentenmod:black_diamond_lens"
+  }
+}

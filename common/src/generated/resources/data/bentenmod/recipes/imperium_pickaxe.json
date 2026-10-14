@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "tools",
   "key": {
     "#": {
       "item": "minecraft:stick"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "bentenmod:imperium_pickaxe"
-  },
-  "show_notification": true
+  }
 }

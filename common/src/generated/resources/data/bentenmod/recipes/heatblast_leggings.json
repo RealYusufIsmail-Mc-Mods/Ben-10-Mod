@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "armour",
   "key": {
     "A": {
       "tag": "forge:ingots/fire"
@@ -13,6 +13,5 @@
   ],
   "result": {
     "item": "bentenmod:heatblast_leggings"
-  },
-  "show_notification": true
+  }
 }

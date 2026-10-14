@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-13T20:21:11.439988	Item Models: bentenmod
+// 1.20.1	2026-10-14T01:50:05.774464	Item Models: bentenmod
 28a0aa00149acfbb2e0427267cd325dc8f8b34ce assets/bentenmod/models/item/axe.json
 e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diamond.json
 4edc58fc2d6525b016e3fa31fd7f5adfbc78edfe assets/bentenmod/models/item/black_diamond_axe.json
@@ -7,6 +7,7 @@ e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diam
 3164c363930716d2535d0787cd0357662aae5436 assets/bentenmod/models/item/black_diamond_helmet.json
 2d998f47929a764d5a0e07f4c819a155fef0ecb7 assets/bentenmod/models/item/black_diamond_hoe.json
 86ed4248160a0bcbe96e636145047d618b3833a6 assets/bentenmod/models/item/black_diamond_leggings.json
+c0d928faffae4d92221297f06b6f56705da3364f assets/bentenmod/models/item/black_diamond_lens.json
 d825ade0a2748cec5b2786f69b16482cc18ff04b assets/bentenmod/models/item/black_diamond_pickaxe.json
 a6b755270ecfd3caaec1fff86d52cc58479d8dc4 assets/bentenmod/models/item/black_diamond_scrap.json
 75fa6b7b116356762599d767d0b6203f8b065dce assets/bentenmod/models/item/black_diamond_shovel.json
@@ -45,9 +46,11 @@ c945c99a7295a9eedfeeaa0397be5857ee56a334 assets/bentenmod/models/item/infinitum_
 61599360bf37c45cbf514fe5278abd55a5131707 assets/bentenmod/models/item/infinitum_sword.json
 2c4658a035ed683e280eb7e4468ea6145c026817 assets/bentenmod/models/item/jacket.json
 98d382b0a12b366c3762c1e613c4eeca4cf22835 assets/bentenmod/models/item/legendary.json
+3f59061ea73d227d4c141feb6128cbb84987ed29 assets/bentenmod/models/item/legendary_casing.json
 e08271c734184af7186504ea11eef4e5190ea1ea assets/bentenmod/models/item/leggings.json
 03b5f05edfa8e48246ba874f3e83e51ac4d5e2c0 assets/bentenmod/models/item/omnitrix.json
 23337affc9718db607d05bfe2112947e594df621 assets/bentenmod/models/item/omnitrix_apple.json
+e95c6e0851be902ebe8c957694613f13f4d67a53 assets/bentenmod/models/item/omnitrix_core.json
 e0f7b66a84e6588f01abbbce75b1803ffe5d46e2 assets/bentenmod/models/item/omnitrix_watch.json
 efedca6e584ab9c86db9199db9c64d4b5e793ef5 assets/bentenmod/models/item/raw_imperium.json
 0f9bd03c220a901c01ae72c45a68670f1e219847 assets/bentenmod/models/item/raw_legendary.json

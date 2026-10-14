@@ -765,6 +765,30 @@
 					}
 				}
 			}
+		},
+		"animation.stinkfly.attack": {
+			"animation_length": 0.3,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"0.00": [
+							0,
+							0,
+							0
+						],
+						"0.10": [
+							-30,
+							0,
+							0
+						],
+						"0.30": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
 		}
 	}
 }

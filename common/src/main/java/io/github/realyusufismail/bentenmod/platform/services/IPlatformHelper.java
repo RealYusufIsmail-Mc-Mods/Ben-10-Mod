@@ -39,6 +39,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
@@ -85,6 +86,9 @@ public interface IPlatformHelper {
 
     /** The recipe book type of the Omnitrix Crafter, or {@link RecipeBookType#CRAFTING}. */
     RecipeBookType omnitrixRecipeBookType();
+
+    /** Sends the updated unlock list through each loader's existing Omnitrix state packet. */
+    void syncOmnitrixState(ServerPlayer player);
 
     /**
      * Creates a menu type for a menu that needs no extra data from the server. Vanilla keeps the

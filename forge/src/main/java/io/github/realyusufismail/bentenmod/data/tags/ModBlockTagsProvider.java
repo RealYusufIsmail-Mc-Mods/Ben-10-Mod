@@ -127,6 +127,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 BlockInit.OMNITRIX_BLOCK.get(), BlockInit.INFINITUM_BLOCK.get(),
                 BlockInit.LEGENDARY_BLOCK.get(), BlockInit.SPEED_BLOCK.get(),
                 BlockInit.BLACK_DIAMOND_BLOCK.get());
+
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.OMNITRIX_POD.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.OMNITRIX_POD.get());
     }
 }
 

@@ -58,6 +58,20 @@ public final class AlienPlayerAnimatable implements GeoAnimatable {
             state.setAndContinue(animation);
             return PlayState.CONTINUE;
         }));
+        controllers.add(new AnimationController<>(this, "alien_attack", state -> {
+            PlayerAnimationStateCache.State playerState = currentState();
+            if (player == null || playerState == null
+                    || playerState.isTransforming(player.tickCount)) {
+                return PlayState.STOP;
+            }
+            if (player.swinging) {
+                String base = "animation." + playerState.alienId().getPath() + ".";
+                state.setAndContinue(RawAnimation.begin().thenPlay(base + "attack"));
+                return PlayState.CONTINUE;
+            }
+            state.getController().forceAnimationReset();
+            return PlayState.STOP;
+        }));
     }
 
     @Override

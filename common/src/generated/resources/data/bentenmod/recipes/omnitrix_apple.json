@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
   "key": {
     "A": {
       "tag": "forge:ingots/omnitrix"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "bentenmod:omnitrix_apple"
-  },
-  "show_notification": true
+  }
 }

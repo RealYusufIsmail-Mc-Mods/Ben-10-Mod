@@ -9,12 +9,12 @@
     {
       "type": "bentenmod:effect",
       "effect": "minecraft:strength",
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "type": "bentenmod:effect",
       "effect": "minecraft:resistance",
-      "amplifier": 2
+      "amplifier": 1
     }
   ]
 }

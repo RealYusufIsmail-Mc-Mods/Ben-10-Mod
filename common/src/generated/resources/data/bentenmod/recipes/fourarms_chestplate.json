@@ -1,0 +1,17 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "armour",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/ruby"
+    }
+  },
+  "pattern": [
+    "A A",
+    "AAA",
+    "AAA"
+  ],
+  "result": {
+    "item": "bentenmod:fourarms_chestplate"
+  }
+}

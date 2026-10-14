@@ -46,9 +46,11 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
@@ -210,9 +212,101 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .save(consumer, modId("infinitum_scrap"));
 
 
-        // amour and tools
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemInit.AXE.get())
-            .define('#', Items.STICK.asItem())
+        // The Crafter owns Ben 10 gear and special items; it remains craftable in a crafting table.
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.MISC,
+                ItemInit.LEGENDARY_CASING.get()).define('L', TagsInit.Items.INGOTS_LEGENDARY)
+                    .define('I', Items.IRON_INGOT)
+                    .pattern("LIL")
+                    .pattern("I I")
+                    .pattern("LIL")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
+                    .save(consumer, modId("legendary_casing"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.MISC,
+                ItemInit.BLACK_DIAMOND_LENS.get()).define('G', Items.GLASS)
+                    .define('D', TagsInit.Items.INGOTS_BLACK_DIAMOND)
+                    .pattern(" G ")
+                    .pattern("GDG")
+                    .pattern(" G ")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_BLACK_DIAMOND))
+                    .save(consumer, modId("black_diamond_lens"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.MISC,
+                ItemInit.OMNITRIX_CORE.get()).define('O', TagsInit.Items.INGOTS_OMNITRIX)
+                    .define('L', ItemInit.BLACK_DIAMOND_LENS.get())
+                    .define('C', ItemInit.LEGENDARY_CASING.get())
+                    .pattern("OLO")
+                    .pattern("OCO")
+                    .pattern("OOO")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
+                    .save(consumer, modId("omnitrix_core"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.MISC,
+                ItemInit.OMNITRIX_WATCH.get()).define('L', Items.LEATHER)
+                    .define('N', Items.IRON_NUGGET)
+                    .define('C', ItemInit.OMNITRIX_CORE.get())
+                    .pattern("LNL")
+                    .pattern("NCN")
+                    .unlockedBy(HAS_ITEM, has(ItemInit.OMNITRIX_CORE.get()))
+                    .save(consumer, modId("omnitrix_watch"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.FOOD,
+                ItemInit.OMNITRIX_APPLE.get()).define('A', TagsInit.Items.INGOTS_OMNITRIX)
+                    .define('L', Items.APPLE)
+                    .pattern("AAA")
+                    .pattern("ALA")
+                    .pattern("AAA")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
+                    .save(consumer, modId("omnitrix_apple"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.FOOD,
+                ItemInit.ENCHANTED_OMNITRIX_APPLE.get()).define('A', BlockInit.OMNITRIX_BLOCK.get())
+                    .define('L', Items.APPLE)
+                    .pattern("AAA")
+                    .pattern("ALA")
+                    .pattern("AAA")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
+                    .save(consumer, modId("enchanted_omnitrix_apple"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.MISC, RecipeCategory.FOOD,
+                ItemInit.FIRE_APPLE.get()).define('A', TagsInit.Items.INGOTS_FIRE)
+                    .define('L', Items.APPLE)
+                    .pattern("AAA")
+                    .pattern("ALA")
+                    .pattern("AAA")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
+                    .save(consumer, modId("fire_apple"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.MISC, RecipeCategory.FOOD, RUBY_APPLE.get())
+            .define('A', TagsInit.Items.INGOTS_RUBY)
+            .define('L', Items.APPLE)
+            .pattern("AAA")
+            .pattern("ALA")
+            .pattern("AAA")
+            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+            .save(consumer, modId("ruby_apple"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.MISC, RecipeCategory.FOOD,
+                Items.ENCHANTED_GOLDEN_APPLE).define('A', Items.GOLD_BLOCK)
+                    .define('L', Items.APPLE)
+                    .pattern("AAA")
+                    .pattern("ALA")
+                    .pattern("AAA")
+                    .unlockedBy(HAS_ITEM, has(Items.GOLD_INGOT))
+                    .save(consumer, modId("enchanted_golden_apple"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.MISC, RecipeCategory.MISC,
+                EntityTypesInit.CRAB_SPAWN_EGG.get()).define('L', Items.EGG)
+                    .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                    .pattern("AAA")
+                    .pattern("ALA")
+                    .pattern("AAA")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
+                    .save(consumer, modId("kraab_spawn_egg"));
+
+        // Tools
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, ItemInit.AXE.get())
+            .define('#', Items.STICK)
             .define('K', TagsInit.Items.INGOTS_RUBY)
             .define('A', TagsInit.Items.INGOTS_LEGENDARY)
             .pattern("KK ")
@@ -221,202 +315,91 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
             .save(consumer, modId("axe"));
 
-        /*
-         * ShapedRecipeBuilder.shaped(HEATBLAST_SWORD.get()) .define('#', Items.STICK.asItem())
-         * .define('K', FIRE.get()) .define('A', OMNITRIX.get()) .pattern(" K ") .pattern(" A ")
-         * .pattern(" # ") .unlockedBy(HAS_ITEM, has(FIRE.get()))
-         * .save(consumer,modId("heatblast_sword"));
-         */
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemInit.SWORD.get())
-            .define('#', Items.STICK.asItem())
-            .define('A', TagsInit.Items.INGOTS_LEGENDARY)
-            .pattern(" A ")
-            .pattern(" A ")
-            .pattern(" # ")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
-            .save(consumer, modId("sword"));
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
+                ItemInit.SWORD.get()).define('#', Items.STICK)
+                    .define('A', TagsInit.Items.INGOTS_LEGENDARY)
+                    .pattern(" A ")
+                    .pattern(" A ")
+                    .pattern(" # ")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
+                    .save(consumer, modId("sword"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemInit.IMPERIUM_SWORD.get())
-            .define('#', Items.STICK.asItem())
-            .define('A', TagsInit.Items.INGOTS_IMPERIUM)
-            .pattern(" A ")
-            .pattern(" A ")
-            .pattern(" # ")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
-            .save(consumer, modId("imperium_sword"));
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
+                ItemInit.HEATBLAST_SWORD.get()).define('#', Items.STICK)
+                    .define('K', ItemInit.FIRE.get())
+                    .define('A', ItemInit.OMNITRIX.get())
+                    .pattern(" K ")
+                    .pattern(" A ")
+                    .pattern(" # ")
+                    .unlockedBy(HAS_ITEM, has(ItemInit.FIRE.get()))
+                    .save(consumer, modId("heatblast_sword"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemInit.HEATBLAST_SWORD.get())
-            .define('#', Items.STICK.asItem())
-            .define('K', ItemInit.FIRE.get())
-            .define('A', ItemInit.OMNITRIX.get())
-            .pattern(" K ")
-            .pattern(" A ")
-            .pattern(" # ")
-            .unlockedBy(HAS_ITEM, has(ItemInit.FIRE.get()))
-            .save(consumer, modId("heatblast_sword"));
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
+                ItemInit.IMPERIUM_SWORD.get()).define('#', Items.STICK)
+                    .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                    .pattern(" A ")
+                    .pattern(" A ")
+                    .pattern(" # ")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
+                    .save(consumer, modId("imperium_sword"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemInit.IMPERIUM_PICKAXE.get())
-            .define('#', Items.STICK.asItem())
-            .define('A', TagsInit.Items.INGOTS_IMPERIUM)
-            .pattern("AAA")
-            .pattern(" # ")
-            .pattern(" # ")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
-            .save(consumer, modId("imperium_pickaxe"));
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
+                ItemInit.IMPERIUM_PICKAXE.get()).define('#', Items.STICK)
+                    .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                    .pattern("AAA")
+                    .pattern(" # ")
+                    .pattern(" # ")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
+                    .save(consumer, modId("imperium_pickaxe"));
 
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
+                ItemInit.IMPERIUM_AXE.get()).define('#', Items.STICK)
+                    .define('A', TagsInit.Items.INGOTS_IMPERIUM)
+                    .pattern("AA ")
+                    .pattern("A# ")
+                    .pattern(" # ")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
+                    .save(consumer, modId("imperium_axe"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.HELMET.get())
-            .define('A', TagsInit.Items.INGOTS_LEGENDARY)
-            .pattern("AAA")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
-            .save(consumer, modId("helmet"));
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
+                ItemInit.IMPERIUM_PICKAXE_UPGRADED.get())
+                    .define('A', ItemInit.IMPERIUM_PICKAXE.get())
+                    .define('L', TagsInit.Items.INGOTS_OMNITRIX)
+                    .pattern(" A ")
+                    .pattern(" L ")
+                    .pattern(" L ")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
+                    .save(consumer, modId("imperium_upgraded_pickaxe"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.CHESTPLATE.get())
-            .define('#', TagsInit.Items.INGOTS_RUBY)
-            .define('A', TagsInit.Items.INGOTS_LEGENDARY)
-            .pattern("A A")
-            .pattern("A#A")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
-            .save(consumer, modId("chestplate"));
+        addToolRecipes(consumer, TagsInit.Items.INGOTS_BLACK_DIAMOND,
+                ItemInit.BLACK_DIAMOND_SWORD.get(), ItemInit.BLACK_DIAMOND_PICKAXE.get(),
+                ItemInit.BLACK_DIAMOND_AXE.get(), ItemInit.BLACK_DIAMOND_SHOVEL.get(),
+                ItemInit.BLACK_DIAMOND_HOE.get(), "black_diamond");
+        addToolRecipes(consumer, TagsInit.Items.INGOTS_INFINITUM, ItemInit.INFINITUM_SWORD.get(),
+                ItemInit.INFINITUM_PICKAXE.get(), ItemInit.INFINITUM_AXE.get(),
+                ItemInit.INFINITUM_SHOVEL.get(), ItemInit.INFINITUM_HOE.get(), "infinitum");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.LEGGINGS.get())
-            .define('A', TagsInit.Items.INGOTS_LEGENDARY)
-            .pattern("AAA")
-            .pattern("A A")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
-            .save(consumer, modId("leggings"));
+        // Armour
+        armorRecipes(consumer, TagsInit.Items.INGOTS_LEGENDARY, ItemInit.HELMET.get(),
+                ItemInit.CHESTPLATE.get(), ItemInit.LEGGINGS.get(), ItemInit.BOOTS.get(), "",
+                TagsInit.Items.INGOTS_RUBY);
+        armorRecipes(consumer, TagsInit.Items.INGOTS_FIRE, ItemInit.HEATBLAST_HELMET.get(),
+                ItemInit.HEATBLAST_CHESTPLATE.get(), ItemInit.HEATBLAST_LEGGINGS.get(),
+                ItemInit.HEATBLAST_BOOTS.get(), "heatblast_", TagsInit.Items.INGOTS_OMNITRIX);
+        armorRecipes(consumer, TagsInit.Items.INGOTS_SPEED, ItemInit.XLR8_HELMET.get(),
+                ItemInit.XLR8_CHESTPLATE.get(), ItemInit.XLR8_LEGGINGS.get(),
+                ItemInit.XLR8_BOOTS.get(), "xlr8_", TagsInit.Items.INGOTS_OMNITRIX);
+        armorRecipes(consumer, TagsInit.Items.INGOTS_RUBY, ItemInit.FOURARMS_HELMET.get(),
+                ItemInit.FOURARMS_CHESTPLATE.get(), ItemInit.FOURARMS_LEGGINGS.get(),
+                ItemInit.FOURARMS_BOOT.get(), "fourarms_", null);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.BOOTS.get())
-            .define('A', TagsInit.Items.INGOTS_LEGENDARY)
-            .pattern("A A")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_LEGENDARY))
-            .save(consumer, modId("boots"));
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.HEATBLAST_HELMET.get())
-            .define('A', TagsInit.Items.INGOTS_FIRE)
-            .pattern("AAA")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
-            .save(consumer, modId("heatblast_helmet"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.HEATBLAST_CHESTPLATE.get())
-            .define('#', TagsInit.Items.INGOTS_OMNITRIX)
-            .define('A', TagsInit.Items.INGOTS_FIRE)
-            .pattern("A A")
-            .pattern("A#A")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
-            .save(consumer, modId("heatblast_chestplate"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.HEATBLAST_LEGGINGS.get())
-            .define('A', TagsInit.Items.INGOTS_FIRE)
-            .pattern("AAA")
-            .pattern("A A")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
-            .save(consumer, modId("heatblast_leggings"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.HEATBLAST_BOOTS.get())
-            .define('A', TagsInit.Items.INGOTS_FIRE)
-            .pattern("A A")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
-            .save(consumer, modId("heatblast_boots"));
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.XLR8_HELMET.get())
-            .define('A', TagsInit.Items.INGOTS_SPEED)
-            .pattern("AAA")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
-            .save(consumer, modId("xlr8_helmet"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.XLR8_CHESTPLATE.get())
-            .define('#', TagsInit.Items.INGOTS_OMNITRIX)
-            .define('A', TagsInit.Items.INGOTS_SPEED)
-            .pattern("A A")
-            .pattern("A#A")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
-            .save(consumer, modId("xlr8_chestplate"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.XLR8_LEGGINGS.get())
-            .define('A', TagsInit.Items.INGOTS_SPEED)
-            .pattern("AAA")
-            .pattern("A A")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
-            .save(consumer, modId("xlr8_leggings"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.XLR8_BOOTS.get())
-            .define('A', TagsInit.Items.INGOTS_SPEED)
-            .pattern("A A")
-            .pattern("A A")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_SPEED))
-            .save(consumer, modId("xlr8_boots"));
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ItemInit.JACKET.get())
-            .define('A', TagsInit.Items.INGOTS_OMNITRIX)
-            .pattern("A A")
-            .pattern("AAA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
-            .save(consumer, modId("jacket"));
-
-
-        // food
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ItemInit.OMNITRIX_APPLE.get())
-            .define('A', TagsInit.Items.INGOTS_OMNITRIX)
-            .define('L', Items.APPLE.asItem())
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
-            .save(consumer, modId("omnitrix_apple"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ItemInit.ENCHANTED_OMNITRIX_APPLE.get())
-            .define('A', BlockInit.OMNITRIX_BLOCK.get())
-            .define('L', Items.APPLE.asItem())
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
-            .save(consumer, modId("enchanted_omnitrix_apple"));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ItemInit.FIRE_APPLE.get())
-            .define('A', TagsInit.Items.INGOTS_FIRE)
-            .define('L', Items.APPLE.asItem())
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_FIRE))
-            .save(consumer, modId("fire_apple"));
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, RUBY_APPLE.get())
-            .define('A', TagsInit.Items.INGOTS_RUBY)
-            .define('L', Items.APPLE.asItem())
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-            .save(consumer, modId("ruby_apple"));
-
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, Items.ENCHANTED_GOLDEN_APPLE.asItem())
-            .define('A', Items.GOLD_BLOCK.asItem())
-            .define('L', Items.APPLE.asItem())
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(Items.GOLD_INGOT.asItem()))
-            .save(consumer, modId("enchanted_golden_apple"));
+        crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT,
+                ItemInit.JACKET.get()).define('A', TagsInit.Items.INGOTS_OMNITRIX)
+                    .pattern("A A")
+                    .pattern("AAA")
+                    .pattern("AAA")
+                    .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_OMNITRIX))
+                    .save(consumer, modId("jacket"));
 
         ShapedRecipeBuilder
             .shaped(RecipeCategory.BUILDING_BLOCKS, BlockInit.OmnitrixCrafter.get().asItem())
@@ -427,27 +410,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .pattern("LLL")
             .unlockedBy(HAS_ITEM, has(Blocks.COBBLESTONE.asItem()))
             .save(consumer, modId("omntrix_block"));
-
-        // other items
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, EntityTypesInit.CRAB_SPAWN_EGG.get())
-            .define('L', Items.EGG.asItem())
-            .define('A', TagsInit.Items.INGOTS_IMPERIUM)
-            .pattern("AAA")
-            .pattern("ALA")
-            .pattern("AAA")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
-            .save(consumer, modId("kraab_spawn_egg"));
-
-        OmnitrixRecipeBuilder.INSTANCE
-            .shaped(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS,
-                    IMPERIUM_PICKAXE_UPGRADED.get())
-            .define('A', IMPERIUM_PICKAXE.get())
-            .define('L', TagsInit.Items.INGOTS_OMNITRIX)
-            .pattern(" A ")
-            .pattern(" L ")
-            .pattern(" L ")
-            .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_IMPERIUM))
-            .save(consumer, modId("imperium_upgraded_pickaxe"));
 
 
         // smelting and blasting recipes
@@ -792,6 +754,96 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
          * .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM)) .save(consumer,
          * modId("infinitum_boots"));
          **/
+    }
+
+    private OmnitrixRecipeBuilder crafter(OmnitrixCrafterCraftingBookCategory category,
+            RecipeCategory recipeCategory, ItemLike result) {
+        return new OmnitrixRecipeBuilder().shaped(category, recipeCategory, result);
+    }
+
+    private void addToolRecipes(Consumer<FinishedRecipe> consumer, TagKey<Item> material,
+            ItemLike sword, ItemLike pickaxe, ItemLike axe, ItemLike shovel, ItemLike hoe,
+            String prefix) {
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, sword)
+            .define('#', Items.STICK)
+            .define('A', material)
+            .pattern(" A ")
+            .pattern(" A ")
+            .pattern(" # ")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "_sword"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, pickaxe)
+            .define('#', Items.STICK)
+            .define('A', material)
+            .pattern("AAA")
+            .pattern(" # ")
+            .pattern(" # ")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "_pickaxe"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, axe)
+            .define('#', Items.STICK)
+            .define('A', material)
+            .pattern("AA ")
+            .pattern("A# ")
+            .pattern(" # ")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "_axe"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, shovel)
+            .define('#', Items.STICK)
+            .define('A', material)
+            .pattern(" A ")
+            .pattern(" # ")
+            .pattern(" # ")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "_shovel"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, hoe)
+            .define('#', Items.STICK)
+            .define('A', material)
+            .pattern("AA ")
+            .pattern(" # ")
+            .pattern(" # ")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "_hoe"));
+    }
+
+    private void armorRecipes(Consumer<FinishedRecipe> consumer, TagKey<Item> material,
+            ItemLike helmet, ItemLike chestplate, ItemLike leggings, ItemLike boots, String prefix,
+            TagKey<Item> chestAccent) {
+        crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT, helmet)
+            .define('A', material)
+            .pattern("AAA")
+            .pattern("A A")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "helmet"));
+
+        OmnitrixRecipeBuilder chestplateRecipe = crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR,
+                RecipeCategory.COMBAT, chestplate).define('A', material);
+        if (chestAccent == null) {
+            chestplateRecipe.pattern("A A").pattern("AAA").pattern("AAA");
+        } else {
+            chestplateRecipe.define('#', chestAccent).pattern("A A").pattern("A#A").pattern("AAA");
+        }
+        chestplateRecipe.unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "chestplate"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT, leggings)
+            .define('A', material)
+            .pattern("AAA")
+            .pattern("A A")
+            .pattern("A A")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "leggings"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT, boots)
+            .define('A', material)
+            .pattern("A A")
+            .pattern("A A")
+            .unlockedBy(HAS_ITEM, has(material))
+            .save(consumer, modId(prefix + "boots"));
     }
 
     private Ingredient ingredient(Item entry) {

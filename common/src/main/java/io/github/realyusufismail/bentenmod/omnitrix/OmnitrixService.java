@@ -2,10 +2,8 @@ package io.github.realyusufismail.bentenmod.omnitrix;
 
 import io.github.realyusufismail.bentenmod.alien.AlienDefinition;
 import io.github.realyusufismail.bentenmod.alien.Aliens;
-import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 
 import java.util.Optional;
@@ -20,7 +18,8 @@ public final class OmnitrixService {
                 : Aliens.DATA.get(state.currentAlien()).orElse(null);
         OmnitrixSnapshot saved = state.snapshot(player.getUUID());
         return new OmnitrixSnapshot(saved.playerId(), saved.currentAlien(), saved.expiresAt(),
-                saved.unlockedAlienIds(), definition == null ? 0 : definition.width(),
+                saved.equipped(), saved.unlockedAlienIds(),
+                definition == null ? 0 : definition.width(),
                 definition == null ? 0 : definition.height());
     }
 
@@ -28,7 +27,7 @@ public final class OmnitrixService {
     public static OmnitrixSnapshot trackingSnapshot(ServerPlayer player) {
         OmnitrixSnapshot state = snapshot(player);
         return new OmnitrixSnapshot(state.playerId(), state.currentAlien(), state.expiresAt(),
-                java.util.List.of(), state.width(), state.height());
+                state.equipped(), java.util.List.of(), state.width(), state.height());
     }
 
     public static Optional<AlienDefinition> activeDefinition(ServerPlayer player) {
@@ -49,9 +48,9 @@ public final class OmnitrixService {
         return snapshot(player);
     }
 
-    /** Starts a form if the server confirms the watch, definition and unlock. */
+    /** Starts a form if the server confirms the equipped Omnitrix, definition and unlock. */
     public static boolean transform(ServerPlayer player, ResourceLocation alien) {
-        if (!hasWatch(player)) {
+        if (!isEquipped(player)) {
             return false;
         }
         AlienDefinition definition = Aliens.DATA.get(alien).orElse(null);
@@ -71,8 +70,11 @@ public final class OmnitrixService {
         return true;
     }
 
-    /** Reverting is always permitted, including when the watch has been removed. */
+    /** Reverting requires the permanently equipped Omnitrix. */
     public static boolean revert(ServerPlayer player) {
+        if (!isEquipped(player)) {
+            return false;
+        }
         OmnitrixSavedData data = OmnitrixSavedData.get(player.serverLevel());
         OmnitrixSavedData.PlayerState state = data.getOrCreate(player);
         if (state.currentAlien() == null) {
@@ -115,14 +117,18 @@ public final class OmnitrixService {
         return changed;
     }
 
-    public static boolean hasWatch(ServerPlayer player) {
-        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-            ItemStack stack = player.getInventory().getItem(slot);
-            if (stack.is(ItemInit.OMNITRIX_WATCH.get())) {
-                return true;
-            }
+    /** Permanently binds a watch to the player's saved UUID state. */
+    public static boolean equip(ServerPlayer player) {
+        OmnitrixSavedData data = OmnitrixSavedData.get(player.serverLevel());
+        boolean changed = data.getOrCreate(player).equip();
+        if (changed) {
+            data.setDirty();
         }
-        return false;
+        return changed;
+    }
+
+    public static boolean isEquipped(ServerPlayer player) {
+        return state(player).equipped();
     }
 
     private static OmnitrixSavedData.PlayerState state(ServerPlayer player) {

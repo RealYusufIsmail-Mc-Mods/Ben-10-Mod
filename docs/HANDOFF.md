@@ -2,17 +2,26 @@
 
 Read this first when you start, resume, or come back from a context compaction. It records what has been done, what was decided, and what comes next, so work can continue without the original conversation. Keep it current: update it after every milestone (see "How to update" at the bottom). `CLAUDE.md` has the stable project rules; this file has the moving state.
 
-## Current state (2026-10-13)
+## Current state (2026-10-14)
 
-- **Branch:** `t3/omnitrix-transformation` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-ac0eaad0`; local, based on the pushed Crafter branch).
-- **PRs:** [#88](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/88) and [#89](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/89) merged into `main`; [#90](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/90) merged into `1.20.1`; [#91](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/pull/91) is open from `t3/omnitrix-transformation` to `1.20.1`.
-- **Version branches:** `1.19.4` holds the original `main` (fast-forwarded to `2a50371a`). Older versions have their own branches (`1.18.2`, `1.19.3`, ...). Naming convention: the branch is the Minecraft version.
-- **Builds:** Forge and Fabric jars from one codebase (`./gradlew build`).
-- **Tests:** 11/11 GameTests pass on both loaders (`:forge:runGameTestServer`, `:fabric:runGameTestServer`); `./gradlew build` passes after the final animation-state fix.
-- **Client check:** both `runClient` tasks registered the mod, initialized graphics/audio, and reloaded resources without a crash or mixin error, then were stopped after 75 seconds. A transformed player, dial, and Crafter have not been visually inspected in a live world. Forge jar on NeoForge 1.20.1 remains unverified.
-- **Current work:** Step 3 is implemented on `t3/omnitrix-transformation`. The progression decisions below remain open and were not changed.
+- **Branch:** `t3/whats-next` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-4856cce5`, based on `origin/1.20.1` at `3c6ac47c`). Everything below is uncommitted; nothing pushed. Helper worktrees `progression-luna` (`t3/omnitrix-acquisition-dna`) and `attack-anim-sonnet` (`t3/alien-attack-anim`) hold the worker copies already merged here.
+- **PRs:** #88, #89 merged into `main`; #90 and #91 merged into `1.20.1`.
+- **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
+- **Tests:** `:forge:runData`, `./gradlew build`, and 21/21 GameTests on both `:forge:runGameTestServer` and `:fabric:runGameTestServer` pass on the merged tree.
+- **Client check:** both clients start, reload resources and start the sound engine with no mixin or render-layer error. In-world visuals (first-person arms, wheel dial, holograms, attack swing, wrist watch, crater) are NOT yet checked by a person. NeoForge 1.20.1 unverified.
 
 ## Done (newest first)
+
+### 2026-10-14: Progression steps 4 and 5, equip, wheel dial, arms, attack swing
+- **First-person alien arms:** `AlienPlayerReplacementRenderer.renderFirstPersonArm` draws the alien's `right_arm`/`left_arm` (+ `*_arm_lower` for Four Arms) bones at rest pose, shoulder aligned to vanilla's. Hooks: Forge `RenderArmEvent`; Fabric `mixin/PlayerRendererMixin` (`renderRightHand`/`renderLeftHand`).
+- **Attack swing:** every alien has `animation.<id>.attack` (0.3 s, from `tools/alien-gen/export.py`); `AlienPlayerAnimatable` plays it on a second controller while `player.swinging`.
+- **Wheel dial:** `OmnitrixDialScreen` rewritten: turning bezel (scroll, arrows/A-D), icons on a rotating ring, selected alien pops up as a green spinning 3D hologram (`client/alien/AlienHologram`, a `GeoObjectRenderer`). Click/Enter transforms, R or right-click reverts. Opens only when equipped. Texture from `tools/alien-gen/dial.py` → `textures/gui/omnitrix_wheel.png`.
+- **Equip:** right-click the watch binds it for good (`equipped` in `OmnitrixSavedData`, synced to owner and trackers); empty-hand right-click on air opens the dial; `G` still works; wrist render layer on both loaders.
+- **Acquisition and DNA (steps 4-5):** procedural crash-site crater with `omnitrix_pod` (drops the watch); Crafter recipe chain (`legendary_casing`, `black_diamond_lens`, `omnitrix_core` → watch) and Ben 10 gear moved into the Crafter; `dna_sources` in alien JSON; sneak + empty-hand right-click a source to unlock (`OmnitrixInteractions`, cooldown-gated).
+- **Balance and ore ladder:** armour nerfed (XLR8 Speed III; Four Arms Strength II + Jump II; Heatblast fire res + flight; Legendary Strength I + Resistance II; jacket Resistance I). Ore rarity follows power (`ModOreFeatures`, `ModOrePlacements`; numbers in `docs/design/progression.md` §1). Fixed deepslate ruby/black diamond silk-touch loot.
+- **Tests:** GameTest players now get a random UUID per run (the persisted GameTest world leaked Omnitrix state between runs). Scans use `isShiftKeyDown()`, not pose-based `isCrouching()`.
+- **Review:** Sol (read-only) found nothing high-severity; fixed its dial-on-block and missing-cooldown findings. Crater writes stay within the 3x3 feature region.
+- Routing: Opus (arms, dial, integration), Sonnet (balance/ore data, attack anims), Haiku (scout, diff check), Luna max (steps 4-5, equip), Sol medium (review).
 
 ### 2026-10-13: Step 3, Omnitrix transformation
 - Added a GeckoLib `omnitrix_watch` item, dial screen and keybind, local green flash, and third-person alien player replacement renderer in `common/src/main/java/.../core`, `.../client/alien`, and `.../omnitrix`.
@@ -65,23 +74,17 @@ Read this first when you start, resume, or come back from a context compaction. 
 | Core library | removed for good in this mod; may revisit for other MC projects |
 | Model routing | Opus does the Minecraft modding itself; Sonnet subagents apply bulk edits; Haiku scouts; Codex Luna max only for big detached jobs when asked |
 | Git | branch per Minecraft version; PRs to `main`; commit/push only when asked |
-
-## Open questions for the user
-
-From `docs/design/progression.md`:
-1. Getting the Omnitrix: crash-site pod, crafting, or both?
-2. Keep the alien armour sets once transformation exists, or retire them?
-3. DNA scanning creature list (wolf → Wildmutt, guardian → Ripjaws, ...)?
-4. Apply the proposed armour balance (current XLR8 is Speed XLVI, Four Arms Strength IX)?
-5. Null Void as the first dimension?
+| Omnitrix acquisition | Both the rare crash site and crafting give the same `omnitrix_watch` item |
+| Equipping | Right-click the watch once to bind it permanently; it survives death and cannot be unequipped |
+| Alien armour | Keep the sets for non-transformed players, nerfed (2026-10-14) |
+| DNA unlocks | With the watch equipped, sneak and right-click a source with an empty main hand: wolf, budding amethyst, frog, bee, guardian, iron golem or phantom |
+| Later progression | Null Void is the first dimension, built as endgame after the ore ladder and DNA unlocks; bosses (Kraab, Vilgax) come first |
 
 ## Next
 
-**Omnitrix Crafter visuals:** inspect the new block and screen in-game on both loaders. Adjust the pixel art and model in a follow-up if needed.
-
-**Step 3 follow-up:** inspect the dial and transformed player in a live world on both loaders; replace the first-person vanilla hands if needed. Confirm NeoForge 1.20.1 compatibility. Review PR #91.
-
-After that, the progression plan steps 4 to 7 in `docs/design/progression.md`.
+1. In-game QA on both loaders (needs a person): first-person arms alignment, the wheel dial and hologram, the attack swing direction (flip the sign in `export.py` if inverted), wrist watch placement, crater look and rarity, new item textures.
+2. Commit this branch and open a PR to `1.20.1` when the user asks.
+3. Step 6: Kraab mini-boss, then Vilgax. Step 7: Null Void dimension + Zs'Skayr (`docs/design/progression.md` §4-5).
 
 ## Gotchas
 
@@ -89,6 +92,7 @@ After that, the progression plan steps 4 to 7 in `docs/design/progression.md`.
 - `common` can't see Forge/Fabric classes. Vanilla equivalents: `TagKey.create` (not `BlockTags.create`); anonymous `RecipeType` (not `RecipeType.simple`); `inventoryTick` (not `onArmorTick`); subclass protected tool constructors (`ModTools`).
 - GeckoLib's Fabric build needs `com.eliotlash.mclib` from the GeckoLib Maven (allowed in `buildSrc/.../multiloader-common.gradle`).
 - Fabric's GameTest server refuses to start with zero tests.
+- GameTest saved data persists in `run/`; give test players fresh UUIDs (done in both wrappers).
 - An old `run/` world can report "unidentified mappings" after items are removed; delete the GameTest world.
 - `spotlessApply` runs before every compile and reformats Java.
 

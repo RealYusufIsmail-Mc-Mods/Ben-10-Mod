@@ -39,7 +39,6 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
 
-import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 /** Fabric registration of {@link GameTestChecks} (entrypoint {@code fabric-gametest}). */
@@ -53,6 +52,44 @@ public class FabricGameTests implements FabricGameTest {
     @GameTest(template = EMPTY_STRUCTURE)
     public void oreFeaturesLoaded(GameTestHelper helper) {
         GameTestChecks.oreFeaturesLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixCrashSiteFeatureRegistered(GameTestHelper helper) {
+        GameTestChecks.omnitrixCrashSiteFeatureRegistered(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixPodDropsWatch(GameTestHelper helper) {
+        GameTestChecks.omnitrixPodDropsWatch(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixCrafterWatchRecipeLoaded(GameTestHelper helper) {
+        GameTestChecks.omnitrixCrafterWatchRecipeLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixScanUnlocksWildmutt(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanUnlocksWildmutt(helper,
+                player(helper, "omnitrixScanUnlocksWildmutt"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixRepeatScanIsSafe(GameTestHelper helper) {
+        GameTestChecks.omnitrixRepeatScanIsSafe(helper, player(helper, "omnitrixRepeatScanIsSafe"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixScanRequiresEquippedAndUntransformedPlayer(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanRequiresEquippedAndUntransformedPlayer(helper,
+                player(helper, "omnitrixScanRequiresEquippedAndUntransformedPlayer"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixScanBuddingAmethystUnlocksDiamondhead(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanBuddingAmethystUnlocksDiamondhead(helper,
+                player(helper, "omnitrixScanBuddingAmethystUnlocksDiamondhead"));
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
@@ -82,6 +119,24 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixWatchEquipsAndConsumes(GameTestHelper helper) {
+        GameTestChecks.omnitrixWatchEquipsAndConsumes(helper,
+                player(helper, "omnitrixWatchEquipsAndConsumes"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixSecondUseDoesNotConsume(GameTestHelper helper) {
+        GameTestChecks.omnitrixSecondUseDoesNotConsume(helper,
+                player(helper, "omnitrixSecondUseDoesNotConsume"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixEquippedStateRoundTrips(GameTestHelper helper) {
+        GameTestChecks.omnitrixEquippedStateRoundTrips(helper,
+                player(helper, "omnitrixEquippedStateRoundTrips"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void omnitrixTimeoutReverts(GameTestHelper helper) {
         GameTestChecks.omnitrixTimeoutReverts(helper, player(helper, "omnitrixTimeoutReverts"));
     }
@@ -103,7 +158,6 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     private static ServerPlayer player(GameTestHelper helper, String name) {
-        return FakePlayer.get(helper.getLevel(), new GameProfile(
-                UUID.nameUUIDFromBytes(name.getBytes(StandardCharsets.UTF_8)), name));
+        return FakePlayer.get(helper.getLevel(), new GameProfile(UUID.randomUUID(), name));
     }
 }

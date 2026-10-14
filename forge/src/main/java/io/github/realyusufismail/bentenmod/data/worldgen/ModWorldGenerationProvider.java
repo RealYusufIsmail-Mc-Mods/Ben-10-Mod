@@ -3,6 +3,7 @@ package io.github.realyusufismail.bentenmod.data.worldgen;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.worldgen.ModOreFeatures;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
+import io.github.realyusufismail.bentenmod.worldgen.OmnitrixCrashSiteWorldgen;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -29,10 +30,16 @@ import java.util.concurrent.CompletableFuture;
  * @see VanillaRegistries
  */
 public class ModWorldGenerationProvider extends DatapackBuiltinEntriesProvider {
-    private static final RegistrySetBuilder BUILDER = (new RegistrySetBuilder())
-        .add(Registries.CONFIGURED_FEATURE, ModOreFeatures::bootstrap)
-        .add(Registries.PLACED_FEATURE, ModOrePlacements::bootstrap)
-        .add(ForgeRegistries.Keys.BIOME_MODIFIERS, ModWorldGenerationProvider::biomeModifiers);
+    private static final RegistrySetBuilder BUILDER =
+            (new RegistrySetBuilder()).add(Registries.CONFIGURED_FEATURE, context -> {
+                ModOreFeatures.bootstrap(context);
+                OmnitrixCrashSiteWorldgen.bootstrapConfigured(context);
+            }).add(Registries.PLACED_FEATURE, context -> {
+                ModOrePlacements.bootstrap(context);
+                OmnitrixCrashSiteWorldgen.bootstrapPlaced(context);
+            })
+                .add(ForgeRegistries.Keys.BIOME_MODIFIERS,
+                        ModWorldGenerationProvider::biomeModifiers);
 
     public ModWorldGenerationProvider(PackOutput output,
             CompletableFuture<HolderLookup.Provider> registries) {
@@ -44,6 +51,16 @@ public class ModWorldGenerationProvider extends DatapackBuiltinEntriesProvider {
         addOres(context, "add_overworld_ores", BiomeTags.IS_OVERWORLD,
                 ModOrePlacements.OVERWORLD_ORES);
         addOres(context, "add_nether_ores", BiomeTags.IS_NETHER, ModOrePlacements.NETHER_ORES);
+        var biomeLookup = context.lookup(Registries.BIOME);
+        var featureLookup = context.lookup(Registries.PLACED_FEATURE);
+        context.register(
+                ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS,
+                        BenTenMod.getModIdAndName("add_omnitrix_crash_site")),
+                new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                        biomeLookup.getOrThrow(OmnitrixCrashSiteWorldgen.BIOMES),
+                        HolderSet.direct(List.of(featureLookup
+                            .getOrThrow(OmnitrixCrashSiteWorldgen.PLACED_FEATURE))),
+                        GenerationStep.Decoration.SURFACE_STRUCTURES));
     }
 
     private static void addOres(BootstapContext<BiomeModifier> context, String name,

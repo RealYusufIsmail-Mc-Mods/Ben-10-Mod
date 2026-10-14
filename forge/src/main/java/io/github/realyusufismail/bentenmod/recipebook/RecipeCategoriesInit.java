@@ -16,6 +16,14 @@ public class RecipeCategoriesInit {
             () -> RecipeBookCategories.create("omnitrix_crafting_search",
                     new ItemStack(Items.COMPASS));
 
+    private static final Supplier<RecipeBookCategories> OMNITRIX_CRAFTER_OMNITRIX =
+            () -> RecipeBookCategories.create("omnitrix_crafter_omnitrix",
+                    new ItemStack(ItemInit.OMNITRIX_CORE.get()));
+
+    private static final Supplier<RecipeBookCategories> OMNITRIX_CRAFTER_ARMOUR =
+            () -> RecipeBookCategories.create("omnitrix_crafter_armour",
+                    new ItemStack(ItemInit.HEATBLAST_HELMET.get()));
+
     private static final Supplier<RecipeBookCategories> OMNTRIX_CRAFTER_TOOLS =
             () -> RecipeBookCategories.create("omnitrix_crafter_tools",
                     new ItemStack(ItemInit.IMPERIUM_PICKAXE_UPGRADED.get()));
@@ -26,11 +34,19 @@ public class RecipeCategoriesInit {
 
     public static void registerRecipeCategories(RegisterRecipeBookCategoriesEvent event) {
         event.registerBookCategories(RecipeBookTypeInit.OMNITRIX_CRAFTER,
-                List.of(OMNITRIX_CRAFTING_SEARCH.get(), OMNTRIX_CRAFTER_TOOLS.get(),
+                List.of(OMNITRIX_CRAFTING_SEARCH.get(), OMNITRIX_CRAFTER_OMNITRIX.get(),
+                        OMNITRIX_CRAFTER_ARMOUR.get(), OMNTRIX_CRAFTER_TOOLS.get(),
                         OMNTRIX_CRAFTER_MISC.get()));
 
         event.registerAggregateCategory(OMNITRIX_CRAFTING_SEARCH.get(),
-                List.of(OMNTRIX_CRAFTER_TOOLS.get(), OMNTRIX_CRAFTER_MISC.get()));
+                List.of(OMNITRIX_CRAFTER_OMNITRIX.get(), OMNITRIX_CRAFTER_ARMOUR.get(),
+                        OMNTRIX_CRAFTER_TOOLS.get(), OMNTRIX_CRAFTER_MISC.get()));
+
+        event.registerAggregateCategory(OMNITRIX_CRAFTER_OMNITRIX.get(),
+                List.of(OMNITRIX_CRAFTER_OMNITRIX.get()));
+
+        event.registerAggregateCategory(OMNITRIX_CRAFTER_ARMOUR.get(),
+                List.of(OMNITRIX_CRAFTER_ARMOUR.get()));
 
         event.registerAggregateCategory(OMNTRIX_CRAFTER_TOOLS.get(),
                 List.of(OMNTRIX_CRAFTER_TOOLS.get()));
@@ -41,6 +57,8 @@ public class RecipeCategoriesInit {
         event.registerRecipeCategoryFinder(RecipeTypeInit.OMNITRIX_CRAFTER_TYPE.get(), (it) -> {
             if (it instanceof OmntrixCrafterShapedRecipe) {
                 return switch (((OmntrixCrafterShapedRecipe) it).getCategory()) {
+                    case OMNITRIX -> OMNITRIX_CRAFTER_OMNITRIX.get();
+                    case ARMOUR -> OMNITRIX_CRAFTER_ARMOUR.get();
                     case TOOLS -> OMNTRIX_CRAFTER_TOOLS.get();
                     case MISC -> OMNTRIX_CRAFTER_MISC.get();
                 };

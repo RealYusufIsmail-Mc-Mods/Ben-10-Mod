@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "armour",
   "key": {
     "#": {
       "tag": "forge:ingots/ruby"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "bentenmod:chestplate"
-  },
-  "show_notification": true
+  }
 }
