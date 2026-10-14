@@ -56,6 +56,7 @@ public final class OmnitrixNetwork {
         }
         buffer.writeLong(state.expiresAt());
         buffer.writeBoolean(state.equipped());
+        buffer.writeBoolean(state.timeoutDisabled());
         buffer.writeFloat(state.width());
         buffer.writeFloat(state.height());
         buffer.writeVarInt(state.unlockedAlienIds().size());
@@ -67,6 +68,7 @@ public final class OmnitrixNetwork {
         ResourceLocation alien = buffer.readBoolean() ? buffer.readResourceLocation() : null;
         long expiresAt = buffer.readLong();
         boolean equipped = buffer.readBoolean();
+        boolean timeoutDisabled = buffer.readBoolean();
         float width = buffer.readFloat();
         float height = buffer.readFloat();
         int size = Math.min(buffer.readVarInt(), 256);
@@ -74,6 +76,7 @@ public final class OmnitrixNetwork {
         for (int i = 0; i < size; i++) {
             unlocked.add(buffer.readResourceLocation());
         }
-        return new OmnitrixSnapshot(playerId, alien, expiresAt, equipped, unlocked, width, height);
+        return new OmnitrixSnapshot(playerId, alien, expiresAt, equipped, unlocked, width, height,
+                timeoutDisabled);
     }
 }

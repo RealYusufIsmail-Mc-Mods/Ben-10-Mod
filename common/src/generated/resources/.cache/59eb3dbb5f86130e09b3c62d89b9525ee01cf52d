@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T01:50:05.765833	Loot Tables
+// 1.20.1	2026-10-14T18:41:38.371437	Loot Tables
 e91e16bd84a70365fbdcf1d71834581484e7ed52 data/bentenmod/loot_tables/blocks/black_diamond_block.json
 0e100a9720eea013cb941a3a69a6ad70a43016cf data/bentenmod/loot_tables/blocks/black_diamond_ore.json
 e9430687e0f356e135cd68e5e1eb4bed1f6831ba data/bentenmod/loot_tables/blocks/deepslate_black_diamond_ore.json
@@ -15,6 +15,9 @@ e41b5462a2f6a8014c765b75fb4617a6c10e6e4c data/bentenmod/loot_tables/blocks/imper
 cadf0335fd23434ba06e0bd98aa177fdc6fa262d data/bentenmod/loot_tables/blocks/infinitum_ore.json
 ed68bfaead96222bf3372708409791bb200caab1 data/bentenmod/loot_tables/blocks/legendary_block.json
 c3afa36bc182d7bd7ba1e159af7c5f12469d4d6d data/bentenmod/loot_tables/blocks/legendary_ore.json
+48a2eb409fc63b26aec5c01bb68cae21cc5f83a1 data/bentenmod/loot_tables/blocks/null_crystal_ore.json
+92cc44dfb96c488508e504eecf07baefeb4a8f5a data/bentenmod/loot_tables/blocks/null_void_stone.json
+c648b489cd2c212f64c2dbbc8b5e8e30fff78c8d data/bentenmod/loot_tables/blocks/null_void_stone_bricks.json
 ef204099cda92d2931a0ae001d7773bc28e504b0 data/bentenmod/loot_tables/blocks/omnitrix_block.json
 14bcc7aba98871068bf619e4999ab9021aaa7da4 data/bentenmod/loot_tables/blocks/omnitrix_crafter.json
 7681e13f5a5c0a5915cd466699bd1f06eb5454af data/bentenmod/loot_tables/blocks/omnitrix_ore.json
@@ -23,4 +26,9 @@ ef204099cda92d2931a0ae001d7773bc28e504b0 data/bentenmod/loot_tables/blocks/omnit
 2ea10994ee99ee972d2cb838223dd1a3a0906f9d data/bentenmod/loot_tables/blocks/ruby_ore.json
 b998e1736d32e9879e7f93a34eb35ea3b99306b9 data/bentenmod/loot_tables/blocks/speed_block.json
 374f31c8910eecc5e34fbc33ba2d9693b8de8329 data/bentenmod/loot_tables/blocks/speed_ore.json
-023cec98378e81bacb7592cd484af00c850cbaa9 data/bentenmod/loot_tables/entities/crab.json
+9fb1b600e87b0fea918603a062382ee4c1c5d585 data/bentenmod/loot_tables/chests/null_void_fortress.json
+3be966a6f82b5e5f3b642f5d1a9e7812f4df2107 data/bentenmod/loot_tables/entities/crab.json
+c9470dadcba318d1ee9aae23327fd126e11e272e data/bentenmod/loot_tables/entities/null_void_prisoner.json
+835adb37c1aae8555ac73b122c6332e6a543655d data/bentenmod/loot_tables/entities/vilgax.json
+256ef00590839bd4f81d0d3c1e97e9be41db6c96 data/bentenmod/loot_tables/entities/vilgax_drone.json
+eaf7d22df03c95967cf3a3efe65a6642cdaa0086 data/bentenmod/loot_tables/entities/zs_skayr.json

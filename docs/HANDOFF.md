@@ -4,13 +4,33 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-14)
 
-- **Branch:** `t3/whats-next` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-4856cce5`, based on `origin/1.20.1` at `3c6ac47c`). Everything below is uncommitted; nothing pushed. Helper worktrees `progression-luna` (`t3/omnitrix-acquisition-dna`) and `attack-anim-sonnet` (`t3/alien-attack-anim`) hold the worker copies already merged here.
-- **PRs:** #88, #89 merged into `main`; #90 and #91 merged into `1.20.1`.
+- **Branch:** `t3/next-steps-left` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`, based at `0e88dfee` on `origin/1.20.1`). Steps 6 and 7 are committed and a PR against `1.20.1` is open (see the newest Done entry).
+- **PRs:** #88 and #89 merged into `main`; #90, #91 and #92 merged into `1.20.1`.
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
-- **Tests:** `:forge:runData`, `./gradlew build`, and 21/21 GameTests on both `:forge:runGameTestServer` and `:fabric:runGameTestServer` pass on the merged tree.
-- **Client check:** both clients start, reload resources and start the sound engine with no mixin or render-layer error. In-world visuals (first-person arms, wheel dial, holograms, attack swing, wrist watch, crater) are NOT yet checked by a person. NeoForge 1.20.1 unverified.
+- **Tests:** `:forge:runData`, `./gradlew build`, Forge GameTests 37/37 and Fabric GameTests 35/35 pass (2026-10-14).
+- **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
 
 ## Done (newest first)
+
+### 2026-10-14: Steps 6 and 7 verified, review fixes, PR
+- Root fixes so the chain passes: `public` save-data overrides on Vilgax/drone; `getHeightmapPos` for hunter spawns; projector uses `durability(16)` without `stacksTo` (Item.Properties rejects both); no loot table for `crab_bolt` (not a living entity); biome uses `has_precipitation`.
+- Sol review (read-only) found three issues, fixed by Haiku: Zs'Skayr fired exploding wither skulls (now `CrabBoltEntity`, damage 8); the projector could return players into blocks (`isSafeReturn`/`findUpwardReturn` with heightmap fallback); prisoner summons were uncapped (max 6 within 32 blocks). Fortress rarity is now 1 in 400 chunks.
+- Fabric GameTests can't load datapack dimensions (vanilla's GameTestServer builds its world from an empty LevelStem registry), so Fabric checks `nullVoidWorldgenDataLoaded` (dimension type, biome, noise settings registered) instead of the dimension and projector round trip; Forge runs all three.
+- Art (Sonnet): `tools/boss-assets/generate.py` and `tools/alien-gen/creatures.py` generate Vilgax, drone, Zs'Skayr and prisoner GeckoLib models/animations/textures plus the new item and block textures.
+- Verified: `:forge:runData`, `./gradlew build`, Forge 37/37, Fabric 35/35. No client run.
+- Routing: Luna max (steps 6-7 code), Sonnet (art), Haiku (brief check, review fixes), Sol medium (review), Opus (integration, build fixes).
+
+### 2026-10-14: Progression step 6 implementation
+- Upgraded `CrabEntity` (id `crab`) to an 80-health mini-boss with armour, knockback resistance, boss bar, close melee and a `RangedAttackGoal` firing damaging `crab_bolt`s. Hunter scheduling is stored with the Omnitrix player's saved data, starts on first bind, retries after peaceful/no-safe-position cases, and marks a successful spawn as one-shot; hunters are persistent.
+- Added `VilgaxEntity` and flying/dashing `VilgaxDroneEntity` with GeckoLib controllers, phase-synced boss health logic, slam, capped drone waves, boss bars and the Vilgax glow renderer. Added the Overworld `vilgax_beacon` use flow with a 3-second delayed reveal.
+- Registered entities, attributes, spawn eggs and items across both loaders; added Forge provider entries for item models, language, boss loot and the Crafter beacon recipe. Added shared GameTests and wrappers for attributes, phase switch, loot, recipe and hunter schedule persistence. Updated progression decisions: beacon only (ship deferred), Kraab claw as an ingredient.
+- Verified later by the root (see the entry above).
+
+### 2026-10-14: Progression step 7 implementation and step 6 review fixes
+- Added the data-driven Null Void dimension type, dimension, End-island noise settings and prisoner biome, plus Null Void Stone, bricks, crystal ore generation, and a bounded rare fortress feature with loot chests and one persistent Zs'Skayr. Added the 500-health flying boss, Null Void Prisoner, both GeckoLib renderers, projector return-point storage and travel, and Master Control unlock/timeout state synced through the Omnitrix snapshot.
+- Added Forge data-provider entries for models, language, block tags, ore and entity loot, fortress chest loot, and the stone brick/projector recipes. Added nine shared GameTests with Forge and Fabric wrappers, including fortress loot and the previously equipped player migration. Updated progression decisions and this handoff.
+- Fixed the review findings in step 6: Vilgax persists through Peaceful and beacon summoning, its synced phase drives summon animation and slams skip Vilgax drones, Kraab clears its boss bar on death/removal, and login schedules a missing Kraab hunter for previously equipped players.
+- Verified later by the root (see the newest entry).
 
 ### 2026-10-14: Progression steps 4 and 5, equip, wheel dial, arms, attack swing
 - **First-person alien arms:** `AlienPlayerReplacementRenderer.renderFirstPersonArm` draws the alien's `right_arm`/`left_arm` (+ `*_arm_lower` for Four Arms) bones at rest pose, shoulder aligned to vanilla's. Hooks: Forge `RenderArmEvent`; Fabric `mixin/PlayerRendererMixin` (`renderRightHand`/`renderLeftHand`).
@@ -79,12 +99,14 @@ Read this first when you start, resume, or come back from a context compaction. 
 | Alien armour | Keep the sets for non-transformed players, nerfed (2026-10-14) |
 | DNA unlocks | With the watch equipped, sneak and right-click a source with an empty main hand: wolf, budding amethyst, frog, bee, guardian, iron golem or phantom |
 | Later progression | Null Void is the first dimension, built as endgame after the ore ladder and DNA unlocks; bosses (Kraab, Vilgax) come first |
+| Step 6 summon route | Crafted Overworld beacon only; Chimera ship structure deferred; Kraab claw is a beacon ingredient (2026-10-14) |
+| Step 7 Null Void | End-style floating islands, projector return point per player, 1/400-chunk fortress, permanent Master Control timeout removal (2026-10-14) |
 
 ## Next
 
-1. In-game QA on both loaders (needs a person): first-person arms alignment, the wheel dial and hologram, the attack swing direction (flip the sign in `export.py` if inverted), wrist watch placement, crater look and rarity, new item textures.
-2. Commit this branch and open a PR to `1.20.1` when the user asks.
-3. Step 6: Kraab mini-boss, then Vilgax. Step 7: Null Void dimension + Zs'Skayr (`docs/design/progression.md` §4-5).
+1. Review and merge the steps 6-7 PR into `1.20.1`.
+2. In-game QA on both loaders: first-person arms, wheel dial and hologram, attack swing direction, watch on the wrist, crater look and rarity, item textures, plus the new bosses (Kraab bar and bolts, Vilgax phases and drones, Zs'Skayr blink and summons), entity animations and glow layers, the Null Void sky, fog and terrain, the fortress, and the projector round trip on Fabric (only tested on Forge).
+3. Deferred: Vilgax's Chimera ship structure; NeoForge 1.20.1 load check.
 
 ## Gotchas
 
@@ -95,6 +117,8 @@ Read this first when you start, resume, or come back from a context compaction. 
 - GameTest saved data persists in `run/`; give test players fresh UUIDs (done in both wrappers).
 - An old `run/` world can report "unidentified mappings" after items are removed; delete the GameTest world.
 - `spotlessApply` runs before every compile and reformats Java.
+- Fabric's GameTest server ignores datapack dimensions; test dimension travel on Forge only.
+- `Item.Properties` can't have both `durability` and `stacksTo`; entity loot providers reject tables for non-living entities.
 
 ## How to update this file
 

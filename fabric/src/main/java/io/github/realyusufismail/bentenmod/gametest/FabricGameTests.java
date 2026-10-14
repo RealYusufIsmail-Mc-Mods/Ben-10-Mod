@@ -50,6 +50,82 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxHasAttributes(GameTestHelper helper) {
+        GameTestChecks.vilgaxHasAttributes(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxSwitchesPhaseAtHalfHealth(GameTestHelper helper) {
+        GameTestChecks.vilgaxSwitchesPhaseAtHalfHealth(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void kraabLootDropsClaw(GameTestHelper helper) {
+        GameTestChecks.kraabLootDropsClaw(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxLootDropsCore(GameTestHelper helper) {
+        GameTestChecks.vilgaxLootDropsCore(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxBeaconRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.vilgaxBeaconRecipeLoads(helper);
+    }
+
+    // The dimension itself and the projector round trip are checked on Forge only: this test server
+    // never
+    // loads datapack dimensions (see GameTestChecks.nullVoidWorldgenDataLoaded).
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidWorldgenDataLoaded(GameTestHelper helper) {
+        GameTestChecks.nullVoidWorldgenDataLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void zsSkayrAttributesAndLoot(GameTestHelper helper) {
+        GameTestChecks.zsSkayrAttributesAndLoot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void masterControlUnlocksAliensAndDisablesTimeout(GameTestHelper helper) {
+        GameTestChecks.masterControlUnlocksAliensAndDisablesTimeout(helper,
+                player(helper, "masterControlUnlocksAliensAndDisablesTimeout"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void masterControlRequiresWatch(GameTestHelper helper) {
+        GameTestChecks.masterControlRequiresWatch(helper,
+                player(helper, "masterControlRequiresWatch"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullCrystalOreDropsCrystal(GameTestHelper helper) {
+        GameTestChecks.nullCrystalOreDropsCrystal(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidProjectorRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.nullVoidProjectorRecipeLoads(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidFortressChestLoot(GameTestHelper helper) {
+        GameTestChecks.nullVoidFortressChestLoot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void hunterSpawnSchedulePersistsAndIsOneShot(GameTestHelper helper) {
+        GameTestChecks.hunterSpawnSchedulePersistsAndIsOneShot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void equippedPlayerMigrationSchedulesKraab(GameTestHelper helper) {
+        GameTestChecks.equippedPlayerMigrationSchedulesKraab(helper,
+                player(helper, "equippedPlayerMigrationSchedulesKraab"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void oreFeaturesLoaded(GameTestHelper helper) {
         GameTestChecks.oreFeaturesLoaded(helper);
     }

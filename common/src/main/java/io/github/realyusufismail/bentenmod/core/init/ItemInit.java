@@ -35,6 +35,9 @@ package io.github.realyusufismail.bentenmod.core.init;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.material.CustomArmorMaterial;
 import io.github.realyusufismail.bentenmod.core.material.CustomToolMaterial;
+import io.github.realyusufismail.bentenmod.core.item.VilgaxBeaconItem;
+import io.github.realyusufismail.bentenmod.core.item.MasterControlItem;
+import io.github.realyusufismail.bentenmod.core.item.NullVoidProjectorItem;
 import io.github.realyusufismail.bentenmod.platform.Services;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
@@ -66,6 +69,17 @@ public class ItemInit {
     public static final RegistryObject<Item> OMNITRIX_CORE = register("omnitrix_core");
     public static final RegistryObject<Item> LEGENDARY_CASING = register("legendary_casing");
     public static final RegistryObject<Item> BLACK_DIAMOND_LENS = register("black_diamond_lens");
+    public static final RegistryObject<Item> KRAAB_CLAW = register("kraab_claw");
+    public static final RegistryObject<Item> VILGAX_CORE =
+            ITEMS.register("vilgax_core", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> VILGAX_BEACON =
+            ITEMS.register("vilgax_beacon", () -> new VilgaxBeaconItem(new Item.Properties()));
+    public static final RegistryObject<Item> NULL_CRYSTAL = register("null_crystal");
+    public static final RegistryObject<Item> NULL_VOID_PROJECTOR =
+            ITEMS.register("null_void_projector",
+                    () -> new NullVoidProjectorItem(new Item.Properties().durability(16)));
+    public static final RegistryObject<Item> MASTER_CONTROL = ITEMS.register("master_control",
+            () -> new MasterControlItem(new Item.Properties().rarity(Rarity.EPIC)));
 
     // tools
     public static final RegistryObject<SwordItem> SWORD =

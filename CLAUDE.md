@@ -72,8 +72,8 @@ Assets are generated, not hand-drawn. See [docs/assets.md](docs/assets.md) and t
 1. Done: port to 1.20.1; drop the core library, Lombok and Logback; split client code out.
 2. Done: multi-loader layout (common/forge/fabric), shared GameTests, ores actually added to biomes.
 3. Done (step 2): aliens and armour-set bonuses are JSON with reusable abilities ([docs/data-aliens-and-abilities.md](docs/data-aliens-and-abilities.md)); `AlienGeoModel` resolves every alien's GeckoLib assets by id. Common compiles against GeckoLib via `modCompileOnly` of the Forge artifact (identical API to the Fabric one).
-4. Next: the transformation system (Omnitrix item, player state + sync, dial screen, flash, timeout), written once in common, using `Aliens.DATA` and `AbilityTicker`.
-5. Then: the progression plan in [docs/design/progression.md](docs/design/progression.md) (ore ladder, crafter rework, DNA unlocks, bosses, Null Void). Needs the user's decisions listed there.
+4. Done: the transformation system (Omnitrix item, player state + sync, dial screen, flash, timeout), written once in common, using `Aliens.DATA` and `AbilityTicker`.
+5. Current progression: steps 1–7 in [docs/design/progression.md](docs/design/progression.md) are implemented in this worktree; run Forge data generation, build and both GameTest suites before marking them verified.
 
 ## Working agreements
 

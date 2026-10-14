@@ -34,14 +34,12 @@ package io.github.realyusufismail.bentenmod.entity;
 
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.EntityHitResult;
 import org.joml.Vector3f;
 
 public class CrabBoltEntity extends AbstractArrow {
@@ -77,24 +75,11 @@ public class CrabBoltEntity extends AbstractArrow {
         }
     }
 
-
-    // TODO: causes the game to crash
     @Override
     protected void onHitBlock(BlockHitResult result) {
-        super.onHit(result);
+        super.onHitBlock(result);
         if (!level().isClientSide)
             discard();
-    }
-
-
-    @Override
-    protected void onHitEntity(EntityHitResult result) {
-        if (!level().isClientSide) {
-            Entity target = result.getEntity();
-            Entity shooter = getOwner();
-            target.hurt(new DamageSources(target.level().registryAccess()).arrow(this,
-                    shooter == null ? this : shooter), (float) getBaseDamage());
-        }
     }
 
     @Override

@@ -34,6 +34,10 @@ package io.github.realyusufismail.bentenmod.client;
 
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.VilgaxDroneRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.NullVoidPrisonerRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
 import io.github.realyusufismail.bentenmod.client.alien.AlienPlayerReplacementRenderer;
 import io.github.realyusufismail.bentenmod.client.OmnitrixWristLayer;
 import io.github.realyusufismail.bentenmod.OmnitrixNetwork;
@@ -137,6 +141,13 @@ public class BenTenModFabricClient implements ClientModInitializer {
                 OmnnitrixCrafterScreen::new);
         EntityRendererRegistry.register(EntityTypesInit.CRAB_ENTITY.get(), KraabRenderer::new);
         EntityRendererRegistry.register(EntityTypesInit.CRAB_BOLT_ENTITY.get(), NoopRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.VILGAX_DRONE_ENTITY.get(),
+                VilgaxDroneRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.NULL_VOID_PRISONER.get(),
+                NullVoidPrisonerRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.ZS_SKAYR_ENTITY.get(),
+                ZsSkayrRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.KRAAB, KraabModel::createLayer);
         LivingEntityFeatureRendererRegistrationCallback.EVENT
             .register((entityType, entityRenderer, registrationHelper, context) -> {

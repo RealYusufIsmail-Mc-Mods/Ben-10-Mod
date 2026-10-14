@@ -63,6 +63,8 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_BLOCK, "Speed Block");
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
+        block(BlockInit.NULL_VOID_STONE, "Null Void Stone");
+        block(BlockInit.NULL_VOID_STONE_BRICKS, "Null Void Stone Bricks");
         block(BlockInit.OmnitrixCrafter, "Omntrix Crafter");
         block(BlockInit.OMNITRIX_POD, "Omnitrix Pod");
 
@@ -75,6 +77,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.SPEED_ORE, "Speed Ore");
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
+        block(BlockInit.NULL_CRYSTAL_ORE, "Null Crystal Ore");
 
         // deepslate ores
         block(BlockInit.DEEPSLATE_IMPERIUM_ORE, "Deepslate Imperium Ore");
@@ -161,6 +164,19 @@ public class ModEnLangProvider extends LanguageProvider {
 
         // other items
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
+        item(ItemInit.KRAAB_CLAW, "Kraab Claw");
+        item(ItemInit.VILGAX_CORE, "Vilgax Core");
+        item(ItemInit.VILGAX_BEACON, "Vilgax Beacon");
+        item(ItemInit.NULL_CRYSTAL, "Null Crystal");
+        item(ItemInit.NULL_VOID_PROJECTOR, "Null Void Projector");
+        item(ItemInit.MASTER_CONTROL, "Master Control");
+        add("biome.bentenmod.null_void", "Null Void");
+        add("message.bentenmod.null_void_projector_failed",
+                "The Null Void projector could not find a safe destination.");
+        add("message.bentenmod.master_control_requires_watch",
+                "Equip the Omnitrix before activating Master Control.");
+        add("message.bentenmod.master_control_applied",
+                "Master Control unlocked every alien and removed the transformation timeout.");
         add("screen.bentenmod.omnitrix", "Omnitrix Dial");
         add("screen.bentenmod.revert", "Revert");
         add("screen.bentenmod.no_dna", "No alien DNA");
@@ -182,11 +198,19 @@ public class ModEnLangProvider extends LanguageProvider {
         add("alien.bentenmod.upgrade", "Upgrade");
         add("alien.bentenmod.ghostfreak", "Ghostfreak");
         item(EntityTypesInit.CRAB_SPAWN_EGG, "Crab Spawn Egg");
+        item(EntityTypesInit.VILGAX_SPAWN_EGG, "Vilgax Spawn Egg");
+        item(EntityTypesInit.VILGAX_DRONE_SPAWN_EGG, "Vilgax Drone Spawn Egg");
+        add("message.bentenmod.vilgax_beacon_failed",
+                "The beacon can only summon Vilgax in a clear space in the Overworld.");
         add("creativetab.bentenmod", "Ben Ten Item Group");
         add(LangKeys.OMNITRIX_DESCRIPTION,
                 "A custom crafting table used to create special items such as the Omnitrix.");
         add(LangKeys.OMNITRIX_SCREEN, "Omnitrix Craftier");
         entity(EntityTypesInit.CRAB_ENTITY.get(), "crab");
+        entity(EntityTypesInit.VILGAX_ENTITY.get(), "Vilgax");
+        entity(EntityTypesInit.VILGAX_DRONE_ENTITY.get(), "Vilgax Drone");
+        entity(EntityTypesInit.NULL_VOID_PRISONER.get(), "Null Void Prisoner");
+        entity(EntityTypesInit.ZS_SKAYR_ENTITY.get(), "Zs'Skayr");
 
         // advancements
         add(Component.translatable("advancements.bentenmod.root.title"), "Download Ben ten mod");

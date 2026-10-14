@@ -82,6 +82,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         normalBlock(BlockInit.DEEPSLATE_IMPERIUM_ORE.get());
         normalBlock(BlockInit.DEEPSLATE_OMNITRIX_ORE.get());
         normalBlock(BlockInit.DEEPSLATE_LEGENDARY_ORE.get());
+        normalBlock(BlockInit.NULL_VOID_STONE.get());
+        normalBlock(BlockInit.NULL_VOID_STONE_BRICKS.get());
+        normalBlock(BlockInit.NULL_CRYSTAL_ORE.get());
         omnitrixBlock();
         infinitumOre();
     }

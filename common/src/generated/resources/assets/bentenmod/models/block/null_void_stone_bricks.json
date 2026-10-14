@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "bentenmod:block/null_void_stone_bricks"
+  }
+}

@@ -39,6 +39,10 @@ import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
 import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.data.CodecJsonReloadListener;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
+import io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity;
+import io.github.realyusufismail.bentenmod.entity.VilgaxDroneEntity;
+import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
+import io.github.realyusufismail.bentenmod.entity.ZsSkayrEntity;
 import io.github.realyusufismail.bentenmod.platform.Services;
 import io.github.realyusufismail.bentenmod.util.ModResourceLocation;
 import net.minecraft.resources.ResourceLocation;
@@ -90,6 +94,14 @@ public final class BenTenMod {
             BiConsumer<EntityType<? extends LivingEntity>, AttributeSupplier> registrar) {
         registrar.accept(EntityTypesInit.CRAB_ENTITY.get(),
                 CrabEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.VILGAX_ENTITY.get(),
+                VilgaxEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.VILGAX_DRONE_ENTITY.get(),
+                VilgaxDroneEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.NULL_VOID_PRISONER.get(),
+                NullVoidPrisonerEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.ZS_SKAYR_ENTITY.get(),
+                ZsSkayrEntity.registerAttributes().build());
     }
 
     public static ModResourceLocation getId(@NotNull String path) {

@@ -38,6 +38,10 @@ import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixFlash;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.VilgaxDroneRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.NullVoidPrisonerRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixDialScreen;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
@@ -203,6 +207,12 @@ public final class BenTenModForgeClient {
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityTypesInit.CRAB_ENTITY.get(), KraabRenderer::new);
         event.registerEntityRenderer(EntityTypesInit.CRAB_BOLT_ENTITY.get(), NoopRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.VILGAX_ENTITY.get(), VilgaxRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.VILGAX_DRONE_ENTITY.get(),
+                VilgaxDroneRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.NULL_VOID_PRISONER.get(),
+                NullVoidPrisonerRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.ZS_SKAYR_ENTITY.get(), ZsSkayrRenderer::new);
     }
 
     @SubscribeEvent

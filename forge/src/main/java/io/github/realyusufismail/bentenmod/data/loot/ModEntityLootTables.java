@@ -38,11 +38,9 @@ import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -63,10 +61,20 @@ public class ModEntityLootTables extends EntityLootSubProvider {
         add(EntityTypesInit.CRAB_ENTITY.get(), LootTable.lootTable()
             .withPool(LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))
-                .add(LootItem.lootTableItem(Items.COPPER_INGOT)
-                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 6.0F)))
-                    .apply(LootingEnchantFunction
-                        .lootingMultiplier(UniformGenerator.between(0.0F, 6.0F))))));
+                .add(LootItem.lootTableItem(ItemInit.KRAAB_CLAW.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))));
+        add(EntityTypesInit.VILGAX_ENTITY.get(),
+                LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ItemInit.VILGAX_CORE.get()))));
+        add(EntityTypesInit.VILGAX_DRONE_ENTITY.get(), LootTable.lootTable());
+        add(EntityTypesInit.NULL_VOID_PRISONER.get(), LootTable.lootTable());
+        add(EntityTypesInit.ZS_SKAYR_ENTITY.get(),
+                LootTable.lootTable()
+                    .withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(ItemInit.MASTER_CONTROL.get()))));
 
     }
 

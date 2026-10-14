@@ -85,6 +85,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMONDS);
 
+        tag(Tags.Blocks.ORES).add(BlockInit.NULL_CRYSTAL_ORE.get());
+
         // blocks
         tag(TagsInit.Blocks.STORAGE_LEGENDARY).add(BlockInit.LEGENDARY_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_LEGENDARY);
@@ -130,6 +132,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.OMNITRIX_POD.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.OMNITRIX_POD.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.NULL_VOID_STONE.get(),
+                BlockInit.NULL_VOID_STONE_BRICKS.get(), BlockInit.NULL_CRYSTAL_ORE.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.NULL_CRYSTAL_ORE.get());
     }
 }
 

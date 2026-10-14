@@ -87,6 +87,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_INFINITUM))
             .save(consumer);
 
+        ShapedRecipeBuilder
+            .shaped(RecipeCategory.BUILDING_BLOCKS, BlockInit.NULL_VOID_STONE_BRICKS.get(), 4)
+            .define('#', BlockInit.NULL_VOID_STONE.get())
+            .pattern("##")
+            .pattern("##")
+            .unlockedBy(HAS_ITEM, has(BlockInit.NULL_VOID_STONE.get()))
+            .save(consumer, modId("null_void_stone_bricks"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.BLACK_DIAMOND.get(), 9)
 
             .requires(BlockInit.BLACK_DIAMOND_BLOCK.get())
@@ -303,6 +311,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .pattern("AAA")
                     .unlockedBy(HAS_ITEM, has(TagsInit.Items.INGOTS_RUBY))
                     .save(consumer, modId("kraab_spawn_egg"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.MISC,
+                ItemInit.VILGAX_BEACON.get()).define('K', ItemInit.KRAAB_CLAW.get())
+                    .define('I', ItemInit.INFINITUM.get())
+                    .define('B', ItemInit.BLACK_DIAMOND.get())
+                    .define('R', Blocks.REDSTONE_BLOCK)
+                    .pattern("KI")
+                    .pattern("BR")
+                    .unlockedBy(HAS_ITEM, has(ItemInit.KRAAB_CLAW.get()))
+                    .save(consumer, modId("vilgax_beacon"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.OMNITRIX, RecipeCategory.MISC,
+                ItemInit.NULL_VOID_PROJECTOR.get()).define('I', ItemInit.INFINITUM.get())
+                    .define('V', ItemInit.VILGAX_CORE.get())
+                    .pattern("I I")
+                    .pattern(" V ")
+                    .unlockedBy(HAS_ITEM, has(ItemInit.VILGAX_CORE.get()))
+                    .save(consumer, modId("null_void_projector"));
 
         // Tools
         crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.TOOLS, ItemInit.AXE.get())
