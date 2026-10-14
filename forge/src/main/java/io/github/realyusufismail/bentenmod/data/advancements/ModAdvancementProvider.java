@@ -30,25 +30,28 @@
  * WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package io.github.realyusufismail.bentenmod.core.init;
+package io.github.realyusufismail.bentenmod.data.advancements;
 
-/*
- * public class EntitySpawingInit {
- *
- * @SubscribeEvent public static void onBiomesLoad(BiomeLoadingEvent event) { if
- * (event.getCategory() == Biome.BiomeCategory.NETHER) event.getSpawns()
- * .getSpawner(MobCategory.CREATURE) .add(new
- * MobSpawnSettings.SpawnerData(EntityTypesInit.VILGAX_ENTITY.get(), 3, 1, 2)); if
- * (event.getCategory() == Biome.BiomeCategory.DESERT || event.getCategory() ==
- * Biome.BiomeCategory.SAVANNA) event.getSpawns() .getSpawner(MobCategory.MONSTER) .add(new
- * MobSpawnSettings.SpawnerData(EntityTypesInit.CRAB_ENTITY.get(), 3, 1, 1));
- *
- * }
- *
- * public static void SpawnPlacements() {
- * SpawnPlacements.register(EntityTypesInit.CRAB_ENTITY.get(), SpawnPlacements.Type.ON_GROUND,
- * Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrabEntity::canKrabEntitySpawn);
- * SpawnPlacements.register(EntityTypesInit.VILGAX_ENTITY.get(), SpawnPlacements.Type.ON_GROUND,
- * Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VilgaxEntity::canVilgaxSpawn); } }
- *
- */
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+public class ModAdvancementProvider extends ForgeAdvancementProvider {
+
+    /**
+     * Constructs an advancement provider using the generators to write the advancements to a file.
+     *
+     * @param output the target directory of the data generator
+     * @param registries a future of a lookup for registries and their objects
+     * @param existingFileHelper a helper used to find whether a file exists
+     */
+    public ModAdvancementProvider(PackOutput output,
+            CompletableFuture<HolderLookup.Provider> registries,
+            ExistingFileHelper existingFileHelper) {
+        super(output, registries, existingFileHelper, List.of(new Advancements()));
+    }
+}

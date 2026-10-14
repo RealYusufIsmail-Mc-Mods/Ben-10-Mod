@@ -1,4 +1,4 @@
-package io.github.realyusufismail.bentenmod.core.item;
+package io.github.realyusufismail.bentenmod.core.material;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.sounds.SoundEvent;

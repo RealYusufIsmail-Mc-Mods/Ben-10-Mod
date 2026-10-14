@@ -1,4 +1,4 @@
-package io.github.realyusufismail.bentenmod.data.advancments;
+package io.github.realyusufismail.bentenmod.data.advancements;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;

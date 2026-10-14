@@ -62,7 +62,7 @@ import java.util.Set;
 /**
  * @see CraftingRecipe
  */
-public class OmntrixCrafterShapedRecipe implements IOmnitrixCraftingRecipe {
+public class OmnitrixCrafterShapedRecipe implements IOmnitrixCraftingRecipe {
 
     static int MAX_WIDTH = 3;
     static int MAX_HEIGHT = 3;
@@ -75,7 +75,7 @@ public class OmntrixCrafterShapedRecipe implements IOmnitrixCraftingRecipe {
     private final OmnitrixCrafterCraftingBookCategory craftingBookCategory;
     private final boolean showNotification;
 
-    public OmntrixCrafterShapedRecipe(ResourceLocation pId, String pGroup, int pWidth, int pHeight,
+    public OmnitrixCrafterShapedRecipe(ResourceLocation pId, String pGroup, int pWidth, int pHeight,
             NonNullList<Ingredient> pRecipeItems, ItemStack pResult, boolean showNotification,
             OmnitrixCrafterCraftingBookCategory craftingBookCategory) {
         this.id = pId;
@@ -317,24 +317,24 @@ public class OmntrixCrafterShapedRecipe implements IOmnitrixCraftingRecipe {
         }
     }
 
-    public static final class Serializer implements RecipeSerializer<OmntrixCrafterShapedRecipe> {
+    public static final class Serializer implements RecipeSerializer<OmnitrixCrafterShapedRecipe> {
 
         public Serializer() {}
 
         @Override
-        public OmntrixCrafterShapedRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
+        public OmnitrixCrafterShapedRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
             var s = GsonHelper.getAsString(pJson, "group", "");
             var craftingBookCategory = OmnitrixCrafterCraftingBookCategory.codec()
                 .byName(GsonHelper.getAsString(pJson, "category", null),
                         OmnitrixCrafterCraftingBookCategory.MISC);
-            var map = OmntrixCrafterShapedRecipe
+            var map = OmnitrixCrafterShapedRecipe
                 .keyFromJson(GsonHelper.getAsJsonObject(pJson, "key"));
-            var astring = OmntrixCrafterShapedRecipe.shrink(OmntrixCrafterShapedRecipe
+            var astring = OmnitrixCrafterShapedRecipe.shrink(OmnitrixCrafterShapedRecipe
                 .patternFromJson(GsonHelper.getAsJsonArray(pJson, "pattern")));
             int i = astring[0].length();
             int j = astring.length;
-            var nonnulllist = OmntrixCrafterShapedRecipe.dissolvePattern(astring, map, i, j);
-            var itemstack = OmntrixCrafterShapedRecipe
+            var nonnulllist = OmnitrixCrafterShapedRecipe.dissolvePattern(astring, map, i, j);
+            var itemstack = OmnitrixCrafterShapedRecipe
                 .itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
             var flag = GsonHelper.getAsBoolean(pJson, "show_notification", true);
             return Services.PLATFORM.createOmnitrixShapedRecipe(pRecipeId, s, i, j, nonnulllist,
@@ -342,7 +342,7 @@ public class OmntrixCrafterShapedRecipe implements IOmnitrixCraftingRecipe {
         }
 
         @Override
-        public @NotNull OmntrixCrafterShapedRecipe fromNetwork(ResourceLocation pRecipeId,
+        public @NotNull OmnitrixCrafterShapedRecipe fromNetwork(ResourceLocation pRecipeId,
                 FriendlyByteBuf pBuffer) {
             int i = pBuffer.readVarInt();
             int j = pBuffer.readVarInt();
@@ -359,7 +359,7 @@ public class OmntrixCrafterShapedRecipe implements IOmnitrixCraftingRecipe {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, OmntrixCrafterShapedRecipe pRecipe) {
+        public void toNetwork(FriendlyByteBuf pBuffer, OmnitrixCrafterShapedRecipe pRecipe) {
             pBuffer.writeVarInt(pRecipe.width);
             pBuffer.writeVarInt(pRecipe.height);
             pBuffer.writeUtf(pRecipe.group);

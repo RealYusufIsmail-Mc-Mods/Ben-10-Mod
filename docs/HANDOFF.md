@@ -2,16 +2,22 @@
 
 Read this first when you start, resume, or come back from a context compaction. It records what has been done, what was decided, and what comes next, so work can continue without the original conversation. Keep it current: update it after every milestone (see "How to update" at the bottom). `CLAUDE.md` has the stable project rules; this file has the moving state.
 
-## Current state (2026-10-14)
+## Current state (2026-10-15)
 
-- **Branch:** `t3/2.1.0` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), based on `origin/1.20.1` at 2.0.0 plus the wiki.
+- **Branch:** `t3/cleanup` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), on top of the 2.1.0 implementation at `3521eb12`.
 - **PR history:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 and #97 were 2.0.0 release prep.
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
 - **Release 2.0.0: released 2026-10-14.** Uploaded to CurseForge (Forge and Fabric files) and tagged `v1.20.1-2.0.0` (GitHub release workflow). `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
 - **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
-- **2.1.0 gameplay:** implementation is complete on this branch. Validation has not been run in the sandbox; art assets and flight animations are supplied separately by the art worker.
+- **2.1.0 gameplay:** implementation and art are integrated. The cleanup pass below is complete; the root still needs to run Forge `runData`, builds and both GameTest servers. No game was run.
 
 ## Done (newest first)
+
+### 2026-10-15: Cleanup and modernisation
+- Removed dead `EntitySpawingInit`/`OmnitrixScreen` classes, obsolete commented smithing recipes and a commented superclass call, two stale TODOs, and tracked root runtime logs. Removed unused copper/emerald block textures, the obsolete Infinitum ore front texture, four replaced Crafter/recipe-book GUI textures, unused backpack/Omnitrix glowmask/copper/Vilgax spawn-egg item textures, and the legacy Vilgax texture path. Kept wiki `placeholder.png`, source `.bbmodel` files, entity glow masks and `OmnitrixPowerService` dispatch data because they still serve tooling/rendering/data use or are ambiguous.
+- Moved client screens under `client`, `PlumberArmorMaterial` under `core/material`, and advancement sources into the correctly spelled `data/advancements` package. Corrected the Crafter recipe class name and private typos (`toghness`, `creterionId`, `OMNTRIX` constants); behavior and IDs are unchanged.
+- Simplified item model provider classification, modernized recipe category and target pattern matching, removed the unused common Sponge/Mixin dependency and its repositories (Fabric mixin classes come from `fabric-loader`), and removed unused imports. Generated resources were not edited.
+- Static reference, legacy-name and import checks passed; `git diff --check` passed. Forge `runData`, builds and both GameTest servers remain pending root verification.
 
 ### 2026-10-14: 2.1.0 integrated and verified
 - Merged three workstreams: Luna (gameplay), Sonnet (art in `b10-art`: three GeckoLib mobs, items, blocks, Plumber armour layers, `fly` animations for Heatblast/Stinkfly/Ghostfreak, `AlienFlight`/`AlienFlightEffects`), Haiku (#99 balance in `b10-balance`).
@@ -133,9 +139,8 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. Integrate the art worker's 2.1.0 assets, then run Forge `runData`, both builds and both GameTest servers. Do not launch `runClient` for this task.
-2. Review generated-data and test failures and fix them before release.
-3. Consider Modrinth publishing for Fabric update notices.
+1. Run Forge `runData`, both builds and both GameTest servers for the cleanup branch; confirm the generated model output is unchanged and fix any failures.
+2. Consider Modrinth publishing for Fabric update notices.
 
 ## Gotchas
 

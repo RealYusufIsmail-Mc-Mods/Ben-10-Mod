@@ -40,7 +40,7 @@ import io.github.realyusufismail.bentenmod.core.item.MasterControlItem;
 import io.github.realyusufismail.bentenmod.core.item.NullVoidProjectorItem;
 import io.github.realyusufismail.bentenmod.core.item.OmnitrixGuideItem;
 import io.github.realyusufismail.bentenmod.core.item.NullVoidGliderItem;
-import io.github.realyusufismail.bentenmod.core.item.PlumberArmorMaterial;
+import io.github.realyusufismail.bentenmod.core.material.PlumberArmorMaterial;
 import io.github.realyusufismail.bentenmod.core.item.PlumberBadgeItem;
 import io.github.realyusufismail.bentenmod.core.item.PlumberBlasterItem;
 import io.github.realyusufismail.bentenmod.platform.Services;
