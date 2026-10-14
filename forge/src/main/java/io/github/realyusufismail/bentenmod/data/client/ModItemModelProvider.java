@@ -37,10 +37,13 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistryObject;
 
 import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.CRAB_SPAWN_EGG;
+import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_DRONE_SPAWN_EGG;
+import static io.github.realyusufismail.bentenmod.core.init.EntityTypesInit.VILGAX_SPAWN_EGG;
 import static io.github.realyusufismail.bentenmod.core.init.ItemInit.*;
 
 public class ModItemModelProvider extends ItemModelProvider {
@@ -71,6 +74,29 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(LEGENDARY.get().toString());
         else if (itemAsAsString.equals(OMNITRIX.get().toString()))
             item(OMNITRIX.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_CORE.get().toString()))
+            item(OMNITRIX_CORE.get().toString());
+        else if (itemAsAsString.equals(LEGENDARY_CASING.get().toString()))
+            item(LEGENDARY_CASING.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_LENS.get().toString()))
+            item(BLACK_DIAMOND_LENS.get().toString());
+        else if (itemAsAsString.equals(KRAAB_CLAW.get().toString()))
+            item(KRAAB_CLAW.get().toString());
+        else if (itemAsAsString.equals(VILGAX_CORE.get().toString()))
+            item(VILGAX_CORE.get().toString());
+        else if (itemAsAsString.equals(VILGAX_BEACON.get().toString()))
+            item(VILGAX_BEACON.get().toString());
+        else if (itemAsAsString.equals(NULL_CRYSTAL.get().toString()))
+            item(NULL_CRYSTAL.get().toString());
+        else if (itemAsAsString.equals(NULL_VOID_PROJECTOR.get().toString()))
+            item(NULL_VOID_PROJECTOR.get().toString());
+        else if (itemAsAsString.equals(MASTER_CONTROL.get().toString()))
+            item(MASTER_CONTROL.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_GUIDE.get().toString()))
+            item(OMNITRIX_GUIDE.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_WATCH.get().toString()))
+            getBuilder(OMNITRIX_WATCH.get().toString())
+                .parent(new ModelFile.UncheckedModelFile(mcLoc("builtin/entity")));
         else if (itemAsAsString.equals(FIRE.get().toString()))
             item(FIRE.get().toString());
         else if (itemAsAsString.equals(RUBY.get().toString()))
@@ -89,6 +115,10 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(RUBY_APPLE.get().toString());
         else if (itemAsAsString.equals(CRAB_SPAWN_EGG.get().toString()))
             item(CRAB_SPAWN_EGG.get().toString());
+        else if (itemAsAsString.equals(VILGAX_SPAWN_EGG.get().toString()))
+            spawnEgg(VILGAX_SPAWN_EGG.get().toString());
+        else if (itemAsAsString.equals(VILGAX_DRONE_SPAWN_EGG.get().toString()))
+            spawnEgg(VILGAX_DRONE_SPAWN_EGG.get().toString());
         else if (itemAsAsString.equals(RAW_LEGENDARY.get().toString()))
             item(RAW_LEGENDARY.get().toString());
         else if (itemAsAsString.equals(RAW_IMPERIUM.get().toString()))
@@ -206,6 +236,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void item(String name) {
         getBuilder(name).parent(getExistingFile(mcLoc("item/generated")))
             .texture("layer0", "item/" + name);
+    }
+
+    private void spawnEgg(String name) {
+        getBuilder(name).parent(getExistingFile(mcLoc("item/template_spawn_egg")));
     }
 }
 

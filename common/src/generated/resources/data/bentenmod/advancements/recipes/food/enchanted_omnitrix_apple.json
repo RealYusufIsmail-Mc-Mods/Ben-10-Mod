@@ -29,5 +29,5 @@
       "bentenmod:enchanted_omnitrix_apple"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

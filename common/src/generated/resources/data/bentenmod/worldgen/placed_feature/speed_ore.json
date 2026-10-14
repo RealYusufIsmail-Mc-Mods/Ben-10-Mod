@@ -2,8 +2,8 @@
   "feature": "bentenmod:speed_ore",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 11
+      "type": "minecraft:count",
+      "count": 4
     },
     {
       "type": "minecraft:in_square"
@@ -11,12 +11,12 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:trapezoid",
+        "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 40
+          "absolute": 48
         },
         "min_inclusive": {
-          "absolute": -40
+          "absolute": 0
         }
       }
     },

@@ -44,8 +44,8 @@ import java.util.function.Function;
  * <ul>
  * <li>{@code geo/alien/<id>.geo.json}</li>
  * <li>{@code textures/entity/alien/<id>.png} (+ {@code <id>_glowmask.png})</li>
- * <li>{@code animations/<id>.animation.json} with {@code idle}, {@code walk} and
- * {@code transform}</li>
+ * <li>{@code animations/<id>.animation.json} with {@code idle}, {@code walk}, {@code transform} and
+ * {@code attack}</li>
  * </ul>
  *
  * @param <T> whatever is being rendered as the alien; tells the model which alien it is

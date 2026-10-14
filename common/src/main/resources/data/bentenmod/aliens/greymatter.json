@@ -3,6 +3,10 @@
   "height": 0.9,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
+  "power": { "type": "bentenmod:analyse", "cooldown_ticks": 200 },
+  "dna_sources": {
+    "entities": ["minecraft:frog"]
+  },
   "abilities": [
     {
       "type": "bentenmod:effect",

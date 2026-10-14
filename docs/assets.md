@@ -2,6 +2,8 @@
 
 Every alien model, texture, glow mask and animation, the Omnitrix watch model, and the Omnitrix dial and flash textures come from the Python generator in `tools/alien-gen/`. Edit the generator, not the PNGs: a re-export overwrites them.
 
+The Omnitrix Crafter has a separate pixel-art generator: `python3 tools/crafter-assets/generate.py`. It writes the block face textures, screen, recipe button, and `docs/images/crafter.png`. The preview shows flat pixels, not an in-game render. Its authored block geometry is `models/block/omnitrix_crafter_device.json`; the Forge data provider generates the blockstate and item model for both loaders. Change the generator when changing its palette or pixel layout.
+
 ## Setup
 
 ```bash
@@ -13,6 +15,7 @@ python3 -m pip install -r tools/alien-gen/requirements.txt
 | Command | Writes |
 |---|---|
 | `python3 tools/alien-gen/gui_base.py` | `textures/gui/omnitrix.png` (dial and selection frame, icon rows empty), `textures/misc/omnitrix_flash.png` |
+| `python3 tools/alien-gen/dial.py` | `textures/gui/omnitrix_wheel.png`: the turning bezel (left half) and hourglass core (right half) of the wheel dial |
 | `python3 tools/alien-gen/export.py` | all `geo/`, `animations/`, alien and Omnitrix textures, and the hologram icon rows in `gui/omnitrix.png` |
 | `python3 tools/alien-gen/preview.py [ids]` | studio renders and `sheet.png` in `tools/alien-gen/out/` (gitignored) |
 | `python3 tools/alien-gen/gif.py [ids]` | Ben-to-alien transformation clip in `tools/alien-gen/out/` |
@@ -31,8 +34,20 @@ Run `gui_base.py` before `export.py` if the dial PNG doesn't exist yet. `export.
 
 - Units are model pixels (16 = one block). `+Y` is up, and the model faces north (`-Z`). The model's right side is `+X`.
 - Bone names that the generic animations understand: `root`, `body`, `head`, `right_arm`, `left_arm`, `right_leg`, `left_leg`, `right_arm_lower`, `left_arm_lower`, `tail`, `right_wing`, `left_wing`. Quadrupeds use `*_arm` for front legs.
-- Every alien gets `animation.<id>.idle`, `.walk` and `.transform`. The Omnitrix gets `activate` and `deactivate` (the dial pops up and turns).
+- Every alien gets `animation.<id>.idle`, `.walk`, `.transform` and `.attack` (a 0.3 s non-looping swing played while the player's arm swings). The Omnitrix gets `activate` and `deactivate` (the dial pops up and turns).
 - Use `chest_omnitrix(...)` or the `omnitrix_symbol()` decal so every alien shows the Omnitrix.
+
+## Bosses, mobs and boss-progression items
+
+Vilgax, the Vilgax drone, Zs'Skayr and the Null Void prisoner use the same engine. Their models are in `tools/alien-gen/creatures.py` (`CREATURES`), their animations in `tools/alien-gen/export_creatures.py`. Paths and animation names follow the asset contract: `geo/entity/<id>.geo.json`, `animations/entity/<id>.animation.json`, `textures/entity/<id>.png` and `<id>_glowmask.png`. The aliens and Omnitrix files are never touched by this exporter.
+
+| Command | Writes |
+|---|---|
+| `python3 tools/alien-gen/export_creatures.py` | the four creatures' geo, animations, textures and glow masks (about 2 minutes) |
+| `python3 tools/alien-gen/preview_creatures.py [ids]` | front and 3/4 renders next to a 32 px Ben for scale, plus `creatures_sheet.png`, in `tools/alien-gen/out/` |
+| `python3 tools/boss-assets/generate.py` | 16x16 item textures (`kraab_claw`, `vilgax_core`, `vilgax_beacon`, `null_void_projector`, `null_crystal`, `master_control`), block textures (`null_void_stone`, `null_void_stone_bricks`, `null_crystal_ore`) and `tools/boss-assets/out/sheet.png` (gitignored; items on a checker, every tile repeated 3x3 to check seams) |
+
+Scale: a player is 32 px tall; Vilgax is about 54 px, Zs'Skayr 48 px, the prisoner 32 px, the drone about 12 px. Looping animations are `idle`, `walk`, `fly`; `attack` (0.5 s) and `summon` (1.5 s) play once. Zs'Skayr's pale parts are opaque, not translucent, so no translucent render type is needed.
 
 ## Not yet verified in game
 
@@ -42,3 +57,16 @@ The previews come from the generator's own renderer. Check in a real client that
 - glow masks and translucency render with the chosen render types.
 
 If one of these is wrong, fix it once in `engine.py`/`export.py` and re-export everything.
+
+## Omnitrix UI art and wrist model
+
+`python3 tools/ui-assets/generate.py` (numpy + Pillow) draws these procedurally; edit the script, not the PNGs.
+
+| File | What |
+|---|---|
+| `textures/item/omnitrix.png` | 16x16 creative tab icon: 3/4 view Omnitrix, grey casing, black dial, green hourglass |
+| `textures/item/omnitrix_guide.png` | 16x16 guide book, dark green cover, lime hourglass |
+| `textures/gui/omnitrix_guide.png` | 256x256: 192x192 page at (0,0), text area x 36..172, y 30..170; arrows 23x13: next (0,192), prev (0,205), hovered next (23,192), hovered prev (23,205) |
+| `textures/entity/omnitrix_wrist.png`, `omnitrix_wrist_glow.png` | 32x32 UV atlas for `OmnitrixWristLayer` (band wide at (0,0), band slim at (0,8), dial at (0,16)); the glow copy has only the hourglass lit and is drawn with `RenderType.eyes` |
+
+`OmnitrixWristLayer` builds its `ModelPart` in code (`LayerDefinition.bakeRoot()`), so no model-layer registration is needed. If you move a cube, change the UV numbers in both the script and the layer. Previews (16x icons, GUI sheet, wrist cube layout) are written to `tools/ui-assets/out/` (gitignored). The wrist model and glow still need a `runClient` look on each loader, including slim-arm skins.

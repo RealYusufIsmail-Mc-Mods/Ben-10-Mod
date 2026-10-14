@@ -1,0 +1,20 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "tools",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "tag": "forge:ingots/infinitum"
+    }
+  },
+  "pattern": [
+    " A ",
+    " A ",
+    " # "
+  ],
+  "result": {
+    "item": "bentenmod:infinitum_sword"
+  }
+}

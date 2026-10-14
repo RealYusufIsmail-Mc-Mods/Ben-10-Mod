@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "bentenmod:omnitrix_crafter_shaped",
   "category": "misc",
   "key": {
     "A": {
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "bentenmod:fire_apple"
-  },
-  "show_notification": true
+  }
 }

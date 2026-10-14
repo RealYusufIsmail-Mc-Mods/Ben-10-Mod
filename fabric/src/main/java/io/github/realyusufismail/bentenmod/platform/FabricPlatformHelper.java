@@ -36,10 +36,13 @@ import com.google.gson.JsonObject;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterCraftingBookCategory;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterShapedRecipe;
 import io.github.realyusufismail.bentenmod.platform.services.IPlatformHelper;
+import io.github.realyusufismail.bentenmod.core.item.FabricOmnitrixWatchItem;
+import io.github.realyusufismail.bentenmod.OmnitrixNetwork;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -70,6 +73,11 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public net.minecraft.world.item.Item createOmnitrixWatchItem() {
+        return new FabricOmnitrixWatchItem(new net.minecraft.world.item.Item.Properties());
+    }
+
+    @Override
     public CreativeModeTab.Builder creativeTabBuilder() {
         return FabricItemGroup.builder();
     }
@@ -96,6 +104,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     @Override
     public RecipeBookType omnitrixRecipeBookType() {
         return RecipeBookType.CRAFTING;
+    }
+
+    @Override
+    public void syncOmnitrixState(ServerPlayer player) {
+        if (player.connection != null) {
+            OmnitrixNetwork.syncTrackers(player);
+        }
     }
 
     @Override

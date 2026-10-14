@@ -3,6 +3,8 @@ package io.github.realyusufismail.bentenmod.core.blocks.bententable;
 import net.minecraft.util.StringRepresentable;
 
 public enum OmnitrixCrafterCraftingBookCategory implements StringRepresentable {
+    OMNITRIX("omnitrix"),
+    ARMOUR("armour"),
     TOOLS("tools"),
     MISC("misc");
 

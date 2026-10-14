@@ -2,8 +2,8 @@
   "feature": "bentenmod:black_diamond_ore",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 9
+      "type": "minecraft:count",
+      "count": 3
     },
     {
       "type": "minecraft:in_square"
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "absolute": 70
+          "above_bottom": 32
         },
         "min_inclusive": {
-          "absolute": -70
+          "above_bottom": 0
         }
       }
     },

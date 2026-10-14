@@ -3,6 +3,10 @@
   "height": 2.0,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
+  "power": { "type": "bentenmod:emp_pulse", "cooldown_ticks": 160 },
+  "dna_sources": {
+    "entities": ["minecraft:iron_golem"]
+  },
   "abilities": [
     {
       "type": "bentenmod:effect",

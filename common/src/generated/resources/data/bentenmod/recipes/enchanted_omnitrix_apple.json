@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
   "key": {
     "A": {
       "item": "bentenmod:omnitrix_block"
@@ -16,6 +16,5 @@
   ],
   "result": {
     "item": "bentenmod:enchanted_omnitrix_apple"
-  },
-  "show_notification": true
+  }
 }

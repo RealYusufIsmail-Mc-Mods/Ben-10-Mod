@@ -6,7 +6,7 @@
     {
       "type": "bentenmod:effect",
       "effect": "minecraft:resistance",
-      "amplifier": 2
+      "amplifier": 0
     }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
+  "key": {
+    "C": {
+      "item": "bentenmod:omnitrix_core"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "LNL",
+    "NCN"
+  ],
+  "result": {
+    "item": "bentenmod:omnitrix_watch"
+  }
+}

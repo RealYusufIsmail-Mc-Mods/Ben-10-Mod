@@ -54,13 +54,15 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     group = 'publishing'
     dependsOn('reobfJar')
     disableVersionDetection()
-    apiToken = project.findProperty('curseforge.token') ?: ''
+    apiToken = project.findProperty('curseforge.token') ?: System.getenv('CURSEFORGE_TOKEN') ?: ''
     def mainFile = upload(curseforge_project_id, tasks.jar.archiveFile)
-    mainFile.changelog = rootProject.file('CHANGELOG.md').text
+    mainFile.changelog = '## [' + rootProject.file('CHANGELOG.md').text.split(/(?m)^## \[/)[1].trim()
+    mainFile.displayName = "Ben 10 Mod ${version} (Forge ${minecraft_version})"
     mainFile.changelogType = 'markdown'
     mainFile.releaseType = 'release'
     mainFile.addJavaVersion('Java 17')
     mainFile.addModLoader('Forge', 'NeoForge')
     mainFile.addGameVersion(minecraft_version)
+    mainFile.addGameVersion('Client', 'Server')
     mainFile.addRequirement('geckolib')
 }

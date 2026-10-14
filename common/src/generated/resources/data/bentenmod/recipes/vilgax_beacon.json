@@ -1,0 +1,25 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
+  "key": {
+    "B": {
+      "item": "bentenmod:black_diamond"
+    },
+    "I": {
+      "item": "bentenmod:infinitum"
+    },
+    "K": {
+      "item": "bentenmod:kraab_claw"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    "KI",
+    "BR"
+  ],
+  "result": {
+    "item": "bentenmod:vilgax_beacon"
+  }
+}

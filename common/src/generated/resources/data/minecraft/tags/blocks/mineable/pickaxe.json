@@ -19,6 +19,10 @@
     "bentenmod:infinitum_block",
     "bentenmod:legendary_block",
     "bentenmod:speed_block",
-    "bentenmod:black_diamond_block"
+    "bentenmod:black_diamond_block",
+    "bentenmod:omnitrix_pod",
+    "bentenmod:null_void_stone",
+    "bentenmod:null_void_stone_bricks",
+    "bentenmod:null_crystal_ore"
   ]
 }

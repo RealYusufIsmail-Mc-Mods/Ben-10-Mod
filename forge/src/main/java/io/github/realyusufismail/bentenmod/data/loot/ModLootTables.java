@@ -52,9 +52,11 @@ import java.util.stream.Collectors;
 
 public class ModLootTables extends LootTableProvider {
     public ModLootTables(DataGenerator dataGeneratorIn) {
-        super(dataGeneratorIn.getPackOutput(), Set.of(), ImmutableList.of(
-                new SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK),
-                new SubProviderEntry(ModEntityLootTables::new, LootContextParamSets.ENTITY)));
+        super(dataGeneratorIn.getPackOutput(), Set.of(),
+                ImmutableList.of(
+                        new SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK),
+                        new SubProviderEntry(ModEntityLootTables::new, LootContextParamSets.ENTITY),
+                        new SubProviderEntry(ModChestLootTables::new, LootContextParamSets.CHEST)));
     }
 
     @Override

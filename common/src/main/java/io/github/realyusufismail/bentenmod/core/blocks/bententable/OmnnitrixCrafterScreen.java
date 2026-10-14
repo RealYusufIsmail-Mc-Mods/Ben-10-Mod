@@ -23,10 +23,10 @@ import java.util.Objects;
  */
 public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCrafterMenu>
         implements RecipeUpdateListener {
-    private static final ResourceLocation CRAFTING_TABLE_LOCATION =
-            new ResourceLocation("textures/gui/container/crafting_table.png");
+    private static final ResourceLocation CRAFTER_LOCATION =
+            new ResourceLocation("bentenmod", "textures/gui/omnitrix_crafter.png");
     private static final ResourceLocation RECIPE_BUTTON_LOCATION =
-            new ResourceLocation("textures/gui/recipe_button.png");
+            new ResourceLocation("bentenmod", "textures/gui/omnitrix_crafter_buttons.png");
     private final RecipeBookComponent recipeBookComponent = new RecipeBookComponent();
     private final boolean hasRecipeBook = Services.PLATFORM.hasOmnitrixRecipeBook();
     private boolean widthTooNarrow;
@@ -93,8 +93,16 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
 
     protected void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pX, int pY) {
         int i = this.leftPos;
-        int j = (this.height - this.imageHeight) / 2;
-        pGuiGraphics.blit(CRAFTING_TABLE_LOCATION, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        int j = this.topPos;
+        pGuiGraphics.blit(CRAFTER_LOCATION, i, j, 0, 0, this.imageWidth, this.imageHeight);
+    }
+
+    @Override
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+        graphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 0xB9FF91,
+                false);
+        graphics.drawString(this.font, this.playerInventoryTitle, this.inventoryLabelX,
+                this.inventoryLabelY, 0xC8D8C7, false);
     }
 
     protected boolean isHovering(int pX, int pY, int pWidth, int pHeight, double pMouseX,

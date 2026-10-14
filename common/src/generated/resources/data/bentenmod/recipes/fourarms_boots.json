@@ -1,0 +1,16 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "armour",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/ruby"
+    }
+  },
+  "pattern": [
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "item": "bentenmod:fourarms_boot"
+  }
+}

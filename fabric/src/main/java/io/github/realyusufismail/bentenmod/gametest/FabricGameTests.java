@@ -39,7 +39,6 @@ import net.minecraft.gametest.framework.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.server.level.ServerPlayer;
 
-import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 /** Fabric registration of {@link GameTestChecks} (entrypoint {@code fabric-gametest}). */
@@ -51,8 +50,122 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxHasAttributes(GameTestHelper helper) {
+        GameTestChecks.vilgaxHasAttributes(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxSwitchesPhaseAtHalfHealth(GameTestHelper helper) {
+        GameTestChecks.vilgaxSwitchesPhaseAtHalfHealth(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void kraabLootDropsClaw(GameTestHelper helper) {
+        GameTestChecks.kraabLootDropsClaw(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxLootDropsCore(GameTestHelper helper) {
+        GameTestChecks.vilgaxLootDropsCore(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void vilgaxBeaconRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.vilgaxBeaconRecipeLoads(helper);
+    }
+
+    // The dimension itself and the projector round trip are checked on Forge only: this test server
+    // never
+    // loads datapack dimensions (see GameTestChecks.nullVoidWorldgenDataLoaded).
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidWorldgenDataLoaded(GameTestHelper helper) {
+        GameTestChecks.nullVoidWorldgenDataLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void zsSkayrAttributesAndLoot(GameTestHelper helper) {
+        GameTestChecks.zsSkayrAttributesAndLoot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void masterControlUnlocksAliensAndDisablesTimeout(GameTestHelper helper) {
+        GameTestChecks.masterControlUnlocksAliensAndDisablesTimeout(helper,
+                player(helper, "masterControlUnlocksAliensAndDisablesTimeout"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void masterControlRequiresWatch(GameTestHelper helper) {
+        GameTestChecks.masterControlRequiresWatch(helper,
+                player(helper, "masterControlRequiresWatch"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullCrystalOreDropsCrystal(GameTestHelper helper) {
+        GameTestChecks.nullCrystalOreDropsCrystal(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidProjectorRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.nullVoidProjectorRecipeLoads(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidFortressChestLoot(GameTestHelper helper) {
+        GameTestChecks.nullVoidFortressChestLoot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void hunterSpawnSchedulePersistsAndIsOneShot(GameTestHelper helper) {
+        GameTestChecks.hunterSpawnSchedulePersistsAndIsOneShot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void equippedPlayerMigrationSchedulesKraab(GameTestHelper helper) {
+        GameTestChecks.equippedPlayerMigrationSchedulesKraab(helper,
+                player(helper, "equippedPlayerMigrationSchedulesKraab"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void oreFeaturesLoaded(GameTestHelper helper) {
         GameTestChecks.oreFeaturesLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixCrashSiteFeatureRegistered(GameTestHelper helper) {
+        GameTestChecks.omnitrixCrashSiteFeatureRegistered(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixPodDropsWatch(GameTestHelper helper) {
+        GameTestChecks.omnitrixPodDropsWatch(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixCrafterWatchRecipeLoaded(GameTestHelper helper) {
+        GameTestChecks.omnitrixCrafterWatchRecipeLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixScanUnlocksWildmutt(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanUnlocksWildmutt(helper,
+                player(helper, "omnitrixScanUnlocksWildmutt"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixRepeatScanIsSafe(GameTestHelper helper) {
+        GameTestChecks.omnitrixRepeatScanIsSafe(helper, player(helper, "omnitrixRepeatScanIsSafe"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixScanRequiresEquippedAndUntransformedPlayer(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanRequiresEquippedAndUntransformedPlayer(helper,
+                player(helper, "omnitrixScanRequiresEquippedAndUntransformedPlayer"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixScanBuddingAmethystUnlocksDiamondhead(GameTestHelper helper) {
+        GameTestChecks.omnitrixScanBuddingAmethystUnlocksDiamondhead(helper,
+                player(helper, "omnitrixScanBuddingAmethystUnlocksDiamondhead"));
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
@@ -68,6 +181,86 @@ public class FabricGameTests implements FabricGameTest {
     @GameTest(template = EMPTY_STRUCTURE)
     public void aliensLoaded(GameTestHelper helper) {
         GameTestChecks.aliensLoaded(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void alienTransformAnimationIsPerPlayer(GameTestHelper helper) {
+        GameTestChecks.alienTransformAnimationIsPerPlayer(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixTransformIsServerValidated(GameTestHelper helper) {
+        GameTestChecks.omnitrixTransformIsServerValidated(helper,
+                player(helper, "omnitrixTransformIsServerValidated"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixWatchEquipsAndConsumes(GameTestHelper helper) {
+        GameTestChecks.omnitrixWatchEquipsAndConsumes(helper,
+                player(helper, "omnitrixWatchEquipsAndConsumes"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixSecondUseDoesNotConsume(GameTestHelper helper) {
+        GameTestChecks.omnitrixSecondUseDoesNotConsume(helper,
+                player(helper, "omnitrixSecondUseDoesNotConsume"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixEquippedStateRoundTrips(GameTestHelper helper) {
+        GameTestChecks.omnitrixEquippedStateRoundTrips(helper,
+                player(helper, "omnitrixEquippedStateRoundTrips"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void omnitrixTimeoutReverts(GameTestHelper helper) {
+        GameTestChecks.omnitrixTimeoutReverts(helper, player(helper, "omnitrixTimeoutReverts"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void heatblastPowerSpawnsFireball(GameTestHelper helper) {
+        GameTestChecks.heatblastPowerSpawnsFireball(helper,
+                player(helper, "heatblastPowerSpawnsFireball"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void alienPowerCooldownBlocksImmediateUse(GameTestHelper helper) {
+        GameTestChecks.alienPowerCooldownBlocksImmediateUse(helper,
+                player(helper, "alienPowerCooldownBlocksImmediateUse"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void creativeCanTransformWithoutUnlocking(GameTestHelper helper) {
+        GameTestChecks.creativeCanTransformWithoutUnlocking(helper,
+                player(helper, "creativeCanTransformWithoutUnlocking"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void timeoutStartsRechargeAndBlocksTransform(GameTestHelper helper) {
+        GameTestChecks.timeoutStartsRechargeAndBlocksTransform(helper,
+                player(helper, "timeoutStartsRechargeAndBlocksTransform"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void manualRevertSkipsRecharge(GameTestHelper helper) {
+        GameTestChecks.manualRevertSkipsRecharge(helper,
+                player(helper, "manualRevertSkipsRecharge"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void deathRevertsToHuman(GameTestHelper helper) {
+        GameTestChecks.deathRevertsToHuman(helper, player(helper, "deathRevertsToHuman"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void masterControlHasNoRecharge(GameTestHelper helper) {
+        GameTestChecks.masterControlHasNoRecharge(helper,
+                player(helper, "masterControlHasNoRecharge"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void guideIsGivenOnceOnJoin(GameTestHelper helper) {
+        GameTestChecks.guideIsGivenOnceOnJoin(helper, player(helper, "guideIsGivenOnceOnJoin"));
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
@@ -87,7 +280,6 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     private static ServerPlayer player(GameTestHelper helper, String name) {
-        return FakePlayer.get(helper.getLevel(), new GameProfile(
-                UUID.nameUUIDFromBytes(name.getBytes(StandardCharsets.UTF_8)), name));
+        return FakePlayer.get(helper.getLevel(), new GameProfile(UUID.randomUUID(), name));
     }
 }

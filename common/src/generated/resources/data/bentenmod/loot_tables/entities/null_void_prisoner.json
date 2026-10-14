@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:entity",
+  "random_sequence": "bentenmod:entities/null_void_prisoner"
+}

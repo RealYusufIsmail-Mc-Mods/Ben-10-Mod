@@ -1,0 +1,19 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
+  "key": {
+    "I": {
+      "item": "bentenmod:infinitum"
+    },
+    "V": {
+      "item": "bentenmod:vilgax_core"
+    }
+  },
+  "pattern": [
+    "I I",
+    " V "
+  ],
+  "result": {
+    "item": "bentenmod:null_void_projector"
+  }
+}

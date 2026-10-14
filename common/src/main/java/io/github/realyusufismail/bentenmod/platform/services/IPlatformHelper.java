@@ -39,8 +39,10 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.BiFunction;
@@ -62,6 +64,9 @@ public interface IPlatformHelper {
 
     boolean isDevelopmentEnvironment();
 
+    /** Creates the watch with the loader's client-only GeckoLib item renderer bridge. */
+    Item createOmnitrixWatchItem();
+
     /** Forge and Fabric each need their own builder so the tab gets a position in the menu. */
     CreativeModeTab.Builder creativeTabBuilder();
 
@@ -81,6 +86,9 @@ public interface IPlatformHelper {
 
     /** The recipe book type of the Omnitrix Crafter, or {@link RecipeBookType#CRAFTING}. */
     RecipeBookType omnitrixRecipeBookType();
+
+    /** Sends the updated unlock list through each loader's existing Omnitrix state packet. */
+    void syncOmnitrixState(ServerPlayer player);
 
     /**
      * Creates a menu type for a menu that needs no extra data from the server. Vanilla keeps the

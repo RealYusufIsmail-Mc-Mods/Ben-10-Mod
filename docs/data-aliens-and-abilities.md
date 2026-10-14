@@ -11,7 +11,7 @@ Passive powers, used by both aliens and armour sets. Each is an object with a `t
 | `bentenmod:effect` | `effect` (e.g. `minecraft:speed`), `amplifier` (default 0 = level I) | keeps the potion effect on the player, hidden particles, icon shown |
 | `bentenmod:flight` | `speed` (default 0.05 = creative speed) | creative-style flight; removed when the source ends (unless creative/spectator) |
 | `bentenmod:attribute` | `attribute` (e.g. `minecraft:generic.attack_damage`), `operation` (`addition`, `multiply_base`, `multiply_total`; default `addition`), `amount` | attribute modifier while active; health is clamped when it ends |
-| `bentenmod:no_fall_damage` | — | cancels fall damage |
+| `bentenmod:no_fall_damage` | no fields | cancels fall damage |
 
 Abilities start when their source becomes active, tick every server tick, and stop when it ends (`AbilityTicker`). New types go in `common/.../ability/type/` and are listed in `AbilityTypes`.
 
@@ -26,7 +26,7 @@ Abilities start when their source becomes active, tick every server tick, and st
     "feet": "bentenmod:heatblast_boots"
   },
   "abilities": [
-    { "type": "bentenmod:effect", "effect": "minecraft:fire_resistance", "amplifier": 3 },
+    { "type": "bentenmod:effect", "effect": "minecraft:fire_resistance" },
     { "type": "bentenmod:flight", "speed": 0.1 }
   ]
 }
@@ -42,6 +42,12 @@ Every listed piece must be worn. A set can list fewer slots (the jacket lists on
   "height": 2.1,
   "unlocked_by_default": true,
   "duration_ticks": 6000,
+  "recharge_ticks": 1200,
+  "power": { "type": "bentenmod:fireball", "cooldown_ticks": 20 },
+  "dna_sources": {
+    "entities": ["minecraft:wolf"],
+    "blocks": ["minecraft:budding_amethyst"]
+  },
   "abilities": [
     { "type": "bentenmod:effect", "effect": "minecraft:fire_resistance" },
     { "type": "bentenmod:flight", "speed": 0.06 }
@@ -55,11 +61,39 @@ Every listed piece must be worn. A set can list fewer slots (the jacket lists on
 | `abilities` | `[]` | passive abilities while transformed |
 | `unlocked_by_default` | `false` | a new Omnitrix starts with this alien (currently Heatblast, Four Arms, XLR8) |
 | `duration_ticks` | `6000` (5 min) | how long a transformation lasts before the Omnitrix times out |
+| `recharge_ticks` | `1200` (60 s) | how long the Omnitrix blocks another transformation after a timeout |
+| `power` | absent | optional active power used by the V key; its codec is dispatched by `type` |
+| `dna_sources` | empty entity and block lists | entity type and block ids that can be scanned to unlock this alien |
+
+Active powers use `data/<ns>/aliens/<id>.json` and share the same dispatched codec pattern as
+passive abilities. The optional `cooldown_ticks` field is measured in server ticks.
+
+| type | Default cooldown | Effect |
+|---|---:|---|
+| `bentenmod:fireball` | 20 | launches a Small Fireball |
+| `bentenmod:ground_slam` | 80 | damages and knocks back nearby enemies |
+| `bentenmod:dash` | 40 | bursts forward and prevents fall damage briefly |
+| `bentenmod:crystal_shard_volley` | 30 | fires three non-pickup arrows |
+| `bentenmod:slime_spit` | 30 | fires a slowing, poisoning spit projectile |
+| `bentenmod:pounce` | 60 | leaps forward and reveals nearby mobs |
+| `bentenmod:lunge_bite` | 40 | bites a mob in reach, with extra damage in water |
+| `bentenmod:emp_pulse` | 160 | slows hostile mobs and golems, and weakens them |
+| `bentenmod:phase` | 200 | turns invisible and clears nearby mob targets briefly |
+| `bentenmod:analyse` | 200 | reveals nearby mobs and grants Haste and Night Vision |
+
+`dna_sources` is optional. A player holding the Omnitrix can scan a listed living entity or block
+while not transformed. The server persists and syncs the unlock; repeated scans do not add a second
+unlock.
+
+The built-in scan sources are Wildmutt (`minecraft:wolf`), Diamondhead
+(`minecraft:budding_amethyst`), Grey Matter (`minecraft:frog`), Stinkfly (`minecraft:bee`), Ripjaws
+(`minecraft:guardian`), Upgrade (`minecraft:iron_golem`) and Ghostfreak (`minecraft:phantom`).
 
 The alien's id (`bentenmod:heatblast`) also selects its client assets through `AlienGeoModel`: `geo/alien/<id>.geo.json`, `textures/entity/alien/<id>.png` (+ `_glowmask`), `animations/<id>.animation.json`. Those come from `tools/alien-gen` (see `docs/assets.md`).
 
-Aliens aren't playable yet: the Omnitrix and transformation come in step 3. Until then the definitions are loaded and checked by the GameTests.
+Aliens and transformation are implemented in step 3. Their DNA sources are loaded with the alien
+definitions and checked by the GameTests.
 
 ## Current values
 
-Armour sets keep the effects of the old Java classes, extreme values included (XLR8 Speed XLVI, Four Arms Strength IX), with three bugs fixed: the Four Arms set now works, the Legendary set needs every piece, and Heatblast flight ends when the armour comes off. Proposed balance is in `docs/design/progression.md`.
+Armour sets are gear for non-transformed players and were nerfed on 2026-10-14 (XLR8 Speed III, Four Arms Strength II + Jump Boost II, Heatblast fire resistance + flight + no fall damage, Legendary Strength I + Resistance II, Jacket Resistance I). Three old bugs are fixed: the Four Arms set works, the Legendary set needs every piece, and Heatblast flight ends when the armour comes off. Rationale is in `docs/design/progression.md`.

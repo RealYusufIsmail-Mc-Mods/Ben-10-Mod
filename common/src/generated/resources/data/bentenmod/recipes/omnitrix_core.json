@@ -1,0 +1,23 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
+  "key": {
+    "C": {
+      "item": "bentenmod:legendary_casing"
+    },
+    "L": {
+      "item": "bentenmod:black_diamond_lens"
+    },
+    "O": {
+      "tag": "forge:ingots/omnitrix"
+    }
+  },
+  "pattern": [
+    "OLO",
+    "OCO",
+    "OOO"
+  ],
+  "result": {
+    "item": "bentenmod:omnitrix_core"
+  }
+}

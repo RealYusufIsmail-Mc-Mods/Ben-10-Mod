@@ -3,6 +3,10 @@
   "height": 2.0,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
+  "power": { "type": "bentenmod:lunge_bite", "cooldown_ticks": 40 },
+  "dna_sources": {
+    "entities": ["minecraft:guardian"]
+  },
   "abilities": [
     {
       "type": "bentenmod:effect",

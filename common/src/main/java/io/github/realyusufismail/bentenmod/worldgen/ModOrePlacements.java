@@ -55,22 +55,23 @@ public class ModOrePlacements {
         Holder<ConfiguredFeature<?, ?>> holder7 =
                 holdergetter.getOrThrow(ModOreFeatures.INFINITUM_ORE);
 
-        register(context, LEGENDARY_ORE, holder, commonOrePlacement(10, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-50), VerticalAnchor.absolute(50))));
+        // Rarity follows power; numbers and rationale in docs/design/progression.md (section 1).
         register(context, RUBY_ORE, holder1, commonOrePlacement(10, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-50), VerticalAnchor.absolute(50))));
-        register(context, BLACK_DIAMOND_ORE, holder2, rareOrePlacement(9, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-70), VerticalAnchor.absolute(70))));
-        register(context, IMPERIUM_ORE, holder3, commonOrePlacement(11, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-50), VerticalAnchor.absolute(50))));
-        register(context, SPEED_ORE, holder4, rareOrePlacement(11, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-40), VerticalAnchor.absolute(40))));
-        register(context, OMNITRIX_ORE, holder5, rareOrePlacement(8, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80))));
-        register(context, FIRE_ORE, holder6, rareOrePlacement(3, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-60), VerticalAnchor.absolute(60))));
-        register(context, INFINITUM_ORE, holder7, rareOrePlacement(4, HeightRangePlacement
-            .triangle(VerticalAnchor.absolute(-60), VerticalAnchor.absolute(60))));
+            .triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(64))));
+        register(context, SPEED_ORE, holder4, commonOrePlacement(4, HeightRangePlacement
+            .uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(48))));
+        register(context, LEGENDARY_ORE, holder, commonOrePlacement(4, HeightRangePlacement
+            .triangle(VerticalAnchor.absolute(-48), VerticalAnchor.absolute(16))));
+        register(context, IMPERIUM_ORE, holder3, commonOrePlacement(5, HeightRangePlacement
+            .triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(48))));
+        register(context, BLACK_DIAMOND_ORE, holder2, commonOrePlacement(3, HeightRangePlacement
+            .triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(32))));
+        register(context, OMNITRIX_ORE, holder5, rareOrePlacement(2, HeightRangePlacement
+            .uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-48))));
+        register(context, FIRE_ORE, holder6, commonOrePlacement(12, HeightRangePlacement
+            .uniform(VerticalAnchor.absolute(10), VerticalAnchor.absolute(117))));
+        register(context, INFINITUM_ORE, holder7, commonOrePlacement(1, HeightRangePlacement
+            .uniform(VerticalAnchor.absolute(8), VerticalAnchor.absolute(24))));
     }
 
     private static void register(BootstapContext<PlacedFeature> context,

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#bentenmod:omnitrix_crash_site_biomes",
+  "features": "bentenmod:omnitrix_crash_site",
+  "step": "surface_structures"
+}
