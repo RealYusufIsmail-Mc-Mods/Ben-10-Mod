@@ -38,7 +38,6 @@ import io.github.realyusufismail.bentenmod.core.blocks.PrisonVaultBlock;
 import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
-import io.github.realyusufismail.bentenmod.core.init.FeatureInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.init.RecipeTypeInit;
 import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;

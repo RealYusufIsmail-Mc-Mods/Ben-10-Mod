@@ -1,5 +1,6 @@
-package io.github.realyusufismail.bentenmod.core.blocks.bententable;
+package io.github.realyusufismail.bentenmod.client.screen;
 
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterMenu;
 import io.github.realyusufismail.bentenmod.platform.Services;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
@@ -21,7 +22,7 @@ import java.util.Objects;
  *
  * @see CraftingScreen
  */
-public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCrafterMenu>
+public class OmnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCrafterMenu>
         implements RecipeUpdateListener {
     private static final ResourceLocation CRAFTER_LOCATION =
             new ResourceLocation("bentenmod", "textures/gui/omnitrix_crafter.png");
@@ -31,7 +32,7 @@ public class OmnnitrixCrafterScreen extends AbstractContainerScreen<OmnitrixCraf
     private final boolean hasRecipeBook = Services.PLATFORM.hasOmnitrixRecipeBook();
     private boolean widthTooNarrow;
 
-    public OmnnitrixCrafterScreen(OmnitrixCrafterMenu pMenu, Inventory pPlayerInventory,
+    public OmnitrixCrafterScreen(OmnitrixCrafterMenu pMenu, Inventory pPlayerInventory,
             Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }

@@ -69,20 +69,20 @@ public enum CustomArmorMaterial implements ArmorMaterial {
     private final int[] armorVal;
     private final int enchantability;
     private final SoundEvent equipSound;
-    private final float toghness;
+    private final float toughness;
     private final float knockbackResistance;
     private final Ingredient repairIngredient;
 
 
     CustomArmorMaterial(String name, int durabilityMultiplier, int[] armorVal, int enchantability,
-            SoundEvent equipSound, float toghness, float knockbackResistance,
+            SoundEvent equipSound, float toughness, float knockbackResistance,
             Supplier<Ingredient> repairIngredient) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.armorVal = armorVal;
         this.enchantability = enchantability;
         this.equipSound = equipSound;
-        this.toghness = toghness;
+        this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
         this.repairIngredient = repairIngredient.get();
     }
@@ -120,7 +120,7 @@ public enum CustomArmorMaterial implements ArmorMaterial {
 
     @Override
     public float getToughness() {
-        return this.toghness;
+        return this.toughness;
     }
 
     @Override
