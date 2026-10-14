@@ -95,26 +95,37 @@ def aliens():
 def bosses():
     sheet = Image.open(RENDERS / "creatures_sheet.png").convert("RGB")
     rows = sheet.height // 4
-    cw, ch = 560, 400
+    cw, ch = 300, 380
     pad = 24
-    W = 2 * cw + 3 * pad
-    H = 2 * (ch + 92) + 3 * pad + 70
+    W = 4 * cw + 5 * pad
+    H = 92 + ch + 110
     img = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(img)
     centered(d, W // 2, 22, "Bosses and the Null Void", font(44, 0), INK)
     order = ["vilgax", "vilgax_drone", "zs_skayr", "null_void_prisoner"]
     for i, (n, name, blurb) in enumerate(BOSSES):
         r = order.index(n)
-        tile = sheet.crop((0, r * rows, sheet.width, (r + 1) * rows))
-        tile = tile.crop((0, 20, tile.width, tile.height - 20)).resize((cw, ch), Image.LANCZOS)
-        col, row = i % 2, i // 2
-        x = pad + col * (cw + pad)
-        y = 92 + row * (ch + 92 + pad)
+        front = sheet.crop((0, r * rows + 10, int(sheet.width * 0.57), (r + 1) * rows - 10))
+        scale = min(cw / front.width, ch / front.height)
+        front = front.resize((int(front.width * scale), int(front.height * scale)), Image.LANCZOS)
+        tile = Image.new("RGB", (cw, ch), front.getpixel((2, 2)))
+        tile.paste(front, ((cw - front.width) // 2, ch - front.height))
+        x = pad + i * (cw + pad)
+        y = 92
         mask = Image.new("L", tile.size, 0)
         ImageDraw.Draw(mask).rounded_rectangle((0, 0, cw - 1, ch - 1), 22, fill=255)
         img.paste(tile, (x, y), mask)
-        d.text((x + 6, y + ch + 10), name, font=font(30, 0), fill=GREEN)
-        d.text((x + 6, y + ch + 50), blurb, font=font(24, 5), fill=DIM)
+        d.text((x + 4, y + ch + 12), name, font=font(28, 0), fill=GREEN)
+        words, line, lines = blurb.split(), "", []
+        for w in words:
+            if d.textlength(line + " " + w, font=font(21, 5)) > cw - 8 and line:
+                lines.append(line)
+                line = w
+            else:
+                line = (line + " " + w).strip()
+        lines.append(line)
+        for k, l in enumerate(lines):
+            d.text((x + 4, y + ch + 50 + k * 26), l, font=font(21, 5), fill=DIM)
     img.save(OUT / "bosses.png", optimize=True)
 
 
