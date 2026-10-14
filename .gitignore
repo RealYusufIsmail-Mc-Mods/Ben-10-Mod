@@ -28,3 +28,4 @@ forge*changelog.txt
 # alien-gen previews
 tools/alien-gen/out/
 __pycache__/
+tools/boss-assets/out/

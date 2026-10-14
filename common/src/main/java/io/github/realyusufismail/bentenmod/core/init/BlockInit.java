@@ -71,6 +71,19 @@ public class BlockInit {
             () -> new Block(BlockBehaviour.Properties.of()
                 .strength(50.0F, 1200.0F)
                 .requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> NULL_VOID_STONE = registerSpecial("null_void_stone",
+            () -> new Block(BlockBehaviour.Properties.of()
+                .strength(3.0F, 9.0F)
+                .requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> NULL_VOID_STONE_BRICKS =
+            registerSpecial("null_void_stone_bricks",
+                    () -> new Block(BlockBehaviour.Properties.of()
+                        .strength(3.0F, 9.0F)
+                        .requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> NULL_CRYSTAL_ORE = registerSpecial("null_crystal_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                .strength(4.0F, 12.0F)
+                .requiresCorrectToolForDrops()));
 
     // deepslate ores
     public static final RegistryObject<Block> DEEPSLATE_LEGENDARY_ORE =

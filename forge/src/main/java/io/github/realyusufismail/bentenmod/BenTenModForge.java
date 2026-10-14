@@ -95,6 +95,7 @@ public class BenTenModForge {
         if (event.phase == TickEvent.Phase.END && event.player instanceof ServerPlayer player) {
             boolean transformedStateChanged = OmnitrixService.tick(player,
                     player.serverLevel().getServer().overworld().getGameTime());
+            OmnitrixService.tickHunterSpawn(player);
             AbilityTicker.tick(player);
             if (transformedStateChanged) {
                 OmnitrixNetwork.syncTrackers(player);

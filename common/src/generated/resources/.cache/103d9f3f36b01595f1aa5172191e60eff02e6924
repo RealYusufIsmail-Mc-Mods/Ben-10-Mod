@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T01:50:05.771681	Registries
+// 1.20.1	2026-10-14T18:49:30.881359	Registries
 82e8e627d62bfda3170772a7553c8ce45fe3404a data/bentenmod/forge/biome_modifier/add_nether_ores.json
 4f04b0b63e81671de0dcab6c9f433abcb1c3be5f data/bentenmod/forge/biome_modifier/add_omnitrix_crash_site.json
 95c665ca416dbcf8250a150ca427d803c3d123cc data/bentenmod/forge/biome_modifier/add_overworld_ores.json
@@ -7,6 +7,8 @@
 7f91e608dd3db7e1d2dc5df72fd00b604dfcad91 data/bentenmod/worldgen/configured_feature/imperium_ore.json
 2a6e833cb5c9ac90d91ed5e0f288b11b0b4ddddf data/bentenmod/worldgen/configured_feature/infinitum_ore.json
 4b170f17f9bdbec3e4fa76b46a4c3885e32fe1b8 data/bentenmod/worldgen/configured_feature/legendary_ore.json
+b7b33ea7fd2313580336715959d437b7e4ed4f81 data/bentenmod/worldgen/configured_feature/null_crystal_ore.json
+f128a794cca1b01931f26106c427b7bd2c83574d data/bentenmod/worldgen/configured_feature/null_void_fortress.json
 5599f314e9537f561ab62e0afab80e762629b2b1 data/bentenmod/worldgen/configured_feature/omnitrix_crash_site.json
 056454d60771f221b73c3561bf1629c53287bb5d data/bentenmod/worldgen/configured_feature/omnitrix_ore.json
 276d5e788615c374b6b4bb2c10427e758a5d27fb data/bentenmod/worldgen/configured_feature/ruby_ore.json
@@ -16,6 +18,8 @@ f815472d63ba49428e921f5d828301c33dd8bd19 data/bentenmod/worldgen/placed_feature/
 28b324b1c965f1d77162003775e297fe69276b90 data/bentenmod/worldgen/placed_feature/imperium_ore.json
 270ce3b764344672189d07270eca847238bcffc5 data/bentenmod/worldgen/placed_feature/infinitum_ore.json
 a3eca4a19e2e79046dfcae0cbb2c3429f12a7492 data/bentenmod/worldgen/placed_feature/legendary_ore.json
+c5d95dfcf085a2a5a6e50d5f010f5d567fb4d186 data/bentenmod/worldgen/placed_feature/null_crystal_ore.json
+be7fe0dc6941bf15310dabe3aabdc9cc2e4dbe69 data/bentenmod/worldgen/placed_feature/null_void_fortress.json
 8f5491373ac0faaec2e61d43d3b15824ea2aa197 data/bentenmod/worldgen/placed_feature/omnitrix_crash_site.json
 c5f42bcb61e7714100fce5345a706e714f58b52f data/bentenmod/worldgen/placed_feature/omnitrix_ore.json
 9ea499c5b20ecb41c823c8e16c62a199cfb10cf1 data/bentenmod/worldgen/placed_feature/ruby_ore.json

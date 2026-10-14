@@ -35,6 +35,10 @@ package io.github.realyusufismail.bentenmod.core.init;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
+import io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity;
+import io.github.realyusufismail.bentenmod.entity.VilgaxDroneEntity;
+import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
+import io.github.realyusufismail.bentenmod.entity.ZsSkayrEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -55,12 +59,34 @@ public class EntityTypesInit {
     public static final RegistryObject<EntityType<CrabBoltEntity>> CRAB_BOLT_ENTITY =
             ENTITY_TYPES.register("crab_bolt", () -> createStandardEntityType("crab_bolt",
                     CrabBoltEntity::new, MobCategory.MISC, 0.5F, 0.5F));
+    public static final RegistryObject<EntityType<VilgaxEntity>> VILGAX_ENTITY =
+            ENTITY_TYPES.register("vilgax",
+                    () -> EntityType.Builder.of(VilgaxEntity::new, MobCategory.MONSTER)
+                        .sized(1.4F, 3.4F)
+                        .fireImmune()
+                        .build(BenTenMod.MOD_ID + ":vilgax"));
+    public static final RegistryObject<EntityType<VilgaxDroneEntity>> VILGAX_DRONE_ENTITY =
+            ENTITY_TYPES.register("vilgax_drone", () -> createStandardEntityType("vilgax_drone",
+                    VilgaxDroneEntity::new, MobCategory.MONSTER, 0.8F, 0.8F));
+    public static final RegistryObject<EntityType<NullVoidPrisonerEntity>> NULL_VOID_PRISONER =
+            ENTITY_TYPES.register("null_void_prisoner",
+                    () -> createStandardEntityType("null_void_prisoner",
+                            NullVoidPrisonerEntity::new, MobCategory.MONSTER, 0.8F, 2.0F));
+    public static final RegistryObject<EntityType<ZsSkayrEntity>> ZS_SKAYR_ENTITY =
+            ENTITY_TYPES.register("zs_skayr", () -> createStandardEntityType("zs_skayr",
+                    ZsSkayrEntity::new, MobCategory.MONSTER, 1.2F, 3.0F));
     private static final Item.Properties spawn_egg_props = new Item.Properties();
 
     // register spawn eggs
     public static final RegistryObject<Item> CRAB_SPAWN_EGG =
             ItemInit.ITEMS.register("crab_spawn_egg",
                     () -> new ModSpawnEggItem(CRAB_ENTITY, 0xC4AA79, 0x7A5F22, spawn_egg_props));
+    public static final RegistryObject<Item> VILGAX_SPAWN_EGG =
+            ItemInit.ITEMS.register("vilgax_spawn_egg",
+                    () -> new ModSpawnEggItem(VILGAX_ENTITY, 0x4D9A52, 0x6D1717, spawn_egg_props));
+    public static final RegistryObject<Item> VILGAX_DRONE_SPAWN_EGG = ItemInit.ITEMS.register(
+            "vilgax_drone_spawn_egg",
+            () -> new ModSpawnEggItem(VILGAX_DRONE_ENTITY, 0x383838, 0xD23A3A, spawn_egg_props));
 
     private EntityTypesInit() {
         throw new IllegalStateException("Entity gen class");

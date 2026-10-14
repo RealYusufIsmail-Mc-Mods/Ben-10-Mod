@@ -37,6 +37,18 @@ Run `gui_base.py` before `export.py` if the dial PNG doesn't exist yet. `export.
 - Every alien gets `animation.<id>.idle`, `.walk`, `.transform` and `.attack` (a 0.3 s non-looping swing played while the player's arm swings). The Omnitrix gets `activate` and `deactivate` (the dial pops up and turns).
 - Use `chest_omnitrix(...)` or the `omnitrix_symbol()` decal so every alien shows the Omnitrix.
 
+## Bosses, mobs and boss-progression items
+
+Vilgax, the Vilgax drone, Zs'Skayr and the Null Void prisoner use the same engine. Their models are in `tools/alien-gen/creatures.py` (`CREATURES`), their animations in `tools/alien-gen/export_creatures.py`. Paths and animation names follow the asset contract: `geo/entity/<id>.geo.json`, `animations/entity/<id>.animation.json`, `textures/entity/<id>.png` and `<id>_glowmask.png`. The aliens and Omnitrix files are never touched by this exporter.
+
+| Command | Writes |
+|---|---|
+| `python3 tools/alien-gen/export_creatures.py` | the four creatures' geo, animations, textures and glow masks (about 2 minutes) |
+| `python3 tools/alien-gen/preview_creatures.py [ids]` | front and 3/4 renders next to a 32 px Ben for scale, plus `creatures_sheet.png`, in `tools/alien-gen/out/` |
+| `python3 tools/boss-assets/generate.py` | 16x16 item textures (`kraab_claw`, `vilgax_core`, `vilgax_beacon`, `null_void_projector`, `null_crystal`, `master_control`), block textures (`null_void_stone`, `null_void_stone_bricks`, `null_crystal_ore`) and `tools/boss-assets/out/sheet.png` (gitignored; items on a checker, every tile repeated 3x3 to check seams) |
+
+Scale: a player is 32 px tall; Vilgax is about 54 px, Zs'Skayr 48 px, the prisoner 32 px, the drone about 12 px. Looping animations are `idle`, `walk`, `fly`; `attack` (0.5 s) and `summon` (1.5 s) play once. Zs'Skayr's pale parts are opaque, not translucent, so no translucent render type is needed.
+
 ## Not yet verified in game
 
 The previews come from the generator's own renderer. Check in a real client that:

@@ -56,6 +56,90 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void vilgaxHasAttributes(GameTestHelper helper) {
+        GameTestChecks.vilgaxHasAttributes(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void vilgaxSwitchesPhaseAtHalfHealth(GameTestHelper helper) {
+        GameTestChecks.vilgaxSwitchesPhaseAtHalfHealth(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void kraabLootDropsClaw(GameTestHelper helper) {
+        GameTestChecks.kraabLootDropsClaw(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void vilgaxLootDropsCore(GameTestHelper helper) {
+        GameTestChecks.vilgaxLootDropsCore(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void vilgaxBeaconRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.vilgaxBeaconRecipeLoads(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidWorldgenDataLoaded(GameTestHelper helper) {
+        GameTestChecks.nullVoidWorldgenDataLoaded(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidDimensionExists(GameTestHelper helper) {
+        GameTestChecks.nullVoidDimensionExists(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidProjectorRoundTrips(GameTestHelper helper) {
+        GameTestChecks.nullVoidProjectorRoundTrips(helper,
+                player(helper, "nullVoidProjectorRoundTrips"));
+    }
+
+    @GameTest(template = "empty")
+    public static void zsSkayrAttributesAndLoot(GameTestHelper helper) {
+        GameTestChecks.zsSkayrAttributesAndLoot(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void masterControlUnlocksAliensAndDisablesTimeout(GameTestHelper helper) {
+        GameTestChecks.masterControlUnlocksAliensAndDisablesTimeout(helper,
+                player(helper, "masterControlUnlocksAliensAndDisablesTimeout"));
+    }
+
+    @GameTest(template = "empty")
+    public static void masterControlRequiresWatch(GameTestHelper helper) {
+        GameTestChecks.masterControlRequiresWatch(helper,
+                player(helper, "masterControlRequiresWatch"));
+    }
+
+    @GameTest(template = "empty")
+    public static void nullCrystalOreDropsCrystal(GameTestHelper helper) {
+        GameTestChecks.nullCrystalOreDropsCrystal(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidProjectorRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.nullVoidProjectorRecipeLoads(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidFortressChestLoot(GameTestHelper helper) {
+        GameTestChecks.nullVoidFortressChestLoot(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void hunterSpawnSchedulePersistsAndIsOneShot(GameTestHelper helper) {
+        GameTestChecks.hunterSpawnSchedulePersistsAndIsOneShot(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void equippedPlayerMigrationSchedulesKraab(GameTestHelper helper) {
+        GameTestChecks.equippedPlayerMigrationSchedulesKraab(helper,
+                player(helper, "equippedPlayerMigrationSchedulesKraab"));
+    }
+
+    @GameTest(template = "empty")
     public static void oreFeaturesLoaded(GameTestHelper helper) {
         GameTestChecks.oreFeaturesLoaded(helper);
     }

@@ -4,6 +4,7 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.worldgen.ModOreFeatures;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
 import io.github.realyusufismail.bentenmod.worldgen.OmnitrixCrashSiteWorldgen;
+import io.github.realyusufismail.bentenmod.worldgen.NullVoidWorldgen;
 import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -34,9 +35,11 @@ public class ModWorldGenerationProvider extends DatapackBuiltinEntriesProvider {
             (new RegistrySetBuilder()).add(Registries.CONFIGURED_FEATURE, context -> {
                 ModOreFeatures.bootstrap(context);
                 OmnitrixCrashSiteWorldgen.bootstrapConfigured(context);
+                NullVoidWorldgen.bootstrapConfigured(context);
             }).add(Registries.PLACED_FEATURE, context -> {
                 ModOrePlacements.bootstrap(context);
                 OmnitrixCrashSiteWorldgen.bootstrapPlaced(context);
+                NullVoidWorldgen.bootstrapPlaced(context);
             })
                 .add(ForgeRegistries.Keys.BIOME_MODIFIERS,
                         ModWorldGenerationProvider::biomeModifiers);

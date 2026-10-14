@@ -92,6 +92,7 @@ public class BenTenModFabric implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK
             .register(server -> server.getPlayerList().getPlayers().forEach(player -> {
                 boolean changed = OmnitrixService.tick(player, server.overworld().getGameTime());
+                OmnitrixService.tickHunterSpawn(player);
                 AbilityTicker.tick(player);
                 if (changed) {
                     OmnitrixNetwork.syncTrackers(player);

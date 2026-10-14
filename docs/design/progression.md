@@ -1,6 +1,6 @@
 # Progression design (updated 2026-10-14)
 
-Status: steps 1 to 5 are implemented (decisions 2026-10-14 at the end). Bosses (step 6) and the Null Void (step 7) are next.
+Status: steps 1 to 7 are implemented in this worktree. Forge data generation, build and both GameTest runs still need verification.
 
 ## What exists today
 
@@ -10,8 +10,8 @@ Status: steps 1 to 5 are implemented (decisions 2026-10-14 at the end). Bosses (
 | Omnitrix | Step 3 added transformation and the dial; step 4 adds a crash-site pod and a Crafter recipe chain. The watch is equipped permanently by right-clicking it. | Done in steps 3 to 5. |
 | Omnitrix Crafter | Now crafts the Omnitrix chain and Ben 10 gear (alien armour, Imperium, Black diamond and Infinitum tools). | Done in step 4. |
 | Alien armour | Heatblast, Four Arms, XLR8 and Legendary sets give potion effects. They used to be extreme (Speed 46, Strength 9). | Moved into data in step 2; nerfed 2026-10-14 (section 6). Legendary needs the full set. |
-| Bosses | Kraab exists as a normal mob. Vilgax has a texture but no entity. | No goals beyond gear. |
-| Dimensions | None. | Nothing to report yet. |
+| Bosses | Kraab is a bounty-hunter mini-boss; Vilgax and his drones are boss entities. | The Chimera ship structure is deferred; Vilgax is summoned with a beacon. |
+| Dimensions | Null Void: floating islands, Null Void-only crystal ore, fortress and Zs'Skayr. | Step 7 implementation is awaiting Forge data generation and cross-loader verification. |
 
 ## Proposed loop
 
@@ -88,17 +88,21 @@ Make it *the* Ben 10 workstation instead of a crafting-table copy:
 
 ### 4. Bosses
 
+**Step 6 implementation added (2026-10-14; verification pending):** Kraab now has mini-boss attributes, a ranged attack and boss bar. The first Omnitrix bind schedules one persistent Kraab hunter 2–5 game minutes later. Vilgax has two health-based phases, a ground slam, drone waves and an Overworld beacon summon. The ship structure is deferred.
+
 | Boss | Role | Where | Drops / unlocks |
 |---|---|---|---|
-| Kraab (exists as mob) | mini-boss: bounty hunter with ranged bolts | spawns near crash sites after you pick up the Omnitrix | Kraab claw (armour material) |
-| **Vilgax** (texture exists) | main boss, 2 phases (melee, then drone/robot summons) | summoned at a "Chimera Sui Generis" ship structure, or with a crafted beacon | Vilgax core → Null Void Projector |
+| Kraab | mini-boss: persistent bounty hunter with ranged bolts and melee | spawns 16–32 blocks from the player 2–5 game minutes after first equipping the Omnitrix | Kraab claw, used to craft the Vilgax beacon |
+| **Vilgax** | main boss, 2 phases (ground slam, then drone summons) | summoned above a block in the Overworld with a crafted beacon; the ship structure is deferred | Vilgax core → Null Void Projector |
 | Zs'Skayr | Null Void boss (Ghostfreak's species) | Null Void fortress | Master Control |
 
-Bosses are GeckoLib entities: the model and texture pipeline from `tools/alien-gen` already produces GeckoLib geo, animations and glow masks.
+Vilgax and his drones use GeckoLib models and animations. Vilgax has an auto-glowing layer. Kraab retains its vanilla model and renderer.
 
 ### 5. Extra dimensions
 
-Start with **one**, the **Null Void** (the prison dimension from the show): floating islands in a dark void, escaped-prisoner mobs, a fortress with the Zs'Skayr boss, and Null Void-only materials. It's entered with the Null Void Projector (crafted from the Vilgax core plus Infinitum).
+**Step 7 implementation (2026-10-14; verification pending):** `bentenmod:null_void` uses the End's floating-island noise router with Null Void Stone and no fluids. Its fixed biome has dark purple colors, no rain, and Null Void Prisoner spawns. A rare fortress feature makes a brick arena with loot chests and one persistent Zs'Skayr. Zs'Skayr has 500 health, ranged shadow bolts, prisoner summons, a boss bar, and always drops Master Control.
+
+The Null Void Projector is crafted in the Omnitrix Crafter from one Vilgax Core and two Infinitum, has 16 durability, and repairs with Null Crystals. It teleports between matching X/Z coordinates, saves each player's source dimension and exact position, and falls back to a 5x5 brick platform at Y=100 when no safe island surface is found. Master Control requires an equipped Omnitrix, unlocks every alien, and permanently removes its transformation timeout.
 
 Why one: a dimension needs worldgen JSON, structures, mobs, a boss and a portal or teleport item. That's the biggest feature in this list. Primus (Omnitrix DNA vault) or Galvan Prime can follow if the Null Void works.
 
@@ -113,7 +117,7 @@ After step 2, armour effects live in `data/bentenmod/armor_sets/*.json`. Applied
 3. **Step 4 (in progress):** ore ladder + crash site + Crafter rework + Omnitrix recipe chain.
 4. **Step 5 (in progress):** data-driven DNA scanning unlocks.
 5. **Step 6:** Kraab mini-boss, then Vilgax.
-6. **Step 7:** Null Void dimension + Zs'Skayr.
+6. **Step 7 (implemented):** Null Void dimension + Zs'Skayr.
 
 Each step ships playable on both loaders.
 
@@ -124,3 +128,5 @@ Each step ships playable on both loaders.
 3. DNA list as proposed; aliens unlock by scanning, not crafting. Scan by sneaking and right-clicking the source with an empty main hand while the Omnitrix is equipped.
 4. Balance applied (the values in section 6).
 5. The Null Void is the first dimension, built as endgame after the ore ladder and DNA unlocks.
+6. Step 6 uses a crafted beacon to summon Vilgax; the Chimera ship structure is deferred. Kraab claw is a Vilgax beacon ingredient.
+7. Step 7 uses End-style floating islands, with `minecraft:the_end` dimension effects and a fixed dark ambient light level of 0.1. The Null Void Projector stores a per-player return point; if it cannot find a safe surface it builds a small platform at Y=100. Fortress generation is a rare biome feature (one in 400 chunks); its chest loot includes Null Crystals, Infinitum and golden apples. Master Control removes transformation timeouts permanently for that player's equipped Omnitrix.

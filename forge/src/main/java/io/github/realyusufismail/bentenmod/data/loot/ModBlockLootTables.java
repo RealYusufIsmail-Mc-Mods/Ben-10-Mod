@@ -91,6 +91,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         add(BlockInit.DEEPSLATE_RUBY_ORE.get(),
                 createOreDrop(BlockInit.DEEPSLATE_RUBY_ORE.get(), ItemInit.RUBY.get()));
 
+        add(BlockInit.NULL_CRYSTAL_ORE.get(),
+                createOreDrop(BlockInit.NULL_CRYSTAL_ORE.get(), ItemInit.NULL_CRYSTAL.get()));
+
         // blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
         dropSelf(BlockInit.FIRE_BLOCK.get());
@@ -100,6 +103,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         dropSelf(BlockInit.BLACK_DIAMOND_BLOCK.get());
         dropSelf(BlockInit.LEGENDARY_BLOCK.get());
         dropSelf(BlockInit.IMPERIUM_BLOCK.get());
+        dropSelf(BlockInit.NULL_VOID_STONE.get());
+        dropSelf(BlockInit.NULL_VOID_STONE_BRICKS.get());
         dropSelf(BlockInit.FIRE_ORE.get());
         dropSelf(BlockInit.OmnitrixCrafter.get());
         add(BlockInit.OMNITRIX_POD.get(), createSingleItemTable(ItemInit.OMNITRIX_WATCH.get()));

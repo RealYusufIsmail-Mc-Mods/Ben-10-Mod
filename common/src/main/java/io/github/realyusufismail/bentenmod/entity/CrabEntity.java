@@ -18,8 +18,6 @@
  * 3. Neither the name of the copyright holder nor the names of its contributors may be used to
  * endorse or promote products derived from this software without specific prior written permission.
  *
- *
- *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
  * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
@@ -32,37 +30,47 @@
 
 package io.github.realyusufismail.bentenmod.entity;
 
+import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.entity.ai.CrabWaterAvoidingRandomWalkingGoal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.BossEvent.BossBarColor;
+import net.minecraft.world.BossEvent.BossBarOverlay;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Entity.RemovalReason;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.EnumSet;
 import java.util.Random;
 
-public class CrabEntity extends Monster {
-
+public class CrabEntity extends Monster implements RangedAttackMob {
     private static final EntityDataAccessor<Boolean> SHOOTING =
             SynchedEntityData.defineId(CrabEntity.class, EntityDataSerializers.BOOLEAN);
 
-    private float shootTimer;
+    private final ServerBossEvent bossEvent =
+            new ServerBossEvent(Component.translatable("entity." + BenTenMod.MOD_ID + ".crab"),
+                    BossBarColor.RED, BossBarOverlay.PROGRESS);
+    private int shootAnimationTicks;
 
     public CrabEntity(EntityType<? extends CrabEntity> type, Level level) {
         super(type, level);
@@ -70,26 +78,55 @@ public class CrabEntity extends Monster {
 
     public static AttributeSupplier.Builder registerAttributes() {
         return Monster.createMonsterAttributes()
-            .add(Attributes.FOLLOW_RANGE, 35)
-            .add(Attributes.MOVEMENT_SPEED, 0.25)
-            .add(Attributes.ATTACK_DAMAGE, 4)
-            .add(Attributes.MAX_HEALTH, 25);
+            .add(Attributes.FOLLOW_RANGE, 40)
+            .add(Attributes.MOVEMENT_SPEED, 0.27)
+            .add(Attributes.ATTACK_DAMAGE, 12)
+            .add(Attributes.ARMOR, 12)
+            .add(Attributes.KNOCKBACK_RESISTANCE, 0.6)
+            .add(Attributes.MAX_HEALTH, 80);
     }
 
-    public static <T extends Mob> boolean canKrabEntitySpawn(EntityType<T> tEntityType,
-            ServerLevelAccessor serverLevelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos,
-            Random random) {
-        return serverLevelAccessor.getRawBrightness(blockPos, 0) > 8;
+    public static <T extends Mob> boolean canKrabEntitySpawn(EntityType<T> entityType,
+            ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, Random random) {
+        return level.getRawBrightness(pos, 0) > 8;
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new ShootGoal(this));
-        this.goalSelector.addGoal(2, new CrabWaterAvoidingRandomWalkingGoal(this, 1));
-        this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1, false));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0, false) {
+            @Override
+            public boolean canUse() {
+                LivingEntity target = CrabEntity.this.getTarget();
+                return target != null && CrabEntity.this.distanceToSqr(target) <= 16.0
+                        && super.canUse();
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                LivingEntity target = CrabEntity.this.getTarget();
+                return target != null && CrabEntity.this.distanceToSqr(target) <= 16.0
+                        && super.canContinueToUse();
+            }
+        });
+        this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0, 40, 12.0F) {
+            @Override
+            public boolean canUse() {
+                LivingEntity target = CrabEntity.this.getTarget();
+                return target != null && CrabEntity.this.distanceToSqr(target) > 16.0
+                        && super.canUse();
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                LivingEntity target = CrabEntity.this.getTarget();
+                return target != null && CrabEntity.this.distanceToSqr(target) > 16.0
+                        && super.canContinueToUse();
+            }
+        });
+        this.goalSelector.addGoal(3, new CrabWaterAvoidingRandomWalkingGoal(this, 1));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(6, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
         super.registerGoals();
     }
 
@@ -100,11 +137,11 @@ public class CrabEntity extends Monster {
     }
 
     public boolean isShooting() {
-        return entityData.get(SHOOTING);
+        return this.entityData.get(SHOOTING);
     }
 
-    private void setShooting(boolean b) {
-        entityData.set(SHOOTING, b);
+    private void setShooting(boolean shooting) {
+        this.entityData.set(SHOOTING, shooting);
     }
 
     @Override
@@ -116,73 +153,57 @@ public class CrabEntity extends Monster {
     public void tick() {
         super.tick();
         updateSwingTime();
-
-        if (level().isClientSide)
-            if (isShooting())
-                shootTimer++;
-            else
-                shootTimer = 0;
-    }
-
-    public float getShootAnim(float partialTicks) {
-        return (shootTimer + partialTicks) / ShootGoal.MAX_TIMER;
-    }
-
-    public void shoot(LivingEntity target) {
-        Vec3 direction = Vec3.directionFromRotation(0, yRotO).yRot((float) Math.PI / 2);
-        Vec3 pos = position().add(0, 1, 0).add(direction);
-        CrabBoltEntity bolt = new CrabBoltEntity(pos.x, pos.y, pos.z, level(), this);
-        bolt.shoot(target.getX() - pos.x, target.getEyeY() - 1 - pos.y, target.getZ() - pos.z,
-                0.75f, 6);
-        level().addFreshEntity(bolt);
-    }
-
-    public static class ShootGoal extends Goal {
-
-        private static final int MAX_COOLDOWN = 60;
-        private static final int MAX_DISTANCE = 100;
-        private static final int MAX_TIMER = 40;
-
-        private final CrabEntity entity;
-        private int cooldown, attackTimer;
-
-        public ShootGoal(CrabEntity entity) {
-            this.entity = entity;
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-        }
-
-        @Override
-        public boolean canUse() {
-            LivingEntity target = entity.getTarget();
-            return cooldown-- < 0 && entity.getTarget() != null
-                    && entity.distanceToSqr(target) < MAX_DISTANCE;
-        }
-
-        @Override
-        public void start() {
-            attackTimer = MAX_TIMER;
-            entity.setShooting(true);
-        }
-
-        @Override
-        public void stop() {
-            cooldown = MAX_COOLDOWN;
-            attackTimer = MAX_TIMER;
-            entity.setShooting(false);
-        }
-
-        @Override
-        public void tick() {
-            LivingEntity target = entity.getTarget();
-            attackTimer--;
-            entity.lookAt(target, 30, 30);
-            entity.getLookControl().setLookAt(entity, 30, 30);
-
-            if (attackTimer < 0) {
-                cooldown = MAX_COOLDOWN;
-                entity.shoot(target);
+        if (this.level().isClientSide) {
+            if (isShooting()) {
+                shootAnimationTicks++;
+            } else {
+                shootAnimationTicks = 0;
+            }
+        } else {
+            this.bossEvent
+                .setProgress(this.getMaxHealth() <= 0 ? 0 : this.getHealth() / this.getMaxHealth());
+            if (shootAnimationTicks > 0 && --shootAnimationTicks == 0) {
+                setShooting(false);
             }
         }
     }
 
+    public float getShootAnim(float partialTicks) {
+        return (shootAnimationTicks + partialTicks) / 40.0F;
+    }
+
+    @Override
+    public void performRangedAttack(LivingEntity target, float distanceFactor) {
+        Vec3 origin = position().add(0, getEyeHeight() * 0.75, 0).add(getLookAngle().scale(1.1));
+        CrabBoltEntity bolt = new CrabBoltEntity(origin.x, origin.y, origin.z, level(), this);
+        bolt.shoot(target.getX() - origin.x, target.getEyeY() - origin.y, target.getZ() - origin.z,
+                0.8F, 1.0F);
+        level().addFreshEntity(bolt);
+        shootAnimationTicks = 40;
+        setShooting(true);
+    }
+
+    @Override
+    public void startSeenByPlayer(ServerPlayer player) {
+        super.startSeenByPlayer(player);
+        this.bossEvent.addPlayer(player);
+    }
+
+    @Override
+    public void stopSeenByPlayer(ServerPlayer player) {
+        super.stopSeenByPlayer(player);
+        this.bossEvent.removePlayer(player);
+    }
+
+    @Override
+    public void die(DamageSource source) {
+        this.bossEvent.removeAllPlayers();
+        super.die(source);
+    }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        this.bossEvent.removeAllPlayers();
+        super.remove(reason);
+    }
 }

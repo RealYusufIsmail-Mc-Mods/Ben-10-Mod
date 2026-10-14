@@ -1,0 +1,11 @@
+{
+  "type": "bentenmod:null_void",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "bentenmod:null_void",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "bentenmod:null_void"
+    }
+  }
+}

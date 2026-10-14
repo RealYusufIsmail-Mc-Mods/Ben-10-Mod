@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T01:50:05.774464	Item Models: bentenmod
+// 1.20.1	2026-10-14T18:41:38.376926	Item Models: bentenmod
 28a0aa00149acfbb2e0427267cd325dc8f8b34ce assets/bentenmod/models/item/axe.json
 e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diamond.json
 4edc58fc2d6525b016e3fa31fd7f5adfbc78edfe assets/bentenmod/models/item/black_diamond_axe.json
@@ -45,9 +45,13 @@ c9f1ed82cba2a4bd49741415c9486cd1acf4297d assets/bentenmod/models/item/infinitum_
 c945c99a7295a9eedfeeaa0397be5857ee56a334 assets/bentenmod/models/item/infinitum_shovel.json
 61599360bf37c45cbf514fe5278abd55a5131707 assets/bentenmod/models/item/infinitum_sword.json
 2c4658a035ed683e280eb7e4468ea6145c026817 assets/bentenmod/models/item/jacket.json
+7b920c20519bfb95cf699b598a555caf033f829e assets/bentenmod/models/item/kraab_claw.json
 98d382b0a12b366c3762c1e613c4eeca4cf22835 assets/bentenmod/models/item/legendary.json
 3f59061ea73d227d4c141feb6128cbb84987ed29 assets/bentenmod/models/item/legendary_casing.json
 e08271c734184af7186504ea11eef4e5190ea1ea assets/bentenmod/models/item/leggings.json
+f094dd3f735bd48b6c9bbe443049d4cec6268fbc assets/bentenmod/models/item/master_control.json
+3ba22bc2be0a745eab5a4af703b3aac9a91b6bb6 assets/bentenmod/models/item/null_crystal.json
+299e631ce97f85c22abed7b73bd7abea733d2f0a assets/bentenmod/models/item/null_void_projector.json
 03b5f05edfa8e48246ba874f3e83e51ac4d5e2c0 assets/bentenmod/models/item/omnitrix.json
 23337affc9718db607d05bfe2112947e594df621 assets/bentenmod/models/item/omnitrix_apple.json
 e95c6e0851be902ebe8c957694613f13f4d67a53 assets/bentenmod/models/item/omnitrix_core.json
@@ -59,6 +63,10 @@ efedca6e584ab9c86db9199db9c64d4b5e793ef5 assets/bentenmod/models/item/raw_imperi
 2c08774a9077cec3ce45a5f698659039bbbe35c0 assets/bentenmod/models/item/ruby_apple.json
 c89274d6eb7cb783e8fdcfcf73436b0d18db80e3 assets/bentenmod/models/item/speed.json
 a9012e5e8bf9169647dd9cf9d31fa0e48be26d52 assets/bentenmod/models/item/sword.json
+5b0cabb84f53a289c965cb7cbeb9da5c2e552577 assets/bentenmod/models/item/vilgax_beacon.json
+5a22087255b11538d7ae04084c3f1b85deb1a97c assets/bentenmod/models/item/vilgax_core.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/bentenmod/models/item/vilgax_drone_spawn_egg.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/bentenmod/models/item/vilgax_spawn_egg.json
 c59c9b070cc8172e1b0783013add2fa1b964b4f6 assets/bentenmod/models/item/xlr8_boots.json
 7258b2e04c49cea7acd61eab8f840afe28b7d140 assets/bentenmod/models/item/xlr8_chestplate.json
 d11361cfeec1270047fe7170dee788ee1d707cfd assets/bentenmod/models/item/xlr8_helmet.json
