@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "item": "bentenmod:null_guardian_membrane"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "bentenmod:taydenite"
+    }
+  },
+  "pattern": [
+    "M M",
+    "MTM",
+    "S S"
+  ],
+  "result": {
+    "item": "bentenmod:null_void_glider"
+  },
+  "show_notification": true
+}

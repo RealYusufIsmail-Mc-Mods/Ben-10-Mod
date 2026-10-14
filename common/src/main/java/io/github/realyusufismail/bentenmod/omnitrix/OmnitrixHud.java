@@ -1,5 +1,6 @@
 package io.github.realyusufismail.bentenmod.omnitrix;
 
+import io.github.realyusufismail.bentenmod.client.alien.AlienFlightEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -13,6 +14,7 @@ public final class OmnitrixHud {
     private OmnitrixHud() {}
 
     public static void tick(Minecraft client) {
+        AlienFlightEffects.tick(client);
         if (client.player == null || client.level == null) {
             lastBeepSecond = -1;
             return;

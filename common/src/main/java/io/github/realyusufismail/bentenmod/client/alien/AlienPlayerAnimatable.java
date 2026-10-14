@@ -50,6 +50,8 @@ public final class AlienPlayerAnimatable implements GeoAnimatable {
             RawAnimation animation;
             if (playerState.isTransforming(player.tickCount)) {
                 animation = RawAnimation.begin().thenPlay(base + "transform");
+            } else if (AlienFlight.shouldPlayFly(player, playerState.alienId())) {
+                animation = RawAnimation.begin().thenLoop(base + "fly");
             } else if (player.getDeltaMovement().horizontalDistanceSqr() > 0.0001) {
                 animation = RawAnimation.begin().thenLoop(base + "walk");
             } else {

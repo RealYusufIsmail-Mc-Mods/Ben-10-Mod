@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-13T18:31:33.845189	Tags for minecraft:item mod id bentenmod
+// 1.20.1	2026-10-14T23:41:17.956434	Tags for minecraft:item mod id bentenmod
 9ee6e9079e711cddbdaba599cc6539ceede75a3e data/forge/tags/items/ingots/black_diamond.json
 0559742cc6855d467ea42c935dc8d24097e02fc9 data/forge/tags/items/ingots/fire.json
 07a54f35234d52248296bc886ede841de40506c4 data/forge/tags/items/ingots/imperium.json
@@ -16,6 +16,7 @@ d08851005d3eddbd7250441c11e13a6ad5d8d1dc data/forge/tags/items/ores/fire.json
 d0ac051d8b779b1003c7f7ac464740be03c977cd data/forge/tags/items/ores/omnitrixs.json
 bb7dedc2810bad4544b74c4e4f0c7d195c5010f0 data/forge/tags/items/ores/rubys.json
 2ff0f24d56bc2e0c19b654ee1210da5fedfaaf0b data/forge/tags/items/ores/speeds.json
+427ff4870275bf38cfb82466f92b3e7346c875d7 data/forge/tags/items/ores/taydenite.json
 8051f63549412c89f0f77f4d08aafe44cc4533f7 data/forge/tags/items/scraps/black_diamond_scrap.json
 2287fb94ad078d07bb0fcb49f9534a4e96021d38 data/forge/tags/items/scraps/infinitum_scrap.json
 b3670a6755ea2339c4a70f8f5d2e16708e7ff1c3 data/forge/tags/items/scraps/raw_ore.json

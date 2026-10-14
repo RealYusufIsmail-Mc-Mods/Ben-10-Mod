@@ -42,6 +42,9 @@ import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxDroneRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.NullVoidPrisonerRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.NullGuardianRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.LepidopterranRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.PrisonWardenRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixDialScreen;
@@ -57,6 +60,7 @@ import net.minecraft.client.Minecraft;
 import io.github.realyusufismail.bentenmod.recipebook.RecipeCategoriesInit;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
@@ -248,6 +252,14 @@ public final class BenTenModForgeClient {
         event.registerEntityRenderer(EntityTypesInit.NULL_VOID_PRISONER.get(),
                 NullVoidPrisonerRenderer::new);
         event.registerEntityRenderer(EntityTypesInit.ZS_SKAYR_ENTITY.get(), ZsSkayrRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.NULL_GUARDIAN.get(),
+                NullGuardianRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.LEPIDOPTERAN.get(),
+                LepidopterranRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.PRISON_WARDEN.get(),
+                PrisonWardenRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.LEPIDOPTERAN_SLIME.get(),
+                ThrownItemRenderer::new);
     }
 
     @SubscribeEvent

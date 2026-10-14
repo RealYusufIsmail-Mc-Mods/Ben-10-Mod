@@ -1,0 +1,18 @@
+{
+  "pieces": {
+    "head": "bentenmod:plumber_helmet",
+    "chest": "bentenmod:plumber_chestplate",
+    "legs": "bentenmod:plumber_leggings",
+    "feet": "bentenmod:plumber_boots"
+  },
+  "abilities": [
+    {
+      "type": "bentenmod:effect",
+      "effect": "minecraft:resistance",
+      "amplifier": 0
+    },
+    {
+      "type": "bentenmod:no_fall_damage"
+    }
+  ]
+}

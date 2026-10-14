@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "bentenmod:block/prison_vault_front",
+    "side": "bentenmod:block/prison_vault_side",
+    "top": "bentenmod:block/prison_vault_top"
+  }
+}

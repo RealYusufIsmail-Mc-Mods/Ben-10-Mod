@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:plumber_badge",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:plumber_blaster",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:plumber_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:plumber_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:plumber_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:plumber_boots"
+        }
+      ],
+      "rolls": 2.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "bentenmod:taydenite"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "bentenmod:chests/plumber_outpost"
+}

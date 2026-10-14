@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "bentenmod:cell_key"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": 0.5,
+              "function": "minecraft:looting_enchant",
+              "limit": 2
+            }
+          ],
+          "name": "bentenmod:prisoner_cuffs"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "bentenmod:entities/prison_warden"
+}

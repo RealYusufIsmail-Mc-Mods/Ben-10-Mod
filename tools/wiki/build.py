@@ -50,6 +50,9 @@ ENTITY_LABELS = {
     "vilgax_drone": "Vilgax Drone",
     "zs_skayr": "Zs'Skayr",
     "null_void_prisoner": "Null Void Prisoner",
+    "null_guardian": "Null Guardian",
+    "lepidopterran": "Lepidopterran Scout",
+    "prison_warden": "Prison Warden",
 }
 
 BOSS_SOURCE = {
@@ -57,6 +60,9 @@ BOSS_SOURCE = {
     "vilgax": "entity/VilgaxEntity.java",
     "vilgax_drone": "entity/VilgaxDroneEntity.java",
     "zs_skayr": "entity/ZsSkayrEntity.java",
+    "null_guardian": "entity/NullGuardianEntity.java",
+    "lepidopterran": "entity/LepidopterranEntity.java",
+    "prison_warden": "entity/PrisonWardenEntity.java",
 }
 
 BOSS_ATTACKS = {
@@ -64,6 +70,9 @@ BOSS_ATTACKS = {
     "vilgax": "Vilgax uses melee attacks and a ground slam. At half health he enters phase two, gains speed and resistance, and calls in drones.",
     "vilgax_drone": "Drones fly after the player, dash toward nearby targets, and attack at close range.",
     "zs_skayr": "Zs'Skayr fires shadow bolts, summons Null Void Prisoners, and turns invisible briefly as he blinks.",
+    "null_guardian": "A neutral flyer uses a tractor beam to pull an attacker close, then strikes with its tentacles.",
+    "lepidopterran": "Fast scouts dive at targets and spit slime that slows them.",
+    "prison_warden": "The persistent prison boss swings a shock baton, slows its target, and summons prisoner reinforcements.",
 }
 
 
@@ -1032,6 +1041,12 @@ class WikiBuilder:
                 how = "Craft the Vilgax Beacon in the Omnitrix Crafter. Use it on top of a solid block in the Overworld."
             elif row["slug"] == "zs_skayr":
                 how = "Search the Null Void fortress. The fortress feature has a 1-in-400-chunks rarity filter."
+            elif row["slug"] == "null_guardian":
+                how = "Rare natural spawn in the Null Void. It stays neutral until it or a nearby guardian is attacked."
+            elif row["slug"] == "lepidopterran":
+                how = "Spawns in small groups among the Null Void islands."
+            elif row["slug"] == "prison_warden":
+                how = "One persistent warden guards each floating prison block; it always drops a Cell Key."
             else:
                 how = "Vilgax calls drones during phase two."
             cards.append(f'''<article class="boss-card" data-entity-id="{escaped(row['source_id'])}">
@@ -1069,11 +1084,14 @@ class WikiBuilder:
       <p>Defeat Vilgax for a Vilgax Core, then combine one Core and two Infinitum in the Omnitrix Crafter to make the Null Void Projector. Use the item to travel in or return to your saved entry point. {projector_recipe}.</p>
       <p>The Projector has {self.projector_durability} durability and repairs with Null Crystals. The current implementation consumes one durability each time it teleports.</p>
     </section>
-    <section class="content-section"><h2 class="section-heading">Islands and prisoners</h2>
-      <p data-entity-id="bentenmod:null_void_prisoner">The dimension uses floating-island terrain with Null Void Stone and no fluids. Null Void Prisoners spawn there. Their current entity loot table lists: {escaped(prisoner_drop_text)}</p>
+    <section class="content-section"><h2 class="section-heading">Islands and creatures</h2>
+      <p data-entity-id="bentenmod:null_void_prisoner">The dimension uses floating-island terrain with Null Void Stone and no fluids. Null Void Prisoners spawn there and join nearby fights. Their entity loot table lists: {escaped(prisoner_drop_text)} Null Guardians are rare and use a tractor beam; Lepidopterran scouts spawn in small groups and spit slowing slime.</p>
     </section>
-    <section class="content-section"><h2 class="section-heading">Null crystals and the fortress</h2>
-      <p>Null Crystal Ore generates in Null Void Stone. Null Crystals repair the Projector. {escaped(rarity)} The fortress contains loot chests and a persistent Zs'Skayr encounter.</p>
+    <section class="content-section"><h2 class="section-heading">Prison blocks and Plumber wrecks</h2>
+      <p data-entity-id="bentenmod:prison_warden">Floating prison blocks appear about once per 250 chunks. Cell spawners hold prisoners, and a persistent Prison Warden guards a keyed vault. Wrecked Plumber outposts appear about once per 300 chunks with badges, a blaster, suit pieces and Taydenite.</p>
+    </section>
+    <section class="content-section"><h2 class="section-heading">Crystals and the fortress</h2>
+      <p>Null Crystal Ore and rarer Taydenite Ore generate in Null Void Stone. Null Crystals repair the Projector, while Taydenite is used for Plumber gear and the glider. {escaped(rarity)} The fortress contains loot chests and a persistent Zs'Skayr encounter.</p>
       <p>Zs'Skayr drops Master Control. Use it while the Omnitrix is equipped to unlock every alien and remove timeout and recharge.</p>
     </section>
   </article>

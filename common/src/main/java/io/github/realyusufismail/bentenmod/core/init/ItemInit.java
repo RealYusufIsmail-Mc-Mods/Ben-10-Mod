@@ -39,6 +39,10 @@ import io.github.realyusufismail.bentenmod.core.item.VilgaxBeaconItem;
 import io.github.realyusufismail.bentenmod.core.item.MasterControlItem;
 import io.github.realyusufismail.bentenmod.core.item.NullVoidProjectorItem;
 import io.github.realyusufismail.bentenmod.core.item.OmnitrixGuideItem;
+import io.github.realyusufismail.bentenmod.core.item.NullVoidGliderItem;
+import io.github.realyusufismail.bentenmod.core.item.PlumberArmorMaterial;
+import io.github.realyusufismail.bentenmod.core.item.PlumberBadgeItem;
+import io.github.realyusufismail.bentenmod.core.item.PlumberBlasterItem;
 import io.github.realyusufismail.bentenmod.platform.Services;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
@@ -83,6 +87,31 @@ public class ItemInit {
             () -> new MasterControlItem(new Item.Properties().rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> OMNITRIX_GUIDE =
             ITEMS.register("omnitrix_guide", () -> new OmnitrixGuideItem(new Item.Properties()));
+    public static final RegistryObject<Item> TAYDENITE = ITEMS.register("taydenite",
+            () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> NULL_GUARDIAN_MEMBRANE =
+            register("null_guardian_membrane");
+    public static final RegistryObject<Item> PRISONER_CUFFS = register("prisoner_cuffs");
+    public static final RegistryObject<Item> CELL_KEY = register("cell_key");
+    public static final RegistryObject<Item> PLUMBER_BADGE =
+            ITEMS.register("plumber_badge", () -> new PlumberBadgeItem(new Item.Properties()));
+    public static final RegistryObject<Item> PLUMBER_BLASTER = ITEMS.register("plumber_blaster",
+            () -> new PlumberBlasterItem(new Item.Properties().durability(250)));
+    public static final RegistryObject<Item> NULL_VOID_GLIDER = ITEMS.register("null_void_glider",
+            () -> new NullVoidGliderItem(new Item.Properties().durability(360)));
+
+    public static final RegistryObject<Item> PLUMBER_HELMET =
+            ITEMS.register("plumber_helmet", () -> new ArmorItem(PlumberArmorMaterial.PLUMBER,
+                    ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> PLUMBER_CHESTPLATE =
+            ITEMS.register("plumber_chestplate", () -> new ArmorItem(PlumberArmorMaterial.PLUMBER,
+                    ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> PLUMBER_LEGGINGS =
+            ITEMS.register("plumber_leggings", () -> new ArmorItem(PlumberArmorMaterial.PLUMBER,
+                    ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> PLUMBER_BOOTS =
+            ITEMS.register("plumber_boots", () -> new ArmorItem(PlumberArmorMaterial.PLUMBER,
+                    ArmorItem.Type.BOOTS, new Item.Properties()));
 
     // tools
     public static final RegistryObject<SwordItem> SWORD =

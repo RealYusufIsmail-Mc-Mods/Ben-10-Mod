@@ -55,6 +55,38 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void livingNullVoidMobsHaveAttributes(GameTestHelper helper) {
+        GameTestChecks.livingNullVoidMobsHaveAttributes(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidLootTablesContainDrops(GameTestHelper helper) {
+        GameTestChecks.nullVoidLootTablesContainDrops(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void prisonVaultUsesKeyAndOpens(GameTestHelper helper) {
+        GameTestChecks.prisonVaultUsesKeyAndOpens(helper,
+                player(helper, "prisonVaultUsesKeyAndOpens"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidGliderSlowsFalling(GameTestHelper helper) {
+        GameTestChecks.nullVoidGliderSlowsFalling(helper,
+                player(helper, "nullVoidGliderSlowsFalling"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void plumberBlasterRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.plumberBlasterRecipeLoads(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE, timeoutTicks = 500)
+    public void prisonWardenRespectsPrisonerCap(GameTestHelper helper) {
+        GameTestChecks.prisonWardenRespectsPrisonerCap(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void vilgaxSwitchesPhaseAtHalfHealth(GameTestHelper helper) {
         GameTestChecks.vilgaxSwitchesPhaseAtHalfHealth(helper);
     }

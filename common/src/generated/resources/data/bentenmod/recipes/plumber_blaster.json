@@ -1,0 +1,23 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "tools",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "bentenmod:taydenite"
+    }
+  },
+  "pattern": [
+    " TI",
+    "III",
+    "S  "
+  ],
+  "result": {
+    "item": "bentenmod:plumber_blaster"
+  }
+}

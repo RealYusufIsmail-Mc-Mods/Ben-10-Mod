@@ -31,5 +31,45 @@ public class ModChestLootTables implements LootTableSubProvider {
                 .setRolls(ConstantValue.exactly(1))
                 .add(LootItem.lootTableItem(Items.GOLDEN_APPLE)
                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))));
+
+        output.accept(new ResourceLocation(BenTenMod.MOD_ID, "chests/prison_vault"), LootTable
+            .lootTable()
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.TAYDENITE.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.NULL_CRYSTAL.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F)))))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.INFINITUM.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_BOOTS.get()).setWeight(1)))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(Items.GOLDEN_APPLE)
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))));
+
+        output.accept(new ResourceLocation(BenTenMod.MOD_ID, "chests/plumber_outpost"), LootTable
+            .lootTable()
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(2))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_BADGE.get()).setWeight(2))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_BLASTER.get()).setWeight(2))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_HELMET.get()).setWeight(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_CHESTPLATE.get()).setWeight(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_LEGGINGS.get()).setWeight(1))
+                .add(LootItem.lootTableItem(ItemInit.PLUMBER_BOOTS.get()).setWeight(1)))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.TAYDENITE.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 4.0F))))));
     }
 }

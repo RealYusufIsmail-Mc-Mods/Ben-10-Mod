@@ -110,7 +110,7 @@ Why one: a dimension needs worldgen JSON, structures, mobs, a boss and a portal 
 
 ### 6. Balance pass (cheap once armour is data)
 
-After step 2, armour effects live in `data/bentenmod/armor_sets/*.json`. Applied 2026-10-14: XLR8 Speed III (was XLVI), Four Arms Strength II + Jump Boost II (was Strength IX), Heatblast fire resistance + flight + no fall damage, Legendary Strength I + Resistance II, Jacket Resistance I. Regeneration is gone from every set.
+After step 2, armour effects live in `data/bentenmod/armor_sets/*.json`. Applied 2026-10-14: XLR8 Speed III (was XLVI), Four Arms Strength II + Jump Boost II (was Strength IX), Heatblast fire resistance + flight + no fall damage, Legendary Strength I + Resistance II, Jacket Resistance I. Regeneration is gone from every set. Base armour and tool stats now follow the ore ladder (iron, diamond and netherite anchors in the material enums).
 
 ## Suggested order
 

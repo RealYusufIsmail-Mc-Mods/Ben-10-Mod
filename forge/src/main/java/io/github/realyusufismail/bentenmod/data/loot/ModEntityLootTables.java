@@ -35,6 +35,7 @@ package io.github.realyusufismail.bentenmod.data.loot;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
+import net.minecraft.world.item.Items;
 import net.minecraft.data.loot.EntityLootSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlags;
@@ -42,6 +43,8 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -69,7 +72,37 @@ public class ModEntityLootTables extends EntityLootSubProvider {
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(ItemInit.VILGAX_CORE.get()))));
         add(EntityTypesInit.VILGAX_DRONE_ENTITY.get(), LootTable.lootTable());
-        add(EntityTypesInit.NULL_VOID_PRISONER.get(), LootTable.lootTable());
+        add(EntityTypesInit.NULL_VOID_PRISONER.get(), LootTable.lootTable()
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.PRISONER_CUFFS.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
+                    .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(0.5F))
+                        .setLimit(2)))));
+        add(EntityTypesInit.NULL_GUARDIAN.get(), LootTable.lootTable()
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.NULL_GUARDIAN_MEMBRANE.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))));
+        add(EntityTypesInit.LEPIDOPTERAN.get(), LootTable.lootTable()
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(Items.SLIME_BALL)
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 2.0F)))))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .when(LootItemRandomChanceCondition.randomChance(0.05F))
+                .add(LootItem.lootTableItem(ItemInit.TAYDENITE.get()))));
+        add(EntityTypesInit.PRISON_WARDEN.get(), LootTable.lootTable()
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.CELL_KEY.get())))
+            .withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(ItemInit.PRISONER_CUFFS.get())
+                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0.0F, 1.0F)))
+                    .apply(LootingEnchantFunction.lootingMultiplier(ConstantValue.exactly(0.5F))
+                        .setLimit(2)))));
         add(EntityTypesInit.ZS_SKAYR_ENTITY.get(),
                 LootTable.lootTable()
                     .withPool(LootPool.lootPool()

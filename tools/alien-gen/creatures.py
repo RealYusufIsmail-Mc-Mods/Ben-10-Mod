@@ -240,5 +240,192 @@ def null_void_prisoner():
     return m
 
 
+# ------------------------------------------------------------------ shared helpers for the 2.1 creatures
+def octa(m, bone, y, dy, h, c, mat, **kw):
+    """One octagonal slab: two overlapping boxes, half-width h, corners cut by c."""
+    m.box(bone, (-h, y, -(h - c)), (2 * h, dy, 2 * (h - c)), mat, **kw)
+    return m.box(bone, (-(h - c), y, -h), (2 * (h - c), dy, 2 * h), mat, **kw)
+
+
+def veined(color, vein, scale=0.5, seed=71):
+    """Translucent membrane: pale base crossed by darker veins (use with alpha < 1)."""
+    from engine import fbm
+    c, v = hexrgb(color), hexrgb(vein)
+
+    def mat(s):
+        n = fbm(s.P, scale, 3, seed)
+        ridge = np.clip(1 - np.abs(2 * n - 1) * 5.0, 0, 1)
+        rgb = c[None, :] * (1 - ridge[:, None] * 0.6) + v[None, :] * ridge[:, None] * 0.6
+        return rgb, np.zeros(len(s.P))
+    return mat
+
+
+def hazard(c1, c2, period=4.0, emissive=0.0):
+    """Diagonal hazard stripes for a face."""
+    a, b = hexrgb(c1), hexrgb(c2)
+
+    def painter(x, y, w, h):
+        k = (((x + y) % period) < period / 2).astype(float)[:, None]
+        return np.ones(len(x)), a * k + b * (1 - k), emissive
+    return painter
+
+
+# ------------------------------------------------------------------ Null Guardian (2.2 x 2.0 blocks, floating)
+def null_guardian():
+    m = Model("null_guardian", 256, 256)
+    navy = skin("1b2050", "0a0c24", "3a4496", 0.4, 201)
+    navy_d = skin("131740", "07081b", "283073", 0.4, 202)
+    rib = skin("2c3470", "151a42", "4f5bb4", 0.4, 203)
+    magenta = glow("ff2bd6", "ffc4f4")
+    # (x, z, bottom y): outer ring hangs shorter, the inner four reach the floor
+    spots = ((-13, 0, 4), (13, 0, 4), (0, -13, 2), (0, 13, 2), (-9.5, -9.5, 5), (9.5, -9.5, 5),
+             (-9.5, 9.5, 5), (9.5, 9.5, 5), (-4.5, -4.5, 0), (4.5, -4.5, 0), (-4.5, 4.5, 0), (4.5, 4.5, 0))
+    m.bone("body", (0, 20, 0))
+    for i, (x, z, _) in enumerate(spots):
+        m.bone(f"tentacle_{i}", (x, 20, z), "body")
+    # ribbed, domed bell: stacked octagonal slabs narrowing upward, a glowing magenta rim underneath
+    octa(m, "body", 20.0, 1.2, 17.0, 5.0, magenta, ao=False)
+    layers = ((21.2, 2.8, 16.4, 5.0), (24.0, 2.4, 15.4, 5.0), (26.4, 2.2, 13.6, 5.0),
+              (28.6, 1.8, 11.0, 4.5), (30.4, 1.2, 7.8, 3.5), (31.6, 0.8, 4.4, 2.0))
+    for y, dy, h, c in layers:
+        octa(m, "body", y, dy, h, c, navy if h > 5 else navy_d)
+    m.box("body", (-13, 19.4, -13), (26, 0.7, 26), magenta, ao=False)  # glowing underside
+    for t in (-8.0, 8.0):  # ribs on all four sides, one set per slab
+        for y, dy, h, c in layers[:4]:
+            if abs(t) > h - c:
+                continue
+            for z in (-h - 0.5, h - 0.1):
+                m.box("body", (t - 0.6, y, z), (1.2, dy, 0.6), rib)
+            for x in (-h - 0.5, h - 0.1):
+                m.box("body", (x, y, t - 0.6), (0.6, dy, 1.2), rib)
+    # the single red eye
+    socket = m.box("body", (-4.4, 21.7, -17.1), (8.8, 2.9, 0.8), flat("06070f", 0.02))
+    m.decal(on(socket, "north", ring_eye("ff1a1a", "ffc0b0")))
+    # long dangling tentacles: tapering segments with a glowing vein and tip
+    for i, (x, z, bot) in enumerate(spots):
+        b = f"tentacle_{i}"
+        n = 20.0 - bot
+        w = 3.2 if bot < 3 else 2.8
+        up = m.box(b, (x - w / 2, 20.0 - n * 0.38, z - w / 2), (w, n * 0.38, w), navy_d)
+        for f in ("north", "south", "east", "west"):
+            m.decal(on(up, f, stripe("ff2bd6", w / 2 - 0.5, w / 2 + 0.5, 0.9)))
+        m.box(b, (x - w * 0.36, 20.0 - n * 0.7, z - w * 0.36), (w * 0.72, n * 0.32, w * 0.72), navy_d)
+        m.box(b, (x - w * 0.24, bot + 1.3, z - w * 0.24), (w * 0.48, n * 0.3 - 1.3, w * 0.48), navy_d)
+        m.box(b, (x - 0.8, bot, z - 0.8), (1.6, 1.4, 1.6), magenta, ao=False)
+    return m
+
+
+# ------------------------------------------------------------------ Lepidopterran scout (1.0 x 1.2 blocks)
+def lepidopterran():
+    m = Model("lepidopterran", 128, 128)
+    green = skin("6fae2c", "3d6a17", "a8d85a", 0.5, 211)
+    yellow = skin("dccf34", "9a8c1c", "f4ea7c", 0.55, 212)
+    dark = flat("1d2112", 0.05)
+    wing = veined("e2f6da", "4f8a38")
+    amber, amber_hot = "ffb81a", "fff2a8"
+    for b, piv, par in (("body", (0, 8, 0), "root"), ("head", (0, 12.4, -2.2), "body"),
+                        ("tail", (0, 7.6, 2.4), "body"),
+                        ("right_wing", (1.6, 11.0, 2.5), "body"), ("left_wing", (-1.6, 11.0, 2.5), "body"),
+                        ("right_arm", (3.0, 11.4, -1.6), "body"), ("left_arm", (-3.0, 11.4, -1.6), "body"),
+                        ("right_leg", (1.4, 5.0, 0.0), "root"), ("left_leg", (-1.4, 5.0, 0.0), "root")):
+        m.bone(b, piv, par)
+    # thorax with a yellow belly band
+    m.box("body", (-3.0, 5.2, -2.4), (6.0, 7.2, 4.8), green)
+    m.box("body", (-2.4, 5.2, -2.9), (4.8, 6.0, 0.7), yellow)
+    m.box("body", (-3.3, 9.6, -2.1), (6.6, 1.2, 4.2), yellow)
+    # segmented abdomen curling back into a stinger
+    m.box("tail", (-2.4, 4.8, 2.0), (4.8, 4.8, 4.0), yellow)
+    m.box("tail", (-2.0, 5.2, 5.8), (4.0, 4.0, 3.4), green)
+    m.box("tail", (-1.4, 6.0, 9.0), (2.8, 2.8, 2.8), yellow)
+    m.box("tail", (-0.6, 6.8, 11.6), (1.2, 1.2, 3.0), dark)
+    m.box("tail", (-0.5, 7.0, 14.4), (1.0, 1.0, 1.6), glow("ff4a1a", "ffd0a0"), ao=False)
+    # head: broad skull, mandibles, four eyestalks with glowing orbs
+    m.box("head", (-2.6, 12.0, -6.0), (5.2, 4.6, 4.8), green)
+    m.box("head", (-1.9, 11.5, -6.9), (3.8, 1.0, 1.0), dark)
+    for x, h, z in ((1.0, 2.2, -5.0), (-2.0, 2.2, -5.0), (2.4, 1.4, -4.4), (-3.4, 1.4, -4.4)):
+        m.box("head", (x, 16.6, z), (1.0, h, 1.0), green)
+        m.box("head", (x - 0.5, 16.6 + h, z - 0.5), (2.0, 2.0, 2.0), glow(amber, amber_hot), ao=False)
+    m.box("head", (-1.6, 14.4, -6.15), (3.2, 0.9, 0.3), dark)  # brow shadow
+    # forelimbs and legs
+    for b, sgn in (("right_arm", 1), ("left_arm", -1)):
+        x = 2.4 if sgn > 0 else -3.4
+        m.box(b, (x, 6.2, -2.0), (1.0, 5.4, 1.0), dark)
+        m.box(b, (x - 0.3, 5.4, -2.6), (1.6, 1.2, 1.8), green)
+    for b, sgn in (("right_leg", 1), ("left_leg", -1)):
+        x = 0.9 if sgn > 0 else -1.9
+        m.box(b, (x, 0.9, -0.5), (1.0, 4.3, 1.0), dark)
+        m.box(b, (x - 0.3, 0.0, -1.4), (1.6, 1.0, 2.4), green)
+    # translucent wings: upright sheets behind the thorax (a big upper and a small lower pair), flapped about Y
+    for b, sgn in (("right_wing", 1), ("left_wing", -1)):
+        for x0, w, y0, h, z in ((1.6, 11.0, 9.8, 8.8, 2.4), (3.0, 7.6, 5.6, 5.0, 2.8)):
+            m.box(b, (x0 if sgn > 0 else -x0 - w, y0, z), (w, h, 0.3), wing, alpha=0.6, ao=False)
+    return m
+
+
+# ------------------------------------------------------------------ Prison warden (1.3 x 2.8 blocks)
+def prison_warden():
+    m = Model("prison_warden", 256, 256)
+    grey = metal("6b707b", 0.9, 221)
+    grey_d = metal("454952", 0.9, 222)
+    dark = metal("1f2127", 0.8, 223)
+    orange = metal("e0701a", 0.9, 224)
+    orange_d = metal("a8500e", 0.9, 225)
+    for b, piv, par in (("body", (0, 17, 0), "root"), ("head", (0, 36, 0), "body"),
+                        ("right_arm", (10.4, 34, 0), "body"), ("left_arm", (-10.4, 34, 0), "body"),
+                        ("right_leg", (4.4, 17, 0), "root"), ("left_leg", (-4.4, 17, 0), "root")):
+        m.bone(b, piv, par)
+    # legs: grey thigh, orange shin plate, dark boot
+    m.sym("right_leg", "left_leg", (0.4, 9.5, -3.6), (7.2, 7.8, 7.2), grey)
+    m.sym("right_leg", "left_leg", (0.2, 9.0, -4.4), (7.6, 1.2, 8.8), dark)
+    m.sym("right_leg", "left_leg", (0.2, 3.6, -4.2), (7.6, 5.6, 8.4), orange)
+    m.sym("right_leg", "left_leg", (0.8, 5.0, -4.9), (6.0, 3.0, 0.8), orange_d)  # shin guard
+    m.sym("right_leg", "left_leg", (-0.2, 0.0, -6.0), (8.4, 3.8, 11.2), dark)
+    # hips and belt with hazard stripes
+    m.box("body", (-7.6, 15.0, -4.6), (15.2, 3.0, 9.2), dark)
+    belt = m.box("body", (-8.0, 17.8, -5.2), (16.0, 3.0, 10.4), orange_d)
+    m.decal(on(belt, "north", hazard("e0701a", "1f2127")))
+    m.decal(on(belt, "south", hazard("e0701a", "1f2127")))
+    # torso: grey chest block, orange chest plate with the cell number
+    m.box("body", (-7.4, 20.6, -4.4), (14.8, 14.6, 8.8), grey)
+    m.box("body", (-8.4, 28.0, -5.2), (16.8, 7.4, 10.4), grey_d)  # upper chest
+    plate = m.box("body", (-6.6, 22.2, -5.5), (13.2, 9.4, 1.0), orange)
+    m.decal(on(plate, "north", stripe("1f2127", 0.0, 0.8)))
+    m.decal(on(plate, "north", stripe("1f2127", 12.4, 13.2)))
+    for k, y in enumerate((2.0, 4.0, 6.0)):  # row of rivets-turned-bars
+        m.decal(on(plate, "north", lambda x, yy, w, h, y=y: (
+            soft(np.maximum(np.abs(x - w / 2) - 3.4, np.abs(yy - y) - 0.4), 0.12), hexrgb("1f2127"), 0.0)))
+    m.box("body", (-3.0, 23.0, -5.8), (6.0, 1.2, 0.5), glow("ff2a1a", "ffc0b0"), ao=False)  # status bar
+    # power pack on the back with orange vents
+    m.box("body", (-5.6, 22.0, 4.4), (11.2, 11.0, 4.0), dark)
+    for y in (24.0, 27.0, 30.0):
+        m.box("body", (-4.4, y, 8.2), (8.8, 1.0, 0.4), glow("ff8a1a", "ffe0a0"), ao=False)
+    # head: grey helmet, dark visor with a red glowing slit, orange crown light
+    m.box("head", (-3.0, 34.6, -3.0), (6.0, 2.2, 6.0), dark)  # neck
+    m.box("head", (-5.2, 36.0, -5.0), (10.4, 7.6, 10.0), grey)
+    m.box("head", (-5.6, 43.0, -5.4), (11.2, 1.8, 10.8), orange)  # crown band
+    m.box("head", (-1.0, 44.8, -2.4), (2.0, 1.6, 4.8), orange_d)
+    m.box("head", (-0.5, 46.4, -0.5), (1.0, 1.2, 1.0), glow("ff2a1a", "ffc0b0"), ao=False)  # beacon
+    m.box("head", (-4.6, 38.6, -5.5), (9.2, 3.6, 0.8), flat("0b0c10", 0.02))  # visor housing
+    m.box("head", (-4.1, 39.6, -5.9), (8.2, 1.4, 0.4), glow("ff2a1a", "ffc0b0"), ao=False)  # glowing visor
+    m.box("head", (-3.0, 36.4, -5.4), (6.0, 1.6, 0.5), grey_d)  # chin vent
+    # arms: orange shoulder pad, grey upper arm, orange bracer, dark fist
+    for b, sgn in (("right_arm", 1), ("left_arm", -1)):
+        x = 8.0 if sgn > 0 else -12.4
+        m.box(b, (x - 0.4 * sgn, 33.2, -5.4), (4.8, 4.4, 10.8), orange)
+        m.box(b, (x + (0.2 if sgn > 0 else 0.0), 37.6, -4.4), (4.4, 0.9, 8.8), orange_d)
+        m.box(b, (x + 0.2, 25.0, -3.4), (4.4, 8.4, 6.8), grey)
+        m.box(b, (x - 0.2, 17.6, -4.0), (5.2, 7.6, 8.0), orange)
+        m.box(b, (x - 0.2, 20.2, -4.2), (5.2, 1.2, 8.4), dark)
+        m.box(b, (x + 0.2, 13.4, -3.4), (4.4, 4.2, 6.8), dark)  # fist
+    # shock baton in the right fist, pointing forward
+    m.box("right_arm", (8.8, 14.6, -14.8), (2.2, 2.2, 12.0), grey_d)  # shaft
+    for z in (-13.0, -10.0):
+        m.box("right_arm", (8.5, 14.3, z), (2.8, 2.8, 1.0), orange)
+    m.box("right_arm", (8.4, 14.2, -19.4), (3.0, 3.0, 5.0), orange)  # head
+    m.box("right_arm", (8.9, 14.7, -21.4), (2.0, 2.0, 2.2), glow("6ae0ff", "e8fbff"), ao=False)  # shock tip
+    return m
+
+
 CREATURES = {"vilgax": vilgax, "vilgax_drone": vilgax_drone, "zs_skayr": zs_skayr,
-             "null_void_prisoner": null_void_prisoner}
+             "null_void_prisoner": null_void_prisoner, "null_guardian": null_guardian,
+             "lepidopterran": lepidopterran, "prison_warden": prison_warden}

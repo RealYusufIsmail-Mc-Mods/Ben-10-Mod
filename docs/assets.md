@@ -17,6 +17,7 @@ python3 -m pip install -r tools/alien-gen/requirements.txt
 | `python3 tools/alien-gen/gui_base.py` | `textures/gui/omnitrix.png` (dial and selection frame, icon rows empty), `textures/misc/omnitrix_flash.png` |
 | `python3 tools/alien-gen/dial.py` | `textures/gui/omnitrix_wheel.png`: the turning bezel (left half) and hourglass core (right half) of the wheel dial |
 | `python3 tools/alien-gen/export.py` | all `geo/`, `animations/`, alien and Omnitrix textures, and the hologram icon rows in `gui/omnitrix.png` |
+| `python3 tools/alien-gen/export.py --animations-only [ids]` | only `animations/<id>.animation.json` for the given aliens (no baking, seconds); use after editing `animations()` or `fly_animation()` in `export.py` |
 | `python3 tools/alien-gen/preview.py [ids]` | studio renders and `sheet.png` in `tools/alien-gen/out/` (gitignored) |
 | `python3 tools/alien-gen/gif.py [ids]` | Ben-to-alien transformation clip in `tools/alien-gen/out/` |
 
@@ -34,20 +35,21 @@ Run `gui_base.py` before `export.py` if the dial PNG doesn't exist yet. `export.
 
 - Units are model pixels (16 = one block). `+Y` is up, and the model faces north (`-Z`). The model's right side is `+X`.
 - Bone names that the generic animations understand: `root`, `body`, `head`, `right_arm`, `left_arm`, `right_leg`, `left_leg`, `right_arm_lower`, `left_arm_lower`, `tail`, `right_wing`, `left_wing`. Quadrupeds use `*_arm` for front legs.
+- Heatblast, Stinkfly and Ghostfreak also get a looping `animation.<id>.fly` (`fly_animation()` in `export.py`). The client plays it instead of idle/walk while the transformed player is flying (`AlienFlight`), and Heatblast leaves a flame trail (`AlienFlightEffects`). Rotation signs follow the Bedrock convention: positive X leans a bone's top forward; the previews' renderer shows the opposite, so negate X when posing a bone by hand. Every channel of a looping clip must span the clip's whole length; use `cycles()` for fast repeats.
 - Every alien gets `animation.<id>.idle`, `.walk`, `.transform` and `.attack` (a 0.3 s non-looping swing played while the player's arm swings). The Omnitrix gets `activate` and `deactivate` (the dial pops up and turns).
 - Use `chest_omnitrix(...)` or the `omnitrix_symbol()` decal so every alien shows the Omnitrix.
 
 ## Bosses, mobs and boss-progression items
 
-Vilgax, the Vilgax drone, Zs'Skayr and the Null Void prisoner use the same engine. Their models are in `tools/alien-gen/creatures.py` (`CREATURES`), their animations in `tools/alien-gen/export_creatures.py`. Paths and animation names follow the asset contract: `geo/entity/<id>.geo.json`, `animations/entity/<id>.animation.json`, `textures/entity/<id>.png` and `<id>_glowmask.png`. The aliens and Omnitrix files are never touched by this exporter.
+Vilgax, the Vilgax drone, Zs'Skayr, the Null Void prisoner and the 2.1 Null Void mobs (Null Guardian, Lepidopterran scout, prison warden) use the same engine. Their models are in `tools/alien-gen/creatures.py` (`CREATURES`), their animations in `tools/alien-gen/export_creatures.py`. Paths and animation names follow the asset contract: `geo/entity/<id>.geo.json`, `animations/entity/<id>.animation.json`, `textures/entity/<id>.png` and `<id>_glowmask.png`. The aliens and Omnitrix files are never touched by this exporter.
 
 | Command | Writes |
 |---|---|
-| `python3 tools/alien-gen/export_creatures.py` | the four creatures' geo, animations, textures and glow masks (about 2 minutes) |
+| `python3 tools/alien-gen/export_creatures.py [ids]` | the creatures' geo, animations, textures and glow masks (about 3 minutes for all seven; pass ids to export only those) |
 | `python3 tools/alien-gen/preview_creatures.py [ids]` | front and 3/4 renders next to a 32 px Ben for scale, plus `creatures_sheet.png`, in `tools/alien-gen/out/` |
-| `python3 tools/boss-assets/generate.py` | 16x16 item textures (`kraab_claw`, `vilgax_core`, `vilgax_beacon`, `null_void_projector`, `null_crystal`, `master_control`), block textures (`null_void_stone`, `null_void_stone_bricks`, `null_crystal_ore`) and `tools/boss-assets/out/sheet.png` (gitignored; items on a checker, every tile repeated 3x3 to check seams) |
+| `python3 tools/boss-assets/generate.py` | 16x16 item textures (`kraab_claw`, `vilgax_core`, `vilgax_beacon`, `null_void_projector`, `null_crystal`, `master_control`, and for 2.1 `taydenite`, `null_guardian_membrane`, `prisoner_cuffs`, `cell_key`, `plumber_badge`, `plumber_blaster`, `null_void_glider`, `plumber_helmet`/`chestplate`/`leggings`/`boots`), block textures (`null_void_stone`, `null_void_stone_bricks`, `null_crystal_ore`, and `taydenite_ore`, `taydenite_block`, `prison_wall`, `prison_vault_front`/`side`/`top`, `plumber_hull`), the 64x32 Plumber armour layers `textures/models/armor/plumber_layer_1.png` and `plumber_layer_2.png`, and in `tools/boss-assets/out/` (gitignored) `sheet.png` (tiles on a checker, every tile repeated 3x3 to check seams), `sheet_actual_size.png` (1x and 2x on an inventory grey) and `armor.png` (the two layers at 8x) |
 
-Scale: a player is 32 px tall; Vilgax is about 54 px, Zs'Skayr 48 px, the prisoner 32 px, the drone about 12 px. Looping animations are `idle`, `walk`, `fly`; `attack` (0.5 s) and `summon` (1.5 s) play once. Zs'Skayr's pale parts are opaque, not translucent, so no translucent render type is needed.
+Scale: a player is 32 px tall; Vilgax is about 54 px, Zs'Skayr 48 px, the prisoner 32 px, the drone about 12 px, the Null Guardian 32 px (35 wide), the Lepidopterran about 21 px, the prison warden about 47 px. The guardian's bones are `body` and `tentacle_0`..`tentacle_11`; the Lepidopterran's wings are upright sheets flapped about Y. Looping animations are `idle`, `walk`, `fly`; `attack` (0.5 s) and `summon` (1.5 s) play once. Zs'Skayr's pale parts are opaque, not translucent, so no translucent render type is needed.
 
 ## Not yet verified in game
 

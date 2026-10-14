@@ -33,11 +33,14 @@
 package io.github.realyusufismail.bentenmod.data.client;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
+import io.github.realyusufismail.bentenmod.core.blocks.PrisonVaultBlock;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.core.Direction;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -85,6 +88,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         normalBlock(BlockInit.NULL_VOID_STONE.get());
         normalBlock(BlockInit.NULL_VOID_STONE_BRICKS.get());
         normalBlock(BlockInit.NULL_CRYSTAL_ORE.get());
+        normalBlock(BlockInit.TAYDENITE_ORE.get());
+        normalBlock(BlockInit.TAYDENITE_BLOCK.get());
+        normalBlock(BlockInit.PRISON_WALL.get());
+        normalBlock(BlockInit.PLUMBER_HULL.get());
+        prisonVault();
         omnitrixBlock();
         infinitumOre();
     }
@@ -126,6 +134,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         this.simpleBlockItem(BlockInit.INFINITUM_ORE.get(), builder);
         this.simpleBlock(BlockInit.INFINITUM_ORE.get(), builder);
+    }
+
+    private void prisonVault() {
+        BlockModelBuilder locked = this.models()
+            .withExistingParent("prison_vault", mcLoc("block/orientable"))
+            .texture("front", modLoc("block/prison_vault_front"))
+            .texture("side", modLoc("block/prison_vault_side"))
+            .texture("top", modLoc("block/prison_vault_top"));
+        BlockModelBuilder opened = this.models()
+            .withExistingParent("prison_vault_open", mcLoc("block/orientable"))
+            .texture("front", mcLoc("block/iron_block"))
+            .texture("side", modLoc("block/prison_vault_side"))
+            .texture("top", modLoc("block/prison_vault_top"));
+
+        this.getVariantBuilder(BlockInit.PRISON_VAULT.get()).forAllStates(state -> {
+            Direction facing = state.getValue(PrisonVaultBlock.FACING);
+            BlockModelBuilder model = state.getValue(PrisonVaultBlock.OPEN) ? opened : locked;
+            return ConfiguredModel.builder()
+                .modelFile(model)
+                .rotationY((int) facing.toYRot())
+                .build();
+        });
+        this.simpleBlockItem(BlockInit.PRISON_VAULT.get(), locked);
     }
 
     public void normalBlock(Block block) {

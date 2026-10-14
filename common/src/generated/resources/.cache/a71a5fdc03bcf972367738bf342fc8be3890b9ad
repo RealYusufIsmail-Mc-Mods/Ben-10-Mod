@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T22:12:15.281034	Item Models: bentenmod
+// 1.20.1	2026-10-14T23:41:17.955559	Item Models: bentenmod
 28a0aa00149acfbb2e0427267cd325dc8f8b34ce assets/bentenmod/models/item/axe.json
 e1374325b4dd1ef3765d0b62a69cc7dcb64c7245 assets/bentenmod/models/item/black_diamond.json
 4edc58fc2d6525b016e3fa31fd7f5adfbc78edfe assets/bentenmod/models/item/black_diamond_axe.json
@@ -13,6 +13,7 @@ a6b755270ecfd3caaec1fff86d52cc58479d8dc4 assets/bentenmod/models/item/black_diam
 75fa6b7b116356762599d767d0b6203f8b065dce assets/bentenmod/models/item/black_diamond_shovel.json
 d5963d4198925c99c904e1fe8209b12cd1b74976 assets/bentenmod/models/item/black_diamond_sword.json
 c0c870c08cf8bdbb847795cb70c24df3a984413f assets/bentenmod/models/item/boots.json
+c2868d5b99b02bb5e13390e9e063a0e3a11ae4d1 assets/bentenmod/models/item/cell_key.json
 30bd0fb30d16fe59814f1925b7282d60fa47217f assets/bentenmod/models/item/chestplate.json
 9f8d95a35e5c7db116881d83f77d3c73341eabff assets/bentenmod/models/item/crab_spawn_egg.json
 6ec6cbde9f7d1675e78077b423619536ac58f62a assets/bentenmod/models/item/enchanted_omnitrix_apple.json
@@ -51,12 +52,21 @@ c945c99a7295a9eedfeeaa0397be5857ee56a334 assets/bentenmod/models/item/infinitum_
 e08271c734184af7186504ea11eef4e5190ea1ea assets/bentenmod/models/item/leggings.json
 f094dd3f735bd48b6c9bbe443049d4cec6268fbc assets/bentenmod/models/item/master_control.json
 3ba22bc2be0a745eab5a4af703b3aac9a91b6bb6 assets/bentenmod/models/item/null_crystal.json
+d35c034a7a92ced0e4b0e9cde14c909b3c035d41 assets/bentenmod/models/item/null_guardian_membrane.json
+6620c3b1a20e51bdd54d97f22b8d250ea6cd0c95 assets/bentenmod/models/item/null_void_glider.json
 299e631ce97f85c22abed7b73bd7abea733d2f0a assets/bentenmod/models/item/null_void_projector.json
 03b5f05edfa8e48246ba874f3e83e51ac4d5e2c0 assets/bentenmod/models/item/omnitrix.json
 23337affc9718db607d05bfe2112947e594df621 assets/bentenmod/models/item/omnitrix_apple.json
 e95c6e0851be902ebe8c957694613f13f4d67a53 assets/bentenmod/models/item/omnitrix_core.json
 3978b349b18ba59139b782be2837730cdd1b4614 assets/bentenmod/models/item/omnitrix_guide.json
 e0f7b66a84e6588f01abbbce75b1803ffe5d46e2 assets/bentenmod/models/item/omnitrix_watch.json
+09ecbc9e78dcf3be9bca22f355d723147ff6cc1e assets/bentenmod/models/item/plumber_badge.json
+3ee4da3c3a8bb0a1d53404ee33a389582a7df87d assets/bentenmod/models/item/plumber_blaster.json
+bb83b3a72eaf45a2dd1d2f8c39f44b93312db30a assets/bentenmod/models/item/plumber_boots.json
+ddb54ac91d4776a643ad79ddc2e1f5709a7936b1 assets/bentenmod/models/item/plumber_chestplate.json
+8fb6886d258fe95ee82b397388125a3ebbe05515 assets/bentenmod/models/item/plumber_helmet.json
+0136f5db41b934ad5e2dc684e0cb81ff241db01a assets/bentenmod/models/item/plumber_leggings.json
+788f866bc630e6df8e32780a968ded5b8eeac1a9 assets/bentenmod/models/item/prisoner_cuffs.json
 efedca6e584ab9c86db9199db9c64d4b5e793ef5 assets/bentenmod/models/item/raw_imperium.json
 0f9bd03c220a901c01ae72c45a68670f1e219847 assets/bentenmod/models/item/raw_legendary.json
 9261c5c689d350f705296378e7625c772338904e assets/bentenmod/models/item/raw_omnitrix.json
@@ -64,6 +74,7 @@ efedca6e584ab9c86db9199db9c64d4b5e793ef5 assets/bentenmod/models/item/raw_imperi
 2c08774a9077cec3ce45a5f698659039bbbe35c0 assets/bentenmod/models/item/ruby_apple.json
 c89274d6eb7cb783e8fdcfcf73436b0d18db80e3 assets/bentenmod/models/item/speed.json
 a9012e5e8bf9169647dd9cf9d31fa0e48be26d52 assets/bentenmod/models/item/sword.json
+29472a1b3d3440cc0cdc7f8382e7f75f53de91ec assets/bentenmod/models/item/taydenite.json
 5b0cabb84f53a289c965cb7cbeb9da5c2e552577 assets/bentenmod/models/item/vilgax_beacon.json
 5a22087255b11538d7ae04084c3f1b85deb1a97c assets/bentenmod/models/item/vilgax_core.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/bentenmod/models/item/vilgax_drone_spawn_egg.json
