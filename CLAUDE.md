@@ -80,6 +80,8 @@ Assets are generated, not hand-drawn. See [docs/assets.md](docs/assets.md) and t
 - Model routing for this repo: Opus does the Minecraft modding itself (design, ports, hard code). Sonnet subagents apply bulk or mechanical edits. Haiku scouts and checks; Codex GPT-6 Luna max handles large detached jobs only when asked.
 - One agent edits the checkout at a time.
 - Don't commit or push unless asked.
+- Stick to the roadmap: build what `docs/design/roadmap.md` lists for the version in progress. New ideas go into a roadmap row (usually a later version), not the current release. Bugs the user finds in playtests are fixed in the version in progress.
+- Releases follow [docs/releasing.md](docs/releasing.md). Updating the wiki and roadmap is part of every release: mark the version `Released <date>`, mark the next one `In progress`, rebuild and check the wiki, and confirm the live roadmap afterwards. Any PR that changes a version's scope also updates its roadmap row.
 
 ## Skills
 

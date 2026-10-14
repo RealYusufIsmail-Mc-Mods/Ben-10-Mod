@@ -2,7 +2,7 @@
 
 [![CurseForge downloads](http://cf.way2muchnoise.eu/459985.svg)](https://www.curseforge.com/minecraft/mc-mods/ben-ten-mod)
 [![Minecraft versions](http://cf.way2muchnoise.eu/versions/459985.svg)](https://www.curseforge.com/minecraft/mc-mods/ben-ten-mod)
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-green.svg)](LICENSE.txt)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE.txt)
 
 ![Ben 10 Mod](docs/images/banner.png)
 
@@ -66,4 +66,4 @@ plan is in [docs/design/roadmap.md](docs/design/roadmap.md).
 Pull requests are welcome. [CLAUDE.md](CLAUDE.md) explains the layout and how to build and test, and
 [docs/multiloader.md](docs/multiloader.md) shows how to add content that works on both loaders.
 
-Copyright 2021-2026 Yusuf Ismail. BSD 3-Clause License.
+Copyright 2026 Yusuf Ismail. Licensed under the Apache License 2.0.

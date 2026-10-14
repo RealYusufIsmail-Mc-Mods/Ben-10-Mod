@@ -881,6 +881,33 @@ kbd {
   font-weight: 850;
 }
 
+.roadmap-status {
+  display: inline-flex;
+  margin-bottom: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(242, 206, 106, 0.45);
+  border-radius: 999px;
+  color: var(--warning);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.roadmap-status.released {
+  border-color: rgba(57, 255, 104, 0.6);
+  background: rgba(57, 255, 104, 0.12);
+  color: var(--green);
+}
+
+.roadmap-status.in-progress {
+  border-color: rgba(120, 200, 255, 0.55);
+  background: rgba(120, 200, 255, 0.1);
+  color: #9fd8ff;
+}
+
+.roadmap-row.released .roadmap-version {
+  text-shadow: 0 0 12px rgba(57, 255, 104, 0.6);
+}
+
 .roadmap-list {
   display: grid;
   gap: 0.75rem;
