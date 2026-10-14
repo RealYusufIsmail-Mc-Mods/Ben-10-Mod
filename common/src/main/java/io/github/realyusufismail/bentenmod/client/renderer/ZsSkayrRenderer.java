@@ -10,8 +10,8 @@ import software.bernie.geckolib.renderer.layer.AutoGlowingGeoLayer;
 
 public class ZsSkayrRenderer extends GeoEntityRenderer<ZsSkayrEntity> {
     public ZsSkayrRenderer(EntityRendererProvider.Context context) {
-        super(context, new DefaultedEntityGeoModel<>(
-                new ResourceLocation(BenTenMod.MOD_ID, "entity/zs_skayr")));
+        super(context,
+                new DefaultedEntityGeoModel<>(new ResourceLocation(BenTenMod.MOD_ID, "zs_skayr")));
         addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 }

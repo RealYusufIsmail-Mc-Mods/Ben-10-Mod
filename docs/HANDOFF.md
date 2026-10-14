@@ -5,12 +5,29 @@ Read this first when you start, resume, or come back from a context compaction. 
 ## Current state (2026-10-14)
 
 - **Branch:** `t3/next-steps-left` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`, based at `0e88dfee` on `origin/1.20.1`). Steps 6 and 7 are committed and a PR against `1.20.1` is open (see the newest Done entry).
-- **PRs:** #88 and #89 merged into `main`; #90, #91 and #92 merged into `1.20.1`.
+- **PRs:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 (2.0.0 release prep) open.
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
-- **Tests:** `:forge:runData`, `./gradlew build`, Forge GameTests 37/37 and Fabric GameTests 35/35 pass (2026-10-14).
+- **Release 2.0.0:** version bumped; QA round 1 and the release prep are verified (`runData`, `build`, Forge 45/45, Fabric 43/43, 2026-10-14) and in PR #96 (PR #93 merged). Upload waits for the user's go and their in-game check. `publishCurseForge` reads `CURSEFORGE_TOKEN` (set in the user's `~/.zshenv`, so run it through `zsh -c`) and uploads only the newest `CHANGELOG.md` section.
 - **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
 
 ## Done (newest first)
+
+### 2026-10-14: Release prep for 2.0.0
+- Fixed: dying while transformed kept the alien form (`OmnitrixService.onRespawn`, called from both loaders' respawn events; returning from the End keeps the form). GameTest `deathRevertsToHuman`.
+- Fixed: the four new GeckoLib renderers passed `entity/<id>` to `DefaultedEntityGeoModel`, which adds `entity/` itself; any of the new mobs crashed the client when seen. GameTests can't catch this (no rendering).
+- Fixed Luna's compile errors: `ClipContext` is in `net.minecraft.world.level`, Haste is `MobEffects.DIG_SPEED`, `SoundEvents.NOTE_BLOCK_PLING` is a `Holder` (`.value()`).
+- Sonnet: new creative-tab icon, guide book textures, wrist-mounted Omnitrix model (`OmnitrixWristLayer`, code-built `ModelPart`, glowing dial), generator `tools/ui-assets/generate.py`.
+- Version 2.0.0; `publishCurseForge` uploads only the newest changelog section with a display name; token from the `curseforge.token` property or `CURSEFORGE_TOKEN`.
+- Page: new README, `docs/curseforge/description.md` (paste into CurseForge; images load from the `1.20.1` branch after merge), images in `docs/images/` from `tools/page-assets/generate.py`.
+- Plans: `docs/design/roadmap.md` (release plan 2.0.0 to 5.1.0, Null Void, Diagon, Alien X, Azmuth and the watch upgrades). User decisions: Diagon in its own rift dimension, Plumber NPC missions.
+- Verified: `runData`, `build`, Forge 45/45, Fabric 43/43. Not seen in game yet: powers, HUD timer, guide screen, wrist model, icon.
+
+### 2026-10-14: QA round 1 implementation (verified in the entry above)
+- Added dispatched JSON active-power definitions for all ten aliens, server-side power execution/cooldowns, safe projectile and AoE targeting, and V/H keybind packets on Forge and Fabric. Creative snapshots expose every alien without saving unlocks.
+- Timeout now starts the configured recharge period; snapshots sync its end time. Added the countdown HUD, final-ten-second beeps, timeout flash, recharge refusal and Master Control bypass.
+- Added the Omnitrix Field Guide item, first-join delivery flag, vanilla shapeless recipe, client page screen, generated language/model entries and Master Control tooltip.
+- Added shared GameTests with wrappers on both loaders for power parsing/use/cooldown, creative transforms, timeout/recharge, Master Control and one-time guide delivery. Updated the alien data reference and progression decisions.
+- Validation: not run (sandbox). Next run `:forge:runData`, both builds and both GameTest servers; art files remain owned by the other worker.
 
 ### 2026-10-14: Steps 6 and 7 verified, review fixes, PR
 - Root fixes so the chain passes: `public` save-data overrides on Vilgax/drone; `getHeightmapPos` for hunter spawns; projector uses `durability(16)` without `stacksTo` (Item.Properties rejects both); no loot table for `crab_bolt` (not a living entity); biome uses `has_precipitation`.
@@ -104,9 +121,10 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. Review and merge the steps 6-7 PR into `1.20.1`.
-2. In-game QA on both loaders: first-person arms, wheel dial and hologram, attack swing direction, watch on the wrist, crater look and rarity, item textures, plus the new bosses (Kraab bar and bolts, Vilgax phases and drones, Zs'Skayr blink and summons), entity animations and glow layers, the Null Void sky, fog and terrain, the fortress, and the projector round trip on Fabric (only tested on Forge).
-3. Deferred: Vilgax's Chimera ship structure; NeoForge 1.20.1 load check.
+1. In-game QA on both loaders (user): powers, `H` revert, creative dial, HUD timer and recharge, Field Guide, wrist model, icon, first-person arms, wheel dial, attack swing, crash site, bosses, Null Void.
+2. Merge PR #96 into `1.20.1`; paste `docs/curseforge/description.md` into the CurseForge page (Markdown).
+3. Release 2.0.0 on the user's go: set the date in `CHANGELOG.md`, then `zsh -c './gradlew :forge:publishCurseForge :fabric:publishCurseForge'` (JDK 21 env), and tag `v1.20.1-2.0.0` for the GitHub release workflow.
+4. Then 2.1.0 (Living Null Void, flight animations) per `docs/design/roadmap.md`. Deferred: Chimera ship; NeoForge load check.
 
 ## Gotchas
 

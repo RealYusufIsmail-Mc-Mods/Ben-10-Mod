@@ -13,6 +13,8 @@ import net.minecraft.server.level.ServerPlayer;
 public final class OmnitrixNetwork {
     public static final ResourceLocation DIAL_REQUEST = BenTenMod.getModIdAndName("omnitrix_dial");
     public static final ResourceLocation STATE_UPDATE = BenTenMod.getModIdAndName("omnitrix_state");
+    public static final ResourceLocation POWER_REQUEST =
+            BenTenMod.getModIdAndName("omnitrix_power");
 
     private OmnitrixNetwork() {}
 
@@ -33,6 +35,8 @@ public final class OmnitrixNetwork {
                         }
                     });
                 });
+        ServerPlayNetworking.registerGlobalReceiver(POWER_REQUEST, (server, player, handler, buffer,
+                responseSender) -> server.execute(() -> OmnitrixService.usePower(player)));
     }
 
     public static void sendToPlayer(ServerPlayer player, OmnitrixSnapshot snapshot) {
@@ -57,6 +61,7 @@ public final class OmnitrixNetwork {
         buffer.writeLong(state.expiresAt());
         buffer.writeBoolean(state.equipped());
         buffer.writeBoolean(state.timeoutDisabled());
+        buffer.writeLong(state.rechargeUntil());
         buffer.writeFloat(state.width());
         buffer.writeFloat(state.height());
         buffer.writeVarInt(state.unlockedAlienIds().size());
@@ -69,6 +74,7 @@ public final class OmnitrixNetwork {
         long expiresAt = buffer.readLong();
         boolean equipped = buffer.readBoolean();
         boolean timeoutDisabled = buffer.readBoolean();
+        long rechargeUntil = buffer.readLong();
         float width = buffer.readFloat();
         float height = buffer.readFloat();
         int size = Math.min(buffer.readVarInt(), 256);
@@ -77,6 +83,6 @@ public final class OmnitrixNetwork {
             unlocked.add(buffer.readResourceLocation());
         }
         return new OmnitrixSnapshot(playerId, alien, expiresAt, equipped, unlocked, width, height,
-                timeoutDisabled);
+                timeoutDisabled, rechargeUntil);
     }
 }

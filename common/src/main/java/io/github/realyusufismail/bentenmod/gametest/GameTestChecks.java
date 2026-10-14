@@ -71,6 +71,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -552,6 +553,8 @@ public final class GameTestChecks {
                     "alien missing: " + id));
         long starters = aliens.values().stream().filter(a -> a.unlockedByDefault()).count();
         helper.assertTrue(starters == 3, "expected 3 starter aliens, found " + starters);
+        aliens.forEach((id, definition) -> helper.assertTrue(definition.power().isPresent(),
+                "alien has no active power: " + id));
         helper.succeed();
     }
 
@@ -644,6 +647,119 @@ public final class GameTestChecks {
         helper.assertTrue(Math.abs(player.getBoundingBox().getXsize() - 0.6) < 0.01,
                 "player width did not return after timeout");
         AbilityTicker.forget(player);
+        helper.succeed();
+    }
+
+    public static void heatblastPowerSpawnsFireball(GameTestHelper helper, ServerPlayer player) {
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "Heatblast transformation failed");
+        helper.assertTrue(OmnitrixService.usePower(player), "Heatblast power did not activate");
+        helper.assertTrue(!player.level()
+            .getEntitiesOfClass(SmallFireball.class, player.getBoundingBox().inflate(16))
+            .isEmpty(), "Heatblast power did not spawn a Small Fireball");
+        helper.succeed();
+    }
+
+    public static void alienPowerCooldownBlocksImmediateUse(GameTestHelper helper,
+            ServerPlayer player) {
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "Heatblast transformation failed");
+        helper.assertTrue(OmnitrixService.usePower(player), "first power use was refused");
+        helper.assertFalse(OmnitrixService.usePower(player),
+                "power cooldown allowed a second immediate use");
+        helper.succeed();
+    }
+
+    public static void creativeCanTransformWithoutUnlocking(GameTestHelper helper,
+            ServerPlayer player) {
+        player.getAbilities().instabuild = true;
+        equipWithWatch(player);
+        ResourceLocation diamondhead = BenTenMod.getModIdAndName("diamondhead");
+        OmnitrixSavedData.PlayerState state =
+                OmnitrixSavedData.get(player.serverLevel()).getOrCreate(player);
+        helper.assertFalse(state.isUnlocked(diamondhead), "test alien was already unlocked");
+        helper.assertTrue(OmnitrixService.transform(player, diamondhead),
+                "creative player could not select a locked alien");
+        helper.assertFalse(state.isUnlocked(diamondhead),
+                "creative selection persisted a permanent unlock");
+        helper.assertTrue(OmnitrixService.snapshot(player).unlockedAlienIds().contains(diamondhead),
+                "creative dial snapshot did not include every alien");
+        helper.succeed();
+    }
+
+    public static void timeoutStartsRechargeAndBlocksTransform(GameTestHelper helper,
+            ServerPlayer player) {
+        equipWithWatch(player);
+        ResourceLocation heatblast = BenTenMod.getModIdAndName("heatblast");
+        helper.assertTrue(OmnitrixService.transform(player, heatblast),
+                "Heatblast transformation failed");
+        long expiresAt = OmnitrixService.snapshot(player).expiresAt();
+        helper.assertTrue(OmnitrixService.tick(player, expiresAt),
+                "timeout did not force a revert");
+        OmnitrixSnapshot state = OmnitrixService.snapshot(player);
+        helper.assertTrue(state.rechargeUntil() > expiresAt,
+                "timeout did not start the recharge window");
+        helper.assertFalse(OmnitrixService.transform(player, heatblast),
+                "transformation started during recharge");
+        helper.succeed();
+    }
+
+    public static void manualRevertSkipsRecharge(GameTestHelper helper, ServerPlayer player) {
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "Heatblast transformation failed");
+        helper.assertTrue(OmnitrixService.revert(player), "manual revert failed");
+        helper.assertTrue(OmnitrixService.snapshot(player).rechargeUntil() == 0,
+                "manual revert started a recharge window");
+        helper.succeed();
+    }
+
+    public static void deathRevertsToHuman(GameTestHelper helper, ServerPlayer player) {
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "Heatblast transformation failed");
+        helper.assertTrue(OmnitrixService.onRespawn(player, true).currentAlien() != null,
+                "returning from the End reverted the player");
+        helper.assertTrue(OmnitrixService.onRespawn(player, false).currentAlien() == null,
+                "respawning after death kept the alien form");
+        helper.succeed();
+    }
+
+    public static void masterControlHasNoRecharge(GameTestHelper helper, ServerPlayer player) {
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "pre-Master Control transformation failed");
+        long expiresAt = OmnitrixService.snapshot(player).expiresAt();
+        OmnitrixService.tick(player, expiresAt);
+        helper.assertTrue(OmnitrixService.snapshot(player).rechargeUntil() > 0,
+                "test did not enter recharge");
+        helper.assertTrue(OmnitrixService.applyMasterControl(player),
+                "Master Control could not be applied");
+        helper.assertTrue(OmnitrixService.snapshot(player).rechargeUntil() == 0,
+                "Master Control did not clear active recharge");
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "Master Control player could not transform");
+        long now = player.serverLevel().getServer().overworld().getGameTime();
+        helper.assertFalse(OmnitrixService.tick(player, now + 72_000),
+                "Master Control transformation timed out");
+        OmnitrixSnapshot state = OmnitrixService.snapshot(player);
+        helper.assertTrue(state.timeoutDisabled(), "Master Control did not disable timeout");
+        helper.assertTrue(state.currentAlien() != null, "Master Control form was reverted");
+        helper.assertTrue(state.rechargeUntil() == 0,
+                "Master Control player received a recharge window");
+        helper.succeed();
+    }
+
+    public static void guideIsGivenOnceOnJoin(GameTestHelper helper, ServerPlayer player) {
+        OmnitrixService.onJoin(player);
+        helper.assertTrue(guideCount(player) == 1, "first join did not give the field guide");
+        OmnitrixService.onJoin(player);
+        helper.assertTrue(guideCount(player) == 1, "field guide was given again on join");
+        helper.assertTrue(
+                OmnitrixSavedData.get(player.serverLevel()).getOrCreate(player).guideGiven(),
+                "field guide delivery flag was not saved");
         helper.succeed();
     }
 
@@ -751,6 +867,17 @@ public final class GameTestChecks {
         ItemInit.OMNITRIX_WATCH.get()
             .use(player.level(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
         return watch;
+    }
+
+    private static int guideCount(ServerPlayer player) {
+        int count = 0;
+        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+            ItemStack stack = player.getInventory().getItem(slot);
+            if (stack.is(ItemInit.OMNITRIX_GUIDE.get())) {
+                count += stack.getCount();
+            }
+        }
+        return count;
     }
 
     @SafeVarargs

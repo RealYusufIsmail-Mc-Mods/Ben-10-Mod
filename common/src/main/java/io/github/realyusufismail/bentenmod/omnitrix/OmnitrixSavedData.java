@@ -113,8 +113,10 @@ public final class OmnitrixSavedData extends SavedData {
             playerTag.putString("alien",
                     state.currentAlien == null ? "" : state.currentAlien.toString());
             playerTag.putLong("expires_at", state.expiresAt);
+            playerTag.putLong("recharge_until", state.rechargeUntil);
             playerTag.putBoolean("equipped", state.equipped);
             playerTag.putBoolean("timeout_disabled", state.timeoutDisabled);
+            playerTag.putBoolean("guide_given", state.guideGiven);
             playerTag.putLong("kraab_hunter_at", state.hunterSpawnAt);
             playerTag.putBoolean("kraab_hunter_spawned", state.hunterSpawned);
             if (state.returnPoint != null) {
@@ -156,8 +158,10 @@ public final class OmnitrixSavedData extends SavedData {
             PlayerState state = new PlayerState(unlocked);
             state.currentAlien = alien;
             state.expiresAt = playerTag.getLong("expires_at");
+            state.rechargeUntil = playerTag.getLong("recharge_until");
             state.equipped = playerTag.getBoolean("equipped");
             state.timeoutDisabled = playerTag.getBoolean("timeout_disabled");
+            state.guideGiven = playerTag.getBoolean("guide_given");
             state.hunterSpawnAt =
                     playerTag.contains("kraab_hunter_at") ? playerTag.getLong("kraab_hunter_at")
                             : -1;
@@ -181,8 +185,10 @@ public final class OmnitrixSavedData extends SavedData {
         private final Set<ResourceLocation> unlockedAlienIds;
         private ResourceLocation currentAlien;
         private long expiresAt;
+        private long rechargeUntil;
         private boolean equipped;
         private boolean timeoutDisabled;
+        private boolean guideGiven;
         private ReturnPoint returnPoint;
         private long hunterSpawnAt = -1;
         private boolean hunterSpawned;
@@ -207,6 +213,10 @@ public final class OmnitrixSavedData extends SavedData {
             return expiresAt;
         }
 
+        public long rechargeUntil() {
+            return rechargeUntil;
+        }
+
         public boolean equipped() {
             return equipped;
         }
@@ -215,8 +225,17 @@ public final class OmnitrixSavedData extends SavedData {
             return timeoutDisabled;
         }
 
+        public boolean guideGiven() {
+            return guideGiven;
+        }
+
+        public void markGuideGiven() {
+            guideGiven = true;
+        }
+
         public void disableTimeout() {
             timeoutDisabled = true;
+            rechargeUntil = 0;
         }
 
         public ReturnPoint returnPoint() {
@@ -238,18 +257,26 @@ public final class OmnitrixSavedData extends SavedData {
         public void transform(ResourceLocation alien, long expiresAt) {
             this.currentAlien = alien;
             this.expiresAt = expiresAt;
+            this.rechargeUntil = 0;
         }
 
         public void revert() {
             this.currentAlien = null;
             this.expiresAt = 0;
+            this.rechargeUntil = 0;
+        }
+
+        public void timeout(long rechargeUntil) {
+            this.currentAlien = null;
+            this.expiresAt = 0;
+            this.rechargeUntil = rechargeUntil;
         }
 
         public OmnitrixSnapshot snapshot(UUID playerId) {
             List<ResourceLocation> unlocked = new ArrayList<>(unlockedAlienIds);
             unlocked.sort(ResourceLocation::compareTo);
             return new OmnitrixSnapshot(playerId, currentAlien, expiresAt, equipped, unlocked, 0, 0,
-                    timeoutDisabled);
+                    timeoutDisabled, rechargeUntil);
         }
     }
 

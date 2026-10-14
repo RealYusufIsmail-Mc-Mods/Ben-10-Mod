@@ -7,6 +7,7 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.client.alien.AlienHologram;
 import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixClientHooks;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixHud;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
@@ -117,6 +118,14 @@ public final class OmnitrixDialScreen extends Screen {
         } else {
             graphics.drawCenteredString(font, Component.translatable("screen.bentenmod.no_dna"),
                     (int) cx, (int) cy, 0x9CFF9C);
+        }
+
+        long rechargeTicks = rechargeTicks(state);
+        if (rechargeTicks > 0) {
+            graphics.drawCenteredString(font,
+                    Component.translatable("screen.bentenmod.recharging",
+                            OmnitrixHud.formatTicks(rechargeTicks)),
+                    (int) cx, height - 38, 0xFFFF6565);
         }
 
         graphics.drawCenteredString(font, title, (int) cx, 8, 0xE8FFE8);
@@ -263,6 +272,17 @@ public final class OmnitrixDialScreen extends Screen {
         if (state == null || state.unlockedAlienIds().isEmpty() || slamAt >= 0) {
             return;
         }
+        long rechargingTicks = rechargeTicks(state);
+        if (rechargingTicks > 0) {
+            Minecraft client = Minecraft.getInstance();
+            if (client.player != null) {
+                client.player.displayClientMessage(
+                        Component.translatable("message.bentenmod.omnitrix_recharging",
+                                OmnitrixHud.formatTicks(rechargingTicks)),
+                        true);
+            }
+            return;
+        }
         slamAlien = state.unlockedAlienIds().get(selected);
         slamAt = Util.getMillis();
         Minecraft.getInstance()
@@ -317,6 +337,12 @@ public final class OmnitrixDialScreen extends Screen {
             return null;
         }
         return ClientOmnitrixState.get(Minecraft.getInstance().player.getUUID());
+    }
+
+    private static long rechargeTicks(OmnitrixSnapshot state) {
+        Minecraft client = Minecraft.getInstance();
+        return state == null || client.level == null ? 0
+                : Math.max(0, state.rechargeUntil() - client.level.getGameTime());
     }
 
     private Component alienName(ResourceLocation alien) {

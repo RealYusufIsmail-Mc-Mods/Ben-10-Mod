@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 
 /** Forge's small state and dial channel. All transformation decisions stay on the server. */
 public final class OmnitrixNetwork {
-    private static final String PROTOCOL = "3";
+    private static final String PROTOCOL = "4";
     private static final SimpleChannel CHANNEL =
             NetworkRegistry.newSimpleChannel(BenTenMod.getModIdAndName("omnitrix"), () -> PROTOCOL,
                     PROTOCOL::equals, PROTOCOL::equals);
@@ -29,6 +29,8 @@ public final class OmnitrixNetwork {
                 DialRequest::handle);
         CHANNEL.registerMessage(1, StateUpdate.class, StateUpdate::encode, StateUpdate::decode,
                 StateUpdate::handle);
+        CHANNEL.registerMessage(2, PowerRequest.class, PowerRequest::encode, PowerRequest::decode,
+                PowerRequest::handle);
     }
 
     public static void sendToPlayer(ServerPlayer player, OmnitrixSnapshot snapshot) {
@@ -43,6 +45,10 @@ public final class OmnitrixNetwork {
 
     public static void requestTransform(ResourceLocation alien) {
         CHANNEL.sendToServer(new DialRequest(alien == null ? "" : alien.toString()));
+    }
+
+    public static void requestPower() {
+        CHANNEL.sendToServer(new PowerRequest());
     }
 
     private record DialRequest(String alien) {
@@ -76,6 +82,25 @@ public final class OmnitrixNetwork {
         }
     }
 
+    private record PowerRequest() {
+        private static void encode(PowerRequest message, FriendlyByteBuf buffer) {}
+
+        private static PowerRequest decode(FriendlyByteBuf buffer) {
+            return new PowerRequest();
+        }
+
+        private static void handle(PowerRequest message, Supplier<NetworkEvent.Context> supplier) {
+            NetworkEvent.Context context = supplier.get();
+            context.enqueueWork(() -> {
+                ServerPlayer player = context.getSender();
+                if (player != null) {
+                    OmnitrixService.usePower(player);
+                }
+            });
+            context.setPacketHandled(true);
+        }
+    }
+
     private record StateUpdate(OmnitrixSnapshot snapshot) {
         private static void encode(StateUpdate message, FriendlyByteBuf buffer) {
             OmnitrixSnapshot state = message.snapshot;
@@ -87,6 +112,7 @@ public final class OmnitrixNetwork {
             buffer.writeLong(state.expiresAt());
             buffer.writeBoolean(state.equipped());
             buffer.writeBoolean(state.timeoutDisabled());
+            buffer.writeLong(state.rechargeUntil());
             buffer.writeFloat(state.width());
             buffer.writeFloat(state.height());
             buffer.writeVarInt(state.unlockedAlienIds().size());
@@ -99,6 +125,7 @@ public final class OmnitrixNetwork {
             long expiresAt = buffer.readLong();
             boolean equipped = buffer.readBoolean();
             boolean timeoutDisabled = buffer.readBoolean();
+            long rechargeUntil = buffer.readLong();
             float width = buffer.readFloat();
             float height = buffer.readFloat();
             int size = Math.min(buffer.readVarInt(), 256);
@@ -107,7 +134,7 @@ public final class OmnitrixNetwork {
                 unlocked.add(buffer.readResourceLocation());
             }
             return new StateUpdate(new OmnitrixSnapshot(playerId, alien, expiresAt, equipped,
-                    unlocked, width, height, timeoutDisabled));
+                    unlocked, width, height, timeoutDisabled, rechargeUntil));
         }
 
         private static void handle(StateUpdate message, Supplier<NetworkEvent.Context> supplier) {

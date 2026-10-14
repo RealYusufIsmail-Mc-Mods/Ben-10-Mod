@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw
 ASSETS = Path(__file__).resolve().parents[2] / "common/src/main/resources/assets/bentenmod/textures"
 BLOCK = ASSETS / "block"
 GUI = ASSETS / "gui"
-PREVIEW = Path(__file__).resolve().parents[2] / "docs/omnitrix-crafter-preview.png"
+PREVIEW = Path(__file__).resolve().parents[2] / "docs/images/crafter.png"
 
 INK = "#07110f"
 SHADOW = "#101e1d"
