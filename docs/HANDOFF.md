@@ -4,10 +4,10 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-14)
 
-- **Branch:** `t3/next-steps-left` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`, based at `0e88dfee` on `origin/1.20.1`). Steps 6 and 7 are committed and a PR against `1.20.1` is open (see the newest Done entry).
-- **PRs:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 (2.0.0 release prep) open.
+- **Branch:** `release/2.0.0` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), PR #97 into `1.20.1`.
+- **PRs:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 merged; #97 (release commit) open.
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
-- **Release 2.0.0:** version bumped; QA round 1 and the release prep are verified (`runData`, `build`, Forge 45/45, Fabric 43/43, 2026-10-14) and in PR #96 (PR #93 merged). Upload waits for the user's go and their in-game check. `publishCurseForge` reads `CURSEFORGE_TOKEN` (set in the user's `~/.zshenv`, so run it through `zsh -c`) and uploads only the newest `CHANGELOG.md` section.
+- **Release 2.0.0: released 2026-10-14.** Uploaded to CurseForge (Forge and Fabric files) and tagged `v1.20.1-2.0.0` (GitHub release workflow). `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
 - **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
 
 ## Done (newest first)
@@ -121,10 +121,9 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. In-game QA on both loaders (user): powers, `H` revert, creative dial, HUD timer and recharge, Field Guide, wrist model, icon, first-person arms, wheel dial, attack swing, crash site, bosses, Null Void.
-2. Merge PR #96 into `1.20.1`; paste `docs/curseforge/description.md` into the CurseForge page (Markdown).
-3. Release 2.0.0 on the user's go: set the date in `CHANGELOG.md`, then `zsh -c './gradlew :forge:publishCurseForge :fabric:publishCurseForge'` (JDK 21 env), and tag `v1.20.1-2.0.0` for the GitHub release workflow.
-4. Then 2.1.0 (Living Null Void, flight animations) per `docs/design/roadmap.md`. Deferred: Chimera ship; NeoForge load check.
+1. User: paste `docs/curseforge/description.md` into the CurseForge page (Markdown) and add `docs/images/*.png` to the gallery; merge PR #97.
+2. In-game QA of 2.0.0 on both loaders (never done for the powers, HUD, guide, wrist model, bosses, Null Void). Fix what turns up in 2.0.x.
+3. 2.1.0 Living Null Void and flight animations, per `docs/design/roadmap.md`. Consider Modrinth publishing for Fabric update notices.
 
 ## Gotchas
 

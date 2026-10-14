@@ -63,5 +63,6 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.addJavaVersion('Java 17')
     mainFile.addModLoader('Forge', 'NeoForge')
     mainFile.addGameVersion(minecraft_version)
+    mainFile.addGameVersion('Client', 'Server')
     mainFile.addRequirement('geckolib')
 }
