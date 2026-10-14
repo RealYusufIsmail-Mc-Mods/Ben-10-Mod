@@ -11,7 +11,8 @@ sys.path.insert(0, str(HERE))
 import aliens
 from engine import Scene
 
-ASSETS = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE.parents[1] / "common/src/main/resources/assets/bentenmod"
+_PATH_ARGS = [a for a in sys.argv[1:] if not a.startswith("--") and "/" in a]
+ASSETS = Path(_PATH_ARGS[0]) if _PATH_ARGS else HERE.parents[1] / "common/src/main/resources/assets/bentenmod"
 PREVIEW = HERE / "out"
 
 
@@ -28,6 +29,57 @@ def loop(length, amp, axis=0, phase=0.0, steps=8):
         v[axis] = round(amp * np.sin(2 * np.pi * (i / steps + phase)), 3)
         out.append((t, v))
     return kf(*out)
+
+
+def cycles(length, n, amp, axis=0, phase=0.0, steps_per=4):
+    """n full sine cycles across `length` (every channel of a looping clip must span its whole length)."""
+    steps = steps_per * n
+    out = []
+    for i in range(steps + 1):
+        v = [0.0, 0.0, 0.0]
+        v[axis] = round(amp * np.sin(2 * np.pi * (n * i / steps + phase)), 3)
+        out.append((length * i / steps, v))
+    return kf(*out)
+
+
+def fly_animation(m):
+    """The looping `fly` pose for the three flyers, or None. Positive X rotation leans forward."""
+    b = set(m.bones)
+    bones = {}
+    if m.name == "heatblast":
+        # rocket pose: body pitched ~60 degrees, arms trailing along the body, legs together, head
+        # lifted so the crown of flame streams out behind
+        length = 1.0
+        bones["body"] = {"rotation": kf(*[(length * i / 8, (60 + 3 * np.sin(2 * np.pi * i / 8), 0, 2.5 * np.sin(2 * np.pi * i / 8)))
+                                          for i in range(9)]),
+                         "position": loop(length, 0.4, axis=1)}
+        bones["head"] = {"rotation": kf(*[(length * i / 8, (-32 + 6 * np.sin(2 * np.pi * (i / 8 + 0.25)), 0, 0)) for i in range(9)])}
+        bones["right_arm"] = {"rotation": kf(*[(length * i / 8, (8 + 4 * np.sin(2 * np.pi * (i / 8 + 0.2)), 0, -4)) for i in range(9)])}
+        bones["left_arm"] = {"rotation": kf(*[(length * i / 8, (8 + 4 * np.sin(2 * np.pi * (i / 8 + 0.2)), 0, 4)) for i in range(9)])}
+        for leg, z in (("right_leg", 5), ("left_leg", -5)):
+            bones[leg] = {"rotation": kf(*[(length * i / 8, (60 + 5 * np.sin(2 * np.pi * (i / 8 + 0.5)), 0, z)) for i in range(9)]),
+                          "position": loop(length, 0.4, axis=1)}
+    elif m.name == "stinkfly":
+        # level body, wings blurring, legs tucked up under the thorax
+        length = 0.8
+        bones["body"] = {"position": cycles(length, 2, 0.5, axis=1), "rotation": loop(length, 3, axis=0, steps=4)}
+        for wing, sign in (("right_wing", 1), ("left_wing", -1)):
+            bones[wing] = {"rotation": cycles(length, 8, 42 * sign, axis=2)}
+        for limb, tuck in (("right_arm", 48), ("left_arm", 48), ("right_leg", 62), ("left_leg", 62)):
+            bones[limb] = {"rotation": kf((0, (tuck, 0, 0)), (length, (tuck, 0, 0)))}
+        bones["tail"] = {"rotation": loop(length, 7, axis=0, steps=4, phase=0.25)}
+        bones["head"] = {"rotation": loop(length, 3, axis=0, steps=4, phase=0.5)}
+    elif m.name == "ghostfreak":
+        # slow upright drift: tail swaying, arms loose, head lolling
+        length = 3.2
+        bones["body"] = {"position": loop(length, 1.1, axis=1), "rotation": loop(length, 5, axis=2)}
+        bones["tail"] = {"rotation": loop(length, 16, axis=2, phase=0.15)}
+        bones["right_arm"] = {"rotation": loop(length, 14, axis=2, phase=0.3)}
+        bones["left_arm"] = {"rotation": loop(length, -14, axis=2, phase=0.3)}
+        bones["head"] = {"rotation": loop(length, 6, axis=1, phase=0.5)}
+    else:
+        return None
+    return length, {k: v for k, v in bones.items() if k in b}
 
 
 def animations(m):
@@ -84,7 +136,7 @@ def animations(m):
         attack["head"] = {"rotation": kf((0, (0, 0, 0)), (0.1, (15, 0, 0)), (0.3, (0, 0, 0)))}
 
     n = m.name
-    return {
+    out = {
         "format_version": "1.8.0",
         "animations": {
             f"animation.{n}.idle": {"loop": True, "animation_length": 4.8, "bones": idle},
@@ -93,6 +145,10 @@ def animations(m):
             f"animation.{n}.attack": {"animation_length": 0.3, "bones": attack},
         },
     }
+    fly = fly_animation(m)
+    if fly:
+        out["animations"][f"animation.{n}.fly"] = {"loop": True, "animation_length": fly[0], "bones": fly[1]}
+    return out
 
 
 def omnitrix_animations():
@@ -170,5 +226,19 @@ def main():
     return models
 
 
+def animations_only(ids):
+    """Rewrite just the animation JSON (no baking): python3 export.py --animations-only [ids]."""
+    (ASSETS / "animations").mkdir(exist_ok=True)
+    for name, fn in aliens.ALIENS.items():
+        if ids and name not in ids:
+            continue
+        m = fn()
+        (ASSETS / "animations" / f"{name}.animation.json").write_text(json.dumps(animations(m), indent="\t"))
+        print("animations", name)
+
+
 if __name__ == "__main__":
-    main()
+    if "--animations-only" in sys.argv:
+        animations_only([a for a in sys.argv[1:] if not a.startswith("--") and "/" not in a])
+    else:
+        main()

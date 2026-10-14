@@ -34,6 +34,7 @@ package io.github.realyusufismail.bentenmod.core.init;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafter;
+import io.github.realyusufismail.bentenmod.core.blocks.PrisonVaultBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -84,6 +85,20 @@ public class BlockInit {
             () -> new Block(BlockBehaviour.Properties.of()
                 .strength(4.0F, 12.0F)
                 .requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> TAYDENITE_ORE = registerSpecial("taydenite_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                .strength(4.0F, 12.0F)
+                .requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> TAYDENITE_BLOCK = register("taydenite_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<Block> PRISON_WALL = register("prison_wall",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+    public static final RegistryObject<Block> PLUMBER_HULL = register("plumber_hull",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    public static final RegistryObject<PrisonVaultBlock> PRISON_VAULT =
+            registerSpecial("prison_vault",
+                    () -> new PrisonVaultBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
+                        .requiresCorrectToolForDrops()));
 
     // deepslate ores
     public static final RegistryObject<Block> DEEPSLATE_LEGENDARY_ORE =

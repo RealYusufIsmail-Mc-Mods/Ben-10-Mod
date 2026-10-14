@@ -94,6 +94,28 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(MASTER_CONTROL.get().toString());
         else if (itemAsAsString.equals(OMNITRIX_GUIDE.get().toString()))
             item(OMNITRIX_GUIDE.get().toString());
+        else if (itemAsAsString.equals(TAYDENITE.get().toString()))
+            item(TAYDENITE.get().toString());
+        else if (itemAsAsString.equals(NULL_GUARDIAN_MEMBRANE.get().toString()))
+            item(NULL_GUARDIAN_MEMBRANE.get().toString());
+        else if (itemAsAsString.equals(PRISONER_CUFFS.get().toString()))
+            item(PRISONER_CUFFS.get().toString());
+        else if (itemAsAsString.equals(CELL_KEY.get().toString()))
+            item(CELL_KEY.get().toString());
+        else if (itemAsAsString.equals(PLUMBER_BADGE.get().toString()))
+            item(PLUMBER_BADGE.get().toString());
+        else if (itemAsAsString.equals(PLUMBER_BLASTER.get().toString()))
+            tool(PLUMBER_BLASTER.get().toString());
+        else if (itemAsAsString.equals(NULL_VOID_GLIDER.get().toString()))
+            item(NULL_VOID_GLIDER.get().toString());
+        else if (itemAsAsString.equals(PLUMBER_HELMET.get().toString()))
+            item(PLUMBER_HELMET.get().toString());
+        else if (itemAsAsString.equals(PLUMBER_CHESTPLATE.get().toString()))
+            item(PLUMBER_CHESTPLATE.get().toString());
+        else if (itemAsAsString.equals(PLUMBER_LEGGINGS.get().toString()))
+            item(PLUMBER_LEGGINGS.get().toString());
+        else if (itemAsAsString.equals(PLUMBER_BOOTS.get().toString()))
+            item(PLUMBER_BOOTS.get().toString());
         else if (itemAsAsString.equals(OMNITRIX_WATCH.get().toString()))
             getBuilder(OMNITRIX_WATCH.get().toString())
                 .parent(new ModelFile.UncheckedModelFile(mcLoc("builtin/entity")));

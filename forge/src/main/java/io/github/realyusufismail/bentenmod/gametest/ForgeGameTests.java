@@ -61,6 +61,38 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void livingNullVoidMobsHaveAttributes(GameTestHelper helper) {
+        GameTestChecks.livingNullVoidMobsHaveAttributes(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidLootTablesContainDrops(GameTestHelper helper) {
+        GameTestChecks.nullVoidLootTablesContainDrops(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void prisonVaultUsesKeyAndOpens(GameTestHelper helper) {
+        GameTestChecks.prisonVaultUsesKeyAndOpens(helper,
+                player(helper, "prisonVaultUsesKeyAndOpens"));
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidGliderSlowsFalling(GameTestHelper helper) {
+        GameTestChecks.nullVoidGliderSlowsFalling(helper,
+                player(helper, "nullVoidGliderSlowsFalling"));
+    }
+
+    @GameTest(template = "empty")
+    public static void plumberBlasterRecipeLoads(GameTestHelper helper) {
+        GameTestChecks.plumberBlasterRecipeLoads(helper);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 500)
+    public static void prisonWardenRespectsPrisonerCap(GameTestHelper helper) {
+        GameTestChecks.prisonWardenRespectsPrisonerCap(helper);
+    }
+
+    @GameTest(template = "empty")
     public static void vilgaxSwitchesPhaseAtHalfHealth(GameTestHelper helper) {
         GameTestChecks.vilgaxSwitchesPhaseAtHalfHealth(helper);
     }

@@ -3,6 +3,29 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.20.1-2.1.0] - Unreleased
+
+The Null Void is now a more dangerous place to explore, with new creatures, prison structures and Plumber gear.
+
+### Added
+- Null Void prisoners hunt in packs, flank players, flee when badly hurt and sometimes fight each other.
+- Null Guardians patrol the islands and pull targets in with a tractor beam. Lepidopterran scouts dive-bomb and spit
+  slowing slime.
+- Floating prison blocks hold prisoner spawners, a prison warden and a key-locked loot vault. Wrecked Plumber outposts
+  contain supply chests.
+- Taydenite ore and storage blocks, guardian membranes, prisoner cuffs, cell keys and Plumber loot.
+- A Plumber blaster, Null Void glider and full Plumber armour set, with recipes and set bonuses.
+- Flight animations: Heatblast flies like a rocket with a flame trail, Stinkfly beats his wings, Ghostfreak drifts.
+
+### Changed
+- Armour and tool stats follow the ore ladder. Starter sets are around iron, Legendary and Black Diamond around
+  diamond, Infinitum around netherite; no armour piece gives more than 8 points. Black Diamond tools are diamond tier,
+  Infinitum and Imperium netherite tier.
+
+### Fixed
+- Leggings gave more armour than chestplates (values were in the wrong slot order).
+- Mod armour wore out about twice as fast as vanilla armour of the same tier.
+
 ## [1.20.1-2.0.0] - 14/10/2026
 
 A rebuild of the mod for Minecraft 1.20.1 on Forge and Fabric, with a working Omnitrix.

@@ -1,7 +1,7 @@
 # Roadmap after step 7 (proposal, 2026-10-14)
 
-Ideas from the user's first play session, grouped and ordered. Nothing here is built yet unless marked. Steps 1-7 are
-in [progression.md](progression.md).
+Ideas from the user's first play session, grouped and ordered. Completed items are marked. Steps 1-7 are in
+[progression.md](progression.md).
 
 ## Release plan
 
@@ -13,8 +13,8 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
 | Version | Name | Scope |
 |---|---|---|
 | **2.0.0** (Fri 16 Oct 2026) | The Omnitrix | Everything in PR #93 (1.20.1 port, Forge + Fabric, Omnitrix and 10 aliens, DNA, Crafter chain, Kraab, Vilgax, the Null Void, Zs'Skayr, Master Control) + QA round 1 (powers on `V`, `H` revert, creative shows all aliens, visible timeout and recharge, Field Guide, new icon and wrist model) + death-while-transformed fix + the mob render crash fix. |
-| 2.1.0 | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterrans, prison blocks with the warden, wrecked Plumber outposts, Taydenite caves, useful drops. Heatblast/Stinkfly/Ghostfreak flight animations. |
-| 2.2.0 | Plumbers | Plumber NPC and JSON missions, Plumber gear, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy). |
+| 2.1.0 | Living Null Void | Gameplay implemented; validation and the art worker's Heatblast/Stinkfly/Ghostfreak flight animations are pending. Smarter prisoners, Null Guardians, Lepidopterrans, prison blocks with the warden, wrecked Plumber outposts, Taydenite caves and useful drops. |
+| 2.2.0 | Plumbers | Plumber NPC and JSON missions, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy). |
 | 2.3.0 | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). |
 | 3.0.0 | Alien Force | Azmuth's workshop, recalibrated Omnitrix, DNA-helix animation, Alien X with the Serena/Bellicus Council, Alien Force aliens batch 1 (Swampfire, Humungousaur, Big Chill, Jetray, Echo Echo, Spidermonkey). |
 | 3.1.0 | Alien Force II | Chromastone, Brainstorm, Goop, Rath, Lodestar, Nanomech. |
@@ -34,22 +34,22 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
 - Dying while transformed keeps you as the alien after respawn. Fix: revert on death and on respawn. (Next round.)
 - New mobs crashed the client (doubled `entity/` model path). Fixed in PR #93.
 
-## Phase A: a living Null Void
+## Phase A: a living Null Void (2.1.0 gameplay implemented; validation pending)
 
-- **Smarter creatures.** Null Void Prisoners hunt in packs, flank and flee at low health, and fight each other
+- [x] **Smarter creatures.** Null Void Prisoners hunt in packs, flank and flee at low health, and fight each other
   sometimes. New mobs from the show:
-  - **Null Guardians**: big jellyfish-like flyers that patrol the islands, ignore you unless provoked, and pull you in
+  - [x] **Null Guardians**: big jellyfish-like flyers that patrol the islands, ignore you unless provoked, and pull you in
     with a tractor beam. They drop *Null Guardian membrane* (used for a Null Void glider).
-  - **Lepidopterran scouts** (Stinkfly's species): fast flyers that dive-bomb and spit slime.
-- **Loot places and dungeons.** Procedural structures beyond the fortress:
-  - *Floating prison block*: cell corridors, cell keys, prisoner spawners, a warden mini-boss, loot vault.
-  - *Wrecked Plumber outpost*: Plumber tech loot (badge, blaster, armour pieces).
-  - *Crystal caverns*: Taydenite crystals (the show's gem currency) in hollow islands.
-- **Drops worth having.** Every Null Void mob drops something used in a recipe (membrane, prisoner cuffs → Plumber
-  restraints, Taydenite).
-- **Missions.** A Plumber NPC at wrecked outposts gives missions: "capture 5 escaped prisoners", "clear a
+  - [x] **Lepidopterran scouts** (Stinkfly's species): fast flyers that dive-bomb and spit slime.
+- [x] **Loot places and dungeons.** Procedural structures beyond the fortress:
+  - [x] *Floating prison block*: cell corridors, cell keys, prisoner spawners, a warden mini-boss, loot vault.
+  - [x] *Wrecked Plumber outpost*: Plumber tech loot (badge, blaster, armour pieces).
+  - [x] *Taydenite ore*: generated in Null Void stone and available as a storage block.
+- [x] **Drops and gear.** Membrane, prisoner cuffs, cell keys and Taydenite have loot, crafting or vault uses; the badge
+  is collectible and Plumber equipment can be crafted or looted.
+- **Missions (deferred).** A Plumber NPC at wrecked outposts gives missions: "capture 5 escaped prisoners", "clear a
   prison block", "retrieve a Plumber data core". Rewards: Taydenite, DNA samples, Plumber gear. Missions are JSON so
-  more can be added without code.
+  more can be added without code. The badge currently says missions arrive in a future update.
 
 ## Phase B: the final boss and Alien X (the Ender Dragon equivalent)
 

@@ -78,6 +78,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy(HAS_ITEM, has(Items.BOOK))
             .save(consumer, modId("omnitrix_guide"));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BlockInit.TAYDENITE_BLOCK.get())
+            .define('#', ItemInit.TAYDENITE.get())
+            .pattern("###")
+            .pattern("###")
+            .pattern("###")
+            .unlockedBy(HAS_ITEM, has(ItemInit.TAYDENITE.get()))
+            .save(consumer, modId("taydenite_block"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.TAYDENITE.get(), 9)
+            .requires(BlockInit.TAYDENITE_BLOCK.get())
+            .unlockedBy(HAS_ITEM, has(BlockInit.TAYDENITE_BLOCK.get()))
+            .save(consumer, modId("taydenite_from_block"));
+
         // blocks
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemInit.INFINITUM.get(), 9)
 
@@ -424,6 +436,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         armorRecipes(consumer, TagsInit.Items.INGOTS_RUBY, ItemInit.FOURARMS_HELMET.get(),
                 ItemInit.FOURARMS_CHESTPLATE.get(), ItemInit.FOURARMS_LEGGINGS.get(),
                 ItemInit.FOURARMS_BOOT.get(), "fourarms_", null);
+
+        plumberArmorRecipe(consumer, ItemInit.PLUMBER_HELMET.get(), "plumber_helmet", "MMM", "M M",
+                "T T");
+        plumberArmorRecipe(consumer, ItemInit.PLUMBER_CHESTPLATE.get(), "plumber_chestplate", "M M",
+                "MTM", "MMM");
+        plumberArmorRecipe(consumer, ItemInit.PLUMBER_LEGGINGS.get(), "plumber_leggings", "MTM",
+                "M M", "M M");
+        crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT,
+                ItemInit.PLUMBER_BOOTS.get()).define('M', ItemInit.PRISONER_CUFFS.get())
+                    .define('T', ItemInit.TAYDENITE.get())
+                    .pattern("M M")
+                    .pattern("T T")
+                    .unlockedBy(HAS_ITEM, has(ItemInit.PRISONER_CUFFS.get()))
+                    .save(consumer, modId("plumber_boots"));
+
+        crafter(OmnitrixCrafterCraftingBookCategory.TOOLS, RecipeCategory.COMBAT,
+                ItemInit.PLUMBER_BLASTER.get()).define('T', ItemInit.TAYDENITE.get())
+                    .define('I', Items.IRON_INGOT)
+                    .define('S', Items.STICK)
+                    .pattern(" TI")
+                    .pattern("III")
+                    .pattern("S  ")
+                    .unlockedBy(HAS_ITEM, has(ItemInit.TAYDENITE.get()))
+                    .save(consumer, modId("plumber_blaster"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ItemInit.NULL_VOID_GLIDER.get())
+            .define('M', ItemInit.NULL_GUARDIAN_MEMBRANE.get())
+            .define('T', ItemInit.TAYDENITE.get())
+            .define('S', Items.STICK)
+            .pattern("M M")
+            .pattern("MTM")
+            .pattern("S S")
+            .unlockedBy(HAS_ITEM, has(ItemInit.NULL_GUARDIAN_MEMBRANE.get()))
+            .save(consumer, modId("null_void_glider"));
 
         crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT,
                 ItemInit.JACKET.get()).define('A', TagsInit.Items.INGOTS_OMNITRIX)
@@ -786,6 +832,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
          * .unlocks("has_item", has(TagsInit.Items.INGOTS_INFINITUM)) .save(consumer,
          * modId("infinitum_boots"));
          **/
+    }
+
+    private void plumberArmorRecipe(Consumer<FinishedRecipe> consumer, ItemLike result,
+            String recipeId, String first, String second, String third) {
+        crafter(OmnitrixCrafterCraftingBookCategory.ARMOUR, RecipeCategory.COMBAT, result)
+            .define('M', ItemInit.PRISONER_CUFFS.get())
+            .define('T', ItemInit.TAYDENITE.get())
+            .pattern(first)
+            .pattern(second)
+            .pattern(third)
+            .unlockedBy(HAS_ITEM, has(ItemInit.PRISONER_CUFFS.get()))
+            .save(consumer, modId(recipeId));
     }
 
     private OmnitrixRecipeBuilder crafter(OmnitrixCrafterCraftingBookCategory category,

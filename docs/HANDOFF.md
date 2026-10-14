@@ -4,13 +4,25 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-14)
 
-- **Branch:** `release/2.0.0` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), PR #97 into `1.20.1`.
-- **PRs:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 merged; #97 (release commit) open.
+- **Branch:** `t3/2.1.0` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), based on `origin/1.20.1` at 2.0.0 plus the wiki.
+- **PR history:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 and #97 were 2.0.0 release prep.
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
 - **Release 2.0.0: released 2026-10-14.** Uploaded to CurseForge (Forge and Fabric files) and tagged `v1.20.1-2.0.0` (GitHub release workflow). `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
 - **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
+- **2.1.0 gameplay:** implementation is complete on this branch. Validation has not been run in the sandbox; art assets and flight animations are supplied separately by the art worker.
 
 ## Done (newest first)
+
+### 2026-10-14: 2.1.0 integrated and verified
+- Merged three workstreams: Luna (gameplay), Sonnet (art in `b10-art`: three GeckoLib mobs, items, blocks, Plumber armour layers, `fly` animations for Heatblast/Stinkfly/Ghostfreak, `AlienFlight`/`AlienFlightEffects`), Haiku (#99 balance in `b10-balance`).
+- Root fixes: Luna's compile errors (`levelgen.feature.Feature`, `loot.parameters.LootContextParamSets`, `SpawnerBlockEntity.setEntityId(type, random)`, `SoundEvents.BLAZE_SHOOT` is not a holder); Plumber leggings recipe didn't use Taydenite; armour durability now uses vanilla's base table (11/16/15/13 x multiplier) in `CustomArmorMaterial` and `PlumberArmorMaterial` (was multiplier x defense, about half of vanilla).
+- Verified: `runData`, `build`, Forge 51/51, Fabric 49/49; wiki builds (115 items, 116 recipes) and links check.
+- Not seen in game: new mobs and their glow/translucency, flight animation direction, Heatblast flame trail, Plumber armour on the player model, glider feel, prison and outpost structures.
+
+### 2026-10-14: 2.1.0 Living Null Void gameplay implementation
+- Added prisoner pack/flank/flee behavior, neutral tractor-beam Null Guardians, Lepidopterran slime spitters and the persistent prison warden. Added rare floating prison and Plumber outpost features, Taydenite ore, the key-locked prison vault, Plumber equipment, loot, recipes, tags, translations and render registration on Forge/Fabric.
+- Added shared GameTests and both loader wrappers for mob attributes, drops, vault use, glider, blaster recipe, Taydenite drops, structure features and the warden summon cap. Updated `tools/wiki/build.py` and marked Phase A gameplay complete; Plumber missions remain deferred.
+- Validation: not run (sandbox). Root should run data generation, builds and both GameTest servers after integrating the art worker's assets. Do not launch `runClient` for this task.
 
 ### 2026-10-14: Release prep for 2.0.0
 - Fixed: dying while transformed kept the alien form (`OmnitrixService.onRespawn`, called from both loaders' respawn events; returning from the End keeps the form). GameTest `deathRevertsToHuman`.
@@ -121,9 +133,9 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. User: paste `docs/curseforge/description.md` into the CurseForge page (Markdown) and add `docs/images/*.png` to the gallery; merge PR #97.
-2. In-game QA of 2.0.0 on both loaders (never done for the powers, HUD, guide, wrist model, bosses, Null Void). Fix what turns up in 2.0.x.
-3. 2.1.0 Living Null Void and flight animations, per `docs/design/roadmap.md`. Consider Modrinth publishing for Fabric update notices.
+1. Integrate the art worker's 2.1.0 assets, then run Forge `runData`, both builds and both GameTest servers. Do not launch `runClient` for this task.
+2. Review generated-data and test failures and fix them before release.
+3. Consider Modrinth publishing for Fabric update notices.
 
 ## Gotchas
 

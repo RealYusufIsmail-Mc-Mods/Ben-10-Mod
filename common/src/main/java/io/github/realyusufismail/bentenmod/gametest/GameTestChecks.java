@@ -34,6 +34,7 @@ package io.github.realyusufismail.bentenmod.gametest;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
+import io.github.realyusufismail.bentenmod.core.blocks.PrisonVaultBlock;
 import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
@@ -52,6 +53,7 @@ import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
 import io.github.realyusufismail.bentenmod.worldgen.OmnitrixCrashSiteWorldgen;
 import io.github.realyusufismail.bentenmod.worldgen.NullVoidWorldgen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
@@ -78,8 +80,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
@@ -114,6 +118,121 @@ public final class GameTestChecks {
                 "Vilgax should resist knockback");
         helper.assertTrue(drone.getMaxHealth() == 16.0F, "Vilgax drones should have 16 health");
         helper.succeed();
+    }
+
+    public static void livingNullVoidMobsHaveAttributes(GameTestHelper helper) {
+        var guardian = helper.spawn(EntityTypesInit.NULL_GUARDIAN.get(), new BlockPos(1, 2, 1));
+        var scout = helper.spawn(EntityTypesInit.LEPIDOPTERAN.get(), new BlockPos(4, 2, 1));
+        var warden = helper.spawn(EntityTypesInit.PRISON_WARDEN.get(), new BlockPos(7, 2, 1));
+        helper.assertTrue(guardian.getMaxHealth() == 60.0F, "Null Guardian should have 60 health");
+        helper.assertTrue(scout.getMaxHealth() == 20.0F, "Lepidopterran should have 20 health");
+        helper.assertTrue(scout.getAttributeValue(Attributes.MOVEMENT_SPEED) >= 0.4,
+                "Lepidopterran should be fast");
+        helper.assertTrue(warden.getMaxHealth() == 150.0F, "Prison Warden should have 150 health");
+        helper.assertTrue(warden.getAttributeValue(Attributes.ARMOR) >= 10.0,
+                "Prison Warden should have boss armour");
+        helper.succeed();
+    }
+
+    public static void nullVoidLootTablesContainDrops(GameTestHelper helper) {
+        var prisoner =
+                helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(1, 2, 1));
+        var guardian = helper.spawn(EntityTypesInit.NULL_GUARDIAN.get(), new BlockPos(4, 2, 1));
+        var scout = helper.spawn(EntityTypesInit.LEPIDOPTERAN.get(), new BlockPos(7, 2, 1));
+        var warden = helper.spawn(EntityTypesInit.PRISON_WARDEN.get(), new BlockPos(10, 2, 1));
+        assertLootExists(helper, "entities/null_void_prisoner", prisoner,
+                ItemInit.PRISONER_CUFFS.get(), 200);
+        assertLootExists(helper, "entities/null_guardian", guardian,
+                ItemInit.NULL_GUARDIAN_MEMBRANE.get(), 1);
+        assertLootExists(helper, "entities/lepidopterran", scout, Items.SLIME_BALL, 100);
+        assertLootExists(helper, "entities/lepidopterran", scout, ItemInit.TAYDENITE.get(), 300);
+        assertLootExists(helper, "entities/prison_warden", warden, ItemInit.CELL_KEY.get(), 1);
+        assertLootExists(helper, "entities/prison_warden", warden, ItemInit.PRISONER_CUFFS.get(),
+                200);
+        helper.succeed();
+    }
+
+    public static void prisonVaultUsesKeyAndOpens(GameTestHelper helper, ServerPlayer player) {
+        BlockPos relative = new BlockPos(3, 2, 3);
+        BlockPos pos = helper.absolutePos(relative);
+        player.getAbilities().instabuild = false;
+        helper.setBlock(relative, BlockInit.PRISON_VAULT.get());
+        BlockHitResult hit = new BlockHitResult(Vec3.atCenterOf(pos), Direction.UP, pos, false);
+        player.setPos(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 1.5);
+
+        InteractionResult refused = BlockInit.PRISON_VAULT.get()
+            .use(helper.getLevel().getBlockState(pos), helper.getLevel(), pos, player,
+                    InteractionHand.MAIN_HAND, hit);
+        helper.assertTrue(refused.consumesAction(), "vault did not handle the no-key interaction");
+        helper.assertFalse(helper.getLevel().getBlockState(pos).getValue(PrisonVaultBlock.OPEN),
+                "vault opened without a cell key");
+
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemInit.CELL_KEY.get()));
+        InteractionResult opened = BlockInit.PRISON_VAULT.get()
+            .use(helper.getLevel().getBlockState(pos), helper.getLevel(), pos, player,
+                    InteractionHand.MAIN_HAND, hit);
+        helper.assertTrue(opened.consumesAction(), "cell key did not open the vault");
+        helper.assertTrue(helper.getLevel().getBlockState(pos).getValue(PrisonVaultBlock.OPEN),
+                "vault did not enter its opened state");
+        helper.assertTrue(player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty(),
+                "cell key was not consumed");
+
+        player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemInit.CELL_KEY.get()));
+        BlockInit.PRISON_VAULT.get()
+            .use(helper.getLevel().getBlockState(pos), helper.getLevel(), pos, player,
+                    InteractionHand.MAIN_HAND, hit);
+        helper.assertTrue(
+                player.getItemInHand(InteractionHand.MAIN_HAND).is(ItemInit.CELL_KEY.get()),
+                "opened vault consumed a second key");
+        helper.succeed();
+    }
+
+    public static void nullVoidGliderSlowsFalling(GameTestHelper helper, ServerPlayer player) {
+        ItemStack glider = new ItemStack(ItemInit.NULL_VOID_GLIDER.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND, glider);
+        BlockPos pos = helper.absolutePos(new BlockPos(1, 10, 1));
+        player.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+        player.setDeltaMovement(0.0, -1.0, 0.0);
+        ItemInit.NULL_VOID_GLIDER.get().inventoryTick(glider, helper.getLevel(), player, 0, true);
+        helper.assertTrue(player.hasEffect(MobEffects.SLOW_FALLING),
+                "held glider did not grant Slow Falling while descending");
+        helper.assertTrue(player.fallDistance == 0.0F, "glider did not reset fall distance");
+        helper.succeed();
+    }
+
+    public static void plumberBlasterRecipeLoads(GameTestHelper helper) {
+        var recipe = helper.getLevel()
+            .getRecipeManager()
+            .byKey(BenTenMod.getModIdAndName("plumber_blaster"));
+        helper.assertTrue(recipe.isPresent(), "Plumber Blaster Crafter recipe is missing");
+        if (recipe.isEmpty()) {
+            return;
+        }
+        helper.assertTrue(
+                recipe.orElseThrow()
+                    .getResultItem(helper.getLevel().registryAccess())
+                    .is(ItemInit.PLUMBER_BLASTER.get()),
+                "Plumber Blaster recipe has the wrong result");
+        helper.succeed();
+    }
+
+    public static void prisonWardenRespectsPrisonerCap(GameTestHelper helper) {
+        var warden = helper.spawn(EntityTypesInit.PRISON_WARDEN.get(), new BlockPos(4, 2, 4));
+        helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(2, 2, 2));
+        helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(6, 2, 2));
+        helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(2, 2, 6));
+        helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(6, 2, 6));
+        helper.runAtTickTime(420, () -> {
+            int nearby = helper.getLevel()
+                .getEntitiesOfClass(
+                        io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity.class,
+                        warden.getBoundingBox().inflate(32.0),
+                        entity -> entity.isAlive() && entity.distanceToSqr(warden) <= 1024.0)
+                .size();
+            helper.assertTrue(nearby <= 4,
+                    "Prison Warden summoned beyond its cap of four prisoners");
+            helper.succeed();
+        });
     }
 
     public static void vilgaxSwitchesPhaseAtHalfHealth(GameTestHelper helper) {
@@ -313,6 +432,28 @@ public final class GameTestChecks {
                 helper.getLevel(), absolute, null, null, ironPickaxe);
         helper.assertTrue(drops.stream().anyMatch(stack -> stack.is(ItemInit.NULL_CRYSTAL.get())),
                 "Null Crystal Ore did not drop a Null Crystal");
+
+        BlockPos taydenitePos = new BlockPos(2, 2, 1);
+        helper.setBlock(taydenitePos, BlockInit.TAYDENITE_ORE.get());
+        BlockPos taydeniteAbsolute = helper.absolutePos(taydenitePos);
+        ItemStack fortunePickaxe = new ItemStack(Items.IRON_PICKAXE);
+        fortunePickaxe.enchant(Enchantments.BLOCK_FORTUNE, 3);
+        List<ItemStack> taydeniteDrops =
+                Block.getDrops(BlockInit.TAYDENITE_ORE.get().defaultBlockState(), helper.getLevel(),
+                        taydeniteAbsolute, null, null, fortunePickaxe);
+        helper.assertTrue(
+                taydeniteDrops.stream().anyMatch(stack -> stack.is(ItemInit.TAYDENITE.get())),
+                "Taydenite Ore did not drop Taydenite with Fortune");
+
+        ItemStack silkPickaxe = new ItemStack(Items.IRON_PICKAXE);
+        silkPickaxe.enchant(Enchantments.SILK_TOUCH, 1);
+        List<ItemStack> silkDrops =
+                Block.getDrops(BlockInit.TAYDENITE_ORE.get().defaultBlockState(), helper.getLevel(),
+                        taydeniteAbsolute, null, null, silkPickaxe);
+        helper.assertTrue(
+                silkDrops.stream()
+                    .anyMatch(stack -> stack.is(BlockInit.TAYDENITE_ORE.get().asItem())),
+                "Silk Touch did not drop Taydenite Ore itself");
         helper.succeed();
     }
 
@@ -400,6 +541,27 @@ public final class GameTestChecks {
             .getElement(new LootDataId<>(LootDataType.TABLE, lootId));
     }
 
+    private static void assertLootExists(GameTestHelper helper, String path,
+            net.minecraft.world.entity.Mob entity, Item expected, int seeds) {
+        LootTable table = entityLootTable(helper, path);
+        helper.assertTrue(table != null, "Missing entity loot table: " + path);
+        if (table == null) {
+            return;
+        }
+        LootParams params = new LootParams.Builder(helper.getLevel())
+            .withParameter(LootContextParams.THIS_ENTITY, entity)
+            .withParameter(LootContextParams.ORIGIN, entity.position())
+            .withParameter(LootContextParams.DAMAGE_SOURCE, entity.damageSources().generic())
+            .create(LootContextParamSets.ENTITY);
+        boolean found = false;
+        for (long seed = 0; seed < seeds && !found; seed++) {
+            found = table.getRandomItems(params, seed)
+                .stream()
+                .anyMatch(stack -> stack.is(expected));
+        }
+        helper.assertTrue(found, "Loot table " + path + " never returned " + expected);
+    }
+
     private static java.util.List<ItemStack> entityLoot(GameTestHelper helper,
             net.minecraft.world.entity.Mob entity, LootTable table) {
         LootParams params = new LootParams.Builder(helper.getLevel())
@@ -419,8 +581,14 @@ public final class GameTestChecks {
                     "missing placed feature " + key.location()));
         helper.assertTrue(placed.containsKey(NullVoidWorldgen.NULL_CRYSTAL_ORE_PLACED),
                 "Null Void crystal ore placed feature is missing");
+        helper.assertTrue(placed.containsKey(NullVoidWorldgen.TAYDENITE_ORE_PLACED),
+                "Taydenite ore placed feature is missing");
         helper.assertTrue(placed.containsKey(NullVoidWorldgen.FORTRESS_PLACED),
                 "Null Void fortress placed feature is missing");
+        helper.assertTrue(placed.containsKey(NullVoidWorldgen.FLOATING_PRISON_PLACED),
+                "Floating prison placed feature is missing");
+        helper.assertTrue(placed.containsKey(NullVoidWorldgen.PLUMBER_OUTPOST_PLACED),
+                "Plumber outpost placed feature is missing");
         helper.succeed();
     }
 

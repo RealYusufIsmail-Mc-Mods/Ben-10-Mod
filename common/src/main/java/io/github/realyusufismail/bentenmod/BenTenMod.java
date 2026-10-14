@@ -40,6 +40,9 @@ import io.github.realyusufismail.bentenmod.core.itemgroup.BenTenModItemGroup;
 import io.github.realyusufismail.bentenmod.data.CodecJsonReloadListener;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity;
+import io.github.realyusufismail.bentenmod.entity.NullGuardianEntity;
+import io.github.realyusufismail.bentenmod.entity.LepidopterranEntity;
+import io.github.realyusufismail.bentenmod.entity.PrisonWardenEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxDroneEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import io.github.realyusufismail.bentenmod.entity.ZsSkayrEntity;
@@ -100,6 +103,12 @@ public final class BenTenMod {
                 VilgaxDroneEntity.registerAttributes().build());
         registrar.accept(EntityTypesInit.NULL_VOID_PRISONER.get(),
                 NullVoidPrisonerEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.NULL_GUARDIAN.get(),
+                NullGuardianEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.LEPIDOPTERAN.get(),
+                LepidopterranEntity.registerAttributes().build());
+        registrar.accept(EntityTypesInit.PRISON_WARDEN.get(),
+                PrisonWardenEntity.registerAttributes().build());
         registrar.accept(EntityTypesInit.ZS_SKAYR_ENTITY.get(),
                 ZsSkayrEntity.registerAttributes().build());
     }

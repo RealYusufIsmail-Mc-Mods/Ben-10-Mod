@@ -23,6 +23,11 @@
     "bentenmod:omnitrix_pod",
     "bentenmod:null_void_stone",
     "bentenmod:null_void_stone_bricks",
-    "bentenmod:null_crystal_ore"
+    "bentenmod:null_crystal_ore",
+    "bentenmod:taydenite_ore",
+    "bentenmod:taydenite_block",
+    "bentenmod:prison_wall",
+    "bentenmod:plumber_hull",
+    "bentenmod:prison_vault"
   ]
 }

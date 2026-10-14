@@ -1,0 +1,19 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "armour",
+  "key": {
+    "M": {
+      "item": "bentenmod:prisoner_cuffs"
+    },
+    "T": {
+      "item": "bentenmod:taydenite"
+    }
+  },
+  "pattern": [
+    "M M",
+    "T T"
+  ],
+  "result": {
+    "item": "bentenmod:plumber_boots"
+  }
+}

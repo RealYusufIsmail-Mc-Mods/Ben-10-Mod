@@ -235,6 +235,207 @@ def master_control():
     return q
 
 
+# ------------------------------------------------------------------ 2.1 items: Taydenite, Plumber gear
+def taydenite():
+    q = Pix()
+    q.fill([(5, 1), (10, 1), (14, 5), (14, 8), (8, 15), (7, 15), (1, 8), (1, 5)], "e86cb4")  # cut gem
+    q.bevel(0.4, 1.15, 0.8)
+    q.fill([(5, 2), (10, 2), (12, 5), (3, 5)], "ffc9ea")  # crown (table)
+    q.fill([(3, 6), (12, 6), (8, 13), (7, 13)], "f08ac8")  # pavilion
+    q.fill([(3, 6), (7, 6), (7, 13)], "d4559e")  # shadowed left facet
+    q.fill([(8, 6), (12, 6), (8, 13)], "ff9fd8")  # lit right facet
+    for x, y in ((5, 3), (6, 3), (7, 2), (4, 4)):
+        q.set(x, y, "ffffff")
+    q.set(11, 5, "fff0fa")
+    q.set(9, 7, "ffe8f6")
+    q.set(5, 7, "b03a82")
+    q.set(2, 6, "b03a82")
+    return q
+
+
+def null_guardian_membrane():
+    q = Pix()
+    q.fill([(2, 3), (7, 1), (12, 2), (14, 6), (13, 11), (9, 14), (4, 13), (1, 9)], "3b2160")
+    q.bevel(0.4, 1.3, 0.75)
+    for x, y in ((3, 5), (4, 5), (5, 6), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10)):  # magenta veins
+        q.set(x, y, "e24bf0")
+    for x, y in ((7, 3), (8, 4), (9, 5), (10, 5), (11, 4), (6, 8), (6, 9), (5, 10), (11, 8), (12, 8)):
+        q.set(x, y, "b02ec4")
+    for x, y in ((4, 3), (3, 4), (6, 2)):
+        q.set(x, y, "6a46a0")  # sheen
+    for x, y in ((11, 11), (9, 12), (4, 11), (12, 5)):
+        q.set(x, y, "241342")
+    q.set(8, 8, "ff9cff")
+    return q
+
+
+def prisoner_cuffs():
+    q = Pix()
+    for cx, cy in ((5, 8), (11, 8)):  # two open rings
+        q.disc(cx, cy, 4.4, "e0701a")
+    for cx, cy in ((5, 8), (11, 8)):
+        for y in range(16):
+            for x in range(16):
+                if math.hypot(x - cx, y - cy) <= 2.2:
+                    q.p[y][x] = None
+    q.bevel(0.35, 1.3, 0.75)
+    for x, y in ((7, 8), (8, 8), (7, 9), (8, 9)):  # chain link between them
+        q.set(x, y, "8a8e99")
+    for y in range(10, 13):  # the break in the left cuff, bottom right
+        q.set(7, y, None)
+    q.set(8, 7, "5a5e69")
+    for x, y in ((3, 5), (4, 4), (5, 4), (9, 5), (10, 4), (11, 4)):
+        q.set(x, y, "ffb060")  # highlights
+    for x, y in ((6, 11), (5, 12), (10, 12), (12, 11)):
+        q.set(x, y, "8a4510")
+    q.set(2, 8, "2a1810")  # dark hinge
+    return q
+
+
+def cell_key():
+    q = Pix()
+    q.rect(1, 3, 14, 12, "7d828e")  # key card body
+    q.rect(1, 3, 14, 5, "e0701a")  # orange stripe
+    q.bevel(0.35, 1.2, 0.8)
+    q.rect(2, 7, 9, 8, "2f3138")  # magnetic strip
+    q.rect(10, 7, 12, 10, "c9a030")  # chip
+    q.set(11, 8, "8a6a10")
+    q.rect(2, 10, 6, 10, "5a5e69")  # text lines
+    q.rect(2, 11, 4, 11, "5a5e69")
+    q.set(12, 4, "ff3a2a")  # red light
+    q.set(13, 4, "ff8a7a")
+    q.set(12, 5, "b01a10")
+    q.set(2, 4, "c4540c")
+    return q
+
+
+def plumber_badge():
+    q = Pix()
+    q.disc(7.5, 7.5, 7.2, "9aa0ab")
+    q.bevel(0.35, 1.25, 0.78)
+    q.disc(7.5, 7.5, 5.2, "2a2d35")
+    for y in range(16):
+        for x in range(16):
+            d = math.hypot(x - 7.5, y - 7.5)
+            if 5.2 < d <= 6.2:
+                q.set(x, y, "c4c8d0" if y < 8 else "6d727c")
+    for y, half in ((4, 3), (5, 3), (6, 2), (7, 1), (8, 1), (9, 2), (10, 3), (11, 3)):  # green hourglass
+        for x in range(8 - half, 8 + half):
+            q.set(x, y, "2fd05a")
+    q.rect(7, 7, 8, 8, "b8ffc8")
+    for x, y in ((5, 4), (6, 4)):
+        q.set(x, y, "8dffa8")
+    for x, y in ((9, 11), (10, 11)):
+        q.set(x, y, "1d8a3c")
+    return q
+
+
+def plumber_blaster():
+    q = Pix()
+    q.rect(1, 4, 9, 7, "8a8f99")  # barrel and slide
+    q.rect(8, 4, 14, 9, "6d727c")  # body
+    q.fill([(9, 9), (13, 9), (12, 15), (8, 15)], "2a2d35")  # grip
+    q.rect(2, 5, 8, 5, "2fd05a")  # green stripe
+    q.bevel(0.35, 1.25, 0.75)
+    q.rect(0, 5, 0, 6, "1a1c21")  # muzzle
+    q.set(0, 5, "7dffa0")
+    q.rect(10, 5, 12, 6, "1d8a3c")  # energy cell window
+    q.set(11, 5, "8dffa8")
+    q.set(11, 6, "2fd05a")
+    q.set(8, 8, "3a3e48")  # trigger guard
+    q.set(7, 9, "3a3e48")
+    q.set(7, 8, "3a3e48")
+    for y in range(10, 15):
+        q.set(10, y, "3a3e48")
+    q.set(13, 4, "c4c8d0")
+    q.set(12, 4, "c4c8d0")
+    return q
+
+
+def null_void_glider():
+    q = Pix()
+    q.fill([(1, 14), (2, 4), (9, 1), (14, 6), (15, 14), (9, 11)], "4a2878")  # folded membrane
+    q.bevel(0.35, 1.3, 0.78)
+    q.fill([(3, 6), (8, 3), (8, 9), (4, 12)], "5f3a96")  # lit fold
+    q.fill([(9, 3), (13, 7), (13, 12), (9, 10)], "33194f")  # shaded fold
+    q.line(2, 14, 9, 1, "9aa0ab")  # frame spar
+    q.line(9, 1, 15, 14, "6d727c")
+    q.line(9, 2, 9, 11, "8a8f99")  # centre rib
+    for x, y in ((5, 8), (6, 7), (11, 8), (12, 9)):
+        q.set(x, y, "c24bd8")  # magenta vein glow
+    q.set(2, 14, "c4c8d0")
+    q.set(9, 1, "c4c8d0")
+    return q
+
+
+def _plumber_icon(kind):
+    black, mid, light, green, green_d = "17191e", "2f333c", "4a4f5b", "2fd05a", "1d8a3c"
+    q = Pix()
+    if kind == "helmet":
+        q.fill([(3, 3), (5, 1), (10, 1), (12, 3), (13, 12), (11, 12), (11, 8), (4, 8), (4, 12), (2, 12)], mid)
+        q.bevel(0.35, 1.3, 0.78)
+        q.rect(4, 5, 11, 7, black)  # visor
+        q.rect(5, 6, 10, 6, "1b3a24")
+        q.rect(7, 1, 8, 4, green)  # crest stripe
+        q.set(7, 1, "8dffa8")
+        q.set(3, 8, green_d)
+        q.set(12, 8, green_d)
+        q.set(4, 3, light)
+        q.set(5, 2, light)
+    elif kind == "chestplate":
+        q.fill([(1, 2), (4, 1), (6, 3), (9, 3), (11, 1), (14, 2), (15, 7), (12, 7), (12, 14), (3, 14), (3, 7), (0, 7)], mid)
+        q.bevel(0.35, 1.3, 0.78)
+        q.rect(4, 4, 5, 13, black)  # green chest stripes
+        q.rect(10, 4, 11, 13, black)
+        q.rect(4, 4, 4, 13, green)
+        q.rect(11, 4, 11, 13, green)
+        q.rect(7, 6, 8, 7, green)  # badge
+        q.set(7, 8, green_d)
+        q.set(8, 8, green_d)
+        q.set(1, 5, green)
+        q.set(14, 5, green)
+        q.set(2, 3, light)
+        q.set(3, 2, light)
+    elif kind == "leggings":
+        q.fill([(3, 1), (12, 1), (13, 14), (9, 14), (8, 6), (7, 6), (6, 14), (2, 14)], mid)
+        q.bevel(0.35, 1.3, 0.78)
+        q.rect(3, 2, 12, 3, black)  # belt
+        q.rect(3, 3, 12, 3, green)
+        q.set(7, 2, "c4c8d0")
+        q.set(8, 2, "c4c8d0")
+        q.line(4, 5, 3, 13, green_d)
+        q.line(11, 5, 12, 13, green_d)
+        q.set(4, 4, light)
+        q.set(3, 5, light)
+    else:  # boots
+        q.fill([(2, 5), (6, 5), (6, 9), (7, 10), (7, 13), (1, 13), (1, 9)], mid)
+        q.fill([(9, 5), (13, 5), (14, 9), (14, 13), (8, 13), (8, 10), (9, 9)], mid)
+        q.bevel(0.35, 1.3, 0.78)
+        q.rect(2, 6, 5, 6, green)
+        q.rect(10, 6, 13, 6, green)
+        q.rect(1, 12, 6, 12, black)
+        q.rect(9, 12, 14, 12, black)
+        q.set(3, 8, light)
+        q.set(11, 8, light)
+    return q
+
+
+def plumber_helmet():
+    return _plumber_icon("helmet")
+
+
+def plumber_chestplate():
+    return _plumber_icon("chestplate")
+
+
+def plumber_leggings():
+    return _plumber_icon("leggings")
+
+
+def plumber_boots():
+    return _plumber_icon("boots")
+
+
 # ------------------------------------------------------------------ blocks
 def _stone(rng, base, shades, speck, speck_density, size=16):
     """Violet-black stone: mottled base with dark/light patches and faint purple specks."""
@@ -328,16 +529,307 @@ def null_crystal_ore():
     return px
 
 
+# ------------------------------------------------------------------ 2.1 blocks
+def taydenite_ore():
+    px = null_void_stone_pixels()
+    pal = ["a8326e", "e86cb4", "ffc9ea", "ffffff"]
+    clusters = [(2, 2), (9, 1), (5, 8), (11, 10), (1, 12)]
+    shapes = [
+        [(0, 0, 1), (1, 0, 2), (0, 1, 1), (1, 1, 0), (1, -1, 3), (2, 1, 0)],
+        [(0, 0, 2), (1, 0, 1), (0, 1, 1), (0, 2, 0), (-1, 1, 0), (1, 1, 1)],
+    ]
+    halo = rgb("3a1530")
+    for i, (cx, cy) in enumerate(clusters):
+        for dx, dy, k in shapes[i % 2]:
+            x, y = cx + dx, cy + dy
+            if 0 <= x < 16 and 0 <= y < 16:
+                px[y][x] = rgb(pal[k])
+        for dx, dy in ((-1, 0), (2, 0), (-1, 2), (2, 2), (0, 3), (1, 3), (0, -1), (3, 1), (-2, 1)):
+            x, y = cx + dx, cy + dy
+            if 0 <= x < 16 and 0 <= y < 16 and px[y][x] not in map(rgb, pal):
+                px[y][x] = halo
+    return px
+
+
+def taydenite_block():
+    px = [[rgb("ec7cbc")] * 16 for _ in range(16)]
+    for ty in range(2):  # four 8x8 facet tiles with X-shaped shading
+        for tx in range(2):
+            for y in range(8):
+                for x in range(8):
+                    up, left = y < x, x + y < 7
+                    c = ("ffa9dc" if up and left else "f58ac8" if up else "d658a2" if left else "ec7cbc")
+                    px[ty * 8 + y][tx * 8 + x] = rgb(c)
+    for i in range(16):  # bevelled border and the centre cross
+        for y, c in ((0, "ffd9f0"), (15, "9a3572")):
+            px[y][i] = rgb(c)
+        for x, c in ((0, "ffd9f0"), (15, "9a3572")):
+            px[i][x] = rgb(c)
+        px[7][i] = rgb("c04a90") if i not in (0, 15) else px[7][i]
+        px[i][7] = rgb("c04a90") if i not in (0, 15) else px[i][7]
+    for x, y in ((3, 3), (4, 2), (11, 4), (10, 11), (4, 12), (12, 12)):
+        px[y][x] = rgb("ffffff")
+    return px
+
+
+def prison_wall():
+    rng = random.Random(2101)
+    px = [[None] * 16 for _ in range(16)]
+    for y in range(16):
+        for x in range(16):
+            k = rng.choice((0.94, 1.0, 1.0, 1.05))
+            px[y][x] = tuple(int(v * k) for v in rgb("6b707b"))
+    for x in range(16):  # panel seams
+        px[0][x] = rgb("8a8f99")
+        px[15][x] = rgb("3a3e48")
+        px[7][x] = rgb("3a3e48")
+        px[8][x] = rgb("8a8f99")
+    for y in range(16):
+        px[y][0] = rgb("8a8f99")
+        px[y][15] = rgb("3a3e48")
+    for y in (3, 12):  # rivets
+        for x in (3, 12):
+            px[y][x] = rgb("a9aeb8")
+            px[y + 1][x + 1] = rgb("3a3e48")
+    for y in range(5, 11):  # orange hazard stripe, diagonal bars
+        for x in range(16):
+            if y in (5, 10):
+                px[y][x] = rgb("2a2d35")
+            else:
+                px[y][x] = rgb("e0701a") if ((x + y) // 2) % 2 == 0 else rgb("1f2127")
+    return px
+
+
+def prison_vault_front():
+    px = [[rgb("55596a")] * 16 for _ in range(16)]
+    rng = random.Random(2102)
+    for y in range(16):
+        for x in range(16):
+            k = rng.choice((0.94, 1.0, 1.05))
+            px[y][x] = tuple(int(v * k) for v in rgb("e0701a"))
+    for i in range(16):  # grey frame
+        for t in range(2):
+            for (x, y) in ((i, t), (i, 15 - t), (t, i), (15 - t, i)):
+                px[y][x] = rgb("6b707b") if t == 0 else rgb("4a4e58")
+    for y in (5, 10):  # door seams
+        for x in range(2, 14):
+            px[y][x] = rgb("a8500e")
+    for y in range(2, 14):
+        px[y][9] = rgb("a8500e")
+    for y in range(2, 14):
+        px[y][2] = rgb("f09a50") if y in (3, 4) else px[y][2]
+    # key-card reader on the right: housing, slot and a red light
+    for y in range(3, 13):
+        for x in range(10, 14):
+            px[y][x] = rgb("454952")
+    for y in range(3, 13):
+        px[y][10] = rgb("5a5e69")
+        px[y][13] = rgb("2f3138")
+    for y in range(7, 11):
+        px[y][11] = rgb("0e0f12")
+        px[y][12] = rgb("0e0f12")
+    px[4][11] = rgb("ff2a1a")
+    px[4][12] = rgb("ff7a6a")
+    px[5][11] = rgb("a01208")
+    px[5][12] = rgb("a01208")
+    # lock bolts on the left
+    for y in (3, 11):
+        px[y][4] = rgb("9aa0ab")
+        px[y][5] = rgb("5a5e69")
+    px[7][4] = rgb("2a2d35")
+    px[7][5] = rgb("2a2d35")
+    px[8][4] = rgb("2a2d35")
+    px[8][5] = rgb("2a2d35")
+    return px
+
+
+def prison_vault_side():
+    px = prison_wall()
+    for y in range(16):  # plain panel: no hazard stripe, orange corner trim
+        for x in range(16):
+            if 5 <= y <= 10:
+                px[y][x] = rgb("6b707b") if (x + y) % 5 else rgb("626772")
+    for i in range(3):
+        px[1][1 + i] = rgb("e0701a")
+        px[1 + i][1] = rgb("e0701a")
+        px[14][14 - i] = rgb("a8500e")
+        px[14 - i][14] = rgb("a8500e")
+    for x in range(16):
+        px[7][x] = rgb("3a3e48")
+        px[8][x] = rgb("8a8f99")
+    return px
+
+
+def prison_vault_top():
+    px = prison_wall()
+    rng = random.Random(2103)
+    for y in range(1, 15):
+        for x in range(1, 15):
+            k = rng.choice((0.95, 1.0, 1.04))
+            px[y][x] = tuple(int(v * k) for v in rgb("6b707b"))
+    for i in range(16):
+        px[0][i] = px[15][i] = rgb("e0701a")
+        px[i][0] = px[i][15] = rgb("e0701a")
+        px[1][i] = rgb("a8500e") if 0 < i < 15 else px[1][i]
+        px[14][i] = rgb("a8500e") if 0 < i < 15 else px[14][i]
+        px[i][1] = rgb("a8500e") if 0 < i < 15 else px[i][1]
+        px[i][14] = rgb("a8500e") if 0 < i < 15 else px[i][14]
+    for y, x in ((3, 3), (3, 12), (12, 3), (12, 12)):
+        px[y][x] = rgb("a9aeb8")
+    return px
+
+
+def plumber_hull():
+    rng = random.Random(2104)
+    px = [[None] * 16 for _ in range(16)]
+    for y in range(16):
+        for x in range(16):
+            k = rng.choice((0.92, 1.0, 1.0, 1.06))
+            px[y][x] = tuple(int(v * k) for v in rgb("3a3e48"))
+    for y in range(16):  # plate edges: light top-left, dark bottom-right of each 8x8 plate
+        for x in range(16):
+            if y % 8 == 0 or x % 8 == 0:
+                px[y][x] = rgb("565b68")
+            elif y % 8 == 7 or x % 8 == 7:
+                px[y][x] = rgb("22252c")
+    for y in (2, 5, 10, 13):  # rivets
+        for x in (2, 5, 10, 13):
+            px[y][x] = rgb("6d727c")
+    for y in (6, 7, 8):  # green stripe across the middle, glow-lit centre line
+        for x in range(16):
+            px[y][x] = rgb("2fd05a") if y == 7 else rgb("1d8a3c") if y == 6 else rgb("145f2a")
+    for x in range(16):
+        if x % 4 == 1:
+            px[7][x] = rgb("8dffa8")
+    return px
+
+
+# ------------------------------------------------------------------ armour layers
+def _paint(im, box, base, seed, edge=True):
+    """Fill a UV rectangle with noisy plating and a darker 1 px edge."""
+    rng = random.Random(seed)
+    x0, y0, x1, y1 = box
+    for y in range(y0, y1):
+        for x in range(x0, x1):
+            k = rng.choice((0.9, 1.0, 1.0, 1.08))
+            im.putpixel((x, y), (*[int(v * k) for v in rgb(base)], 255))
+    if edge:
+        for x in range(x0, x1):
+            im.putpixel((x, y0), (*rgb("4a4f5b"), 255))
+            im.putpixel((x, y1 - 1), (*rgb("14161b"), 255))
+        for y in range(y0, y1):
+            im.putpixel((x0, y), (*rgb("3a3e48"), 255))
+            im.putpixel((x1 - 1, y), (*rgb("14161b"), 255))
+
+
+def _dot(im, x, y, c):
+    im.putpixel((x, y), (*rgb(c), 255))
+
+
+def plumber_layer_1():
+    """Helmet, chestplate and boots on the vanilla 64x32 armour UV."""
+    im = Image.new("RGBA", (64, 32), (0, 0, 0, 0))
+    green, green_d, black = "2fd05a", "1d8a3c", "0e0f12"
+    # head (0,0): faces are 8x8 at right 0,8 / front 8,8 / left 16,8 / back 24,8, top 8,0, bottom 16,0
+    for box in ((8, 0, 16, 8), (0, 8, 8, 16), (8, 8, 16, 16), (16, 8, 24, 16), (24, 8, 32, 16)):
+        _paint(im, box, "2f333c", 11)
+    _paint(im, (16, 0, 24, 8), "22252c", 12)
+    for x in range(9, 15):  # visor across the front face
+        for y in (11, 12, 13):
+            _dot(im, x, y, black)
+        _dot(im, x, 12, "1b3a24")
+    for x in (11, 12):
+        for y in range(8, 11):
+            _dot(im, x, y, green)
+        for y in range(0, 8):
+            _dot(im, x, y, green)  # centre stripe along the top face
+    for x in (3, 4, 27, 28):  # side/back accents
+        for y in range(9, 11):
+            _dot(im, x, y, green_d)
+    # body (16,16): top 20,16 / bottom 28,16 / right 16,20 / front 20,20 / left 28,20 / back 32,20
+    for box in ((20, 16, 28, 20), (28, 16, 36, 20), (16, 20, 20, 32), (20, 20, 28, 32), (28, 20, 32, 32), (32, 20, 40, 32)):
+        _paint(im, box, "2f333c", 21)
+    for x in (21, 26):  # front stripes
+        for y in range(21, 31):
+            _dot(im, x, y, green)
+            _dot(im, x + (1 if x == 21 else -1), y, black)
+    for y in range(23, 27):  # hourglass badge between the stripes
+        w = 2 if y in (23, 26) else 1
+        for x in range(24 - w, 24 + w):
+            _dot(im, x, y, green if y != 24 else "b8ffc8")
+    for x in (34, 37):  # back stripes
+        for y in range(21, 31):
+            _dot(im, x, y, green_d)
+    for y in range(29, 32):  # belt line on every side
+        for x in range(16, 40):
+            if im.getpixel((x, y))[3]:
+                _dot(im, x, y, "17191e")
+    # arms (40,16): top 44,16 / bottom 48,16 / right 40,20 / front 44,20 / left 48,20 / back 52,20
+    for box in ((44, 16, 48, 20), (48, 16, 52, 20), (40, 20, 44, 32), (44, 20, 48, 32), (48, 20, 52, 32), (52, 20, 56, 32)):
+        _paint(im, box, "2f333c", 31)
+    for x0 in (40, 44, 48, 52):  # green shoulder band and cuff band
+        for x in range(x0, x0 + 4):
+            _dot(im, x, 22, green)
+            _dot(im, x, 29, green_d)
+            _dot(im, x, 30, "17191e")
+    # boots: bottom six rows of the leg UV (0,16) plus the sole (8,16)
+    _paint(im, (8, 16, 12, 20), "14161b", 41)
+    for box in ((0, 26, 4, 32), (4, 26, 8, 32), (8, 26, 12, 32), (12, 26, 16, 32)):
+        _paint(im, box, "2f333c", 42)
+    for x in range(0, 16):
+        _dot(im, x, 26, green)
+        _dot(im, x, 31, "14161b")
+    return im
+
+
+def plumber_layer_2():
+    """Leggings (and the belt line of the body) on the vanilla 64x32 armour UV."""
+    im = Image.new("RGBA", (64, 32), (0, 0, 0, 0))
+    green, green_d = "2fd05a", "1d8a3c"
+    # legs (0,16): top 4,16 / bottom 8,16 / right 0,20 / front 4,20 / left 8,20 / back 12,20
+    _paint(im, (4, 16, 8, 20), "22252c", 51)
+    for box in ((0, 20, 4, 30), (4, 20, 8, 30), (8, 20, 12, 30), (12, 20, 16, 30)):
+        _paint(im, box, "2a2d35", 52)
+    for x in range(0, 16):  # belt/hip stripe and ankle trim
+        _dot(im, x, 20, "17191e")
+        _dot(im, x, 29, "17191e")
+    for y in range(21, 29):  # green seam down the outer side and the front
+        _dot(im, 3, y, green_d)
+        _dot(im, 5, y, green)
+    for x in (4, 5, 6, 7):  # knee plate
+        _dot(im, x, 24, "4a4f5b")
+        _dot(im, x, 25, "4a4f5b")
+    # body belt (16,16): the bottom three rows of each side plus the underside
+    for box in ((28, 16, 36, 20),):
+        _paint(im, box, "22252c", 53)
+    for box in ((16, 29, 20, 32), (20, 29, 28, 32), (28, 29, 32, 32), (32, 29, 40, 32)):
+        _paint(im, box, "17191e", 54)
+    for x in range(20, 28):
+        _dot(im, x, 29, green)
+    _dot(im, 23, 30, "c4c8d0")
+    _dot(im, 24, 30, "c4c8d0")
+    return im
+
+
 # ------------------------------------------------------------------ main
 ITEMS = {"kraab_claw": kraab_claw, "vilgax_core": vilgax_core, "vilgax_beacon": vilgax_beacon,
-         "null_void_projector": null_void_projector, "null_crystal": null_crystal, "master_control": master_control}
+         "null_void_projector": null_void_projector, "null_crystal": null_crystal, "master_control": master_control,
+         "taydenite": taydenite, "null_guardian_membrane": null_guardian_membrane,
+         "prisoner_cuffs": prisoner_cuffs, "cell_key": cell_key, "plumber_badge": plumber_badge,
+         "plumber_blaster": plumber_blaster, "null_void_glider": null_void_glider,
+         "plumber_helmet": plumber_helmet, "plumber_chestplate": plumber_chestplate,
+         "plumber_leggings": plumber_leggings, "plumber_boots": plumber_boots}
 BLOCKS = {"null_void_stone": null_void_stone, "null_void_stone_bricks": null_void_stone_bricks,
-          "null_crystal_ore": null_crystal_ore}
+          "null_crystal_ore": null_crystal_ore, "taydenite_ore": taydenite_ore, "taydenite_block": taydenite_block,
+          "prison_wall": prison_wall, "prison_vault_front": prison_vault_front,
+          "prison_vault_side": prison_vault_side, "prison_vault_top": prison_vault_top,
+          "plumber_hull": plumber_hull}
 
 
 def main():
     (TEX / "item").mkdir(parents=True, exist_ok=True)
     (TEX / "block").mkdir(parents=True, exist_ok=True)
+    (TEX / "models/armor").mkdir(parents=True, exist_ok=True)
     OUT.mkdir(exist_ok=True)
     tiles = []
     for name, fn in ITEMS.items():
@@ -347,11 +839,17 @@ def main():
     for name, fn in BLOCKS.items():
         im = save_px(fn(), TEX / "block" / f"{name}.png")
         tiles.append((name, im))
-    # preview: each tile at 12x on a checker, plus a 3x3 tiling of each block to check seams
-    s, pad = 12, 12
-    sheet = Image.new("RGBA", (len(tiles) * (16 * s + pad) + pad, 16 * s * 2 + pad * 3), (44, 48, 56, 255))
+    layers = {"plumber_layer_1": plumber_layer_1(), "plumber_layer_2": plumber_layer_2()}
+    for name, im in layers.items():
+        im.save(TEX / "models/armor" / f"{name}.png")
+    # preview: each tile at 12x on a checker, plus a 3x3 tiling of each block to check seams; 8 tiles a row
+    s, pad, cols = 12, 12, 8
+    rows = (len(tiles) + cols - 1) // cols
+    cell = 16 * s + pad
+    sheet = Image.new("RGBA", (cols * cell + pad, rows * (cell * 2) + pad), (44, 48, 56, 255))
     for i, (name, im) in enumerate(tiles):
-        x0 = pad + i * (16 * s + pad)
+        x0 = pad + (i % cols) * cell
+        y0 = pad + (i // cols) * cell * 2
         chk = Image.new("RGBA", (16 * s, 16 * s))
         d = ImageDraw.Draw(chk)
         for cy in range(16):
@@ -359,14 +857,27 @@ def main():
                 d.rectangle((cx * s, cy * s, cx * s + s - 1, cy * s + s - 1),
                             fill=(70, 74, 84, 255) if (cx + cy) % 2 else (58, 62, 72, 255))
         chk.alpha_composite(im.resize((16 * s, 16 * s), Image.NEAREST))
-        sheet.paste(chk, (x0, pad))
+        sheet.paste(chk, (x0, y0))
         tile = Image.new("RGBA", (48, 48))
         for ty in range(3):
             for tx in range(3):
                 tile.paste(im, (tx * 16, ty * 16))
-        sheet.paste(tile.resize((16 * s, 16 * s), Image.NEAREST), (x0, pad * 2 + 16 * s))
+        sheet.paste(tile.resize((16 * s, 16 * s), Image.NEAREST), (x0, y0 + cell))
     sheet.convert("RGB").save(OUT / "sheet.png")
-    print("wrote", ", ".join(n for n, _ in tiles))
+    # actual-size check: every tile at 1x and 3x on a mid-grey slot background, the way an inventory shows it
+    small = Image.new("RGBA", (len(tiles) * 52 + 8, 64), (139, 139, 139, 255))
+    for i, (name, im) in enumerate(tiles):
+        small.alpha_composite(im, (8 + i * 52, 8))
+        small.alpha_composite(im.resize((32, 32), Image.NEAREST), (8 + i * 52, 28))
+    small.convert("RGB").save(OUT / "sheet_actual_size.png")
+    # armour layers at 8x on a checker
+    arm = Image.new("RGBA", (64 * 8 * 2 + 24, 32 * 8 + 16), (44, 48, 56, 255))
+    for i, im in enumerate(layers.values()):
+        chk = Image.new("RGBA", (64 * 8, 32 * 8), (58, 62, 72, 255))
+        chk.alpha_composite(im.resize((64 * 8, 32 * 8), Image.NEAREST))
+        arm.paste(chk, (8 + i * (64 * 8 + 8), 8))
+    arm.convert("RGB").save(OUT / "armor.png")
+    print("wrote", ", ".join(n for n, _ in tiles), ", ".join(layers))
 
 
 if __name__ == "__main__":

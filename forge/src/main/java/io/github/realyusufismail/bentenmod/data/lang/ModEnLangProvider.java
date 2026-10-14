@@ -65,6 +65,10 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.NULL_VOID_STONE, "Null Void Stone");
         block(BlockInit.NULL_VOID_STONE_BRICKS, "Null Void Stone Bricks");
+        block(BlockInit.TAYDENITE_BLOCK, "Taydenite Block");
+        block(BlockInit.PRISON_WALL, "Prison Wall");
+        block(BlockInit.PLUMBER_HULL, "Plumber Hull");
+        block(BlockInit.PRISON_VAULT, "Prison Vault");
         block(BlockInit.OmnitrixCrafter, "Omntrix Crafter");
         block(BlockInit.OMNITRIX_POD, "Omnitrix Pod");
 
@@ -78,6 +82,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.RUBY_ORE, "Ruby Ore");
         block(BlockInit.INFINITUM_ORE, "Infinitun Ore");
         block(BlockInit.NULL_CRYSTAL_ORE, "Null Crystal Ore");
+        block(BlockInit.TAYDENITE_ORE, "Taydenite Ore");
 
         // deepslate ores
         block(BlockInit.DEEPSLATE_IMPERIUM_ORE, "Deepslate Imperium Ore");
@@ -103,6 +108,7 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.OMNITRIX_CORE, "Omnitrix Core");
         item(ItemInit.LEGENDARY_CASING, "Legendary Casing");
         item(ItemInit.BLACK_DIAMOND_LENS, "Black Diamond Lens");
+        item(ItemInit.TAYDENITE, "Taydenite");
 
         add(Component.translatable("message.bentenmod.dna_already_sampled"), "DNA already sampled");
         add(Component.translatable("message.bentenmod.dna_sampled"), "DNA sampled: %s");
@@ -171,6 +177,18 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.NULL_VOID_PROJECTOR, "Null Void Projector");
         item(ItemInit.MASTER_CONTROL, "Master Control");
         item(ItemInit.OMNITRIX_GUIDE, "Omnitrix Field Guide");
+        item(ItemInit.NULL_GUARDIAN_MEMBRANE, "Null Guardian Membrane");
+        item(ItemInit.PRISONER_CUFFS, "Prisoner Cuffs");
+        item(ItemInit.CELL_KEY, "Cell Key");
+        item(ItemInit.PLUMBER_BADGE, "Plumber Badge");
+        item(ItemInit.PLUMBER_BLASTER, "Plumber Blaster");
+        item(ItemInit.NULL_VOID_GLIDER, "Null Void Glider");
+        item(ItemInit.PLUMBER_HELMET, "Plumber Helmet");
+        item(ItemInit.PLUMBER_CHESTPLATE, "Plumber Chestplate");
+        item(ItemInit.PLUMBER_LEGGINGS, "Plumber Leggings");
+        item(ItemInit.PLUMBER_BOOTS, "Plumber Boots");
+        add("tooltip.bentenmod.plumber_badge", "Missions arrive in a future update");
+        add("message.bentenmod.prison_vault_key_required", "A cell key is required");
         add("biome.bentenmod.null_void", "Null Void");
         add("message.bentenmod.null_void_projector_failed",
                 "The Null Void projector could not find a safe destination.");
@@ -249,6 +267,9 @@ public class ModEnLangProvider extends LanguageProvider {
         entity(EntityTypesInit.VILGAX_DRONE_ENTITY.get(), "Vilgax Drone");
         entity(EntityTypesInit.NULL_VOID_PRISONER.get(), "Null Void Prisoner");
         entity(EntityTypesInit.ZS_SKAYR_ENTITY.get(), "Zs'Skayr");
+        entity(EntityTypesInit.NULL_GUARDIAN.get(), "Null Guardian");
+        entity(EntityTypesInit.LEPIDOPTERAN.get(), "Lepidopterran Scout");
+        entity(EntityTypesInit.PRISON_WARDEN.get(), "Prison Warden");
 
         // advancements
         add(Component.translatable("advancements.bentenmod.root.title"), "Download Ben ten mod");

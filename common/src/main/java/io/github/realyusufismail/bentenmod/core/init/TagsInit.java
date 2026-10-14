@@ -61,6 +61,8 @@ public class TagsInit {
                 TagKey.create(Registries.BLOCK, ResourceLocation.tryParse("forge:ores/imperiums"));
         public static final TagKey<Block> ORES_LEGENDARY_ORES = TagKey.create(Registries.BLOCK,
                 ResourceLocation.tryParse("forge:ores/legendary_ores"));
+        public static final TagKey<Block> ORES_TAYDENITE =
+                TagKey.create(Registries.BLOCK, ResourceLocation.tryParse("forge:ores/taydenite"));
         // blocks
         public static final TagKey<Block> STORAGE_LEGENDARY = TagKey.create(Registries.BLOCK,
                 ResourceLocation.tryParse("forge:storage_blocks/legendary"));
@@ -74,6 +76,8 @@ public class TagsInit {
                 ResourceLocation.tryParse("forge:storage_blocks/speed"));
         public static final TagKey<Block> STORAGE_BLACK_DIAMOND = TagKey.create(Registries.BLOCK,
                 ResourceLocation.tryParse("forge:storage_blocks/black_diamond"));
+        public static final TagKey<Block> STORAGE_TAYDENITE = TagKey.create(Registries.BLOCK,
+                ResourceLocation.tryParse("forge:storage_blocks/taydenite"));
 
         private Blocks() {}
 
@@ -106,6 +110,8 @@ public class TagsInit {
                 TagKey.create(Registries.ITEM, ResourceLocation.tryParse("forge:ores/imperiums"));
         public static final TagKey<Item> ORES_LEGENDARY_ORES = TagKey.create(Registries.ITEM,
                 ResourceLocation.tryParse("forge:ores/legendary_ores"));
+        public static final TagKey<Item> ORES_TAYDENITE =
+                TagKey.create(Registries.ITEM, ResourceLocation.tryParse("forge:ores/taydenite"));
         // blocks
         public static final TagKey<Item> STORAGE_LEGENDARY = TagKey.create(Registries.ITEM,
                 ResourceLocation.tryParse("forge:storage_blocks/legendary"));

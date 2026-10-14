@@ -36,6 +36,10 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.entity.CrabBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity;
+import io.github.realyusufismail.bentenmod.entity.NullGuardianEntity;
+import io.github.realyusufismail.bentenmod.entity.LepidopterranEntity;
+import io.github.realyusufismail.bentenmod.entity.PrisonWardenEntity;
+import io.github.realyusufismail.bentenmod.entity.SlimeSpitEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxDroneEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import io.github.realyusufismail.bentenmod.entity.ZsSkayrEntity;
@@ -72,6 +76,19 @@ public class EntityTypesInit {
             ENTITY_TYPES.register("null_void_prisoner",
                     () -> createStandardEntityType("null_void_prisoner",
                             NullVoidPrisonerEntity::new, MobCategory.MONSTER, 0.8F, 2.0F));
+    public static final RegistryObject<EntityType<NullGuardianEntity>> NULL_GUARDIAN =
+            ENTITY_TYPES.register("null_guardian", () -> createStandardEntityType("null_guardian",
+                    NullGuardianEntity::new, MobCategory.MONSTER, 2.2F, 2.0F));
+    public static final RegistryObject<EntityType<LepidopterranEntity>> LEPIDOPTERAN =
+            ENTITY_TYPES.register("lepidopterran", () -> createStandardEntityType("lepidopterran",
+                    LepidopterranEntity::new, MobCategory.MONSTER, 1.0F, 1.2F));
+    public static final RegistryObject<EntityType<PrisonWardenEntity>> PRISON_WARDEN =
+            ENTITY_TYPES.register("prison_warden", () -> createStandardEntityType("prison_warden",
+                    PrisonWardenEntity::new, MobCategory.MONSTER, 1.3F, 2.8F));
+    public static final RegistryObject<EntityType<SlimeSpitEntity>> LEPIDOPTERAN_SLIME =
+            ENTITY_TYPES.register("lepidopterran_slime",
+                    () -> createStandardEntityType("lepidopterran_slime", SlimeSpitEntity::new,
+                            MobCategory.MISC, 0.25F, 0.25F));
     public static final RegistryObject<EntityType<ZsSkayrEntity>> ZS_SKAYR_ENTITY =
             ENTITY_TYPES.register("zs_skayr", () -> createStandardEntityType("zs_skayr",
                     ZsSkayrEntity::new, MobCategory.MONSTER, 1.2F, 3.0F));

@@ -37,6 +37,9 @@ import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxDroneRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.VilgaxRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.NullVoidPrisonerRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.NullGuardianRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.LepidopterranRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.PrisonWardenRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
 import io.github.realyusufismail.bentenmod.client.alien.AlienPlayerReplacementRenderer;
 import io.github.realyusufismail.bentenmod.client.OmnitrixWristLayer;
@@ -66,6 +69,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.world.phys.HitResult;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -173,6 +177,14 @@ public class BenTenModFabricClient implements ClientModInitializer {
                 NullVoidPrisonerRenderer::new);
         EntityRendererRegistry.register(EntityTypesInit.ZS_SKAYR_ENTITY.get(),
                 ZsSkayrRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.NULL_GUARDIAN.get(),
+                NullGuardianRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.LEPIDOPTERAN.get(),
+                LepidopterranRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.PRISON_WARDEN.get(),
+                PrisonWardenRenderer::new);
+        EntityRendererRegistry.register(EntityTypesInit.LEPIDOPTERAN_SLIME.get(),
+                ThrownItemRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.KRAAB, KraabModel::createLayer);
         LivingEntityFeatureRendererRegistrationCallback.EVENT
             .register((entityType, entityRenderer, registrationHelper, context) -> {

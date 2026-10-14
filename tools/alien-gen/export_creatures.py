@@ -1,7 +1,7 @@
 """Bake the boss/mob models and write GeckoLib assets (geo, animations, textures, glow masks).
 
 Writes only geo/entity, animations/entity and textures/entity; alien and Omnitrix assets are not touched.
-Usage: python3 export_creatures.py [assets_dir]
+Usage: python3 export_creatures.py [assets_dir] [id ...]   (no ids: every creature)
 """
 import json
 import sys
@@ -12,9 +12,12 @@ sys.path.insert(0, str(HERE))
 ARGS = sys.argv[1:]
 sys.argv = sys.argv[:1]  # export.py reads argv[1] at import; this script has its own path handling
 import creatures
-from export import kf, loop
+import numpy as np
+from export import cycles, kf, loop
 
-ASSETS = Path(ARGS[0]) if ARGS else HERE.parents[1] / "common/src/main/resources/assets/bentenmod"
+_PATHS = [a for a in ARGS if "/" in a]
+IDS = [a for a in ARGS if "/" not in a]
+ASSETS = Path(_PATHS[0]) if _PATHS else HERE.parents[1] / "common/src/main/resources/assets/bentenmod"
 
 
 def rot(*pairs):
@@ -135,8 +138,88 @@ def null_void_prisoner():
     return {"idle": (2.4, True, idle), "walk": (0.8, True, walk), "attack": (0.5, False, attack)}
 
 
+def null_guardian():
+    spots = 12
+
+    def sway(length, amp):
+        return {f"tentacle_{i}": {"rotation": loop(length, amp, axis=i % 2 * 2, phase=(i % 4) / 4)}
+                for i in range(spots)}
+
+    idle = {"body": {"position": loop(3.2, 1.2, axis=1),
+                     "scale": kf((0, (1, 1, 1)), (1.6, (1.03, 0.97, 1.03)), (3.2, (1, 1, 1)))}, **sway(3.2, 7)}
+    fly = {"body": {"position": loop(1.2, 1.6, axis=1), "rotation": kf((0, (10, 0, 0)), (1.2, (10, 0, 0))),
+                    "scale": kf((0, (1, 1, 1)), (0.3, (1.07, 0.9, 1.07)), (0.7, (0.97, 1.05, 0.97)), (1.2, (1, 1, 1)))}}
+    for i in range(spots):  # tentacles stream out behind the bell and ripple
+        fly[f"tentacle_{i}"] = {"rotation": kf(*[
+            (1.2 * k / 8, (14 + 9 * np.sin(2 * np.pi * (k / 8 + (i % 4) / 4)), 0,
+                           6 * np.sin(2 * np.pi * (k / 8 + (i % 3) / 3))))
+            for k in range(9)])}
+    attack = {"body": {**rot((0, (0, 0, 0)), (0.12, (-8, 0, 0)), (0.28, (18, 0, 0)), (0.5, (0, 0, 0))),
+                       "scale": kf((0, (1, 1, 1)), (0.28, (1.1, 0.94, 1.1)), (0.5, (1, 1, 1)))}}
+    for i in range(spots):  # tractor beam: every tentacle flares forward
+        attack[f"tentacle_{i}"] = rot((0, (0, 0, 0)), (0.12, (10, 0, 0)), (0.28, (-62, 0, 0)), (0.5, (0, 0, 0)))
+    return {"idle": (3.2, True, idle), "fly": (1.2, True, fly), "attack": (0.5, False, attack)}
+
+
+def lepidopterran():
+    idle = {
+        "body": {"position": loop(1.6, 0.35, axis=1)},
+        "right_wing": {"rotation": cycles(1.6, 3, 14, axis=1)},
+        "left_wing": {"rotation": cycles(1.6, 3, -14, axis=1)},
+        "tail": {"rotation": loop(1.6, 6, axis=1)},
+        "head": {"rotation": loop(1.6, 5, axis=1)},
+        "right_arm": {"rotation": loop(1.6, 5, axis=0)},
+        "left_arm": {"rotation": loop(1.6, 5, axis=0, phase=0.5)},
+    }
+    fly = {
+        "body": {"position": loop(0.4, 0.4, axis=1, steps=4), "rotation": kf((0, (16, 0, 0)), (0.4, (16, 0, 0)))},
+        "right_wing": {"rotation": cycles(0.4, 3, 40, axis=1)},
+        "left_wing": {"rotation": cycles(0.4, 3, -40, axis=1)},
+        "tail": {"rotation": loop(0.4, 9, axis=0, steps=4)},
+        "right_leg": {"rotation": kf((0, (50, 0, 0)), (0.4, (50, 0, 0)))},
+        "left_leg": {"rotation": kf((0, (50, 0, 0)), (0.4, (50, 0, 0)))},
+        "right_arm": {"rotation": kf((0, (-30, 0, 0)), (0.4, (-30, 0, 0)))},
+        "left_arm": {"rotation": kf((0, (-30, 0, 0)), (0.4, (-30, 0, 0)))},
+    }
+    attack = {  # dive at the target, then rear back and spit
+        "body": rot((0, (0, 0, 0)), (0.18, (58, 0, 0)), (0.34, (-14, 0, 0)), (0.5, (0, 0, 0))),
+        "head": rot((0, (0, 0, 0)), (0.18, (-10, 0, 0)), (0.34, (-26, 0, 0)), (0.5, (0, 0, 0))),
+        "tail": rot((0, (0, 0, 0)), (0.18, (-35, 0, 0)), (0.34, (30, 0, 0)), (0.5, (0, 0, 0))),
+        "right_wing": {"rotation": cycles(0.5, 4, 40, axis=1)},
+        "left_wing": {"rotation": cycles(0.5, 4, -40, axis=1)},
+    }
+    return {"idle": (1.6, True, idle), "fly": (0.4, True, fly), "attack": (0.5, False, attack)}
+
+
+def prison_warden():
+    idle = {
+        "body": {"position": loop(6.0, 0.3, axis=1)},
+        "right_arm": {"rotation": loop(6.0, 2.5, axis=2)},
+        "left_arm": {"rotation": loop(6.0, -2.5, axis=2)},
+        "head": {"rotation": loop(6.0, 4, axis=1)},
+    }
+    walk = walk_legs(1.1, 22)
+    walk["body"] = {"position": cycles(1.1, 2, 0.5, axis=1), "rotation": loop(1.1, 2.5, axis=2)}
+    walk["head"] = {"rotation": loop(1.1, 2, axis=1)}
+    attack = {  # overhead baton strike
+        "right_arm": rot((0, (0, 0, 0)), (0.15, (-135, 0, 0)), (0.28, (-20, 0, 0)), (0.5, (0, 0, 0))),
+        "left_arm": rot((0, (0, 0, 0)), (0.15, (-25, 0, 0)), (0.5, (0, 0, 0))),
+        "body": rot((0, (0, 0, 0)), (0.15, (-8, 0, 0)), (0.28, (14, 0, 0)), (0.5, (0, 0, 0))),
+        "head": rot((0, (0, 0, 0)), (0.15, (-8, 0, 0)), (0.28, (10, 0, 0)), (0.5, (0, 0, 0))),
+    }
+    summon = {  # raises the baton, slams it down to call guards; a rumble in the body
+        "right_arm": rot((0, (0, 0, 0)), (0.5, (-160, 0, 8)), (1.0, (-160, 0, 8)), (1.15, (-10, 0, 0)), (1.5, (0, 0, 0))),
+        "left_arm": rot((0, (0, 0, 0)), (0.5, (-120, 0, -12)), (1.0, (-120, 0, -12)), (1.5, (0, 0, 0))),
+        "head": rot((0, (0, 0, 0)), (0.5, (-22, 0, 0)), (1.0, (-22, 0, 0)), (1.15, (12, 0, 0)), (1.5, (0, 0, 0))),
+        "body": rot((0, (0, 0, 0)), (0.5, (-6, 0, 0)), (1.0, (-6, 0, 0)), (1.15, (10, 0, 0)), (1.5, (0, 0, 0))),
+    }
+    return {"idle": (6.0, True, idle), "walk": (1.1, True, walk), "attack": (0.5, False, attack),
+            "summon": (1.5, False, summon)}
+
+
 ANIMATIONS = {"vilgax": vilgax, "vilgax_drone": vilgax_drone, "zs_skayr": zs_skayr,
-              "null_void_prisoner": null_void_prisoner}
+              "null_void_prisoner": null_void_prisoner, "null_guardian": null_guardian,
+              "lepidopterran": lepidopterran, "prison_warden": prison_warden}
 
 
 def anim_json(name, spec):
@@ -154,6 +237,8 @@ def main():
     for d in (geo, anim, tex):
         d.mkdir(parents=True, exist_ok=True)
     for name, fn in creatures.CREATURES.items():
+        if IDS and name not in IDS:
+            continue
         m = fn()
         m.bake()
         m.save_geo(geo / f"{name}.geo.json")

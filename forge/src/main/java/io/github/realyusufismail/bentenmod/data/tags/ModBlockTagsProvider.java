@@ -86,6 +86,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_BLACK_DIAMONDS);
 
         tag(Tags.Blocks.ORES).add(BlockInit.NULL_CRYSTAL_ORE.get());
+        tag(TagsInit.Blocks.ORES_TAYDENITE).add(BlockInit.TAYDENITE_ORE.get());
+        tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.ORES_TAYDENITE);
 
         // blocks
         tag(TagsInit.Blocks.STORAGE_LEGENDARY).add(BlockInit.LEGENDARY_BLOCK.get());
@@ -105,6 +107,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND).add(BlockInit.BLACK_DIAMOND_BLOCK.get());
         tag(Tags.Blocks.ORES).addTag(TagsInit.Blocks.STORAGE_BLACK_DIAMOND);
+        tag(TagsInit.Blocks.STORAGE_TAYDENITE).add(BlockInit.TAYDENITE_BLOCK.get());
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.FIRE_ORE.get(),
                 BlockInit.OMNITRIX_ORE.get(), BlockInit.DEEPSLATE_OMNITRIX_ORE.get(),
@@ -133,8 +136,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.OMNITRIX_POD.get());
         tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.OMNITRIX_POD.get());
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(BlockInit.NULL_VOID_STONE.get(),
-                BlockInit.NULL_VOID_STONE_BRICKS.get(), BlockInit.NULL_CRYSTAL_ORE.get());
-        tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.NULL_CRYSTAL_ORE.get());
+                BlockInit.NULL_VOID_STONE_BRICKS.get(), BlockInit.NULL_CRYSTAL_ORE.get(),
+                BlockInit.TAYDENITE_ORE.get(), BlockInit.TAYDENITE_BLOCK.get(),
+                BlockInit.PRISON_WALL.get(), BlockInit.PLUMBER_HULL.get(),
+                BlockInit.PRISON_VAULT.get());
+        tag(BlockTags.NEEDS_IRON_TOOL).add(BlockInit.NULL_CRYSTAL_ORE.get(),
+                BlockInit.TAYDENITE_ORE.get(), BlockInit.TAYDENITE_BLOCK.get());
     }
 }
 

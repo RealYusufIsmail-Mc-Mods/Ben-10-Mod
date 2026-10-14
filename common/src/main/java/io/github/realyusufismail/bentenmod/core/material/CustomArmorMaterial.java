@@ -42,24 +42,27 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements ArmorMaterial {
-    // TODO: Fix these values
-    ARMOUR("legendary", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F,
-            0.3f, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
-    JACKET("jacket", 30, new int[] {6, 9, 12, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3f,
+    // armorVal is indexed by ArmorItem.Type ordinal: {helmet, chestplate, leggings, boots}.
+    // Anchors: iron 2/6/5/2; diamond 3/8/6/3 (toughness 2); netherite 3/8/6/3 (toughness 3,
+    // knockback 0.1).
+    ARMOUR("legendary", 33, new int[] {3, 8, 6, 3}, 10, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F,
+            0.0f, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
+    JACKET("jacket", 15, new int[] {2, 6, 5, 2}, 9, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F, 0.0f,
             () -> Ingredient.of(ItemInit.OMNITRIX.get())),
-    XLR8_ARMOUR("speedy", 30, new int[] {8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F,
-            0.3f, () -> Ingredient.of(ItemInit.SPEED.get())),
-    FOURARMS_ARMOUR("fourarms", 50, new int[] {8, 9, 20, 6}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE,
-            4.0F, 1.5f, () -> Ingredient.of(ItemInit.RUBY.get())),
-    BLACK_DIAMOND_ARMOUR("black_diamond", 40, new int[] {8, 9, 20, 6}, 20,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 6.0F, 0.4f,
+    XLR8_ARMOUR("speedy", 24, new int[] {2, 7, 6, 2}, 14, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F,
+            0.0f, () -> Ingredient.of(ItemInit.SPEED.get())),
+    FOURARMS_ARMOUR("fourarms", 27, new int[] {3, 7, 6, 3}, 12, SoundEvents.ARMOR_EQUIP_NETHERITE,
+            1.0F, 0.0f, () -> Ingredient.of(ItemInit.RUBY.get())),
+    BLACK_DIAMOND_ARMOUR("black_diamond", 35, new int[] {3, 8, 6, 3}, 12,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.05f,
             () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    INFINITUM_ARMOUR("infinitum", 50, new int[] {10, 11, 20, 7}, 20,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 8.0F, 0.8f,
-            () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    HEATBLAST_ARMOUR("fire", 30, new int[] {8, 10, 15, 13}, 20, SoundEvents.ARMOR_EQUIP_NETHERITE,
-            4.0F, 0.3f, () -> Ingredient.of(ItemInit.FIRE.get()));
+    INFINITUM_ARMOUR("infinitum", 37, new int[] {3, 8, 6, 3}, 15, SoundEvents.ARMOR_EQUIP_NETHERITE,
+            3.0F, 0.1f, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    HEATBLAST_ARMOUR("fire", 27, new int[] {3, 7, 6, 3}, 14, SoundEvents.ARMOR_EQUIP_NETHERITE,
+            1.0F, 0.0f, () -> Ingredient.of(ItemInit.FIRE.get()));
 
+
+    private static final int[] BASE_DURABILITY = {11, 16, 15, 13};
 
     private final String name;
     private final int durabilityMultiplier;
@@ -86,7 +89,7 @@ public enum CustomArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getDurabilityForType(ArmorItem.Type type) {
-        return durabilityMultiplier * armorVal[type.ordinal()];
+        return durabilityMultiplier * BASE_DURABILITY[type.ordinal()];
     }
 
 

@@ -39,24 +39,25 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public enum CustomToolMaterial implements Tier {
-    // TODO: Fix these values
-    SWORD(3, 2500, 40, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
-    HEATBLAST_SWORD(3, 2500, 40, () -> Ingredient.of(ItemInit.FIRE.get())),
-    BLACK_DIAMOND_SWORD(3, 2000, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_AXE(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_PICKAXE(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_SHOVEL(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    BLACK_DIAMOND_HOE(3, 2500, 40, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
-    INFINITUM_SWORD(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_AXE(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_PICKAXE(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_SHOVEL(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    INFINITUM_HOE(3, 3000, 40, () -> Ingredient.of(ItemInit.INFINITUM.get())),
-    AXE(3, 2500, 50, () -> Ingredient.of(ItemInit.RUBY.get())),
-    IMPERIUM_SWORD(3, 3000, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
-    IMPERIUM_PICKAXE(2, 2500, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
-    IMPERIUM_PICKAXE_UPGRADED(3, 3000, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
-    IMPERIUM_AXE(3, 3000, 40, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
+    // Ladder: iron level 2 / 250 uses, diamond level 3 / 1561, netherite level 4 / 2031.
+    // Attack damage and speed are set per item class, not here.
+    SWORD(3, 1561, 10, () -> Ingredient.of(ItemInit.LEGENDARY.get())),
+    HEATBLAST_SWORD(3, 1561, 10, () -> Ingredient.of(ItemInit.FIRE.get())),
+    BLACK_DIAMOND_SWORD(3, 1561, 10, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_AXE(3, 1561, 10, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_PICKAXE(3, 1561, 10, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_SHOVEL(3, 1561, 10, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    BLACK_DIAMOND_HOE(3, 1561, 10, () -> Ingredient.of(ItemInit.BLACK_DIAMOND.get())),
+    INFINITUM_SWORD(4, 2031, 15, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_AXE(4, 2031, 15, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_PICKAXE(4, 2031, 15, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_SHOVEL(4, 2031, 15, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    INFINITUM_HOE(4, 2031, 15, () -> Ingredient.of(ItemInit.INFINITUM.get())),
+    AXE(3, 1561, 10, () -> Ingredient.of(ItemInit.RUBY.get())),
+    IMPERIUM_SWORD(4, 2031, 15, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+    IMPERIUM_PICKAXE(4, 2031, 15, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+    IMPERIUM_PICKAXE_UPGRADED(4, 2300, 18, () -> Ingredient.of(ItemInit.IMPERIUM.get())),
+    IMPERIUM_AXE(4, 2031, 15, () -> Ingredient.of(ItemInit.IMPERIUM.get()));
 
 
     private final int harvestLevel;

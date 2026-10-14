@@ -20,9 +20,13 @@
     [],
     [],
     [],
-    ["bentenmod:null_void_fortress"],
+    [
+      "bentenmod:null_void_fortress",
+      "bentenmod:floating_prison",
+      "bentenmod:plumber_outpost"
+    ],
     [],
-    ["bentenmod:null_crystal_ore"],
+    ["bentenmod:null_crystal_ore", "bentenmod:taydenite_ore"],
     [],
     [],
     [],
@@ -41,6 +45,18 @@
         "weight": 80,
         "minCount": 1,
         "maxCount": 3
+      },
+      {
+        "type": "bentenmod:null_guardian",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
+        "type": "bentenmod:lepidopterran",
+        "weight": 16,
+        "minCount": 1,
+        "maxCount": 2
       }
     ],
     "underground_water_creature": [],
