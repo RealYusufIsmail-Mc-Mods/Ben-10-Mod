@@ -12,6 +12,9 @@ defaults:
 env:
   JAVA_VERSION: 17
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: Build and release
@@ -28,7 +31,7 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
             forge/build/libs/bentenmod-forge-*[0-9].jar

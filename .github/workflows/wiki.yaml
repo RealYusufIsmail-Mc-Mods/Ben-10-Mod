@@ -1,0 +1,48 @@
+name: Build player wiki
+
+on:
+  push:
+    branches:
+      - 1.20.1
+    paths:
+      - "tools/wiki/**"
+      - "wiki/**"
+      - "docs/images/**"
+      - "common/src/**"
+      - "tools/alien-gen/**"
+      - "CHANGELOG.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install wiki image tools
+        run: python -m pip install -r tools/alien-gen/requirements.txt
+
+      - name: Render alien previews
+        run: python tools/alien-gen/preview.py
+
+      - name: Build wiki
+        run: python tools/wiki/build.py
+
+      - name: Check generated links
+        run: python tools/wiki/check_links.py
+
+      - name: Publish GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build/wiki
