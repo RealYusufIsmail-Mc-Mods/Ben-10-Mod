@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 
 /** Forge's small state and dial channel. All transformation decisions stay on the server. */
 public final class OmnitrixNetwork {
-    private static final String PROTOCOL = "1";
+    private static final String PROTOCOL = "2";
     private static final SimpleChannel CHANNEL =
             NetworkRegistry.newSimpleChannel(BenTenMod.getModIdAndName("omnitrix"), () -> PROTOCOL,
                     PROTOCOL::equals, PROTOCOL::equals);
@@ -85,6 +85,7 @@ public final class OmnitrixNetwork {
                 buffer.writeResourceLocation(state.currentAlien());
             }
             buffer.writeLong(state.expiresAt());
+            buffer.writeBoolean(state.equipped());
             buffer.writeFloat(state.width());
             buffer.writeFloat(state.height());
             buffer.writeVarInt(state.unlockedAlienIds().size());
@@ -95,6 +96,7 @@ public final class OmnitrixNetwork {
             var playerId = buffer.readUUID();
             ResourceLocation alien = buffer.readBoolean() ? buffer.readResourceLocation() : null;
             long expiresAt = buffer.readLong();
+            boolean equipped = buffer.readBoolean();
             float width = buffer.readFloat();
             float height = buffer.readFloat();
             int size = Math.min(buffer.readVarInt(), 256);
@@ -102,8 +104,8 @@ public final class OmnitrixNetwork {
             for (int i = 0; i < size; i++) {
                 unlocked.add(buffer.readResourceLocation());
             }
-            return new StateUpdate(
-                    new OmnitrixSnapshot(playerId, alien, expiresAt, unlocked, width, height));
+            return new StateUpdate(new OmnitrixSnapshot(playerId, alien, expiresAt, equipped,
+                    unlocked, width, height));
         }
 
         private static void handle(StateUpdate message, Supplier<NetworkEvent.Context> supplier) {

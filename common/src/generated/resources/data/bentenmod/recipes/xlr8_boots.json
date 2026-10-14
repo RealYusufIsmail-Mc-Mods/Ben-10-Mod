@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "armour",
   "key": {
     "A": {
       "tag": "forge:ingots/speed"
@@ -12,6 +12,5 @@
   ],
   "result": {
     "item": "bentenmod:xlr8_boots"
-  },
-  "show_notification": true
+  }
 }

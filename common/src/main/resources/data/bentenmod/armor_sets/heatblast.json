@@ -9,22 +9,7 @@
     {
       "type": "bentenmod:effect",
       "effect": "minecraft:fire_resistance",
-      "amplifier": 3
-    },
-    {
-      "type": "bentenmod:effect",
-      "effect": "minecraft:regeneration",
-      "amplifier": 3
-    },
-    {
-      "type": "bentenmod:effect",
-      "effect": "minecraft:resistance",
-      "amplifier": 3
-    },
-    {
-      "type": "bentenmod:effect",
-      "effect": "minecraft:strength",
-      "amplifier": 1
+      "amplifier": 0
     },
     {
       "type": "bentenmod:flight",

@@ -57,7 +57,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 ItemInit.BLACK_DIAMOND_SCRAP.get()));
 
         add(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get(), createOreDrop(
-                BlockInit.BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
+                BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get(), ItemInit.BLACK_DIAMOND_SCRAP.get()));
 
         add(BlockInit.INFINITUM_ORE.get(),
                 createOreDrop(BlockInit.INFINITUM_ORE.get(), ItemInit.INFINITUM_SCRAP.get()));
@@ -89,7 +89,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         add(BlockInit.RUBY_ORE.get(), createOreDrop(BlockInit.RUBY_ORE.get(), ItemInit.RUBY.get()));
 
         add(BlockInit.DEEPSLATE_RUBY_ORE.get(),
-                createOreDrop(BlockInit.DEEPSLATE_LEGENDARY_ORE.get(), ItemInit.RUBY.get()));
+                createOreDrop(BlockInit.DEEPSLATE_RUBY_ORE.get(), ItemInit.RUBY.get()));
 
         // blocks
         dropSelf(BlockInit.OMNITRIX_BLOCK.get());
@@ -102,6 +102,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         dropSelf(BlockInit.IMPERIUM_BLOCK.get());
         dropSelf(BlockInit.FIRE_ORE.get());
         dropSelf(BlockInit.OmnitrixCrafter.get());
+        add(BlockInit.OMNITRIX_POD.get(), createSingleItemTable(ItemInit.OMNITRIX_WATCH.get()));
     }
 
     @Override

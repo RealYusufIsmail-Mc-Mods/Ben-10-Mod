@@ -71,6 +71,18 @@ def animations(m):
     if "head" in b:
         transform["head"] = {"rotation": kf((0.35, (0, 0, 0)), (0.55, (-15, 0, 0)), (0.9, (0, 0, 0)))}
 
+    # the swing: matches vanilla's 6-tick arm swing
+    attack = {}
+    punch = -60 if m.name == "wildmutt" else -30 if m.name == "stinkfly" else -100
+    if "right_arm" in b:
+        attack["right_arm"] = {"rotation": kf((0, (0, 0, 0)), (0.1, (punch, 0, 0)), (0.3, (0, 0, 0)))}
+    if "right_arm_lower" in b:
+        attack["right_arm_lower"] = {"rotation": kf((0, (0, 0, 0)), (0.15, (-100, 0, 0)), (0.3, (0, 0, 0)))}
+    if "body" in b and m.name not in ("wildmutt", "stinkfly"):
+        attack["body"] = {"rotation": kf((0, (0, 0, 0)), (0.1, (0, -12, 0)), (0.3, (0, 0, 0)))}
+    if "head" in b and m.name == "wildmutt":
+        attack["head"] = {"rotation": kf((0, (0, 0, 0)), (0.1, (15, 0, 0)), (0.3, (0, 0, 0)))}
+
     n = m.name
     return {
         "format_version": "1.8.0",
@@ -78,6 +90,7 @@ def animations(m):
             f"animation.{n}.idle": {"loop": True, "animation_length": 4.8, "bones": idle},
             f"animation.{n}.walk": {"loop": True, "animation_length": 0.8, "bones": walk},
             f"animation.{n}.transform": {"animation_length": 1.0, "bones": transform},
+            f"animation.{n}.attack": {"animation_length": 0.3, "bones": attack},
         },
     }
 

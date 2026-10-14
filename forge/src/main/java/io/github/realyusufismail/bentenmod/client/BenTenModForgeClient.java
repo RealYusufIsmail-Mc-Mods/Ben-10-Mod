@@ -45,16 +45,20 @@ import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
 import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixClientHooks;
 import io.github.realyusufismail.bentenmod.client.alien.AlienPlayerReplacementRenderer;
+import io.github.realyusufismail.bentenmod.client.OmnitrixWristLayer;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import io.github.realyusufismail.bentenmod.recipebook.RecipeCategoriesInit;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.event.RenderArmEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.client.event.RegisterRecipeBookCategoriesEvent;
@@ -76,6 +80,7 @@ import org.lwjgl.glfw.GLFW;
 public final class BenTenModForgeClient {
     private static final KeyMapping OPEN_OMNITRIX =
             new KeyMapping("key.bentenmod.omnitrix", GLFW.GLFW_KEY_G, "key.categories.bentenmod");
+    private static boolean useWasDown;
 
     private BenTenModForgeClient() {}
 
@@ -108,6 +113,7 @@ public final class BenTenModForgeClient {
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onClientLogout);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onFlashOverlay);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onRenderPlayer);
+            MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onRenderArm);
         });
     }
 
@@ -117,15 +123,35 @@ public final class BenTenModForgeClient {
     }
 
     private static void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && OPEN_OMNITRIX.consumeClick()) {
-            OmnitrixClientHooks.openDial();
-        }
         if (event.phase == TickEvent.Phase.END) {
+            if (OPEN_OMNITRIX.consumeClick()) {
+                OmnitrixClientHooks.openDial();
+            }
+            var client = Minecraft.getInstance();
+            boolean useDown = client.options.keyUse.isDown();
+            if (useDown && !useWasDown && client.player != null && client.screen == null
+                    && !client.player.isShiftKeyDown() && client.player.getMainHandItem().isEmpty()
+                    && isDialAccessTarget(client.hitResult)
+                    && isOmnitrixEquipped(client.player.getUUID())) {
+                OmnitrixClientHooks.openDial();
+            }
+            useWasDown = useDown;
             OmnitrixFlash.tick();
         }
     }
 
+    private static boolean isDialAccessTarget(HitResult hitResult) {
+        // Air only: right-clicking a chest or crafter must keep opening that block's menu.
+        return hitResult != null && hitResult.getType() == HitResult.Type.MISS;
+    }
+
+    private static boolean isOmnitrixEquipped(java.util.UUID playerId) {
+        var snapshot = ClientOmnitrixState.get(playerId);
+        return snapshot != null && snapshot.equipped();
+    }
+
     private static void onClientLogout(ClientPlayerNetworkEvent.LoggingOut event) {
+        useWasDown = false;
         AlienPlayerReplacementRenderer.clearPlayerStates();
         ClientOmnitrixState.clear();
     }
@@ -160,6 +186,14 @@ public final class BenTenModForgeClient {
         event.setCanceled(true);
     }
 
+    private static void onRenderArm(RenderArmEvent event) {
+        if (AlienPlayerReplacementRenderer.get()
+            .renderFirstPersonArm(event.getPlayer(), event.getArm(), event.getPoseStack(),
+                    event.getMultiBufferSource(), event.getPackedLight())) {
+            event.setCanceled(true);
+        }
+    }
+
     @SubscribeEvent
     public static void onRegisterRecipeBookCategories(RegisterRecipeBookCategoriesEvent event) {
         RecipeCategoriesInit.registerRecipeCategories(event);
@@ -175,6 +209,16 @@ public final class BenTenModForgeClient {
     public static void onRegisterLayerDefinitions(
             EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.KRAAB, KraabModel::createLayer);
+    }
+
+    @SubscribeEvent
+    public static void onAddPlayerLayers(EntityRenderersEvent.AddLayers event) {
+        for (String skin : event.getSkins()) {
+            PlayerRenderer renderer = event.getPlayerSkin(skin);
+            if (renderer != null) {
+                renderer.addLayer(new OmnitrixWristLayer(renderer));
+            }
+        }
     }
 
     @SubscribeEvent

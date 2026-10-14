@@ -67,6 +67,10 @@ public class BlockInit {
             register("ruby_block", Blocks.DIAMOND_BLOCK);
     public static final RegistryObject<Block> IMPERIUM_BLOCK =
             register("imperium_block", Blocks.IRON_BLOCK);
+    public static final RegistryObject<Block> OMNITRIX_POD = registerSpecial("omnitrix_pod",
+            () -> new Block(BlockBehaviour.Properties.of()
+                .strength(50.0F, 1200.0F)
+                .requiresCorrectToolForDrops()));
 
     // deepslate ores
     public static final RegistryObject<Block> DEEPSLATE_LEGENDARY_ORE =

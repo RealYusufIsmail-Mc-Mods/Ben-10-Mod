@@ -1,0 +1,20 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "tools",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "tag": "forge:ingots/black_diamond"
+    }
+  },
+  "pattern": [
+    " A ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "item": "bentenmod:black_diamond_shovel"
+  }
+}

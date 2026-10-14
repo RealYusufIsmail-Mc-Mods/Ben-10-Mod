@@ -35,6 +35,7 @@ package io.github.realyusufismail.bentenmod.client;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
 import io.github.realyusufismail.bentenmod.client.renderer.KraabRenderer;
 import io.github.realyusufismail.bentenmod.client.alien.AlienPlayerReplacementRenderer;
+import io.github.realyusufismail.bentenmod.client.OmnitrixWristLayer;
 import io.github.realyusufismail.bentenmod.OmnitrixNetwork;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixDialScreen;
@@ -53,17 +54,21 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.world.phys.HitResult;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.network.FriendlyByteBuf;
 import org.lwjgl.glfw.GLFW;
 
 /** Fabric client registration: screens, entity renderers, model layers and item colours. */
 public class BenTenModFabricClient implements ClientModInitializer {
+    private static boolean useWasDown;
     private static final KeyMapping OPEN_OMNITRIX = KeyBindingHelper.registerKeyBinding(
             new KeyMapping("key.bentenmod.omnitrix", GLFW.GLFW_KEY_G, "key.categories.bentenmod"));
 
@@ -97,11 +102,20 @@ public class BenTenModFabricClient implements ClientModInitializer {
             while (OPEN_OMNITRIX.consumeClick()) {
                 OmnitrixClientHooks.openDial();
             }
+            boolean useDown = client.options.keyUse.isDown();
+            if (useDown && !useWasDown && client.player != null && client.screen == null
+                    && !client.player.isShiftKeyDown() && client.player.getMainHandItem().isEmpty()
+                    && isDialAccessTarget(client.hitResult)
+                    && isOmnitrixEquipped(client.player.getUUID())) {
+                OmnitrixClientHooks.openDial();
+            }
+            useWasDown = useDown;
             OmnitrixFlash.tick();
         });
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
             AlienPlayerReplacementRenderer.clearPlayerStates();
             ClientOmnitrixState.clear();
+            useWasDown = false;
         });
         HudRenderCallback.EVENT.register((graphics, tickDelta) -> {
             float alpha = OmnitrixFlash.alpha(tickDelta);
@@ -124,6 +138,12 @@ public class BenTenModFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityTypesInit.CRAB_ENTITY.get(), KraabRenderer::new);
         EntityRendererRegistry.register(EntityTypesInit.CRAB_BOLT_ENTITY.get(), NoopRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.KRAAB, KraabModel::createLayer);
+        LivingEntityFeatureRendererRegistrationCallback.EVENT
+            .register((entityType, entityRenderer, registrationHelper, context) -> {
+                if (entityRenderer instanceof PlayerRenderer renderer) {
+                    registrationHelper.register(new OmnitrixWristLayer(renderer));
+                }
+            });
         for (ModSpawnEggItem egg : ModSpawnEggItem.modEggs()) {
             ColorProviderRegistry.ITEM.register((stack, tintIndex) -> egg.getColor(tintIndex), egg);
         }
@@ -133,5 +153,15 @@ public class BenTenModFabricClient implements ClientModInitializer {
         FriendlyByteBuf buffer = PacketByteBufs.create();
         buffer.writeUtf(alien == null ? "" : alien.toString(), 256);
         ClientPlayNetworking.send(OmnitrixNetwork.DIAL_REQUEST, buffer);
+    }
+
+    private static boolean isDialAccessTarget(HitResult hitResult) {
+        // Air only: right-clicking a chest or crafter must keep opening that block's menu.
+        return hitResult != null && hitResult.getType() == HitResult.Type.MISS;
+    }
+
+    private static boolean isOmnitrixEquipped(java.util.UUID playerId) {
+        var snapshot = ClientOmnitrixState.get(playerId);
+        return snapshot != null && snapshot.equipped();
     }
 }

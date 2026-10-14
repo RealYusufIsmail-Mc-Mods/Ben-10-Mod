@@ -1,0 +1,20 @@
+{
+  "type": "bentenmod:omnitrix_crafter_shaped",
+  "category": "omnitrix",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "tag": "forge:ingots/legendary"
+    }
+  },
+  "pattern": [
+    "LIL",
+    "I I",
+    "LIL"
+  ],
+  "result": {
+    "item": "bentenmod:legendary_casing"
+  }
+}

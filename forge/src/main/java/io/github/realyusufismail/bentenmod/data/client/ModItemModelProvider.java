@@ -72,6 +72,12 @@ public class ModItemModelProvider extends ItemModelProvider {
             item(LEGENDARY.get().toString());
         else if (itemAsAsString.equals(OMNITRIX.get().toString()))
             item(OMNITRIX.get().toString());
+        else if (itemAsAsString.equals(OMNITRIX_CORE.get().toString()))
+            item(OMNITRIX_CORE.get().toString());
+        else if (itemAsAsString.equals(LEGENDARY_CASING.get().toString()))
+            item(LEGENDARY_CASING.get().toString());
+        else if (itemAsAsString.equals(BLACK_DIAMOND_LENS.get().toString()))
+            item(BLACK_DIAMOND_LENS.get().toString());
         else if (itemAsAsString.equals(OMNITRIX_WATCH.get().toString()))
             getBuilder(OMNITRIX_WATCH.get().toString())
                 .parent(new ModelFile.UncheckedModelFile(mcLoc("builtin/entity")));

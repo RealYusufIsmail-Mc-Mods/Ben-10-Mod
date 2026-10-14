@@ -8,18 +8,8 @@
   "abilities": [
     {
       "type": "bentenmod:effect",
-      "effect": "minecraft:regeneration",
-      "amplifier": 5
-    },
-    {
-      "type": "bentenmod:effect",
-      "effect": "minecraft:resistance",
-      "amplifier": 2
-    },
-    {
-      "type": "bentenmod:effect",
       "effect": "minecraft:speed",
-      "amplifier": 45
+      "amplifier": 2
     }
   ]
 }

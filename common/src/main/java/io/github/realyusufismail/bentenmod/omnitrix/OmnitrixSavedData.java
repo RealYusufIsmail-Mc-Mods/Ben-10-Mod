@@ -59,6 +59,7 @@ public final class OmnitrixSavedData extends SavedData {
             playerTag.putString("alien",
                     state.currentAlien == null ? "" : state.currentAlien.toString());
             playerTag.putLong("expires_at", state.expiresAt);
+            playerTag.putBoolean("equipped", state.equipped);
             ListTag unlocked = new ListTag();
             state.unlockedAlienIds.forEach(id -> unlocked.add(StringTag.valueOf(id.toString())));
             playerTag.put("unlocked", unlocked);
@@ -68,7 +69,7 @@ public final class OmnitrixSavedData extends SavedData {
         return tag;
     }
 
-    private static OmnitrixSavedData load(CompoundTag tag) {
+    public static OmnitrixSavedData load(CompoundTag tag) {
         OmnitrixSavedData data = new OmnitrixSavedData();
         ListTag playerTags = tag.getList("players", Tag.TAG_COMPOUND);
         for (int i = 0; i < playerTags.size(); i++) {
@@ -88,6 +89,7 @@ public final class OmnitrixSavedData extends SavedData {
             PlayerState state = new PlayerState(unlocked);
             state.currentAlien = alien;
             state.expiresAt = playerTag.getLong("expires_at");
+            state.equipped = playerTag.getBoolean("equipped");
             data.players.put(playerTag.getUUID("player"), state);
         }
         return data;
@@ -97,6 +99,7 @@ public final class OmnitrixSavedData extends SavedData {
         private final Set<ResourceLocation> unlockedAlienIds;
         private ResourceLocation currentAlien;
         private long expiresAt;
+        private boolean equipped;
 
         private PlayerState(Set<ResourceLocation> unlockedAlienIds) {
             this.unlockedAlienIds = new LinkedHashSet<>(unlockedAlienIds);
@@ -118,6 +121,18 @@ public final class OmnitrixSavedData extends SavedData {
             return expiresAt;
         }
 
+        public boolean equipped() {
+            return equipped;
+        }
+
+        public boolean equip() {
+            if (equipped) {
+                return false;
+            }
+            equipped = true;
+            return true;
+        }
+
         public void transform(ResourceLocation alien, long expiresAt) {
             this.currentAlien = alien;
             this.expiresAt = expiresAt;
@@ -131,7 +146,12 @@ public final class OmnitrixSavedData extends SavedData {
         public OmnitrixSnapshot snapshot(UUID playerId) {
             List<ResourceLocation> unlocked = new ArrayList<>(unlockedAlienIds);
             unlocked.sort(ResourceLocation::compareTo);
-            return new OmnitrixSnapshot(playerId, currentAlien, expiresAt, unlocked);
+            return new OmnitrixSnapshot(playerId, currentAlien, expiresAt, equipped, unlocked);
         }
+    }
+
+    public boolean isEquipped(UUID playerId) {
+        PlayerState state = players.get(playerId);
+        return state != null && state.equipped();
     }
 }

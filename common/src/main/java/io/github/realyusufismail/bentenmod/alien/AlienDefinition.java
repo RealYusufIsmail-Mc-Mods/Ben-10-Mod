@@ -36,6 +36,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.realyusufismail.bentenmod.ability.Ability;
 import io.github.realyusufismail.bentenmod.ability.AbilityTypes;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.List;
 
@@ -49,9 +50,23 @@ import java.util.List;
  * @param abilities passive abilities while transformed
  * @param unlockedByDefault whether a new Omnitrix starts with this alien
  * @param durationTicks how long a transformation lasts before the Omnitrix times out
+ * @param dnaSources entity types and blocks that can be scanned to unlock this alien
  */
 public record AlienDefinition(float width, float height, List<Ability> abilities,
-        boolean unlockedByDefault, int durationTicks) {
+        boolean unlockedByDefault, int durationTicks, DnaSources dnaSources) {
+
+    public record DnaSources(List<ResourceLocation> entities, List<ResourceLocation> blocks) {
+        public static final DnaSources EMPTY = new DnaSources(List.of(), List.of());
+        public static final Codec<DnaSources> CODEC = RecordCodecBuilder.create(
+                i -> i
+                    .group(ResourceLocation.CODEC.listOf()
+                        .optionalFieldOf("entities", List.of())
+                        .forGetter(DnaSources::entities),
+                            ResourceLocation.CODEC.listOf()
+                                .optionalFieldOf("blocks", List.of())
+                                .forGetter(DnaSources::blocks))
+                    .apply(i, DnaSources::new));
+    }
 
     public static final Codec<AlienDefinition> CODEC = RecordCodecBuilder.create(i -> i
         .group(Codec.floatRange(0.1F, 8.0F).fieldOf("width").forGetter(AlienDefinition::width),
@@ -63,6 +78,8 @@ public record AlienDefinition(float width, float height, List<Ability> abilities
                     .forGetter(AlienDefinition::unlockedByDefault),
                 Codec.intRange(20, 72000)
                     .optionalFieldOf("duration_ticks", 6000)
-                    .forGetter(AlienDefinition::durationTicks))
+                    .forGetter(AlienDefinition::durationTicks),
+                DnaSources.CODEC.optionalFieldOf("dna_sources", DnaSources.EMPTY)
+                    .forGetter(AlienDefinition::dnaSources))
         .apply(i, AlienDefinition::new));
 }

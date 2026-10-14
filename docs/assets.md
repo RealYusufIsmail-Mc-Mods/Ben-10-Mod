@@ -15,6 +15,7 @@ python3 -m pip install -r tools/alien-gen/requirements.txt
 | Command | Writes |
 |---|---|
 | `python3 tools/alien-gen/gui_base.py` | `textures/gui/omnitrix.png` (dial and selection frame, icon rows empty), `textures/misc/omnitrix_flash.png` |
+| `python3 tools/alien-gen/dial.py` | `textures/gui/omnitrix_wheel.png`: the turning bezel (left half) and hourglass core (right half) of the wheel dial |
 | `python3 tools/alien-gen/export.py` | all `geo/`, `animations/`, alien and Omnitrix textures, and the hologram icon rows in `gui/omnitrix.png` |
 | `python3 tools/alien-gen/preview.py [ids]` | studio renders and `sheet.png` in `tools/alien-gen/out/` (gitignored) |
 | `python3 tools/alien-gen/gif.py [ids]` | Ben-to-alien transformation clip in `tools/alien-gen/out/` |
@@ -33,7 +34,7 @@ Run `gui_base.py` before `export.py` if the dial PNG doesn't exist yet. `export.
 
 - Units are model pixels (16 = one block). `+Y` is up, and the model faces north (`-Z`). The model's right side is `+X`.
 - Bone names that the generic animations understand: `root`, `body`, `head`, `right_arm`, `left_arm`, `right_leg`, `left_leg`, `right_arm_lower`, `left_arm_lower`, `tail`, `right_wing`, `left_wing`. Quadrupeds use `*_arm` for front legs.
-- Every alien gets `animation.<id>.idle`, `.walk` and `.transform`. The Omnitrix gets `activate` and `deactivate` (the dial pops up and turns).
+- Every alien gets `animation.<id>.idle`, `.walk`, `.transform` and `.attack` (a 0.3 s non-looping swing played while the player's arm swings). The Omnitrix gets `activate` and `deactivate` (the dial pops up and turns).
 - Use `chest_omnitrix(...)` or the `omnitrix_symbol()` decal so every alien shows the Omnitrix.
 
 ## Not yet verified in game

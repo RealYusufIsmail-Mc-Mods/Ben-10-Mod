@@ -75,6 +75,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         normalBlock(BlockInit.SPEED_ORE.get());
         normalBlock(BlockInit.IMPERIUM_BLOCK.get());
         normalBlock(BlockInit.IMPERIUM_ORE.get());
+        normalBlock(BlockInit.OMNITRIX_POD.get());
         normalBlock(BlockInit.DEEPSLATE_BLACK_DIAMOND_ORE.get());
         normalBlock(BlockInit.DEEPSLATE_SPEED_ORE.get());
         normalBlock(BlockInit.DEEPSLATE_RUBY_ORE.get());

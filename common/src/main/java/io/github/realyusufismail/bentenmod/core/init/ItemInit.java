@@ -63,6 +63,9 @@ public class ItemInit {
     public static final RegistryObject<Item> RAW_LEGENDARY = register("raw_legendary");
     public static final RegistryObject<Item> RAW_OMNITRIX = register("raw_omnitrix");
     public static final RegistryObject<Item> RAW_IMPERIUM = register("raw_imperium");
+    public static final RegistryObject<Item> OMNITRIX_CORE = register("omnitrix_core");
+    public static final RegistryObject<Item> LEGENDARY_CASING = register("legendary_casing");
+    public static final RegistryObject<Item> BLACK_DIAMOND_LENS = register("black_diamond_lens");
 
     // tools
     public static final RegistryObject<SwordItem> SWORD =

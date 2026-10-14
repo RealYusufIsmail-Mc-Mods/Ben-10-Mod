@@ -3,6 +3,9 @@
   "height": 2.1,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
+  "dna_sources": {
+    "entities": ["minecraft:phantom"]
+  },
   "abilities": [
     {
       "type": "bentenmod:effect",

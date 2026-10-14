@@ -66,6 +66,7 @@ public final class BenTenMod {
     public static void init() {
         BlockInit.init();
         ItemInit.init();
+        FeatureInit.init();
         EntityTypesInit.init();
         MenuTypeInit.init();
         RecipeTypeInit.init();

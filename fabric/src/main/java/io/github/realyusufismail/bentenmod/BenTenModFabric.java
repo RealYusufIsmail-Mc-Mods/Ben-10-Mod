@@ -35,7 +35,9 @@ package io.github.realyusufismail.bentenmod;
 import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.data.CodecJsonReloadListener;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixInteractions;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
+import io.github.realyusufismail.bentenmod.worldgen.OmnitrixCrashSiteWorldgen;
 import net.fabricmc.fabric.api.networking.v1.EntityTrackingEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
@@ -43,12 +45,16 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -68,6 +74,19 @@ public class BenTenModFabric implements ModInitializer {
         BenTenMod.commonSetup();
         addOres();
         OmnitrixNetwork.register();
+        UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
+            if (hand != InteractionHand.MAIN_HAND) {
+                return InteractionResult.PASS;
+            }
+            return OmnitrixInteractions.scanBlock(player,
+                    world.getBlockState(hitResult.getBlockPos()));
+        });
+        UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            if (hand != InteractionHand.MAIN_HAND) {
+                return InteractionResult.PASS;
+            }
+            return OmnitrixInteractions.scanEntity(player, entity);
+        });
 
         BenTenMod.reloadListeners().forEach(BenTenModFabric::registerReloadListener);
         ServerTickEvents.END_SERVER_TICK
@@ -122,5 +141,8 @@ public class BenTenModFabric implements ModInitializer {
         ModOrePlacements.NETHER_ORES
             .forEach(ore -> BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                     GenerationStep.Decoration.UNDERGROUND_ORES, ore));
+        BiomeModifications.addFeature(BiomeSelectors.tag(OmnitrixCrashSiteWorldgen.BIOMES),
+                GenerationStep.Decoration.SURFACE_STRUCTURES,
+                OmnitrixCrashSiteWorldgen.PLACED_FEATURE);
     }
 }

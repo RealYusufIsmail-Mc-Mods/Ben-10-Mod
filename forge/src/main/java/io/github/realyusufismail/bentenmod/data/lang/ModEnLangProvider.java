@@ -64,6 +64,7 @@ public class ModEnLangProvider extends LanguageProvider {
         block(BlockInit.RUBY_BLOCK, "Ruby Block");
         block(BlockInit.IMPERIUM_BLOCK, "Imperium Block");
         block(BlockInit.OmnitrixCrafter, "Omntrix Crafter");
+        block(BlockInit.OMNITRIX_POD, "Omnitrix Pod");
 
         // ores
         block(BlockInit.IMPERIUM_ORE, "Imperium Ore");
@@ -96,6 +97,16 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.RAW_IMPERIUM, "Raw Imperium");
         item(ItemInit.RAW_LEGENDARY, "Raw Legendaryy");
         item(ItemInit.RAW_OMNITRIX, "Raw Omnitrix");
+        item(ItemInit.OMNITRIX_CORE, "Omnitrix Core");
+        item(ItemInit.LEGENDARY_CASING, "Legendary Casing");
+        item(ItemInit.BLACK_DIAMOND_LENS, "Black Diamond Lens");
+
+        add(Component.translatable("message.bentenmod.dna_already_sampled"), "DNA already sampled");
+        add(Component.translatable("message.bentenmod.dna_sampled"), "DNA sampled: %s");
+        add(Component.translatable("message.bentenmod.omnitrix_equipped"),
+                "The Omnitrix locks onto your wrist");
+        add(Component.translatable("message.bentenmod.omnitrix_already_equipped"),
+                "Already wearing an Omnitrix");
 
         // tools
         item(ItemInit.SWORD, "ASCALON");
@@ -152,6 +163,12 @@ public class ModEnLangProvider extends LanguageProvider {
         item(ItemInit.OMNITRIX_WATCH, "Omnitrix");
         add("screen.bentenmod.omnitrix", "Omnitrix Dial");
         add("screen.bentenmod.revert", "Revert");
+        add("screen.bentenmod.no_dna", "No alien DNA");
+        add("message.bentenmod.omnitrix_not_equipped", "Equip an Omnitrix first: right-click it.");
+        add("screen.bentenmod.dial_hint",
+                "Scroll to turn the dial. Click or press Enter to transform.");
+        add("screen.bentenmod.dial_hint_transformed",
+                "Scroll to turn the dial. Enter to transform, R or right-click to revert.");
         add("key.bentenmod.omnitrix", "Open Omnitrix Dial");
         add("key.categories.bentenmod", "Ben 10 Mod");
         add("alien.bentenmod.heatblast", "Heatblast");
