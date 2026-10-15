@@ -14,8 +14,8 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
 |---|---|---|---|
 | 2.0.0 | Released 14 Oct 2026 | The Omnitrix | Minecraft 1.20.1 on Forge and Fabric. The Omnitrix with 10 aliens in 3D, DNA scanning, alien powers on `V`, `H` to change back, a visible time limit and recharge, the Omnitrix Field Guide, the Crafter recipe chain, Kraab, Vilgax, the Null Void, Zs'Skayr and Master Control. |
 | 2.0.1 | Released 15 Oct 2026 | Hotfix | Fixes a crash when Zs'Skayr or a Vilgax drone took off from the ground. |
-| 2.1.0 | In progress | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, an XLR8 sprint animation and water running, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival with a starter glider, prison loot chests, a richer warden vault and in-game hints for the vault and the way home. |
-| 2.2.0 | Planned | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy), a Four Arms moveset (four-hit combo, guard stance, thunder clap) and the Omnitrix fail-safe. |
+| 2.1.0 | Released 15 Oct 2026 | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, an XLR8 sprint animation and water running, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival with a starter glider, prison loot chests, a richer warden vault and in-game hints for the vault and the way home. |
+| 2.2.0 | In progress | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy), a Four Arms moveset (four-hit combo, guard stance, thunder clap) and the Omnitrix fail-safe. |
 | 2.3.0 | Planned | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). Null Void structures and creatures from the show (research list below; pick which to build). |
 | 3.0.0 | Planned | Alien Force | Azmuth's workshop, recalibrated Omnitrix, DNA-helix animation, Alien X with the Serena/Bellicus Council, Alien Force aliens batch 1 (Swampfire, Humungousaur, Big Chill, Jetray, Echo Echo, Spidermonkey). |
 | 3.1.0 | Planned | Alien Force II | Chromastone, Brainstorm, Goop, Rath, Lodestar, Nanomech. |
@@ -35,7 +35,7 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
 - Dying while transformed keeps you as the alien after respawn. Fix: revert on death and on respawn. (Next round.)
 - New mobs crashed the client (doubled `entity/` model path). Fixed in PR #93.
 
-## Phase A: a living Null Void (2.1.0 gameplay implemented; validation pending)
+## Phase A: a living Null Void (released in 2.1.0)
 
 - [x] **Smarter creatures.** Null Void Prisoners hunt in packs, flank and flee at low health, and fight each other
   sometimes. New mobs from the show:
