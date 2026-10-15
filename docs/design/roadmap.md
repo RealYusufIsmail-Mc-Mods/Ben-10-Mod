@@ -14,9 +14,9 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
 |---|---|---|---|
 | 2.0.0 | Released 14 Oct 2026 | The Omnitrix | Minecraft 1.20.1 on Forge and Fabric. The Omnitrix with 10 aliens in 3D, DNA scanning, alien powers on `V`, `H` to change back, a visible time limit and recharge, the Omnitrix Field Guide, the Crafter recipe chain, Kraab, Vilgax, the Null Void, Zs'Skayr and Master Control. |
 | 2.0.1 | Released 15 Oct 2026 | Hotfix | Fixes a crash when Zs'Skayr or a Vilgax drone took off from the ground. |
-| 2.1.0 | In progress | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival. |
-| 2.2.0 | Planned | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy). |
-| 2.3.0 | Planned | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). |
+| 2.1.0 | In progress | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, an XLR8 sprint animation and water running, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival with a starter glider, prison loot chests, a richer warden vault and in-game hints for the vault and the way home. |
+| 2.2.0 | Planned | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy), a Four Arms moveset (four-hit combo, guard stance, thunder clap) and the Omnitrix fail-safe. |
+| 2.3.0 | Planned | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). Null Void structures and creatures from the show (research list below; pick which to build). |
 | 3.0.0 | Planned | Alien Force | Azmuth's workshop, recalibrated Omnitrix, DNA-helix animation, Alien X with the Serena/Bellicus Council, Alien Force aliens batch 1 (Swampfire, Humungousaur, Big Chill, Jetray, Echo Echo, Spidermonkey). |
 | 3.1.0 | Planned | Alien Force II | Chromastone, Brainstorm, Goop, Rath, Lodestar, Nanomech. |
 | 4.0.0 | Planned | Ultimate Alien | Albedo boss, Ultimatrix, Ultimate key and the seven ultimate forms. |
@@ -77,6 +77,79 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
   4. **Dimension jump**: teleport to the Overworld, Nether, End or Null Void at the same coordinates (safe-spot search).
   5. **Reality edit**: set day or night, clear or start the weather, and heal everyone nearby.
 - Balance: very long recharge, and it only works once the final boss has been beaten.
+
+## Null Void from the show: research for 2.3.0 (2026-10-15)
+
+The user asked for show-accurate Null Void structures and creatures, to choose from later. The 2.1.0 terrain (floating
+islands everywhere) stays. Sources are fan wikis and episode recaps, so check the episodes before building; anything
+unconfirmed is marked.
+
+### What the show says the Null Void is
+- An alternate dimension the Galvan found and turned into a penal colony; other civilisations later sent their
+  prisoners there too. Prisoners who reformed settled down, and their descendants still live there.
+- The Galvan built the Null Guardians (grey, tentacled, bat-winged, non-sapient) to keep the settlers and the
+  criminals apart.
+- The landscape is endless floating rock.
+- In *Alien Force* "Voided" (sources disagree on the season and episode number), Dr. Animo had gone in to study new species, got stuck, took
+  control of the Null Guardians and ruled as **D'Void**. He forced the settlers to mine a mineral that powered his
+  drill and made him nearly invulnerable, and planned to open a wormhole to Earth. A resistance led by a character
+  called **the Wrench** fought him; Ben, Max, Helen and Manny ended his rule.
+- Named places: **Max's Hovel**, **D'Void's Citadel**, and (listed by fan wikis, unconfirmed as Null Void
+  locations) an Incarcecon and a Rooter headquarters.
+
+### Candidate structures
+| Idea | From the show | Game version | Size |
+|---|---|---|---|
+| D'Void's Citadel | Animo's fortress in "Voided" | Boss fortress on a large island: walls, a drill tower, Null Guardian roosts. Boss: D'Void with controlled Null Guardians and mutant animals | Large (structure + boss) |
+| The mineral mine | Settlers forced to mine D'Void's mineral | Mine cut into an island with ore veins, mine carts and guarded workers; the mineral is a crafting material | Medium |
+| Resistance camp | The Wrench's resistance | Settler camp: tents and lookouts, neutral settler NPCs who trade and give rewards for clearing D'Void's patrols | Medium (NPC + trades) |
+| Max's Hovel | Max's hideout when he was in the Null Void | Small hidden shelter with a bed, a map, a Plumber supply chest and a journal page | Small |
+| Galvan prison ruins | The Galvan penal colony | Old Galvan cell blocks and a broken Null Void projector array, the oldest buildings in the dimension | Medium |
+| Floating prisons and Plumber outposts | Already in 2.1.0 | Keep | Done |
+
+### Candidate creatures
+| Idea | From the show | Game version | Size |
+|---|---|---|---|
+| Null Guardians | Galvan-made wardens | Already in 2.1.0; add an "Alpha" Null Guardian that leads a flock | Small |
+| D'Void (Dr. Animo) | Ruler of the Null Void in "Voided" | Boss at the Citadel: controls nearby creatures, uses the mined mineral for a shield | Large |
+| Mutant animals | Animo's signature | D'Void's minions: mutated frog, bat and ant variants | Medium |
+| Null Void settlers | Descendants of reformed prisoners | Neutral villager-style NPCs in camps (trading, small quests) | Medium |
+| Lepidopterrans | Stinkfly's species; Animo is fascinated by them (no specific Null Void episode found) | Already in 2.1.0 as scouts | Done |
+| Exiled prisoners | Classic series villains were banished there | Named mini-bosses in prison cells; check which villains the show actually sent there | Open question |
+
+### Open questions
+- Which villains did the show actually send to the Null Void? This needs episode checks.
+- Does the Null Void need a "resistance vs D'Void" storyline in 2.3.0, or should it be one-off structures?
+- Should D'Void replace or join the Diagon arc in 2.3.0?
+
+Sources: [Null Void (Classic), Ben 10 Wiki](https://ben10.fandom.com/wiki/Null_Void_(Classic)),
+[Voided, Ben 10 Wiki](https://ben10.fandom.com/wiki/Voided),
+[Voided recap, TV Tropes](https://tvtropes.org/pmwiki/pmwiki.php/Recap/Ben10AlienForceS2E08Voided),
+[Dr. Animo (Classic), Ben 10 Wiki](https://ben10.fandom.com/wiki/Dr._Animo_(Classic)),
+[Null Guardian, Ben 10 list wiki](https://ben-10-list.fandom.com/wiki/Null_Guardian).
+
+## Alien movesets and the Omnitrix fail-safe (2.2.0, decided 2026-10-15)
+
+XLR8 running on water was pulled forward into 2.1.0 (user, 2026-10-15).
+
+### Four Arms moveset
+- **Four-hit combo:** consecutive hits cycle the arms (upper right, lower right, upper left, lower left). The fourth
+  hit in a row is a haymaker with extra knockback and a screen shake. A miss or a pause resets the combo.
+- **Guard stance:** while sneaking, the lower arms cross over the chest and cut damage from the front; the upper arms
+  can still punch.
+- **Thunder clap:** both pairs of hands clap and send a forward shockwave that knocks back, briefly stuns, and breaks
+  glass and leaves. A second power, so it needs a second power keybind and packet (or replaces the ground slam in
+  mid-air).
+- Later, as a showpiece: grab a mob with the lower arms, carry it and throw it.
+
+### Omnitrix fail-safe
+- A hit that would kill a transformed player is cancelled. The player drops back to human with a few hearts, a red
+  flash and a warning sound.
+- The Omnitrix then enters a long recharge (about 5 minutes) before the next transformation, so it triggers at most
+  once per recharge. Master Control shortens the recharge.
+- Doesn't apply in human form, to the void or to `/kill`.
+- Needs a death-cancel hook on each loader (Forge `LivingDeathEvent`, Fabric `ServerLivingEntityEvents.ALLOW_DEATH`)
+  wired in each loader entry point, plus a GameTest.
 
 ## Phase C: polish
 

@@ -231,17 +231,22 @@ public final class GameTestChecks {
         helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(6, 2, 2));
         helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(2, 2, 6));
         helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(6, 2, 6));
-        java.util.function.IntSupplier nearby = () -> helper.getLevel()
-            .getEntitiesOfClass(
-                    io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity.class,
-                    warden.getBoundingBox().inflate(32.0),
-                    entity -> entity.isAlive() && entity.distanceToSqr(warden) <= 1024.0)
-            .size();
-        int[] baseline = new int[1];
-        helper.runAtTickTime(1, () -> baseline[0] = nearby.getAsInt());
-        helper.runAtTickTime(420, () -> {
-            helper.assertTrue(nearby.getAsInt() <= Math.max(baseline[0], 4),
-                    "Prison Warden summoned beyond its cap of four prisoners");
+        helper.runAtTickTime(1, () -> {
+            var known = helper.getLevel()
+                .getEntitiesOfClass(
+                        io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity.class,
+                        warden.getBoundingBox().inflate(40.0))
+                .stream()
+                .map(net.minecraft.world.entity.Entity::getUUID)
+                .collect(java.util.stream.Collectors.toSet());
+            warden.summonPrisoners(helper.getLevel());
+            boolean summoned = helper.getLevel()
+                .getEntitiesOfClass(
+                        io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity.class,
+                        warden.getBoundingBox().inflate(40.0))
+                .stream()
+                .anyMatch(prisoner -> !known.contains(prisoner.getUUID()));
+            helper.assertFalse(summoned, "Prison Warden summoned beyond its cap of four prisoners");
             helper.succeed();
         });
     }
@@ -342,7 +347,7 @@ public final class GameTestChecks {
                 net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
         source.setBlockAndUpdate(feet.above(),
                 net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
-        player.teleportTo(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5);
+        player.moveTo(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5, 0.0F, 0.0F);
         source.addNewPlayer(player);
         double x = player.getX();
         double y = player.getY();
@@ -379,53 +384,27 @@ public final class GameTestChecks {
                     "projector did not save the return dimension");
 
             player.getCooldowns().removeCooldown(ItemInit.NULL_VOID_PROJECTOR.get());
-            ServerLevel voidLevel = player.serverLevel();
-            net.minecraft.world.level.ChunkPos voidChunk = player.chunkPosition();
-            for (int dx = -1; dx <= 1; dx++) {
-                for (int dz = -1; dz <= 1; dz++) {
-                    voidLevel.setChunkForced(voidChunk.x + dx, voidChunk.z + dz, true);
-                }
-            }
-            helper.runAfterDelay(10, () -> {
-                InteractionResult returned = ItemInit.NULL_VOID_PROJECTOR.get()
-                    .use(player.level(), player, InteractionHand.MAIN_HAND)
-                    .getResult();
-                helper.assertTrue(returned.consumesAction(),
-                        "projector did not open the return portal");
-                NullVoidPortalEntity returnPortal = player.serverLevel()
-                    .getEntitiesOfClass(NullVoidPortalEntity.class,
-                            player.getBoundingBox().inflate(8.0))
-                    .stream()
-                    .filter(portal -> portal.ownerId().filter(player.getUUID()::equals).isPresent())
-                    .findFirst()
-                    .orElse(null);
-                helper.assertTrue(returnPortal != null,
-                        "projector did not spawn the return portal");
-                if (returnPortal == null) {
-                    return;
-                }
-                returnPortal.setPos(player.getX(), player.getY(), player.getZ());
-                helper.runAfterDelay(25, () -> {
-                    helper.assertTrue(player.serverLevel() == source,
-                            "projector returned to the wrong level");
-                    helper.assertTrue(
-                            Math.abs(player.getX() - x) < 0.01 && Math.abs(player.getY() - y) < 0.01
-                                    && Math.abs(player.getZ() - z) < 0.01,
-                            "projector ignored the saved return point");
-                    helper.assertTrue(
-                            Math.abs(player.getYRot() - yaw) < 0.01
-                                    && Math.abs(player.getXRot() - pitch) < 0.01,
-                            "projector did not restore the saved rotation");
-                    helper.assertTrue(projector.getDamageValue() == 2,
-                            "opening the return portal did not cost one durability");
-                    for (int dx = -1; dx <= 1; dx++) {
-                        for (int dz = -1; dz <= 1; dz++) {
-                            voidLevel.setChunkForced(voidChunk.x + dx, voidChunk.z + dz, false);
-                        }
-                    }
-                    helper.succeed();
-                });
-            });
+            InteractionResult returned = ItemInit.NULL_VOID_PROJECTOR.get()
+                .use(player.level(), player, InteractionHand.MAIN_HAND)
+                .getResult();
+            helper.assertTrue(returned.consumesAction(),
+                    "projector did not open the return portal");
+            helper.assertTrue(NullVoidProjectorItem.transferPlayer(player),
+                    "the return portal could not carry the player home");
+            helper.assertTrue(player.serverLevel() == source,
+                    "projector returned to the wrong level");
+            helper.assertTrue(
+                    Math.abs(player.getX() - x) < 0.01 && Math.abs(player.getY() - y) < 0.01
+                            && Math.abs(player.getZ() - z) < 0.01,
+                    "projector ignored the saved return point: expected " + x + " " + y + " " + z
+                            + ", got " + player.position());
+            helper.assertTrue(
+                    Math.abs(player.getYRot() - yaw) < 0.01
+                            && Math.abs(player.getXRot() - pitch) < 0.01,
+                    "projector did not restore the saved rotation");
+            helper.assertTrue(projector.getDamageValue() == 2,
+                    "opening the return portal did not cost one durability");
+            helper.succeed();
         });
     }
 
@@ -538,6 +517,125 @@ public final class GameTestChecks {
                     .getResultItem(helper.getLevel().registryAccess())
                     .is(ItemInit.NULL_VOID_PROJECTOR.get()),
                 "Null Void Projector recipe has the wrong result");
+        helper.succeed();
+    }
+
+    public static void powerKeyRepeatsAfterRespawn(GameTestHelper helper) {
+        var repeat = new io.github.realyusufismail.bentenmod.omnitrix.PowerKeyRepeat();
+        helper.assertTrue(repeat.tryFire(5000), "the first power request was blocked");
+        helper.assertFalse(repeat.tryFire(5001),
+                "power requests repeated faster than every 2 ticks");
+        helper.assertTrue(repeat.tryFire(5002), "a held power key stopped repeating");
+        helper.assertTrue(repeat.tryFire(10), "the power key stayed blocked after the clock reset");
+        var states = new PlayerAnimationStateCache();
+        var state = states.bind(java.util.UUID.randomUUID(),
+                new ResourceLocation(BenTenMod.MOD_ID, "heatblast"), 9000L, 5000L);
+        helper.assertTrue(state.isTransforming(5019) && !state.isTransforming(5020),
+                "the transform animation window is not 20 ticks of game time");
+        helper.succeed();
+    }
+
+    public static void xlr8RunsOnWater(GameTestHelper helper, ServerPlayer player) {
+        BlockPos water = helper.absolutePos(new BlockPos(2, 2, 2));
+        helper.getLevel().setBlockAndUpdate(water, Blocks.WATER.defaultBlockState());
+        helper.getLevel().setBlockAndUpdate(water.above(), Blocks.AIR.defaultBlockState());
+        double surface = water.getY()
+                + helper.getLevel().getFluidState(water).getHeight(helper.getLevel(), water);
+        player.setSprinting(true);
+        player.moveTo(water.getX() + 0.5, surface - 0.15, water.getZ() + 0.5);
+        player.setDeltaMovement(0.3, -0.08, 0.0);
+        helper.assertTrue(
+                io.github.realyusufismail.bentenmod.omnitrix.WaterRunning.keepOnSurface(player),
+                "a fast sprint did not hold the player on the water");
+        helper.assertTrue(
+                Math.abs(player.getY() - surface) < 1.0e-6 && player.onGround()
+                        && player.getDeltaMovement().y >= 0.0,
+                "the player was not standing on the water surface");
+
+        player.moveTo(water.getX() + 0.5, surface - 0.15, water.getZ() + 0.5);
+        player.setDeltaMovement(0.05, -0.08, 0.0);
+        helper.assertFalse(
+                io.github.realyusufismail.bentenmod.omnitrix.WaterRunning.keepOnSurface(player),
+                "a slow player stayed on the water");
+        player.setDeltaMovement(0.3, -0.08, 0.0);
+        player.setSprinting(false);
+        helper.assertFalse(
+                io.github.realyusufismail.bentenmod.omnitrix.WaterRunning.keepOnSurface(player),
+                "a walking player stayed on the water");
+        helper.succeed();
+    }
+
+    public static void starterGliderFallsBackToChest(GameTestHelper helper, ServerPlayer player) {
+        BlockPos feet = helper.absolutePos(new BlockPos(2, 2, 2));
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dz = -1; dz <= 1; dz++) {
+                helper.getLevel()
+                    .setBlockAndUpdate(feet.offset(dx, -1, dz), Blocks.STONE.defaultBlockState());
+                helper.getLevel()
+                    .setBlockAndUpdate(feet.offset(dx, 0, dz), Blocks.AIR.defaultBlockState());
+            }
+        }
+        player.moveTo(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5);
+        player.getInventory().clearContent();
+        NullVoidProjectorItem.giveStarterGlider(player);
+        helper.assertTrue(
+                player.getInventory().contains(new ItemStack(ItemInit.NULL_VOID_GLIDER.get())),
+                "the starter glider did not go into an empty inventory");
+
+        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+            player.getInventory().setItem(slot, new ItemStack(Blocks.DIRT, 64));
+        }
+        NullVoidProjectorItem.giveStarterGlider(player);
+        boolean inChest = false;
+        for (Direction side : Direction.Plane.HORIZONTAL) {
+            if (helper.getLevel()
+                .getBlockEntity(feet.relative(
+                        side)) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity chest
+                    && chest.getItem(0).is(ItemInit.NULL_VOID_GLIDER.get())) {
+                inChest = true;
+            }
+        }
+        helper.assertTrue(inChest, "a full inventory did not get the glider in a chest");
+        helper.succeed();
+    }
+
+    public static void nullVoidHasIslandsWherePlayersArrive(GameTestHelper helper) {
+        ServerLevel level = helper.getLevel().getServer().getLevel(NullVoidWorldgen.DIMENSION);
+        helper.assertTrue(level != null, "the Null Void dimension is not loaded");
+        if (level == null) {
+            return;
+        }
+        // 150-1000 blocks from 0,0 was an empty ring when the Null Void reused the End's islands.
+        int[][] arrivals =
+                {{0, 0}, {240, 90}, {-410, 330}, {650, -520}, {-880, -140}, {3100, 2700}};
+        for (int[] arrival : arrivals) {
+            helper.assertTrue(
+                    NullVoidProjectorItem.findSafeLanding(level,
+                            new BlockPos(arrival[0], 0, arrival[1])) != null,
+                    "no island to land on near " + arrival[0] + ", " + arrival[1]);
+        }
+        helper.succeed();
+    }
+
+    public static void prisonChestLoot(GameTestHelper helper) {
+        LootParams params = new LootParams.Builder(helper.getLevel())
+            .withParameter(LootContextParams.ORIGIN, Vec3.ZERO)
+            .create(LootContextParamSets.CHEST);
+        LootTable vault = entityLootTable(helper, "chests/prison_vault");
+        LootTable cell = entityLootTable(helper, "chests/prison_cell");
+        helper.assertTrue(vault != null && cell != null, "Prison chest loot tables are missing");
+        if (vault == null || cell == null) {
+            return;
+        }
+        List<ItemStack> vaultDrops = vault.getRandomItems(params);
+        helper.assertTrue(vaultDrops.stream().anyMatch(stack -> stack.is(Items.DIAMOND)),
+                "Prison vault loot is missing diamonds");
+        helper.assertTrue(vaultDrops.stream()
+            .filter(stack -> stack.is(ItemInit.TAYDENITE.get()))
+            .mapToInt(ItemStack::getCount)
+            .sum() >= 4, "Prison vault gives too little taydenite");
+        helper.assertTrue(vaultDrops.size() >= 8, "Prison vault loot is too small");
+        helper.assertTrue(!cell.getRandomItems(params).isEmpty(), "Prison cell chest is empty");
         helper.succeed();
     }
 

@@ -130,6 +130,27 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void powerKeyRepeatsAfterRespawn(GameTestHelper helper) {
+        GameTestChecks.powerKeyRepeatsAfterRespawn(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void xlr8RunsOnWater(GameTestHelper helper) {
+        GameTestChecks.xlr8RunsOnWater(helper, player(helper, "xlr8RunsOnWater"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void starterGliderFallsBackToChest(GameTestHelper helper) {
+        GameTestChecks.starterGliderFallsBackToChest(helper,
+                player(helper, "starterGliderFallsBackToChest"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void prisonChestLoot(GameTestHelper helper) {
+        GameTestChecks.prisonChestLoot(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void nullVoidFortressChestLoot(GameTestHelper helper) {
         GameTestChecks.nullVoidFortressChestLoot(helper);
     }

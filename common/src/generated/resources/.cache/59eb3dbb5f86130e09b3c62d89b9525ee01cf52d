@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T23:41:17.949435	Loot Tables
+// 1.20.1	2026-10-15T07:53:21.06449	Loot Tables
 e91e16bd84a70365fbdcf1d71834581484e7ed52 data/bentenmod/loot_tables/blocks/black_diamond_block.json
 0e100a9720eea013cb941a3a69a6ad70a43016cf data/bentenmod/loot_tables/blocks/black_diamond_ore.json
 e9430687e0f356e135cd68e5e1eb4bed1f6831ba data/bentenmod/loot_tables/blocks/deepslate_black_diamond_ore.json
@@ -33,7 +33,8 @@ bd9715c7719a1e967e403f94d7e57dd2bc12a537 data/bentenmod/loot_tables/blocks/tayde
 a0a817ae7bdcc23b5f642426857ed3226f513d71 data/bentenmod/loot_tables/blocks/taydenite_ore.json
 9fb1b600e87b0fea918603a062382ee4c1c5d585 data/bentenmod/loot_tables/chests/null_void_fortress.json
 c504073feb054abb624dba263873d73046546931 data/bentenmod/loot_tables/chests/plumber_outpost.json
-d2238d92c71bdd5e0486759a49af31be810082d0 data/bentenmod/loot_tables/chests/prison_vault.json
+de3369d3eeedf1ca2590236ece35d07f096cf164 data/bentenmod/loot_tables/chests/prison_cell.json
+c04a5f3e3c087635b98bc728ba35ff2713309d71 data/bentenmod/loot_tables/chests/prison_vault.json
 3be966a6f82b5e5f3b642f5d1a9e7812f4df2107 data/bentenmod/loot_tables/entities/crab.json
 4dc78f8f6efe806b6dbbf261e3a164240040b9ed data/bentenmod/loot_tables/entities/lepidopterran.json
 230095a4ac5cfe7247b09498b43fab5f69ea0792 data/bentenmod/loot_tables/entities/null_guardian.json

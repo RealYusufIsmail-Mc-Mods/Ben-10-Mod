@@ -16,15 +16,19 @@
 package io.github.realyusufismail.bentenmod.worldgen;
 
 import com.mojang.serialization.Codec;
+import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.blocks.PrisonVaultBlock;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.CrossCollisionBlock;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -35,6 +39,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 public final class FloatingPrisonFeature extends Feature<NoneFeatureConfiguration> {
     private static final int RADIUS = 8;
     private static final int HEIGHT = 6;
+    public static final ResourceLocation CELL_LOOT =
+            new ResourceLocation(BenTenMod.MOD_ID, "chests/prison_cell");
 
     public FloatingPrisonFeature(Codec<NoneFeatureConfiguration> codec) {
         super(codec);
@@ -80,6 +86,8 @@ public final class FloatingPrisonFeature extends Feature<NoneFeatureConfiguratio
 
         placeSpawner(level, origin, baseY, -3, -3, context.random());
         placeSpawner(level, origin, baseY, 3, -3, context.random());
+        placeCellChest(level, origin, baseY, -3, 3, Direction.EAST, context.random());
+        placeCellChest(level, origin, baseY, 3, 3, Direction.WEST, context.random());
         BlockPos vaultPos = new BlockPos(origin.getX(), baseY + 1, origin.getZ() + 7);
         level.setBlock(vaultPos,
                 BlockInit.PRISON_VAULT.get()
@@ -119,6 +127,14 @@ public final class FloatingPrisonFeature extends Feature<NoneFeatureConfiguratio
         if (level.getBlockEntity(spawnerPos) instanceof SpawnerBlockEntity spawner) {
             spawner.setEntityId(EntityTypesInit.NULL_VOID_PRISONER.get(), random);
         }
+    }
+
+    private static void placeCellChest(WorldGenLevel level, BlockPos origin, int baseY, int x,
+            int z, Direction facing, RandomSource random) {
+        BlockPos chestPos = new BlockPos(origin.getX() + x, baseY + 1, origin.getZ() + z);
+        level.setBlock(chestPos,
+                Blocks.CHEST.defaultBlockState().setValue(ChestBlock.FACING, facing), 2);
+        RandomizableContainerBlockEntity.setLootTable(level, random, chestPos, CELL_LOOT);
     }
 
     private static BlockState connectedBars(int x, int z) {

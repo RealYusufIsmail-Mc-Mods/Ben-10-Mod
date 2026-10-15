@@ -115,7 +115,7 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
         }
     }
 
-    private void summonPrisoners(ServerLevel serverLevel) {
+    public void summonPrisoners(ServerLevel serverLevel) {
         int nearby =
                 serverLevel
                     .getEntitiesOfClass(NullVoidPrisonerEntity.class,
@@ -190,6 +190,12 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
     @Override
     public void die(DamageSource source) {
         BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "warden.death", 2);
+        if (level() instanceof ServerLevel server) {
+            Component hint = Component.translatable("message.bentenmod.warden_defeated")
+                .withStyle(ChatFormatting.GOLD);
+            server.getEntitiesOfClass(ServerPlayer.class, getBoundingBox().inflate(32.0))
+                .forEach(player -> player.sendSystemMessage(hint));
+        }
         this.bossEvent.removeAllPlayers();
         super.die(source);
     }

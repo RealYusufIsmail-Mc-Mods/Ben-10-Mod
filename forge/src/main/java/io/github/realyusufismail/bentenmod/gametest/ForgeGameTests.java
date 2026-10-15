@@ -110,7 +110,7 @@ public class ForgeGameTests {
         GameTestChecks.nullVoidDimensionExists(helper);
     }
 
-    @GameTest(template = "empty")
+    @GameTest(template = "empty", batch = "null_void_projector")
     public static void nullVoidProjectorRoundTrips(GameTestHelper helper) {
         GameTestChecks.nullVoidProjectorRoundTrips(helper,
                 player(helper, "nullVoidProjectorRoundTrips"));
@@ -141,6 +141,32 @@ public class ForgeGameTests {
     @GameTest(template = "empty")
     public static void nullVoidProjectorRecipeLoads(GameTestHelper helper) {
         GameTestChecks.nullVoidProjectorRecipeLoads(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void powerKeyRepeatsAfterRespawn(GameTestHelper helper) {
+        GameTestChecks.powerKeyRepeatsAfterRespawn(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void xlr8RunsOnWater(GameTestHelper helper) {
+        GameTestChecks.xlr8RunsOnWater(helper, player(helper, "xlr8RunsOnWater"));
+    }
+
+    @GameTest(template = "empty")
+    public static void starterGliderFallsBackToChest(GameTestHelper helper) {
+        GameTestChecks.starterGliderFallsBackToChest(helper,
+                player(helper, "starterGliderFallsBackToChest"));
+    }
+
+    @GameTest(template = "empty", batch = "null_void_terrain")
+    public static void nullVoidHasIslandsWherePlayersArrive(GameTestHelper helper) {
+        GameTestChecks.nullVoidHasIslandsWherePlayersArrive(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void prisonChestLoot(GameTestHelper helper) {
+        GameTestChecks.prisonChestLoot(helper);
     }
 
     @GameTest(template = "empty")
