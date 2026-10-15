@@ -10,18 +10,18 @@ Each version is one PR (or a short stack), released to CurseForge for Forge and 
 in-game check on both loaders pass. Ideas that don't make a version move to the next one; dates aren't promised past
 2.0.0.
 
-| Version | Name | Scope |
-|---|---|---|
-| **2.0.0** (Fri 16 Oct 2026) | The Omnitrix | Everything in PR #93 (1.20.1 port, Forge + Fabric, Omnitrix and 10 aliens, DNA, Crafter chain, Kraab, Vilgax, the Null Void, Zs'Skayr, Master Control) + QA round 1 (powers on `V`, `H` revert, creative shows all aliens, visible timeout and recharge, Field Guide, new icon and wrist model) + death-while-transformed fix + the mob render crash fix. |
-| 2.1.0 | Living Null Void | Gameplay implemented; validation and the art worker's Heatblast/Stinkfly/Ghostfreak flight animations are pending. Smarter prisoners, Null Guardians, Lepidopterrans, prison blocks with the warden, wrecked Plumber outposts, Taydenite caves and useful drops. |
-| 2.2.0 | Plumbers | Plumber NPC and JSON missions, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy). |
-| 2.3.0 | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). |
-| 3.0.0 | Alien Force | Azmuth's workshop, recalibrated Omnitrix, DNA-helix animation, Alien X with the Serena/Bellicus Council, Alien Force aliens batch 1 (Swampfire, Humungousaur, Big Chill, Jetray, Echo Echo, Spidermonkey). |
-| 3.1.0 | Alien Force II | Chromastone, Brainstorm, Goop, Rath, Lodestar, Nanomech. |
-| 4.0.0 | Ultimate Alien | Albedo boss, Ultimatrix, Ultimate key and the seven ultimate forms. |
-| 4.1.0 | Ultimate Alien II | Water Hazard, AmpFibian, Armodrillo, Terraspin, NRG, Fasttrack, ChamAlien, Eatle, Clockwork, Juryrigg. |
-| 5.0.0 | Omniverse | Malware boss, Omniverse Omnitrix, playlists, first Omniverse aliens batch. |
-| 5.1.0 | Omniverse II | Remaining Omniverse aliens. |
+| Version | Status | Name | Scope |
+|---|---|---|---|
+| 2.0.0 | Released 14 Oct 2026 | The Omnitrix | Minecraft 1.20.1 on Forge and Fabric. The Omnitrix with 10 aliens in 3D, DNA scanning, alien powers on `V`, `H` to change back, a visible time limit and recharge, the Omnitrix Field Guide, the Crafter recipe chain, Kraab, Vilgax, the Null Void, Zs'Skayr and Master Control. |
+| 2.1.0 | In progress | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival. |
+| 2.2.0 | Planned | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy). |
+| 2.3.0 | Planned | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). |
+| 3.0.0 | Planned | Alien Force | Azmuth's workshop, recalibrated Omnitrix, DNA-helix animation, Alien X with the Serena/Bellicus Council, Alien Force aliens batch 1 (Swampfire, Humungousaur, Big Chill, Jetray, Echo Echo, Spidermonkey). |
+| 3.1.0 | Planned | Alien Force II | Chromastone, Brainstorm, Goop, Rath, Lodestar, Nanomech. |
+| 4.0.0 | Planned | Ultimate Alien | Albedo boss, Ultimatrix, Ultimate key and the seven ultimate forms. |
+| 4.1.0 | Planned | Ultimate Alien II | Water Hazard, AmpFibian, Armodrillo, Terraspin, NRG, Fasttrack, ChamAlien, Eatle, Clockwork, Juryrigg. |
+| 5.0.0 | Planned | Omniverse | Malware boss, Omniverse Omnitrix, playlists, first Omniverse aliens batch. |
+| 5.1.0 | Planned | Omniverse II | Remaining Omniverse aliens. |
 
 ## Already being built (QA round 1)
 

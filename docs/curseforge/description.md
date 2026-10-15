@@ -2,7 +2,7 @@
 
 [![CurseForge downloads](http://cf.way2muchnoise.eu/459985.svg)](https://www.curseforge.com/minecraft/mc-mods/ben-ten-mod)
 [![Minecraft versions](http://cf.way2muchnoise.eu/versions/459985.svg)](https://www.curseforge.com/minecraft/mc-mods/ben-ten-mod)
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-green.svg)](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/blob/1.20.1/LICENSE.txt)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/blob/1.20.1/LICENSE.txt)
 
 ![Ben 10 Mod](https://raw.githubusercontent.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/1.20.1/docs/images/banner.png)
 
@@ -65,4 +65,4 @@ plan is in [docs/design/roadmap.md](https://github.com/RealYusufIsmail-Mc-Mods/B
 
 The mod is open source on [GitHub](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod). Report bugs on the [issue tracker](https://github.com/RealYusufIsmail-Mc-Mods/Ben-10-Mod/issues).
 
-Copyright 2021-2026 Yusuf Ismail. BSD 3-Clause License.
+Copyright 2026 Yusuf Ismail. Licensed under the Apache License 2.0.

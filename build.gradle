@@ -14,5 +14,6 @@ spotless {
     java {
         target('common/src/**/*.java', 'forge/src/**/*.java', 'fabric/src/**/*.java')
         eclipse('4.19').configFile("${rootDir}/meta/formatting/google-style-eclipse.xml")
+        licenseHeaderFile("${rootDir}/meta/license-header.txt")
     }
 }

@@ -1099,31 +1099,42 @@ class WikiBuilder:
 </div>"""
         return self.page("The Null Void", "Travel to the Null Void, explore its islands and fortress, and find Zs'Skayr.", "null-void", content)
 
-    def roadmap_rows(self) -> list[tuple[str, str, str]]:
+    def roadmap_rows(self) -> list[tuple[str, str, str, str]]:
         rows = []
         in_table = False
         for line in self.roadmap.splitlines():
-            if line.strip().startswith("| Version | Name | Scope |"):
+            if line.strip().startswith("| Version | Status | Name | Scope |"):
                 in_table = True
                 continue
             if not in_table:
                 continue
             if not line.strip().startswith("|"):
                 break
-            cells = [cell.strip().replace("**", "") for cell in line.strip().strip("|").split("|")]
-            if len(cells) < 3 or set(cells[0]) <= {"-", ":"}:
+            cells = [cell.strip().replace("**", "").replace("`", "") for cell in line.strip().strip("|").split("|")]
+            if len(cells) < 4 or set(cells[0]) <= {"-", ":"}:
                 continue
-            if cells[0].startswith("2.0.0"):
-                continue
-            rows.append((cells[0], cells[1], cells[2]))
+            rows.append((cells[0], cells[1], cells[2], cells[3]))
         return rows
+
+    @staticmethod
+    def roadmap_status_class(status: str) -> str:
+        lowered = status.casefold()
+        if lowered.startswith("released"):
+            return "released"
+        if lowered.startswith("in progress"):
+            return "in-progress"
+        return "planned"
 
     def render_roadmap(self) -> str:
         rows = self.roadmap_rows()
-        items = "".join(f'<article class="roadmap-row"><div class="roadmap-version">{escaped(version)}</div><div><span class="planned-label">Planned, not in the game yet</span><h3>{escaped(name)}</h3><p>{escaped(scope)}</p></div></article>' for version, name, scope in rows)
-        content = self.page_heading("Project plan", "Roadmap", "These entries come from the release plan. They are planned work, not features in the current game.")
-        content += f'<div class="callout warning"><strong>Planned, not in the game yet.</strong> Release names and scope may change; the source roadmap does not promise dates beyond version 2.0.0.</div><section class="content-section roadmap-list">{items}</section>'
-        return self.page("Roadmap", "Planned Ben 10 Mod releases and features from the project roadmap.", "roadmap", content)
+        items = "".join(
+            f'<article class="roadmap-row {self.roadmap_status_class(status)}"><div class="roadmap-version">{escaped(version)}</div>'
+            f'<div><span class="roadmap-status {self.roadmap_status_class(status)}">{escaped(status)}</span>'
+            f'<h3>{escaped(name)}</h3><p>{escaped(scope)}</p></div></article>'
+            for version, status, name, scope in rows)
+        content = self.page_heading("Project plan", "Roadmap", "What's out, what's being built now, and what comes next.")
+        content += f'<div class="callout"><strong>Released</strong> versions are on CurseForge. <strong>In progress</strong> is being built and tested now. <strong>Planned</strong> releases may change.</div><section class="content-section roadmap-list">{items}</section>'
+        return self.page("Roadmap", "Released, in-progress and planned Ben 10 Mod releases.", "roadmap", content)
 
     def prepare_output(self):
         marker = OUTPUT / ".wiki-generated"
