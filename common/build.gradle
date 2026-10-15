@@ -13,7 +13,6 @@ legacyForge {
 }
 
 dependencies {
-    compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
     compileOnly group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     // GeckoLib has no loader-neutral artifact for 1.20.1. Its API is identical in the Forge and
     // Fabric builds, so common compiles against the (remapped) Forge build; each loader then

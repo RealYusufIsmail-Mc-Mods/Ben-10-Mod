@@ -102,9 +102,9 @@ public class OmnitrixRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public @NotNull OmnitrixRecipeBuilder unlockedBy(@NotNull String creterionId,
+    public @NotNull OmnitrixRecipeBuilder unlockedBy(@NotNull String criterionId,
             @NotNull CriterionTriggerInstance criterionTriggerInstance) {
-        this.advancement.addCriterion(creterionId, criterionTriggerInstance);
+        this.advancement.addCriterion(criterionId, criterionTriggerInstance);
         return this;
     }
 

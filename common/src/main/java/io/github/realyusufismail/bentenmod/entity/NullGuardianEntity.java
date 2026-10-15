@@ -68,6 +68,7 @@ public class NullGuardianEntity extends Monster implements GeoEntity {
         return Monster.createMonsterAttributes()
             .add(Attributes.FOLLOW_RANGE, 32.0)
             .add(Attributes.MOVEMENT_SPEED, 0.28)
+            .add(Attributes.FLYING_SPEED, 0.5)
             .add(Attributes.ATTACK_DAMAGE, 8.0)
             .add(Attributes.ARMOR, 8.0)
             .add(Attributes.MAX_HEALTH, 60.0);

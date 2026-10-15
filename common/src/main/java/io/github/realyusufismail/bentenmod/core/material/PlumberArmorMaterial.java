@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.realyusufismail.bentenmod.core.item;
+package io.github.realyusufismail.bentenmod.core.material;
 
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import net.minecraft.sounds.SoundEvent;

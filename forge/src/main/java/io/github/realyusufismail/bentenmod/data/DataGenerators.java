@@ -15,7 +15,7 @@
  */
 package io.github.realyusufismail.bentenmod.data;
 
-import io.github.realyusufismail.bentenmod.data.advancments.ModAdvancementProvider;
+import io.github.realyusufismail.bentenmod.data.advancements.ModAdvancementProvider;
 import io.github.realyusufismail.bentenmod.data.client.ModBlockStateProvider;
 import io.github.realyusufismail.bentenmod.data.client.ModItemModelProvider;
 import io.github.realyusufismail.bentenmod.data.lang.ModEnLangProvider;

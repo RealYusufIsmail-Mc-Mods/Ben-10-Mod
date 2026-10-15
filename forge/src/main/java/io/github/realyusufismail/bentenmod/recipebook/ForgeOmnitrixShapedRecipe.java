@@ -17,7 +17,7 @@ package io.github.realyusufismail.bentenmod.recipebook;
 
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterContainer;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterCraftingBookCategory;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterShapedRecipe;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterShapedRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -28,7 +28,7 @@ import net.minecraftforge.common.crafting.IShapedRecipe;
  * The shaped Omnitrix Crafter recipe plus Forge's {@link IShapedRecipe}, which the recipe book
  * needs to place ingredients in the recipe's shape.
  */
-public class ForgeOmnitrixShapedRecipe extends OmntrixCrafterShapedRecipe
+public class ForgeOmnitrixShapedRecipe extends OmnitrixCrafterShapedRecipe
         implements IShapedRecipe<OmnitrixCrafterContainer> {
 
     public ForgeOmnitrixShapedRecipe(ResourceLocation id, String group, int width, int height,

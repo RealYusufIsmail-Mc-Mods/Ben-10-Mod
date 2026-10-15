@@ -17,7 +17,7 @@ package io.github.realyusufismail.bentenmod.platform.services;
 
 import com.google.gson.JsonObject;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterCraftingBookCategory;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmntrixCrafterShapedRecipe;
+import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterShapedRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -60,7 +60,7 @@ public interface IPlatformHelper {
      * Creates the Omnitrix Crafter shaped recipe. Forge returns a subclass that implements
      * {@code IShapedRecipe} so the recipe book places ingredients in the right shape.
      */
-    OmntrixCrafterShapedRecipe createOmnitrixShapedRecipe(ResourceLocation id, String group,
+    OmnitrixCrafterShapedRecipe createOmnitrixShapedRecipe(ResourceLocation id, String group,
             int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
             boolean showNotification, OmnitrixCrafterCraftingBookCategory category);
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.realyusufismail.bentenmod.core.omnitrix;
+package io.github.realyusufismail.bentenmod.client.omnitrix;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

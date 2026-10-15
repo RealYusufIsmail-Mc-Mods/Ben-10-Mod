@@ -55,7 +55,6 @@ public class OmnitrixCrafter extends Block {
     @Override
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos,
             Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
-        // super.use(blockState, level, blockPos, player, interactionHand, blockHitResult);
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {

@@ -29,9 +29,9 @@ import io.github.realyusufismail.bentenmod.client.renderer.NullGuardianRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.LepidopterranRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.PrisonWardenRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
-import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnnitrixCrafterScreen;
-import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixDialScreen;
-import io.github.realyusufismail.bentenmod.core.omnitrix.OmnitrixGuideScreen;
+import io.github.realyusufismail.bentenmod.client.omnitrix.OmnitrixDialScreen;
+import io.github.realyusufismail.bentenmod.client.omnitrix.OmnitrixGuideScreen;
+import io.github.realyusufismail.bentenmod.client.screen.OmnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
 import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
@@ -101,7 +101,7 @@ public final class BenTenModForgeClient {
                 }
             });
             MenuScreens.register(MenuTypeInit.OmnitrixCrafterMenuType.get(),
-                    OmnnitrixCrafterScreen::new);
+                    OmnitrixCrafterScreen::new);
             OmnitrixClientHooks.install(
                     () -> Minecraft.getInstance().setScreen(new OmnitrixDialScreen()),
                     OmnitrixNetwork::requestTransform,

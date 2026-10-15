@@ -38,6 +38,11 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void flyingMobsCanFly(GameTestHelper helper) {
+        GameTestChecks.flyingMobsCanFly(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void livingNullVoidMobsHaveAttributes(GameTestHelper helper) {
         GameTestChecks.livingNullVoidMobsHaveAttributes(helper);
     }

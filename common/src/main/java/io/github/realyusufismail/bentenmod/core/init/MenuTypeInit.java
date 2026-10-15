@@ -18,15 +18,10 @@ package io.github.realyusufismail.bentenmod.core.init;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.blocks.bententable.OmnitrixCrafterMenu;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import io.github.realyusufismail.bentenmod.platform.Services;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistrationProvider;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistryObject;
-
-import javax.annotation.Nullable;
 
 public class MenuTypeInit {
     public static final RegistrationProvider<MenuType<?>> MENUS =

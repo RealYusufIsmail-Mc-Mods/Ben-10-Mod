@@ -1,4 +1,2 @@
-//TODO: Add the omnitrix.
-//TODO: Entity system is broken
 //TODO: Switch from gradle to gradle.kts
 //TODO: Create custom smiting table

@@ -68,6 +68,7 @@ public class VilgaxDroneEntity extends Monster implements GeoEntity {
         return Monster.createMonsterAttributes()
             .add(Attributes.FOLLOW_RANGE, 32)
             .add(Attributes.MOVEMENT_SPEED, 0.32)
+            .add(Attributes.FLYING_SPEED, 0.7)
             .add(Attributes.ATTACK_DAMAGE, 3)
             .add(Attributes.MAX_HEALTH, 16);
     }

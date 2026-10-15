@@ -15,7 +15,6 @@
  */
 package io.github.realyusufismail.bentenmod.entity;
 
-import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -162,7 +161,9 @@ public class NullVoidPrisonerEntity extends Monster implements GeoEntity {
 
         @Override
         public void tick() {
-            Player target = (Player) getTarget();
+            if (!(getTarget() instanceof Player target)) {
+                return;
+            }
             getLookControl().setLookAt(target, 30.0F, 30.0F);
             if (this.repathDelay-- <= 0) {
                 Vec3 flank = flankPosition(target);

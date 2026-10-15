@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.realyusufismail.bentenmod.data.advancments;
+package io.github.realyusufismail.bentenmod.data.advancements;
 
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.BlockInit;
