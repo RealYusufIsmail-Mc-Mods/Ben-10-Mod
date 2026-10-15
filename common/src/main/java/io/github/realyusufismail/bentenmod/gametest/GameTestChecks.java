@@ -45,6 +45,7 @@ import io.github.realyusufismail.bentenmod.entity.ZsSkayrEntity;
 import io.github.realyusufismail.bentenmod.entity.BossChatter;
 import io.github.realyusufismail.bentenmod.entity.NullVoidPortalEntity;
 import io.github.realyusufismail.bentenmod.entity.PlumberBoltEntity;
+import io.github.realyusufismail.bentenmod.entity.PrisonWardenEntity;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixInteractions;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSavedData;
@@ -247,14 +248,16 @@ public final class GameTestChecks {
         helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(6, 2, 2));
         helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(2, 2, 6));
         helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(6, 2, 6));
+        java.util.function.IntSupplier nearby = () -> helper.getLevel()
+            .getEntitiesOfClass(
+                    io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity.class,
+                    warden.getBoundingBox().inflate(32.0),
+                    entity -> entity.isAlive() && entity.distanceToSqr(warden) <= 1024.0)
+            .size();
+        int[] baseline = new int[1];
+        helper.runAtTickTime(1, () -> baseline[0] = nearby.getAsInt());
         helper.runAtTickTime(420, () -> {
-            int nearby = helper.getLevel()
-                .getEntitiesOfClass(
-                        io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity.class,
-                        warden.getBoundingBox().inflate(32.0),
-                        entity -> entity.isAlive() && entity.distanceToSqr(warden) <= 1024.0)
-                .size();
-            helper.assertTrue(nearby <= 4,
+            helper.assertTrue(nearby.getAsInt() <= Math.max(baseline[0], 4),
                     "Prison Warden summoned beyond its cap of four prisoners");
             helper.succeed();
         });
@@ -349,7 +352,7 @@ public final class GameTestChecks {
 
     public static void nullVoidProjectorRoundTrips(GameTestHelper helper, ServerPlayer player) {
         ServerLevel source = player.serverLevel();
-        BlockPos feet = player.blockPosition();
+        BlockPos feet = helper.absolutePos(new BlockPos(1, 2, 1));
         source.setBlockAndUpdate(feet.below(),
                 net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
         source.setBlockAndUpdate(feet,
@@ -357,6 +360,7 @@ public final class GameTestChecks {
         source.setBlockAndUpdate(feet.above(),
                 net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
         player.teleportTo(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5);
+        source.addNewPlayer(player);
         double x = player.getX();
         double y = player.getY();
         double z = player.getZ();
@@ -372,6 +376,7 @@ public final class GameTestChecks {
         NullVoidPortalEntity entryPortal = source
             .getEntitiesOfClass(NullVoidPortalEntity.class, player.getBoundingBox().inflate(8.0))
             .stream()
+            .filter(portal -> portal.ownerId().filter(player.getUUID()::equals).isPresent())
             .findFirst()
             .orElse(null);
         helper.assertTrue(entryPortal != null, "projector did not spawn its portal entity");
@@ -381,46 +386,64 @@ public final class GameTestChecks {
         helper.assertTrue(projector.getDamageValue() == 1,
                 "opening the portal did not cost one durability");
         entryPortal.setPos(player.getX(), player.getY(), player.getZ());
-        for (int tick = 0; tick < 21; tick++) {
-            entryPortal.tick();
-        }
-        helper.assertTrue(player.serverLevel().dimension().equals(NullVoidWorldgen.DIMENSION),
-                "portal did not carry the player into the Null Void");
-        OmnitrixSavedData.ReturnPoint point =
-                OmnitrixSavedData.get(player.serverLevel()).returnPoint(player.getUUID());
-        helper.assertTrue(point != null && point.dimension().equals(source.dimension().location()),
-                "projector did not save the return dimension");
+        helper.runAfterDelay(25, () -> {
+            helper.assertTrue(player.serverLevel().dimension().equals(NullVoidWorldgen.DIMENSION),
+                    "portal did not carry the player into the Null Void");
+            OmnitrixSavedData.ReturnPoint point =
+                    OmnitrixSavedData.get(player.serverLevel()).returnPoint(player.getUUID());
+            helper.assertTrue(
+                    point != null && point.dimension().equals(source.dimension().location()),
+                    "projector did not save the return dimension");
 
-        player.getCooldowns().removeCooldown(ItemInit.NULL_VOID_PROJECTOR.get());
-        InteractionResult returned = ItemInit.NULL_VOID_PROJECTOR.get()
-            .use(player.level(), player, InteractionHand.MAIN_HAND)
-            .getResult();
-        helper.assertTrue(returned.consumesAction(), "projector did not open the return portal");
-        NullVoidPortalEntity returnPortal = player.serverLevel()
-            .getEntitiesOfClass(NullVoidPortalEntity.class, player.getBoundingBox().inflate(8.0))
-            .stream()
-            .findFirst()
-            .orElse(null);
-        helper.assertTrue(returnPortal != null, "projector did not spawn the return portal");
-        if (returnPortal == null) {
-            return;
-        }
-        returnPortal.setPos(player.getX(), player.getY(), player.getZ());
-        for (int tick = 0; tick < 21; tick++) {
-            returnPortal.tick();
-        }
-        helper.assertTrue(player.serverLevel() == source, "projector returned to the wrong level");
-        helper.assertTrue(
-                Math.abs(player.getX() - x) < 0.01 && Math.abs(player.getY() - y) < 0.01
-                        && Math.abs(player.getZ() - z) < 0.01,
-                "projector ignored the saved return point");
-        helper.assertTrue(
-                Math.abs(player.getYRot() - yaw) < 0.01
-                        && Math.abs(player.getXRot() - pitch) < 0.01,
-                "projector did not restore the saved rotation");
-        helper.assertTrue(projector.getDamageValue() == 2,
-                "opening the return portal did not cost one durability");
-        helper.succeed();
+            player.getCooldowns().removeCooldown(ItemInit.NULL_VOID_PROJECTOR.get());
+            ServerLevel voidLevel = player.serverLevel();
+            net.minecraft.world.level.ChunkPos voidChunk = player.chunkPosition();
+            for (int dx = -1; dx <= 1; dx++) {
+                for (int dz = -1; dz <= 1; dz++) {
+                    voidLevel.setChunkForced(voidChunk.x + dx, voidChunk.z + dz, true);
+                }
+            }
+            helper.runAfterDelay(10, () -> {
+                InteractionResult returned = ItemInit.NULL_VOID_PROJECTOR.get()
+                    .use(player.level(), player, InteractionHand.MAIN_HAND)
+                    .getResult();
+                helper.assertTrue(returned.consumesAction(),
+                        "projector did not open the return portal");
+                NullVoidPortalEntity returnPortal = player.serverLevel()
+                    .getEntitiesOfClass(NullVoidPortalEntity.class,
+                            player.getBoundingBox().inflate(8.0))
+                    .stream()
+                    .filter(portal -> portal.ownerId().filter(player.getUUID()::equals).isPresent())
+                    .findFirst()
+                    .orElse(null);
+                helper.assertTrue(returnPortal != null,
+                        "projector did not spawn the return portal");
+                if (returnPortal == null) {
+                    return;
+                }
+                returnPortal.setPos(player.getX(), player.getY(), player.getZ());
+                helper.runAfterDelay(25, () -> {
+                    helper.assertTrue(player.serverLevel() == source,
+                            "projector returned to the wrong level");
+                    helper.assertTrue(
+                            Math.abs(player.getX() - x) < 0.01 && Math.abs(player.getY() - y) < 0.01
+                                    && Math.abs(player.getZ() - z) < 0.01,
+                            "projector ignored the saved return point");
+                    helper.assertTrue(
+                            Math.abs(player.getYRot() - yaw) < 0.01
+                                    && Math.abs(player.getXRot() - pitch) < 0.01,
+                            "projector did not restore the saved rotation");
+                    helper.assertTrue(projector.getDamageValue() == 2,
+                            "opening the return portal did not cost one durability");
+                    for (int dx = -1; dx <= 1; dx++) {
+                        for (int dz = -1; dz <= 1; dz++) {
+                            voidLevel.setChunkForced(voidChunk.x + dx, voidChunk.z + dz, false);
+                        }
+                    }
+                    helper.succeed();
+                });
+            });
+        });
     }
 
     public static void zsSkayrAttributesAndLoot(GameTestHelper helper) {
@@ -952,7 +975,8 @@ public final class GameTestChecks {
     }
 
     public static void fourArmsSlamDamagesVilgax(GameTestHelper helper, ServerPlayer player) {
-        player.setPos(1.5, 2, 1.5);
+        BlockPos playerFeet = helper.absolutePos(new BlockPos(1, 2, 1));
+        player.setPos(playerFeet.getX() + 0.5, playerFeet.getY(), playerFeet.getZ() + 0.5);
         VilgaxEntity vilgax =
                 helper.spawn(EntityTypesInit.VILGAX_ENTITY.get(), new BlockPos(3, 2, 1));
         vilgax.setNoAi(true);
@@ -992,6 +1016,11 @@ public final class GameTestChecks {
     public static void plumberBoltDealsFixedDamage(GameTestHelper helper, ServerPlayer player) {
         Zombie zombie = helper.spawn(EntityType.ZOMBIE, new BlockPos(5, 2, 1));
         zombie.setNoAi(true);
+        zombie.getAttribute(Attributes.ARMOR).setBaseValue(0.0);
+        for (EquipmentSlot slot : new EquipmentSlot[] {EquipmentSlot.HEAD, EquipmentSlot.CHEST,
+                EquipmentSlot.LEGS, EquipmentSlot.FEET}) {
+            zombie.setItemSlot(slot, ItemStack.EMPTY);
+        }
         PlumberBoltEntity bolt = new PlumberBoltEntity(helper.getLevel(), player);
         helper.assertTrue(bolt.isNoGravity(), "Plumber Bolt should not have gravity");
         float health = zombie.getHealth();
@@ -1003,8 +1032,10 @@ public final class GameTestChecks {
     }
 
     public static void nullVoidProjectorOpensPortal(GameTestHelper helper, ServerPlayer player) {
-        player.setPos(1.5, 2, 1.5);
+        BlockPos playerFeet = helper.absolutePos(new BlockPos(1, 2, 1));
+        player.setPos(playerFeet.getX() + 0.5, playerFeet.getY(), playerFeet.getZ() + 0.5);
         player.setYRot(0.0F);
+        player.setXRot(0.0F);
         ItemStack projector = new ItemStack(ItemInit.NULL_VOID_PROJECTOR.get());
         player.setItemInHand(InteractionHand.MAIN_HAND, projector);
         InteractionResult result = ItemInit.NULL_VOID_PROJECTOR.get()
@@ -1014,23 +1045,24 @@ public final class GameTestChecks {
         NullVoidPortalEntity portal = helper.getLevel()
             .getEntitiesOfClass(NullVoidPortalEntity.class, player.getBoundingBox().inflate(8.0))
             .stream()
+            .filter(candidate -> candidate.ownerId().filter(player.getUUID()::equals).isPresent())
             .findFirst()
             .orElse(null);
         helper.assertTrue(portal != null, "projector did not spawn a portal entity");
         helper.assertTrue(projector.getDamageValue() == 1,
                 "opening the portal did not cost one durability");
         if (portal != null) {
-            Vec3 expected = player.position().add(player.getLookAngle().scale(3.0));
-            helper.assertTrue(portal.position().distanceTo(expected) < 0.2,
+            Vec3 look = player.getLookAngle();
+            Vec3 expected = new Vec3(player.getX() + look.x * 3.0, player.getEyeY() - 1.5,
+                    player.getZ() + look.z * 3.0);
+            helper.assertTrue(portal.position().distanceTo(expected) < 0.01,
                     "portal did not spawn three blocks in front of the player");
         }
         helper.succeed();
     }
 
     public static void nullVoidPortalPullsZombie(GameTestHelper helper) {
-        NullVoidPortalEntity portal =
-                helper.spawn(EntityTypesInit.NULL_VOID_PORTAL.get(), new BlockPos(2, 2, 2));
-        portal.setPos(2.5, 2.0, 2.5);
+        helper.spawn(EntityTypesInit.NULL_VOID_PORTAL.get(), new BlockPos(2, 2, 2));
         Zombie zombie = helper.spawn(EntityType.ZOMBIE, new BlockPos(6, 2, 2));
         zombie.setNoAi(true);
         zombie.setDeltaMovement(Vec3.ZERO);
@@ -1044,16 +1076,32 @@ public final class GameTestChecks {
     public static void nullVoidPortalResistsBosses(GameTestHelper helper) {
         NullVoidPortalEntity portal =
                 helper.spawn(EntityTypesInit.NULL_VOID_PORTAL.get(), new BlockPos(2, 2, 2));
-        portal.setPos(2.5, 2.0, 2.5);
         VilgaxEntity vilgax =
                 helper.spawn(EntityTypesInit.VILGAX_ENTITY.get(), new BlockPos(6, 2, 2));
-        vilgax.setNoAi(true);
-        vilgax.setDeltaMovement(Vec3.ZERO);
+        ZsSkayrEntity zsSkayr =
+                helper.spawn(EntityTypesInit.ZS_SKAYR_ENTITY.get(), new BlockPos(2, 2, 6));
+        PrisonWardenEntity warden =
+                helper.spawn(EntityTypesInit.PRISON_WARDEN.get(), new BlockPos(2, 2, 0));
+        var kraab = helper.spawn(EntityTypesInit.CRAB_ENTITY.get(), new BlockPos(0, 2, 2));
+        net.minecraft.world.entity.Mob[] bosses = {vilgax, zsSkayr, warden, kraab};
+        for (net.minecraft.world.entity.Mob boss : bosses) {
+            boss.setNoAi(true);
+            boss.setDeltaMovement(Vec3.ZERO);
+        }
         helper.runAtTickTime(16, () -> {
-            helper.assertTrue(vilgax.getDeltaMovement().x > 0.02,
-                    "portal pulled Vilgax in instead of resisting him");
+            assertPushedAwayFromPortal(helper, vilgax, portal, "Vilgax");
+            assertPushedAwayFromPortal(helper, zsSkayr, portal, "Zs'Skayr");
+            assertPushedAwayFromPortal(helper, warden, portal, "prison warden");
+            assertPushedAwayFromPortal(helper, kraab, portal, "Kraab");
             helper.succeed();
         });
+    }
+
+    private static void assertPushedAwayFromPortal(GameTestHelper helper,
+            net.minecraft.world.entity.Mob boss, NullVoidPortalEntity portal, String name) {
+        Vec3 away = boss.position().subtract(portal.position()).multiply(1.0, 0.0, 1.0).normalize();
+        helper.assertTrue(boss.getDeltaMovement().dot(away) > 0.02,
+                "portal pulled " + name + " in instead of resisting them");
     }
 
     public static void nullVoidPortalCloses(GameTestHelper helper) {

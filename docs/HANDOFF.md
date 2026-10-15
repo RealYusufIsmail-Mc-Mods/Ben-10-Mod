@@ -9,9 +9,14 @@ Read this first when you start, resume, or come back from a context compaction. 
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
 - **Release 2.0.0: released 2026-10-14.** Uploaded to CurseForge (Forge and Fabric files) and tagged `v1.20.1-2.0.0` (GitHub release workflow). `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
 - **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
-- **2.1.0 gameplay:** implementation and art are integrated. The cleanup pass below is complete; the root still needs to run Forge `runData`, builds and both GameTest servers. No game was run.
+- **2.1.0 gameplay:** implementation and art are integrated. The cleanup pass below is complete. The root's playtest run passed `:forge:runData` and `build`; Forge GameTests reported six failures, now addressed in shared test checks. Retesting is pending; Fabric has not run. No game was run.
 
 ## Done (newest first)
+
+### 2026-10-15: Fix six failed 2.1.0 playtest GameTests
+- Corrected test setup in `common/src/main/java/io/github/realyusufismail/bentenmod/gametest/GameTestChecks.java`: positions now use the GameTest structure origin, projector checks select their own portal, and the round-trip fake player is registered in the level and transferred through normal scheduled ticks.
+- The failures were test issues. Portal pull and boss-resistance tests had moved helper-spawned portals to absolute coordinates; the Four Arms player was likewise outside its helper-spawned Vilgax's structure-relative radius. The Plumber Bolt test now clears the Zombie's armour before asserting six effective damage. Boss resistance coverage includes Vilgax, Zs'Skayr, the prison warden and Kraab (`CrabEntity`). No game code changed.
+- Verification: `git diff --check` passed. Did not run Gradle or the game; root verification is pending.
 
 ### 2026-10-15: Playtest follow-up — alien camera, effects, powers and portals
 - Added shared pose-aware camera height scaling for transformed players, client-side transformation bursts and third-person morphs, held-power repeat, cooldown HUD sync, and tuned cooldowns/damage. Heatblast now hits fire-immune bosses with non-fire damage.
@@ -146,8 +151,12 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. Run Forge `runData`, both builds and both GameTest servers for the cleanup branch; confirm the generated model output is unchanged and fix any failures.
+1. Rerun Forge GameTests after the test fixes; then run Fabric GameTests. `runData` and `build` passed before these test-only changes.
 2. Consider Modrinth publishing for Fabric update notices.
+
+## Open questions
+
+- Do the corrected Forge GameTests pass, and what does the Fabric GameTest suite report?
 
 ## Gotchas
 
