@@ -7,6 +7,7 @@ import math
 import random
 from pathlib import Path
 
+import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -436,6 +437,55 @@ def plumber_boots():
     return _plumber_icon("boots")
 
 
+def plumber_bolt_texture():
+    size = 64
+    axis = np.linspace(-1.0, 1.0, size, dtype=np.float32)
+    x, y = np.meshgrid(axis, axis)
+    length = np.exp(-np.abs(y) ** 5 * 3.2)
+    halo = np.exp(-np.abs(x) * 6.0) * length
+    core = np.exp(-np.abs(x) * 34.0) * length
+    flicker = 0.88 + 0.12 * np.cos(y * 36.0 + np.sin(y * 9.0))
+    alpha = np.clip(halo * 210.0 * flicker + core * 45.0, 0, 255)
+    red = np.clip(15.0 + halo * 20.0 + core * 175.0, 0, 255)
+    green = np.clip(78.0 + halo * 142.0 + core * 70.0, 0, 255)
+    blue = np.clip(110.0 + halo * 130.0 + core * 115.0, 0, 255)
+    rgba = np.stack((red, green, blue, alpha), axis=-1).astype(np.uint8)
+    return Image.fromarray(rgba, "RGBA")
+
+
+def null_void_portal_swirl():
+    size = 128
+    axis = np.linspace(-1.0, 1.0, size, dtype=np.float32)
+    x, y = np.meshgrid(axis, axis)
+    radius = np.sqrt(x * x + y * y)
+    angle = np.arctan2(y, x)
+    phase = angle * 3.4 + radius * 33.0 + np.sin(angle * 5.0) * 0.9
+    filament = np.clip(np.cos(phase), 0.0, 1.0) ** 8
+    ripples = np.clip(np.cos(radius * 42.0 - angle * 2.0), 0.0, 1.0) ** 6
+    edge_fade = np.clip((1.0 - radius) / 0.2, 0.0, 1.0)
+    alpha = np.clip((150.0 + filament * 70.0 + ripples * 35.0) * edge_fade, 0, 255)
+    red = np.clip(4.0 + filament * 105.0 + ripples * 25.0, 0, 255)
+    green = np.clip(3.0 + filament * 24.0 + ripples * 7.0, 0, 255)
+    blue = np.clip(11.0 + filament * 150.0 + ripples * 42.0, 0, 255)
+    rgba = np.stack((red, green, blue, alpha), axis=-1).astype(np.uint8)
+    return Image.fromarray(rgba, "RGBA")
+
+
+def null_void_portal_rim():
+    size = 128
+    axis = np.linspace(-1.0, 1.0, size, dtype=np.float32)
+    x, y = np.meshgrid(axis, axis)
+    radius = np.sqrt(x * x + y * y)
+    ring = np.exp(-((radius - 0.87) / 0.035) ** 2)
+    glow = np.exp(-((radius - 0.87) / 0.11) ** 2)
+    alpha = np.clip(ring * 235.0 + glow * 105.0, 0, 255)
+    red = np.clip(90.0 + glow * 125.0, 0, 255)
+    green = np.clip(8.0 + ring * 32.0, 0, 255)
+    blue = np.clip(125.0 + glow * 120.0, 0, 255)
+    rgba = np.stack((red, green, blue, alpha), axis=-1).astype(np.uint8)
+    return Image.fromarray(rgba, "RGBA")
+
+
 # ------------------------------------------------------------------ blocks
 def _stone(rng, base, shades, speck, speck_density, size=16):
     """Violet-black stone: mottled base with dark/light patches and faint purple specks."""
@@ -824,12 +874,16 @@ BLOCKS = {"null_void_stone": null_void_stone, "null_void_stone_bricks": null_voi
           "prison_wall": prison_wall, "prison_vault_front": prison_vault_front,
           "prison_vault_side": prison_vault_side, "prison_vault_top": prison_vault_top,
           "plumber_hull": plumber_hull}
+ENTITY_TEXTURES = {"plumber_bolt": plumber_bolt_texture,
+                   "null_void_portal_swirl": null_void_portal_swirl,
+                   "null_void_portal_rim": null_void_portal_rim}
 
 
 def main():
     (TEX / "item").mkdir(parents=True, exist_ok=True)
     (TEX / "block").mkdir(parents=True, exist_ok=True)
     (TEX / "models/armor").mkdir(parents=True, exist_ok=True)
+    (TEX / "entity").mkdir(parents=True, exist_ok=True)
     OUT.mkdir(exist_ok=True)
     tiles = []
     for name, fn in ITEMS.items():
@@ -839,6 +893,8 @@ def main():
     for name, fn in BLOCKS.items():
         im = save_px(fn(), TEX / "block" / f"{name}.png")
         tiles.append((name, im))
+    for name, fn in ENTITY_TEXTURES.items():
+        fn().save(TEX / "entity" / f"{name}.png")
     layers = {"plumber_layer_1": plumber_layer_1(), "plumber_layer_2": plumber_layer_2()}
     for name, im in layers.items():
         im.save(TEX / "models/armor" / f"{name}.png")
@@ -877,7 +933,8 @@ def main():
         chk.alpha_composite(im.resize((64 * 8, 32 * 8), Image.NEAREST))
         arm.paste(chk, (8 + i * (64 * 8 + 8), 8))
     arm.convert("RGB").save(OUT / "armor.png")
-    print("wrote", ", ".join(n for n, _ in tiles), ", ".join(layers))
+    print("wrote", ", ".join(n for n, _ in tiles), ", ".join(layers),
+          ", ".join(ENTITY_TEXTURES))
 
 
 if __name__ == "__main__":

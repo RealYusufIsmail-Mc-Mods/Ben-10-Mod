@@ -43,7 +43,7 @@ Every listed piece must be worn. A set can list fewer slots (the jacket lists on
   "unlocked_by_default": true,
   "duration_ticks": 6000,
   "recharge_ticks": 1200,
-  "power": { "type": "bentenmod:fireball", "cooldown_ticks": 20 },
+  "power": { "type": "bentenmod:fireball", "cooldown_ticks": 5 },
   "dna_sources": {
     "entities": ["minecraft:wolf"],
     "blocks": ["minecraft:budding_amethyst"]
@@ -70,16 +70,16 @@ passive abilities. The optional `cooldown_ticks` field is measured in server tic
 
 | type | Default cooldown | Effect |
 |---|---:|---|
-| `bentenmod:fireball` | 20 | launches a Small Fireball |
-| `bentenmod:ground_slam` | 80 | damages and knocks back nearby enemies |
-| `bentenmod:dash` | 40 | bursts forward and prevents fall damage briefly |
-| `bentenmod:crystal_shard_volley` | 30 | fires three non-pickup arrows |
-| `bentenmod:slime_spit` | 30 | fires a slowing, poisoning spit projectile |
-| `bentenmod:pounce` | 60 | leaps forward and reveals nearby mobs |
-| `bentenmod:lunge_bite` | 40 | bites a mob in reach, with extra damage in water |
-| `bentenmod:emp_pulse` | 160 | slows hostile mobs and golems, and weakens them |
-| `bentenmod:phase` | 200 | turns invisible and clears nearby mob targets briefly |
-| `bentenmod:analyse` | 200 | reveals nearby mobs and grants Haste and Night Vision |
+| `bentenmod:fireball` | 5 | launches a damaging fireball |
+| `bentenmod:ground_slam` | 40 | damages and knocks back nearby enemies |
+| `bentenmod:dash` | 10 | bursts forward and prevents fall damage briefly |
+| `bentenmod:crystal_shard_volley` | 8 | fires three non-pickup shards |
+| `bentenmod:slime_spit` | 8 | fires a slowing, poisoning spit projectile |
+| `bentenmod:pounce` | 20 | leaps forward, damages close enemies and reveals nearby mobs |
+| `bentenmod:lunge_bite` | 15 | bites a mob in reach, with extra damage in water |
+| `bentenmod:emp_pulse` | 100 | damages, slows and weakens hostile mobs and golems |
+| `bentenmod:phase` | 100 | turns invisible and clears nearby mob targets briefly |
+| `bentenmod:analyse` | 100 | reveals nearby mobs and grants Haste and Night Vision |
 
 `dna_sources` is optional. A player holding the Omnitrix can scan a listed living entity or block
 while not transformed. The server persists and syncs the unlock; repeated scans do not add a second

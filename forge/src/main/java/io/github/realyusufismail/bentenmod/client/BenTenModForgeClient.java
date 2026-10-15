@@ -29,14 +29,18 @@ import io.github.realyusufismail.bentenmod.client.renderer.NullGuardianRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.LepidopterranRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.PrisonWardenRenderer;
 import io.github.realyusufismail.bentenmod.client.renderer.ZsSkayrRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.PlumberBoltRenderer;
+import io.github.realyusufismail.bentenmod.client.renderer.NullVoidPortalRenderer;
 import io.github.realyusufismail.bentenmod.client.omnitrix.OmnitrixDialScreen;
 import io.github.realyusufismail.bentenmod.client.omnitrix.OmnitrixGuideScreen;
+import io.github.realyusufismail.bentenmod.client.omnitrix.PortalTravelEffect;
 import io.github.realyusufismail.bentenmod.client.screen.OmnitrixCrafterScreen;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.MenuTypeInit;
 import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixClientHooks;
 import io.github.realyusufismail.bentenmod.client.alien.AlienPlayerReplacementRenderer;
+import io.github.realyusufismail.bentenmod.client.alien.OmnitrixTransformationEffect;
 import io.github.realyusufismail.bentenmod.client.OmnitrixWristLayer;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -78,6 +82,7 @@ public final class BenTenModForgeClient {
     private static final KeyMapping REVERT_TO_HUMAN = new KeyMapping(
             "key.bentenmod.revert_to_human", GLFW.GLFW_KEY_H, "key.categories.bentenmod");
     private static boolean useWasDown;
+    private static int lastPowerSendTick = Integer.MIN_VALUE / 2;
 
     private BenTenModForgeClient() {}
 
@@ -91,6 +96,7 @@ public final class BenTenModForgeClient {
                     OmnitrixFlash.trigger(timedOut);
                 }
             });
+            ClientOmnitrixState.installTransformationEffect(OmnitrixTransformationEffect::play);
             ClientOmnitrixState.installDimensionRefresh(playerId -> {
                 Minecraft client = Minecraft.getInstance();
                 if (client.level != null) {
@@ -108,6 +114,7 @@ public final class BenTenModForgeClient {
                     () -> OmnitrixNetwork.requestTransform(null));
             OmnitrixClientHooks
                 .installGuide(() -> Minecraft.getInstance().setScreen(new OmnitrixGuideScreen()));
+            OmnitrixClientHooks.installPortalTravel(PortalTravelEffect::trigger);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onClientTick);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onClientLogout);
             MinecraftForge.EVENT_BUS.addListener(BenTenModForgeClient::onFlashOverlay);
@@ -129,8 +136,10 @@ public final class BenTenModForgeClient {
                 OmnitrixClientHooks.openDial();
             }
             var client = Minecraft.getInstance();
-            if (USE_ALIEN_POWER.consumeClick() && isTransformed(client)) {
+            if (USE_ALIEN_POWER.isDown() && isTransformed(client) && client.player != null
+                    && client.screen == null && client.player.tickCount - lastPowerSendTick >= 2) {
                 OmnitrixNetwork.requestPower();
+                lastPowerSendTick = client.player.tickCount;
             }
             if (REVERT_TO_HUMAN.consumeClick() && isTransformed(client)) {
                 OmnitrixNetwork.requestTransform(null);
@@ -148,6 +157,8 @@ public final class BenTenModForgeClient {
             useWasDown = useDown;
             OmnitrixHud.tick(client);
             OmnitrixFlash.tick();
+            OmnitrixTransformationEffect.tick();
+            PortalTravelEffect.tick();
         }
     }
 
@@ -171,9 +182,12 @@ public final class BenTenModForgeClient {
 
     private static void onClientLogout(ClientPlayerNetworkEvent.LoggingOut event) {
         useWasDown = false;
+        lastPowerSendTick = Integer.MIN_VALUE / 2;
         AlienPlayerReplacementRenderer.clearPlayerStates();
         ClientOmnitrixState.clear();
+        OmnitrixTransformationEffect.clear();
         OmnitrixHud.reset();
+        PortalTravelEffect.reset();
     }
 
     private static void onFlashOverlay(RenderGuiOverlayEvent.Post event) {
@@ -199,6 +213,7 @@ public final class BenTenModForgeClient {
             }
         }
         OmnitrixHud.render(event.getGuiGraphics(), Minecraft.getInstance());
+        PortalTravelEffect.render(event.getGuiGraphics(), event.getPartialTick());
     }
 
     private static void onRenderPlayer(RenderPlayerEvent.Pre event) {
@@ -243,6 +258,9 @@ public final class BenTenModForgeClient {
                 PrisonWardenRenderer::new);
         event.registerEntityRenderer(EntityTypesInit.LEPIDOPTERAN_SLIME.get(),
                 ThrownItemRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.PLUMBER_BOLT.get(), PlumberBoltRenderer::new);
+        event.registerEntityRenderer(EntityTypesInit.NULL_VOID_PORTAL.get(),
+                NullVoidPortalRenderer::new);
     }
 
     @SubscribeEvent

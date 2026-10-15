@@ -39,6 +39,7 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.ChatFormatting;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -70,6 +71,9 @@ public class VilgaxEntity extends Monster implements GeoEntity {
     private int beaconSummonDelay;
     private int animatedPhase = 1;
     private int phaseSummonTicks;
+    private boolean arrivalLineSpoken;
+    private boolean phaseLineSpoken;
+    private boolean lowHealthLineSpoken;
 
     public VilgaxEntity(EntityType<? extends VilgaxEntity> type, Level level) {
         super(type, level);
@@ -155,11 +159,24 @@ public class VilgaxEntity extends Monster implements GeoEntity {
                 this.level()
                     .playSound(null, blockPosition(), net.minecraft.sounds.SoundEvents.WITHER_SPAWN,
                             net.minecraft.sounds.SoundSource.HOSTILE, 1.0F, 0.8F);
+                Player nearest = this.level().getNearestPlayer(this, 64.0);
+                if (nearest != null) {
+                    this.arrivalLineSpoken = BossChatter.sayVariant(this, ChatFormatting.DARK_RED,
+                            "vilgax.arrival", 2, nearest.getName());
+                }
             }
             return;
         }
 
         updatePhaseFromHealth();
+        if (getPhase() == 2 && !this.phaseLineSpoken) {
+            this.phaseLineSpoken =
+                    BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "vilgax.phase_two", 2);
+        }
+        if (!this.lowHealthLineSpoken && getHealth() <= getMaxHealth() * 0.15F) {
+            this.lowHealthLineSpoken =
+                    BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "vilgax.desperate", 2);
+        }
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
         if (getPhase() == 1) {
             if (--this.slamCooldown <= 0) {
@@ -180,6 +197,8 @@ public class VilgaxEntity extends Monster implements GeoEntity {
             this.entityData.set(PHASE, 2);
             this.bossEvent.setColor(BossBarColor.PURPLE);
             applyPhaseTwoEffects();
+            this.phaseLineSpoken =
+                    BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "vilgax.phase_two", 2);
         }
     }
 
@@ -213,6 +232,7 @@ public class VilgaxEntity extends Monster implements GeoEntity {
     }
 
     private void summonDrones() {
+        BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "vilgax.drone_wave", 3);
         triggerAnim("controller", "summon");
         int alive = 0;
         if (this.level() instanceof ServerLevel serverLevel) {
@@ -242,7 +262,17 @@ public class VilgaxEntity extends Monster implements GeoEntity {
     }
 
     @Override
+    public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
+        boolean hit = super.doHurtTarget(target);
+        if (hit && target instanceof Player) {
+            BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "vilgax.player_kill", 2);
+        }
+        return hit;
+    }
+
+    @Override
     public void die(DamageSource source) {
+        BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "vilgax.death", 2);
         if (this.level() instanceof ServerLevel serverLevel) {
             for (net.minecraft.world.entity.Entity entity : serverLevel.getAllEntities()) {
                 if (entity instanceof VilgaxDroneEntity drone && drone.belongsTo(getUUID())) {
@@ -288,6 +318,9 @@ public class VilgaxEntity extends Monster implements GeoEntity {
         tag.putInt("slam_cooldown", this.slamCooldown);
         tag.putInt("summon_cooldown", this.summonCooldown);
         tag.putInt("beacon_summon_delay", this.beaconSummonDelay);
+        tag.putBoolean("chatter_arrival", this.arrivalLineSpoken);
+        tag.putBoolean("chatter_phase", this.phaseLineSpoken);
+        tag.putBoolean("chatter_low_health", this.lowHealthLineSpoken);
     }
 
     @Override
@@ -298,6 +331,9 @@ public class VilgaxEntity extends Monster implements GeoEntity {
         this.slamCooldown = tag.contains("slam_cooldown") ? tag.getInt("slam_cooldown") : 160;
         this.summonCooldown = tag.contains("summon_cooldown") ? tag.getInt("summon_cooldown") : 300;
         this.beaconSummonDelay = tag.getInt("beacon_summon_delay");
+        this.arrivalLineSpoken = tag.getBoolean("chatter_arrival");
+        this.phaseLineSpoken = tag.getBoolean("chatter_phase");
+        this.lowHealthLineSpoken = tag.getBoolean("chatter_low_health");
         if (getPhase() == 2) {
             this.bossEvent.setColor(BossBarColor.PURPLE);
         }

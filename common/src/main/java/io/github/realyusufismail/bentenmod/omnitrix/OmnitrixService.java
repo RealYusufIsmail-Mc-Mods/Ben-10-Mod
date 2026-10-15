@@ -20,6 +20,7 @@ import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.entity.CrabEntity;
+import io.github.realyusufismail.bentenmod.entity.BossChatter;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.BlockPos;
@@ -30,6 +31,7 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.ChatFormatting;
 
 import java.util.List;
 import java.util.Optional;
@@ -49,7 +51,8 @@ public final class OmnitrixService {
         return new OmnitrixSnapshot(saved.playerId(), saved.currentAlien(), saved.expiresAt(),
                 saved.equipped(), unlocked, definition == null ? 0 : definition.width(),
                 definition == null ? 0 : definition.height(), saved.timeoutDisabled(),
-                saved.rechargeUntil());
+                saved.rechargeUntil(), OmnitrixPowerService.cooldownUntil(player),
+                saved.transitionId(), saved.transitionKind());
     }
 
     /** Tracking clients need appearance and dimensions, while unlocks belong to the owner. */
@@ -57,7 +60,7 @@ public final class OmnitrixService {
         OmnitrixSnapshot state = snapshot(player);
         return new OmnitrixSnapshot(state.playerId(), state.currentAlien(), state.expiresAt(),
                 state.equipped(), List.of(), state.width(), state.height(), state.timeoutDisabled(),
-                state.rechargeUntil());
+                state.rechargeUntil(), 0, state.transitionId(), state.transitionKind());
     }
 
     public static Optional<AlienDefinition> activeDefinition(ServerPlayer player) {
@@ -117,6 +120,7 @@ public final class OmnitrixService {
         }
         state.transform(alien,
                 state.timeoutDisabled() ? Long.MAX_VALUE : now + definition.durationTicks());
+        state.markTransition(OmnitrixSnapshot.TRANSITION_FORM);
         data.setDirty();
         player.refreshDimensions();
         applyDimensions(player, definition);
@@ -134,6 +138,7 @@ public final class OmnitrixService {
             return false;
         }
         state.revert();
+        state.markTransition(OmnitrixSnapshot.TRANSITION_REVERT);
         data.setDirty();
         player.refreshDimensions();
         return true;
@@ -158,6 +163,7 @@ public final class OmnitrixService {
         }
         if (Aliens.DATA.get(alien).isEmpty()) {
             state.revert();
+            state.markTransition(OmnitrixSnapshot.TRANSITION_REVERT);
             data.setDirty();
             player.refreshDimensions();
             return true;
@@ -165,6 +171,7 @@ public final class OmnitrixService {
         AlienDefinition definition = Aliens.DATA.get(alien).orElseThrow();
         if (!state.timeoutDisabled() && state.expiresAt() <= overworldTime) {
             state.timeout(overworldTime + definition.rechargeTicks());
+            state.markTransition(OmnitrixSnapshot.TRANSITION_TIMEOUT);
             data.setDirty();
             player.refreshDimensions();
             player.displayClientMessage(
@@ -250,6 +257,8 @@ public final class OmnitrixService {
         hunter.setPersistenceRequired();
         if (level.addFreshEntity(hunter)) {
             data.completeHunterSpawn(player.getUUID());
+            BossChatter.sayVariant(hunter, ChatFormatting.GOLD, "kraab.arrival", 2,
+                    player.getName());
         } else {
             data.rescheduleHunterSpawn(player.getUUID(), now + 1_200L);
         }

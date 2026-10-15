@@ -4,14 +4,26 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-15)
 
-- **Branch:** `t3/cleanup` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), on top of the 2.1.0 implementation at `3521eb12`.
+- **Branch:** `t3/2.1.0-playtest` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), based on 2.1.0 plus the cleanup pass.
 - **PR history:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 and #97 were 2.0.0 release prep.
 - **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
 - **Release 2.0.0: released 2026-10-14.** Uploaded to CurseForge (Forge and Fabric files) and tagged `v1.20.1-2.0.0` (GitHub release workflow). `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
 - **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
-- **2.1.0 gameplay:** implementation and art are integrated. The cleanup pass below is complete; the root still needs to run Forge `runData`, builds and both GameTest servers. No game was run.
+- **2.1.0 gameplay:** implementation and art are integrated. The cleanup pass below is complete. The root's playtest run passed `:forge:runData` and `build`; Forge GameTests reported six failures, now addressed in shared test checks. Retesting is pending; Fabric has not run. No game was run.
 
 ## Done (newest first)
+
+### 2026-10-15: Fix six failed 2.1.0 playtest GameTests
+- Corrected test setup in `common/src/main/java/io/github/realyusufismail/bentenmod/gametest/GameTestChecks.java`: positions now use the GameTest structure origin, projector checks select their own portal, and the round-trip fake player is registered in the level and transferred through normal scheduled ticks.
+- The failures were test issues. Portal pull and boss-resistance tests had moved helper-spawned portals to absolute coordinates; the Four Arms player was likewise outside its helper-spawned Vilgax's structure-relative radius. The Plumber Bolt test now clears the Zombie's armour before asserting six effective damage. Boss resistance coverage includes Vilgax, Zs'Skayr, the prison warden and Kraab (`CrabEntity`). No game code changed.
+- Verification: `git diff --check` passed. Did not run Gradle or the game; root verification is pending.
+
+### 2026-10-15: Playtest follow-up — alien camera, effects, powers and portals
+- Added shared pose-aware camera height scaling for transformed players, client-side transformation bursts and third-person morphs, held-power repeat, cooldown HUD sync, and tuned cooldowns/damage. Heatblast now hits fire-immune bosses with non-fire damage.
+- Added the fixed six-damage Plumber energy bolt, namespaced armour material paths and relocated legacy layer textures, plus shared tests for camera height, boss damage, bolt damage and armour resources.
+- The Null Void Projector now spawns a walkable portal with pull, boss resistance, lifetime, travel effects, wider island search, a lit fallback pad, and arrival hints. Added boss chatter and shared tests for portal behavior and chatter cooldown; Forge retains the dimension round trip and adds a landing-surface test.
+- Added generated bolt and portal textures and documented them in `docs/assets.md`. Updated power cooldown docs and the 2.1.0 changelog. The requested `git mv` was blocked by worktree index permissions; textures were moved inside the writable workspace and Git can detect them as renames.
+- Validation: not run (sandbox). Root should run Forge `runData`, `build` and both GameTest servers. Do not run the game; in-world camera, morph, particle, sound and portal visuals still need review.
 
 ### 2026-10-15: Cleanup and modernisation
 - Removed dead `EntitySpawingInit`/`OmnitrixScreen` classes, obsolete commented smithing recipes and a commented superclass call, two stale TODOs, and tracked root runtime logs. Removed unused copper/emerald block textures, the obsolete Infinitum ore front texture, four replaced Crafter/recipe-book GUI textures, unused backpack/Omnitrix glowmask/copper/Vilgax spawn-egg item textures, and the legacy Vilgax texture path. Kept wiki `placeholder.png`, source `.bbmodel` files, entity glow masks and `OmnitrixPowerService` dispatch data because they still serve tooling/rendering/data use or are ambiguous.
@@ -139,8 +151,12 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. Run Forge `runData`, both builds and both GameTest servers for the cleanup branch; confirm the generated model output is unchanged and fix any failures.
+1. Rerun Forge GameTests after the test fixes; then run Fabric GameTests. `runData` and `build` passed before these test-only changes.
 2. Consider Modrinth publishing for Fabric update notices.
+
+## Open questions
+
+- Do the corrected Forge GameTests pass, and what does the Fabric GameTest suite report?
 
 ## Gotchas
 

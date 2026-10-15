@@ -21,6 +21,8 @@ import io.github.realyusufismail.bentenmod.entity.CrabEntity;
 import io.github.realyusufismail.bentenmod.entity.NullVoidPrisonerEntity;
 import io.github.realyusufismail.bentenmod.entity.NullGuardianEntity;
 import io.github.realyusufismail.bentenmod.entity.LepidopterranEntity;
+import io.github.realyusufismail.bentenmod.entity.NullVoidPortalEntity;
+import io.github.realyusufismail.bentenmod.entity.PlumberBoltEntity;
 import io.github.realyusufismail.bentenmod.entity.PrisonWardenEntity;
 import io.github.realyusufismail.bentenmod.entity.SlimeSpitEntity;
 import io.github.realyusufismail.bentenmod.entity.VilgaxDroneEntity;
@@ -72,6 +74,21 @@ public class EntityTypesInit {
             ENTITY_TYPES.register("lepidopterran_slime",
                     () -> createStandardEntityType("lepidopterran_slime", SlimeSpitEntity::new,
                             MobCategory.MISC, 0.25F, 0.25F));
+    public static final RegistryObject<EntityType<PlumberBoltEntity>> PLUMBER_BOLT =
+            ENTITY_TYPES.register("plumber_bolt",
+                    () -> EntityType.Builder
+                        .<PlumberBoltEntity>of(PlumberBoltEntity::new, MobCategory.MISC)
+                        .sized(0.2F, 0.2F)
+                        .clientTrackingRange(64)
+                        .updateInterval(1)
+                        .build(BenTenMod.MOD_ID + ":plumber_bolt"));
+    public static final RegistryObject<EntityType<NullVoidPortalEntity>> NULL_VOID_PORTAL =
+            ENTITY_TYPES.register("null_void_portal",
+                    () -> EntityType.Builder.of(NullVoidPortalEntity::new, MobCategory.MISC)
+                        .sized(2.0F, 3.0F)
+                        .clientTrackingRange(48)
+                        .updateInterval(1)
+                        .build(BenTenMod.MOD_ID + ":null_void_portal"));
     public static final RegistryObject<EntityType<ZsSkayrEntity>> ZS_SKAYR_ENTITY =
             ENTITY_TYPES.register("zs_skayr", () -> createStandardEntityType("zs_skayr",
                     ZsSkayrEntity::new, MobCategory.MONSTER, 1.2F, 3.0F));

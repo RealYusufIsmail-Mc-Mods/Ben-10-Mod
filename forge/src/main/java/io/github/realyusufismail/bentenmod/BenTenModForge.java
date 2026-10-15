@@ -19,6 +19,7 @@ import io.github.realyusufismail.bentenmod.ability.AbilityTicker;
 import io.github.realyusufismail.bentenmod.data.DataGenerators;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixInteractions;
+import io.github.realyusufismail.bentenmod.omnitrix.AlienEyeHeight;
 import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
 import net.minecraft.server.level.ServerPlayer;
@@ -186,5 +187,6 @@ public class BenTenModForge {
             height = snapshot.height();
         }
         event.setNewSize(EntityDimensions.scalable(width, height), true);
+        event.setNewEyeHeight(AlienEyeHeight.forPose(height, event.getPose()));
     }
 }

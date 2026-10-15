@@ -15,6 +15,7 @@
  */
 package io.github.realyusufismail.bentenmod.omnitrix;
 
+import io.github.realyusufismail.bentenmod.alien.Aliens;
 import io.github.realyusufismail.bentenmod.client.alien.AlienFlightEffects;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -70,6 +71,22 @@ public final class OmnitrixHud {
         int y = client.getWindow().getGuiScaledHeight() - 22;
         graphics.drawString(client.font, Component.literal(formatTicks(remaining)), x, y, color,
                 true);
+        var definition = Aliens.DATA.get(state.currentAlien()).orElse(null);
+        if (definition == null || definition.power().isEmpty()
+                || definition.power().orElseThrow().cooldownTicks() <= 20) {
+            return;
+        }
+        int total = definition.power().orElseThrow().cooldownTicks();
+        long cooldown = Math.max(0, state.powerCooldownUntil() - client.level.getGameTime());
+        if (cooldown <= 0) {
+            return;
+        }
+        int barWidth = 56;
+        int barX = x;
+        int barY = y + 11;
+        int fillWidth = (int) Math.ceil(barWidth * Math.min(1.0, cooldown / (double) total));
+        graphics.fill(barX, barY, barX + barWidth, barY + 3, 0xB0203020);
+        graphics.fill(barX + barWidth - fillWidth, barY, barX + barWidth, barY + 3, 0xFF55FF55);
     }
 
     public static void reset() {

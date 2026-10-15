@@ -16,6 +16,13 @@ The Null Void is now a more dangerous place to explore, with new creatures, pris
 - Taydenite ore and storage blocks, guardian membranes, prisoner cuffs, cell keys and Plumber loot.
 - A Plumber blaster, Null Void glider and full Plumber armour set, with recipes and set bonuses.
 - Flight animations: Heatblast flies like a rocket with a flame trail, Stinkfly beats his wings, Ghostfreak drifts.
+- Transformed camera height now follows each alien's hitbox. Every transformation has a green particle burst and a
+  third-person morph; reverts use green or red bursts.
+- Holding the power key repeats powers when they are ready. Alien powers have tuned cooldowns and a cooldown bar.
+- The Null Void Projector opens a walkable portal that pulls in nearby creatures and items, with arrival guidance for
+  the Null Void's floating islands.
+- Vilgax, Kraab, Zs'Skayr and the prison warden speak to nearby players during fights.
+- The Plumber blaster fires a fixed-damage energy bolt instead of an arrow.
 
 ### Changed
 - Armour and tool stats follow the ore ladder. Starter sets are around iron, Legendary and Black Diamond around
@@ -26,6 +33,7 @@ The Null Void is now a more dangerous place to explore, with new creatures, pris
 - Flying mobs (Zs'Skayr, Vilgax drones, Null Guardians, Lepidopterrans) crashed the game when they took off.
 - Leggings gave more armour than chestplates (values were in the wrong slot order).
 - Mod armour wore out about twice as fast as vanilla armour of the same tier.
+- Heatblast fireballs now damage fire-immune bosses, and Plumber armour resolves its namespaced textures.
 
 ## [1.20.1-2.0.0] - 14/10/2026
 

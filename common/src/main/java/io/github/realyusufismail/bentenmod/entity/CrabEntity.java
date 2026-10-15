@@ -18,6 +18,8 @@ package io.github.realyusufismail.bentenmod.entity;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.entity.ai.CrabWaterAvoidingRandomWalkingGoal;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -56,6 +58,7 @@ public class CrabEntity extends Monster implements RangedAttackMob {
             new ServerBossEvent(Component.translatable("entity." + BenTenMod.MOD_ID + ".crab"),
                     BossBarColor.RED, BossBarOverlay.PROGRESS);
     private int shootAnimationTicks;
+    private boolean lowHealthLineSpoken;
 
     public CrabEntity(EntityType<? extends CrabEntity> type, Level level) {
         super(type, level);
@@ -147,6 +150,10 @@ public class CrabEntity extends Monster implements RangedAttackMob {
         } else {
             this.bossEvent
                 .setProgress(this.getMaxHealth() <= 0 ? 0 : this.getHealth() / this.getMaxHealth());
+            if (!this.lowHealthLineSpoken && getHealth() <= getMaxHealth() * 0.25F) {
+                this.lowHealthLineSpoken =
+                        BossChatter.sayVariant(this, ChatFormatting.GOLD, "kraab.low_health", 2);
+            }
             if (shootAnimationTicks > 0 && --shootAnimationTicks == 0) {
                 setShooting(false);
             }
@@ -182,8 +189,21 @@ public class CrabEntity extends Monster implements RangedAttackMob {
 
     @Override
     public void die(DamageSource source) {
+        BossChatter.sayVariant(this, ChatFormatting.GOLD, "kraab.death", 2);
         this.bossEvent.removeAllPlayers();
         super.die(source);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putBoolean("chatter_low_health", this.lowHealthLineSpoken);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.lowHealthLineSpoken = tag.getBoolean("chatter_low_health");
     }
 
     @Override

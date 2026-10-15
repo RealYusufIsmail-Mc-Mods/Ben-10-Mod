@@ -18,6 +18,7 @@ package io.github.realyusufismail.bentenmod.entity;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
@@ -66,6 +67,8 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
             Component.translatable("entity." + BenTenMod.MOD_ID + ".prison_warden"),
             BossBarColor.RED, BossBarOverlay.PROGRESS);
     private int summonCooldown = SUMMON_INTERVAL;
+    private boolean firstSightLineSpoken;
+    private boolean summonLineSpoken;
 
     public PrisonWardenEntity(EntityType<? extends PrisonWardenEntity> type, Level level) {
         super(type, level);
@@ -99,6 +102,13 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
         if (this.level().isClientSide || !(this.level() instanceof ServerLevel serverLevel)) {
             return;
         }
+        if (!this.firstSightLineSpoken) {
+            Player nearest = this.level().getNearestPlayer(this, 24.0);
+            if (nearest != null) {
+                this.firstSightLineSpoken = BossChatter.sayVariant(this, ChatFormatting.DARK_RED,
+                        "warden.sighting", 2, nearest.getName());
+            }
+        }
         if (--this.summonCooldown <= 0) {
             summonPrisoners(serverLevel);
             this.summonCooldown = SUMMON_INTERVAL;
@@ -118,6 +128,10 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
             return;
         }
         triggerAnim("controller", "summon");
+        if (!this.summonLineSpoken) {
+            this.summonLineSpoken =
+                    BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "warden.summon", 2);
+        }
         for (int i = 0; i < count; i++) {
             NullVoidPrisonerEntity prisoner =
                     EntityTypesInit.NULL_VOID_PRISONER.get().create(serverLevel);
@@ -175,6 +189,7 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
 
     @Override
     public void die(DamageSource source) {
+        BossChatter.sayVariant(this, ChatFormatting.DARK_RED, "warden.death", 2);
         this.bossEvent.removeAllPlayers();
         super.die(source);
     }
@@ -201,6 +216,8 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putInt("summon_cooldown", this.summonCooldown);
+        tag.putBoolean("chatter_sighting", this.firstSightLineSpoken);
+        tag.putBoolean("chatter_summon", this.summonLineSpoken);
     }
 
     @Override
@@ -208,6 +225,8 @@ public class PrisonWardenEntity extends Monster implements GeoEntity {
         super.readAdditionalSaveData(tag);
         this.summonCooldown =
                 tag.contains("summon_cooldown") ? tag.getInt("summon_cooldown") : SUMMON_INTERVAL;
+        this.firstSightLineSpoken = tag.getBoolean("chatter_sighting");
+        this.summonLineSpoken = tag.getBoolean("chatter_summon");
         setPersistenceRequired();
     }
 }

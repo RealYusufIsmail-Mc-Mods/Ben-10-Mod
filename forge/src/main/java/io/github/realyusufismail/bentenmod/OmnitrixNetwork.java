@@ -18,6 +18,7 @@ package io.github.realyusufismail.bentenmod;
 import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixClientHooks;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,7 +33,7 @@ import java.util.function.Supplier;
 
 /** Forge's small state and dial channel. All transformation decisions stay on the server. */
 public final class OmnitrixNetwork {
-    private static final String PROTOCOL = "4";
+    private static final String PROTOCOL = "5";
     private static final SimpleChannel CHANNEL =
             NetworkRegistry.newSimpleChannel(BenTenMod.getModIdAndName("omnitrix"), () -> PROTOCOL,
                     PROTOCOL::equals, PROTOCOL::equals);
@@ -46,6 +47,8 @@ public final class OmnitrixNetwork {
                 StateUpdate::handle);
         CHANNEL.registerMessage(2, PowerRequest.class, PowerRequest::encode, PowerRequest::decode,
                 PowerRequest::handle);
+        CHANNEL.registerMessage(3, PortalTravelEffect.class, PortalTravelEffect::encode,
+                PortalTravelEffect::decode, PortalTravelEffect::handle);
     }
 
     public static void sendToPlayer(ServerPlayer player, OmnitrixSnapshot snapshot) {
@@ -64,6 +67,25 @@ public final class OmnitrixNetwork {
 
     public static void requestPower() {
         CHANNEL.sendToServer(new PowerRequest());
+    }
+
+    public static void sendPortalTravelEffect(ServerPlayer player) {
+        CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new PortalTravelEffect());
+    }
+
+    private record PortalTravelEffect() {
+        private static void encode(PortalTravelEffect message, FriendlyByteBuf buffer) {}
+
+        private static PortalTravelEffect decode(FriendlyByteBuf buffer) {
+            return new PortalTravelEffect();
+        }
+
+        private static void handle(PortalTravelEffect message,
+                Supplier<NetworkEvent.Context> supplier) {
+            NetworkEvent.Context context = supplier.get();
+            context.enqueueWork(OmnitrixClientHooks::playPortalTravel);
+            context.setPacketHandled(true);
+        }
     }
 
     private record DialRequest(String alien) {
@@ -109,7 +131,9 @@ public final class OmnitrixNetwork {
             context.enqueueWork(() -> {
                 ServerPlayer player = context.getSender();
                 if (player != null) {
-                    OmnitrixService.usePower(player);
+                    if (OmnitrixService.usePower(player)) {
+                        sendToPlayer(player, OmnitrixService.snapshot(player));
+                    }
                 }
             });
             context.setPacketHandled(true);
@@ -128,6 +152,9 @@ public final class OmnitrixNetwork {
             buffer.writeBoolean(state.equipped());
             buffer.writeBoolean(state.timeoutDisabled());
             buffer.writeLong(state.rechargeUntil());
+            buffer.writeLong(state.powerCooldownUntil());
+            buffer.writeLong(state.transitionId());
+            buffer.writeVarInt(state.transitionKind());
             buffer.writeFloat(state.width());
             buffer.writeFloat(state.height());
             buffer.writeVarInt(state.unlockedAlienIds().size());
@@ -141,6 +168,9 @@ public final class OmnitrixNetwork {
             boolean equipped = buffer.readBoolean();
             boolean timeoutDisabled = buffer.readBoolean();
             long rechargeUntil = buffer.readLong();
+            long powerCooldownUntil = buffer.readLong();
+            long transitionId = buffer.readLong();
+            int transitionKind = buffer.readVarInt();
             float width = buffer.readFloat();
             float height = buffer.readFloat();
             int size = Math.min(buffer.readVarInt(), 256);
@@ -149,7 +179,8 @@ public final class OmnitrixNetwork {
                 unlocked.add(buffer.readResourceLocation());
             }
             return new StateUpdate(new OmnitrixSnapshot(playerId, alien, expiresAt, equipped,
-                    unlocked, width, height, timeoutDisabled, rechargeUntil));
+                    unlocked, width, height, timeoutDisabled, rechargeUntil, powerCooldownUntil,
+                    transitionId, transitionKind));
         }
 
         private static void handle(StateUpdate message, Supplier<NetworkEvent.Context> supplier) {

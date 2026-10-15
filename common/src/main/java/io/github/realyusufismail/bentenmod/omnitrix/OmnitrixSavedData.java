@@ -132,6 +132,9 @@ public final class OmnitrixSavedData extends SavedData {
             playerTag.putBoolean("equipped", state.equipped);
             playerTag.putBoolean("timeout_disabled", state.timeoutDisabled);
             playerTag.putBoolean("guide_given", state.guideGiven);
+            playerTag.putBoolean("null_void_arrival_hint", state.nullVoidArrivalHintShown);
+            playerTag.putLong("transition_id", state.transitionId);
+            playerTag.putInt("transition_kind", state.transitionKind);
             playerTag.putLong("kraab_hunter_at", state.hunterSpawnAt);
             playerTag.putBoolean("kraab_hunter_spawned", state.hunterSpawned);
             if (state.returnPoint != null) {
@@ -177,6 +180,9 @@ public final class OmnitrixSavedData extends SavedData {
             state.equipped = playerTag.getBoolean("equipped");
             state.timeoutDisabled = playerTag.getBoolean("timeout_disabled");
             state.guideGiven = playerTag.getBoolean("guide_given");
+            state.nullVoidArrivalHintShown = playerTag.getBoolean("null_void_arrival_hint");
+            state.transitionId = playerTag.getLong("transition_id");
+            state.transitionKind = playerTag.getInt("transition_kind");
             state.hunterSpawnAt =
                     playerTag.contains("kraab_hunter_at") ? playerTag.getLong("kraab_hunter_at")
                             : -1;
@@ -204,6 +210,9 @@ public final class OmnitrixSavedData extends SavedData {
         private boolean equipped;
         private boolean timeoutDisabled;
         private boolean guideGiven;
+        private boolean nullVoidArrivalHintShown;
+        private long transitionId;
+        private int transitionKind;
         private ReturnPoint returnPoint;
         private long hunterSpawnAt = -1;
         private boolean hunterSpawned;
@@ -244,8 +253,29 @@ public final class OmnitrixSavedData extends SavedData {
             return guideGiven;
         }
 
+        public long transitionId() {
+            return transitionId;
+        }
+
+        public int transitionKind() {
+            return transitionKind;
+        }
+
         public void markGuideGiven() {
             guideGiven = true;
+        }
+
+        public boolean markNullVoidArrivalHintShown() {
+            if (nullVoidArrivalHintShown) {
+                return false;
+            }
+            nullVoidArrivalHintShown = true;
+            return true;
+        }
+
+        public void markTransition(int kind) {
+            transitionId++;
+            transitionKind = kind;
         }
 
         public void disableTimeout() {
@@ -291,7 +321,7 @@ public final class OmnitrixSavedData extends SavedData {
             List<ResourceLocation> unlocked = new ArrayList<>(unlockedAlienIds);
             unlocked.sort(ResourceLocation::compareTo);
             return new OmnitrixSnapshot(playerId, currentAlien, expiresAt, equipped, unlocked, 0, 0,
-                    timeoutDisabled, rechargeUntil);
+                    timeoutDisabled, rechargeUntil, 0, transitionId, transitionKind);
         }
     }
 

@@ -104,7 +104,7 @@ Vilgax and his drones use GeckoLib models and animations. Vilgax has an auto-glo
 
 **Step 7 implementation (2026-10-14; verification pending):** `bentenmod:null_void` uses the End's floating-island noise router with Null Void Stone and no fluids. Its fixed biome has dark purple colors, no rain, and Null Void Prisoner spawns. A rare fortress feature makes a brick arena with loot chests and one persistent Zs'Skayr. Zs'Skayr has 500 health, ranged shadow bolts, prisoner summons, a boss bar, and always drops Master Control.
 
-The Null Void Projector is crafted in the Omnitrix Crafter from one Vilgax Core and two Infinitum, has 16 durability, and repairs with Null Crystals. It teleports between matching X/Z coordinates, saves each player's source dimension and exact position, and falls back to a 5x5 brick platform at Y=100 when no safe island surface is found. Master Control requires an equipped Omnitrix, unlocks every alien, and permanently removes its transformation timeout.
+The Null Void Projector is crafted in the Omnitrix Crafter from one Vilgax Core and two Infinitum, has 16 durability, and repairs with Null Crystals. It opens a walkable portal that travels between dimensions and saves each player's source dimension and exact position. If no safe island surface is found within the landing search, it builds a lit 5x5 brick platform at Y=100 and points toward the nearest island. Master Control requires an equipped Omnitrix, unlocks every alien, and permanently removes its transformation timeout.
 
 Why one: a dimension needs worldgen JSON, structures, mobs, a boss and a portal or teleport item. That's the biggest feature in this list. Primus (Omnitrix DNA vault) or Galvan Prime can follow if the Null Void works.
 

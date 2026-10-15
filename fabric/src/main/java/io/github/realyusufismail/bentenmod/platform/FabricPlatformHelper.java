@@ -97,6 +97,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public void sendPortalTravelEffect(ServerPlayer player) {
+        if (player.connection != null) {
+            OmnitrixNetwork.sendPortalTravelEffect(player);
+        }
+    }
+
+    @Override
     public <T extends AbstractContainerMenu> MenuType<T> createMenuType(
             BiFunction<Integer, Inventory, T> factory) {
         return new MenuType<>(factory::apply, FeatureFlags.DEFAULT_FLAGS);

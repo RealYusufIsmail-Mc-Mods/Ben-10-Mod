@@ -3,7 +3,8 @@
   "package": "io.github.realyusufismail.bentenmod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "EntityDimensionsMixin"
+    "EntityDimensionsMixin",
+    "PlayerEyeHeightMixin"
   ],
   "client": [
     "LivingEntityRendererMixin",
