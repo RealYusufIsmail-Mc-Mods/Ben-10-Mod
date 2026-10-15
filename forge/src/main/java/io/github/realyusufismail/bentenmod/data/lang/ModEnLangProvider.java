@@ -176,9 +176,17 @@ public class ModEnLangProvider extends LanguageProvider {
         add("message.bentenmod.null_void_projector_failed",
                 "The Null Void projector could not find a safe destination.");
         add("message.bentenmod.null_void_first_arrival",
-                "The Null Void is a field of floating islands; a fall can be deadly. Use the Null Void Glider to control your descent. The projector opens a way back.");
+                "The Null Void is a field of floating islands; a fall can be deadly. Use the Null Void Glider to control your descent.");
+        add("message.bentenmod.null_void_way_home",
+                "To leave, use the Null Void Projector again and walk through the portal.");
+        add("message.bentenmod.null_void_glider_given",
+                "The Plumbers left you a Null Void Glider. Hold it while falling to glide.");
+        add("message.bentenmod.null_void_glider_chest",
+                "Your inventory is full, so a Null Void Glider is waiting in the chest beside you.");
+        add("message.bentenmod.warden_defeated",
+                "The warden dropped a Cell Key. Use it on the Prison Vault by the south door; the cells hold loot chests too.");
         add("message.bentenmod.null_void_nearest_island",
-                "Nearest island: %s, about %s blocks %s of the lighted pad. Follow the end rod trail.");
+                "Nearest island: %s, about %s blocks %s of the lighted pad. Follow the particle trail.");
         add("message.bentenmod.null_void_no_island_nearby",
                 "No island was found nearby. The lighted pad is safe; explore carefully and watch your footing.");
         add("direction.bentenmod.north", "north");
@@ -299,7 +307,7 @@ public class ModEnLangProvider extends LanguageProvider {
                 "Kraab is a bounty hunter that can track an equipped Omnitrix. Defeat him for a claw. Craft the Vilgax Beacon from the claw and rare materials to summon Vilgax; his second phase calls in drones.");
         add("guide.bentenmod.chapter.null_void.title", "The Null Void");
         add("guide.bentenmod.chapter.null_void.body",
-                "Defeat Vilgax for a Vilgax Core. The Omnitrix Crafter combines it with Infinitum into a Null Void Projector. Use the projector to travel to the Null Void and return. Search its rare fortress for Zs'Skayr.");
+                "Defeat Vilgax for a Vilgax Core. The Omnitrix Crafter combines it with Infinitum into a Null Void Projector. Use the projector to open a portal to the Null Void; use it again there to open a portal home. Search its rare fortress for Zs'Skayr. Floating prisons hold loot chests, and the warden's Cell Key opens the Prison Vault.");
         add("guide.bentenmod.chapter.master_control.title", "Master Control");
         add("guide.bentenmod.chapter.master_control.body",
                 "Zs'Skayr drops Master Control. Equip the Omnitrix, then right-click the item. Master Control unlocks every alien and permanently removes transformation timeout and recharge.");

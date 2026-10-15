@@ -27,10 +27,10 @@ public final class PlayerAnimationStateCache {
     private final Map<UUID, State> states = new HashMap<>();
 
     /** Starts a new animation window only when this player's form session changes. */
-    public State bind(UUID playerId, ResourceLocation alienId, long expiresAt, int playerTick) {
+    public State bind(UUID playerId, ResourceLocation alienId, long expiresAt, long gameTime) {
         State state = states.get(playerId);
         if (state == null || !state.alienId().equals(alienId) || state.expiresAt() != expiresAt) {
-            state = new State(alienId, expiresAt, playerTick + TRANSFORM_ANIMATION_TICKS);
+            state = new State(alienId, expiresAt, gameTime + TRANSFORM_ANIMATION_TICKS);
             states.put(playerId, state);
         }
         return state;
@@ -48,9 +48,13 @@ public final class PlayerAnimationStateCache {
         states.clear();
     }
 
-    public record State(ResourceLocation alienId, long expiresAt, int transformUntilTick) {
-        public boolean isTransforming(int playerTick) {
-            return playerTick < transformUntilTick;
+    /**
+     * Times are level game time, not the player's tick count, which restarts on respawn and
+     * dimension change.
+     */
+    public record State(ResourceLocation alienId, long expiresAt, long transformUntilTick) {
+        public boolean isTransforming(long gameTime) {
+            return gameTime < transformUntilTick;
         }
     }
 }

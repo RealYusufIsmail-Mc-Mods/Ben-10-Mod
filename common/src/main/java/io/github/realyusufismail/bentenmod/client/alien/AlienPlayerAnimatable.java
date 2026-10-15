@@ -34,7 +34,7 @@ public final class AlienPlayerAnimatable implements GeoAnimatable {
 
     public void bind(AbstractClientPlayer player, ResourceLocation alienId, long expiresAt) {
         this.player = player;
-        playerStates.bind(player.getUUID(), alienId, expiresAt, player.tickCount);
+        playerStates.bind(player.getUUID(), alienId, expiresAt, player.level().getGameTime());
     }
 
     public ResourceLocation alienId() {
@@ -63,10 +63,12 @@ public final class AlienPlayerAnimatable implements GeoAnimatable {
             }
             String base = "animation." + playerState.alienId().getPath() + ".";
             RawAnimation animation;
-            if (playerState.isTransforming(player.tickCount)) {
+            if (playerState.isTransforming(player.level().getGameTime())) {
                 animation = RawAnimation.begin().thenPlay(base + "transform");
             } else if (AlienFlight.shouldPlayFly(player, playerState.alienId())) {
                 animation = RawAnimation.begin().thenLoop(base + "fly");
+            } else if (AlienFlight.shouldPlayRun(player, playerState.alienId())) {
+                animation = RawAnimation.begin().thenLoop(base + "run");
             } else if (player.getDeltaMovement().horizontalDistanceSqr() > 0.0001) {
                 animation = RawAnimation.begin().thenLoop(base + "walk");
             } else {
@@ -78,7 +80,7 @@ public final class AlienPlayerAnimatable implements GeoAnimatable {
         controllers.add(new AnimationController<>(this, "alien_attack", state -> {
             PlayerAnimationStateCache.State playerState = currentState();
             if (player == null || playerState == null
-                    || playerState.isTransforming(player.tickCount)) {
+                    || playerState.isTransforming(player.level().getGameTime())) {
                 return PlayState.STOP;
             }
             if (player.swinging) {
@@ -98,6 +100,6 @@ public final class AlienPlayerAnimatable implements GeoAnimatable {
 
     @Override
     public double getTick(Object instance) {
-        return player == null ? 0 : player.tickCount;
+        return player == null ? 0 : player.level().getGameTime();
     }
 }

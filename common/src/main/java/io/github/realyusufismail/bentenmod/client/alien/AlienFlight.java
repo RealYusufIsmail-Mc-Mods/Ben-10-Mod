@@ -33,13 +33,24 @@ public final class AlienFlight {
 
     /** Whether the alien's animation file defines {@code animation.<id>.fly}. */
     public static boolean hasFlyAnimation(ResourceLocation alien) {
+        return hasAnimation(alien, "fly");
+    }
+
+    /** Whether the alien's animation file defines {@code animation.<id>.<name>}. */
+    public static boolean hasAnimation(ResourceLocation alien, String name) {
         BakedAnimations animations =
                 GeckoLibCache.getBakedAnimations().get(AlienGeoModel.animationsOf(alien));
         return animations != null
-                && animations.getAnimation("animation." + alien.getPath() + ".fly") != null;
+                && animations.getAnimation("animation." + alien.getPath() + "." + name) != null;
     }
 
     public static boolean shouldPlayFly(AbstractClientPlayer player, ResourceLocation alien) {
         return isFlying(player) && hasFlyAnimation(alien);
+    }
+
+    /** Sprinting on foot, for speedsters whose animation file has a {@code run} clip. */
+    public static boolean shouldPlayRun(AbstractClientPlayer player, ResourceLocation alien) {
+        return player.isSprinting() && !isFlying(player) && !player.isInWater()
+                && hasAnimation(alien, "run");
     }
 }

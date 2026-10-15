@@ -18,6 +18,7 @@ package io.github.realyusufismail.bentenmod.client;
 import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.OmnitrixNetwork;
 import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
+import io.github.realyusufismail.bentenmod.omnitrix.PowerKeyRepeat;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixFlash;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixHud;
 import io.github.realyusufismail.bentenmod.client.model.KraabModel;
@@ -82,7 +83,7 @@ public final class BenTenModForgeClient {
     private static final KeyMapping REVERT_TO_HUMAN = new KeyMapping(
             "key.bentenmod.revert_to_human", GLFW.GLFW_KEY_H, "key.categories.bentenmod");
     private static boolean useWasDown;
-    private static int lastPowerSendTick = Integer.MIN_VALUE / 2;
+    private static final PowerKeyRepeat POWER_REPEAT = new PowerKeyRepeat();
 
     private BenTenModForgeClient() {}
 
@@ -137,9 +138,8 @@ public final class BenTenModForgeClient {
             }
             var client = Minecraft.getInstance();
             if (USE_ALIEN_POWER.isDown() && isTransformed(client) && client.player != null
-                    && client.screen == null && client.player.tickCount - lastPowerSendTick >= 2) {
+                    && client.screen == null && POWER_REPEAT.tryFire(client.level.getGameTime())) {
                 OmnitrixNetwork.requestPower();
-                lastPowerSendTick = client.player.tickCount;
             }
             if (REVERT_TO_HUMAN.consumeClick() && isTransformed(client)) {
                 OmnitrixNetwork.requestTransform(null);
@@ -172,6 +172,7 @@ public final class BenTenModForgeClient {
         return snapshot != null && snapshot.equipped();
     }
 
+
     private static boolean isTransformed(Minecraft client) {
         if (client.player == null) {
             return false;
@@ -182,7 +183,7 @@ public final class BenTenModForgeClient {
 
     private static void onClientLogout(ClientPlayerNetworkEvent.LoggingOut event) {
         useWasDown = false;
-        lastPowerSendTick = Integer.MIN_VALUE / 2;
+        POWER_REPEAT.reset();
         AlienPlayerReplacementRenderer.clearPlayerStates();
         ClientOmnitrixState.clear();
         OmnitrixTransformationEffect.clear();

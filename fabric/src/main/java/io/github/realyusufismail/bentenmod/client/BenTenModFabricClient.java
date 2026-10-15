@@ -40,6 +40,7 @@ import io.github.realyusufismail.bentenmod.core.item.ModSpawnEggItem;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixFlash;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixHud;
 import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
+import io.github.realyusufismail.bentenmod.omnitrix.PowerKeyRepeat;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixClientHooks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -66,7 +67,7 @@ import org.lwjgl.glfw.GLFW;
 /** Fabric client registration: screens, entity renderers, model layers and item colours. */
 public class BenTenModFabricClient implements ClientModInitializer {
     private static boolean useWasDown;
-    private static int lastPowerSendTick = Integer.MIN_VALUE / 2;
+    private static final PowerKeyRepeat POWER_REPEAT = new PowerKeyRepeat();
     private static final KeyMapping OPEN_OMNITRIX = KeyBindingHelper.registerKeyBinding(
             new KeyMapping("key.bentenmod.omnitrix", GLFW.GLFW_KEY_G, "key.categories.bentenmod"));
     private static final KeyMapping USE_ALIEN_POWER =
@@ -113,9 +114,8 @@ public class BenTenModFabricClient implements ClientModInitializer {
                 OmnitrixClientHooks.openDial();
             }
             if (USE_ALIEN_POWER.isDown() && isTransformed(client) && client.player != null
-                    && client.screen == null && client.player.tickCount - lastPowerSendTick >= 2) {
+                    && client.screen == null && POWER_REPEAT.tryFire(client.level.getGameTime())) {
                 ClientPlayNetworking.send(OmnitrixNetwork.POWER_REQUEST, PacketByteBufs.empty());
-                lastPowerSendTick = client.player.tickCount;
             }
             if (REVERT_TO_HUMAN.consumeClick() && isTransformed(client)) {
                 requestTransform(null);
@@ -143,7 +143,7 @@ public class BenTenModFabricClient implements ClientModInitializer {
             OmnitrixHud.reset();
             PortalTravelEffect.reset();
             useWasDown = false;
-            lastPowerSendTick = Integer.MIN_VALUE / 2;
+            POWER_REPEAT.reset();
         });
         HudRenderCallback.EVENT.register((graphics, tickDelta) -> {
             float alpha = OmnitrixFlash.alpha(tickDelta);
@@ -216,6 +216,7 @@ public class BenTenModFabricClient implements ClientModInitializer {
         var snapshot = ClientOmnitrixState.get(playerId);
         return snapshot != null && snapshot.equipped();
     }
+
 
     private static boolean isTransformed(Minecraft client) {
         if (client.player == null) {

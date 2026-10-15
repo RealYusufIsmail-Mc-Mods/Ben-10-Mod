@@ -14,8 +14,8 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
 |---|---|---|---|
 | 2.0.0 | Released 14 Oct 2026 | The Omnitrix | Minecraft 1.20.1 on Forge and Fabric. The Omnitrix with 10 aliens in 3D, DNA scanning, alien powers on `V`, `H` to change back, a visible time limit and recharge, the Omnitrix Field Guide, the Crafter recipe chain, Kraab, Vilgax, the Null Void, Zs'Skayr and Master Control. |
 | 2.0.1 | Released 15 Oct 2026 | Hotfix | Fixes a crash when Zs'Skayr or a Vilgax drone took off from the ground. |
-| 2.1.0 | In progress | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival. |
-| 2.2.0 | Planned | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy). |
+| 2.1.0 | In progress | Living Null Void | Smarter prisoners, Null Guardians, Lepidopterran scouts, floating prison blocks with the Prison Warden and a key-locked vault, wrecked Plumber outposts, Taydenite, Plumber blaster, armour and glider, flight animations for Heatblast, Stinkfly and Ghostfreak, an XLR8 sprint animation and water running, balanced armour and tools. From playtesting: camera height that matches the alien's size, a transformation burst and morph for every alien, rapid-fire powers, powers that damage bosses, a walk-through Null Void portal that can banish mobs, bosses that talk in chat, Plumber energy bolts, safer Null Void arrival with a starter glider, prison loot chests, a richer warden vault and in-game hints for the vault and the way home. |
+| 2.2.0 | Planned | Plumbers | Plumber NPC and missions, the Rustbucket (Grandpa Max's RV) you can drive with laser cannons and missiles, original-series aliens batch (Cannonbolt, Wildvine, Ditto, Eye Guy), a Four Arms moveset (four-hit combo, guard stance, thunder clap) and the Omnitrix fail-safe. |
 | 2.3.0 | Planned | Diagon | Rift dimension, Diagon fight with healing pylons, Celestialsapien DNA, transformation cut-in. Rest of the original-series aliens (Way Big, Blitzwolfer, Snare-oh, Frankenstrike). |
 | 3.0.0 | Planned | Alien Force | Azmuth's workshop, recalibrated Omnitrix, DNA-helix animation, Alien X with the Serena/Bellicus Council, Alien Force aliens batch 1 (Swampfire, Humungousaur, Big Chill, Jetray, Echo Echo, Spidermonkey). |
 | 3.1.0 | Planned | Alien Force II | Chromastone, Brainstorm, Goop, Rath, Lodestar, Nanomech. |
@@ -77,6 +77,29 @@ in-game check on both loaders pass. Ideas that don't make a version move to the 
   4. **Dimension jump**: teleport to the Overworld, Nether, End or Null Void at the same coordinates (safe-spot search).
   5. **Reality edit**: set day or night, clear or start the weather, and heal everyone nearby.
 - Balance: very long recharge, and it only works once the final boss has been beaten.
+
+## Alien movesets and the Omnitrix fail-safe (2.2.0, decided 2026-10-15)
+
+XLR8 running on water was pulled forward into 2.1.0 (user, 2026-10-15).
+
+### Four Arms moveset
+- **Four-hit combo:** consecutive hits cycle the arms (upper right, lower right, upper left, lower left). The fourth
+  hit in a row is a haymaker with extra knockback and a screen shake. A miss or a pause resets the combo.
+- **Guard stance:** while sneaking, the lower arms cross over the chest and cut damage from the front; the upper arms
+  can still punch.
+- **Thunder clap:** both pairs of hands clap and send a forward shockwave that knocks back, briefly stuns, and breaks
+  glass and leaves. A second power, so it needs a second power keybind and packet (or replaces the ground slam in
+  mid-air).
+- Later, as a showpiece: grab a mob with the lower arms, carry it and throw it.
+
+### Omnitrix fail-safe
+- A hit that would kill a transformed player is cancelled. The player drops back to human with a few hearts, a red
+  flash and a warning sound.
+- The Omnitrix then enters a long recharge (about 5 minutes) before the next transformation, so it triggers at most
+  once per recharge. Master Control shortens the recharge.
+- Doesn't apply in human form, to the void or to `/kill`.
+- Needs a death-cancel hook on each loader (Forge `LivingDeathEvent`, Fabric `ServerLivingEntityEvents.ALLOW_DEATH`)
+  wired in each loader entry point, plus a GameTest.
 
 ## Phase C: polish
 

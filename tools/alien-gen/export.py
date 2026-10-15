@@ -64,7 +64,7 @@ def fly_animation(m):
         length = 0.8
         bones["body"] = {"position": cycles(length, 2, 0.5, axis=1), "rotation": loop(length, 3, axis=0, steps=4)}
         for wing, sign in (("right_wing", 1), ("left_wing", -1)):
-            bones[wing] = {"rotation": cycles(length, 8, 42 * sign, axis=2)}
+            bones[wing] = {"rotation": cycles(length, 4, 58 * sign, axis=2, steps_per=8)}
         for limb, tuck in (("right_arm", 48), ("left_arm", 48), ("right_leg", 62), ("left_leg", 62)):
             bones[limb] = {"rotation": kf((0, (tuck, 0, 0)), (length, (tuck, 0, 0)))}
         bones["tail"] = {"rotation": loop(length, 7, axis=0, steps=4, phase=0.25)}
@@ -80,6 +80,25 @@ def fly_animation(m):
     else:
         return None
     return length, {k: v for k, v in bones.items() if k in b}
+
+
+def run_animation(m):
+    """The looping `run` pose played while sprinting, or None. Only speedsters have one."""
+    if m.name != "xlr8":
+        return None
+    # leaned far forward, legs a blur, arms swept back, tail streaming level behind
+    length = 0.3
+    bones = {
+        "body": {"rotation": kf(*[(length * i / 8, (32, 0, 2 * np.sin(4 * np.pi * i / 8))) for i in range(9)]),
+                 "position": cycles(length, 2, 0.5, axis=1)},
+        "head": {"rotation": kf((0, (-28, 0, 0)), (length, (-28, 0, 0)))},
+        "right_arm": {"rotation": kf(*[(length * i / 8, (62 + 6 * np.sin(2 * np.pi * i / 8), 0, -6)) for i in range(9)])},
+        "left_arm": {"rotation": kf(*[(length * i / 8, (62 + 6 * np.sin(2 * np.pi * (i / 8 + 0.5)), 0, 6)) for i in range(9)])},
+        "right_leg": {"rotation": loop(length, 58, axis=0, phase=0.5)},
+        "left_leg": {"rotation": loop(length, 58, axis=0)},
+        "tail": {"rotation": kf(*[(length * i / 8, (-30, 8 * np.sin(2 * np.pi * i / 8), 0)) for i in range(9)])},
+    }
+    return length, bones
 
 
 def animations(m):
@@ -145,6 +164,9 @@ def animations(m):
             f"animation.{n}.attack": {"animation_length": 0.3, "bones": attack},
         },
     }
+    run = run_animation(m)
+    if run:
+        out["animations"][f"animation.{n}.run"] = {"loop": True, "animation_length": run[0], "bones": run[1]}
     fly = fly_animation(m)
     if fly:
         out["animations"][f"animation.{n}.fly"] = {"loop": True, "animation_length": fly[0], "bones": fly[1]}

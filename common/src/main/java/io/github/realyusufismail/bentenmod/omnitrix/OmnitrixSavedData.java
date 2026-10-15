@@ -133,6 +133,7 @@ public final class OmnitrixSavedData extends SavedData {
             playerTag.putBoolean("timeout_disabled", state.timeoutDisabled);
             playerTag.putBoolean("guide_given", state.guideGiven);
             playerTag.putBoolean("null_void_arrival_hint", state.nullVoidArrivalHintShown);
+            playerTag.putBoolean("null_void_glider_given", state.nullVoidGliderGiven);
             playerTag.putLong("transition_id", state.transitionId);
             playerTag.putInt("transition_kind", state.transitionKind);
             playerTag.putLong("kraab_hunter_at", state.hunterSpawnAt);
@@ -181,6 +182,7 @@ public final class OmnitrixSavedData extends SavedData {
             state.timeoutDisabled = playerTag.getBoolean("timeout_disabled");
             state.guideGiven = playerTag.getBoolean("guide_given");
             state.nullVoidArrivalHintShown = playerTag.getBoolean("null_void_arrival_hint");
+            state.nullVoidGliderGiven = playerTag.getBoolean("null_void_glider_given");
             state.transitionId = playerTag.getLong("transition_id");
             state.transitionKind = playerTag.getInt("transition_kind");
             state.hunterSpawnAt =
@@ -211,6 +213,7 @@ public final class OmnitrixSavedData extends SavedData {
         private boolean timeoutDisabled;
         private boolean guideGiven;
         private boolean nullVoidArrivalHintShown;
+        private boolean nullVoidGliderGiven;
         private long transitionId;
         private int transitionKind;
         private ReturnPoint returnPoint;
@@ -263,6 +266,15 @@ public final class OmnitrixSavedData extends SavedData {
 
         public void markGuideGiven() {
             guideGiven = true;
+        }
+
+        /** Returns true the first time, when the starter glider should be handed out. */
+        public boolean markNullVoidGliderGiven() {
+            if (nullVoidGliderGiven) {
+                return false;
+            }
+            nullVoidGliderGiven = true;
+            return true;
         }
 
         public boolean markNullVoidArrivalHintShown() {

@@ -38,8 +38,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.DirectionalBlock;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.Vec3;
 
@@ -122,11 +122,11 @@ public class NullVoidProjectorItem extends Item {
                     || FALLBACK_Y + 8 >= target.getMaxBuildHeight()) {
                 return false;
             }
+            nearestIsland = findNearestIsland(target, origin, ISLAND_HINT_RADIUS);
             fallbackPad = buildFallbackPad(target, origin);
             x = fallbackPad.getX() + 0.5;
             y = fallbackPad.getY() + 1.0;
             z = fallbackPad.getZ() + 0.5;
-            nearestIsland = findNearestIsland(target, origin, ISLAND_HINT_RADIUS);
         } else {
             x = landing.getX() + 0.5;
             y = landing.getY();
@@ -156,6 +156,12 @@ public class NullVoidProjectorItem extends Item {
             player.sendSystemMessage(
                     Component.translatable("message.bentenmod.null_void_first_arrival"));
         }
+        player.displayClientMessage(Component.translatable("message.bentenmod.null_void_way_home"),
+                true);
+        if (data.getOrCreate(player).markNullVoidGliderGiven()) {
+            data.setDirty();
+            giveStarterGlider(player);
+        }
         if (!fallback) {
             return;
         }
@@ -175,6 +181,36 @@ public class NullVoidProjectorItem extends Item {
                     Component.translatable("direction.bentenmod." + vertical)));
     }
 
+    /**
+     * Hands over a glider, or leaves it in a chest beside the player when the inventory is full.
+     */
+    public static void giveStarterGlider(ServerPlayer player) {
+        ItemStack glider = new ItemStack(ItemInit.NULL_VOID_GLIDER.get());
+        if (player.getInventory().add(glider)) {
+            player.sendSystemMessage(
+                    Component.translatable("message.bentenmod.null_void_glider_given"));
+            return;
+        }
+        ServerLevel level = player.serverLevel();
+        for (Direction side : Direction.Plane.HORIZONTAL) {
+            BlockPos chestPos = player.blockPosition().relative(side);
+            BlockPos below = chestPos.below();
+            if (level.isEmptyBlock(chestPos)
+                    && level.getBlockState(below).isFaceSturdy(level, below, Direction.UP)) {
+                level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 3);
+                if (level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest) {
+                    chest.setItem(0, glider);
+                    player.sendSystemMessage(
+                            Component.translatable("message.bentenmod.null_void_glider_chest"));
+                    return;
+                }
+            }
+        }
+        player.drop(glider, false);
+        player
+            .sendSystemMessage(Component.translatable("message.bentenmod.null_void_glider_given"));
+    }
+
     private static String direction(int dx, int dz) {
         if (Math.abs(dx) > Math.abs(dz)) {
             return dx < 0 ? "west" : "east";
@@ -192,10 +228,11 @@ public class NullVoidProjectorItem extends Item {
             }
         }
         level.setBlock(center, Blocks.SEA_LANTERN.defaultBlockState(), 3);
-        for (int yOffset = 1; yOffset <= 7; yOffset++) {
-            BlockPos rod = center.offset(1, yOffset, 0);
-            level.setBlock(rod, Blocks.END_ROD.defaultBlockState()
-                .setValue(DirectionalBlock.FACING, Direction.UP), 3);
+        for (int xOffset = -2; xOffset <= 2; xOffset += 4) {
+            for (int zOffset = -2; zOffset <= 2; zOffset += 4) {
+                level.setBlock(center.offset(xOffset, 0, zOffset),
+                        Blocks.SEA_LANTERN.defaultBlockState(), 3);
+            }
         }
         return center;
     }
@@ -318,8 +355,11 @@ public class NullVoidProjectorItem extends Item {
     }
 
     private static BlockPos safeFeet(ServerLevel level, int x, int z) {
-        BlockPos feet = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                new BlockPos(x, 0, z));
+        // Level#getHeightmapPos treats unloaded chunks as empty, and the destination's chunks are
+        // rarely loaded before the first trip, so generate the column's chunk first.
+        int top = level.getChunk(x >> 4, z >> 4)
+            .getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x & 15, z & 15) + 1;
+        BlockPos feet = new BlockPos(x, top, z);
         BlockPos ground = feet.below();
         if (feet.getY() <= level.getMinBuildHeight() || feet.getY() + 1 >= level.getMaxBuildHeight()
                 || !level.getWorldBorder().isWithinBounds(feet)

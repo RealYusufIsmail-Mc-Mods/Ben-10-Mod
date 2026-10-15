@@ -16,6 +16,8 @@ The Null Void is now a more dangerous place to explore, with new creatures, pris
 - Taydenite ore and storage blocks, guardian membranes, prisoner cuffs, cell keys and Plumber loot.
 - A Plumber blaster, Null Void glider and full Plumber armour set, with recipes and set bonuses.
 - Flight animations: Heatblast flies like a rocket with a flame trail, Stinkfly beats his wings, Ghostfreak drifts.
+- XLR8 has a sprint animation (leaned forward, legs a blur, arms swept back, tail streaming) with a blue speed streak
+  and kicked-up dust behind him. Sprinting fast enough, he runs across water; slow down or sneak and he drops in.
 - Transformed camera height now follows each alien's hitbox. Every transformation has a green particle burst and a
   third-person morph; reverts use green or red bursts.
 - Holding the power key repeats powers when they are ready. Alien powers have tuned cooldowns and a cooldown bar.
@@ -23,17 +25,31 @@ The Null Void is now a more dangerous place to explore, with new creatures, pris
   the Null Void's floating islands.
 - Vilgax, Kraab, Zs'Skayr and the prison warden speak to nearby players during fights.
 - The Plumber blaster fires a fixed-damage energy bolt instead of an arrow.
+- Prison cells hold loot chests. The Prison Vault now gives diamonds, more taydenite, Null Crystals and Infinitum, two
+  Plumber armour pieces, a blaster or glider, and golden apples (sometimes an enchanted one).
+- Your first trip to the Null Void hands you a Null Void Glider (in a chest beside you if your inventory is full).
+- Beating the prison warden tells nearby players to use its Cell Key on the vault. Every Null Void arrival shows how to
+  get home (use the projector again), and the guide book explains it.
 
 ### Changed
+- Stinkfly's flying wingbeat is slower and wider, so the flap is visible.
+- The Null Void landing pad is lit by sea lanterns at its corners instead of a tall end-rod pillar.
 - Armour and tool stats follow the ore ladder. Starter sets are around iron, Legendary and Black Diamond around
   diamond, Infinitum around netherite; no armour piece gives more than 8 points. Black Diamond tools are diamond tier,
   Infinitum and Imperium netherite tier.
 
 ### Fixed
+- The Null Void had no islands between about 150 and 1,000 blocks from its centre (it reused the End's island layout),
+  and the projector ignored islands in chunks that hadn't loaded yet, so most trips ended on the emergency pad. The
+  Null Void now has its own floating islands everywhere, and arrivals land on the nearest one. Chunks generated
+  before this update stay empty, so explore new areas or use a new world.
+- The "nearest island" hint pointed at the emergency pad itself ("about 0 blocks").
 - Flying mobs (Zs'Skayr, Vilgax drones, Null Guardians, Lepidopterrans) crashed the game when they took off.
 - Leggings gave more armour than chestplates (values were in the wrong slot order).
 - Mod armour wore out about twice as fast as vanilla armour of the same tier.
 - Heatblast fireballs now damage fire-immune bosses, and Plumber armour resolves its namespaced textures.
+- The power key (V) stopped working after dying or changing dimension, and the transformation animation could stick
+  after changing dimension as an alien.
 
 ## [1.20.1-2.0.1] - 15/10/2026
 
