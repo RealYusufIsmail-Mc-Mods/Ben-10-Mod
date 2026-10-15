@@ -90,6 +90,9 @@ public interface IPlatformHelper {
     /** Sends the updated unlock list through each loader's existing Omnitrix state packet. */
     void syncOmnitrixState(ServerPlayer player);
 
+    /** Sends the owner-only screen transition that precedes Null Void dimension travel. */
+    void sendPortalTravelEffect(ServerPlayer player);
+
     /**
      * Creates a menu type for a menu that needs no extra data from the server. Vanilla keeps the
      * factory interface package-private; each loader exposes it.

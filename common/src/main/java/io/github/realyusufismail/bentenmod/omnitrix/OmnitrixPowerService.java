@@ -18,6 +18,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.projectile.LlamaSpit;
 import net.minecraft.world.entity.projectile.SmallFireball;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.phys.AABB;
@@ -29,11 +30,13 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Locale;
 import java.util.UUID;
 
 /** Runs active alien powers and their server-side cooldowns. */
 public final class OmnitrixPowerService {
     private static final Map<UUID, Long> COOLDOWNS = new HashMap<>();
+    private static final Map<UUID, Long> LAST_READY_MESSAGE = new HashMap<>();
     private static final Map<UUID, Long> FALL_PROTECTION = new HashMap<>();
     private static final Map<UUID, Long> PHASE_UNTIL = new HashMap<>();
 
@@ -46,16 +49,33 @@ public final class OmnitrixPowerService {
         }
         AlienPower power = definition.power().orElseThrow();
         long now = player.serverLevel().getServer().overworld().getGameTime();
-        if (COOLDOWNS.getOrDefault(player.getUUID(), 0L) > now) {
-            player.displayClientMessage(net.minecraft.network.chat.Component
-                .translatable("message.bentenmod.power_recharging"), true);
+        long cooldownUntil = COOLDOWNS.getOrDefault(player.getUUID(), 0L);
+        if (cooldownUntil > now) {
+            long remaining = cooldownUntil - now;
+            if (remaining > 20
+                    && now - LAST_READY_MESSAGE.getOrDefault(player.getUUID(), -20L) >= 20) {
+                String seconds = String.format(Locale.ROOT, "%.1f", remaining / 20.0);
+                player.displayClientMessage(
+                        net.minecraft.network.chat.Component.translatable(
+                                "message.bentenmod.power_ready_in",
+                                net.minecraft.network.chat.Component.translatable(
+                                        "power.bentenmod." + power.type().getPath()),
+                                seconds),
+                        true);
+                LAST_READY_MESSAGE.put(player.getUUID(), now);
+            }
             return false;
         }
         if (!activate(player, player.serverLevel(), power, now)) {
             return false;
         }
         COOLDOWNS.put(player.getUUID(), now + power.cooldownTicks());
+        LAST_READY_MESSAGE.remove(player.getUUID());
         return true;
+    }
+
+    public static long cooldownUntil(ServerPlayer player) {
+        return COOLDOWNS.getOrDefault(player.getUUID(), 0L);
     }
 
     public static void tick(ServerPlayer player, long now) {
@@ -90,6 +110,7 @@ public final class OmnitrixPowerService {
     public static void forget(ServerPlayer player) {
         UUID playerId = player.getUUID();
         COOLDOWNS.remove(playerId);
+        LAST_READY_MESSAGE.remove(playerId);
         FALL_PROTECTION.remove(playerId);
         PHASE_UNTIL.remove(playerId);
     }
@@ -130,11 +151,22 @@ public final class OmnitrixPowerService {
         level.addFreshEntity(fireball);
     }
 
+    public static void applyFireballHit(ServerPlayer owner, SmallFireball projectile,
+            Entity target) {
+        if (protects(owner, target) || !(target instanceof LivingEntity living)) {
+            return;
+        }
+        living.hurt(owner.damageSources().mobProjectile(projectile, owner), 6.0F);
+        if (!living.fireImmune()) {
+            living.setSecondsOnFire(4);
+        }
+    }
+
     private static void groundSlam(ServerPlayer player, ServerLevel level) {
         AABB bounds = player.getBoundingBox().inflate(4.5);
         for (var target : level.getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class,
                 bounds, entity -> entity.isAlive() && !protects(player, entity))) {
-            target.hurt(player.damageSources().playerAttack(player), 8.0F);
+            target.hurt(player.damageSources().playerAttack(player), 24.0F);
             double pushX = player.getX() - target.getX();
             double pushZ = player.getZ() - target.getZ();
             if (pushX * pushX + pushZ * pushZ < 1.0e-4) {
@@ -172,7 +204,7 @@ public final class OmnitrixPowerService {
             Vec3 start = player.getEyePosition().add(direction.scale(0.7));
             arrow.setPos(start.x, start.y, start.z);
             arrow.shoot(direction.x, direction.y, direction.z, 1.8F, 0.0F);
-            arrow.setBaseDamage(4.0);
+            arrow.setBaseDamage(0.0);
             arrow.pickup = AbstractArrow.Pickup.DISALLOWED;
             level.addFreshEntity(arrow);
         }
@@ -191,6 +223,11 @@ public final class OmnitrixPowerService {
         Vec3 look = player.getLookAngle();
         player.setDeltaMovement(look.scale(1.35).add(0, 0.52, 0));
         player.hurtMarked = true;
+        for (LivingEntity target : level.getEntitiesOfClass(LivingEntity.class,
+                player.getBoundingBox().inflate(2.0),
+                entity -> entity.isAlive() && !protects(player, entity))) {
+            target.hurt(player.damageSources().playerAttack(player), 18.0F);
+        }
         for (Mob mob : level.getEntitiesOfClass(Mob.class, player.getBoundingBox().inflate(12),
                 Mob::isAlive)) {
             mob.addEffect(new MobEffectInstance(MobEffects.GLOWING, 200), player);
@@ -220,7 +257,7 @@ public final class OmnitrixPowerService {
         player.setDeltaMovement(look.scale(player.isInWater() ? 1.0 : 0.75).add(0, 0.12, 0));
         player.hurtMarked = true;
         if (target != null) {
-            float damage = player.isInWater() || target.isInWater() ? 16.0F : 12.0F;
+            float damage = player.isInWater() || target.isInWater() ? 30.0F : 24.0F;
             target.hurt(player.damageSources().playerAttack(player), damage);
         }
     }
@@ -230,6 +267,7 @@ public final class OmnitrixPowerService {
         for (Mob mob : level.getEntitiesOfClass(Mob.class, bounds,
                 target -> (target instanceof Monster || target instanceof AbstractGolem)
                         && !protects(player, target))) {
+            mob.hurt(player.damageSources().playerAttack(player), 14.0F);
             mob.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 3), player);
             mob.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 100), player);
         }
@@ -272,6 +310,16 @@ public final class OmnitrixPowerService {
         }
 
         @Override
+        protected void onHitEntity(EntityHitResult result) {
+            Entity owner = getOwner();
+            Entity target = result.getEntity();
+            if (owner instanceof ServerPlayer player) {
+                applyFireballHit(player, this, target);
+            }
+            discard();
+        }
+
+        @Override
         protected void onHitBlock(BlockHitResult hit) {
             super.onHitBlock(hit);
             if (level().isClientSide
@@ -282,19 +330,6 @@ public final class OmnitrixPowerService {
             if (level().isEmptyBlock(firePos)) {
                 level().setBlockAndUpdate(firePos, BaseFireBlock.getState(level(), firePos));
             }
-        }
-    }
-
-    private static final class SafeArrow extends Arrow {
-        private SafeArrow(ServerLevel level, ServerPlayer owner) {
-            super(level, owner);
-        }
-
-        @Override
-        protected boolean canHitEntity(Entity entity) {
-            Entity owner = getOwner();
-            return !(owner instanceof ServerPlayer player && protects(player, entity))
-                    && super.canHitEntity(entity);
         }
     }
 
@@ -318,13 +353,41 @@ public final class OmnitrixPowerService {
                 discard();
                 return;
             }
-            super.onHitEntity(result);
             if (owner instanceof ServerPlayer player && result
                 .getEntity() instanceof net.minecraft.world.entity.LivingEntity target) {
+                target.hurt(level().damageSources().mobProjectile(this, player), 12.0F);
                 target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 1),
                         player);
                 target.addEffect(new MobEffectInstance(MobEffects.POISON, 80), player);
             }
+            discard();
+        }
+    }
+
+    private static final class SafeArrow extends Arrow {
+        private SafeArrow(ServerLevel level, ServerPlayer owner) {
+            super(level, owner);
+        }
+
+        @Override
+        protected boolean canHitEntity(Entity entity) {
+            Entity owner = getOwner();
+            return !(owner instanceof ServerPlayer player && protects(player, entity))
+                    && super.canHitEntity(entity);
+        }
+
+        @Override
+        protected void onHitEntity(EntityHitResult result) {
+            Entity owner = getOwner();
+            Entity target = result.getEntity();
+            if (owner instanceof ServerPlayer player && protects(player, target)) {
+                discard();
+                return;
+            }
+            if (owner instanceof ServerPlayer player && target instanceof LivingEntity living) {
+                living.hurt(level().damageSources().mobProjectile(this, player), 10.0F);
+            }
+            discard();
         }
     }
 }

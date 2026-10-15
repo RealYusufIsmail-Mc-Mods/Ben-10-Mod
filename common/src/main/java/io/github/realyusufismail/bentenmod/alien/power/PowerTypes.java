@@ -13,16 +13,16 @@ import java.util.Map;
 public final class PowerTypes {
     private static final Map<ResourceLocation, PowerType> TYPES = new LinkedHashMap<>();
 
-    public static final PowerType FIREBALL = register("fireball", 20);
-    public static final PowerType GROUND_SLAM = register("ground_slam", 80);
-    public static final PowerType DASH = register("dash", 40);
-    public static final PowerType CRYSTAL_SHARD_VOLLEY = register("crystal_shard_volley", 30);
-    public static final PowerType SLIME_SPIT = register("slime_spit", 30);
-    public static final PowerType POUNCE = register("pounce", 60);
-    public static final PowerType LUNGE_BITE = register("lunge_bite", 40);
-    public static final PowerType EMP_PULSE = register("emp_pulse", 160);
-    public static final PowerType PHASE = register("phase", 200);
-    public static final PowerType ANALYSE = register("analyse", 200);
+    public static final PowerType FIREBALL = register("fireball", 5);
+    public static final PowerType GROUND_SLAM = register("ground_slam", 40);
+    public static final PowerType DASH = register("dash", 10);
+    public static final PowerType CRYSTAL_SHARD_VOLLEY = register("crystal_shard_volley", 8);
+    public static final PowerType SLIME_SPIT = register("slime_spit", 8);
+    public static final PowerType POUNCE = register("pounce", 20);
+    public static final PowerType LUNGE_BITE = register("lunge_bite", 15);
+    public static final PowerType EMP_PULSE = register("emp_pulse", 100);
+    public static final PowerType PHASE = register("phase", 100);
+    public static final PowerType ANALYSE = register("analyse", 100);
 
     private static final Codec<PowerType> TYPE_CODEC = ResourceLocation.CODEC.comapFlatMap(id -> {
         PowerType type = TYPES.get(id);

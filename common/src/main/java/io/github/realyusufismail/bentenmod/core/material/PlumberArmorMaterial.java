@@ -48,7 +48,7 @@ public enum PlumberArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return "plumber";
+        return "bentenmod:plumber";
     }
 
     @Override

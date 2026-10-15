@@ -115,7 +115,7 @@ public enum CustomArmorMaterial implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return this.name;
+        return "bentenmod:" + this.name;
     }
 
     @Override

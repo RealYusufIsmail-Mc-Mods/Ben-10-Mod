@@ -4,6 +4,7 @@ import io.github.realyusufismail.bentenmod.BenTenMod;
 import io.github.realyusufismail.bentenmod.core.init.EntityTypesInit;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -56,6 +57,9 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
     private int boltCooldown = 35;
     private int summonCooldown = 600;
     private int blinkCooldown = 400;
+    private boolean firstSightLineSpoken;
+    private boolean summonLineSpoken;
+    private boolean blinkLineSpoken;
 
     public ZsSkayrEntity(EntityType<? extends ZsSkayrEntity> type, Level level) {
         super(type, level);
@@ -113,6 +117,13 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
         }
         this.bossEvent
             .setProgress(this.getMaxHealth() <= 0 ? 0 : this.getHealth() / this.getMaxHealth());
+        if (!this.firstSightLineSpoken) {
+            Player nearest = this.level().getNearestPlayer(this, 24.0);
+            if (nearest != null) {
+                this.firstSightLineSpoken = BossChatter.sayVariant(this, ChatFormatting.DARK_PURPLE,
+                        "zsskayr.sighting", 2, nearest.getName());
+            }
+        }
         if (--this.boltCooldown <= 0) {
             LivingEntity target = getTarget();
             if (target != null && target.isAlive() && distanceToSqr(target) <= 1_024.0
@@ -129,6 +140,10 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
         }
         if (--this.blinkCooldown <= 0) {
             addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 40, 0, true, false));
+            if (!this.blinkLineSpoken) {
+                this.blinkLineSpoken = BossChatter.sayVariant(this, ChatFormatting.DARK_PURPLE,
+                        "zsskayr.blink", 2);
+            }
             this.blinkCooldown = 400;
         }
     }
@@ -159,6 +174,10 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
             return;
         }
         triggerAnim("controller", "summon");
+        if (!this.summonLineSpoken) {
+            this.summonLineSpoken =
+                    BossChatter.sayVariant(this, ChatFormatting.DARK_PURPLE, "zsskayr.summon", 2);
+        }
         int count = Math.min(2 + this.random.nextInt(2), 6 - existing);
         for (int i = 0; i < count; i++) {
             NullVoidPrisonerEntity prisoner =
@@ -188,6 +207,7 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
 
     @Override
     public void die(DamageSource source) {
+        BossChatter.sayVariant(this, ChatFormatting.DARK_PURPLE, "zsskayr.death", 2);
         this.bossEvent.removeAllPlayers();
         super.die(source);
     }
@@ -216,6 +236,9 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
         tag.putInt("bolt_cooldown", this.boltCooldown);
         tag.putInt("summon_cooldown", this.summonCooldown);
         tag.putInt("blink_cooldown", this.blinkCooldown);
+        tag.putBoolean("chatter_sighting", this.firstSightLineSpoken);
+        tag.putBoolean("chatter_summon", this.summonLineSpoken);
+        tag.putBoolean("chatter_blink", this.blinkLineSpoken);
     }
 
     @Override
@@ -224,6 +247,9 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
         this.boltCooldown = tag.contains("bolt_cooldown") ? tag.getInt("bolt_cooldown") : 35;
         this.summonCooldown = tag.contains("summon_cooldown") ? tag.getInt("summon_cooldown") : 600;
         this.blinkCooldown = tag.contains("blink_cooldown") ? tag.getInt("blink_cooldown") : 400;
+        this.firstSightLineSpoken = tag.getBoolean("chatter_sighting");
+        this.summonLineSpoken = tag.getBoolean("chatter_summon");
+        this.blinkLineSpoken = tag.getBoolean("chatter_blink");
         setNoGravity(true);
         setPersistenceRequired();
     }

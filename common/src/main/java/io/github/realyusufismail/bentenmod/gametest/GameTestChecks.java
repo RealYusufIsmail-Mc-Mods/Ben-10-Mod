@@ -42,10 +42,16 @@ import io.github.realyusufismail.bentenmod.core.init.ItemInit;
 import io.github.realyusufismail.bentenmod.core.init.RecipeTypeInit;
 import io.github.realyusufismail.bentenmod.entity.VilgaxEntity;
 import io.github.realyusufismail.bentenmod.entity.ZsSkayrEntity;
+import io.github.realyusufismail.bentenmod.entity.BossChatter;
+import io.github.realyusufismail.bentenmod.entity.NullVoidPortalEntity;
+import io.github.realyusufismail.bentenmod.entity.PlumberBoltEntity;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixInteractions;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSavedData;
 import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
+import io.github.realyusufismail.bentenmod.omnitrix.AlienEyeHeight;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixPowerService;
+import io.github.realyusufismail.bentenmod.core.item.NullVoidProjectorItem;
 import io.github.realyusufismail.bentenmod.omnitrix.PlayerAnimationStateCache;
 import io.github.realyusufismail.bentenmod.platform.registry.RegistryObject;
 import io.github.realyusufismail.bentenmod.worldgen.ModOrePlacements;
@@ -73,10 +79,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.SmallFireball;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -334,9 +343,24 @@ public final class GameTestChecks {
         InteractionResult entered = ItemInit.NULL_VOID_PROJECTOR.get()
             .use(player.level(), player, InteractionHand.MAIN_HAND)
             .getResult();
-        helper.assertTrue(entered.consumesAction(), "projector did not enter the Null Void");
+        helper.assertTrue(entered.consumesAction(), "projector did not open a portal");
+        NullVoidPortalEntity entryPortal = source
+            .getEntitiesOfClass(NullVoidPortalEntity.class, player.getBoundingBox().inflate(8.0))
+            .stream()
+            .findFirst()
+            .orElse(null);
+        helper.assertTrue(entryPortal != null, "projector did not spawn its portal entity");
+        if (entryPortal == null) {
+            return;
+        }
+        helper.assertTrue(projector.getDamageValue() == 1,
+                "opening the portal did not cost one durability");
+        entryPortal.setPos(player.getX(), player.getY(), player.getZ());
+        for (int tick = 0; tick < 21; tick++) {
+            entryPortal.tick();
+        }
         helper.assertTrue(player.serverLevel().dimension().equals(NullVoidWorldgen.DIMENSION),
-                "projector entered the wrong dimension");
+                "portal did not carry the player into the Null Void");
         OmnitrixSavedData.ReturnPoint point =
                 OmnitrixSavedData.get(player.serverLevel()).returnPoint(player.getUUID());
         helper.assertTrue(point != null && point.dimension().equals(source.dimension().location()),
@@ -346,7 +370,20 @@ public final class GameTestChecks {
         InteractionResult returned = ItemInit.NULL_VOID_PROJECTOR.get()
             .use(player.level(), player, InteractionHand.MAIN_HAND)
             .getResult();
-        helper.assertTrue(returned.consumesAction(), "projector did not return the player");
+        helper.assertTrue(returned.consumesAction(), "projector did not open the return portal");
+        NullVoidPortalEntity returnPortal = player.serverLevel()
+            .getEntitiesOfClass(NullVoidPortalEntity.class, player.getBoundingBox().inflate(8.0))
+            .stream()
+            .findFirst()
+            .orElse(null);
+        helper.assertTrue(returnPortal != null, "projector did not spawn the return portal");
+        if (returnPortal == null) {
+            return;
+        }
+        returnPortal.setPos(player.getX(), player.getY(), player.getZ());
+        for (int tick = 0; tick < 21; tick++) {
+            returnPortal.tick();
+        }
         helper.assertTrue(player.serverLevel() == source, "projector returned to the wrong level");
         helper.assertTrue(
                 Math.abs(player.getX() - x) < 0.01 && Math.abs(player.getY() - y) < 0.01
@@ -356,7 +393,8 @@ public final class GameTestChecks {
                 Math.abs(player.getYRot() - yaw) < 0.01
                         && Math.abs(player.getXRot() - pitch) < 0.01,
                 "projector did not restore the saved rotation");
-        helper.assertTrue(projector.getDamageValue() == 2, "projector did not cost durability");
+        helper.assertTrue(projector.getDamageValue() == 2,
+                "opening the return portal did not cost one durability");
         helper.succeed();
     }
 
@@ -836,6 +874,203 @@ public final class GameTestChecks {
         helper.assertTrue(OmnitrixService.usePower(player), "first power use was refused");
         helper.assertFalse(OmnitrixService.usePower(player),
                 "power cooldown allowed a second immediate use");
+        helper.succeed();
+    }
+
+    public static void alienEyeHeightTracksTransformation(GameTestHelper helper,
+            ServerPlayer player) {
+        helper.assertTrue(Math.abs(AlienEyeHeight.forPose(2.0F, Pose.STANDING) - 1.8F) < 0.001F,
+                "standing eye height is not 90 percent of the hitbox");
+        float expectedCrouch = 2.0F * 0.9F * (1.27F / 1.62F);
+        helper.assertTrue(
+                Math.abs(AlienEyeHeight.forPose(2.0F, Pose.CROUCHING) - expectedCrouch) < 0.001F,
+                "crouching eye height did not scale from the standing ratio");
+        helper.assertTrue(AlienEyeHeight.forPose(0.2F, Pose.STANDING) <= 0.2F,
+                "eye height exceeded the hitbox");
+
+        player.getAbilities().instabuild = true;
+        equipWithWatch(player);
+        ResourceLocation greyMatter = BenTenMod.getModIdAndName("greymatter");
+        ResourceLocation fourArms = BenTenMod.getModIdAndName("fourarms");
+        helper.assertTrue(OmnitrixService.transform(player, greyMatter),
+                "Grey Matter transformation failed");
+        player.refreshDimensions();
+        helper.assertTrue(player.getEyeHeight() < 1.0F,
+                "Grey Matter camera height was not scaled below one block");
+        helper.assertTrue(OmnitrixService.revert(player), "Grey Matter revert failed");
+        helper.assertTrue(OmnitrixService.transform(player, fourArms),
+                "Four Arms transformation failed");
+        player.refreshDimensions();
+        helper.assertTrue(player.getEyeHeight() > 2.0F,
+                "Four Arms camera height was not scaled above two blocks");
+        helper.assertTrue(OmnitrixService.revert(player), "Four Arms revert failed");
+        player.refreshDimensions();
+        helper.assertTrue(Math.abs(player.getEyeHeight() - 1.62F) < 0.02F,
+                "reverting did not restore vanilla standing eye height");
+        helper.succeed();
+    }
+
+    public static void heatblastFireballDamagesVilgax(GameTestHelper helper, ServerPlayer player) {
+        VilgaxEntity vilgax =
+                helper.spawn(EntityTypesInit.VILGAX_ENTITY.get(), new BlockPos(5, 2, 1));
+        vilgax.setNoAi(true);
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("heatblast")),
+                "Heatblast transformation failed");
+        SmallFireball projectile = new SmallFireball(helper.getLevel(), player, 1, 0, 0);
+        float health = vilgax.getHealth();
+        OmnitrixPowerService.applyFireballHit(player, projectile, vilgax);
+        helper.assertTrue(vilgax.getHealth() < health,
+                "Heatblast fireball did no non-fire damage to fire-immune Vilgax");
+        helper.assertFalse(vilgax.isOnFire(), "fire-immune Vilgax was set on fire");
+        helper.succeed();
+    }
+
+    public static void fourArmsSlamDamagesVilgax(GameTestHelper helper, ServerPlayer player) {
+        player.setPos(1.5, 2, 1.5);
+        VilgaxEntity vilgax =
+                helper.spawn(EntityTypesInit.VILGAX_ENTITY.get(), new BlockPos(3, 2, 1));
+        vilgax.setNoAi(true);
+        player.getAbilities().instabuild = true;
+        equipWithWatch(player);
+        helper.assertTrue(OmnitrixService.transform(player, BenTenMod.getModIdAndName("fourarms")),
+                "Four Arms transformation failed");
+        float health = vilgax.getHealth();
+        helper.assertTrue(OmnitrixService.usePower(player), "Four Arms slam was refused");
+        helper.assertTrue(vilgax.getHealth() < health, "Four Arms slam did no damage to Vilgax");
+        helper.succeed();
+    }
+
+    public static void armorLayerTexturesExist(GameTestHelper helper) {
+        int armorPieces = 0;
+        for (Item item : BuiltInRegistries.ITEM) {
+            if (!(item instanceof ArmorItem armor)
+                    || !"bentenmod".equals(BuiltInRegistries.ITEM.getKey(item).getNamespace())) {
+                continue;
+            }
+            armorPieces++;
+            String[] material = armor.getMaterial().getName().split(":", 2);
+            String namespace = material.length == 2 ? material[0] : "minecraft";
+            String path = material.length == 2 ? material[1] : material[0];
+            for (int layer = 1; layer <= 2; layer++) {
+                String resource = "assets/" + namespace + "/textures/models/armor/" + path
+                        + "_layer_" + layer + ".png";
+                helper.assertTrue(
+                        GameTestChecks.class.getClassLoader().getResource(resource) != null,
+                        "missing armour layer resource " + resource);
+            }
+        }
+        helper.assertTrue(armorPieces > 0, "no mod armour items were registered");
+        helper.succeed();
+    }
+
+    public static void plumberBoltDealsFixedDamage(GameTestHelper helper, ServerPlayer player) {
+        Zombie zombie = helper.spawn(EntityType.ZOMBIE, new BlockPos(5, 2, 1));
+        zombie.setNoAi(true);
+        PlumberBoltEntity bolt = new PlumberBoltEntity(helper.getLevel(), player);
+        helper.assertTrue(bolt.isNoGravity(), "Plumber Bolt should not have gravity");
+        float health = zombie.getHealth();
+        bolt.damageTarget(player, zombie);
+        helper.assertTrue(
+                Math.abs((health - zombie.getHealth()) - PlumberBoltEntity.DAMAGE) < 0.01F,
+                "Plumber Bolt should deal exactly six damage");
+        helper.succeed();
+    }
+
+    public static void nullVoidProjectorOpensPortal(GameTestHelper helper, ServerPlayer player) {
+        player.setPos(1.5, 2, 1.5);
+        player.setYRot(0.0F);
+        ItemStack projector = new ItemStack(ItemInit.NULL_VOID_PROJECTOR.get());
+        player.setItemInHand(InteractionHand.MAIN_HAND, projector);
+        InteractionResult result = ItemInit.NULL_VOID_PROJECTOR.get()
+            .use(player.level(), player, InteractionHand.MAIN_HAND)
+            .getResult();
+        helper.assertTrue(result.consumesAction(), "projector did not open a portal");
+        NullVoidPortalEntity portal = helper.getLevel()
+            .getEntitiesOfClass(NullVoidPortalEntity.class, player.getBoundingBox().inflate(8.0))
+            .stream()
+            .findFirst()
+            .orElse(null);
+        helper.assertTrue(portal != null, "projector did not spawn a portal entity");
+        helper.assertTrue(projector.getDamageValue() == 1,
+                "opening the portal did not cost one durability");
+        if (portal != null) {
+            Vec3 expected = player.position().add(player.getLookAngle().scale(3.0));
+            helper.assertTrue(portal.position().distanceTo(expected) < 0.2,
+                    "portal did not spawn three blocks in front of the player");
+        }
+        helper.succeed();
+    }
+
+    public static void nullVoidPortalPullsZombie(GameTestHelper helper) {
+        NullVoidPortalEntity portal =
+                helper.spawn(EntityTypesInit.NULL_VOID_PORTAL.get(), new BlockPos(2, 2, 2));
+        portal.setPos(2.5, 2.0, 2.5);
+        Zombie zombie = helper.spawn(EntityType.ZOMBIE, new BlockPos(6, 2, 2));
+        zombie.setNoAi(true);
+        zombie.setDeltaMovement(Vec3.ZERO);
+        helper.runAtTickTime(16, () -> {
+            helper.assertTrue(zombie.getDeltaMovement().x < -0.02,
+                    "nearby zombie was not pulled toward the portal");
+            helper.succeed();
+        });
+    }
+
+    public static void nullVoidPortalResistsBosses(GameTestHelper helper) {
+        NullVoidPortalEntity portal =
+                helper.spawn(EntityTypesInit.NULL_VOID_PORTAL.get(), new BlockPos(2, 2, 2));
+        portal.setPos(2.5, 2.0, 2.5);
+        VilgaxEntity vilgax =
+                helper.spawn(EntityTypesInit.VILGAX_ENTITY.get(), new BlockPos(6, 2, 2));
+        vilgax.setNoAi(true);
+        vilgax.setDeltaMovement(Vec3.ZERO);
+        helper.runAtTickTime(16, () -> {
+            helper.assertTrue(vilgax.getDeltaMovement().x > 0.02,
+                    "portal pulled Vilgax in instead of resisting him");
+            helper.succeed();
+        });
+    }
+
+    public static void nullVoidPortalCloses(GameTestHelper helper) {
+        NullVoidPortalEntity portal =
+                helper.spawn(EntityTypesInit.NULL_VOID_PORTAL.get(), new BlockPos(2, 2, 2));
+        helper.runAtTickTime(205, () -> {
+            helper.assertTrue(portal.isRemoved(), "portal was still alive after its lifetime");
+            helper.succeed();
+        });
+    }
+
+    public static void bossChatterRespectsCooldown(GameTestHelper helper, ServerPlayer player) {
+        VilgaxEntity vilgax =
+                helper.spawn(EntityTypesInit.VILGAX_ENTITY.get(), new BlockPos(2, 2, 2));
+        vilgax.setNoAi(true);
+        player.setPos(vilgax.getX(), vilgax.getY(), vilgax.getZ());
+        boolean first = BossChatter.say(vilgax, net.minecraft.ChatFormatting.DARK_RED,
+                "dialogue.bentenmod.vilgax.phase_two.1");
+        boolean second = BossChatter.say(vilgax, net.minecraft.ChatFormatting.DARK_RED,
+                "dialogue.bentenmod.vilgax.phase_two.2");
+        helper.assertTrue(first, "boss chatter rejected its first line");
+        helper.assertFalse(second, "boss chatter sent two lines inside its cooldown");
+        helper.succeed();
+    }
+
+    public static void nullVoidLandingUsesNearbySurface(GameTestHelper helper) {
+        ServerLevel level = helper.getLevel().getServer().getLevel(NullVoidWorldgen.DIMENSION);
+        helper.assertTrue(level != null, "Null Void dimension is missing for landing test");
+        if (level == null) {
+            return;
+        }
+        BlockPos origin = new BlockPos(32000, 200, 32000);
+        BlockPos platform = origin;
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dz = -1; dz <= 1; dz++) {
+                level.setBlock(platform.offset(dx, 0, dz), Blocks.END_STONE.defaultBlockState(), 3);
+            }
+        }
+        BlockPos landing = NullVoidProjectorItem.findSafeLanding(level, origin);
+        helper.assertTrue(landing != null, "landing search missed the nearby island surface");
+        helper.assertTrue(landing != null && landing.equals(platform.above()),
+                "landing search chose the fallback pad instead of the nearby island");
         helper.succeed();
     }
 

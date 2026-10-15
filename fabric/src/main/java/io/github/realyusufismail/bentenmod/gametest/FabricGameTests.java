@@ -262,6 +262,62 @@ public class FabricGameTests implements FabricGameTest {
     }
 
     @GameTest(template = EMPTY_STRUCTURE)
+    public void alienEyeHeightTracksTransformation(GameTestHelper helper) {
+        GameTestChecks.alienEyeHeightTracksTransformation(helper,
+                player(helper, "alienEyeHeightTracksTransformation"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void heatblastFireballDamagesVilgax(GameTestHelper helper) {
+        GameTestChecks.heatblastFireballDamagesVilgax(helper,
+                player(helper, "heatblastFireballDamagesVilgax"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void fourArmsSlamDamagesVilgax(GameTestHelper helper) {
+        GameTestChecks.fourArmsSlamDamagesVilgax(helper,
+                player(helper, "fourArmsSlamDamagesVilgax"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void armorLayerTexturesExist(GameTestHelper helper) {
+        GameTestChecks.armorLayerTexturesExist(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void plumberBoltDealsFixedDamage(GameTestHelper helper) {
+        GameTestChecks.plumberBoltDealsFixedDamage(helper,
+                player(helper, "plumberBoltDealsFixedDamage"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void nullVoidProjectorOpensPortal(GameTestHelper helper) {
+        GameTestChecks.nullVoidProjectorOpensPortal(helper,
+                player(helper, "nullVoidProjectorOpensPortal"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE, timeoutTicks = 80)
+    public void nullVoidPortalPullsZombie(GameTestHelper helper) {
+        GameTestChecks.nullVoidPortalPullsZombie(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE, timeoutTicks = 80)
+    public void nullVoidPortalResistsBosses(GameTestHelper helper) {
+        GameTestChecks.nullVoidPortalResistsBosses(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE, timeoutTicks = 240)
+    public void nullVoidPortalCloses(GameTestHelper helper) {
+        GameTestChecks.nullVoidPortalCloses(helper);
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
+    public void bossChatterRespectsCooldown(GameTestHelper helper) {
+        GameTestChecks.bossChatterRespectsCooldown(helper,
+                player(helper, "bossChatterRespectsCooldown"));
+    }
+
+    @GameTest(template = EMPTY_STRUCTURE)
     public void creativeCanTransformWithoutUnlocking(GameTestHelper helper) {
         GameTestChecks.creativeCanTransformWithoutUnlocking(helper,
                 player(helper, "creativeCanTransformWithoutUnlocking"));

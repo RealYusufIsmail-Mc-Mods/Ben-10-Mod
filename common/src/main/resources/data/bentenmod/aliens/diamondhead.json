@@ -3,7 +3,7 @@
   "height": 2.3,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
-  "power": { "type": "bentenmod:crystal_shard_volley", "cooldown_ticks": 30 },
+  "power": { "type": "bentenmod:crystal_shard_volley", "cooldown_ticks": 8 },
   "dna_sources": {
     "blocks": ["minecraft:budding_amethyst"]
   },

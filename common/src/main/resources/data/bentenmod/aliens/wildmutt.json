@@ -3,7 +3,7 @@
   "height": 1.3,
   "unlocked_by_default": false,
   "duration_ticks": 6000,
-  "power": { "type": "bentenmod:pounce", "cooldown_ticks": 60 },
+  "power": { "type": "bentenmod:pounce", "cooldown_ticks": 20 },
   "dna_sources": {
     "entities": ["minecraft:wolf"]
   },

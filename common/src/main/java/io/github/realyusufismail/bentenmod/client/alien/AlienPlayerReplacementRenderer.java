@@ -56,7 +56,8 @@ public final class AlienPlayerReplacementRenderer
 
     public static boolean isTransformed(AbstractClientPlayer player) {
         OmnitrixSnapshot snapshot = ClientOmnitrixState.get(player.getUUID());
-        return snapshot != null && snapshot.currentAlien() != null;
+        return snapshot != null && (snapshot.currentAlien() != null
+                || ClientOmnitrixState.isMorphing(player.getUUID()));
     }
 
     public static void forgetPlayer(UUID playerId) {
@@ -103,8 +104,9 @@ public final class AlienPlayerReplacementRenderer
 
         poseStack.pushPose();
         // Vanilla arm space is the entity model space (y down, feet at 1.501); GeckoLib bones are
-        // y up from the feet.
-        poseStack.translate(0, 1.501, 0);
+        // y up from the feet. Offset from vanilla's eye height so the hand follows the resized
+        // view.
+        poseStack.translate(0, 1.501 - (player.getEyeHeight() - 1.62F), 0);
         poseStack.mulPose(Axis.ZP.rotationDegrees(180));
         poseStack.translate((shoulderX - shoulder.getPivotX()) / 16f,
                 (22 - shoulder.getPivotY()) / 16f, -shoulder.getPivotZ() / 16f);
@@ -156,11 +158,16 @@ public final class AlienPlayerReplacementRenderer
             com.mojang.blaze3d.vertex.PoseStack poseStack,
             net.minecraft.client.renderer.MultiBufferSource bufferSource, int packedLight) {
         OmnitrixSnapshot snapshot = ClientOmnitrixState.get(player.getUUID());
-        ResourceLocation alien = snapshot == null ? null : snapshot.currentAlien();
+        ResourceLocation alien =
+                snapshot == null ? null : ClientOmnitrixState.renderedAlien(player.getUUID());
         if (alien == null) {
             return;
         }
         animatable.bind(player, alien, snapshot.expiresAt());
+        poseStack.pushPose();
+        float scale = ClientOmnitrixState.modelScale(player.getUUID(), partialTick);
+        poseStack.scale(scale, scale, scale);
         super.render(player, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+        poseStack.popPose();
     }
 }

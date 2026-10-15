@@ -15,6 +15,8 @@ public final class OmnitrixNetwork {
     public static final ResourceLocation STATE_UPDATE = BenTenMod.getModIdAndName("omnitrix_state");
     public static final ResourceLocation POWER_REQUEST =
             BenTenMod.getModIdAndName("omnitrix_power");
+    public static final ResourceLocation PORTAL_TRAVEL_EFFECT =
+            BenTenMod.getModIdAndName("null_void_travel_effect");
 
     private OmnitrixNetwork() {}
 
@@ -35,8 +37,12 @@ public final class OmnitrixNetwork {
                         }
                     });
                 });
-        ServerPlayNetworking.registerGlobalReceiver(POWER_REQUEST, (server, player, handler, buffer,
-                responseSender) -> server.execute(() -> OmnitrixService.usePower(player)));
+        ServerPlayNetworking.registerGlobalReceiver(POWER_REQUEST,
+                (server, player, handler, buffer, responseSender) -> server.execute(() -> {
+                    if (OmnitrixService.usePower(player)) {
+                        sendToPlayer(player, OmnitrixService.snapshot(player));
+                    }
+                }));
     }
 
     public static void sendToPlayer(ServerPlayer player, OmnitrixSnapshot snapshot) {
@@ -52,6 +58,10 @@ public final class OmnitrixNetwork {
         PlayerLookup.tracking(player).forEach(tracker -> sendToPlayer(tracker, publicSnapshot));
     }
 
+    public static void sendPortalTravelEffect(ServerPlayer player) {
+        ServerPlayNetworking.send(player, PORTAL_TRAVEL_EFFECT, PacketByteBufs.empty());
+    }
+
     private static void encode(OmnitrixSnapshot state, FriendlyByteBuf buffer) {
         buffer.writeUUID(state.playerId());
         buffer.writeBoolean(state.currentAlien() != null);
@@ -62,6 +72,9 @@ public final class OmnitrixNetwork {
         buffer.writeBoolean(state.equipped());
         buffer.writeBoolean(state.timeoutDisabled());
         buffer.writeLong(state.rechargeUntil());
+        buffer.writeLong(state.powerCooldownUntil());
+        buffer.writeLong(state.transitionId());
+        buffer.writeVarInt(state.transitionKind());
         buffer.writeFloat(state.width());
         buffer.writeFloat(state.height());
         buffer.writeVarInt(state.unlockedAlienIds().size());
@@ -75,6 +88,9 @@ public final class OmnitrixNetwork {
         boolean equipped = buffer.readBoolean();
         boolean timeoutDisabled = buffer.readBoolean();
         long rechargeUntil = buffer.readLong();
+        long powerCooldownUntil = buffer.readLong();
+        long transitionId = buffer.readLong();
+        int transitionKind = buffer.readVarInt();
         float width = buffer.readFloat();
         float height = buffer.readFloat();
         int size = Math.min(buffer.readVarInt(), 256);
@@ -83,6 +99,6 @@ public final class OmnitrixNetwork {
             unlocked.add(buffer.readResourceLocation());
         }
         return new OmnitrixSnapshot(playerId, alien, expiresAt, equipped, unlocked, width, height,
-                timeoutDisabled, rechargeUntil);
+                timeoutDisabled, rechargeUntil, powerCooldownUntil, transitionId, transitionKind);
     }
 }

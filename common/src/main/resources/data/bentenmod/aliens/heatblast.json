@@ -3,7 +3,7 @@
   "height": 2.1,
   "unlocked_by_default": true,
   "duration_ticks": 6000,
-  "power": { "type": "bentenmod:fireball", "cooldown_ticks": 20 },
+  "power": { "type": "bentenmod:fireball", "cooldown_ticks": 5 },
   "abilities": [
     {
       "type": "bentenmod:effect",

@@ -1081,8 +1081,8 @@ class WikiBuilder:
   <article class="article-copy">
     <p>{escaped(guide)}</p>
     <section class="content-section"><h2 class="section-heading">Getting there and back</h2>
-      <p>Defeat Vilgax for a Vilgax Core, then combine one Core and two Infinitum in the Omnitrix Crafter to make the Null Void Projector. Use the item to travel in or return to your saved entry point. {projector_recipe}.</p>
-      <p>The Projector has {self.projector_durability} durability and repairs with Null Crystals. The current implementation consumes one durability each time it teleports.</p>
+      <p>Defeat Vilgax for a Vilgax Core, then combine one Core and two Infinitum in the Omnitrix Crafter to make the Null Void Projector. Use it to open a walkable portal; stepping through travels to the Null Void or returns you to your saved entry point. {projector_recipe}</p>
+      <p>The Projector has {self.projector_durability} durability and repairs with Null Crystals. Each portal opening consumes one durability. On a first arrival, the Projector points out nearby islands when it needs to create a fallback pad.</p>
     </section>
     <section class="content-section"><h2 class="section-heading">Islands and creatures</h2>
       <p data-entity-id="bentenmod:null_void_prisoner">The dimension uses floating-island terrain with Null Void Stone and no fluids. Null Void Prisoners spawn there and join nearby fights. Their entity loot table lists: {escaped(prisoner_drop_text)} Null Guardians are rare and use a tractor beam; Lepidopterran scouts spawn in small groups and spit slowing slime.</p>

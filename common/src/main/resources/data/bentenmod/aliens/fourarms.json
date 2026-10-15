@@ -3,7 +3,7 @@
   "height": 2.6,
   "unlocked_by_default": true,
   "duration_ticks": 6000,
-  "power": { "type": "bentenmod:ground_slam", "cooldown_ticks": 80 },
+  "power": { "type": "bentenmod:ground_slam", "cooldown_ticks": 40 },
   "abilities": [
     {
       "type": "bentenmod:attribute",

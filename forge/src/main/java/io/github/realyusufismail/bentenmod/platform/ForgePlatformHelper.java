@@ -119,6 +119,13 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
+    public void sendPortalTravelEffect(ServerPlayer player) {
+        if (player.connection != null) {
+            OmnitrixNetwork.sendPortalTravelEffect(player);
+        }
+    }
+
+    @Override
     public void setCraftingPlayer(Player player) {
         ForgeHooks.setCraftingPlayer(player);
     }

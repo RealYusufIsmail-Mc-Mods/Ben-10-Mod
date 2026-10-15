@@ -1,0 +1,39 @@
+package io.github.realyusufismail.bentenmod.mixin;
+
+import io.github.realyusufismail.bentenmod.omnitrix.AlienEyeHeight;
+import io.github.realyusufismail.bentenmod.omnitrix.ClientOmnitrixState;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixService;
+import io.github.realyusufismail.bentenmod.omnitrix.OmnitrixSnapshot;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.player.Player;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+/** Scales transformed players' camera height with their active alien dimensions. */
+@Mixin(Player.class)
+public abstract class PlayerEyeHeightMixin {
+    @Inject(method = "getStandingEyeHeight", at = @At("HEAD"), cancellable = true)
+    private void bentenmod$scaleEyeHeight(Pose pose, EntityDimensions dimensions,
+            CallbackInfoReturnable<Float> callback) {
+        Player player = (Player) (Object) this;
+        float height;
+        if (player instanceof ServerPlayer serverPlayer) {
+            var definition = OmnitrixService.activeDefinition(serverPlayer).orElse(null);
+            if (definition == null) {
+                return;
+            }
+            height = definition.height();
+        } else {
+            OmnitrixSnapshot snapshot = ClientOmnitrixState.get(player.getUUID());
+            if (snapshot == null || snapshot.currentAlien() == null || snapshot.height() <= 0) {
+                return;
+            }
+            height = snapshot.height();
+        }
+        callback.setReturnValue(AlienEyeHeight.forPose(height, pose));
+    }
+}

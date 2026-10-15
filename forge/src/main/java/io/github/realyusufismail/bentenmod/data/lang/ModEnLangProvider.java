@@ -192,6 +192,18 @@ public class ModEnLangProvider extends LanguageProvider {
         add("biome.bentenmod.null_void", "Null Void");
         add("message.bentenmod.null_void_projector_failed",
                 "The Null Void projector could not find a safe destination.");
+        add("message.bentenmod.null_void_first_arrival",
+                "The Null Void is a field of floating islands; a fall can be deadly. Use the Null Void Glider to control your descent. The projector opens a way back.");
+        add("message.bentenmod.null_void_nearest_island",
+                "Nearest island: %s, about %s blocks %s of the lighted pad. Follow the end rod trail.");
+        add("message.bentenmod.null_void_no_island_nearby",
+                "No island was found nearby. The lighted pad is safe; explore carefully and watch your footing.");
+        add("direction.bentenmod.north", "north");
+        add("direction.bentenmod.south", "south");
+        add("direction.bentenmod.east", "east");
+        add("direction.bentenmod.west", "west");
+        add("direction.bentenmod.above", "above");
+        add("direction.bentenmod.below", "below");
         add("message.bentenmod.master_control_requires_watch",
                 "Equip the Omnitrix before activating Master Control.");
         add("message.bentenmod.master_control_applied",
@@ -199,6 +211,17 @@ public class ModEnLangProvider extends LanguageProvider {
         add("tooltip.bentenmod.master_control",
                 "Unlocks all aliens and removes timeout and recharge; requires an equipped Omnitrix.");
         add("message.bentenmod.power_recharging", "Power recharging");
+        add("message.bentenmod.power_ready_in", "%s ready in %s s");
+        add("power.bentenmod.fireball", "Fireball");
+        add("power.bentenmod.ground_slam", "Ground Slam");
+        add("power.bentenmod.dash", "Dash");
+        add("power.bentenmod.crystal_shard_volley", "Crystal Shards");
+        add("power.bentenmod.slime_spit", "Slime Spit");
+        add("power.bentenmod.pounce", "Pounce");
+        add("power.bentenmod.lunge_bite", "Lunge Bite");
+        add("power.bentenmod.emp_pulse", "EMP Pulse");
+        add("power.bentenmod.phase", "Phase");
+        add("power.bentenmod.analyse", "Analyse");
         add("message.bentenmod.omnitrix_recharging", "Recharging %s");
         add("message.bentenmod.omnitrix_timeout", "Omnitrix timed out. Recharging.");
         add("screen.bentenmod.omnitrix", "Omnitrix Dial");
@@ -226,6 +249,50 @@ public class ModEnLangProvider extends LanguageProvider {
         add("alien.bentenmod.ripjaws", "Ripjaws");
         add("alien.bentenmod.upgrade", "Upgrade");
         add("alien.bentenmod.ghostfreak", "Ghostfreak");
+        add("dialogue.bentenmod.vilgax.arrival.1", "The Omnitrix is finally within my reach, %s.");
+        add("dialogue.bentenmod.vilgax.arrival.2",
+                "I crossed the stars for that watch, %s. Surrender it.");
+        add("dialogue.bentenmod.vilgax.phase_two.1", "Enough restraint. I will take it by force.");
+        add("dialogue.bentenmod.vilgax.phase_two.2",
+                "You have tested my patience. Now face my strength.");
+        add("dialogue.bentenmod.vilgax.drone_wave.1", "Drones, close every escape route.");
+        add("dialogue.bentenmod.vilgax.drone_wave.2", "Swarm the field. Leave no opening.");
+        add("dialogue.bentenmod.vilgax.drone_wave.3", "Reinforcements, pin them down.");
+        add("dialogue.bentenmod.vilgax.desperate.1",
+                "I have conquered worlds. I will not fall here.");
+        add("dialogue.bentenmod.vilgax.desperate.2",
+                "This battle will not be the end of my campaign.");
+        add("dialogue.bentenmod.vilgax.player_kill.1", "Your weakness has bought me time.");
+        add("dialogue.bentenmod.vilgax.player_kill.2",
+                "One less obstacle between me and the Omnitrix.");
+        add("dialogue.bentenmod.vilgax.death.1", "Remember this defeat. I will return stronger.");
+        add("dialogue.bentenmod.vilgax.death.2", "You have delayed me, not ended me.");
+        add("dialogue.bentenmod.kraab.arrival.1",
+                "Your watch has a price, and I collect in full, %s.");
+        add("dialogue.bentenmod.kraab.arrival.2", "No place to hide, %s. I have your trail.");
+        add("dialogue.bentenmod.kraab.low_health.1",
+                "I have crawled out of worse fights than this.");
+        add("dialogue.bentenmod.kraab.low_health.2",
+                "You will have to work harder to put me down.");
+        add("dialogue.bentenmod.kraab.death.1", "The contract ends here. The hunt does not.");
+        add("dialogue.bentenmod.kraab.death.2", "Keep the prize. Someone will come asking for it.");
+        add("dialogue.bentenmod.zsskayr.sighting.1", "You wandered too close to the dark, %s.");
+        add("dialogue.bentenmod.zsskayr.sighting.2", "I felt you cross the threshold, %s.");
+        add("dialogue.bentenmod.zsskayr.summon.1", "Prisoners, the gates are open. Answer me.");
+        add("dialogue.bentenmod.zsskayr.summon.2", "The cells are yours. Make this world afraid.");
+        add("dialogue.bentenmod.zsskayr.blink.1", "You cannot strike a shadow twice.");
+        add("dialogue.bentenmod.zsskayr.blink.2", "Look again. I am already elsewhere.");
+        add("dialogue.bentenmod.zsskayr.death.1", "The void keeps what it claims. I will return.");
+        add("dialogue.bentenmod.zsskayr.death.2", "This body fades. The darkness remains.");
+        add("dialogue.bentenmod.warden.sighting.1", "Unauthorized presence detected, %s.");
+        add("dialogue.bentenmod.warden.sighting.2",
+                "Intruder recorded, %s. Compliance is required.");
+        add("dialogue.bentenmod.warden.summon.1",
+                "Cells open. Return the intruders to their chains.");
+        add("dialogue.bentenmod.warden.summon.2",
+                "Security response active. Prisoners, contain them.");
+        add("dialogue.bentenmod.warden.death.1", "Containment has failed. The prison will endure.");
+        add("dialogue.bentenmod.warden.death.2", "Security unit offline. The cells remain sealed.");
         add("guide.bentenmod.chapter.getting_started.title", "Getting started");
         add("guide.bentenmod.chapter.getting_started.body",
                 "The Omnitrix transforms you into an alien. Find or craft the watch, then right-click it once to equip it. Your first forms are Heatblast, Four Arms and XLR8.");

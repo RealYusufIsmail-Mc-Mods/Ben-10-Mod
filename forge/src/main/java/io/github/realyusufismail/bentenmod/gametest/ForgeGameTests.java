@@ -276,6 +276,67 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void alienEyeHeightTracksTransformation(GameTestHelper helper) {
+        GameTestChecks.alienEyeHeightTracksTransformation(helper,
+                player(helper, "alienEyeHeightTracksTransformation"));
+    }
+
+    @GameTest(template = "empty")
+    public static void heatblastFireballDamagesVilgax(GameTestHelper helper) {
+        GameTestChecks.heatblastFireballDamagesVilgax(helper,
+                player(helper, "heatblastFireballDamagesVilgax"));
+    }
+
+    @GameTest(template = "empty")
+    public static void fourArmsSlamDamagesVilgax(GameTestHelper helper) {
+        GameTestChecks.fourArmsSlamDamagesVilgax(helper,
+                player(helper, "fourArmsSlamDamagesVilgax"));
+    }
+
+    @GameTest(template = "empty")
+    public static void armorLayerTexturesExist(GameTestHelper helper) {
+        GameTestChecks.armorLayerTexturesExist(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void plumberBoltDealsFixedDamage(GameTestHelper helper) {
+        GameTestChecks.plumberBoltDealsFixedDamage(helper,
+                player(helper, "plumberBoltDealsFixedDamage"));
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidProjectorOpensPortal(GameTestHelper helper) {
+        GameTestChecks.nullVoidProjectorOpensPortal(helper,
+                player(helper, "nullVoidProjectorOpensPortal"));
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 80)
+    public static void nullVoidPortalPullsZombie(GameTestHelper helper) {
+        GameTestChecks.nullVoidPortalPullsZombie(helper);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 80)
+    public static void nullVoidPortalResistsBosses(GameTestHelper helper) {
+        GameTestChecks.nullVoidPortalResistsBosses(helper);
+    }
+
+    @GameTest(template = "empty", timeoutTicks = 240)
+    public static void nullVoidPortalCloses(GameTestHelper helper) {
+        GameTestChecks.nullVoidPortalCloses(helper);
+    }
+
+    @GameTest(template = "empty")
+    public static void bossChatterRespectsCooldown(GameTestHelper helper) {
+        GameTestChecks.bossChatterRespectsCooldown(helper,
+                player(helper, "bossChatterRespectsCooldown"));
+    }
+
+    @GameTest(template = "empty")
+    public static void nullVoidLandingUsesNearbySurface(GameTestHelper helper) {
+        GameTestChecks.nullVoidLandingUsesNearbySurface(helper);
+    }
+
+    @GameTest(template = "empty")
     public static void creativeCanTransformWithoutUnlocking(GameTestHelper helper) {
         GameTestChecks.creativeCanTransformWithoutUnlocking(helper,
                 player(helper, "creativeCanTransformWithoutUnlocking"));

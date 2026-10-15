@@ -14,6 +14,8 @@ public final class OmnitrixClientHooks {
     };
     private static Runnable revert = () -> {
     };
+    private static Runnable portalTravel = () -> {
+    };
 
     private OmnitrixClientHooks() {}
 
@@ -42,5 +44,13 @@ public final class OmnitrixClientHooks {
 
     public static void revert() {
         revert.run();
+    }
+
+    public static void installPortalTravel(Runnable effect) {
+        portalTravel = effect;
+    }
+
+    public static void playPortalTravel() {
+        portalTravel.run();
     }
 }
