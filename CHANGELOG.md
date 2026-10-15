@@ -35,6 +35,11 @@ The Null Void is now a more dangerous place to explore, with new creatures, pris
 - Mod armour wore out about twice as fast as vanilla armour of the same tier.
 - Heatblast fireballs now damage fire-immune bosses, and Plumber armour resolves its namespaced textures.
 
+## [1.20.1-2.0.1] - 15/10/2026
+
+### Fixed
+- The game crashed when Zs'Skayr or a Vilgax drone took off from the ground.
+
 ## [1.20.1-2.0.0] - 14/10/2026
 
 A rebuild of the mod for Minecraft 1.20.1 on Forge and Fabric, with a working Omnitrix.

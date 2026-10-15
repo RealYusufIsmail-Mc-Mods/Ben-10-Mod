@@ -13,6 +13,11 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Done (newest first)
 
+### 2026-10-15: Released 2.0.1
+- Hotfix from tag `v1.20.1-2.0.0` on branch `release/2.0.1`: `flying_speed` for Zs'Skayr and Vilgax drones (FlyingMoveControl crashed without it). Forge 45/45, Fabric 43/43.
+- Uploaded to CurseForge (Forge + Fabric) and GitHub release `v1.20.1-2.0.1` created with both jars (the 2.0.0-based tree still has the old RELEASE_TOKEN workflow, so the release was made with `gh`).
+- Roadmap row and changelog section added on `1.20.1`; wiki rebuilt.
+
 ### 2026-10-15: Fix six failed 2.1.0 playtest GameTests
 - Corrected test setup in `common/src/main/java/io/github/realyusufismail/bentenmod/gametest/GameTestChecks.java`: positions now use the GameTest structure origin, projector checks select their own portal, and the round-trip fake player is registered in the level and transferred through normal scheduled ticks.
 - The failures were test issues. Portal pull and boss-resistance tests had moved helper-spawned portals to absolute coordinates; the Four Arms player was likewise outside its helper-spawned Vilgax's structure-relative radius. The Plumber Bolt test now clears the Zombie's armour before asserting six effective damage. Boss resistance coverage includes Vilgax, Zs'Skayr, the prison warden and Kraab (`CrabEntity`). No game code changed.
