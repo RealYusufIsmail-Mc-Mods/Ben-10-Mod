@@ -4,14 +4,18 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Current state (2026-10-15)
 
-- **Branch:** `t3/2.1.0-playtest` (worktree `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/t3-74735a92`), based on 2.1.0 plus the cleanup pass.
-- **PR history:** #88 and #89 merged into `main`; #90-#93 merged into `1.20.1`; #96 and #97 were 2.0.0 release prep.
-- **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches. The branch is the Minecraft version.
-- **Release 2.0.0: released 2026-10-14.** Uploaded to CurseForge (Forge and Fabric files) and tagged `v1.20.1-2.0.0` (GitHub release workflow). `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
-- **Client check:** no `runClient` for steps 4-7. In-world visuals still need a person's review on both loaders; NeoForge 1.20.1 is unverified.
-- **2.1.0 gameplay:** implementation and art are integrated. The cleanup pass below is complete. The root's playtest run passed `:forge:runData` and `build`; Forge GameTests reported six failures, now addressed in shared test checks. Retesting is pending; Fabric has not run. No game was run.
+- **Branch:** `1.20.1` (the Minecraft version) holds every release; work happens on `t3/*` branches in worktrees under `/Volumes/Yusuf's SSD/t3-worktrees/Ben-10-Mod/`.
+- **Version branches:** `1.19.4` holds the original `main`; older versions have their own branches.
+- **Latest release: 2.1.0 (Living Null Void), released 2026-10-15.** CurseForge (Forge and Fabric) and tag `v1.20.1-2.1.0`. `publishCurseForge` reads `CURSEFORGE_TOKEN` from the user's `~/.zshenv`, so run it through `zsh -c`; uploads need the `Client`/`Server` game versions or CurseForge rejects them (error 1021).
+- **2.2.0 (Plumbers): in progress, not started.** Scope is the roadmap row: Plumber NPC and missions, the Rustbucket, Cannonbolt/Wildvine/Ditto/Eye Guy, the Four Arms moveset and the Omnitrix fail-safe.
+- **Client check:** the user released 2.1.0 without a final in-game pass of the round-3 fixes (new Null Void terrain, starter glider, prison chests, XLR8 sprint/water running, Stinkfly wingbeat). Bugs found there go into a 2.1.x hotfix or 2.2.0. NeoForge 1.20.1 is unverified.
 
 ## Done (newest first)
+
+### 2026-10-15: Released 2.1.0
+- Release branch `release/2.1.0` from `1.20.1` at `4befe544`: changelog dated, roadmap 2.1.0 `Released 15 Oct 2026`, 2.2.0 `In progress`, Phase A heading marked released.
+- Verified: `:forge:runData` (no generated diff), `build`, Forge 68/68, Fabric 64/64; wiki build (115 items, 116 recipes) and link check pass. The network dropped mid-run, so the checks ran `--offline` with the Gradle home from worktree `t3-74735a92` (a fresh worktree's empty Gradle home can't resolve Loom 1.9-SNAPSHOT offline).
+- Uploaded to CurseForge (Forge + Fabric) and tagged `v1.20.1-2.1.0`.
 
 ### 2026-10-15: Null Void rewards and playtest fixes (branch `t3/2.1.0-void-rewards`)
 - User playtest: warden reward felt missing, Stinkfly wings didn't visibly flap, the end-rod pillar on the fallback pad looked like it should do something, and there was no obvious way out of the Null Void.
@@ -171,12 +175,14 @@ Read this first when you start, resume, or come back from a context compaction. 
 
 ## Next
 
-1. Rerun Forge GameTests after the test fixes; then run Fabric GameTests. `runData` and `build` passed before these test-only changes.
-2. Consider Modrinth publishing for Fabric update notices.
+1. User playtest of 2.1.0 on both loaders; fix anything found (hotfix 2.1.1 if it's a crash).
+2. Start 2.2.0: design pass for the Plumber NPC/missions and the Rustbucket, then the Four Arms moveset and fail-safe (`docs/design/roadmap.md`, "Alien movesets and the Omnitrix fail-safe").
+3. Consider Modrinth publishing for Fabric update notices.
 
 ## Open questions
 
-- Do the corrected Forge GameTests pass, and what does the Fabric GameTest suite report?
+- Which of the 2.3.0 Null Void research items (roadmap) to build.
+- Does the mod load on NeoForge 1.20.1?
 
 ## Gotchas
 
