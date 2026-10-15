@@ -2,6 +2,7 @@ version: 2
 updates:
   - package-ecosystem: "gradle"
     directory: "/"
+    target-branch: "1.20.1"
     schedule:
       interval: "weekly"
     ignore:
