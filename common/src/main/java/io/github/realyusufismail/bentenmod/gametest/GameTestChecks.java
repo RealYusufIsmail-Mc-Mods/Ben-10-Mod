@@ -133,6 +133,23 @@ public final class GameTestChecks {
         helper.succeed();
     }
 
+    public static void flyingMobsCanFly(GameTestHelper helper) {
+        var flyers = java.util.List.of(EntityTypesInit.NULL_GUARDIAN.get(),
+                EntityTypesInit.LEPIDOPTERAN.get(), EntityTypesInit.ZS_SKAYR_ENTITY.get(),
+                EntityTypesInit.VILGAX_DRONE_ENTITY.get());
+        int x = 1;
+        for (var type : flyers) {
+            var mob = helper.spawn(type, new BlockPos(x, 4, 1));
+            helper.assertTrue(mob.getAttribute(Attributes.FLYING_SPEED) != null,
+                    type.getDescriptionId() + " has no flying_speed attribute");
+            mob.setOnGround(false);
+            mob.getMoveControl().setWantedPosition(mob.getX(), mob.getY() + 2, mob.getZ(), 1.0);
+            mob.getMoveControl().tick();
+            x += 3;
+        }
+        helper.succeed();
+    }
+
     public static void nullVoidLootTablesContainDrops(GameTestHelper helper) {
         var prisoner =
                 helper.spawn(EntityTypesInit.NULL_VOID_PRISONER.get(), new BlockPos(1, 2, 1));
@@ -323,6 +340,14 @@ public final class GameTestChecks {
 
     public static void nullVoidProjectorRoundTrips(GameTestHelper helper, ServerPlayer player) {
         ServerLevel source = player.serverLevel();
+        BlockPos feet = player.blockPosition();
+        source.setBlockAndUpdate(feet.below(),
+                net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+        source.setBlockAndUpdate(feet,
+                net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+        source.setBlockAndUpdate(feet.above(),
+                net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+        player.teleportTo(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5);
         double x = player.getX();
         double y = player.getY();
         double z = player.getZ();
