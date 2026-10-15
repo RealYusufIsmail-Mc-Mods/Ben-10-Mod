@@ -49,6 +49,7 @@ public class LepidopterranEntity extends Monster implements GeoEntity {
         return Monster.createMonsterAttributes()
             .add(Attributes.FOLLOW_RANGE, 32.0)
             .add(Attributes.MOVEMENT_SPEED, 0.42)
+            .add(Attributes.FLYING_SPEED, 0.9)
             .add(Attributes.ATTACK_DAMAGE, 4.0)
             .add(Attributes.MAX_HEALTH, 20.0);
     }

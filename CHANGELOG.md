@@ -30,6 +30,7 @@ The Null Void is now a more dangerous place to explore, with new creatures, pris
   Infinitum and Imperium netherite tier.
 
 ### Fixed
+- Flying mobs (Zs'Skayr, Vilgax drones, Null Guardians, Lepidopterrans) crashed the game when they took off.
 - Leggings gave more armour than chestplates (values were in the wrong slot order).
 - Mod armour wore out about twice as fast as vanilla armour of the same tier.
 - Heatblast fireballs now damage fire-immune bosses, and Plumber armour resolves its namespaced textures.

@@ -61,6 +61,11 @@ public class ForgeGameTests {
     }
 
     @GameTest(template = "empty")
+    public static void flyingMobsCanFly(GameTestHelper helper) {
+        GameTestChecks.flyingMobsCanFly(helper);
+    }
+
+    @GameTest(template = "empty")
     public static void livingNullVoidMobsHaveAttributes(GameTestHelper helper) {
         GameTestChecks.livingNullVoidMobsHaveAttributes(helper);
     }

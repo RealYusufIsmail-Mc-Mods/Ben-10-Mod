@@ -73,6 +73,7 @@ public class ZsSkayrEntity extends Monster implements GeoEntity {
         return Monster.createMonsterAttributes()
             .add(Attributes.FOLLOW_RANGE, 48)
             .add(Attributes.MOVEMENT_SPEED, 0.28)
+            .add(Attributes.FLYING_SPEED, 0.6)
             .add(Attributes.ATTACK_DAMAGE, 12)
             .add(Attributes.ARMOR, 12)
             .add(Attributes.KNOCKBACK_RESISTANCE, 1.0)
